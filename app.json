@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Intake",
+    "slug": "intake",
+    "version": "0.1.0",
+    "platforms": ["ios"],
+    "ios": {
+      "supportsTablet": false
+    }
+  }
+}
