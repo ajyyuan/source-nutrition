@@ -7,6 +7,7 @@ import { supabase } from "../lib/supabase";
 export function AuthScreen() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const redirectUrl = "intake://auth";
 
   const handleSignIn = async () => {
     const trimmed = email.trim();
@@ -16,7 +17,12 @@ export function AuthScreen() {
     }
 
     setIsLoading(true);
-    const { error } = await supabase.auth.signInWithOtp({ email: trimmed });
+    const { error } = await supabase.auth.signInWithOtp({
+      email: trimmed,
+      options: {
+        emailRedirectTo: redirectUrl
+      }
+    });
     setIsLoading(false);
 
     if (error) {

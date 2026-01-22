@@ -2,10 +2,17 @@
   "expo": {
     "name": "Intake",
     "slug": "intake",
+    "scheme": "intake",
     "version": "0.1.0",
-    "platforms": ["ios"],
+    "platforms": [
+      "ios"
+    ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "We need camera access to capture meal photos."
+      },
+      "bundleIdentifier": "com.anonymous.intake"
     }
   }
 }
