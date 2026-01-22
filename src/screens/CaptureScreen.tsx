@@ -15,6 +15,8 @@ export function CaptureScreen() {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadPath, setUploadPath] = useState<string | null>(null);
+  const [mealId, setMealId] = useState<string | null>(null);
+  const [mealError, setMealError] = useState<string | null>(null);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -30,6 +32,8 @@ export function CaptureScreen() {
         setPhotoUri(result.uri);
         setUploadError(null);
         setUploadPath(null);
+        setMealId(null);
+        setMealError(null);
       }
     } finally {
       setIsCapturing(false);
@@ -43,6 +47,8 @@ export function CaptureScreen() {
 
     setIsUploading(true);
     setUploadError(null);
+    setMealError(null);
+    let stage: "upload" | "meal" = "upload";
 
     try {
       const { data: auth } = await supabase.auth.getUser();
@@ -68,9 +74,29 @@ export function CaptureScreen() {
       }
 
       setUploadPath(filePath);
+
+      stage = "meal";
+      const { data: insertedMeal, error: mealInsertError } = await supabase
+        .from("meals")
+        .insert({
+          user_id: userId,
+          photo_path: filePath
+        })
+        .select("id")
+        .single();
+
+      if (mealInsertError) {
+        throw mealInsertError;
+      }
+
+      setMealId(insertedMeal.id);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Upload failed.";
-      setUploadError(message);
+      if (stage === "meal") {
+        setMealError(message);
+      } else {
+        setUploadError(message);
+      }
     } finally {
       setIsUploading(false);
     }
@@ -102,7 +128,16 @@ export function CaptureScreen() {
         <View style={styles.preview}>
           <Image source={{ uri: photoUri }} style={styles.image} />
           <View style={styles.actions}>
-            <Button title="Retake" onPress={() => setPhotoUri(null)} />
+            <Button
+              title="Retake"
+              onPress={() => {
+                setPhotoUri(null);
+                setUploadPath(null);
+                setUploadError(null);
+                setMealId(null);
+                setMealError(null);
+              }}
+            />
             <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
           </View>
           {isUploading ? <ActivityIndicator style={styles.spinner} /> : null}
@@ -110,7 +145,11 @@ export function CaptureScreen() {
             <Text style={styles.success}>Uploaded to: {uploadPath}</Text>
           ) : null}
           {uploadError ? <Text style={styles.error}>{uploadError}</Text> : null}
-          <Text style={styles.hint}>Next: create meal record after upload.</Text>
+          {mealId ? (
+            <Text style={styles.success}>Meal created: {mealId}</Text>
+          ) : null}
+          {mealError ? <Text style={styles.error}>{mealError}</Text> : null}
+          <Text style={styles.hint}>Next: store foods after upload.</Text>
         </View>
       ) : (
         <View style={styles.cameraContainer}>
