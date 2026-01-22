@@ -1,13 +1,20 @@
-import { useRef, useState } from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
+import { useCallback, useRef, useState } from "react";
+import { ActivityIndicator, Button, Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
+
+import { supabase } from "../lib/supabase";
+
+const PHOTO_BUCKET = "meal-photos";
 
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [uploadPath, setUploadPath] = useState<string | null>(null);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -21,11 +28,53 @@ export function CaptureScreen() {
       });
       if (result?.uri) {
         setPhotoUri(result.uri);
+        setUploadError(null);
+        setUploadPath(null);
       }
     } finally {
       setIsCapturing(false);
     }
   };
+
+  const handleUpload = useCallback(async () => {
+    if (!photoUri || isUploading) {
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadError(null);
+
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      const userId = auth.user?.id;
+      if (!userId) {
+        throw new Error("You must be signed in to upload.");
+      }
+
+      const response = await fetch(photoUri);
+      const blob = await response.blob();
+      const fileExt = photoUri.split(".").pop() || "jpg";
+      const filePath = `${userId}/${Date.now()}.${fileExt}`;
+
+      const { error } = await supabase.storage
+        .from(PHOTO_BUCKET)
+        .upload(filePath, blob, {
+          contentType: blob.type || "image/jpeg",
+          upsert: false
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      setUploadPath(filePath);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Upload failed.";
+      setUploadError(message);
+    } finally {
+      setIsUploading(false);
+    }
+  }, [photoUri, isUploading]);
 
   if (!permission) {
     return (
@@ -54,9 +103,14 @@ export function CaptureScreen() {
           <Image source={{ uri: photoUri }} style={styles.image} />
           <View style={styles.actions}>
             <Button title="Retake" onPress={() => setPhotoUri(null)} />
-            <Button title="Use photo" onPress={() => {}} />
+            <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
           </View>
-          <Text style={styles.hint}>Next: upload and create meal record.</Text>
+          {isUploading ? <ActivityIndicator style={styles.spinner} /> : null}
+          {uploadPath ? (
+            <Text style={styles.success}>Uploaded to: {uploadPath}</Text>
+          ) : null}
+          {uploadError ? <Text style={styles.error}>{uploadError}</Text> : null}
+          <Text style={styles.hint}>Next: create meal record after upload.</Text>
         </View>
       ) : (
         <View style={styles.cameraContainer}>
@@ -101,6 +155,21 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1
+  },
+  spinner: {
+    marginTop: 8
+  },
+  success: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    fontSize: 13,
+    color: "#1a7f37"
+  },
+  error: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    fontSize: 13,
+    color: "#b42318"
   },
   hint: {
     padding: 16,
