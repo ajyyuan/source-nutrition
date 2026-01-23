@@ -7,6 +7,52 @@ import { supabase } from "../lib/supabase";
 
 const PHOTO_BUCKET = "meal-photos";
 
+type ParsedItem = {
+  name: string;
+  estimated_grams: number;
+  confidence: number;
+};
+
+const parseVisionPayload = (payload: unknown): ParsedItem[] => {
+  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  const items = Array.isArray(parsed)
+    ? parsed
+    : parsed && typeof parsed === "object" && "items" in parsed
+      ? (parsed as { items: unknown }).items
+      : null;
+
+  if (!Array.isArray(items)) {
+    throw new Error("AI response must include an items array.");
+  }
+
+  return items.map((item, index) => {
+    if (!item || typeof item !== "object") {
+      throw new Error(`Item ${index + 1} is not an object.`);
+    }
+    const candidate = item as Partial<ParsedItem>;
+    if (typeof candidate.name !== "string" || !candidate.name.trim()) {
+      throw new Error(`Item ${index + 1} is missing a name.`);
+    }
+    if (typeof candidate.estimated_grams !== "number" || Number.isNaN(candidate.estimated_grams)) {
+      throw new Error(`Item ${index + 1} has invalid estimated_grams.`);
+    }
+    if (
+      typeof candidate.confidence !== "number" ||
+      Number.isNaN(candidate.confidence) ||
+      candidate.confidence < 0 ||
+      candidate.confidence > 1
+    ) {
+      throw new Error(`Item ${index + 1} has invalid confidence.`);
+    }
+
+    return {
+      name: candidate.name.trim(),
+      estimated_grams: candidate.estimated_grams,
+      confidence: candidate.confidence
+    };
+  });
+};
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -17,6 +63,9 @@ export function CaptureScreen() {
   const [uploadPath, setUploadPath] = useState<string | null>(null);
   const [mealId, setMealId] = useState<string | null>(null);
   const [mealError, setMealError] = useState<string | null>(null);
+  const [isParsing, setIsParsing] = useState(false);
+  const [parseError, setParseError] = useState<string | null>(null);
+  const [parsedItems, setParsedItems] = useState<ParsedItem[] | null>(null);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -34,11 +83,43 @@ export function CaptureScreen() {
         setUploadPath(null);
         setMealId(null);
         setMealError(null);
+        setParsedItems(null);
+        setParseError(null);
       }
     } finally {
       setIsCapturing(false);
     }
   };
+
+  const parseMealPhoto = useCallback(async (photoPath: string, newMealId: string) => {
+    setIsParsing(true);
+    setParseError(null);
+    setParsedItems(null);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("parse-meal", {
+        body: {
+          meal_id: newMealId,
+          photo_path: photoPath
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      const items = parseVisionPayload(data);
+      setParsedItems(items);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Parsing failed. Check the parse-meal function.";
+      setParseError(message);
+    } finally {
+      setIsParsing(false);
+    }
+  }, []);
 
   const handleUpload = useCallback(async () => {
     if (!photoUri || isUploading) {
@@ -48,7 +129,7 @@ export function CaptureScreen() {
     setIsUploading(true);
     setUploadError(null);
     setMealError(null);
-    let stage: "upload" | "meal" = "upload";
+    let stage: "upload" | "meal" | "parse" = "upload";
 
     try {
       const { data: auth } = await supabase.auth.getUser();
@@ -90,9 +171,13 @@ export function CaptureScreen() {
       }
 
       setMealId(insertedMeal.id);
+      stage = "parse";
+      await parseMealPhoto(filePath, insertedMeal.id);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Upload failed.";
-      if (stage === "meal") {
+      if (stage === "parse") {
+        setParseError(message);
+      } else if (stage === "meal") {
         setMealError(message);
       } else {
         setUploadError(message);
@@ -100,7 +185,7 @@ export function CaptureScreen() {
     } finally {
       setIsUploading(false);
     }
-  }, [photoUri, isUploading]);
+  }, [photoUri, isUploading, parseMealPhoto]);
 
   if (!permission) {
     return (
@@ -136,6 +221,8 @@ export function CaptureScreen() {
                 setUploadError(null);
                 setMealId(null);
                 setMealError(null);
+                setParsedItems(null);
+                setParseError(null);
               }}
             />
             <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
@@ -149,7 +236,20 @@ export function CaptureScreen() {
             <Text style={styles.success}>Meal created: {mealId}</Text>
           ) : null}
           {mealError ? <Text style={styles.error}>{mealError}</Text> : null}
-          <Text style={styles.hint}>Next: store foods after upload.</Text>
+          {isParsing ? <ActivityIndicator style={styles.spinner} /> : null}
+          {parsedItems ? (
+            <View style={styles.parsedList}>
+              <Text style={styles.sectionTitle}>Parsed foods (AI)</Text>
+              {parsedItems.map((item, index) => (
+                <Text key={`${item.name}-${index}`} style={styles.parsedItem}>
+                  {item.name} · {Math.round(item.estimated_grams)}g ·{" "}
+                  {Math.round(item.confidence * 100)}%
+                </Text>
+              ))}
+            </View>
+          ) : null}
+          {parseError ? <Text style={styles.error}>{parseError}</Text> : null}
+          <Text style={styles.hint}>Next: make foods editable after parsing.</Text>
         </View>
       ) : (
         <View style={styles.cameraContainer}>
@@ -209,6 +309,20 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     fontSize: 13,
     color: "#b42318"
+  },
+  parsedList: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    gap: 6
+  },
+  sectionTitle: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#111"
+  },
+  parsedItem: {
+    fontSize: 13,
+    color: "#333"
   },
   hint: {
     padding: 16,
