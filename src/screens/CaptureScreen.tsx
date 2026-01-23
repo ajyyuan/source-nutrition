@@ -13,6 +13,13 @@ type ParsedItem = {
   confidence: number;
 };
 
+type MappedItem = {
+  name: string;
+  canonical_id: string;
+  canonical_name: string;
+  confidence: number;
+};
+
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
   const items = Array.isArray(parsed)
@@ -53,6 +60,50 @@ const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   });
 };
 
+const parseMappingPayload = (payload: unknown): MappedItem[] => {
+  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  const items = Array.isArray(parsed)
+    ? parsed
+    : parsed && typeof parsed === "object" && "items" in parsed
+      ? (parsed as { items: unknown }).items
+      : null;
+
+  if (!Array.isArray(items)) {
+    throw new Error("Mapping response must include an items array.");
+  }
+
+  return items.map((item, index) => {
+    if (!item || typeof item !== "object") {
+      throw new Error(`Mapping item ${index + 1} is not an object.`);
+    }
+    const candidate = item as Partial<MappedItem>;
+    if (typeof candidate.name !== "string" || !candidate.name.trim()) {
+      throw new Error(`Mapping item ${index + 1} is missing a name.`);
+    }
+    if (typeof candidate.canonical_id !== "string" || !candidate.canonical_id.trim()) {
+      throw new Error(`Mapping item ${index + 1} is missing canonical_id.`);
+    }
+    if (typeof candidate.canonical_name !== "string" || !candidate.canonical_name.trim()) {
+      throw new Error(`Mapping item ${index + 1} is missing canonical_name.`);
+    }
+    if (
+      typeof candidate.confidence !== "number" ||
+      Number.isNaN(candidate.confidence) ||
+      candidate.confidence < 0 ||
+      candidate.confidence > 1
+    ) {
+      throw new Error(`Mapping item ${index + 1} has invalid confidence.`);
+    }
+
+    return {
+      name: candidate.name.trim(),
+      canonical_id: candidate.canonical_id.trim(),
+      canonical_name: candidate.canonical_name.trim(),
+      confidence: candidate.confidence
+    };
+  });
+};
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -66,6 +117,9 @@ export function CaptureScreen() {
   const [isParsing, setIsParsing] = useState(false);
   const [parseError, setParseError] = useState<string | null>(null);
   const [parsedItems, setParsedItems] = useState<ParsedItem[] | null>(null);
+  const [isMapping, setIsMapping] = useState(false);
+  const [mappingError, setMappingError] = useState<string | null>(null);
+  const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -85,11 +139,43 @@ export function CaptureScreen() {
         setMealError(null);
         setParsedItems(null);
         setParseError(null);
+        setMappedItems(null);
+        setMappingError(null);
       }
     } finally {
       setIsCapturing(false);
     }
   };
+
+  const mapFoods = useCallback(async (items: ParsedItem[], newMealId: string) => {
+    setIsMapping(true);
+    setMappingError(null);
+    setMappedItems(null);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("map-foods", {
+        body: {
+          meal_id: newMealId,
+          items
+        }
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      const mapped = parseMappingPayload(data);
+      setMappedItems(mapped);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Mapping failed. Check the map-foods function.";
+      setMappingError(message);
+    } finally {
+      setIsMapping(false);
+    }
+  }, []);
 
   const parseMealPhoto = useCallback(async (photoPath: string, newMealId: string) => {
     setIsParsing(true);
@@ -110,12 +196,14 @@ export function CaptureScreen() {
 
       const items = parseVisionPayload(data);
       setParsedItems(items);
+      return items;
     } catch (error) {
       const message =
         error instanceof Error
           ? error.message
           : "Parsing failed. Check the parse-meal function.";
       setParseError(message);
+      return null;
     } finally {
       setIsParsing(false);
     }
@@ -129,7 +217,7 @@ export function CaptureScreen() {
     setIsUploading(true);
     setUploadError(null);
     setMealError(null);
-    let stage: "upload" | "meal" | "parse" = "upload";
+    let stage: "upload" | "meal" | "parse" | "map" = "upload";
 
     try {
       const { data: auth } = await supabase.auth.getUser();
@@ -172,10 +260,16 @@ export function CaptureScreen() {
 
       setMealId(insertedMeal.id);
       stage = "parse";
-      await parseMealPhoto(filePath, insertedMeal.id);
+      const items = await parseMealPhoto(filePath, insertedMeal.id);
+      if (items) {
+        stage = "map";
+        await mapFoods(items, insertedMeal.id);
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Upload failed.";
-      if (stage === "parse") {
+      if (stage === "map") {
+        setMappingError(message);
+      } else if (stage === "parse") {
         setParseError(message);
       } else if (stage === "meal") {
         setMealError(message);
@@ -185,7 +279,7 @@ export function CaptureScreen() {
     } finally {
       setIsUploading(false);
     }
-  }, [photoUri, isUploading, parseMealPhoto]);
+  }, [photoUri, isUploading, mapFoods, parseMealPhoto]);
 
   if (!permission) {
     return (
@@ -223,6 +317,8 @@ export function CaptureScreen() {
                 setMealError(null);
                 setParsedItems(null);
                 setParseError(null);
+                setMappedItems(null);
+                setMappingError(null);
               }}
             />
             <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
@@ -249,7 +345,20 @@ export function CaptureScreen() {
             </View>
           ) : null}
           {parseError ? <Text style={styles.error}>{parseError}</Text> : null}
-          <Text style={styles.hint}>Next: make foods editable after parsing.</Text>
+          {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
+          {mappedItems ? (
+            <View style={styles.parsedList}>
+              <Text style={styles.sectionTitle}>Canonical mapping</Text>
+              {mappedItems.map((item, index) => (
+                <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
+                  {item.name} → {item.canonical_name} ·{" "}
+                  {Math.round(item.confidence * 100)}%
+                </Text>
+              ))}
+            </View>
+          ) : null}
+          {mappingError ? <Text style={styles.error}>{mappingError}</Text> : null}
+          <Text style={styles.hint}>Next: make foods editable after mapping.</Text>
         </View>
       ) : (
         <View style={styles.cameraContainer}>
