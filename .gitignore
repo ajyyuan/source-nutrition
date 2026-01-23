@@ -14,6 +14,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# VSCode settings
+.vscode/
+
 # macOS
 .DS_Store
 
