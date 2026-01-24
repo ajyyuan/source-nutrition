@@ -549,6 +549,9 @@ export function CaptureScreen() {
           <Text style={styles.hint}>
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
+          <Text style={styles.disclaimer}>
+            Estimates only. Intake provides informational nutrition data and is not medical advice.
+          </Text>
         </ScrollView>
       ) : (
         <View style={styles.cameraContainer}>
@@ -655,6 +658,13 @@ const styles = StyleSheet.create({
     padding: 16,
     fontSize: 14,
     color: "#666",
+    backgroundColor: "#fff"
+  },
+  disclaimer: {
+    paddingHorizontal: 16,
+    paddingBottom: 24,
+    fontSize: 12,
+    color: "#777",
     backgroundColor: "#fff"
   }
 });

@@ -296,6 +296,9 @@ export function HomeScreen({ navigation }: Props) {
             </View>
           ) : null}
         </View>
+        <Text style={styles.disclaimer}>
+          Estimates only. Intake provides informational nutrition data and is not medical advice.
+        </Text>
         <View style={styles.actions}>
           <Button title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
           <Button title="Sign out" onPress={() => supabase.auth.signOut()} />
@@ -363,5 +366,10 @@ const styles = StyleSheet.create({
   actions: {
     width: "100%",
     gap: 12
+  },
+  disclaimer: {
+    fontSize: 12,
+    color: "#777",
+    textAlign: "center"
   }
 });
