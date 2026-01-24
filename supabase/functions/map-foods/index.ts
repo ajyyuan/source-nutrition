@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
   computeMealTotals,
   NUTRIENT_DB_VERSION
@@ -10,13 +11,40 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type"
 };
 
+const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+
+const createSupabaseClient = (req: Request) => {
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Supabase environment variables are missing.");
+  }
+
+  const authHeader = req.headers.get("Authorization") ?? "";
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    global: {
+      headers: authHeader ? { Authorization: authHeader } : {}
+    }
+  });
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
 
   try {
-    const { items } = await req.json().catch(() => ({}));
+    const { meal_id, items } = await req.json().catch(() => ({}));
+    if (!meal_id || typeof meal_id !== "string") {
+      return new Response(
+        JSON.stringify({
+          error: "meal_id is required"
+        }),
+        {
+          status: 200,
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
+        }
+      );
+    }
     const safeItems = Array.isArray(items) ? items : [];
 
     const mapped = safeItems.map((item) => {
@@ -57,6 +85,20 @@ serve(async (req) => {
         grams: item.grams
       }))
     );
+
+    const supabase = createSupabaseClient(req);
+    const { error: updateError } = await supabase
+      .from("meals")
+      .update({
+        final_items: mapped,
+        nutrient_totals,
+        nutrient_db_version: NUTRIENT_DB_VERSION
+      })
+      .eq("id", meal_id);
+
+    if (updateError) {
+      throw updateError;
+    }
 
     return new Response(
       JSON.stringify({
