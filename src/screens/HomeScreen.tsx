@@ -35,6 +35,10 @@ type NutrientTotals = {
   percent_dv: NutrientVector;
 };
 
+type FinalItem = {
+  confidence?: number;
+};
+
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
   "vitamin_c_mg",
@@ -79,10 +83,27 @@ const makeEmptyVector = (): NutrientVector => ({
   omega3_g: 0
 });
 
+const computeAverageConfidence = (items: unknown): { sum: number; count: number } => {
+  if (!Array.isArray(items)) {
+    return { sum: 0, count: 0 };
+  }
+  return items.reduce(
+    (acc, item) => {
+      const value = typeof item?.confidence === "number" ? item.confidence : NaN;
+      if (Number.isFinite(value) && value >= 0 && value <= 1) {
+        return { sum: acc.sum + value, count: acc.count + 1 };
+      }
+      return acc;
+    },
+    { sum: 0, count: 0 }
+  );
+};
+
 export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [mealCount, setMealCount] = useState(0);
+  const [todayConfidence, setTodayConfidence] = useState<number | null>(null);
   const [todayTotals, setTodayTotals] = useState<NutrientTotals>({
     totals: makeEmptyVector(),
     percent_dv: makeEmptyVector()
@@ -92,6 +113,7 @@ export function HomeScreen({ navigation }: Props) {
     percent_dv: makeEmptyVector()
   });
   const [weekDaysWithMeals, setWeekDaysWithMeals] = useState(0);
+  const [weekConfidence, setWeekConfidence] = useState<number | null>(null);
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -118,6 +140,7 @@ export function HomeScreen({ navigation }: Props) {
 
   const resetTotals = useCallback(() => {
     setMealCount(0);
+    setTodayConfidence(null);
     setTodayTotals({
       totals: makeEmptyVector(),
       percent_dv: makeEmptyVector()
@@ -127,6 +150,7 @@ export function HomeScreen({ navigation }: Props) {
       percent_dv: makeEmptyVector()
     });
     setWeekDaysWithMeals(0);
+    setWeekConfidence(null);
   }, []);
 
   const loadToday = useCallback(async () => {
@@ -142,7 +166,7 @@ export function HomeScreen({ navigation }: Props) {
 
       const { data, error } = await supabase
         .from("meals")
-        .select("id, created_at, nutrient_totals")
+        .select("id, created_at, nutrient_totals, final_items")
         .gte("created_at", todayRange.start)
         .lt("created_at", todayRange.end);
 
@@ -153,12 +177,17 @@ export function HomeScreen({ navigation }: Props) {
       if (data && data.length > 0) {
         const totals = makeEmptyVector();
         const percentDv = makeEmptyVector();
+        let confidenceSum = 0;
+        let confidenceCount = 0;
 
         data.forEach((meal) => {
           const entry = meal?.nutrient_totals as NutrientTotals | null;
           if (!entry?.totals || !entry?.percent_dv) {
             return;
           }
+          const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
+          confidenceSum += confidence.sum;
+          confidenceCount += confidence.count;
           NUTRIENT_KEYS.forEach((key) => {
             totals[key] += Number(entry.totals[key] ?? 0);
             percentDv[key] += Number(entry.percent_dv[key] ?? 0);
@@ -166,12 +195,16 @@ export function HomeScreen({ navigation }: Props) {
         });
 
         setMealCount(data.length);
+        setTodayConfidence(
+          confidenceCount ? Math.round((confidenceSum / confidenceCount) * 100) : null
+        );
         setTodayTotals({
           totals,
           percent_dv: percentDv
         });
       } else {
         setMealCount(0);
+        setTodayConfidence(null);
         setTodayTotals({
           totals: makeEmptyVector(),
           percent_dv: makeEmptyVector()
@@ -180,7 +213,7 @@ export function HomeScreen({ navigation }: Props) {
 
       const { data: weekData, error: weekError } = await supabase
         .from("meals")
-        .select("id, created_at, nutrient_totals")
+        .select("id, created_at, nutrient_totals, final_items")
         .gte("created_at", weekRange.start)
         .lt("created_at", weekRange.end);
 
@@ -199,6 +232,8 @@ export function HomeScreen({ navigation }: Props) {
 
       const weekTotalsAccumulator = makeEmptyVector();
       const weekPercentAccumulator = makeEmptyVector();
+      let weekConfidenceSum = 0;
+      let weekConfidenceCount = 0;
       const daysWithMeals = new Set<string>();
 
       weekData.forEach((meal) => {
@@ -206,6 +241,9 @@ export function HomeScreen({ navigation }: Props) {
         if (!entry?.totals || !entry?.percent_dv) {
           return;
         }
+        const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
+        weekConfidenceSum += confidence.sum;
+        weekConfidenceCount += confidence.count;
         if (meal.created_at) {
           const dayKey = new Date(meal.created_at).toISOString().slice(0, 10);
           daysWithMeals.add(dayKey);
@@ -225,6 +263,9 @@ export function HomeScreen({ navigation }: Props) {
       });
 
       setWeekDaysWithMeals(daysWithMeals.size);
+      setWeekConfidence(
+        weekConfidenceCount ? Math.round((weekConfidenceSum / weekConfidenceCount) * 100) : null
+      );
       setWeekTotals({
         totals: averagedTotals,
         percent_dv: averagedPercent
@@ -248,10 +289,13 @@ export function HomeScreen({ navigation }: Props) {
         <Text style={styles.title}>Intake</Text>
         <Text style={styles.subtitle}>Today</Text>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Daily totals</Text>
+          <Text style={styles.cardTitle}>Daily totals (estimated)</Text>
           <Text style={styles.cardSubtitle}>
             {mealCount ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged` : "No meals yet"}
           </Text>
+          {todayConfidence !== null ? (
+            <Text style={styles.cardSubtitle}>Avg confidence: {todayConfidence}%</Text>
+          ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
@@ -272,12 +316,15 @@ export function HomeScreen({ navigation }: Props) {
           <Button title="Refresh totals" onPress={loadToday} />
         </View>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>7-day rolling average</Text>
+          <Text style={styles.cardTitle}>7-day rolling average (estimated)</Text>
           <Text style={styles.cardSubtitle}>
             {weekDaysWithMeals
               ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
               : "No meals yet"}
           </Text>
+          {weekConfidence !== null ? (
+            <Text style={styles.cardSubtitle}>Avg confidence: {weekConfidence}%</Text>
+          ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
