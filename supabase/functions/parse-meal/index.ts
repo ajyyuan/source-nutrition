@@ -23,7 +23,129 @@ const createSupabaseClient = (req: Request) => {
   });
 };
 
-const MODEL_VERSION = "stub-v0";
+const MODEL_VERSION = "openai-gpt-4o-mini";
+const PHOTO_BUCKET = "meal-photos";
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+
+const toBase64 = (data: ArrayBuffer) => {
+  let binary = "";
+  const bytes = new Uint8Array(data);
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+  }
+  return btoa(binary);
+};
+
+const fetchMealPhoto = async (supabase, photoPath: string) => {
+  const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
+  if (error) {
+    throw error;
+  }
+  if (!data) {
+    throw new Error("Meal photo not found.");
+  }
+  const buffer = await data.arrayBuffer();
+  if (buffer.byteLength > MAX_IMAGE_BYTES) {
+    throw new Error("Meal photo is too large to process.");
+  }
+  const contentType = data.type || "image/jpeg";
+  return {
+    contentType,
+    base64: toBase64(buffer)
+  };
+};
+
+const SYSTEM_PROMPT = `
+You are an assistant that extracts foods from meal photos.
+Return ONLY strict JSON matching this schema:
+{
+  "items": [
+    {
+      "name": "string",
+      "estimated_grams": number,
+      "confidence": number (0 to 1)
+    }
+  ]
+}
+Rules:
+- If unsure, return fewer items, not more.
+- Unknown foods should be labeled "unknown".
+- Do not include any extra keys or text.
+`.trim();
+
+const parseItems = (payload: string) => {
+  const parsed = JSON.parse(payload);
+  const items = Array.isArray(parsed?.items) ? parsed.items : [];
+  return items
+    .map((item) => {
+      const name = typeof item?.name === "string" ? item.name.trim() : "";
+      const estimated = typeof item?.estimated_grams === "number" ? item.estimated_grams : NaN;
+      const confidence = typeof item?.confidence === "number" ? item.confidence : NaN;
+      if (!name || !Number.isFinite(estimated) || !Number.isFinite(confidence)) {
+        return null;
+      }
+      if (confidence < 0 || confidence > 1) {
+        return null;
+      }
+      return {
+        name,
+        estimated_grams: Math.max(estimated, 0),
+        confidence
+      };
+    })
+    .filter(Boolean);
+};
+
+const callVisionModel = async (imageBase64: string, contentType: string) => {
+  const openaiKey = Deno.env.get("OPENAI_API_KEY");
+  if (!openaiKey) {
+    throw new Error("OPENAI_API_KEY is not set for parse-meal.");
+  }
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${openaiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: MODEL_VERSION,
+      response_format: { type: "json_object" },
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text:
+                "Identify foods in this meal photo. Return JSON only with name, estimated_grams, confidence."
+            },
+            {
+              type: "image_url",
+              image_url: {
+                url: `data:${contentType};base64,${imageBase64}`
+              }
+            }
+          ]
+        }
+      ]
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Vision model error: ${errorText}`);
+  }
+
+  const result = await response.json();
+  const content = result?.choices?.[0]?.message?.content;
+  if (typeof content !== "string") {
+    throw new Error("Vision model response was empty.");
+  }
+  return parseItems(content);
+};
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -33,18 +155,28 @@ serve(async (req) => {
   try {
     const { meal_id, photo_path } = await req.json().catch(() => ({}));
     if (!meal_id || !photo_path) {
-      return new Response(JSON.stringify({ error: "meal_id and photo_path required" }), {
+      return new Response(
+        JSON.stringify({
+          items: [],
+          model_version: MODEL_VERSION,
+          error: "meal_id and photo_path required"
+        }),
+        {
         status: 200,
         headers: { ...corsHeaders, "Content-Type": "application/json" }
-      });
+        }
+      );
     }
 
-    // Stub payload for Day 2 testing
-    const items = [
-      { name: "unknown food", estimated_grams: 150, confidence: 0.25 }
-    ];
-
     const supabase = createSupabaseClient(req);
+    const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
+    let items: unknown[] = [];
+    try {
+      items = await callVisionModel(base64, contentType);
+    } catch (error) {
+      items = [];
+    }
+
     const { error: updateError } = await supabase
       .from("meals")
       .update({
@@ -64,6 +196,8 @@ serve(async (req) => {
   } catch (error) {
     return new Response(
       JSON.stringify({
+        items: [],
+        model_version: MODEL_VERSION,
         error: error instanceof Error ? error.message : "Unknown error"
       }),
       {

@@ -296,6 +296,13 @@ export function CaptureScreen() {
         throw error;
       }
 
+      const warning =
+        data && typeof data === "object" && "error" in data && typeof data.error === "string"
+          ? data.error
+          : null;
+      if (warning) {
+        setParseError(warning);
+      }
       const items = parseVisionPayload(data);
       setParsedItems(items);
       setEditableItems(
