@@ -431,12 +431,18 @@ export function CaptureScreen() {
           {parsedItems ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>Parsed foods (AI)</Text>
-              {parsedItems.map((item, index) => (
-                <Text key={`${item.name}-${index}`} style={styles.parsedItem}>
-                  {item.name} · {Math.round(item.estimated_grams)}g ·{" "}
-                  {formatConfidence(item.confidence)}
+              {parsedItems.length ? (
+                parsedItems.map((item, index) => (
+                  <Text key={`${item.name}-${index}`} style={styles.parsedItem}>
+                    {item.name} · {Math.round(item.estimated_grams)}g ·{" "}
+                    {formatConfidence(item.confidence)}
+                  </Text>
+                ))
+              ) : (
+                <Text style={styles.emptyState}>
+                  No foods detected. Add items below to continue.
                 </Text>
-              ))}
+              )}
             </View>
           ) : null}
           {parseError ? <Text style={styles.error}>{parseError}</Text> : null}
@@ -512,21 +518,31 @@ export function CaptureScreen() {
           {mappedItems ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>Canonical mapping</Text>
-              {mappedItems.map((item, index) => (
-                <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
-                  {item.name} → {item.canonical_name} · {formatConfidence(item.confidence)}
+              {mappedItems.length ? (
+                mappedItems.map((item, index) => (
+                  <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
+                    {item.name} → {item.canonical_name} · {formatConfidence(item.confidence)}
+                  </Text>
+                ))
+              ) : (
+                <Text style={styles.emptyState}>
+                  No foods mapped yet. Edit foods above and recalculate.
                 </Text>
-              ))}
+              )}
             </View>
           ) : null}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
-              {Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
-                <Text key={key} style={styles.parsedItem}>
-                  {key.replace(/_/g, " ")} · {Math.round(value * 100)}%
-                </Text>
-              ))}
+              {Object.entries(nutrientTotals.percent_dv).length ? (
+                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
+                  <Text key={key} style={styles.parsedItem}>
+                    {key.replace(/_/g, " ")} · {Math.round(value * 100)}%
+                  </Text>
+                ))
+              ) : (
+                <Text style={styles.emptyState}>No nutrient totals yet.</Text>
+              )}
             </View>
           ) : null}
           {mappingError ? <Text style={styles.error}>{mappingError}</Text> : null}
@@ -610,6 +626,10 @@ const styles = StyleSheet.create({
   parsedItem: {
     fontSize: 13,
     color: "#333"
+  },
+  emptyState: {
+    fontSize: 13,
+    color: "#666"
   },
   confidenceLabel: {
     fontSize: 12,

@@ -256,11 +256,17 @@ export function HomeScreen({ navigation }: Props) {
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
             <View style={styles.list}>
-              {NUTRIENT_KEYS.map((key) => (
-                <Text key={key} style={styles.item}>
-                  {key.replace(/_/g, " ")} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+              {mealCount ? (
+                NUTRIENT_KEYS.map((key) => (
+                  <Text key={key} style={styles.item}>
+                    {key.replace(/_/g, " ")} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+                  </Text>
+                ))
+              ) : (
+                <Text style={styles.emptyState}>
+                  No meals logged today. Capture a meal to see totals.
                 </Text>
-              ))}
+              )}
             </View>
           ) : null}
           <Button title="Refresh totals" onPress={loadToday} />
@@ -276,11 +282,17 @@ export function HomeScreen({ navigation }: Props) {
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
             <View style={styles.list}>
-              {NUTRIENT_KEYS.map((key) => (
-                <Text key={key} style={styles.item}>
-                  {key.replace(/_/g, " ")} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+              {weekDaysWithMeals ? (
+                NUTRIENT_KEYS.map((key) => (
+                  <Text key={key} style={styles.item}>
+                    {key.replace(/_/g, " ")} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+                  </Text>
+                ))
+              ) : (
+                <Text style={styles.emptyState}>
+                  No meals in the last 7 days. Capture a meal to start tracking.
                 </Text>
-              ))}
+              )}
             </View>
           ) : null}
         </View>
@@ -336,6 +348,10 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 13,
     color: "#333"
+  },
+  emptyState: {
+    fontSize: 13,
+    color: "#666"
   },
   error: {
     fontSize: 13,
