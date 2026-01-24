@@ -178,6 +178,16 @@ export function CaptureScreen() {
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
   const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
 
+  const toParsedItems = useCallback(
+    (items: EditableItem[]): ParsedItem[] =>
+      items.map((item) => ({
+        name: item.name,
+        estimated_grams: Number.isFinite(item.grams) ? item.grams : 0,
+        confidence: Number.isFinite(item.confidence) ? item.confidence : 0.2
+      })),
+    []
+  );
+
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
       return;
@@ -349,6 +359,19 @@ export function CaptureScreen() {
     }
   }, [photoUri, isUploading, mapFoods, parseMealPhoto]);
 
+  const handleRecalculate = useCallback(async () => {
+    if (!mealId) {
+      setMappingError("Meal not created yet.");
+      return;
+    }
+    if (!editableItems.length) {
+      setMappingError("Add at least one food to recalculate.");
+      return;
+    }
+    setMappingError(null);
+    await mapFoods(toParsedItems(editableItems), mealId);
+  }, [editableItems, mealId, mapFoods, toParsedItems]);
+
   if (!permission) {
     return (
       <SafeAreaView style={styles.container}>
@@ -475,6 +498,11 @@ export function CaptureScreen() {
                   ]);
                 }}
               />
+              <Button
+                title={isMapping ? "Recalculating..." : "Recalculate nutrients"}
+                onPress={handleRecalculate}
+                disabled={isMapping || !mealId}
+              />
             </View>
           ) : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
@@ -500,7 +528,9 @@ export function CaptureScreen() {
             </View>
           ) : null}
           {mappingError ? <Text style={styles.error}>{mappingError}</Text> : null}
-          <Text style={styles.hint}>Next: make foods editable after mapping.</Text>
+          <Text style={styles.hint}>
+            Update foods above and tap “Recalculate nutrients” to refresh totals.
+          </Text>
         </ScrollView>
       ) : (
         <View style={styles.cameraContainer}>
