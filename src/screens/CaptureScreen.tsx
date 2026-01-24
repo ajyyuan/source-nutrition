@@ -27,6 +27,33 @@ type MappedItem = {
   confidence: number;
 };
 
+type NutrientVector = {
+  vitamin_a_ug: number;
+  vitamin_c_mg: number;
+  vitamin_d_ug: number;
+  vitamin_e_mg: number;
+  vitamin_k_ug: number;
+  thiamin_mg: number;
+  riboflavin_mg: number;
+  niacin_mg: number;
+  vitamin_b6_mg: number;
+  folate_ug: number;
+  vitamin_b12_ug: number;
+  calcium_mg: number;
+  iron_mg: number;
+  magnesium_mg: number;
+  phosphorus_mg: number;
+  potassium_mg: number;
+  zinc_mg: number;
+  selenium_ug: number;
+  omega3_g: number;
+};
+
+type NutrientTotals = {
+  totals: NutrientVector;
+  percent_dv: NutrientVector;
+};
+
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
   const items = Array.isArray(parsed)
@@ -111,6 +138,18 @@ const parseMappingPayload = (payload: unknown): MappedItem[] => {
   });
 };
 
+const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
+  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  if (!parsed || typeof parsed !== "object" || !("nutrient_totals" in parsed)) {
+    return null;
+  }
+  const totals = (parsed as { nutrient_totals?: NutrientTotals }).nutrient_totals;
+  if (!totals || typeof totals !== "object") {
+    return null;
+  }
+  return totals;
+};
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -128,6 +167,7 @@ export function CaptureScreen() {
   const [isMapping, setIsMapping] = useState(false);
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
+  const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -160,6 +200,7 @@ export function CaptureScreen() {
     setIsMapping(true);
     setMappingError(null);
     setMappedItems(null);
+    setNutrientTotals(null);
 
     try {
       const { data, error } = await supabase.functions.invoke("map-foods", {
@@ -175,6 +216,7 @@ export function CaptureScreen() {
 
       const mapped = parseMappingPayload(data);
       setMappedItems(mapped);
+      setNutrientTotals(parseNutrientTotals(data));
     } catch (error) {
       const message =
         error instanceof Error
@@ -337,6 +379,7 @@ export function CaptureScreen() {
                 setEditableItems([]);
                 setMappedItems(null);
                 setMappingError(null);
+        setNutrientTotals(null);
               }}
             />
             <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
@@ -433,6 +476,16 @@ export function CaptureScreen() {
                 <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
                   {item.name} → {item.canonical_name} ·{" "}
                   {Math.round(item.confidence * 100)}%
+                </Text>
+              ))}
+            </View>
+          ) : null}
+          {nutrientTotals ? (
+            <View style={styles.parsedList}>
+              <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
+              {Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
+                <Text key={key} style={styles.parsedItem}>
+                  {key.replace(/_/g, " ")} · {Math.round(value * 100)}%
                 </Text>
               ))}
             </View>
