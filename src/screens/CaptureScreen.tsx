@@ -380,7 +380,25 @@ export function CaptureScreen() {
                     }}
                     placeholder="Food name"
                   />
-                  <Text style={styles.gramsLabel}>{Math.round(item.grams)}g</Text>
+                  <TextInput
+                    style={styles.input}
+                    value={Number.isFinite(item.grams) ? String(item.grams) : ""}
+                    onChangeText={(value) => {
+                      const parsed = Number.parseFloat(value);
+                      setEditableItems((current) =>
+                        current.map((entry) =>
+                          entry.id === item.id
+                            ? {
+                                ...entry,
+                                grams: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
+                              }
+                            : entry
+                        )
+                      );
+                    }}
+                    keyboardType="numeric"
+                    placeholder="Grams"
+                  />
                   <Button
                     title="Remove"
                     onPress={() => {
@@ -510,10 +528,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     fontSize: 14
-  },
-  gramsLabel: {
-    fontSize: 12,
-    color: "#666"
   },
   hint: {
     padding: 16,
