@@ -64,7 +64,17 @@ type NutrientTotals = {
 };
 
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
-  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  if (payload === null || payload === undefined || payload === "") {
+    throw new Error("AI response was empty.");
+  }
+  let parsed: unknown = payload;
+  if (typeof payload === "string") {
+    try {
+      parsed = JSON.parse(payload);
+    } catch (error) {
+      throw new Error("AI response was not valid JSON.");
+    }
+  }
   const items = Array.isArray(parsed)
     ? parsed
     : parsed && typeof parsed === "object" && "items" in parsed
@@ -97,14 +107,24 @@ const parseVisionPayload = (payload: unknown): ParsedItem[] => {
 
     return {
       name: candidate.name.trim(),
-      estimated_grams: candidate.estimated_grams,
+      estimated_grams: Math.max(candidate.estimated_grams, 0),
       confidence: candidate.confidence
     };
   });
 };
 
 const parseMappingPayload = (payload: unknown): MappedItem[] => {
-  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  if (payload === null || payload === undefined || payload === "") {
+    throw new Error("Mapping response was empty.");
+  }
+  let parsed: unknown = payload;
+  if (typeof payload === "string") {
+    try {
+      parsed = JSON.parse(payload);
+    } catch (error) {
+      throw new Error("Mapping response was not valid JSON.");
+    }
+  }
   const items = Array.isArray(parsed)
     ? parsed
     : parsed && typeof parsed === "object" && "items" in parsed
@@ -148,7 +168,17 @@ const parseMappingPayload = (payload: unknown): MappedItem[] => {
 };
 
 const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
-  const parsed = typeof payload === "string" ? JSON.parse(payload) : payload;
+  if (payload === null || payload === undefined || payload === "") {
+    return null;
+  }
+  let parsed: unknown = payload;
+  if (typeof payload === "string") {
+    try {
+      parsed = JSON.parse(payload);
+    } catch (error) {
+      return null;
+    }
+  }
   if (!parsed || typeof parsed !== "object" || !("nutrient_totals" in parsed)) {
     return null;
   }
@@ -307,6 +337,9 @@ export function CaptureScreen() {
       }
 
       const response = await fetch(photoUri);
+      if (!response.ok) {
+        throw new Error("Unable to read photo for upload.");
+      }
       const blob = await response.blob();
       const fileExt = photoUri.split(".").pop() || "jpg";
       const filePath = `${userId}/${Date.now()}.${fileExt}`;
