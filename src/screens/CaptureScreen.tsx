@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from "react";
-import { ActivityIndicator, Button, Image, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 
@@ -10,6 +10,13 @@ const PHOTO_BUCKET = "meal-photos";
 type ParsedItem = {
   name: string;
   estimated_grams: number;
+  confidence: number;
+};
+
+type EditableItem = {
+  id: string;
+  name: string;
+  grams: number;
   confidence: number;
 };
 
@@ -117,6 +124,7 @@ export function CaptureScreen() {
   const [isParsing, setIsParsing] = useState(false);
   const [parseError, setParseError] = useState<string | null>(null);
   const [parsedItems, setParsedItems] = useState<ParsedItem[] | null>(null);
+  const [editableItems, setEditableItems] = useState<EditableItem[]>([]);
   const [isMapping, setIsMapping] = useState(false);
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
@@ -139,6 +147,7 @@ export function CaptureScreen() {
         setMealError(null);
         setParsedItems(null);
         setParseError(null);
+        setEditableItems([]);
         setMappedItems(null);
         setMappingError(null);
       }
@@ -196,6 +205,14 @@ export function CaptureScreen() {
 
       const items = parseVisionPayload(data);
       setParsedItems(items);
+      setEditableItems(
+        items.map((item) => ({
+          id: `${Date.now()}-${item.name}-${Math.random().toString(36).slice(2, 6)}`,
+          name: item.name,
+          grams: item.estimated_grams,
+          confidence: item.confidence
+        }))
+      );
       return items;
     } catch (error) {
       const message =
@@ -317,6 +334,7 @@ export function CaptureScreen() {
                 setMealError(null);
                 setParsedItems(null);
                 setParseError(null);
+                setEditableItems([]);
                 setMappedItems(null);
                 setMappingError(null);
               }}
@@ -345,6 +363,50 @@ export function CaptureScreen() {
             </View>
           ) : null}
           {parseError ? <Text style={styles.error}>{parseError}</Text> : null}
+          {editableItems.length ? (
+            <View style={styles.editableList}>
+              <Text style={styles.sectionTitle}>Editable foods</Text>
+              {editableItems.map((item, index) => (
+                <View key={item.id} style={styles.editableRow}>
+                  <TextInput
+                    style={styles.input}
+                    value={item.name}
+                    onChangeText={(value) => {
+                      setEditableItems((current) =>
+                        current.map((entry) =>
+                          entry.id === item.id ? { ...entry, name: value } : entry
+                        )
+                      );
+                    }}
+                    placeholder="Food name"
+                  />
+                  <Text style={styles.gramsLabel}>{Math.round(item.grams)}g</Text>
+                  <Button
+                    title="Remove"
+                    onPress={() => {
+                      setEditableItems((current) =>
+                        current.filter((entry) => entry.id !== item.id)
+                      );
+                    }}
+                  />
+                </View>
+              ))}
+              <Button
+                title="Add food"
+                onPress={() => {
+                  setEditableItems((current) => [
+                    ...current,
+                    {
+                      id: `${Date.now()}-new-${Math.random().toString(36).slice(2, 6)}`,
+                      name: "",
+                      grams: 0,
+                      confidence: 0.2
+                    }
+                  ]);
+                }}
+              />
+            </View>
+          ) : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
             <View style={styles.parsedList}>
@@ -432,6 +494,26 @@ const styles = StyleSheet.create({
   parsedItem: {
     fontSize: 13,
     color: "#333"
+  },
+  editableList: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    gap: 8
+  },
+  editableRow: {
+    gap: 8
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    fontSize: 14
+  },
+  gramsLabel: {
+    fontSize: 12,
+    color: "#666"
   },
   hint: {
     padding: 16,
