@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Button, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -87,6 +87,11 @@ export function HomeScreen({ navigation }: Props) {
     totals: makeEmptyVector(),
     percent_dv: makeEmptyVector()
   });
+  const [weekTotals, setWeekTotals] = useState<NutrientTotals>({
+    totals: makeEmptyVector(),
+    percent_dv: makeEmptyVector()
+  });
+  const [weekDaysWithMeals, setWeekDaysWithMeals] = useState(0);
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -99,12 +104,29 @@ export function HomeScreen({ navigation }: Props) {
     };
   }, []);
 
+  const weekRange = useMemo(() => {
+    const end = new Date();
+    end.setHours(0, 0, 0, 0);
+    end.setDate(end.getDate() + 1);
+    const start = new Date(end);
+    start.setDate(start.getDate() - 7);
+    return {
+      start: start.toISOString(),
+      end: end.toISOString()
+    };
+  }, []);
+
   const resetTotals = useCallback(() => {
     setMealCount(0);
     setTodayTotals({
       totals: makeEmptyVector(),
       percent_dv: makeEmptyVector()
     });
+    setWeekTotals({
+      totals: makeEmptyVector(),
+      percent_dv: makeEmptyVector()
+    });
+    setWeekDaysWithMeals(0);
   }, []);
 
   const loadToday = useCallback(async () => {
@@ -128,29 +150,84 @@ export function HomeScreen({ navigation }: Props) {
         throw error;
       }
 
-      if (!data || data.length === 0) {
-        resetTotals();
+      if (data && data.length > 0) {
+        const totals = makeEmptyVector();
+        const percentDv = makeEmptyVector();
+
+        data.forEach((meal) => {
+          const entry = meal?.nutrient_totals as NutrientTotals | null;
+          if (!entry?.totals || !entry?.percent_dv) {
+            return;
+          }
+          NUTRIENT_KEYS.forEach((key) => {
+            totals[key] += Number(entry.totals[key] ?? 0);
+            percentDv[key] += Number(entry.percent_dv[key] ?? 0);
+          });
+        });
+
+        setMealCount(data.length);
+        setTodayTotals({
+          totals,
+          percent_dv: percentDv
+        });
+      } else {
+        setMealCount(0);
+        setTodayTotals({
+          totals: makeEmptyVector(),
+          percent_dv: makeEmptyVector()
+        });
+      }
+
+      const { data: weekData, error: weekError } = await supabase
+        .from("meals")
+        .select("id, created_at, nutrient_totals")
+        .gte("created_at", weekRange.start)
+        .lt("created_at", weekRange.end);
+
+      if (weekError) {
+        throw weekError;
+      }
+
+      if (!weekData || weekData.length === 0) {
+        setWeekTotals({
+          totals: makeEmptyVector(),
+          percent_dv: makeEmptyVector()
+        });
+        setWeekDaysWithMeals(0);
         return;
       }
 
-      const totals = makeEmptyVector();
-      const percentDv = makeEmptyVector();
+      const weekTotalsAccumulator = makeEmptyVector();
+      const weekPercentAccumulator = makeEmptyVector();
+      const daysWithMeals = new Set<string>();
 
-      data.forEach((meal) => {
+      weekData.forEach((meal) => {
         const entry = meal?.nutrient_totals as NutrientTotals | null;
         if (!entry?.totals || !entry?.percent_dv) {
           return;
         }
+        if (meal.created_at) {
+          const dayKey = new Date(meal.created_at).toISOString().slice(0, 10);
+          daysWithMeals.add(dayKey);
+        }
         NUTRIENT_KEYS.forEach((key) => {
-          totals[key] += Number(entry.totals[key] ?? 0);
-          percentDv[key] += Number(entry.percent_dv[key] ?? 0);
+          weekTotalsAccumulator[key] += Number(entry.totals[key] ?? 0);
+          weekPercentAccumulator[key] += Number(entry.percent_dv[key] ?? 0);
         });
       });
 
-      setMealCount(data.length);
-      setTodayTotals({
-        totals,
-        percent_dv: percentDv
+      const divisor = Math.max(daysWithMeals.size, 1);
+      const averagedTotals = makeEmptyVector();
+      const averagedPercent = makeEmptyVector();
+      NUTRIENT_KEYS.forEach((key) => {
+        averagedTotals[key] = weekTotalsAccumulator[key] / divisor;
+        averagedPercent[key] = weekPercentAccumulator[key] / divisor;
+      });
+
+      setWeekDaysWithMeals(daysWithMeals.size);
+      setWeekTotals({
+        totals: averagedTotals,
+        percent_dv: averagedPercent
       });
     } catch (error) {
       const message =
@@ -159,7 +236,7 @@ export function HomeScreen({ navigation }: Props) {
     } finally {
       setIsLoading(false);
     }
-  }, [resetTotals, todayRange.end, todayRange.start]);
+  }, [resetTotals, todayRange.end, todayRange.start, weekRange.end, weekRange.start]);
 
   useEffect(() => {
     loadToday();
@@ -167,30 +244,51 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Intake</Text>
-      <Text style={styles.subtitle}>Today</Text>
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Daily totals</Text>
-        <Text style={styles.cardSubtitle}>
-          {mealCount ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged` : "No meals yet"}
-        </Text>
-        {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
-        {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
-        {!isLoading && !loadError ? (
-          <View style={styles.list}>
-            {NUTRIENT_KEYS.map((key) => (
-              <Text key={key} style={styles.item}>
-                {key.replace(/_/g, " ")} · {Math.round(todayTotals.percent_dv[key] * 100)}%
-              </Text>
-            ))}
-          </View>
-        ) : null}
-        <Button title="Refresh totals" onPress={loadToday} />
-      </View>
-      <View style={styles.actions}>
-        <Button title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
-        <Button title="Sign out" onPress={() => supabase.auth.signOut()} />
-      </View>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <Text style={styles.title}>Intake</Text>
+        <Text style={styles.subtitle}>Today</Text>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>Daily totals</Text>
+          <Text style={styles.cardSubtitle}>
+            {mealCount ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged` : "No meals yet"}
+          </Text>
+          {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
+          {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
+          {!isLoading && !loadError ? (
+            <View style={styles.list}>
+              {NUTRIENT_KEYS.map((key) => (
+                <Text key={key} style={styles.item}>
+                  {key.replace(/_/g, " ")} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+                </Text>
+              ))}
+            </View>
+          ) : null}
+          <Button title="Refresh totals" onPress={loadToday} />
+        </View>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>7-day rolling average</Text>
+          <Text style={styles.cardSubtitle}>
+            {weekDaysWithMeals
+              ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
+              : "No meals yet"}
+          </Text>
+          {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
+          {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
+          {!isLoading && !loadError ? (
+            <View style={styles.list}>
+              {NUTRIENT_KEYS.map((key) => (
+                <Text key={key} style={styles.item}>
+                  {key.replace(/_/g, " ")} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+                </Text>
+              ))}
+            </View>
+          ) : null}
+        </View>
+        <View style={styles.actions}>
+          <Button title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
+          <Button title="Sign out" onPress={() => supabase.auth.signOut()} />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -198,9 +296,12 @@ export function HomeScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff"
+  },
+  scrollContent: {
     alignItems: "center",
-    justifyContent: "center",
-    padding: 24
+    padding: 24,
+    gap: 12
   },
   title: {
     fontSize: 28,

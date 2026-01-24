@@ -1,5 +1,14 @@
 import { useCallback, useRef, useState } from "react";
-import { ActivityIndicator, Button, Image, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  ActivityIndicator,
+  Button,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 
@@ -363,7 +372,7 @@ export function CaptureScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {photoUri ? (
-        <View style={styles.preview}>
+        <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
           <Image source={{ uri: photoUri }} style={styles.image} />
           <View style={styles.actions}>
             <Button
@@ -492,7 +501,7 @@ export function CaptureScreen() {
           ) : null}
           {mappingError ? <Text style={styles.error}>{mappingError}</Text> : null}
           <Text style={styles.hint}>Next: make foods editable after mapping.</Text>
-        </View>
+        </ScrollView>
       ) : (
         <View style={styles.cameraContainer}>
           <CameraView ref={cameraRef} style={styles.camera} facing="back" />
@@ -534,8 +543,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
+  previewContent: {
+    paddingBottom: 16
+  },
   image: {
-    flex: 1
+    width: "100%",
+    height: 260
   },
   spinner: {
     marginTop: 8
