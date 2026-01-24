@@ -159,6 +159,8 @@ const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   return totals;
 };
 
+const formatConfidence = (value: number) => `Confidence: ${Math.round(value * 100)}%`;
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -432,7 +434,7 @@ export function CaptureScreen() {
               {parsedItems.map((item, index) => (
                 <Text key={`${item.name}-${index}`} style={styles.parsedItem}>
                   {item.name} · {Math.round(item.estimated_grams)}g ·{" "}
-                  {Math.round(item.confidence * 100)}%
+                  {formatConfidence(item.confidence)}
                 </Text>
               ))}
             </View>
@@ -482,6 +484,7 @@ export function CaptureScreen() {
                       );
                     }}
                   />
+                  <Text style={styles.confidenceLabel}>{formatConfidence(item.confidence)}</Text>
                 </View>
               ))}
               <Button
@@ -511,8 +514,7 @@ export function CaptureScreen() {
               <Text style={styles.sectionTitle}>Canonical mapping</Text>
               {mappedItems.map((item, index) => (
                 <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
-                  {item.name} → {item.canonical_name} ·{" "}
-                  {Math.round(item.confidence * 100)}%
+                  {item.name} → {item.canonical_name} · {formatConfidence(item.confidence)}
                 </Text>
               ))}
             </View>
@@ -608,6 +610,10 @@ const styles = StyleSheet.create({
   parsedItem: {
     fontSize: 13,
     color: "#333"
+  },
+  confidenceLabel: {
+    fontSize: 12,
+    color: "#666"
   },
   editableList: {
     paddingHorizontal: 16,
