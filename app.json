@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Intake",
-    "slug": "intake",
-    "scheme": "intake",
+    "name": "Source",
+    "slug": "source",
+    "scheme": "source",
     "version": "0.1.0",
     "platforms": [
       "ios"
@@ -13,7 +13,7 @@
         "NSCameraUsageDescription": "We need camera access to capture meal photos."
       },
       "buildNumber": "1",
-      "bundleIdentifier": "com.andrewyuan.intake"
+      "bundleIdentifier": "com.andrewyuan.source"
     }
   }
 }

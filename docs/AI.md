@@ -1,8 +1,8 @@
-# Intake — AI Rules & Guardrails
+# Source — AI Rules & Guardrails
 
 ## Purpose
 
-This document defines how AI is allowed to behave in Intake. These rules exist to prevent hallucination, unsafe claims, and brittle logic.
+This document defines how AI is allowed to behave in Source. These rules exist to prevent hallucination, unsafe claims, and brittle logic.
 
 ---
 

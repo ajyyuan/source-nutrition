@@ -7,7 +7,7 @@ import { supabase } from "../lib/supabase";
 export function AuthScreen() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const redirectUrl = "intake://auth";
+  const redirectUrl = "source://auth";
 
   const handleSignIn = async () => {
     const trimmed = email.trim();

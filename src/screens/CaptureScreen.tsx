@@ -620,7 +620,7 @@ export function CaptureScreen() {
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
           <Text style={styles.disclaimer}>
-            Estimates only. Intake provides informational nutrition data and is not medical advice.
+            Estimates only. Source provides informational nutrition data and is not medical advice.
           </Text>
         </ScrollView>
       ) : (

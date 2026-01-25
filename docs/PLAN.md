@@ -1,4 +1,4 @@
-# Intake — 6-Day Build Plan
+# Source — 6-Day Build Plan
 
 This plan defines build sequencing and priorities.
 Each day should be treated as a hard boundary.

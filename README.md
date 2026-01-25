@@ -1,10 +1,10 @@
-# Intake
+# Source
 
 ## Overview
 
-**Intake** is an iOS app that turns photos of meals into **micronutrient insights**. It prioritizes vitamins, minerals, fatty acids, and food quality over calories and macros.
+**Source** is an iOS app that turns photos of meals into **micronutrient insights**. It prioritizes vitamins, minerals, fatty acids, and food quality over calories and macros.
 
-Instead of asking *“How many calories did I eat?”*, Intake answers:
+Instead of asking *“How many calories did I eat?”*, Source answers:
 
 > **“What did this food actually give my body?”**
 
@@ -55,4 +55,4 @@ Initial release targets **iOS only** and focuses on a tight, high-quality MVP.
 
 ## Positioning
 
-**Intake — Micronutrients, not macros.**
+**Source — Micronutrients, not macros.**

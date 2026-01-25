@@ -367,7 +367,7 @@ export function HomeScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>Intake</Text>
+        <Text style={styles.title}>Source</Text>
         <Text style={styles.subtitle}>Today</Text>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Daily totals (estimated)</Text>
@@ -477,7 +477,7 @@ export function HomeScreen({ navigation }: Props) {
           ) : null}
         </View>
         <Text style={styles.disclaimer}>
-          Estimates only. Intake provides informational nutrition data and is not medical advice.
+          Estimates only. Source provides informational nutrition data and is not medical advice.
         </Text>
         <View style={styles.actions}>
           <Button title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />

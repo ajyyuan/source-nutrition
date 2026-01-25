@@ -1,4 +1,4 @@
-# Intake — Architecture Overview
+# Source — Architecture Overview
 
 ## High-Level System
 

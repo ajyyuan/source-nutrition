@@ -1,8 +1,8 @@
-# Intake — Project Scope & Constraints
+# Source — Project Scope & Constraints
 
 ## Purpose
 
-This document defines **what Intake is allowed to be** for the MVP. It exists to prevent scope creep and guide both human and AI contributors.
+This document defines **what Source is allowed to be** for the MVP. It exists to prevent scope creep and guide both human and AI contributors.
 
 ---
 
