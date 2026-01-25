@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { encode as base64Encode } from "https://deno.land/std@0.168.0/encoding/base64.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
@@ -23,19 +24,9 @@ const createSupabaseClient = (req: Request) => {
   });
 };
 
-const MODEL_VERSION = "openai-gpt-4o-mini";
+const MODEL_VERSION = "gpt-4o-mini";
 const PHOTO_BUCKET = "meal-photos";
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
-
-const toBase64 = (data: ArrayBuffer) => {
-  let binary = "";
-  const bytes = new Uint8Array(data);
-  const chunkSize = 0x8000;
-  for (let i = 0; i < bytes.length; i += chunkSize) {
-    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
-  }
-  return btoa(binary);
-};
 
 const fetchMealPhoto = async (supabase, photoPath: string) => {
   const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
@@ -46,13 +37,16 @@ const fetchMealPhoto = async (supabase, photoPath: string) => {
     throw new Error("Meal photo not found.");
   }
   const buffer = await data.arrayBuffer();
+  if (buffer.byteLength === 0) {
+    throw new Error("Meal photo is empty.");
+  }
   if (buffer.byteLength > MAX_IMAGE_BYTES) {
     throw new Error("Meal photo is too large to process.");
   }
   const contentType = data.type || "image/jpeg";
   return {
     contentType,
-    base64: toBase64(buffer)
+    base64: base64Encode(new Uint8Array(buffer))
   };
 };
 
@@ -125,7 +119,8 @@ const callVisionModel = async (imageBase64: string, contentType: string) => {
             {
               type: "image_url",
               image_url: {
-                url: `data:${contentType};base64,${imageBase64}`
+                url: `data:${contentType};base64,${imageBase64}`,
+                detail: "low"
               }
             }
           ]
@@ -171,9 +166,11 @@ serve(async (req) => {
     const supabase = createSupabaseClient(req);
     const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
     let items: unknown[] = [];
+    let parseWarning: string | null = null;
     try {
       items = await callVisionModel(base64, contentType);
     } catch (error) {
+      parseWarning = error instanceof Error ? error.message : "Vision model failed.";
       items = [];
     }
 
@@ -189,10 +186,17 @@ serve(async (req) => {
       throw updateError;
     }
 
-    return new Response(JSON.stringify({ items, model_version: MODEL_VERSION }), {
+    return new Response(
+      JSON.stringify({
+        items,
+        model_version: MODEL_VERSION,
+        error: parseWarning ?? undefined
+      }),
+      {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" }
-    });
+      }
+    );
   } catch (error) {
     return new Response(
       JSON.stringify({
