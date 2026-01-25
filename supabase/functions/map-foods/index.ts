@@ -3,7 +3,9 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
   computeMealTotals,
-  NUTRIENT_DB_VERSION
+  computeItemTotals,
+  NUTRIENT_DB_VERSION,
+  sumPercentDv
 } from "../_shared/nutrients.ts";
 
 const corsHeaders = {
@@ -86,13 +88,35 @@ serve(async (req) => {
       }))
     );
 
+    const top_contributors = mapped
+      .map((item) => {
+        const totals = computeItemTotals({
+          canonical_id: item.canonical_id,
+          grams: item.grams
+        });
+        const score = sumPercentDv(totals.percent_dv);
+        return {
+          canonical_id: item.canonical_id,
+          name: item.canonical_name,
+          score
+        };
+      })
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+
+    const insights = {
+      top_contributors
+    };
+
     const supabase = createSupabaseClient(req);
     const { error: updateError } = await supabase
       .from("meals")
       .update({
         final_items: mapped,
         nutrient_totals,
-        nutrient_db_version: NUTRIENT_DB_VERSION
+        nutrient_db_version: NUTRIENT_DB_VERSION,
+        insights
       })
       .eq("id", meal_id);
 
@@ -104,7 +128,8 @@ serve(async (req) => {
       JSON.stringify({
         items: mapped,
         nutrient_totals,
-        nutrient_db_version: NUTRIENT_DB_VERSION
+        nutrient_db_version: NUTRIENT_DB_VERSION,
+        insights
       }),
       {
       status: 200,

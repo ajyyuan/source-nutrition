@@ -39,6 +39,16 @@ type FinalItem = {
   confidence?: number;
 };
 
+type Contributor = {
+  canonical_id: string;
+  name: string;
+  score: number;
+};
+
+type MealInsights = {
+  top_contributors?: Contributor[];
+};
+
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
   "vitamin_c_mg",
@@ -99,6 +109,17 @@ const computeAverageConfidence = (items: unknown): { sum: number; count: number 
   );
 };
 
+const computeShortfalls = (percentDv: NutrientVector) =>
+  NUTRIENT_KEYS.map((key) => ({
+    key,
+    value: Number(percentDv[key] ?? 0)
+  }))
+    .filter((entry) => entry.value < 0.5)
+    .sort((a, b) => a.value - b.value)
+    .slice(0, 3);
+
+const formatNutrientLabel = (key: string) => key.replace(/_/g, " ");
+
 export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -114,6 +135,8 @@ export function HomeScreen({ navigation }: Props) {
   });
   const [weekDaysWithMeals, setWeekDaysWithMeals] = useState(0);
   const [weekConfidence, setWeekConfidence] = useState<number | null>(null);
+  const [todayContributors, setTodayContributors] = useState<Contributor[]>([]);
+  const [weekContributors, setWeekContributors] = useState<Contributor[]>([]);
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -141,6 +164,7 @@ export function HomeScreen({ navigation }: Props) {
   const resetTotals = useCallback(() => {
     setMealCount(0);
     setTodayConfidence(null);
+    setTodayContributors([]);
     setTodayTotals({
       totals: makeEmptyVector(),
       percent_dv: makeEmptyVector()
@@ -151,6 +175,7 @@ export function HomeScreen({ navigation }: Props) {
     });
     setWeekDaysWithMeals(0);
     setWeekConfidence(null);
+    setWeekContributors([]);
   }, []);
 
   const loadToday = useCallback(async () => {
@@ -166,7 +191,7 @@ export function HomeScreen({ navigation }: Props) {
 
       const { data, error } = await supabase
         .from("meals")
-        .select("id, created_at, nutrient_totals, final_items")
+        .select("id, created_at, nutrient_totals, final_items, insights")
         .gte("created_at", todayRange.start)
         .lt("created_at", todayRange.end);
 
@@ -179,6 +204,7 @@ export function HomeScreen({ navigation }: Props) {
         const percentDv = makeEmptyVector();
         let confidenceSum = 0;
         let confidenceCount = 0;
+        const contributorScores = new Map<string, Contributor>();
 
         data.forEach((meal) => {
           const entry = meal?.nutrient_totals as NutrientTotals | null;
@@ -188,6 +214,26 @@ export function HomeScreen({ navigation }: Props) {
           const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
           confidenceSum += confidence.sum;
           confidenceCount += confidence.count;
+          const insights = meal?.insights as MealInsights | null;
+          insights?.top_contributors?.forEach((item) => {
+            if (!item || typeof item.canonical_id !== "string") {
+              return;
+            }
+            const score = Number(item.score ?? 0);
+            if (!Number.isFinite(score) || score <= 0) {
+              return;
+            }
+            const existing = contributorScores.get(item.canonical_id);
+            if (existing) {
+              existing.score += score;
+            } else {
+              contributorScores.set(item.canonical_id, {
+                canonical_id: item.canonical_id,
+                name: typeof item.name === "string" ? item.name : item.canonical_id,
+                score
+              });
+            }
+          });
           NUTRIENT_KEYS.forEach((key) => {
             totals[key] += Number(entry.totals[key] ?? 0);
             percentDv[key] += Number(entry.percent_dv[key] ?? 0);
@@ -198,6 +244,11 @@ export function HomeScreen({ navigation }: Props) {
         setTodayConfidence(
           confidenceCount ? Math.round((confidenceSum / confidenceCount) * 100) : null
         );
+        setTodayContributors(
+          Array.from(contributorScores.values())
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 3)
+        );
         setTodayTotals({
           totals,
           percent_dv: percentDv
@@ -205,6 +256,7 @@ export function HomeScreen({ navigation }: Props) {
       } else {
         setMealCount(0);
         setTodayConfidence(null);
+        setTodayContributors([]);
         setTodayTotals({
           totals: makeEmptyVector(),
           percent_dv: makeEmptyVector()
@@ -213,7 +265,7 @@ export function HomeScreen({ navigation }: Props) {
 
       const { data: weekData, error: weekError } = await supabase
         .from("meals")
-        .select("id, created_at, nutrient_totals, final_items")
+        .select("id, created_at, nutrient_totals, final_items, insights")
         .gte("created_at", weekRange.start)
         .lt("created_at", weekRange.end);
 
@@ -234,6 +286,7 @@ export function HomeScreen({ navigation }: Props) {
       const weekPercentAccumulator = makeEmptyVector();
       let weekConfidenceSum = 0;
       let weekConfidenceCount = 0;
+      const weekContributorScores = new Map<string, Contributor>();
       const daysWithMeals = new Set<string>();
 
       weekData.forEach((meal) => {
@@ -244,6 +297,26 @@ export function HomeScreen({ navigation }: Props) {
         const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
         weekConfidenceSum += confidence.sum;
         weekConfidenceCount += confidence.count;
+        const insights = meal?.insights as MealInsights | null;
+        insights?.top_contributors?.forEach((item) => {
+          if (!item || typeof item.canonical_id !== "string") {
+            return;
+          }
+          const score = Number(item.score ?? 0);
+          if (!Number.isFinite(score) || score <= 0) {
+            return;
+          }
+          const existing = weekContributorScores.get(item.canonical_id);
+          if (existing) {
+            existing.score += score;
+          } else {
+            weekContributorScores.set(item.canonical_id, {
+              canonical_id: item.canonical_id,
+              name: typeof item.name === "string" ? item.name : item.canonical_id,
+              score
+            });
+          }
+        });
         if (meal.created_at) {
           const dayKey = new Date(meal.created_at).toISOString().slice(0, 10);
           daysWithMeals.add(dayKey);
@@ -266,6 +339,11 @@ export function HomeScreen({ navigation }: Props) {
       setWeekConfidence(
         weekConfidenceCount ? Math.round((weekConfidenceSum / weekConfidenceCount) * 100) : null
       );
+      setWeekContributors(
+        Array.from(weekContributorScores.values())
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3)
+      );
       setWeekTotals({
         totals: averagedTotals,
         percent_dv: averagedPercent
@@ -283,6 +361,9 @@ export function HomeScreen({ navigation }: Props) {
     loadToday();
   }, [loadToday]);
 
+  const todayShortfalls = computeShortfalls(todayTotals.percent_dv);
+  const weekShortfalls = computeShortfalls(weekTotals.percent_dv);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -299,19 +380,45 @@ export function HomeScreen({ navigation }: Props) {
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
-            <View style={styles.list}>
-              {mealCount ? (
-                NUTRIENT_KEYS.map((key) => (
-                  <Text key={key} style={styles.item}>
-                    {key.replace(/_/g, " ")} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+            <>
+              <View style={styles.list}>
+                {mealCount ? (
+                  NUTRIENT_KEYS.map((key) => (
+                    <Text key={key} style={styles.item}>
+                      {formatNutrientLabel(key)} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>
+                    No meals logged today. Capture a meal to see totals.
                   </Text>
-                ))
-              ) : (
-                <Text style={styles.emptyState}>
-                  No meals logged today. Capture a meal to see totals.
-                </Text>
-              )}
-            </View>
+                )}
+              </View>
+              <View style={styles.subsection}>
+                <Text style={styles.subsectionTitle}>Top contributors</Text>
+                {todayContributors.length ? (
+                  todayContributors.map((item) => (
+                    <Text key={item.canonical_id} style={styles.insightItem}>
+                      {item.name} · Total %DV sum {Math.round(item.score * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>No contributors yet.</Text>
+                )}
+              </View>
+              <View style={styles.subsection}>
+                <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
+                {todayShortfalls.length ? (
+                  todayShortfalls.map((entry) => (
+                    <Text key={entry.key} style={styles.insightItem}>
+                      {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>No shortfalls detected.</Text>
+                )}
+              </View>
+            </>
           ) : null}
           <Button title="Refresh totals" onPress={loadToday} />
         </View>
@@ -328,19 +435,45 @@ export function HomeScreen({ navigation }: Props) {
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
           {!isLoading && !loadError ? (
-            <View style={styles.list}>
-              {weekDaysWithMeals ? (
-                NUTRIENT_KEYS.map((key) => (
-                  <Text key={key} style={styles.item}>
-                    {key.replace(/_/g, " ")} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+            <>
+              <View style={styles.list}>
+                {weekDaysWithMeals ? (
+                  NUTRIENT_KEYS.map((key) => (
+                    <Text key={key} style={styles.item}>
+                      {formatNutrientLabel(key)} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>
+                    No meals in the last 7 days. Capture a meal to start tracking.
                   </Text>
-                ))
-              ) : (
-                <Text style={styles.emptyState}>
-                  No meals in the last 7 days. Capture a meal to start tracking.
-                </Text>
-              )}
-            </View>
+                )}
+              </View>
+              <View style={styles.subsection}>
+                <Text style={styles.subsectionTitle}>Top contributors</Text>
+                {weekContributors.length ? (
+                  weekContributors.map((item) => (
+                    <Text key={item.canonical_id} style={styles.insightItem}>
+                      {item.name} · Total %DV sum {Math.round(item.score * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>No contributors yet.</Text>
+                )}
+              </View>
+              <View style={styles.subsection}>
+                <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
+                {weekShortfalls.length ? (
+                  weekShortfalls.map((entry) => (
+                    <Text key={entry.key} style={styles.insightItem}>
+                      {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.emptyState}>No shortfalls detected.</Text>
+                )}
+              </View>
+            </>
           ) : null}
         </View>
         <Text style={styles.disclaimer}>
@@ -395,7 +528,20 @@ const styles = StyleSheet.create({
   list: {
     gap: 6
   },
+  subsection: {
+    gap: 4,
+    marginTop: 8
+  },
+  subsectionTitle: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#111"
+  },
   item: {
+    fontSize: 13,
+    color: "#333"
+  },
+  insightItem: {
     fontSize: 13,
     color: "#333"
   },

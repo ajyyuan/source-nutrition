@@ -300,6 +300,22 @@ const computePercentDv = (totals: NutrientVector): NutrientVector => ({
   omega3_g: DAILY_VALUES.omega3_g ? totals.omega3_g / DAILY_VALUES.omega3_g : 0
 });
 
+export const computeItemTotals = (item: MealItemInput): MealNutrientTotals => {
+  const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
+  const entry = getNutrientsForCanonicalId(item.canonical_id) ?? CANONICAL_NUTRIENTS["food-unknown"];
+  const totals = scaleVector(entry.per_100g, grams);
+  return {
+    totals,
+    percent_dv: computePercentDv(totals)
+  };
+};
+
+export const sumPercentDv = (percent: NutrientVector): number =>
+  Object.values(percent).reduce(
+    (acc, value) => acc + (Number.isFinite(value) ? Math.max(value, 0) : 0),
+    0
+  );
+
 export const computeMealTotals = (items: MealItemInput[]): MealNutrientTotals => {
   const totals = items.reduce((acc, item) => {
     const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
