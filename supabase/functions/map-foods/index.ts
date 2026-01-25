@@ -4,6 +4,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
   computeMealTotals,
   computeItemTotals,
+  listCanonicalFoods,
   NUTRIENT_DB_VERSION,
   sumPercentDv
 } from "../_shared/nutrients.ts";
@@ -15,6 +16,69 @@ const corsHeaders = {
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+
+const CANONICAL_FOODS = listCanonicalFoods().filter(
+  (item) => item.canonical_id !== "food-unknown"
+);
+const CANONICAL_BY_ID = Object.fromEntries(
+  listCanonicalFoods().map((item) => [item.canonical_id, item])
+);
+const ALIAS_MAP = {
+  salmon: "salmon-cooked",
+  "smoked salmon": "salmon-cooked",
+  egg: "egg-whole",
+  eggs: "egg-whole",
+  spinach: "spinach-raw",
+  "baby spinach": "spinach-raw",
+  apple: "apple-raw",
+  apples: "apple-raw"
+};
+const normalizeName = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+const toTokenSet = (value: string) => new Set(normalizeName(value).split(" ").filter(Boolean));
+const matchAlias = (normalized: string) => {
+  for (const [alias, canonicalId] of Object.entries(ALIAS_MAP)) {
+    if (normalized.includes(alias)) {
+      return canonicalId;
+    }
+  }
+  return null;
+};
+const scoreCandidate = (normalized: string, tokens: Set<string>, canonicalName: string) => {
+  const canonicalNormalized = normalizeName(canonicalName);
+  const canonicalTokens = toTokenSet(canonicalName);
+  if (!canonicalNormalized || !canonicalTokens.size) {
+    return 0;
+  }
+  let score = 0;
+  if (normalized.includes(canonicalNormalized)) {
+    score += 0.6;
+  }
+  const overlap = Array.from(canonicalTokens).filter((token) => tokens.has(token)).length;
+  score += 0.4 * (overlap / canonicalTokens.size);
+  return score;
+};
+const pickCanonicalId = (name: string) => {
+  const normalized = normalizeName(name);
+  const tokens = toTokenSet(name);
+  const aliasMatch = matchAlias(normalized);
+  if (aliasMatch) {
+    return aliasMatch;
+  }
+  let bestId = "food-unknown";
+  let bestScore = 0;
+  CANONICAL_FOODS.forEach((candidate) => {
+    const score = scoreCandidate(normalized, tokens, candidate.canonical_name);
+    if (score > bestScore) {
+      bestScore = score;
+      bestId = candidate.canonical_id;
+    }
+  });
+  return bestScore >= 0.35 ? bestId : "food-unknown";
+};
 
 const createSupabaseClient = (req: Request) => {
   if (!supabaseUrl || !supabaseAnonKey) {
@@ -61,22 +125,14 @@ serve(async (req) => {
           ? item.confidence
           : 0.2;
 
-      let canonicalId = "food-unknown";
-      if (normalized.includes("apple")) {
-        canonicalId = "apple-raw";
-      } else if (normalized.includes("spinach")) {
-        canonicalId = "spinach-raw";
-      } else if (normalized.includes("salmon")) {
-        canonicalId = "salmon-cooked";
-      } else if (normalized.includes("egg")) {
-        canonicalId = "egg-whole";
-      }
+      const canonicalId = pickCanonicalId(name || "unknown");
+      const canonicalEntry = CANONICAL_BY_ID[canonicalId];
 
       return {
         name,
         grams,
         canonical_id: canonicalId,
-        canonical_name: name || "Unknown food",
+        canonical_name: (canonicalEntry?.canonical_name ?? name) || "Unknown food",
         confidence
       };
     });
