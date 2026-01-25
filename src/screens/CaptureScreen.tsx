@@ -195,6 +195,7 @@ export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [photoUri, setPhotoUri] = useState<string | null>(null);
+  const [photoBase64, setPhotoBase64] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -228,10 +229,12 @@ export function CaptureScreen() {
     try {
       const result = await cameraRef.current.takePictureAsync({
         quality: 0.7,
-        exif: false
+        exif: false,
+        base64: true
       });
       if (result?.uri) {
         setPhotoUri(result.uri);
+        setPhotoBase64(result.base64 ?? null);
         setUploadError(null);
         setUploadPath(null);
         setMealId(null);
@@ -241,6 +244,7 @@ export function CaptureScreen() {
         setEditableItems([]);
         setMappedItems(null);
         setMappingError(null);
+        setNutrientTotals(null);
       }
     } finally {
       setIsCapturing(false);
@@ -296,10 +300,27 @@ export function CaptureScreen() {
         throw error;
       }
 
-      const warning =
-        data && typeof data === "object" && "error" in data && typeof data.error === "string"
-          ? data.error
-          : null;
+      let warning: string | null = null;
+      if (data) {
+        const payload =
+          typeof data === "string"
+            ? (() => {
+                try {
+                  return JSON.parse(data);
+                } catch (error) {
+                  return null;
+                }
+              })()
+            : data;
+        if (
+          payload &&
+          typeof payload === "object" &&
+          "error" in payload &&
+          typeof payload.error === "string"
+        ) {
+          warning = payload.error;
+        }
+      }
       if (warning) {
         setParseError(warning);
       }
@@ -343,18 +364,27 @@ export function CaptureScreen() {
         throw new Error("You must be signed in to upload.");
       }
 
-      const response = await fetch(photoUri);
+      const response = await fetch(
+        photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : photoUri
+      );
       if (!response.ok) {
         throw new Error("Unable to read photo for upload.");
       }
-      const blob = await response.blob();
+      if (!photoBase64) {
+        throw new Error("Camera capture missing base64. Please retake.");
+      }
+      const buffer = Uint8Array.from(atob(photoBase64), (char) => char.charCodeAt(0));
+      if (!buffer.byteLength) {
+        throw new Error("Captured photo was empty. Please retake.");
+      }
       const fileExt = photoUri.split(".").pop() || "jpg";
       const filePath = `${userId}/${Date.now()}.${fileExt}`;
+      const contentType = "image/jpeg";
 
       const { error } = await supabase.storage
         .from(PHOTO_BUCKET)
-        .upload(filePath, blob, {
-          contentType: blob.type || "image/jpeg",
+        .upload(filePath, buffer, {
+          contentType,
           upsert: false
         });
 
