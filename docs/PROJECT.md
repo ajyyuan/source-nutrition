@@ -8,8 +8,9 @@ This document defines **what Source is allowed to be** for the MVP. It exists to
 
 ## Target Timeline
 
-* **Days 1–6:** Core features fully implemented and robust
-* **Days 7–8:** App Store submission, review, fixes, release
+* **Days 1–6:** Core features fully implemented and robust (complete)
+* **Post-plan:** Feature expansion + UX polish before App Store submission
+* **Submission:** Timing TBD once product quality is acceptable
 
 This timeline is **high-risk but feasible** with strict scope control.
 

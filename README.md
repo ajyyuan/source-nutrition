@@ -17,6 +17,7 @@ The app is designed to be:
 * Built for real-world eating
 
 Initial release targets **iOS only** and focuses on a tight, high-quality MVP.
+Submission timing is intentionally **TBD** while we expand features and polish.
 
 ---
 

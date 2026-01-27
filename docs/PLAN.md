@@ -8,6 +8,11 @@ Cursor:
 - must not preemptively build future-day features
 - should leave TODOs if future work is implied
 
+## Status
+- Days 1–6 complete.
+- We are now in a post-plan iteration phase focused on product quality and feature expansion.
+- The strict day-by-day constraints above no longer apply.
+
 ---
 
 ## Day 1 — App Skeleton & Plumbing
