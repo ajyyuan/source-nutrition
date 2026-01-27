@@ -211,6 +211,24 @@ const renderConfidenceBadge = (value: number) => {
   );
 };
 
+const renderBanner = (message: string, variant: "success" | "error") => (
+  <View
+    style={[
+      styles.banner,
+      variant === "success" ? styles.bannerSuccess : styles.bannerError
+    ]}
+  >
+    <Text
+      style={[
+        styles.bannerText,
+        variant === "success" ? styles.bannerTextSuccess : styles.bannerTextError
+      ]}
+    >
+      {message}
+    </Text>
+  </View>
+);
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -514,14 +532,10 @@ export function CaptureScreen() {
             />
           </View>
           {isUploading ? <ActivityIndicator style={styles.spinner} /> : null}
-          {uploadPath ? (
-            <Text style={styles.success}>Uploaded to: {uploadPath}</Text>
-          ) : null}
-          {uploadError ? <Text style={styles.error}>{uploadError}</Text> : null}
-          {mealId ? (
-            <Text style={styles.success}>Meal created: {mealId}</Text>
-          ) : null}
-          {mealError ? <Text style={styles.error}>{mealError}</Text> : null}
+          {uploadPath ? renderBanner(`Uploaded to: ${uploadPath}`, "success") : null}
+          {uploadError ? renderBanner(uploadError, "error") : null}
+          {mealId ? renderBanner(`Meal created: ${mealId}`, "success") : null}
+          {mealError ? renderBanner(mealError, "error") : null}
           {isParsing ? <ActivityIndicator style={styles.spinner} /> : null}
           {parsedItems ? (
             <View style={styles.parsedList}>
@@ -542,7 +556,7 @@ export function CaptureScreen() {
               )}
             </View>
           ) : null}
-          {parseError ? <Text style={styles.error}>{parseError}</Text> : null}
+          {parseError ? renderBanner(parseError, "error") : null}
           {editableItems.length ? (
             <View style={styles.editableList}>
               <Text style={styles.sectionTitle}>Editable foods</Text>
@@ -648,7 +662,7 @@ export function CaptureScreen() {
               )}
             </View>
           ) : null}
-          {mappingError ? <Text style={styles.error}>{mappingError}</Text> : null}
+          {mappingError ? renderBanner(mappingError, "error") : null}
           <Text style={styles.hint}>
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
@@ -712,16 +726,27 @@ const styles = StyleSheet.create({
   spinner: {
     marginTop: 8
   },
-  success: {
-    paddingHorizontal: 16,
-    paddingTop: 8,
+  banner: {
+    marginHorizontal: 16,
+    marginTop: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 12
+  },
+  bannerText: {
     fontSize: 13,
+    fontWeight: "600"
+  },
+  bannerSuccess: {
+    backgroundColor: "#e6f4ea"
+  },
+  bannerError: {
+    backgroundColor: "#fce8e6"
+  },
+  bannerTextSuccess: {
     color: "#1a7f37"
   },
-  error: {
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    fontSize: 13,
+  bannerTextError: {
     color: "#b42318"
   },
   parsedList: {

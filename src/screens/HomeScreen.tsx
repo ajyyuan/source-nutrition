@@ -388,7 +388,11 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.cardSubtitle}>Avg confidence: {todayConfidence}%</Text>
           ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
-          {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
+          {loadError ? (
+            <View style={styles.errorBanner}>
+              <Text style={styles.errorText}>{loadError}</Text>
+            </View>
+          ) : null}
           {!isLoading && !loadError ? (
             <>
               <View style={styles.list}>
@@ -443,7 +447,11 @@ export function HomeScreen({ navigation }: Props) {
             <Text style={styles.cardSubtitle}>Avg confidence: {weekConfidence}%</Text>
           ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
-          {loadError ? <Text style={styles.error}>{loadError}</Text> : null}
+          {loadError ? (
+            <View style={styles.errorBanner}>
+              <Text style={styles.errorText}>{loadError}</Text>
+            </View>
+          ) : null}
           {!isLoading && !loadError ? (
             <>
               <View style={styles.list}>
@@ -576,8 +584,15 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 10
   },
-  error: {
+  errorBanner: {
+    backgroundColor: "#fce8e6",
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10
+  },
+  errorText: {
     fontSize: 13,
+    fontWeight: "600",
     color: "#b42318"
   },
   spinner: {
