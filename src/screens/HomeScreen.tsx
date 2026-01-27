@@ -120,6 +120,16 @@ const computeShortfalls = (percentDv: NutrientVector) =>
     .sort((a, b) => a.value - b.value)
     .slice(0, 3);
 
+const getShortfallStyle = (value: number) => {
+  if (value < 0.25) {
+    return styles.shortfallHigh;
+  }
+  if (value < 0.4) {
+    return styles.shortfallMedium;
+  }
+  return styles.shortfallLow;
+};
+
 export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -410,7 +420,7 @@ export function HomeScreen({ navigation }: Props) {
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {todayShortfalls.length ? (
                   todayShortfalls.map((entry) => (
-                    <Text key={entry.key} style={styles.insightItem}>
+                    <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
                       {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
                     </Text>
                   ))
@@ -465,7 +475,7 @@ export function HomeScreen({ navigation }: Props) {
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {weekShortfalls.length ? (
                   weekShortfalls.map((entry) => (
-                    <Text key={entry.key} style={styles.insightItem}>
+                    <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
                       {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
                     </Text>
                   ))
@@ -548,6 +558,15 @@ const styles = StyleSheet.create({
   insightItem: {
     fontSize: 13,
     color: "#333"
+  },
+  shortfallHigh: {
+    color: "#b42318"
+  },
+  shortfallMedium: {
+    color: "#b54708"
+  },
+  shortfallLow: {
+    color: "#027a48"
   },
   emptyState: {
     fontSize: 13,

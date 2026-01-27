@@ -190,6 +190,16 @@ const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   return totals;
 };
 
+const getConfidenceTone = (value: number) => {
+  if (value >= 0.75) {
+    return { backgroundColor: "#e6f4ea", textColor: "#1a7f37" };
+  }
+  if (value >= 0.5) {
+    return { backgroundColor: "#fff4cc", textColor: "#7a5e00" };
+  }
+  return { backgroundColor: "#fce8e6", textColor: "#b42318" };
+};
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -566,7 +576,21 @@ export function CaptureScreen() {
                     variant="secondary"
                     fullWidth={false}
                   />
-                  <Text style={styles.confidenceLabel}>{formatConfidence(item.confidence)}</Text>
+                  <View
+                    style={[
+                      styles.confidenceBadge,
+                      { backgroundColor: getConfidenceTone(item.confidence).backgroundColor }
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.confidenceBadgeText,
+                        { color: getConfidenceTone(item.confidence).textColor }
+                      ]}
+                    >
+                      {formatConfidence(item.confidence)}
+                    </Text>
+                  </View>
                 </View>
               ))}
               <AppButton
@@ -725,6 +749,16 @@ const styles = StyleSheet.create({
   confidenceLabel: {
     fontSize: 12,
     color: "#666"
+  },
+  confidenceBadge: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999
+  },
+  confidenceBadgeText: {
+    fontSize: 12,
+    fontWeight: "600"
   },
   editableList: {
     marginHorizontal: 16,
