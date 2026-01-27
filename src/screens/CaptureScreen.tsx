@@ -200,6 +200,17 @@ const getConfidenceTone = (value: number) => {
   return { backgroundColor: "#fce8e6", textColor: "#b42318" };
 };
 
+const renderConfidenceBadge = (value: number) => {
+  const tone = getConfidenceTone(value);
+  return (
+    <View style={[styles.confidenceBadge, { backgroundColor: tone.backgroundColor }]}>
+      <Text style={[styles.confidenceBadgeText, { color: tone.textColor }]}>
+        {formatConfidence(value)}
+      </Text>
+    </View>
+  );
+};
+
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -517,10 +528,12 @@ export function CaptureScreen() {
               <Text style={styles.sectionTitle}>Parsed foods (AI)</Text>
               {parsedItems.length ? (
                 parsedItems.map((item, index) => (
-                  <Text key={`${item.name}-${index}`} style={styles.parsedItem}>
-                    {item.name} · {Math.round(item.estimated_grams)}g ·{" "}
-                    {formatConfidence(item.confidence)}
-                  </Text>
+                  <View key={`${item.name}-${index}`} style={styles.parsedRow}>
+                    <Text style={styles.parsedItemText}>
+                      {item.name} · {Math.round(item.estimated_grams)}g
+                    </Text>
+                    {renderConfidenceBadge(item.confidence)}
+                  </View>
                 ))
               ) : (
                 <Text style={styles.emptyState}>
@@ -576,21 +589,7 @@ export function CaptureScreen() {
                     variant="secondary"
                     fullWidth={false}
                   />
-                  <View
-                    style={[
-                      styles.confidenceBadge,
-                      { backgroundColor: getConfidenceTone(item.confidence).backgroundColor }
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.confidenceBadgeText,
-                        { color: getConfidenceTone(item.confidence).textColor }
-                      ]}
-                    >
-                      {formatConfidence(item.confidence)}
-                    </Text>
-                  </View>
+                  {renderConfidenceBadge(item.confidence)}
                 </View>
               ))}
               <AppButton
@@ -621,9 +620,12 @@ export function CaptureScreen() {
               <Text style={styles.sectionTitle}>Canonical mapping</Text>
               {mappedItems.length ? (
                 mappedItems.map((item, index) => (
-                  <Text key={`${item.canonical_id}-${index}`} style={styles.parsedItem}>
-                    {item.name} → {item.canonical_name} · {formatConfidence(item.confidence)}
-                  </Text>
+                  <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
+                    <Text style={styles.parsedItemText}>
+                      {item.name} → {item.canonical_name}
+                    </Text>
+                    {renderConfidenceBadge(item.confidence)}
+                  </View>
                 ))
               ) : (
                 <Text style={styles.emptyState}>
@@ -637,7 +639,7 @@ export function CaptureScreen() {
               <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
               {Object.entries(nutrientTotals.percent_dv).length ? (
                 Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
-                  <Text key={key} style={styles.parsedItem}>
+                  <Text key={key} style={styles.parsedItemText}>
                     {formatNutrientLabel(key)} · {Math.round(value * 100)}%
                   </Text>
                 ))
@@ -734,9 +736,16 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#111"
   },
-  parsedItem: {
+  parsedRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    gap: 8
+  },
+  parsedItemText: {
     fontSize: 13,
-    color: "#333"
+    color: "#333",
+    flexShrink: 1
   },
   emptyState: {
     fontSize: 13,
