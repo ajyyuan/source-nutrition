@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ActivityIndicator, Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Alert, StyleSheet, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { AppButton } from "../lib/AppButton";
 import { supabase } from "../lib/supabase";
 
 export function AuthScreen() {
@@ -47,7 +48,11 @@ export function AuthScreen() {
           style={styles.input}
           value={email}
         />
-        <Button title={isLoading ? "Sending link..." : "Send magic link"} onPress={handleSignIn} />
+        <AppButton
+          title={isLoading ? "Sending link..." : "Send magic link"}
+          onPress={handleSignIn}
+          disabled={isLoading}
+        />
         {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
       </View>
     </SafeAreaView>

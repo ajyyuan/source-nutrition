@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import type { RootStackParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
+import { AppButton } from "../lib/AppButton";
+import { formatNutrientLabel } from "../lib/formatters";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 
@@ -117,8 +119,6 @@ const computeShortfalls = (percentDv: NutrientVector) =>
     .filter((entry) => entry.value < 0.5)
     .sort((a, b) => a.value - b.value)
     .slice(0, 3);
-
-const formatNutrientLabel = (key: string) => key.replace(/_/g, " ");
 
 export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
@@ -420,7 +420,7 @@ export function HomeScreen({ navigation }: Props) {
               </View>
             </>
           ) : null}
-          <Button title="Refresh totals" onPress={loadToday} />
+          <AppButton title="Refresh totals" onPress={loadToday} variant="secondary" />
         </View>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>7-day rolling average (estimated)</Text>
@@ -480,8 +480,8 @@ export function HomeScreen({ navigation }: Props) {
           Estimates only. Source provides informational nutrition data and is not medical advice.
         </Text>
         <View style={styles.actions}>
-          <Button title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
-          <Button title="Sign out" onPress={() => supabase.auth.signOut()} />
+          <AppButton title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
+          <AppButton title="Sign out" onPress={() => supabase.auth.signOut()} variant="secondary" />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -526,11 +526,15 @@ const styles = StyleSheet.create({
     color: "#555"
   },
   list: {
-    gap: 6
+    gap: 6,
+    paddingTop: 4
   },
   subsection: {
-    gap: 4,
-    marginTop: 8
+    gap: 6,
+    marginTop: 12,
+    paddingTop: 4,
+    borderTopWidth: 1,
+    borderTopColor: "#e7e7e7"
   },
   subsectionTitle: {
     fontSize: 13,
@@ -547,7 +551,11 @@ const styles = StyleSheet.create({
   },
   emptyState: {
     fontSize: 13,
-    color: "#666"
+    color: "#666",
+    backgroundColor: "#ededed",
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10
   },
   error: {
     fontSize: 13,

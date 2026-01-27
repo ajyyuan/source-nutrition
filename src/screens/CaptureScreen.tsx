@@ -1,7 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import {
   ActivityIndicator,
-  Button,
   Image,
   ScrollView,
   StyleSheet,
@@ -12,6 +11,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 
+import { AppButton } from "../lib/AppButton";
+import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { supabase } from "../lib/supabase";
 
 const PHOTO_BUCKET = "meal-photos";
@@ -188,8 +189,6 @@ const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   }
   return totals;
 };
-
-const formatConfidence = (value: number) => `Confidence: ${Math.round(value * 100)}%`;
 
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
@@ -459,7 +458,7 @@ export function CaptureScreen() {
         <Text style={styles.subtitle}>
           Enable camera permission to capture meal photos.
         </Text>
-        <Button title="Allow camera access" onPress={requestPermission} />
+        <AppButton title="Allow camera access" onPress={requestPermission} />
       </SafeAreaView>
     );
   }
@@ -470,8 +469,9 @@ export function CaptureScreen() {
         <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
           <Image source={{ uri: photoUri }} style={styles.image} />
           <View style={styles.actions}>
-            <Button
+            <AppButton
               title="Retake"
+              variant="secondary"
               onPress={() => {
                 setPhotoUri(null);
                 setUploadPath(null);
@@ -483,10 +483,14 @@ export function CaptureScreen() {
                 setEditableItems([]);
                 setMappedItems(null);
                 setMappingError(null);
-        setNutrientTotals(null);
+                setNutrientTotals(null);
               }}
             />
-            <Button title={isUploading ? "Uploading..." : "Use photo"} onPress={handleUpload} />
+            <AppButton
+              title={isUploading ? "Uploading..." : "Use photo"}
+              onPress={handleUpload}
+              disabled={isUploading}
+            />
           </View>
           {isUploading ? <ActivityIndicator style={styles.spinner} /> : null}
           {uploadPath ? (
@@ -552,18 +556,20 @@ export function CaptureScreen() {
                     keyboardType="numeric"
                     placeholder="Grams"
                   />
-                  <Button
+                  <AppButton
                     title="Remove"
                     onPress={() => {
                       setEditableItems((current) =>
                         current.filter((entry) => entry.id !== item.id)
                       );
                     }}
+                    variant="secondary"
+                    fullWidth={false}
                   />
                   <Text style={styles.confidenceLabel}>{formatConfidence(item.confidence)}</Text>
                 </View>
               ))}
-              <Button
+              <AppButton
                 title="Add food"
                 onPress={() => {
                   setEditableItems((current) => [
@@ -576,8 +582,9 @@ export function CaptureScreen() {
                     }
                   ]);
                 }}
+                variant="secondary"
               />
-              <Button
+              <AppButton
                 title={isMapping ? "Recalculating..." : "Recalculate nutrients"}
                 onPress={handleRecalculate}
                 disabled={isMapping || !mealId}
@@ -607,7 +614,7 @@ export function CaptureScreen() {
               {Object.entries(nutrientTotals.percent_dv).length ? (
                 Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
                   <Text key={key} style={styles.parsedItem}>
-                    {key.replace(/_/g, " ")} · {Math.round(value * 100)}%
+                    {formatNutrientLabel(key)} · {Math.round(value * 100)}%
                   </Text>
                 ))
               ) : (
@@ -627,7 +634,11 @@ export function CaptureScreen() {
         <View style={styles.cameraContainer}>
           <CameraView ref={cameraRef} style={styles.camera} facing="back" />
           <View style={styles.actions}>
-            <Button title={isCapturing ? "Capturing..." : "Capture"} onPress={handleCapture} />
+            <AppButton
+              title={isCapturing ? "Capturing..." : "Capture"}
+              onPress={handleCapture}
+              disabled={isCapturing}
+            />
           </View>
         </View>
       )}
@@ -665,7 +676,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   previewContent: {
-    paddingBottom: 16
+    paddingBottom: 16,
+    gap: 12
   },
   image: {
     width: "100%",
@@ -687,9 +699,11 @@ const styles = StyleSheet.create({
     color: "#b42318"
   },
   parsedList: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    gap: 6
+    marginHorizontal: 16,
+    padding: 12,
+    gap: 6,
+    backgroundColor: "#f6f6f6",
+    borderRadius: 12
   },
   sectionTitle: {
     fontSize: 14,
@@ -702,19 +716,30 @@ const styles = StyleSheet.create({
   },
   emptyState: {
     fontSize: 13,
-    color: "#666"
+    color: "#666",
+    backgroundColor: "#ededed",
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10
   },
   confidenceLabel: {
     fontSize: 12,
     color: "#666"
   },
   editableList: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    gap: 8
+    marginHorizontal: 16,
+    padding: 12,
+    gap: 10,
+    backgroundColor: "#f6f6f6",
+    borderRadius: 12
   },
   editableRow: {
-    gap: 8
+    gap: 8,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#eee"
   },
   input: {
     borderWidth: 1,
