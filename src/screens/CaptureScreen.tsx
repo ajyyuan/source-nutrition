@@ -12,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 
 import { AppButton } from "../lib/AppButton";
+import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { supabase } from "../lib/supabase";
 
@@ -550,9 +551,7 @@ export function CaptureScreen() {
                   </View>
                 ))
               ) : (
-                <Text style={styles.emptyState}>
-                  No foods detected. Add items below to continue.
-                </Text>
+                <EmptyState message="No foods detected. Add items below to continue." />
               )}
             </View>
           ) : null}
@@ -642,9 +641,7 @@ export function CaptureScreen() {
                   </View>
                 ))
               ) : (
-                <Text style={styles.emptyState}>
-                  No foods mapped yet. Edit foods above and recalculate.
-                </Text>
+                <EmptyState message="No foods mapped yet. Edit foods above and recalculate." />
               )}
             </View>
           ) : null}
@@ -658,7 +655,7 @@ export function CaptureScreen() {
                   </Text>
                 ))
               ) : (
-                <Text style={styles.emptyState}>No nutrient totals yet.</Text>
+                <EmptyState message="No nutrient totals yet." />
               )}
             </View>
           ) : null}
@@ -716,6 +713,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   previewContent: {
+    paddingTop: 8,
     paddingBottom: 16,
     gap: 12
   },
@@ -771,14 +769,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#333",
     flexShrink: 1
-  },
-  emptyState: {
-    fontSize: 13,
-    color: "#666",
-    backgroundColor: "#ededed",
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    borderRadius: 10
   },
   confidenceLabel: {
     fontSize: 12,

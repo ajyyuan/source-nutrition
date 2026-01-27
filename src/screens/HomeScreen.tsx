@@ -6,6 +6,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
 import { AppButton } from "../lib/AppButton";
+import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
@@ -403,9 +404,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>
-                    No meals logged today. Capture a meal to see totals.
-                  </Text>
+                  <EmptyState message="No meals logged today. Capture a meal to see totals." />
                 )}
               </View>
               <View style={styles.subsection}>
@@ -417,7 +416,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>No contributors yet.</Text>
+                  <EmptyState message="No contributors yet." />
                 )}
               </View>
               <View style={styles.subsection}>
@@ -429,7 +428,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>No shortfalls detected.</Text>
+                  <EmptyState message="No shortfalls detected." />
                 )}
               </View>
             </>
@@ -462,9 +461,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>
-                    No meals in the last 7 days. Capture a meal to start tracking.
-                  </Text>
+                  <EmptyState message="No meals in the last 7 days. Capture a meal to start tracking." />
                 )}
               </View>
               <View style={styles.subsection}>
@@ -476,7 +473,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>No contributors yet.</Text>
+                  <EmptyState message="No contributors yet." />
                 )}
               </View>
               <View style={styles.subsection}>
@@ -488,7 +485,7 @@ export function HomeScreen({ navigation }: Props) {
                     </Text>
                   ))
                 ) : (
-                  <Text style={styles.emptyState}>No shortfalls detected.</Text>
+                  <EmptyState message="No shortfalls detected." />
                 )}
               </View>
             </>
@@ -532,7 +529,12 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: "#f6f6f6",
     gap: 8,
-    marginBottom: 16
+    marginBottom: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 2
   },
   cardTitle: {
     fontSize: 16,
@@ -575,14 +577,6 @@ const styles = StyleSheet.create({
   },
   shortfallLow: {
     color: "#027a48"
-  },
-  emptyState: {
-    fontSize: 13,
-    color: "#666",
-    backgroundColor: "#ededed",
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    borderRadius: 10
   },
   errorBanner: {
     backgroundColor: "#fce8e6",
