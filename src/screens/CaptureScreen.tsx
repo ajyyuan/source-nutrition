@@ -11,13 +11,13 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { supabase } from "../lib/supabase";
-import type { RootStackParamList } from "../navigation/AppNavigator";
+import type { RootTabParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
 
@@ -68,7 +68,7 @@ type NutrientTotals = {
   percent_dv: NutrientVector;
 };
 
-type Props = NativeStackScreenProps<RootStackParamList, "Capture">;
+type Props = BottomTabScreenProps<RootTabParamList, "Capture">;
 
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   if (payload === null || payload === undefined || payload === "") {
@@ -760,8 +760,8 @@ export function CaptureScreen({ navigation, route }: Props) {
           <View style={styles.actions}>
             {entryMode === "edit" ? (
               <AppButton
-                title="Back to home"
-                onPress={() => navigation.goBack()}
+                title="Back to history"
+                onPress={() => navigation.navigate("History")}
                 variant="secondary"
               />
             ) : (

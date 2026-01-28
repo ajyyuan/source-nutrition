@@ -1,20 +1,23 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { CaptureScreen } from "../screens/CaptureScreen";
+import { HistoryScreen } from "../screens/HistoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 
-export type RootStackParamList = {
+export type RootTabParamList = {
   Home: undefined;
   Capture: { mealId?: string } | undefined;
+  History: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export function AppNavigator() {
   return (
-    <Stack.Navigator id="root-stack" initialRouteName="Home">
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Capture" component={CaptureScreen} />
-    </Stack.Navigator>
+    <Tab.Navigator id="root-tabs">
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Capture" component={CaptureScreen} />
+      <Tab.Screen name="History" component={HistoryScreen} />
+    </Tab.Navigator>
   );
 }
