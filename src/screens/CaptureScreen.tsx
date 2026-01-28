@@ -234,10 +234,13 @@ const renderBanner = (message: string, variant: "success" | "error") => (
 export function CaptureScreen() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
+  const [entryMode, setEntryMode] = useState<"camera" | "manual">("camera");
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [photoBase64, setPhotoBase64] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [libraryError, setLibraryError] = useState<string | null>(null);
+  const [manualError, setManualError] = useState<string | null>(null);
+  const [isCreatingMeal, setIsCreatingMeal] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadPath, setUploadPath] = useState<string | null>(null);
@@ -277,13 +280,40 @@ export function CaptureScreen() {
 
   const applySelectedPhoto = useCallback(
     (uri: string, base64: string | null) => {
+      setEntryMode("camera");
       setPhotoUri(uri);
       setPhotoBase64(base64);
       setLibraryError(null);
+      setManualError(null);
       resetMealState();
     },
     [resetMealState]
   );
+
+  const startManualEntry = useCallback(() => {
+    setEntryMode("manual");
+    setPhotoUri(null);
+    setPhotoBase64(null);
+    setLibraryError(null);
+    resetMealState();
+    setManualError(null);
+    setEditableItems([
+      {
+        id: `${Date.now()}-manual-${Math.random().toString(36).slice(2, 6)}`,
+        name: "",
+        grams: 0,
+        confidence: 0.2
+      }
+    ]);
+  }, [resetMealState]);
+
+  const exitManualEntry = useCallback(() => {
+    setEntryMode("camera");
+    setManualError(null);
+    resetMealState();
+    setPhotoUri(null);
+    setPhotoBase64(null);
+  }, [resetMealState]);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -328,6 +358,41 @@ export function CaptureScreen() {
       setLibraryError(message);
     }
   }, [applySelectedPhoto]);
+
+  const createManualMeal = useCallback(async () => {
+    setIsCreatingMeal(true);
+    setManualError(null);
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      const userId = auth.user?.id;
+      if (!userId) {
+        throw new Error("You must be signed in to log a meal.");
+      }
+      const placeholderPath = `manual/${userId}/${Date.now()}`;
+      const { data: insertedMeal, error } = await supabase
+        .from("meals")
+        .insert({
+          user_id: userId,
+          photo_path: placeholderPath
+        })
+        .select("id")
+        .single();
+
+      if (error) {
+        throw error;
+      }
+
+      setMealId(insertedMeal.id);
+      return insertedMeal.id;
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to create manual meal.";
+      setManualError(message);
+      return null;
+    } finally {
+      setIsCreatingMeal(false);
+    }
+  }, []);
 
   const mapFoods = useCallback(async (items: ParsedItem[], newMealId: string) => {
     setIsMapping(true);
@@ -509,18 +574,159 @@ export function CaptureScreen() {
     }
   }, [photoUri, isUploading, mapFoods, parseMealPhoto]);
 
-  const handleRecalculate = useCallback(async () => {
-    if (!mealId) {
-      setMappingError("Meal not created yet.");
-      return;
-    }
+  const handleRecalculate = useCallback(async (options?: { allowCreate?: boolean }) => {
     if (!editableItems.length) {
       setMappingError("Add at least one food to recalculate.");
       return;
     }
+    let activeMealId = mealId;
+    if (!activeMealId && options?.allowCreate) {
+      activeMealId = await createManualMeal();
+    }
+    if (!activeMealId) {
+      setMappingError("Meal not created yet.");
+      return;
+    }
     setMappingError(null);
-    await mapFoods(toParsedItems(editableItems), mealId);
-  }, [editableItems, mealId, mapFoods, toParsedItems]);
+    await mapFoods(toParsedItems(editableItems), activeMealId);
+  }, [createManualMeal, editableItems, mealId, mapFoods, toParsedItems]);
+
+  const renderEditableFoods = (options?: { allowCreate?: boolean }) => (
+    <View style={styles.editableList}>
+      <Text style={styles.sectionTitle}>Editable foods</Text>
+      {editableItems.map((item) => (
+        <View key={item.id} style={styles.editableRow}>
+          <TextInput
+            style={styles.input}
+            value={item.name}
+            onChangeText={(value) => {
+              setEditableItems((current) =>
+                current.map((entry) =>
+                  entry.id === item.id ? { ...entry, name: value } : entry
+                )
+              );
+            }}
+            placeholder="Food name"
+          />
+          <TextInput
+            style={styles.input}
+            value={Number.isFinite(item.grams) ? String(item.grams) : ""}
+            onChangeText={(value) => {
+              const parsed = Number.parseFloat(value);
+              setEditableItems((current) =>
+                current.map((entry) =>
+                  entry.id === item.id
+                    ? {
+                        ...entry,
+                        grams: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
+                      }
+                    : entry
+                )
+              );
+            }}
+            keyboardType="numeric"
+            placeholder="Grams"
+          />
+          <AppButton
+            title="Remove"
+            onPress={() => {
+              setEditableItems((current) =>
+                current.filter((entry) => entry.id !== item.id)
+              );
+            }}
+            variant="secondary"
+            fullWidth={false}
+          />
+          {renderConfidenceBadge(item.confidence)}
+        </View>
+      ))}
+      <AppButton
+        title="Add food"
+        onPress={() => {
+          setEditableItems((current) => [
+            ...current,
+            {
+              id: `${Date.now()}-new-${Math.random().toString(36).slice(2, 6)}`,
+              name: "",
+              grams: 0,
+              confidence: 0.2
+            }
+          ]);
+        }}
+        variant="secondary"
+      />
+      <AppButton
+        title={
+          isCreatingMeal
+            ? "Starting meal..."
+            : isMapping
+              ? "Recalculating..."
+              : "Recalculate nutrients"
+        }
+        onPress={() => handleRecalculate(options)}
+        disabled={isMapping || isCreatingMeal}
+      />
+    </View>
+  );
+
+  if (entryMode === "manual") {
+    return (
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
+          <View style={styles.manualHeader}>
+            <Text style={styles.title}>Manual meal</Text>
+            <Text style={styles.subtitle}>
+              Enter foods and grams, then calculate nutrients.
+            </Text>
+          </View>
+          <View style={styles.actions}>
+            <AppButton title="Use camera instead" onPress={exitManualEntry} variant="secondary" />
+          </View>
+          {manualError ? renderBanner(manualError, "error") : null}
+          {renderEditableFoods({ allowCreate: true })}
+          {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
+          {mappedItems ? (
+            <View style={styles.parsedList}>
+              <Text style={styles.sectionTitle}>Canonical mapping</Text>
+              {mappedItems.length ? (
+                mappedItems.map((item, index) => (
+                  <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
+                    <Text style={styles.parsedItemText}>
+                      {item.name} → {item.canonical_name}
+                    </Text>
+                    {renderConfidenceBadge(item.confidence)}
+                  </View>
+                ))
+              ) : (
+                <EmptyState message="No foods mapped yet. Edit foods above and recalculate." />
+              )}
+            </View>
+          ) : null}
+          {nutrientTotals ? (
+            <View style={styles.parsedList}>
+              <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
+              {Object.entries(nutrientTotals.percent_dv).length ? (
+                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
+                  <Text key={key} style={styles.parsedItemText}>
+                    {formatNutrientLabel(key)} · {Math.round(value * 100)}%
+                  </Text>
+                ))
+              ) : (
+                <EmptyState message="No nutrient totals yet." />
+              )}
+            </View>
+          ) : null}
+          {mappingError ? renderBanner(mappingError, "error") : null}
+          <Text style={styles.hint}>
+            Update foods above and tap “Recalculate nutrients” to refresh totals.
+          </Text>
+          <Text style={styles.disclaimer}>
+            Estimates only. Source provides informational nutrition data and is not medical advice.
+          </Text>
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
 
   if (!permission) {
     return (
@@ -541,6 +747,11 @@ export function CaptureScreen() {
         <AppButton
           title="Import from library"
           onPress={handleSelectFromLibrary}
+          variant="secondary"
+        />
+        <AppButton
+          title="Enter manually"
+          onPress={startManualEntry}
           variant="secondary"
         />
         {libraryError ? renderBanner(libraryError, "error") : null}
@@ -601,77 +812,7 @@ export function CaptureScreen() {
             </View>
           ) : null}
           {parseError ? renderBanner(parseError, "error") : null}
-          {editableItems.length ? (
-            <View style={styles.editableList}>
-              <Text style={styles.sectionTitle}>Editable foods</Text>
-              {editableItems.map((item, index) => (
-                <View key={item.id} style={styles.editableRow}>
-                  <TextInput
-                    style={styles.input}
-                    value={item.name}
-                    onChangeText={(value) => {
-                      setEditableItems((current) =>
-                        current.map((entry) =>
-                          entry.id === item.id ? { ...entry, name: value } : entry
-                        )
-                      );
-                    }}
-                    placeholder="Food name"
-                  />
-                  <TextInput
-                    style={styles.input}
-                    value={Number.isFinite(item.grams) ? String(item.grams) : ""}
-                    onChangeText={(value) => {
-                      const parsed = Number.parseFloat(value);
-                      setEditableItems((current) =>
-                        current.map((entry) =>
-                          entry.id === item.id
-                            ? {
-                                ...entry,
-                                grams: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
-                              }
-                            : entry
-                        )
-                      );
-                    }}
-                    keyboardType="numeric"
-                    placeholder="Grams"
-                  />
-                  <AppButton
-                    title="Remove"
-                    onPress={() => {
-                      setEditableItems((current) =>
-                        current.filter((entry) => entry.id !== item.id)
-                      );
-                    }}
-                    variant="secondary"
-                    fullWidth={false}
-                  />
-                  {renderConfidenceBadge(item.confidence)}
-                </View>
-              ))}
-              <AppButton
-                title="Add food"
-                onPress={() => {
-                  setEditableItems((current) => [
-                    ...current,
-                    {
-                      id: `${Date.now()}-new-${Math.random().toString(36).slice(2, 6)}`,
-                      name: "",
-                      grams: 0,
-                      confidence: 0.2
-                    }
-                  ]);
-                }}
-                variant="secondary"
-              />
-              <AppButton
-                title={isMapping ? "Recalculating..." : "Recalculate nutrients"}
-                onPress={handleRecalculate}
-                disabled={isMapping || !mealId}
-              />
-            </View>
-          ) : null}
+          {editableItems.length ? renderEditableFoods() : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
             <View style={styles.parsedList}>
@@ -726,6 +867,11 @@ export function CaptureScreen() {
               onPress={handleSelectFromLibrary}
               variant="secondary"
             />
+            <AppButton
+              title="Enter manually"
+              onPress={startManualEntry}
+              variant="secondary"
+            />
           </View>
           {libraryError ? renderBanner(libraryError, "error") : null}
         </View>
@@ -767,6 +913,10 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 16,
     gap: 12
+  },
+  manualHeader: {
+    marginHorizontal: 16,
+    gap: 4
   },
   image: {
     width: "100%",
