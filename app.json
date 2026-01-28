@@ -4,13 +4,24 @@
     "slug": "source",
     "scheme": "source",
     "version": "0.1.0",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "We need access to your photo library to import meal photos.",
+          "cameraPermission": "We need camera access to capture meal photos."
+        }
+      ]
+    ],
     "platforms": [
       "ios"
     ],
     "ios": {
       "supportsTablet": false,
       "infoPlist": {
-        "NSCameraUsageDescription": "We need camera access to capture meal photos."
+        "NSCameraUsageDescription": "We need camera access to capture meal photos.",
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library to import meal photos.",
+        "NSPhotoLibraryAddUsageDescription": "We save meal photos to your library when you choose to export them."
       },
       "buildNumber": "1",
       "bundleIdentifier": "com.andrewyuan.source"

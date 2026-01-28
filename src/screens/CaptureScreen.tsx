@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
+import * as ImagePicker from "expo-image-picker";
 
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
@@ -236,6 +237,7 @@ export function CaptureScreen() {
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [photoBase64, setPhotoBase64] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [libraryError, setLibraryError] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadPath, setUploadPath] = useState<string | null>(null);
@@ -260,6 +262,29 @@ export function CaptureScreen() {
     []
   );
 
+  const resetMealState = useCallback(() => {
+    setUploadError(null);
+    setUploadPath(null);
+    setMealId(null);
+    setMealError(null);
+    setParsedItems(null);
+    setParseError(null);
+    setEditableItems([]);
+    setMappedItems(null);
+    setMappingError(null);
+    setNutrientTotals(null);
+  }, []);
+
+  const applySelectedPhoto = useCallback(
+    (uri: string, base64: string | null) => {
+      setPhotoUri(uri);
+      setPhotoBase64(base64);
+      setLibraryError(null);
+      resetMealState();
+    },
+    [resetMealState]
+  );
+
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
       return;
@@ -272,23 +297,37 @@ export function CaptureScreen() {
         base64: true
       });
       if (result?.uri) {
-        setPhotoUri(result.uri);
-        setPhotoBase64(result.base64 ?? null);
-        setUploadError(null);
-        setUploadPath(null);
-        setMealId(null);
-        setMealError(null);
-        setParsedItems(null);
-        setParseError(null);
-        setEditableItems([]);
-        setMappedItems(null);
-        setMappingError(null);
-        setNutrientTotals(null);
+        applySelectedPhoto(result.uri, result.base64 ?? null);
       }
     } finally {
       setIsCapturing(false);
     }
   };
+
+  const handleSelectFromLibrary = useCallback(async () => {
+    try {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== ImagePicker.PermissionStatus.GRANTED) {
+        setLibraryError("Library access is required to import a photo.");
+        return;
+      }
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        base64: true,
+        quality: 0.7
+      });
+      if (!result.canceled && result.assets?.length) {
+        const asset = result.assets[0];
+        if (asset?.uri) {
+          applySelectedPhoto(asset.uri, asset.base64 ?? null);
+        }
+      }
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to import a photo.";
+      setLibraryError(message);
+    }
+  }, [applySelectedPhoto]);
 
   const mapFoods = useCallback(async (items: ParsedItem[], newMealId: string) => {
     setIsMapping(true);
@@ -499,6 +538,12 @@ export function CaptureScreen() {
           Enable camera permission to capture meal photos.
         </Text>
         <AppButton title="Allow camera access" onPress={requestPermission} />
+        <AppButton
+          title="Import from library"
+          onPress={handleSelectFromLibrary}
+          variant="secondary"
+        />
+        {libraryError ? renderBanner(libraryError, "error") : null}
       </SafeAreaView>
     );
   }
@@ -676,7 +721,13 @@ export function CaptureScreen() {
               onPress={handleCapture}
               disabled={isCapturing}
             />
+            <AppButton
+              title="Import photo"
+              onPress={handleSelectFromLibrary}
+              variant="secondary"
+            />
           </View>
+          {libraryError ? renderBanner(libraryError, "error") : null}
         </View>
       )}
     </SafeAreaView>
