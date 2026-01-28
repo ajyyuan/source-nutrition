@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Image,
@@ -11,11 +11,13 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { supabase } from "../lib/supabase";
+import type { RootStackParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
 
@@ -65,6 +67,8 @@ type NutrientTotals = {
   totals: NutrientVector;
   percent_dv: NutrientVector;
 };
+
+type Props = NativeStackScreenProps<RootStackParamList, "Capture">;
 
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   if (payload === null || payload === undefined || payload === "") {
@@ -231,16 +235,17 @@ const renderBanner = (message: string, variant: "success" | "error") => (
   </View>
 );
 
-export function CaptureScreen() {
+export function CaptureScreen({ navigation, route }: Props) {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
-  const [entryMode, setEntryMode] = useState<"camera" | "manual">("camera");
+  const [entryMode, setEntryMode] = useState<"camera" | "manual" | "edit">("camera");
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [photoBase64, setPhotoBase64] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [libraryError, setLibraryError] = useState<string | null>(null);
   const [manualError, setManualError] = useState<string | null>(null);
   const [isCreatingMeal, setIsCreatingMeal] = useState(false);
+  const [isLoadingMeal, setIsLoadingMeal] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadPath, setUploadPath] = useState<string | null>(null);
@@ -393,6 +398,75 @@ export function CaptureScreen() {
       setIsCreatingMeal(false);
     }
   }, []);
+
+  const loadMealForEdit = useCallback(
+    async (targetMealId: string) => {
+      setIsLoadingMeal(true);
+      setManualError(null);
+      setMappingError(null);
+      try {
+        const { data: auth } = await supabase.auth.getUser();
+        if (!auth.user) {
+          throw new Error("You must be signed in to edit meals.");
+        }
+        const { data, error } = await supabase
+          .from("meals")
+          .select("id, final_items, parsed_items, nutrient_totals")
+          .eq("id", targetMealId)
+          .single();
+
+        if (error) {
+          throw error;
+        }
+
+        const finalItems = Array.isArray(data?.final_items) ? data.final_items : [];
+        const parsedItems = Array.isArray(data?.parsed_items) ? data.parsed_items : [];
+        const fallbackItems = finalItems.length ? finalItems : parsedItems;
+        setEditableItems(
+          fallbackItems.map((item) => ({
+            id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
+            name: typeof item?.name === "string" ? item.name : "",
+            grams:
+              typeof item?.grams === "number"
+                ? Math.max(item.grams, 0)
+                : typeof item?.estimated_grams === "number"
+                  ? Math.max(item.estimated_grams, 0)
+                  : 0,
+            confidence:
+              typeof item?.confidence === "number" && item.confidence >= 0 && item.confidence <= 1
+                ? item.confidence
+                : 0.2
+          }))
+        );
+        setMappedItems(finalItems.length ? finalItems : null);
+        setNutrientTotals(
+          data?.nutrient_totals && typeof data.nutrient_totals === "object"
+            ? (data.nutrient_totals as NutrientTotals)
+            : null
+        );
+        setMealId(targetMealId);
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : "Unable to load meal.";
+        setManualError(message);
+      } finally {
+        setIsLoadingMeal(false);
+      }
+    },
+    []
+  );
+
+  useEffect(() => {
+    const targetMealId = route.params?.mealId;
+    if (targetMealId) {
+      setEntryMode("edit");
+      setPhotoUri(null);
+      setPhotoBase64(null);
+      setLibraryError(null);
+      resetMealState();
+      loadMealForEdit(targetMealId);
+    }
+  }, [loadMealForEdit, resetMealState, route.params?.mealId]);
 
   const mapFoods = useCallback(async (items: ParsedItem[], newMealId: string) => {
     setIsMapping(true);
@@ -669,21 +743,38 @@ export function CaptureScreen() {
     </View>
   );
 
-  if (entryMode === "manual") {
+  if (entryMode === "manual" || entryMode === "edit") {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
           <View style={styles.manualHeader}>
-            <Text style={styles.title}>Manual meal</Text>
+            <Text style={styles.title}>
+              {entryMode === "edit" ? "Edit meal" : "Manual meal"}
+            </Text>
             <Text style={styles.subtitle}>
-              Enter foods and grams, then calculate nutrients.
+              {entryMode === "edit"
+                ? "Update foods and grams, then recalculate nutrients."
+                : "Enter foods and grams, then calculate nutrients."}
             </Text>
           </View>
           <View style={styles.actions}>
-            <AppButton title="Use camera instead" onPress={exitManualEntry} variant="secondary" />
+            {entryMode === "edit" ? (
+              <AppButton
+                title="Back to home"
+                onPress={() => navigation.goBack()}
+                variant="secondary"
+              />
+            ) : (
+              <AppButton
+                title="Use camera instead"
+                onPress={exitManualEntry}
+                variant="secondary"
+              />
+            )}
           </View>
           {manualError ? renderBanner(manualError, "error") : null}
-          {renderEditableFoods({ allowCreate: true })}
+          {isLoadingMeal ? <ActivityIndicator style={styles.spinner} /> : null}
+          {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
             <View style={styles.parsedList}>

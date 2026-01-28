@@ -1,5 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
@@ -50,6 +56,14 @@ type Contributor = {
 
 type MealInsights = {
   top_contributors?: Contributor[];
+};
+
+type MealHistoryItem = {
+  id: string;
+  created_at: string;
+  nutrient_totals?: NutrientTotals | null;
+  final_items?: { name?: string }[] | null;
+  parsed_items?: { name?: string }[] | null;
 };
 
 const NUTRIENT_KEYS = [
@@ -134,6 +148,8 @@ const getShortfallStyle = (value: number) => {
 export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
+  const [historyError, setHistoryError] = useState<string | null>(null);
   const [mealCount, setMealCount] = useState(0);
   const [todayConfidence, setTodayConfidence] = useState<number | null>(null);
   const [todayTotals, setTodayTotals] = useState<NutrientTotals>({
@@ -148,6 +164,24 @@ export function HomeScreen({ navigation }: Props) {
   const [weekConfidence, setWeekConfidence] = useState<number | null>(null);
   const [todayContributors, setTodayContributors] = useState<Contributor[]>([]);
   const [weekContributors, setWeekContributors] = useState<Contributor[]>([]);
+  const [selectedDate, setSelectedDate] = useState<Date>(() => {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    return now;
+  });
+  const [viewMonth, setViewMonth] = useState<Date>(() => {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    now.setDate(1);
+    return now;
+  });
+  const [dateMeals, setDateMeals] = useState<MealHistoryItem[]>([]);
+  const [dateTotals, setDateTotals] = useState<NutrientTotals>({
+    totals: makeEmptyVector(),
+    percent_dv: makeEmptyVector()
+  });
+  const [dateConfidence, setDateConfidence] = useState<number | null>(null);
+  const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -187,6 +221,123 @@ export function HomeScreen({ navigation }: Props) {
     setWeekDaysWithMeals(0);
     setWeekConfidence(null);
     setWeekContributors([]);
+  }, []);
+
+  const getDayRange = (date: Date) => {
+    const start = new Date(date);
+    start.setHours(0, 0, 0, 0);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 1);
+    return { start: start.toISOString(), end: end.toISOString() };
+  };
+  const getMonthRange = (month: Date) => {
+    const start = new Date(month.getFullYear(), month.getMonth(), 1);
+    const end = new Date(month.getFullYear(), month.getMonth() + 1, 1);
+    return { start: start.toISOString(), end: end.toISOString() };
+  };
+
+  const computeTotalsFromMeals = (meals: MealHistoryItem[]) => {
+    const totals = makeEmptyVector();
+    const percentDv = makeEmptyVector();
+    let confidenceSum = 0;
+    let confidenceCount = 0;
+    meals.forEach((meal) => {
+      const entry = meal?.nutrient_totals;
+      if (!entry?.totals || !entry?.percent_dv) {
+        return;
+      }
+      const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
+      confidenceSum += confidence.sum;
+      confidenceCount += confidence.count;
+      NUTRIENT_KEYS.forEach((key) => {
+        totals[key] += Number(entry.totals[key] ?? 0);
+        percentDv[key] += Number(entry.percent_dv[key] ?? 0);
+      });
+    });
+    return {
+      totals,
+      percent_dv: percentDv,
+      confidencePercent: confidenceCount
+        ? Math.round((confidenceSum / confidenceCount) * 100)
+        : null
+    };
+  };
+
+  const fetchMealsForDate = useCallback(async (date: Date) => {
+    setIsLoadingHistory(true);
+    setHistoryError(null);
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      if (!auth.user) {
+        throw new Error("Sign in to view meal history.");
+      }
+      const range = getDayRange(date);
+      const { data: historyData, error: historyError } = await supabase
+        .from("meals")
+        .select("id, created_at, nutrient_totals, final_items, parsed_items")
+        .gte("created_at", range.start)
+        .lt("created_at", range.end)
+        .order("created_at", { ascending: false });
+
+      if (historyError) {
+        throw historyError;
+      }
+      const meals = (historyData as MealHistoryItem[]) ?? [];
+      setDateMeals(meals);
+      const computed = computeTotalsFromMeals(meals);
+      setDateTotals({
+        totals: computed.totals,
+        percent_dv: computed.percent_dv
+      });
+      setDateConfidence(computed.confidencePercent);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to load meal history.";
+      setHistoryError(message);
+      setDateMeals([]);
+      setDateTotals({
+        totals: makeEmptyVector(),
+        percent_dv: makeEmptyVector()
+      });
+      setDateConfidence(null);
+    } finally {
+      setIsLoadingHistory(false);
+    }
+  }, []);
+
+  const fetchMealsForMonth = useCallback(async (month: Date) => {
+    setIsLoadingHistory(true);
+    setHistoryError(null);
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      if (!auth.user) {
+        throw new Error("Sign in to view meal history.");
+      }
+      const range = getMonthRange(month);
+      const { data, error } = await supabase
+        .from("meals")
+        .select("created_at")
+        .gte("created_at", range.start)
+        .lt("created_at", range.end);
+
+      if (error) {
+        throw error;
+      }
+      const dayKeys = new Set<string>();
+      (data ?? []).forEach((meal) => {
+        if (meal?.created_at) {
+          dayKeys.add(new Date(meal.created_at).toISOString().slice(0, 10));
+        }
+      });
+      setMonthMealDays(Array.from(dayKeys));
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to load meal history.";
+      setHistoryError(message);
+      setMonthMealDays([]);
+    } finally {
+      setIsLoadingHistory(false);
+    }
   }, []);
 
   const loadToday = useCallback(async () => {
@@ -359,6 +510,7 @@ export function HomeScreen({ navigation }: Props) {
         totals: averagedTotals,
         percent_dv: averagedPercent
       });
+
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unable to load today’s totals.";
@@ -372,8 +524,84 @@ export function HomeScreen({ navigation }: Props) {
     loadToday();
   }, [loadToday]);
 
+  useEffect(() => {
+    fetchMealsForDate(selectedDate);
+    if (
+      selectedDate.getFullYear() !== viewMonth.getFullYear() ||
+      selectedDate.getMonth() !== viewMonth.getMonth()
+    ) {
+      const nextMonth = new Date(selectedDate);
+      nextMonth.setDate(1);
+      setViewMonth(nextMonth);
+    }
+  }, [fetchMealsForDate, selectedDate]);
+
+  useEffect(() => {
+    fetchMealsForMonth(viewMonth);
+  }, [fetchMealsForMonth, viewMonth]);
+
   const todayShortfalls = computeShortfalls(todayTotals.percent_dv);
   const weekShortfalls = computeShortfalls(weekTotals.percent_dv);
+  const formatMealTimestamp = (value: string) => {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return value;
+    }
+    return date.toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    });
+  };
+  const formatMealSummary = (meal: MealHistoryItem) => {
+    const sourceItems = Array.isArray(meal.final_items) && meal.final_items.length
+      ? meal.final_items
+      : Array.isArray(meal.parsed_items)
+        ? meal.parsed_items
+        : [];
+    const names = sourceItems
+      .map((item) => (typeof item?.name === "string" ? item.name : ""))
+      .filter(Boolean);
+    if (!names.length) {
+      return "No items";
+    }
+    const preview = names.slice(0, 2).join(", ");
+    if (names.length <= 2) {
+      return preview;
+    }
+    return `${preview} +${names.length - 2} more`;
+  };
+  const formatMonthTitle = (month: Date) =>
+    month.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+  const changeMonth = (offset: number) => {
+    const next = new Date(viewMonth);
+    next.setMonth(next.getMonth() + offset);
+    next.setDate(1);
+    setViewMonth(next);
+  };
+  const buildCalendarDays = (month: Date) => {
+    const first = new Date(month.getFullYear(), month.getMonth(), 1);
+    const last = new Date(month.getFullYear(), month.getMonth() + 1, 0);
+    const leadingBlanks = first.getDay();
+    const daysInMonth = last.getDate();
+    const cells: Array<{ key: string; date: Date | null }> = [];
+    for (let i = 0; i < leadingBlanks; i += 1) {
+      cells.push({ key: `blank-${i}`, date: null });
+    }
+    for (let day = 1; day <= daysInMonth; day += 1) {
+      const date = new Date(month.getFullYear(), month.getMonth(), day);
+      cells.push({ key: date.toISOString(), date });
+    }
+    const remainder = cells.length % 7;
+    if (remainder) {
+      const blanks = 7 - remainder;
+      for (let i = 0; i < blanks; i += 1) {
+        cells.push({ key: `blank-trail-${i}`, date: null });
+      }
+    }
+    return cells;
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -491,6 +719,110 @@ export function HomeScreen({ navigation }: Props) {
             </>
           ) : null}
         </View>
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>History</Text>
+          <Text style={styles.cardSubtitle}>Select a day to view meals and totals.</Text>
+          <View style={styles.monthHeader}>
+            <AppButton
+              title="Prev"
+              onPress={() => changeMonth(-1)}
+              variant="secondary"
+              fullWidth={false}
+            />
+            <Text style={styles.monthTitle}>{formatMonthTitle(viewMonth)}</Text>
+            <AppButton
+              title="Next"
+              onPress={() => changeMonth(1)}
+              variant="secondary"
+              fullWidth={false}
+            />
+          </View>
+          <View style={styles.weekHeader}>
+            {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
+              <Text key={`${label}-${index}`} style={styles.weekLabel}>
+                {label}
+              </Text>
+            ))}
+          </View>
+          <View style={styles.calendarGrid}>
+            {buildCalendarDays(viewMonth).map((cell) => {
+              if (!cell.date) {
+                return <View key={cell.key} style={styles.calendarCell} />;
+              }
+              const dayKey = cell.date.toISOString().slice(0, 10);
+              const isSelected = dayKey === selectedDate.toISOString().slice(0, 10);
+              const hasMeals = monthMealDays.includes(dayKey);
+              return (
+                <View key={cell.key} style={styles.calendarCell}>
+                  <AppButton
+                    title={String(cell.date.getDate())}
+                    onPress={() => setSelectedDate(cell.date)}
+                    variant={isSelected ? "primary" : "secondary"}
+                    fullWidth={false}
+                  />
+                  {hasMeals ? <View style={styles.mealDot} /> : null}
+                </View>
+              );
+            })}
+          </View>
+          <View style={styles.dateActions}>
+            <AppButton
+              title="Today"
+              onPress={() => {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                setSelectedDate(today);
+              }}
+              variant="secondary"
+              fullWidth={false}
+            />
+          </View>
+          {historyError ? (
+            <View style={styles.errorBanner}>
+              <Text style={styles.errorText}>{historyError}</Text>
+            </View>
+          ) : null}
+          {dateConfidence !== null ? (
+            <Text style={styles.cardSubtitle}>Avg confidence: {dateConfidence}%</Text>
+          ) : null}
+          {isLoadingHistory ? <ActivityIndicator style={styles.spinner} /> : null}
+          {!isLoadingHistory && !historyError ? (
+            <>
+              <View style={styles.list}>
+                {dateMeals.length ? (
+                  dateMeals.map((meal) => (
+                    <View key={meal.id} style={styles.historyRow}>
+                      <View style={styles.historyDetails}>
+                        <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
+                        <Text style={styles.cardSubtitle}>{formatMealSummary(meal)}</Text>
+                      </View>
+                      <AppButton
+                        title="Edit"
+                        onPress={() => navigation.navigate("Capture", { mealId: meal.id })}
+                        variant="secondary"
+                        fullWidth={false}
+                      />
+                    </View>
+                  ))
+                ) : (
+                  <EmptyState message="No meals logged for this date." />
+                )}
+              </View>
+              <View style={styles.subsection}>
+                <Text style={styles.subsectionTitle}>Daily totals (%DV)</Text>
+                {dateMeals.length ? (
+                  NUTRIENT_KEYS.map((key) => (
+                    <Text key={key} style={styles.item}>
+                      {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
+                    </Text>
+                  ))
+                ) : (
+                  <EmptyState message="No totals available for this date." />
+                )}
+              </View>
+            </>
+          ) : null}
+        </View>
         <Text style={styles.disclaimer}>
           Estimates only. Source provides informational nutrition data and is not medical advice.
         </Text>
@@ -548,6 +880,63 @@ const styles = StyleSheet.create({
   list: {
     gap: 6,
     paddingTop: 4
+  },
+  historyRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 12,
+    paddingVertical: 6
+  },
+  historyDetails: {
+    flex: 1,
+    gap: 2
+  },
+  monthHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8
+  },
+  monthTitle: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#111"
+  },
+  weekHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 4
+  },
+  weekLabel: {
+    width: "14.2%",
+    textAlign: "center",
+    fontSize: 12,
+    color: "#666"
+  },
+  calendarGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6
+  },
+  calendarCell: {
+    width: "13.6%",
+    alignItems: "center",
+    minHeight: 44,
+    justifyContent: "center"
+  },
+  mealDot: {
+    marginTop: 4,
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: "#111"
+  },
+  dateActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8
   },
   subsection: {
     gap: 6,
