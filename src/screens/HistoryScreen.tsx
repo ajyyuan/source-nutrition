@@ -560,26 +560,27 @@ const styles = StyleSheet.create({
   },
   weekHeader: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 6,
-    marginTop: 4
+    justifyContent: "space-between",
+    marginTop: 4,
+    paddingHorizontal: 3
   },
   weekLabel: {
-    width: "13.6%",
+    flex: 1,
     textAlign: "center",
     fontSize: 12,
     color: "#666"
   },
   calendarGrid: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 6
+    flexWrap: "wrap"
   },
   calendarCell: {
-    width: "13.6%",
+    width: "14.2857%",
     alignItems: "center",
     minHeight: 48,
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingHorizontal: 3,
+    marginBottom: 6
   },
   dayButton: {
     width: "100%",
