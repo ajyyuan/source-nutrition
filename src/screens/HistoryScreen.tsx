@@ -119,6 +119,13 @@ const getDayRange = (date: Date) => {
   return { start: start.toISOString(), end: end.toISOString() };
 };
 
+const toLocalDayKey = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 const getMonthRange = (month: Date) => {
   const start = new Date(month.getFullYear(), month.getMonth(), 1);
   const end = new Date(month.getFullYear(), month.getMonth() + 1, 1);
@@ -237,7 +244,7 @@ export function HistoryScreen({ navigation }: Props) {
       const dayKeys = new Set<string>();
       (data ?? []).forEach((meal) => {
         if (meal?.created_at) {
-          dayKeys.add(new Date(meal.created_at).toISOString().slice(0, 10));
+          dayKeys.add(toLocalDayKey(new Date(meal.created_at)));
         }
       });
       setMonthMealDays(Array.from(dayKeys));
@@ -376,8 +383,8 @@ export function HistoryScreen({ navigation }: Props) {
               if (!cell.date) {
                 return <View key={cell.key} style={styles.calendarCell} />;
               }
-              const dayKey = cell.date.toISOString().slice(0, 10);
-              const isSelected = dayKey === selectedDate.toISOString().slice(0, 10);
+              const dayKey = toLocalDayKey(cell.date);
+              const isSelected = dayKey === toLocalDayKey(selectedDate);
               const isToday = isSameDay(cell.date, new Date());
               const hasMeals = monthMealDays.includes(dayKey);
               return (
@@ -553,11 +560,12 @@ const styles = StyleSheet.create({
   },
   weekHeader: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gap: 6,
     marginTop: 4
   },
   weekLabel: {
-    width: "14.2%",
+    width: "13.6%",
     textAlign: "center",
     fontSize: 12,
     color: "#666"
