@@ -311,6 +311,7 @@ export function HistoryScreen({ navigation }: Props) {
     next.setMonth(next.getMonth() + offset);
     next.setDate(1);
     setViewMonth(next);
+    setSelectedDate(next);
   };
   const isSameDay = (a: Date, b: Date) =>
     a.getFullYear() === b.getFullYear() &&
