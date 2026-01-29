@@ -588,7 +588,8 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#f3f3f3"
+    backgroundColor: "#f3f3f3",
+    position: "relative"
   },
   dayButtonPressed: {
     backgroundColor: "#ededed"
@@ -613,11 +614,12 @@ const styles = StyleSheet.create({
     color: "#111"
   },
   mealDot: {
-    marginTop: 3,
     width: 5,
     height: 5,
     borderRadius: 3,
-    backgroundColor: "#555"
+    backgroundColor: "#555",
+    position: "absolute",
+    bottom: 6
   },
   dateActions: {
     flexDirection: "row",
