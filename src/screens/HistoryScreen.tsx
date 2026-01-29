@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
@@ -304,6 +305,10 @@ export function HistoryScreen({ navigation }: Props) {
     next.setDate(1);
     setViewMonth(next);
   };
+  const isSameDay = (a: Date, b: Date) =>
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate();
   const buildCalendarDays = (month: Date) => {
     const first = new Date(month.getFullYear(), month.getMonth(), 1);
     const last = new Date(month.getFullYear(), month.getMonth() + 1, 0);
@@ -335,19 +340,29 @@ export function HistoryScreen({ navigation }: Props) {
           <Text style={styles.cardTitle}>Calendar</Text>
           <Text style={styles.cardSubtitle}>Select a day to view meals and totals.</Text>
           <View style={styles.monthHeader}>
-            <AppButton
-              title="Prev"
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Previous month"
               onPress={() => changeMonth(-1)}
-              variant="secondary"
-              fullWidth={false}
-            />
+              style={({ pressed }) => [
+                styles.iconButton,
+                pressed ? styles.iconButtonPressed : null
+              ]}
+            >
+              <Ionicons name="chevron-back" size={18} color="#111" />
+            </Pressable>
             <Text style={styles.monthTitle}>{formatMonthTitle(viewMonth)}</Text>
-            <AppButton
-              title="Next"
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Next month"
               onPress={() => changeMonth(1)}
-              variant="secondary"
-              fullWidth={false}
-            />
+              style={({ pressed }) => [
+                styles.iconButton,
+                pressed ? styles.iconButtonPressed : null
+              ]}
+            >
+              <Ionicons name="chevron-forward" size={18} color="#111" />
+            </Pressable>
           </View>
           <View style={styles.weekHeader}>
             {["S", "M", "T", "W", "T", "F", "S"].map((label, index) => (
@@ -363,16 +378,32 @@ export function HistoryScreen({ navigation }: Props) {
               }
               const dayKey = cell.date.toISOString().slice(0, 10);
               const isSelected = dayKey === selectedDate.toISOString().slice(0, 10);
+              const isToday = isSameDay(cell.date, new Date());
               const hasMeals = monthMealDays.includes(dayKey);
               return (
                 <View key={cell.key} style={styles.calendarCell}>
-                  <AppButton
-                    title={String(cell.date.getDate())}
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`Select ${cell.date.toDateString()}`}
                     onPress={() => setSelectedDate(cell.date)}
-                    variant={isSelected ? "primary" : "secondary"}
-                    fullWidth={false}
-                  />
-                  {hasMeals ? <View style={styles.mealDot} /> : null}
+                    style={({ pressed }) => [
+                      styles.dayButton,
+                      isSelected ? styles.dayButtonSelected : null,
+                      isToday && !isSelected ? styles.dayButtonToday : null,
+                      pressed && !isSelected ? styles.dayButtonPressed : null
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.dayLabel,
+                        isSelected ? styles.dayLabelSelected : null,
+                        isToday && !isSelected ? styles.dayLabelToday : null
+                      ]}
+                    >
+                      {cell.date.getDate()}
+                    </Text>
+                    {hasMeals ? <View style={styles.mealDot} /> : null}
+                  </Pressable>
                 </View>
               );
             })}
@@ -500,6 +531,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8
   },
+  iconButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#e4e4e4"
+  },
+  iconButtonPressed: {
+    backgroundColor: "#f0f0f0"
+  },
   monthTitle: {
     flex: 1,
     textAlign: "center",
@@ -526,15 +570,45 @@ const styles = StyleSheet.create({
   calendarCell: {
     width: "13.6%",
     alignItems: "center",
-    minHeight: 44,
+    minHeight: 48,
     justifyContent: "center"
   },
-  mealDot: {
-    marginTop: 4,
-    width: 6,
-    height: 6,
-    borderRadius: 3,
+  dayButton: {
+    width: "100%",
+    minHeight: 40,
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#f3f3f3"
+  },
+  dayButtonPressed: {
+    backgroundColor: "#ededed"
+  },
+  dayButtonSelected: {
     backgroundColor: "#111"
+  },
+  dayButtonToday: {
+    borderWidth: 1,
+    borderColor: "#111",
+    backgroundColor: "#fff"
+  },
+  dayLabel: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#222"
+  },
+  dayLabelSelected: {
+    color: "#fff"
+  },
+  dayLabelToday: {
+    color: "#111"
+  },
+  mealDot: {
+    marginTop: 3,
+    width: 5,
+    height: 5,
+    borderRadius: 3,
+    backgroundColor: "#555"
   },
   dateActions: {
     flexDirection: "row",
