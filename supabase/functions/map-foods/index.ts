@@ -38,7 +38,34 @@ const normalizeName = (value: string) =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
-const toTokenSet = (value: string) => new Set(normalizeName(value).split(" ").filter(Boolean));
+const STOP_WORDS = new Set([
+  "region",
+  "pass",
+  "sample",
+  "samples",
+  "composite",
+  "store",
+  "stores",
+  "fresh",
+  "raw",
+  "yes",
+  "no",
+  "n",
+  "a",
+  "na",
+  "n/a",
+  "nf",
+  "nfy"
+]);
+const cleanTokens = (value: string) =>
+  normalizeName(value)
+    .split(" ")
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .filter((token) => token.length > 1)
+    .filter((token) => !STOP_WORDS.has(token))
+    .filter((token) => !/\d/.test(token));
+const toTokenSet = (value: string) => new Set(cleanTokens(value));
 const matchAlias = (normalized: string) => {
   for (const [alias, canonicalId] of Object.entries(ALIAS_MAP)) {
     if (normalized.includes(alias)) {
@@ -47,40 +74,33 @@ const matchAlias = (normalized: string) => {
   }
   return null;
 };
-const scoreCandidate = (normalized: string, tokens: Set<string>, canonicalName: string) => {
-  const canonicalNormalized = normalizeName(canonicalName);
+const scoreCandidate = (tokens: Set<string>, canonicalName: string) => {
   const canonicalTokens = toTokenSet(canonicalName);
-  if (!canonicalNormalized || !canonicalTokens.size) {
+  if (!canonicalTokens.size || !tokens.size) {
     return 0;
   }
-  let score = 0;
-  if (normalized.includes(canonicalNormalized)) {
-    score += 0.6;
-  }
-  const overlap = Array.from(canonicalTokens).filter((token) => tokens.has(token)).length;
-  score += 0.4 * (overlap / canonicalTokens.size);
-  return score;
+  const overlap = Array.from(tokens).filter((token) => canonicalTokens.has(token)).length;
+  return overlap / tokens.size;
 };
 const pickCanonicalId = (
   name: string,
   canonicalFoods: typeof FALLBACK_CANONICAL_FOODS
 ) => {
-  const normalized = normalizeName(name);
   const tokens = toTokenSet(name);
-  const aliasMatch = matchAlias(normalized);
+  const aliasMatch = matchAlias(normalizeName(name));
   if (aliasMatch) {
     return aliasMatch;
   }
   let bestId = "food-unknown";
   let bestScore = 0;
   canonicalFoods.forEach((candidate) => {
-    const score = scoreCandidate(normalized, tokens, candidate.canonical_name);
+    const score = scoreCandidate(tokens, candidate.canonical_name);
     if (score > bestScore) {
       bestScore = score;
       bestId = candidate.canonical_id;
     }
   });
-  return bestScore >= 0.35 ? bestId : "food-unknown";
+  return bestScore >= 0.5 ? bestId : "food-unknown";
 };
 
 const mergeCanonicalFoods = (rows: Array<Record<string, unknown>>) => {
