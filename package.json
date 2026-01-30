@@ -16,6 +16,7 @@
     "@react-navigation/native": "latest",
     "@react-navigation/native-stack": "latest",
     "@supabase/supabase-js": "^2.49.1",
+    "csv-parse": "^6.1.0",
     "expo": "~54.0.32",
     "expo-auth-session": "^7.0.10",
     "expo-camera": "~17.0.10",

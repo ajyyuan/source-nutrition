@@ -45,6 +45,13 @@ Optional:
    - Fallback to in-code `CANONICAL_NUTRIENTS` for safety.
 4. Bump `NUTRIENT_DB_VERSION` to reflect DB migration.
 
+### Local ingestion script (in progress)
+`scripts/ingest-usda-foundation.js` expects a data folder with:
+`food.csv`, `nutrient.csv`, `food_nutrient.csv`
+
+Example:
+`node scripts/ingest-usda-foundation.js ./usda --out=canonical_foods.json --dry-run`
+
 ### Open questions
 - Do we want branded foods now or later?
 - Should aliases include pluralization and cooking variations?
