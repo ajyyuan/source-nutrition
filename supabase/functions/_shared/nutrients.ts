@@ -30,7 +30,7 @@ export type CanonicalFoodNutrients = {
   source: "stub" | "usda";
 };
 
-export const NUTRIENT_DB_VERSION = "v0.2-usda-100g";
+export const NUTRIENT_DB_VERSION = "v0.3-canonical-db";
 
 export const DAILY_VALUES: DailyValue = {
   vitamin_a_ug: 900,
@@ -300,9 +300,15 @@ const computePercentDv = (totals: NutrientVector): NutrientVector => ({
   omega3_g: DAILY_VALUES.omega3_g ? totals.omega3_g / DAILY_VALUES.omega3_g : 0
 });
 
-export const computeItemTotals = (item: MealItemInput): MealNutrientTotals => {
+export const computeItemTotals = (
+  item: MealItemInput,
+  canonicalById: Record<string, CanonicalFoodNutrients> = CANONICAL_NUTRIENTS
+): MealNutrientTotals => {
   const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
-  const entry = getNutrientsForCanonicalId(item.canonical_id) ?? CANONICAL_NUTRIENTS["food-unknown"];
+  const entry =
+    canonicalById[item.canonical_id] ??
+    getNutrientsForCanonicalId(item.canonical_id) ??
+    CANONICAL_NUTRIENTS["food-unknown"];
   const totals = scaleVector(entry.per_100g, grams);
   return {
     totals,
@@ -316,10 +322,16 @@ export const sumPercentDv = (percent: NutrientVector): number =>
     0
   );
 
-export const computeMealTotals = (items: MealItemInput[]): MealNutrientTotals => {
+export const computeMealTotals = (
+  items: MealItemInput[],
+  canonicalById: Record<string, CanonicalFoodNutrients> = CANONICAL_NUTRIENTS
+): MealNutrientTotals => {
   const totals = items.reduce((acc, item) => {
     const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
-    const entry = getNutrientsForCanonicalId(item.canonical_id) ?? CANONICAL_NUTRIENTS["food-unknown"];
+    const entry =
+      canonicalById[item.canonical_id] ??
+      getNutrientsForCanonicalId(item.canonical_id) ??
+      CANONICAL_NUTRIENTS["food-unknown"];
     return addVectors(acc, scaleVector(entry.per_100g, grams));
   }, makeZeroVector());
 

@@ -17,10 +17,10 @@ const corsHeaders = {
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 
-const CANONICAL_FOODS = listCanonicalFoods().filter(
+const FALLBACK_CANONICAL_FOODS = listCanonicalFoods().filter(
   (item) => item.canonical_id !== "food-unknown"
 );
-const CANONICAL_BY_ID = Object.fromEntries(
+const FALLBACK_CANONICAL_BY_ID = Object.fromEntries(
   listCanonicalFoods().map((item) => [item.canonical_id, item])
 );
 const ALIAS_MAP = {
@@ -61,7 +61,10 @@ const scoreCandidate = (normalized: string, tokens: Set<string>, canonicalName: 
   score += 0.4 * (overlap / canonicalTokens.size);
   return score;
 };
-const pickCanonicalId = (name: string) => {
+const pickCanonicalId = (
+  name: string,
+  canonicalFoods: typeof FALLBACK_CANONICAL_FOODS
+) => {
   const normalized = normalizeName(name);
   const tokens = toTokenSet(name);
   const aliasMatch = matchAlias(normalized);
@@ -70,7 +73,7 @@ const pickCanonicalId = (name: string) => {
   }
   let bestId = "food-unknown";
   let bestScore = 0;
-  CANONICAL_FOODS.forEach((candidate) => {
+  canonicalFoods.forEach((candidate) => {
     const score = scoreCandidate(normalized, tokens, candidate.canonical_name);
     if (score > bestScore) {
       bestScore = score;
@@ -78,6 +81,54 @@ const pickCanonicalId = (name: string) => {
     }
   });
   return bestScore >= 0.35 ? bestId : "food-unknown";
+};
+
+const mergeCanonicalFoods = (rows: Array<Record<string, unknown>>) => {
+  const byId = { ...FALLBACK_CANONICAL_BY_ID };
+  rows.forEach((row) => {
+    const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id : "";
+    if (!canonicalId) {
+      return;
+    }
+    const fallback = byId[canonicalId];
+    const per_100g =
+      row?.per_100g && typeof row.per_100g === "object"
+        ? { ...(fallback?.per_100g ?? {}), ...row.per_100g }
+        : fallback?.per_100g ?? FALLBACK_CANONICAL_BY_ID["food-unknown"].per_100g;
+    byId[canonicalId] = {
+      canonical_id: canonicalId,
+      canonical_name:
+        typeof row?.canonical_name === "string"
+          ? row.canonical_name
+          : fallback?.canonical_name ?? canonicalId,
+      per_100g,
+      source: row?.source === "usda" ? "usda" : fallback?.source ?? "stub"
+    };
+  });
+  return {
+    byId,
+    foods: Object.values(byId).filter((item) => item.canonical_id !== "food-unknown")
+  };
+};
+
+const loadCanonicalFoods = async (supabase) => {
+  try {
+    const { data, error } = await supabase
+      .from("canonical_foods")
+      .select("canonical_id, canonical_name, per_100g, source");
+    if (error || !data?.length) {
+      return {
+        foods: FALLBACK_CANONICAL_FOODS,
+        byId: FALLBACK_CANONICAL_BY_ID
+      };
+    }
+    return mergeCanonicalFoods(data);
+  } catch (_error) {
+    return {
+      foods: FALLBACK_CANONICAL_FOODS,
+      byId: FALLBACK_CANONICAL_BY_ID
+    };
+  }
 };
 
 const createSupabaseClient = (req: Request) => {
@@ -113,6 +164,9 @@ serve(async (req) => {
     }
     const safeItems = Array.isArray(items) ? items : [];
 
+    const supabase = createSupabaseClient(req);
+    const { foods: canonicalFoods, byId: canonicalById } = await loadCanonicalFoods(supabase);
+
     const mapped = safeItems.map((item) => {
       const name = typeof item?.name === "string" ? item.name.trim() : "unknown";
       const normalized = name.toLowerCase();
@@ -125,8 +179,8 @@ serve(async (req) => {
           ? item.confidence
           : 0.2;
 
-      const canonicalId = pickCanonicalId(name || "unknown");
-      const canonicalEntry = CANONICAL_BY_ID[canonicalId];
+      const canonicalId = pickCanonicalId(name || "unknown", canonicalFoods);
+      const canonicalEntry = canonicalById[canonicalId];
 
       return {
         name,
@@ -141,15 +195,19 @@ serve(async (req) => {
       mapped.map((item) => ({
         canonical_id: item.canonical_id,
         grams: item.grams
-      }))
+      })),
+      canonicalById
     );
 
     const top_contributors = mapped
       .map((item) => {
-        const totals = computeItemTotals({
-          canonical_id: item.canonical_id,
-          grams: item.grams
-        });
+        const totals = computeItemTotals(
+          {
+            canonical_id: item.canonical_id,
+            grams: item.grams
+          },
+          canonicalById
+        );
         const score = sumPercentDv(totals.percent_dv);
         return {
           canonical_id: item.canonical_id,
@@ -165,7 +223,6 @@ serve(async (req) => {
       top_contributors
     };
 
-    const supabase = createSupabaseClient(req);
     const { error: updateError } = await supabase
       .from("meals")
       .update({
