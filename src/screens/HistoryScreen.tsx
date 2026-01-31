@@ -1,5 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -258,6 +266,54 @@ export function HistoryScreen({ navigation }: Props) {
     }
   }, []);
 
+  const handleDeleteMeal = useCallback(
+    (meal: MealHistoryItem) => {
+      Alert.alert(
+        "Delete meal?",
+        "This will remove the meal and its nutrient totals.",
+        [
+          { text: "Cancel", style: "cancel" },
+          {
+            text: "Delete",
+            style: "destructive",
+            onPress: async () => {
+              setIsLoadingHistory(true);
+              setHistoryError(null);
+              try {
+                const { error } = await supabase.from("meals").delete().eq("id", meal.id);
+                if (error) {
+                  throw error;
+                }
+                const selectedKey = toLocalDayKey(selectedDate);
+                setDateMeals((prev) => {
+                  const next = prev.filter((entry) => entry.id !== meal.id);
+                  const computed = computeTotalsFromMeals(next);
+                  setDateTotals({
+                    totals: computed.totals,
+                    percent_dv: computed.percent_dv
+                  });
+                  setDateConfidence(computed.confidencePercent);
+                  if (!next.length) {
+                    setMonthMealDays((days) => days.filter((day) => day !== selectedKey));
+                  }
+                  return next;
+                });
+              } catch (error) {
+                const message =
+                  error instanceof Error ? error.message : "Unable to delete meal.";
+                setHistoryError(message);
+                Alert.alert("Delete failed", message);
+              } finally {
+                setIsLoadingHistory(false);
+              }
+            }
+          }
+        ]
+      );
+    },
+    [fetchMealsForDate, fetchMealsForMonth, selectedDate, viewMonth]
+  );
+
   useEffect(() => {
     fetchMealsForDate(selectedDate);
     if (
@@ -447,12 +503,20 @@ export function HistoryScreen({ navigation }: Props) {
                         <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
                         <Text style={styles.cardSubtitle}>{formatMealSummary(meal)}</Text>
                       </View>
-                      <AppButton
-                        title="Edit"
-                        onPress={() => navigation.navigate("Capture", { mealId: meal.id })}
-                        variant="secondary"
-                        fullWidth={false}
-                      />
+                      <View style={styles.historyActions}>
+                        <AppButton
+                          title="Edit"
+                          onPress={() => navigation.navigate("Capture", { mealId: meal.id })}
+                          variant="secondary"
+                          fullWidth={false}
+                        />
+                        <AppButton
+                          title="Delete"
+                          onPress={() => handleDeleteMeal(meal)}
+                          variant="ghost"
+                          fullWidth={false}
+                        />
+                      </View>
                     </View>
                   ))
                 ) : (
@@ -529,6 +593,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 12,
     paddingVertical: 6
+  },
+  historyActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8
   },
   historyDetails: {
     flex: 1,
