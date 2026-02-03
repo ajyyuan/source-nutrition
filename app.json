@@ -5,6 +5,7 @@
     "scheme": "source",
     "version": "0.1.0",
     "plugins": [
+      "expo-apple-authentication",
       [
         "expo-image-picker",
         {
@@ -17,6 +18,12 @@
       "ios"
     ],
     "ios": {
+      "usesAppleSignIn": true,
+      "entitlements": {
+        "com.apple.developer.applesignin": [
+          "Default"
+        ]
+      },
       "supportsTablet": false,
       "infoPlist": {
         "NSCameraUsageDescription": "We need camera access to capture meal photos.",
