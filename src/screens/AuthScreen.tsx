@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Alert, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as AuthSession from "expo-auth-session";
 import * as WebBrowser from "expo-web-browser";
@@ -24,36 +24,11 @@ const parseParams = (value: string) =>
     }, {});
 
 export function AuthScreen() {
-  const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [oauthProvider, setOauthProvider] = useState<"apple" | "google" | null>(null);
   const [isAppleAvailable, setIsAppleAvailable] = useState(false);
   const [oauthMessage, setOauthMessage] = useState<string | null>(null);
   const redirectUrl = AuthSession.makeRedirectUri({ scheme: "source", path: "auth" });
-
-  const handleSignIn = async () => {
-    const trimmed = email.trim();
-    if (!trimmed) {
-      Alert.alert("Email required", "Enter the email you want to sign in with.");
-      return;
-    }
-
-    setIsLoading(true);
-    const { error } = await supabase.auth.signInWithOtp({
-      email: trimmed,
-      options: {
-        emailRedirectTo: redirectUrl
-      }
-    });
-    setIsLoading(false);
-
-    if (error) {
-      Alert.alert("Sign-in failed", error.message);
-      return;
-    }
-
-    Alert.alert("Check your email", "Open the magic link to finish signing in.");
-  };
 
   useEffect(() => {
     AppleAuthentication.isAvailableAsync()
@@ -218,7 +193,7 @@ export function AuthScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Sign in</Text>
-      <Text style={styles.subtitle}>Use a magic link to continue.</Text>
+      <Text style={styles.subtitle}>Choose a sign-in method.</Text>
       <View style={styles.form}>
         {isAppleAvailable ? (
           <AppleAuthentication.AppleAuthenticationButton
@@ -243,21 +218,6 @@ export function AuthScreen() {
           disabled={isOauthLoading || isLoading}
         />
         {oauthMessage ? <Text style={styles.oauthMessage}>{oauthMessage}</Text> : null}
-        <Text style={styles.orLabel}>or</Text>
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="email-address"
-          onChangeText={setEmail}
-          placeholder="you@example.com"
-          style={styles.input}
-          value={email}
-        />
-        <AppButton
-          title={isLoading ? "Sending link..." : "Send magic link"}
-          onPress={handleSignIn}
-          disabled={isLoading || isOauthLoading}
-        />
         {isLoading || isOauthLoading ? <ActivityIndicator style={styles.spinner} /> : null}
       </View>
     </SafeAreaView>
@@ -287,20 +247,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#777",
     textAlign: "center"
-  },
-  orLabel: {
-    textAlign: "center",
-    color: "#888",
-    fontSize: 12,
-    letterSpacing: 1,
-    textTransform: "uppercase"
-  },
-  input: {
-    borderColor: "#ddd",
-    borderRadius: 10,
-    borderWidth: 1,
-    paddingHorizontal: 12,
-    paddingVertical: 10
   },
   spinner: {
     marginTop: 12
