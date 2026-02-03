@@ -62,6 +62,9 @@ export function AuthScreen() {
   }, []);
 
   const handleAppleSignIn = async () => {
+    if (oauthProvider !== null || isLoading) {
+      return;
+    }
     setOauthProvider("apple");
     setOauthMessage(null);
     try {
@@ -90,6 +93,27 @@ export function AuthScreen() {
       });
       if (error) {
         Alert.alert("Sign-in failed", error.message);
+        return;
+      }
+
+      // Apple only provides name on the first sign-in for a user+app pair.
+      if (credential.fullName) {
+        const nameParts = [
+          credential.fullName.givenName,
+          credential.fullName.middleName,
+          credential.fullName.familyName
+        ].filter((part): part is string => Boolean(part && part.trim()));
+
+        const fullName = nameParts.join(" ");
+        if (fullName) {
+          await supabase.auth.updateUser({
+            data: {
+              full_name: fullName,
+              given_name: credential.fullName.givenName ?? null,
+              family_name: credential.fullName.familyName ?? null
+            }
+          });
+        }
       }
     } catch (error) {
       const code =
@@ -196,12 +220,22 @@ export function AuthScreen() {
       <Text style={styles.title}>Sign in</Text>
       <Text style={styles.subtitle}>Use a magic link to continue.</Text>
       <View style={styles.form}>
-        <AppButton
-          title="Continue with Apple"
-          onPress={handleAppleSignIn}
-          variant="secondary"
-          disabled={isOauthLoading || isLoading || !isAppleAvailable}
-        />
+        {isAppleAvailable ? (
+          <AppleAuthentication.AppleAuthenticationButton
+            buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
+            buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+            cornerRadius={12}
+            style={styles.appleButton}
+            onPress={handleAppleSignIn}
+          />
+        ) : (
+          <AppButton
+            title="Continue with Apple"
+            onPress={handleAppleSignIn}
+            variant="secondary"
+            disabled
+          />
+        )}
         <AppButton
           title="Continue with Google"
           onPress={() => handleOAuthSignIn("google")}
@@ -270,5 +304,9 @@ const styles = StyleSheet.create({
   },
   spinner: {
     marginTop: 12
+  },
+  appleButton: {
+    height: 44,
+    width: "100%"
   }
 });
