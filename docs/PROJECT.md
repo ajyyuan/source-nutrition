@@ -16,7 +16,7 @@ This timeline is **high-risk but feasible** with strict scope control.
 
 ---
 
-## Core Features (Locked)
+## Core Features (Current Direction)
 
 ### 1. Photo → Foods (AI)
 
@@ -42,7 +42,9 @@ This timeline is **high-risk but feasible** with strict scope control.
 
 * Vitamins, minerals, key fatty acids
 * Per-meal, daily, and weekly totals
-* %DV output
+* Dual tracking modes:
+  * **Estimate (default):** signal bands (gray/yellow/green) for honest uncertainty
+  * **Precise:** explicit quantities + unit-based exact totals
 * Server-side computation
 
 ### 4. Persistence & History
@@ -95,6 +97,8 @@ If a feature is not required to:
 * make that insight more accurate or usable
 
 …it does not belong in v1.
+
+If a feature conflicts with honest uncertainty handling, it should be redesigned before shipping.
 
 ---
 

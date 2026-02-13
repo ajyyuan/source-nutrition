@@ -65,6 +65,8 @@ Every meal stores:
 
 Nutrient totals can be recomputed when versions change.
 
+Every meal should also carry a `tracking_mode` (`estimate` | `precise`) that controls presentation and UX contract.
+
 ---
 
 ## Nutrient Computation
@@ -75,6 +77,8 @@ Nutrient totals can be recomputed when versions change.
 * Compute %DV using fixed constants
 
 All computation happens **server-side**.
+
+Tracking mode does not relax determinism requirements; it changes how outputs are presented and how user input is collected.
 
 ---
 
