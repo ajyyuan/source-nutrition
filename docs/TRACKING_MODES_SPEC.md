@@ -12,10 +12,15 @@ Applies to meal creation, nutrient rendering, and daily/weekly summaries.
 
 ## Mode Model
 
-- Field: `tracking_mode`
+- Persisted field: `meals.tracking_mode`
 - Values: `estimate` | `precise`
-- Granularity: **per meal**
+- Granularity: **per meal (persisted provenance)**
 - Default: `estimate`
+
+In v1, mode selection UX is app-level:
+- App preference: `estimate` | `precise` (global UI preference)
+- New meals are saved with the current app preference as `meals.tracking_mode`
+- Editing and re-saving a meal applies the current app preference on save
 
 ## User Experience Rules
 
@@ -30,8 +35,10 @@ Applies to meal creation, nutrient rendering, and daily/weekly summaries.
 
 ## Switching Rules (v1)
 
-- User can choose mode while creating/editing a meal.
-- No retroactive conversion flow in v1 (mode changes are applied on save).
+- User chooses mode as a global app preference.
+- Preference can be switched at any time.
+- Existing meals are not batch converted when preference changes.
+- A meal's `tracking_mode` updates when that meal is saved/recalculated.
 - Mixed-mode days are allowed.
 
 ## Data and Computation Rules
@@ -57,12 +64,12 @@ Implementation requirement:
 ## Non-Goals (v1)
 
 - Per-item mixed modes inside one meal
-- User/account-level global mode lock
+- Server-synced account-level global preference
 - Clinical recommendation logic
 
 ## Rollout Plan
 
 1. Add `tracking_mode` migration and app type support.
-2. Wire mode selection into capture/save flow.
+2. Wire global mode preference into app + capture/save flow.
 3. Ship estimate-mode UI rendering in Capture/Home/History.
 4. Add precise-mode quantity unit system and conversion.

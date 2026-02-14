@@ -67,6 +67,9 @@ Nutrient totals can be recomputed when versions change.
 
 Every meal should also carry a `tracking_mode` (`estimate` | `precise`) that controls presentation and UX contract.
 
+In v1, the frontend also maintains an app-level tracking mode preference (`estimate` | `precise`).
+That preference controls primary UI posture and is written into `meals.tracking_mode` when meals are saved/recalculated.
+
 ---
 
 ## Nutrient Computation

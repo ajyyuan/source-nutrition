@@ -17,6 +17,7 @@ import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { supabase } from "../lib/supabase";
+import { useTrackingMode } from "../lib/trackingMode";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
@@ -237,6 +238,7 @@ const renderBanner = (message: string, variant: "success" | "error") => (
 
 export function CaptureScreen({ navigation, route }: Props) {
   const cameraRef = useRef<CameraView | null>(null);
+  const { trackingMode, setTrackingMode, isTrackingModeReady } = useTrackingMode();
   const [permission, requestPermission] = useCameraPermissions();
   const [entryMode, setEntryMode] = useState<"camera" | "manual" | "edit">("camera");
   const [photoUri, setPhotoUri] = useState<string | null>(null);
@@ -373,12 +375,16 @@ export function CaptureScreen({ navigation, route }: Props) {
       if (!userId) {
         throw new Error("You must be signed in to log a meal.");
       }
+      if (!isTrackingModeReady) {
+        throw new Error("Tracking mode is still loading. Please try again.");
+      }
       const placeholderPath = `manual/${userId}/${Date.now()}`;
       const { data: insertedMeal, error } = await supabase
         .from("meals")
         .insert({
           user_id: userId,
-          photo_path: placeholderPath
+          photo_path: placeholderPath,
+          tracking_mode: trackingMode
         })
         .select("id")
         .single();
@@ -397,7 +403,18 @@ export function CaptureScreen({ navigation, route }: Props) {
     } finally {
       setIsCreatingMeal(false);
     }
-  }, []);
+  }, [isTrackingModeReady, trackingMode]);
+
+  const persistTrackingMode = useCallback(async (targetMealId: string) => {
+    const { error } = await supabase
+      .from("meals")
+      .update({ tracking_mode: trackingMode })
+      .eq("id", targetMealId);
+
+    if (error) {
+      throw error;
+    }
+  }, [trackingMode]);
 
   const loadMealForEdit = useCallback(
     async (targetMealId: string) => {
@@ -580,6 +597,9 @@ export function CaptureScreen({ navigation, route }: Props) {
       if (!userId) {
         throw new Error("You must be signed in to upload.");
       }
+      if (!isTrackingModeReady) {
+        throw new Error("Tracking mode is still loading. Please try again.");
+      }
 
       const response = await fetch(
         photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : photoUri
@@ -616,7 +636,8 @@ export function CaptureScreen({ navigation, route }: Props) {
         .from("meals")
         .insert({
           user_id: userId,
-          photo_path: filePath
+          photo_path: filePath,
+          tracking_mode: trackingMode
         })
         .select("id")
         .single();
@@ -646,9 +667,13 @@ export function CaptureScreen({ navigation, route }: Props) {
     } finally {
       setIsUploading(false);
     }
-  }, [photoUri, isUploading, mapFoods, parseMealPhoto]);
+  }, [isTrackingModeReady, photoUri, isUploading, mapFoods, parseMealPhoto, trackingMode]);
 
   const handleRecalculate = useCallback(async (options?: { allowCreate?: boolean }) => {
+    if (!isTrackingModeReady) {
+      setMappingError("Tracking mode is still loading. Please try again.");
+      return;
+    }
     if (!editableItems.length) {
       setMappingError("Add at least one food to recalculate.");
       return;
@@ -662,8 +687,41 @@ export function CaptureScreen({ navigation, route }: Props) {
       return;
     }
     setMappingError(null);
+    try {
+      await persistTrackingMode(activeMealId);
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "Unable to update tracking mode.";
+      setMappingError(message);
+      return;
+    }
     await mapFoods(toParsedItems(editableItems), activeMealId);
-  }, [createManualMeal, editableItems, mealId, mapFoods, toParsedItems]);
+  }, [createManualMeal, editableItems, isTrackingModeReady, mealId, mapFoods, persistTrackingMode, toParsedItems]);
+
+  const renderTrackingModeSelector = (options?: { disabled?: boolean }) => (
+    <View style={styles.modeSelector}>
+      <Text style={styles.sectionTitle}>App tracking mode</Text>
+      <Text style={styles.modeSubtitle}>
+        Applies to all new meals and summary display style.
+      </Text>
+      <View style={styles.modeActions}>
+        <AppButton
+          title="Estimate"
+          onPress={() => setTrackingMode("estimate")}
+          variant={trackingMode === "estimate" ? "primary" : "secondary"}
+          disabled={options?.disabled || !isTrackingModeReady}
+          fullWidth={false}
+        />
+        <AppButton
+          title="Precise"
+          onPress={() => setTrackingMode("precise")}
+          variant={trackingMode === "precise" ? "primary" : "secondary"}
+          disabled={options?.disabled || !isTrackingModeReady}
+          fullWidth={false}
+        />
+      </View>
+    </View>
+  );
 
   const renderEditableFoods = (options?: { allowCreate?: boolean }) => (
     <View style={styles.editableList}>
@@ -774,6 +832,9 @@ export function CaptureScreen({ navigation, route }: Props) {
           </View>
           {manualError ? renderBanner(manualError, "error") : null}
           {isLoadingMeal ? <ActivityIndicator style={styles.spinner} /> : null}
+          {renderTrackingModeSelector({
+            disabled: isMapping || isCreatingMeal || isLoadingMeal
+          })}
           {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
@@ -855,6 +916,7 @@ export function CaptureScreen({ navigation, route }: Props) {
       {photoUri ? (
         <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
           <Image source={{ uri: photoUri }} style={styles.image} />
+          {renderTrackingModeSelector({ disabled: isUploading })}
           <View style={styles.actions}>
             <AppButton
               title="Retake"
@@ -1090,6 +1152,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#eee"
+  },
+  modeSelector: {
+    marginHorizontal: 16,
+    padding: 12,
+    gap: 8,
+    backgroundColor: "#f6f6f6",
+    borderRadius: 12
+  },
+  modeSubtitle: {
+    fontSize: 13,
+    color: "#555"
+  },
+  modeActions: {
+    flexDirection: "row",
+    gap: 8
   },
   input: {
     borderWidth: 1,

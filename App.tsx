@@ -7,6 +7,7 @@ import { AppNavigator } from "./src/navigation/AppNavigator";
 import { AuthScreen } from "./src/screens/AuthScreen";
 import { ConfigScreen } from "./src/screens/ConfigScreen";
 import { hasSupabaseConfig, supabase } from "./src/lib/supabase";
+import { TrackingModeProvider } from "./src/lib/trackingMode";
 import type { Session } from "@supabase/supabase-js";
 
 export default function App() {
@@ -109,7 +110,9 @@ export default function App() {
       <StatusBar style="auto" />
       {isLoading ? null : hasSupabaseConfig ? (
         session ? (
-          <AppNavigator />
+          <TrackingModeProvider>
+            <AppNavigator />
+          </TrackingModeProvider>
         ) : (
           <AuthScreen />
         )

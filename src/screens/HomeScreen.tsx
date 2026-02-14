@@ -11,6 +11,7 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
+import { useTrackingMode } from "../lib/trackingMode";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
@@ -138,6 +139,7 @@ const getShortfallStyle = (value: number) => {
 };
 
 export function HomeScreen({ navigation }: Props) {
+  const { trackingMode, setTrackingMode, isTrackingModeReady } = useTrackingMode();
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [mealCount, setMealCount] = useState(0);
@@ -386,9 +388,33 @@ export function HomeScreen({ navigation }: Props) {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>Source</Text>
+        <View style={styles.modeCard}>
+          <Text style={styles.cardTitle}>App tracking mode</Text>
+          <Text style={styles.cardSubtitle}>
+            This sets default meal mode and summary display style.
+          </Text>
+          <View style={styles.modeActions}>
+            <AppButton
+              title="Estimate"
+              onPress={() => setTrackingMode("estimate")}
+              variant={trackingMode === "estimate" ? "primary" : "secondary"}
+              fullWidth={false}
+              disabled={!isTrackingModeReady}
+            />
+            <AppButton
+              title="Precise"
+              onPress={() => setTrackingMode("precise")}
+              variant={trackingMode === "precise" ? "primary" : "secondary"}
+              fullWidth={false}
+              disabled={!isTrackingModeReady}
+            />
+          </View>
+        </View>
         <Text style={styles.subtitle}>Today</Text>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Daily totals (estimated)</Text>
+          <Text style={styles.cardTitle}>
+            {trackingMode === "estimate" ? "Daily totals (estimate view)" : "Daily totals (precise view)"}
+          </Text>
           <Text style={styles.cardSubtitle}>
             {mealCount ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged` : "No meals yet"}
           </Text>
@@ -443,7 +469,11 @@ export function HomeScreen({ navigation }: Props) {
           <AppButton title="Refresh totals" onPress={loadToday} variant="secondary" />
         </View>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>7-day rolling average (estimated)</Text>
+          <Text style={styles.cardTitle}>
+            {trackingMode === "estimate"
+              ? "7-day rolling average (estimate view)"
+              : "7-day rolling average (precise view)"}
+          </Text>
           <Text style={styles.cardSubtitle}>
             {weekDaysWithMeals
               ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
@@ -499,7 +529,9 @@ export function HomeScreen({ navigation }: Props) {
           ) : null}
         </View>
         <Text style={styles.disclaimer}>
-          Estimates only. Source provides informational nutrition data and is not medical advice.
+          {trackingMode === "estimate"
+            ? "Estimate mode prioritizes directional nutrient signals. Source is informational and not medical advice."
+            : "Precise mode shows exact computed totals, but results still depend on logged quantities. Source is informational and not medical advice."}
         </Text>
         <View style={styles.actions}>
           <AppButton title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
@@ -542,6 +574,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 2
+  },
+  modeCard: {
+    width: "100%",
+    padding: 16,
+    borderRadius: 16,
+    backgroundColor: "#f6f6f6",
+    gap: 8
+  },
+  modeActions: {
+    flexDirection: "row",
+    gap: 8
   },
   cardTitle: {
     fontSize: 16,

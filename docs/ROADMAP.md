@@ -25,20 +25,24 @@ That means:
 
 1. **Contract first**
    - Define meal-level `tracking_mode` (`estimate` | `precise`).
-   - Keep mode per meal for v1 (not per item/account).
-2. **Estimate mode first**
-   - Add signal-band rendering in Capture/Home/History.
-   - Keep copy explicit that this is directional.
-3. **Precise mode next**
+   - Persist mode per meal for provenance and mixed-day support.
+2. **Global preference wiring**
+   - Add app-level tracking preference (`estimate` | `precise`) for primary UX posture.
+   - Write current preference to meal `tracking_mode` on save/recalculate.
+3. **Estimate mode pass**
+   - Add signal-band rendering in Capture/Home/History primary surfaces.
+   - Keep copy explicit that this is directional and uncertainty-aware.
+4. **Precise mode pass**
    - Add unit system and conversion pipeline (`g`, `oz`, `lb`, `ml`, `fl oz`, `cup`, etc.).
    - Keep internal normalization deterministic.
-4. **Mixed-day behavior**
+5. **Mixed-day behavior**
    - Define and implement consistent display when a day contains both estimate and precise meals.
 
 ## Near-Term Deliverables
 
 - Tracking modes spec doc
 - Migration adding `tracking_mode` to `meals`
+- Global mode preference wiring
 - Estimate-mode UI pass
 - Precise-mode units pass
 
