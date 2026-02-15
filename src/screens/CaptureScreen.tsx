@@ -354,7 +354,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     setIsCapturing(true);
     try {
       const result = await cameraRef.current.takePictureAsync({
-        quality: 0.7,
+        quality: 0.5,
         exif: false,
         base64: true
       });
@@ -376,7 +376,7 @@ export function CaptureScreen({ navigation, route }: Props) {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"] as ImagePicker.MediaType[],
         base64: true,
-        quality: 0.7
+        quality: 0.5
       });
       if (!result.canceled && result.assets?.length) {
         const asset = result.assets[0];

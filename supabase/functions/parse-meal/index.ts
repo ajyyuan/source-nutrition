@@ -26,7 +26,7 @@ const createSupabaseClient = (req: Request) => {
 
 const MODEL_VERSION = "gpt-4o-mini";
 const PHOTO_BUCKET = "meal-photos";
-const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 
 const fetchMealPhoto = async (supabase, photoPath: string) => {
   const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
@@ -41,7 +41,7 @@ const fetchMealPhoto = async (supabase, photoPath: string) => {
     throw new Error("Meal photo is empty.");
   }
   if (buffer.byteLength > MAX_IMAGE_BYTES) {
-    throw new Error("Meal photo is too large to process.");
+    throw new Error("Meal photo is too large to process (max 12MB).");
   }
   const contentType = data.type || "image/jpeg";
   return {
