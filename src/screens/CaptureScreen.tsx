@@ -16,6 +16,7 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
+import { getNutrientBandTone } from "../lib/nutrientBands";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
 import type { RootTabParamList } from "../navigation/AppNavigator";
@@ -856,13 +857,40 @@ export function CaptureScreen({ navigation, route }: Props) {
           ) : null}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
+              <Text style={styles.sectionTitle}>
+                {trackingMode === "estimate" ? "Micronutrient signal bands" : "Micronutrients (%DV)"}
+              </Text>
               {Object.entries(nutrientTotals.percent_dv).length ? (
-                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
-                  <Text key={key} style={styles.parsedItemText}>
-                    {formatNutrientLabel(key)} · {Math.round(value * 100)}%
-                  </Text>
-                ))
+                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
+                  if (trackingMode === "precise") {
+                    return (
+                      <Text key={key} style={styles.parsedItemText}>
+                        {formatNutrientLabel(key)} · {Math.round(value * 100)}%
+                      </Text>
+                    );
+                  }
+                  const tone = getNutrientBandTone(value);
+                  return (
+                    <View key={key} style={styles.bandRow}>
+                      <Text style={styles.parsedItemText}>{formatNutrientLabel(key)}</Text>
+                      <View
+                        style={[
+                          styles.nutrientBandBadge,
+                          { backgroundColor: tone.backgroundColor }
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.nutrientBandBadgeText,
+                            { color: tone.textColor }
+                          ]}
+                        >
+                          {tone.label}
+                        </Text>
+                      </View>
+                    </View>
+                  );
+                })
               ) : (
                 <EmptyState message="No nutrient totals yet." />
               )}
@@ -986,13 +1014,40 @@ export function CaptureScreen({ navigation, route }: Props) {
           ) : null}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Micronutrients (%DV)</Text>
+              <Text style={styles.sectionTitle}>
+                {trackingMode === "estimate" ? "Micronutrient signal bands" : "Micronutrients (%DV)"}
+              </Text>
               {Object.entries(nutrientTotals.percent_dv).length ? (
-                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => (
-                  <Text key={key} style={styles.parsedItemText}>
-                    {formatNutrientLabel(key)} · {Math.round(value * 100)}%
-                  </Text>
-                ))
+                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
+                  if (trackingMode === "precise") {
+                    return (
+                      <Text key={key} style={styles.parsedItemText}>
+                        {formatNutrientLabel(key)} · {Math.round(value * 100)}%
+                      </Text>
+                    );
+                  }
+                  const tone = getNutrientBandTone(value);
+                  return (
+                    <View key={key} style={styles.bandRow}>
+                      <Text style={styles.parsedItemText}>{formatNutrientLabel(key)}</Text>
+                      <View
+                        style={[
+                          styles.nutrientBandBadge,
+                          { backgroundColor: tone.backgroundColor }
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.nutrientBandBadgeText,
+                            { color: tone.textColor }
+                          ]}
+                        >
+                          {tone.label}
+                        </Text>
+                      </View>
+                    </View>
+                  );
+                })
               ) : (
                 <EmptyState message="No nutrient totals yet." />
               )}
@@ -1119,10 +1174,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8
   },
+  bandRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8
+  },
   parsedItemText: {
     fontSize: 13,
     color: "#333",
     flexShrink: 1
+  },
+  nutrientBandBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999
+  },
+  nutrientBandBadgeText: {
+    fontSize: 12,
+    fontWeight: "600"
   },
   confidenceLabel: {
     fontSize: 12,

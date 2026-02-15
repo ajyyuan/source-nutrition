@@ -14,6 +14,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
+import { useTrackingMode } from "../lib/trackingMode";
+import { getNutrientBandTone } from "../lib/nutrientBands";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
@@ -168,6 +170,7 @@ const computeTotalsFromMeals = (meals: MealHistoryItem[]) => {
 };
 
 export function HistoryScreen({ navigation }: Props) {
+  const { trackingMode } = useTrackingMode();
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const [historyError, setHistoryError] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date>(() => {
@@ -524,12 +527,37 @@ export function HistoryScreen({ navigation }: Props) {
                 )}
               </View>
               <View style={styles.subsection}>
-                <Text style={styles.subsectionTitle}>Daily totals (%DV)</Text>
+                <Text style={styles.subsectionTitle}>
+                  {trackingMode === "estimate" ? "Daily nutrient signals" : "Daily totals (%DV)"}
+                </Text>
                 {dateMeals.length ? (
                   NUTRIENT_KEYS.map((key) => (
-                    <Text key={key} style={styles.item}>
-                      {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
-                    </Text>
+                    trackingMode === "precise" ? (
+                      <Text key={key} style={styles.item}>
+                        {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
+                      </Text>
+                    ) : (
+                      <View key={key} style={styles.nutrientRow}>
+                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
+                        <View
+                          style={[
+                            styles.nutrientBandBadge,
+                            {
+                              backgroundColor: getNutrientBandTone(dateTotals.percent_dv[key]).backgroundColor
+                            }
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.nutrientBandBadgeText,
+                              { color: getNutrientBandTone(dateTotals.percent_dv[key]).textColor }
+                            ]}
+                          >
+                            {getNutrientBandTone(dateTotals.percent_dv[key]).label}
+                          </Text>
+                        </View>
+                      </View>
+                    )
                   ))
                 ) : (
                   <EmptyState message="No totals available for this date." />
@@ -711,6 +739,21 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 13,
     color: "#333"
+  },
+  nutrientRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8
+  },
+  nutrientBandBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999
+  },
+  nutrientBandBadgeText: {
+    fontSize: 12,
+    fontWeight: "600"
   },
   errorBanner: {
     backgroundColor: "#fce8e6",

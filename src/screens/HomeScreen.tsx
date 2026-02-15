@@ -12,6 +12,7 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
+import { getNutrientBandTone } from "../lib/nutrientBands";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
@@ -432,9 +433,32 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.list}>
                 {mealCount ? (
                   NUTRIENT_KEYS.map((key) => (
-                    <Text key={key} style={styles.item}>
-                      {formatNutrientLabel(key)} · {Math.round(todayTotals.percent_dv[key] * 100)}%
-                    </Text>
+                    trackingMode === "precise" ? (
+                      <Text key={key} style={styles.item}>
+                        {formatNutrientLabel(key)} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+                      </Text>
+                    ) : (
+                      <View key={key} style={styles.nutrientRow}>
+                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
+                        <View
+                          style={[
+                            styles.nutrientBandBadge,
+                            {
+                              backgroundColor: getNutrientBandTone(todayTotals.percent_dv[key]).backgroundColor
+                            }
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.nutrientBandBadgeText,
+                              { color: getNutrientBandTone(todayTotals.percent_dv[key]).textColor }
+                            ]}
+                          >
+                            {getNutrientBandTone(todayTotals.percent_dv[key]).label}
+                          </Text>
+                        </View>
+                      </View>
+                    )
                   ))
                 ) : (
                   <EmptyState message="No meals logged today. Capture a meal to see totals." />
@@ -445,7 +469,9 @@ export function HomeScreen({ navigation }: Props) {
                 {todayContributors.length ? (
                   todayContributors.map((item) => (
                     <Text key={item.canonical_id} style={styles.insightItem}>
-                      {item.name} · Total %DV sum {Math.round(item.score * 100)}%
+                      {trackingMode === "estimate"
+                        ? `${item.name} · Contributor`
+                        : `${item.name} · Total %DV sum ${Math.round(item.score * 100)}%`}
                     </Text>
                   ))
                 ) : (
@@ -455,11 +481,32 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.subsection}>
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {todayShortfalls.length ? (
-                  todayShortfalls.map((entry) => (
-                    <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
-                      {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
-                    </Text>
-                  ))
+                  todayShortfalls.map((entry) =>
+                    trackingMode === "precise" ? (
+                      <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
+                        {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
+                      </Text>
+                    ) : (
+                      <View key={entry.key} style={styles.nutrientRow}>
+                        <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
+                        <View
+                          style={[
+                            styles.nutrientBandBadge,
+                            { backgroundColor: getNutrientBandTone(entry.value).backgroundColor }
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.nutrientBandBadgeText,
+                              { color: getNutrientBandTone(entry.value).textColor }
+                            ]}
+                          >
+                            {getNutrientBandTone(entry.value).label}
+                          </Text>
+                        </View>
+                      </View>
+                    )
+                  )
                 ) : (
                   <EmptyState message="No shortfalls detected." />
                 )}
@@ -493,9 +540,32 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.list}>
                 {weekDaysWithMeals ? (
                   NUTRIENT_KEYS.map((key) => (
-                    <Text key={key} style={styles.item}>
-                      {formatNutrientLabel(key)} · {Math.round(weekTotals.percent_dv[key] * 100)}%
-                    </Text>
+                    trackingMode === "precise" ? (
+                      <Text key={key} style={styles.item}>
+                        {formatNutrientLabel(key)} · {Math.round(weekTotals.percent_dv[key] * 100)}%
+                      </Text>
+                    ) : (
+                      <View key={key} style={styles.nutrientRow}>
+                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
+                        <View
+                          style={[
+                            styles.nutrientBandBadge,
+                            {
+                              backgroundColor: getNutrientBandTone(weekTotals.percent_dv[key]).backgroundColor
+                            }
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.nutrientBandBadgeText,
+                              { color: getNutrientBandTone(weekTotals.percent_dv[key]).textColor }
+                            ]}
+                          >
+                            {getNutrientBandTone(weekTotals.percent_dv[key]).label}
+                          </Text>
+                        </View>
+                      </View>
+                    )
                   ))
                 ) : (
                   <EmptyState message="No meals in the last 7 days. Capture a meal to start tracking." />
@@ -506,7 +576,9 @@ export function HomeScreen({ navigation }: Props) {
                 {weekContributors.length ? (
                   weekContributors.map((item) => (
                     <Text key={item.canonical_id} style={styles.insightItem}>
-                      {item.name} · Total %DV sum {Math.round(item.score * 100)}%
+                      {trackingMode === "estimate"
+                        ? `${item.name} · Contributor`
+                        : `${item.name} · Total %DV sum ${Math.round(item.score * 100)}%`}
                     </Text>
                   ))
                 ) : (
@@ -516,11 +588,32 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.subsection}>
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {weekShortfalls.length ? (
-                  weekShortfalls.map((entry) => (
-                    <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
-                      {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
-                    </Text>
-                  ))
+                  weekShortfalls.map((entry) =>
+                    trackingMode === "precise" ? (
+                      <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
+                        {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
+                      </Text>
+                    ) : (
+                      <View key={entry.key} style={styles.nutrientRow}>
+                        <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
+                        <View
+                          style={[
+                            styles.nutrientBandBadge,
+                            { backgroundColor: getNutrientBandTone(entry.value).backgroundColor }
+                          ]}
+                        >
+                          <Text
+                            style={[
+                              styles.nutrientBandBadgeText,
+                              { color: getNutrientBandTone(entry.value).textColor }
+                            ]}
+                          >
+                            {getNutrientBandTone(entry.value).label}
+                          </Text>
+                        </View>
+                      </View>
+                    )
+                  )
                 ) : (
                   <EmptyState message="No shortfalls detected." />
                 )}
@@ -614,6 +707,21 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 13,
     color: "#333"
+  },
+  nutrientRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8
+  },
+  nutrientBandBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999
+  },
+  nutrientBandBadgeText: {
+    fontSize: 12,
+    fontWeight: "600"
   },
   insightItem: {
     fontSize: 13,
