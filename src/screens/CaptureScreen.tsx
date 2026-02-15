@@ -307,6 +307,7 @@ export function CaptureScreen({ navigation, route }: Props) {
 
   const applySelectedPhoto = useCallback(
     (uri: string, base64: string | null) => {
+      navigation.setParams({ mealId: undefined });
       setEntryMode("camera");
       setPhotoUri(uri);
       setPhotoBase64(base64);
@@ -314,10 +315,11 @@ export function CaptureScreen({ navigation, route }: Props) {
       setManualError(null);
       resetMealState();
     },
-    [resetMealState]
+    [navigation, resetMealState]
   );
 
   const startManualEntry = useCallback(() => {
+    navigation.setParams({ mealId: undefined });
     setEntryMode("manual");
     setPhotoUri(null);
     setPhotoBase64(null);
@@ -334,15 +336,16 @@ export function CaptureScreen({ navigation, route }: Props) {
         confidence: 0.2
       }
     ]);
-  }, [resetMealState]);
+  }, [navigation, resetMealState]);
 
   const exitManualEntry = useCallback(() => {
+    navigation.setParams({ mealId: undefined });
     setEntryMode("camera");
     setManualError(null);
     resetMealState();
     setPhotoUri(null);
     setPhotoBase64(null);
-  }, [resetMealState]);
+  }, [navigation, resetMealState]);
 
   const handleCapture = async () => {
     if (!cameraRef.current || isCapturing) {
@@ -971,7 +974,14 @@ export function CaptureScreen({ navigation, route }: Props) {
             {entryMode === "edit" ? (
               <AppButton
                 title="Back to history"
-                onPress={() => navigation.navigate("History")}
+                onPress={() => {
+                  navigation.setParams({ mealId: undefined });
+                  setEntryMode("camera");
+                  setPhotoUri(null);
+                  setPhotoBase64(null);
+                  resetMealState();
+                  navigation.navigate("History");
+                }}
                 variant="secondary"
               />
             ) : (
