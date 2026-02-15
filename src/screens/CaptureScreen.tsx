@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Image,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -19,6 +20,7 @@ import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { getNutrientBandTone } from "../lib/nutrientBands";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
+import { QUANTITY_UNITS, type QuantityUnit, toGrams } from "../lib/unitConversion";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
@@ -32,7 +34,8 @@ type ParsedItem = {
 type EditableItem = {
   id: string;
   name: string;
-  grams: number;
+  quantity: number;
+  unit: QuantityUnit;
   confidence: number;
 };
 
@@ -267,7 +270,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     (items: EditableItem[]): ParsedItem[] =>
       items.map((item) => ({
         name: item.name,
-        estimated_grams: Number.isFinite(item.grams) ? item.grams : 0,
+        estimated_grams: toGrams(item.quantity, item.unit),
         confidence: Number.isFinite(item.confidence) ? item.confidence : 0.2
       })),
     []
@@ -309,7 +312,8 @@ export function CaptureScreen({ navigation, route }: Props) {
       {
         id: `${Date.now()}-manual-${Math.random().toString(36).slice(2, 6)}`,
         name: "",
-        grams: 0,
+        quantity: 0,
+        unit: "g",
         confidence: 0.2
       }
     ]);
@@ -444,12 +448,13 @@ export function CaptureScreen({ navigation, route }: Props) {
           fallbackItems.map((item) => ({
             id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
             name: typeof item?.name === "string" ? item.name : "",
-            grams:
+            quantity:
               typeof item?.grams === "number"
                 ? Math.max(item.grams, 0)
                 : typeof item?.estimated_grams === "number"
                   ? Math.max(item.estimated_grams, 0)
                   : 0,
+            unit: "g",
             confidence:
               typeof item?.confidence === "number" && item.confidence >= 0 && item.confidence <= 1
                 ? item.confidence
@@ -565,7 +570,8 @@ export function CaptureScreen({ navigation, route }: Props) {
         items.map((item) => ({
           id: `${Date.now()}-${item.name}-${Math.random().toString(36).slice(2, 6)}`,
           name: item.name,
-          grams: item.estimated_grams,
+          quantity: item.estimated_grams,
+          unit: "g",
           confidence: item.confidence
         }))
       );
@@ -699,6 +705,23 @@ export function CaptureScreen({ navigation, route }: Props) {
     await mapFoods(toParsedItems(editableItems), activeMealId);
   }, [createManualMeal, editableItems, isTrackingModeReady, mealId, mapFoods, persistTrackingMode, toParsedItems]);
 
+  useEffect(() => {
+    if (trackingMode !== "estimate") {
+      return;
+    }
+    setEditableItems((current) =>
+      current.map((item) =>
+        item.unit === "g"
+          ? item
+          : {
+              ...item,
+              quantity: toGrams(item.quantity, item.unit),
+              unit: "g"
+            }
+      )
+    );
+  }, [trackingMode]);
+
   const renderTrackingModeSelector = (options?: { disabled?: boolean }) => (
     <View style={styles.modeSelector}>
       <Text style={styles.sectionTitle}>App tracking mode</Text>
@@ -743,7 +766,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           />
           <TextInput
             style={styles.input}
-            value={Number.isFinite(item.grams) ? String(item.grams) : ""}
+            value={Number.isFinite(item.quantity) ? String(item.quantity) : ""}
             onChangeText={(value) => {
               const parsed = Number.parseFloat(value);
               setEditableItems((current) =>
@@ -751,15 +774,50 @@ export function CaptureScreen({ navigation, route }: Props) {
                   entry.id === item.id
                     ? {
                         ...entry,
-                        grams: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
+                        quantity: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
                       }
                     : entry
                 )
               );
             }}
             keyboardType="numeric"
-            placeholder="Grams"
+            placeholder={trackingMode === "precise" ? "Amount" : "Grams"}
           />
+          {trackingMode === "precise" ? (
+            <>
+              <View style={styles.unitPickerWrap}>
+                {QUANTITY_UNITS.map((unit) => (
+                  <Pressable
+                    key={`${item.id}-${unit}`}
+                    accessibilityRole="button"
+                    onPress={() => {
+                      setEditableItems((current) =>
+                        current.map((entry) =>
+                          entry.id === item.id ? { ...entry, unit } : entry
+                        )
+                      );
+                    }}
+                    style={[
+                      styles.unitChip,
+                      item.unit === unit ? styles.unitChipSelected : null
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.unitChipText,
+                        item.unit === unit ? styles.unitChipTextSelected : null
+                      ]}
+                    >
+                      {unit}
+                    </Text>
+                  </Pressable>
+                ))}
+              </View>
+              <Text style={styles.convertedHint}>
+                Normalized: {Math.round(toGrams(item.quantity, item.unit))}g
+              </Text>
+            </>
+          ) : null}
           <AppButton
             title="Remove"
             onPress={() => {
@@ -781,7 +839,8 @@ export function CaptureScreen({ navigation, route }: Props) {
             {
               id: `${Date.now()}-new-${Math.random().toString(36).slice(2, 6)}`,
               name: "",
-              grams: 0,
+              quantity: 0,
+              unit: "g",
               confidence: 0.2
             }
           ]);
@@ -812,8 +871,12 @@ export function CaptureScreen({ navigation, route }: Props) {
             </Text>
             <Text style={styles.subtitle}>
               {entryMode === "edit"
-                ? "Update foods and grams, then recalculate nutrients."
-                : "Enter foods and grams, then calculate nutrients."}
+                ? trackingMode === "precise"
+                  ? "Update foods, quantity, and units, then recalculate nutrients."
+                  : "Update foods and grams, then recalculate nutrients."
+                : trackingMode === "precise"
+                  ? "Enter foods with quantity and units, then calculate nutrients."
+                  : "Enter foods and grams, then calculate nutrients."}
             </Text>
           </View>
           <View style={styles.actions}>
@@ -901,7 +964,9 @@ export function CaptureScreen({ navigation, route }: Props) {
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
           <Text style={styles.disclaimer}>
-            Estimates only. Source provides informational nutrition data and is not medical advice.
+            {trackingMode === "estimate"
+              ? "Estimates only. Source provides informational nutrition data and is not medical advice."
+              : "Precise mode uses quantity and unit conversion (volume assumes 1 ml ≈ 1 g). Source is informational and not medical advice."}
           </Text>
         </ScrollView>
       </SafeAreaView>
@@ -1058,7 +1123,9 @@ export function CaptureScreen({ navigation, route }: Props) {
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
           <Text style={styles.disclaimer}>
-            Estimates only. Source provides informational nutrition data and is not medical advice.
+            {trackingMode === "estimate"
+              ? "Estimates only. Source provides informational nutrition data and is not medical advice."
+              : "Precise mode uses quantity and unit conversion (volume assumes 1 ml ≈ 1 g). Source is informational and not medical advice."}
           </Text>
         </ScrollView>
       ) : (
@@ -1222,6 +1289,32 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#eee"
+  },
+  unitPickerWrap: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6
+  },
+  unitChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: "#f2f4f7"
+  },
+  unitChipSelected: {
+    backgroundColor: "#111"
+  },
+  unitChipText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#344054"
+  },
+  unitChipTextSelected: {
+    color: "#fff"
+  },
+  convertedHint: {
+    fontSize: 12,
+    color: "#667085"
   },
   modeSelector: {
     marginHorizontal: 16,
