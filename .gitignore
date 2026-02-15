@@ -29,3 +29,6 @@ coverage/
 # optional native folders (if prebuild is used later)
 ios/
 android/
+
+# Supabase local CLI artifacts
+supabase/.temp/
