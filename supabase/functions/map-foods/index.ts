@@ -20,6 +20,7 @@ const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 const FALLBACK_CANONICAL_FOODS = listCanonicalFoods().filter(
   (item) => item.canonical_id !== "food-unknown"
 );
+const SUPPORTED_UNITS = new Set(["g", "oz", "lb", "ml", "fl oz", "cup", "tbsp", "tsp"]);
 const FALLBACK_CANONICAL_BY_ID = Object.fromEntries(
   listCanonicalFoods().map((item) => [item.canonical_id, item])
 );
@@ -194,6 +195,16 @@ serve(async (req) => {
         typeof item?.estimated_grams === "number" && Number.isFinite(item.estimated_grams)
           ? Math.max(item.estimated_grams, 0)
           : 0;
+      const quantity =
+        typeof item?.quantity === "number" && Number.isFinite(item.quantity)
+          ? Math.max(item.quantity, 0)
+          : grams;
+      const unit =
+        typeof item?.unit === "string" && SUPPORTED_UNITS.has(item.unit) ? item.unit : "g";
+      const lastPreciseUnit =
+        typeof item?.last_precise_unit === "string" && SUPPORTED_UNITS.has(item.last_precise_unit)
+          ? item.last_precise_unit
+          : unit;
       const confidence =
         typeof item?.confidence === "number" && item.confidence >= 0 && item.confidence <= 1
           ? item.confidence
@@ -207,6 +218,9 @@ serve(async (req) => {
         grams,
         canonical_id: canonicalId,
         canonical_name: (canonicalEntry?.canonical_name ?? name) || "Unknown food",
+        quantity,
+        unit,
+        last_precise_unit: lastPreciseUnit,
         confidence
       };
     });

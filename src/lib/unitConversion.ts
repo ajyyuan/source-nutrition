@@ -28,3 +28,14 @@ export const toGrams = (value: number, unit: QuantityUnit): number => {
   }
   return Math.max(value, 0) * GRAMS_PER_UNIT[unit];
 };
+
+export const fromGrams = (grams: number, unit: QuantityUnit): number => {
+  if (!Number.isFinite(grams)) {
+    return 0;
+  }
+  const divisor = GRAMS_PER_UNIT[unit];
+  if (!divisor) {
+    return 0;
+  }
+  return Math.max(grams, 0) / divisor;
+};

@@ -20,7 +20,7 @@ import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { getNutrientBandTone } from "../lib/nutrientBands";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
-import { QUANTITY_UNITS, type QuantityUnit, toGrams } from "../lib/unitConversion";
+import { QUANTITY_UNITS, type QuantityUnit, toGrams, fromGrams } from "../lib/unitConversion";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
@@ -29,6 +29,9 @@ type ParsedItem = {
   name: string;
   estimated_grams: number;
   confidence: number;
+  quantity?: number;
+  unit?: QuantityUnit;
+  last_precise_unit?: QuantityUnit;
 };
 
 type EditableItem = {
@@ -36,6 +39,7 @@ type EditableItem = {
   name: string;
   quantity: number;
   unit: QuantityUnit;
+  lastPreciseUnit: QuantityUnit;
   confidence: number;
 };
 
@@ -74,6 +78,9 @@ type NutrientTotals = {
 };
 
 type Props = BottomTabScreenProps<RootTabParamList, "Capture">;
+
+const isQuantityUnit = (value: unknown): value is QuantityUnit =>
+  typeof value === "string" && QUANTITY_UNITS.includes(value as QuantityUnit);
 
 const parseVisionPayload = (payload: unknown): ParsedItem[] => {
   if (payload === null || payload === undefined || payload === "") {
@@ -243,6 +250,7 @@ const renderBanner = (message: string, variant: "success" | "error") => (
 export function CaptureScreen({ navigation, route }: Props) {
   const cameraRef = useRef<CameraView | null>(null);
   const { trackingMode, setTrackingMode, isTrackingModeReady } = useTrackingMode();
+  const trackingModeRef = useRef(trackingMode);
   const [permission, requestPermission] = useCameraPermissions();
   const [entryMode, setEntryMode] = useState<"camera" | "manual" | "edit">("camera");
   const [photoUri, setPhotoUri] = useState<string | null>(null);
@@ -265,13 +273,21 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
   const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
+  const previousTrackingModeRef = useRef(trackingMode);
+
+  useEffect(() => {
+    trackingModeRef.current = trackingMode;
+  }, [trackingMode]);
 
   const toParsedItems = useCallback(
     (items: EditableItem[]): ParsedItem[] =>
       items.map((item) => ({
         name: item.name,
         estimated_grams: toGrams(item.quantity, item.unit),
-        confidence: Number.isFinite(item.confidence) ? item.confidence : 0.2
+        confidence: Number.isFinite(item.confidence) ? item.confidence : 0.2,
+        quantity: item.quantity,
+        unit: item.unit,
+        last_precise_unit: item.lastPreciseUnit
       })),
     []
   );
@@ -314,6 +330,7 @@ export function CaptureScreen({ navigation, route }: Props) {
         name: "",
         quantity: 0,
         unit: "g",
+        lastPreciseUnit: "g",
         confidence: 0.2
       }
     ]);
@@ -444,22 +461,41 @@ export function CaptureScreen({ navigation, route }: Props) {
         const finalItems = Array.isArray(data?.final_items) ? data.final_items : [];
         const parsedItems = Array.isArray(data?.parsed_items) ? data.parsed_items : [];
         const fallbackItems = finalItems.length ? finalItems : parsedItems;
+        const isPreciseMode = trackingModeRef.current === "precise";
         setEditableItems(
-          fallbackItems.map((item) => ({
-            id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
-            name: typeof item?.name === "string" ? item.name : "",
-            quantity:
+          fallbackItems.map((item) => {
+            const grams =
               typeof item?.grams === "number"
                 ? Math.max(item.grams, 0)
                 : typeof item?.estimated_grams === "number"
                   ? Math.max(item.estimated_grams, 0)
-                  : 0,
-            unit: "g",
-            confidence:
-              typeof item?.confidence === "number" && item.confidence >= 0 && item.confidence <= 1
-                ? item.confidence
-                : 0.2
-          }))
+                  : 0;
+            const savedUnit = isQuantityUnit(item?.unit) ? item.unit : "g";
+            const savedLastPrecise = isQuantityUnit(item?.last_precise_unit)
+              ? item.last_precise_unit
+              : savedUnit;
+            const savedQuantity =
+              typeof item?.quantity === "number" && Number.isFinite(item.quantity)
+                ? Math.max(item.quantity, 0)
+                : null;
+
+            return {
+              id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
+              name: typeof item?.name === "string" ? item.name : "",
+              quantity:
+                isPreciseMode
+                  ? savedQuantity ?? fromGrams(grams, savedUnit)
+                  : grams,
+              unit: isPreciseMode ? savedUnit : "g",
+              lastPreciseUnit: savedLastPrecise,
+              confidence:
+                typeof item?.confidence === "number" &&
+                item.confidence >= 0 &&
+                item.confidence <= 1
+                  ? item.confidence
+                  : 0.2
+            };
+          })
         );
         setMappedItems(finalItems.length ? finalItems : null);
         setNutrientTotals(
@@ -510,6 +546,40 @@ export function CaptureScreen({ navigation, route }: Props) {
       }
 
       const mapped = parseMappingPayload(data);
+      const persistedFinalItems = mapped.map((mappedItem, index) => {
+        const sourceItem = items[index];
+        const sourceGrams =
+          typeof sourceItem?.estimated_grams === "number" &&
+          Number.isFinite(sourceItem.estimated_grams)
+            ? Math.max(sourceItem.estimated_grams, 0)
+            : 0;
+        const sourceUnit = isQuantityUnit(sourceItem?.unit) ? sourceItem.unit : "g";
+        const sourceQuantity =
+          typeof sourceItem?.quantity === "number" && Number.isFinite(sourceItem.quantity)
+            ? Math.max(sourceItem.quantity, 0)
+            : sourceGrams;
+        const sourceLastPreciseUnit = isQuantityUnit(sourceItem?.last_precise_unit)
+          ? sourceItem.last_precise_unit
+          : sourceUnit;
+
+        return {
+          ...mappedItem,
+          grams: sourceGrams,
+          quantity: sourceQuantity,
+          unit: sourceUnit,
+          last_precise_unit: sourceLastPreciseUnit
+        };
+      });
+
+      const { error: persistError } = await supabase
+        .from("meals")
+        .update({ final_items: persistedFinalItems })
+        .eq("id", newMealId);
+
+      if (persistError) {
+        throw persistError;
+      }
+
       setMappedItems(mapped);
       setNutrientTotals(parseNutrientTotals(data));
     } catch (error) {
@@ -572,6 +642,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           name: item.name,
           quantity: item.estimated_grams,
           unit: "g",
+          lastPreciseUnit: "g",
           confidence: item.confidence
         }))
       );
@@ -706,20 +777,34 @@ export function CaptureScreen({ navigation, route }: Props) {
   }, [createManualMeal, editableItems, isTrackingModeReady, mealId, mapFoods, persistTrackingMode, toParsedItems]);
 
   useEffect(() => {
-    if (trackingMode !== "estimate") {
+    const previousMode = previousTrackingModeRef.current;
+    if (previousMode === trackingMode) {
       return;
     }
-    setEditableItems((current) =>
-      current.map((item) =>
-        item.unit === "g"
-          ? item
-          : {
-              ...item,
-              quantity: toGrams(item.quantity, item.unit),
-              unit: "g"
-            }
-      )
-    );
+
+    if (trackingMode === "estimate") {
+      setEditableItems((current) =>
+        current.map((item) => ({
+          ...item,
+          quantity: toGrams(item.quantity, item.unit),
+          unit: "g",
+          lastPreciseUnit: item.unit === "g" ? item.lastPreciseUnit : item.unit
+        }))
+      );
+    } else {
+      setEditableItems((current) =>
+        current.map((item) => {
+          const restoredUnit = item.lastPreciseUnit ?? "g";
+          return {
+            ...item,
+            quantity: fromGrams(item.quantity, restoredUnit),
+            unit: restoredUnit
+          };
+        })
+      );
+    }
+
+    previousTrackingModeRef.current = trackingMode;
   }, [trackingMode]);
 
   const renderTrackingModeSelector = (options?: { disabled?: boolean }) => (
@@ -793,7 +878,9 @@ export function CaptureScreen({ navigation, route }: Props) {
                     onPress={() => {
                       setEditableItems((current) =>
                         current.map((entry) =>
-                          entry.id === item.id ? { ...entry, unit } : entry
+                          entry.id === item.id
+                            ? { ...entry, unit, lastPreciseUnit: unit }
+                            : entry
                         )
                       );
                     }}
@@ -841,6 +928,7 @@ export function CaptureScreen({ navigation, route }: Props) {
               name: "",
               quantity: 0,
               unit: "g",
+              lastPreciseUnit: "g",
               confidence: 0.2
             }
           ]);
