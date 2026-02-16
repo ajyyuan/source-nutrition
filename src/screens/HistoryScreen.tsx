@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Alert,
   Image,
+  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -195,6 +196,7 @@ export function HistoryScreen({ navigation }: Props) {
   });
   const [dateConfidence, setDateConfidence] = useState<number | null>(null);
   const [mealPhotoUrls, setMealPhotoUrls] = useState<Record<string, string>>({});
+  const [expandedPhotoUrl, setExpandedPhotoUrl] = useState<string | null>(null);
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
   const [isDailyTotalsExpanded, setIsDailyTotalsExpanded] = useState(false);
 
@@ -550,7 +552,17 @@ export function HistoryScreen({ navigation }: Props) {
                     <View key={meal.id} style={styles.historyRow}>
                       <View style={styles.historyContent}>
                         {mealPhotoUrls[meal.id] ? (
-                          <Image source={{ uri: mealPhotoUrls[meal.id] }} style={styles.mealThumb} />
+                          <Pressable
+                            accessibilityRole="button"
+                            accessibilityLabel="Open meal photo"
+                            onPress={() => setExpandedPhotoUrl(mealPhotoUrls[meal.id])}
+                            style={({ pressed }) => [
+                              styles.mealThumbWrap,
+                              pressed ? styles.thumbPressed : null
+                            ]}
+                          >
+                            <Image source={{ uri: mealPhotoUrls[meal.id] }} style={styles.mealThumb} />
+                          </Pressable>
                         ) : null}
                         <View style={styles.historyDetails}>
                           <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
@@ -629,6 +641,31 @@ export function HistoryScreen({ navigation }: Props) {
           Estimates only. Source provides informational nutrition data and is not medical advice.
         </Text>
       </ScrollView>
+      <Modal
+        visible={Boolean(expandedPhotoUrl)}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setExpandedPhotoUrl(null)}
+      >
+        <View style={styles.modalBackdrop}>
+          <Pressable style={styles.modalDismissArea} onPress={() => setExpandedPhotoUrl(null)} />
+          <View style={styles.modalCard}>
+            {expandedPhotoUrl ? (
+              <Image
+                source={{ uri: expandedPhotoUrl }}
+                style={styles.expandedImage}
+                resizeMode="contain"
+              />
+            ) : null}
+            <AppButton
+              title="Close"
+              onPress={() => setExpandedPhotoUrl(null)}
+              variant="secondary"
+              fullWidth={false}
+            />
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -698,6 +735,13 @@ const styles = StyleSheet.create({
     height: 44,
     borderRadius: 10,
     backgroundColor: "#e4e7ec"
+  },
+  mealThumbWrap: {
+    borderRadius: 10,
+    overflow: "hidden"
+  },
+  thumbPressed: {
+    opacity: 0.8
   },
   historyDetails: {
     flex: 1,
@@ -860,5 +904,30 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#777",
     textAlign: "center"
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.7)",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20
+  },
+  modalDismissArea: {
+    ...StyleSheet.absoluteFillObject
+  },
+  modalCard: {
+    width: "100%",
+    maxWidth: 420,
+    maxHeight: "85%",
+    borderRadius: 16,
+    backgroundColor: "#111",
+    padding: 14,
+    gap: 10
+  },
+  expandedImage: {
+    width: "100%",
+    aspectRatio: 1,
+    borderRadius: 10,
+    backgroundColor: "#000"
   }
 });
