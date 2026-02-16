@@ -191,6 +191,7 @@ export function HistoryScreen({ navigation }: Props) {
   });
   const [dateConfidence, setDateConfidence] = useState<number | null>(null);
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
+  const [isDailyTotalsExpanded, setIsDailyTotalsExpanded] = useState(false);
 
   const fetchMealsForDate = useCallback(async (date: Date) => {
     setIsLoadingHistory(true);
@@ -332,6 +333,10 @@ export function HistoryScreen({ navigation }: Props) {
   useEffect(() => {
     fetchMealsForMonth(viewMonth);
   }, [fetchMealsForMonth, viewMonth]);
+
+  useEffect(() => {
+    setIsDailyTotalsExpanded(false);
+  }, [selectedDate]);
 
   const formatMealTimestamp = (value: string) => {
     const date = new Date(value);
@@ -527,38 +532,66 @@ export function HistoryScreen({ navigation }: Props) {
                 )}
               </View>
               <View style={styles.subsection}>
-                <Text style={styles.subsectionTitle}>
-                  {trackingMode === "estimate" ? "Daily nutrient signals" : "Daily totals (%DV)"}
-                </Text>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={
+                    isDailyTotalsExpanded ? "Collapse daily totals" : "Expand daily totals"
+                  }
+                  onPress={() => setIsDailyTotalsExpanded((value) => !value)}
+                  style={({ pressed }) => [
+                    styles.subsectionHeader,
+                    pressed ? styles.iconButtonPressed : null
+                  ]}
+                >
+                  <View style={styles.subsectionHeaderText}>
+                    <Text style={styles.subsectionTitle}>
+                      {trackingMode === "estimate" ? "Daily nutrient signals" : "Daily totals (%DV)"}
+                    </Text>
+                    <Text style={styles.subsectionHint}>
+                      {isDailyTotalsExpanded ? "Hide details" : "Show details"}
+                    </Text>
+                  </View>
+                  <Ionicons
+                    name={isDailyTotalsExpanded ? "chevron-up" : "chevron-down"}
+                    size={16}
+                    color="#555"
+                  />
+                </Pressable>
                 {dateMeals.length ? (
-                  NUTRIENT_KEYS.map((key) => (
-                    trackingMode === "precise" ? (
-                      <Text key={key} style={styles.item}>
-                        {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
-                      </Text>
-                    ) : (
-                      <View key={key} style={styles.nutrientRow}>
-                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
-                        <View
-                          style={[
-                            styles.nutrientBandBadge,
-                            {
-                              backgroundColor: getNutrientBandTone(dateTotals.percent_dv[key]).backgroundColor
-                            }
-                          ]}
-                        >
-                          <Text
+                  isDailyTotalsExpanded ? (
+                    NUTRIENT_KEYS.map((key) => (
+                      trackingMode === "precise" ? (
+                        <Text key={key} style={styles.item}>
+                          {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
+                        </Text>
+                      ) : (
+                        <View key={key} style={styles.nutrientRow}>
+                          <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
+                          <View
                             style={[
-                              styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(dateTotals.percent_dv[key]).textColor }
+                              styles.nutrientBandBadge,
+                              {
+                                backgroundColor: getNutrientBandTone(dateTotals.percent_dv[key]).backgroundColor
+                              }
                             ]}
                           >
-                            {getNutrientBandTone(dateTotals.percent_dv[key]).label}
-                          </Text>
+                            <Text
+                              style={[
+                                styles.nutrientBandBadgeText,
+                                { color: getNutrientBandTone(dateTotals.percent_dv[key]).textColor }
+                              ]}
+                            >
+                              {getNutrientBandTone(dateTotals.percent_dv[key]).label}
+                            </Text>
+                          </View>
                         </View>
-                      </View>
-                    )
-                  ))
+                      )
+                    ))
+                  ) : (
+                    <Text style={styles.cardSubtitle}>
+                      Totals are collapsed by default for this day.
+                    </Text>
+                  )
                 ) : (
                   <EmptyState message="No totals available for this date." />
                 )}
@@ -731,10 +764,25 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "#e7e7e7"
   },
+  subsectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderRadius: 10,
+    paddingHorizontal: 4,
+    paddingVertical: 6
+  },
+  subsectionHeaderText: {
+    gap: 2
+  },
   subsectionTitle: {
     fontSize: 13,
     fontWeight: "600",
     color: "#111"
+  },
+  subsectionHint: {
+    fontSize: 12,
+    color: "#666"
   },
   item: {
     fontSize: 13,

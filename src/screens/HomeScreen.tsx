@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -157,6 +158,7 @@ export function HomeScreen({ navigation }: Props) {
   const [weekConfidence, setWeekConfidence] = useState<number | null>(null);
   const [todayContributors, setTodayContributors] = useState<Contributor[]>([]);
   const [weekContributors, setWeekContributors] = useState<Contributor[]>([]);
+  const [summaryRange, setSummaryRange] = useState<"today" | "week">("today");
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -384,6 +386,30 @@ export function HomeScreen({ navigation }: Props) {
 
   const todayShortfalls = computeShortfalls(todayTotals.percent_dv);
   const weekShortfalls = computeShortfalls(weekTotals.percent_dv);
+  const isTodaySummary = summaryRange === "today";
+  const summaryTitle =
+    trackingMode === "estimate"
+      ? isTodaySummary
+        ? "Daily totals (estimate view)"
+        : "7-day rolling average (estimate view)"
+      : isTodaySummary
+        ? "Daily totals (precise view)"
+        : "7-day rolling average (precise view)";
+  const summarySubtitle = isTodaySummary
+    ? mealCount
+      ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged`
+      : "No meals yet"
+    : weekDaysWithMeals
+      ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
+      : "No meals yet";
+  const summaryConfidence = isTodaySummary ? todayConfidence : weekConfidence;
+  const summaryHasData = isTodaySummary ? mealCount > 0 : weekDaysWithMeals > 0;
+  const summaryTotals = isTodaySummary ? todayTotals : weekTotals;
+  const summaryContributors = isTodaySummary ? todayContributors : weekContributors;
+  const summaryShortfalls = isTodaySummary ? todayShortfalls : weekShortfalls;
+  const summaryEmptyMessage = isTodaySummary
+    ? "No meals logged today. Capture a meal to see totals."
+    : "No meals in the last 7 days. Capture a meal to start tracking.";
 
   return (
     <SafeAreaView style={styles.container}>
@@ -411,16 +437,51 @@ export function HomeScreen({ navigation }: Props) {
             />
           </View>
         </View>
-        <Text style={styles.subtitle}>Today</Text>
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>
-            {trackingMode === "estimate" ? "Daily totals (estimate view)" : "Daily totals (precise view)"}
-          </Text>
-          <Text style={styles.cardSubtitle}>
-            {mealCount ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged` : "No meals yet"}
-          </Text>
-          {todayConfidence !== null ? (
-            <Text style={styles.cardSubtitle}>Avg confidence: {todayConfidence}%</Text>
+          <View style={styles.summaryToggle}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Show today summary"
+              onPress={() => setSummaryRange("today")}
+              style={({ pressed }) => [
+                styles.summaryToggleButton,
+                summaryRange === "today" ? styles.summaryToggleButtonActive : null,
+                pressed ? styles.summaryToggleButtonPressed : null
+              ]}
+            >
+              <Text
+                style={[
+                  styles.summaryToggleLabel,
+                  summaryRange === "today" ? styles.summaryToggleLabelActive : null
+                ]}
+              >
+                Today
+              </Text>
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Show week average summary"
+              onPress={() => setSummaryRange("week")}
+              style={({ pressed }) => [
+                styles.summaryToggleButton,
+                summaryRange === "week" ? styles.summaryToggleButtonActive : null,
+                pressed ? styles.summaryToggleButtonPressed : null
+              ]}
+            >
+              <Text
+                style={[
+                  styles.summaryToggleLabel,
+                  summaryRange === "week" ? styles.summaryToggleLabelActive : null
+                ]}
+              >
+                Week Avg
+              </Text>
+            </Pressable>
+          </View>
+          <Text style={styles.cardTitle}>{summaryTitle}</Text>
+          <Text style={styles.cardSubtitle}>{summarySubtitle}</Text>
+          {summaryConfidence !== null ? (
+            <Text style={styles.cardSubtitle}>Avg confidence: {summaryConfidence}%</Text>
           ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? (
@@ -431,11 +492,11 @@ export function HomeScreen({ navigation }: Props) {
           {!isLoading && !loadError ? (
             <>
               <View style={styles.list}>
-                {mealCount ? (
+                {summaryHasData ? (
                   NUTRIENT_KEYS.map((key) => (
                     trackingMode === "precise" ? (
                       <Text key={key} style={styles.item}>
-                        {formatNutrientLabel(key)} · {Math.round(todayTotals.percent_dv[key] * 100)}%
+                        {formatNutrientLabel(key)} · {Math.round(summaryTotals.percent_dv[key] * 100)}%
                       </Text>
                     ) : (
                       <View key={key} style={styles.nutrientRow}>
@@ -444,30 +505,30 @@ export function HomeScreen({ navigation }: Props) {
                           style={[
                             styles.nutrientBandBadge,
                             {
-                              backgroundColor: getNutrientBandTone(todayTotals.percent_dv[key]).backgroundColor
+                              backgroundColor: getNutrientBandTone(summaryTotals.percent_dv[key]).backgroundColor
                             }
                           ]}
                         >
                           <Text
                             style={[
                               styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(todayTotals.percent_dv[key]).textColor }
+                              { color: getNutrientBandTone(summaryTotals.percent_dv[key]).textColor }
                             ]}
                           >
-                            {getNutrientBandTone(todayTotals.percent_dv[key]).label}
+                            {getNutrientBandTone(summaryTotals.percent_dv[key]).label}
                           </Text>
                         </View>
                       </View>
                     )
                   ))
                 ) : (
-                  <EmptyState message="No meals logged today. Capture a meal to see totals." />
+                  <EmptyState message={summaryEmptyMessage} />
                 )}
               </View>
               <View style={styles.subsection}>
                 <Text style={styles.subsectionTitle}>Top contributors</Text>
-                {todayContributors.length ? (
-                  todayContributors.map((item) => (
+                {summaryContributors.length ? (
+                  summaryContributors.map((item) => (
                     <Text key={item.canonical_id} style={styles.insightItem}>
                       {trackingMode === "estimate"
                         ? `${item.name} · Contributor`
@@ -480,8 +541,8 @@ export function HomeScreen({ navigation }: Props) {
               </View>
               <View style={styles.subsection}>
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
-                {todayShortfalls.length ? (
-                  todayShortfalls.map((entry) =>
+                {summaryShortfalls.length ? (
+                  summaryShortfalls.map((entry) =>
                     trackingMode === "precise" ? (
                       <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
                         {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
@@ -513,113 +574,7 @@ export function HomeScreen({ navigation }: Props) {
               </View>
             </>
           ) : null}
-          <AppButton title="Refresh totals" onPress={loadToday} variant="secondary" />
-        </View>
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>
-            {trackingMode === "estimate"
-              ? "7-day rolling average (estimate view)"
-              : "7-day rolling average (precise view)"}
-          </Text>
-          <Text style={styles.cardSubtitle}>
-            {weekDaysWithMeals
-              ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
-              : "No meals yet"}
-          </Text>
-          {weekConfidence !== null ? (
-            <Text style={styles.cardSubtitle}>Avg confidence: {weekConfidence}%</Text>
-          ) : null}
-          {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
-          {loadError ? (
-            <View style={styles.errorBanner}>
-              <Text style={styles.errorText}>{loadError}</Text>
-            </View>
-          ) : null}
-          {!isLoading && !loadError ? (
-            <>
-              <View style={styles.list}>
-                {weekDaysWithMeals ? (
-                  NUTRIENT_KEYS.map((key) => (
-                    trackingMode === "precise" ? (
-                      <Text key={key} style={styles.item}>
-                        {formatNutrientLabel(key)} · {Math.round(weekTotals.percent_dv[key] * 100)}%
-                      </Text>
-                    ) : (
-                      <View key={key} style={styles.nutrientRow}>
-                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
-                        <View
-                          style={[
-                            styles.nutrientBandBadge,
-                            {
-                              backgroundColor: getNutrientBandTone(weekTotals.percent_dv[key]).backgroundColor
-                            }
-                          ]}
-                        >
-                          <Text
-                            style={[
-                              styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(weekTotals.percent_dv[key]).textColor }
-                            ]}
-                          >
-                            {getNutrientBandTone(weekTotals.percent_dv[key]).label}
-                          </Text>
-                        </View>
-                      </View>
-                    )
-                  ))
-                ) : (
-                  <EmptyState message="No meals in the last 7 days. Capture a meal to start tracking." />
-                )}
-              </View>
-              <View style={styles.subsection}>
-                <Text style={styles.subsectionTitle}>Top contributors</Text>
-                {weekContributors.length ? (
-                  weekContributors.map((item) => (
-                    <Text key={item.canonical_id} style={styles.insightItem}>
-                      {trackingMode === "estimate"
-                        ? `${item.name} · Contributor`
-                        : `${item.name} · Total %DV sum ${Math.round(item.score * 100)}%`}
-                    </Text>
-                  ))
-                ) : (
-                  <EmptyState message="No contributors yet." />
-                )}
-              </View>
-              <View style={styles.subsection}>
-                <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
-                {weekShortfalls.length ? (
-                  weekShortfalls.map((entry) =>
-                    trackingMode === "precise" ? (
-                      <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
-                        {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
-                      </Text>
-                    ) : (
-                      <View key={entry.key} style={styles.nutrientRow}>
-                        <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
-                        <View
-                          style={[
-                            styles.nutrientBandBadge,
-                            { backgroundColor: getNutrientBandTone(entry.value).backgroundColor }
-                          ]}
-                        >
-                          <Text
-                            style={[
-                              styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(entry.value).textColor }
-                            ]}
-                          >
-                            {getNutrientBandTone(entry.value).label}
-                          </Text>
-                        </View>
-                      </View>
-                    )
-                  )
-                ) : (
-                  <EmptyState message="No shortfalls detected." />
-                )}
-              </View>
-            </>
-          ) : null}
+          <AppButton title="Refresh summary" onPress={loadToday} variant="secondary" />
         </View>
         <Text style={styles.disclaimer}>
           {trackingMode === "estimate"
@@ -678,6 +633,34 @@ const styles = StyleSheet.create({
   modeActions: {
     flexDirection: "row",
     gap: 8
+  },
+  summaryToggle: {
+    flexDirection: "row",
+    backgroundColor: "#ececec",
+    borderRadius: 12,
+    padding: 4,
+    gap: 4
+  },
+  summaryToggleButton: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    paddingVertical: 8
+  },
+  summaryToggleButtonActive: {
+    backgroundColor: "#fff"
+  },
+  summaryToggleButtonPressed: {
+    opacity: 0.8
+  },
+  summaryToggleLabel: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: "#555"
+  },
+  summaryToggleLabelActive: {
+    color: "#111"
   },
   cardTitle: {
     fontSize: 16,
