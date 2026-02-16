@@ -34,11 +34,33 @@ const ALIAS_MAP = {
   apple: "apple-raw",
   apples: "apple-raw"
 };
+const TOKEN_CANONICAL_MAP: Record<string, string> = {
+  eggs: "egg",
+  berries: "strawberry",
+  strawberries: "strawberry",
+  blueberries: "blueberry",
+  raspberries: "raspberry",
+  blackberries: "blackberry",
+  veggies: "vegetable",
+  vegetables: "vegetable",
+  potatoes: "potato",
+  mussels: "mussel",
+  sardines: "sardine",
+  yoghurt: "yogurt"
+};
 const normalizeName = (value: string) =>
   value
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
+const normalizeForMatching = (value: string) =>
+  [
+    { pattern: /\bwhole foods?\b/g, replacement: "" },
+    { pattern: /\bfull fat\b/g, replacement: "whole milk" }
+  ].reduce(
+    (current, rule) => current.replace(rule.pattern, rule.replacement),
+    normalizeName(value)
+  );
 const STOP_WORDS = new Set([
   "region",
   "pass",
@@ -47,6 +69,23 @@ const STOP_WORDS = new Set([
   "composite",
   "store",
   "stores",
+  "organic",
+  "regenerative",
+  "grass",
+  "fed",
+  "pasture",
+  "raised",
+  "wild",
+  "caught",
+  "full",
+  "fat",
+  "fatty",
+  "hard",
+  "boiled",
+  "fermented",
+  "free",
+  "range",
+  "food",
   "fresh",
   "raw",
   "yes",
@@ -58,12 +97,23 @@ const STOP_WORDS = new Set([
   "nf",
   "nfy"
 ]);
+const CANDIDATE_FORM_PENALTY_WEIGHTS: Record<string, number> = {
+  flour: 0.32,
+  sauce: 0.28,
+  juice: 0.24,
+  powder: 0.24,
+  dried: 0.2,
+  concentrate: 0.16,
+  ready: 0.12,
+  serve: 0.12
+};
 const cleanTokens = (value: string) =>
-  normalizeName(value)
+  normalizeForMatching(value)
     .split(" ")
     .map((token) => token.trim())
     .filter(Boolean)
     .filter((token) => token.length > 1)
+    .map((token) => TOKEN_CANONICAL_MAP[token] ?? token)
     .filter((token) => !STOP_WORDS.has(token))
     .filter((token) => !/\d/.test(token));
 const toTokenSet = (value: string) => new Set(cleanTokens(value));
@@ -81,7 +131,44 @@ const scoreCandidate = (tokens: Set<string>, canonicalName: string) => {
     return 0;
   }
   const overlap = Array.from(tokens).filter((token) => canonicalTokens.has(token)).length;
-  return overlap / tokens.size;
+  if (!overlap) {
+    return 0;
+  }
+
+  const precision = overlap / tokens.size;
+  const recall = overlap / canonicalTokens.size;
+  const f1 = precision + recall ? (2 * precision * recall) / (precision + recall) : 0;
+
+  let boost = 0;
+  if (tokens.size === 1) {
+    const [singleToken] = Array.from(tokens);
+    if (
+      ["egg", "salmon", "beef", "yogurt", "rice", "potato", "mussel", "sardine"].includes(
+        singleToken
+      ) &&
+      canonicalTokens.has(singleToken)
+    ) {
+      boost += 0.12;
+    }
+  }
+
+  const normalizedCanonical = normalizeName(canonicalName);
+  const tokenPhrase = Array.from(tokens).join(" ");
+  if (tokenPhrase.length >= 4 && normalizedCanonical.includes(tokenPhrase)) {
+    boost += 0.08;
+  }
+
+  const formPenalty = Object.entries(CANDIDATE_FORM_PENALTY_WEIGHTS).reduce(
+    (acc, [token, penalty]) => {
+      if (canonicalTokens.has(token) && !tokens.has(token)) {
+        return acc + penalty;
+      }
+      return acc;
+    },
+    0
+  );
+
+  return f1 + boost - Math.min(formPenalty, 0.36);
 };
 const pickCanonicalId = (
   name: string,
@@ -101,7 +188,7 @@ const pickCanonicalId = (
       bestId = candidate.canonical_id;
     }
   });
-  return bestScore >= 0.5 ? bestId : "food-unknown";
+  return bestScore >= 0.38 ? bestId : "food-unknown";
 };
 
 const mergeCanonicalFoods = (rows: Array<Record<string, unknown>>) => {
