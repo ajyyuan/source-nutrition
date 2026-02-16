@@ -19,8 +19,7 @@ import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
 import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { supabase } from "../lib/supabase";
-import { useTrackingMode } from "../lib/trackingMode";
-import { QUANTITY_UNITS, type QuantityUnit, toGrams, fromGrams } from "../lib/unitConversion";
+import { QUANTITY_UNITS, type QuantityUnit, toGrams } from "../lib/unitConversion";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 
 const PHOTO_BUCKET = "meal-photos";
@@ -260,8 +259,6 @@ const renderBanner = (message: string, variant: "success" | "error") => (
 
 export function CaptureScreen({ navigation, route }: Props) {
   const cameraRef = useRef<CameraView | null>(null);
-  const { trackingMode, isTrackingModeReady } = useTrackingMode();
-  const trackingModeRef = useRef(trackingMode);
   const [permission, requestPermission] = useCameraPermissions();
   const [entryMode, setEntryMode] = useState<"camera" | "manual" | "edit">("camera");
   const [photoUri, setPhotoUri] = useState<string | null>(null);
@@ -284,11 +281,6 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
   const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
-  const previousTrackingModeRef = useRef(trackingMode);
-
-  useEffect(() => {
-    trackingModeRef.current = trackingMode;
-  }, [trackingMode]);
 
   const toParsedItems = useCallback(
     (items: EditableItem[]): ParsedItem[] =>
@@ -412,15 +404,11 @@ export function CaptureScreen({ navigation, route }: Props) {
       if (!userId) {
         throw new Error("You must be signed in to log a meal.");
       }
-      if (!isTrackingModeReady) {
-        throw new Error("Tracking mode is still loading. Please try again.");
-      }
       const { data: insertedMeal, error } = await supabase
         .from("meals")
         .insert({
           user_id: userId,
-          photo_path: null,
-          tracking_mode: trackingMode
+          photo_path: null
         })
         .select("id")
         .single();
@@ -439,18 +427,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     } finally {
       setIsCreatingMeal(false);
     }
-  }, [isTrackingModeReady, trackingMode]);
-
-  const persistTrackingMode = useCallback(async (targetMealId: string) => {
-    const { error } = await supabase
-      .from("meals")
-      .update({ tracking_mode: trackingMode })
-      .eq("id", targetMealId);
-
-    if (error) {
-      throw error;
-    }
-  }, [trackingMode]);
+  }, []);
 
   const loadMealForEdit = useCallback(
     async (targetMealId: string) => {
@@ -475,7 +452,6 @@ export function CaptureScreen({ navigation, route }: Props) {
         const finalItems = Array.isArray(data?.final_items) ? data.final_items : [];
         const parsedItems = Array.isArray(data?.parsed_items) ? data.parsed_items : [];
         const fallbackItems = finalItems.length ? finalItems : parsedItems;
-        const isPreciseMode = trackingModeRef.current === "precise";
         setEditableItems(
           fallbackItems.map((item) => {
             const grams =
@@ -497,22 +473,16 @@ export function CaptureScreen({ navigation, route }: Props) {
               id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
               name: typeof item?.name === "string" ? item.name : "",
               quantity: (() => {
-                const resolved =
-                  isPreciseMode
-                    ? savedQuantity ?? fromGrams(grams, savedUnit)
-                    : grams;
+                const resolved = savedQuantity ?? grams;
                 return Number.isFinite(resolved) ? Math.max(resolved, 0) : 0;
               })(),
               quantityInput: (() => {
-                const resolved =
-                isPreciseMode
-                  ? savedQuantity ?? fromGrams(grams, savedUnit)
-                  : grams;
+                const resolved = savedQuantity ?? grams;
                 return formatQuantityInput(
                   Number.isFinite(resolved) ? Math.max(resolved, 0) : 0
                 );
               })(),
-              unit: isPreciseMode ? savedUnit : "g",
+              unit: savedUnit,
               lastPreciseUnit: savedLastPrecise,
               confidence:
                 typeof item?.confidence === "number" &&
@@ -702,9 +672,6 @@ export function CaptureScreen({ navigation, route }: Props) {
       if (!userId) {
         throw new Error("You must be signed in to upload.");
       }
-      if (!isTrackingModeReady) {
-        throw new Error("Tracking mode is still loading. Please try again.");
-      }
 
       const response = await fetch(
         photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : photoUri
@@ -741,8 +708,7 @@ export function CaptureScreen({ navigation, route }: Props) {
         .from("meals")
         .insert({
           user_id: userId,
-          photo_path: filePath,
-          tracking_mode: trackingMode
+          photo_path: filePath
         })
         .select("id")
         .single();
@@ -772,13 +738,9 @@ export function CaptureScreen({ navigation, route }: Props) {
     } finally {
       setIsUploading(false);
     }
-  }, [isTrackingModeReady, photoUri, isUploading, mapFoods, parseMealPhoto, trackingMode]);
+  }, [photoUri, isUploading, mapFoods, parseMealPhoto]);
 
   const handleRecalculate = useCallback(async (options?: { allowCreate?: boolean }) => {
-    if (!isTrackingModeReady) {
-      setMappingError("Tracking mode is still loading. Please try again.");
-      return;
-    }
     if (!editableItems.length) {
       setMappingError("Add at least one food to recalculate.");
       return;
@@ -792,49 +754,8 @@ export function CaptureScreen({ navigation, route }: Props) {
       return;
     }
     setMappingError(null);
-    try {
-      await persistTrackingMode(activeMealId);
-    } catch (error) {
-      const message =
-        error instanceof Error ? error.message : "Unable to update tracking mode.";
-      setMappingError(message);
-      return;
-    }
     await mapFoods(toParsedItems(editableItems), activeMealId);
-  }, [createManualMeal, editableItems, isTrackingModeReady, mealId, mapFoods, persistTrackingMode, toParsedItems]);
-
-  useEffect(() => {
-    const previousMode = previousTrackingModeRef.current;
-    if (previousMode === trackingMode) {
-      return;
-    }
-
-    if (trackingMode === "estimate") {
-      setEditableItems((current) =>
-        current.map((item) => ({
-          ...item,
-          quantity: toGrams(item.quantity, item.unit),
-          quantityInput: formatQuantityInput(toGrams(item.quantity, item.unit)),
-          unit: "g",
-          lastPreciseUnit: item.unit === "g" ? item.lastPreciseUnit : item.unit
-        }))
-      );
-    } else {
-      setEditableItems((current) =>
-        current.map((item) => {
-          const restoredUnit = item.lastPreciseUnit ?? "g";
-          return {
-            ...item,
-            quantity: fromGrams(item.quantity, restoredUnit),
-            quantityInput: formatQuantityInput(fromGrams(item.quantity, restoredUnit)),
-            unit: restoredUnit
-          };
-        })
-      );
-    }
-
-    previousTrackingModeRef.current = trackingMode;
-  }, [trackingMode]);
+  }, [createManualMeal, editableItems, mealId, mapFoods, toParsedItems]);
 
   const renderEditableFoods = (options?: { allowCreate?: boolean }) => (
     <View style={styles.editableList}>
@@ -884,45 +805,41 @@ export function CaptureScreen({ navigation, route }: Props) {
               );
             }}
             keyboardType="decimal-pad"
-            placeholder={trackingMode === "precise" ? "Amount" : "Grams"}
+            placeholder="Amount"
           />
-          {trackingMode === "precise" ? (
-            <>
-              <View style={styles.unitPickerWrap}>
-                {QUANTITY_UNITS.map((unit) => (
-                  <Pressable
-                    key={`${item.id}-${unit}`}
-                    accessibilityRole="button"
-                    onPress={() => {
-                      setEditableItems((current) =>
-                        current.map((entry) =>
-                          entry.id === item.id
-                            ? { ...entry, unit, lastPreciseUnit: unit }
-                            : entry
-                        )
-                      );
-                    }}
-                    style={[
-                      styles.unitChip,
-                      item.unit === unit ? styles.unitChipSelected : null
-                    ]}
-                  >
-                    <Text
-                      style={[
-                        styles.unitChipText,
-                        item.unit === unit ? styles.unitChipTextSelected : null
-                      ]}
-                    >
-                      {unit}
-                    </Text>
-                  </Pressable>
-                ))}
-              </View>
-              <Text style={styles.convertedHint}>
-                Normalized: {Math.round(toGrams(item.quantity, item.unit))}g
-              </Text>
-            </>
-          ) : null}
+          <View style={styles.unitPickerWrap}>
+            {QUANTITY_UNITS.map((unit) => (
+              <Pressable
+                key={`${item.id}-${unit}`}
+                accessibilityRole="button"
+                onPress={() => {
+                  setEditableItems((current) =>
+                    current.map((entry) =>
+                      entry.id === item.id
+                        ? { ...entry, unit, lastPreciseUnit: unit }
+                        : entry
+                    )
+                  );
+                }}
+                style={[
+                  styles.unitChip,
+                  item.unit === unit ? styles.unitChipSelected : null
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.unitChipText,
+                    item.unit === unit ? styles.unitChipTextSelected : null
+                  ]}
+                >
+                  {unit}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+          <Text style={styles.convertedHint}>
+            Normalized: {Math.round(toGrams(item.quantity, item.unit))}g
+          </Text>
           <AppButton
             title="Remove"
             onPress={() => {
@@ -978,12 +895,8 @@ export function CaptureScreen({ navigation, route }: Props) {
             </Text>
             <Text style={styles.subtitle}>
               {entryMode === "edit"
-                ? trackingMode === "precise"
-                  ? "Update foods, quantity, and units, then recalculate nutrients."
-                  : "Update foods and grams, then recalculate nutrients."
-                : trackingMode === "precise"
-                  ? "Enter foods with quantity and units, then calculate nutrients."
-                  : "Enter foods and grams, then calculate nutrients."}
+                ? "Update foods, quantity, and units, then recalculate nutrients."
+                : "Enter foods with quantity and units, then calculate nutrients."}
             </Text>
           </View>
           <View style={styles.actions}>
@@ -1032,7 +945,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>
-                {trackingMode === "estimate" ? "Micronutrient signal bands" : "Micronutrients (%DV)"}
+                Micronutrients (%DV)
               </Text>
               {Object.entries(nutrientTotals.percent_dv).length ? (
                 Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
@@ -1041,7 +954,6 @@ export function CaptureScreen({ navigation, route }: Props) {
                       key={key}
                       label={formatNutrientLabel(key)}
                       percentDv={value}
-                      trackingMode={trackingMode}
                     />
                   );
                 })
@@ -1055,9 +967,7 @@ export function CaptureScreen({ navigation, route }: Props) {
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
           <Text style={styles.disclaimer}>
-            {trackingMode === "estimate"
-              ? "Estimates only. Source provides informational nutrition data and is not medical advice."
-              : "Precise mode uses quantity and unit conversion (volume assumes 1 ml ≈ 1 g). Source is informational and not medical advice."}
+            Source uses quantity and unit conversion (volume assumes 1 ml approx 1 g). Nutrient data is informational and not medical advice.
           </Text>
         </ScrollView>
       </SafeAreaView>
@@ -1170,7 +1080,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>
-                {trackingMode === "estimate" ? "Micronutrient signal bands" : "Micronutrients (%DV)"}
+                Micronutrients (%DV)
               </Text>
               {Object.entries(nutrientTotals.percent_dv).length ? (
                 Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
@@ -1179,7 +1089,6 @@ export function CaptureScreen({ navigation, route }: Props) {
                       key={key}
                       label={formatNutrientLabel(key)}
                       percentDv={value}
-                      trackingMode={trackingMode}
                     />
                   );
                 })
@@ -1193,9 +1102,7 @@ export function CaptureScreen({ navigation, route }: Props) {
             Update foods above and tap “Recalculate nutrients” to refresh totals.
           </Text>
           <Text style={styles.disclaimer}>
-            {trackingMode === "estimate"
-              ? "Estimates only. Source provides informational nutrition data and is not medical advice."
-              : "Precise mode uses quantity and unit conversion (volume assumes 1 ml ≈ 1 g). Source is informational and not medical advice."}
+            Source uses quantity and unit conversion (volume assumes 1 ml approx 1 g). Nutrient data is informational and not medical advice.
           </Text>
         </ScrollView>
       ) : (

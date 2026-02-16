@@ -42,9 +42,10 @@ This timeline is **high-risk but feasible** with strict scope control.
 
 * Vitamins, minerals, key fatty acids
 * Per-meal, daily, and weekly totals
-* Dual tracking modes:
-  * **Estimate (default):** signal bands (gray/yellow/green) for honest uncertainty
-  * **Precise:** explicit quantities + unit-based exact totals
+* Unified nutrient presentation:
+  * Signal bands (gray/yellow/green) for honest uncertainty
+  * Visible `%DV` labels for numeric context
+  * Quantity + unit input remains available for better meal quality
 * Server-side computation
 
 ### 4. Persistence & History

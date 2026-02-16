@@ -8,12 +8,13 @@ Instead of asking "How many calories did I eat?", Source asks:
 
 ## Current Product Direction
 
-Source is evolving toward two tracking experiences:
+Source now uses a single nutrient-tracking experience:
 
-- **Estimate mode (default):** low-friction, uncertainty-aware nutrient signals
-- **Precise mode:** explicit quantities and unit-based exact totals
+- **Banded nutrient signals:** gray/yellow/green for uncertainty-aware interpretation
+- **Visible %DV context:** numeric percent labels shown alongside signal bars
+- **Unit-based inputs:** quantity + unit entry remains supported for meal editing quality
 
-This keeps the app honest when CV confidence is imperfect while still supporting users who want precision.
+This keeps the app honest when CV confidence is imperfect while still exposing concrete numeric context.
 
 ## Current Status
 
@@ -35,7 +36,7 @@ This keeps the app honest when CV confidence is imperfect while still supporting
 - Project scope and constraints: `docs/PROJECT.md`
 - Architecture overview: `docs/ARCHITECTURE.md`
 - Current roadmap: `docs/ROADMAP.md`
-- Tracking mode spec: `docs/TRACKING_MODES_SPEC.md`
+- Nutrient presentation spec: `docs/TRACKING_MODES_SPEC.md`
 - Docs index: `docs/README.md`
 
 ## Non-Goals (v1)

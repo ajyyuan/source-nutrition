@@ -2,52 +2,48 @@
 
 ## Product Direction
 
-Source should feel like an intuitive micronutrient signal system first, and a precision tracker second.
+Source should feel like a clear micronutrient signal system with visible numeric context, without forcing users to pick between separate UX modes.
 
 That means:
-- default to low-friction estimate workflows,
-- avoid false precision in uncertain CV outputs,
-- still support exact tracking for users who want it.
+- keep uncertainty communication explicit (bands + confidence + disclaimers),
+- keep `%DV` visible for interpretability,
+- keep quantity + unit editing available for better meal quality,
+- avoid clinical or prescriptive guidance.
 
-## Current Priority: Dual Tracking Modes
+## Current Priority: Unified Nutrient Experience
 
-### Mode A: Estimate (default)
-- Goal: fast logging with honest uncertainty.
-- Output style: gray/yellow/green nutrient signal bands.
-- UI: no exact %DV numbers in primary summary surfaces.
+### Core UX Contract
+- Single app experience (no estimate/precise mode toggle).
+- Primary nutrient surfaces show:
+  - signal bands (gray/yellow/green),
+  - `%DV` labels on nutrient bars.
+- Confidence remains visible where model uncertainty is highest (parse/map flows).
 
-### Mode B: Precise
-- Goal: explicit totals for users who want detail.
-- Output style: exact nutrient totals and %DV.
-- UI: requires quantity + unit selection and conversion.
-
-## Implementation Sequence
-
-1. **Contract first**
-   - Define meal-level `tracking_mode` (`estimate` | `precise`).
-   - Persist mode per meal for provenance and mixed-day support.
-2. **Global preference wiring**
-   - Add app-level tracking preference (`estimate` | `precise`) for primary UX posture.
-   - Write current preference to meal `tracking_mode` on save/recalculate.
-3. **Estimate mode pass**
-   - Add signal-band rendering in Capture/Home/History primary surfaces.
-   - Keep copy explicit that this is directional and uncertainty-aware.
-4. **Precise mode pass**
-   - Add unit system and conversion pipeline (`g`, `oz`, `lb`, `ml`, `fl oz`, `cup`, etc.).
-   - Keep internal normalization deterministic.
-5. **Mixed-day behavior**
-   - Define and implement consistent display when a day contains both estimate and precise meals.
+### Data Contract (Transitional)
+- Meal-level `tracking_mode` may remain in DB for backward compatibility.
+- App should not depend on mode-specific branching for core rendering.
+- Nutrient computation remains deterministic and server-side.
 
 ## Near-Term Deliverables
 
-- Tracking modes spec doc
-- Migration adding `tracking_mode` to `meals`
-- Global mode preference wiring
-- Estimate-mode UI pass
-- Precise-mode units pass
+1. Complete single-mode cleanup across UI and docs.
+2. Improve food mapping coverage and CV robustness.
+3. Add QA checklist for capture/edit/restart regression cases.
 
-## Future Considerations
+## Future Concepts (Founder Notes)
 
-- Google OAuth end-to-end validation and hardening
-- Account/profile surface
-- Capture/history resilience and polish
+1. Nutrient drill-down interaction:
+   - tap a nutrient to see high-source foods and context.
+2. Ingredient detail interaction:
+   - tap an ingredient to see per-100g profile and notes.
+3. Bioavailability layer:
+   - informational bioavailability notes/scores with conservative wording.
+4. Effective RDA research thread:
+   - investigate how goals or context might affect interpretation.
+   - keep this as research/discovery only until safety, evidence quality, and legal framing are defined.
+
+## Safety Guardrails for Future Concepts
+
+- No personalized medical advice.
+- No diagnosis/treatment framing.
+- Prefer educational wording and transparent uncertainty.

@@ -77,3 +77,12 @@ Short handoff for post-Day-12 UX refinements, decimal input reliability, meal ph
    - add QA checklist across mode toggles, app restarts, and edit flows
 6) **Future concept exploration**
    - define rewards/streaks concept doc before implementation
+
+## Addendum (post-Day-13 direction update)
+- Tracking mode UX (`estimate` vs `precise`) has been removed in favor of a unified nutrient experience.
+- Primary nutrient UI now combines signal bands with `%DV` labels.
+- Confidence + disclaimer language remains in place.
+- New founder ideas to track:
+  - tap nutrient -> show high-source foods and bioavailability context,
+  - tap ingredient -> show per-100g profile + bioavailability notes,
+  - research whether effective RDA interpretation should vary by goals/context (research only for now; high-risk territory).

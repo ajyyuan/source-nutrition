@@ -1,28 +1,26 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import { getNutrientBandTone } from "./nutrientBands";
-import type { TrackingMode } from "./trackingMode";
 
 type Props = {
   label: string;
   percentDv: number;
-  trackingMode: TrackingMode;
 };
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
-export function NutrientBarRow({ label, percentDv, trackingMode }: Props) {
+export function NutrientBarRow({ label, percentDv }: Props) {
   const normalizedPercent = Number.isFinite(percentDv) ? percentDv : 0;
   const fillPercent = clamp(normalizedPercent, 0, 1);
   const tone = getNutrientBandTone(normalizedPercent);
-  const preciseLabel = trackingMode === "precise" ? `${Math.round(normalizedPercent * 100)}%` : null;
+  const percentLabel = `${Math.round(normalizedPercent * 100)}%`;
 
   return (
     <View style={styles.row}>
       <View style={styles.header}>
         <Text style={styles.label}>{label}</Text>
-        {preciseLabel ? <Text style={styles.valueLabel}>{preciseLabel}</Text> : null}
+        <Text style={styles.valueLabel}>{percentLabel}</Text>
       </View>
       <View style={[styles.track, { backgroundColor: tone.backgroundColor }]}>
         <View

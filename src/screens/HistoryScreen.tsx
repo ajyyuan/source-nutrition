@@ -17,7 +17,6 @@ import { Ionicons } from "@expo/vector-icons";
 
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
-import { useTrackingMode } from "../lib/trackingMode";
 import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
@@ -176,7 +175,6 @@ const computeTotalsFromMeals = (meals: MealHistoryItem[]) => {
 };
 
 export function HistoryScreen({ navigation }: Props) {
-  const { trackingMode } = useTrackingMode();
   const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const [historyError, setHistoryError] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date>(() => {
@@ -626,7 +624,7 @@ export function HistoryScreen({ navigation }: Props) {
                 >
                   <View style={styles.subsectionHeaderText}>
                     <Text style={styles.subsectionTitle}>
-                      {trackingMode === "estimate" ? "Daily nutrient signals" : "Daily totals (%DV)"}
+                      Daily nutrients (%DV)
                     </Text>
                     <Text style={styles.subsectionHint}>
                       {isDailyTotalsExpanded ? "Hide details" : "Show details"}
@@ -645,7 +643,6 @@ export function HistoryScreen({ navigation }: Props) {
                         key={key}
                         label={formatNutrientLabel(key)}
                         percentDv={dateTotals.percent_dv[key]}
-                        trackingMode={trackingMode}
                       />
                     ))
                   ) : (

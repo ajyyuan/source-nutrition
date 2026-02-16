@@ -13,7 +13,6 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
-import { useTrackingMode } from "../lib/trackingMode";
 import { getNutrientBandTone } from "../lib/nutrientBands";
 import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { AppButton } from "../lib/AppButton";
@@ -132,18 +131,7 @@ const computeShortfalls = (percentDv: NutrientVector) =>
     .sort((a, b) => a.value - b.value)
     .slice(0, 3);
 
-const getShortfallStyle = (value: number) => {
-  if (value < 0.25) {
-    return styles.shortfallHigh;
-  }
-  if (value < 0.4) {
-    return styles.shortfallMedium;
-  }
-  return styles.shortfallLow;
-};
-
 export function HomeScreen({ navigation }: Props) {
-  const { trackingMode, setTrackingMode, isTrackingModeReady } = useTrackingMode();
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [mealCount, setMealCount] = useState(0);
@@ -432,28 +420,6 @@ export function HomeScreen({ navigation }: Props) {
         }
       >
         <Text style={styles.title}>Source</Text>
-        <View style={styles.modeCard}>
-          <Text style={styles.cardTitle}>App tracking mode</Text>
-          <Text style={styles.cardSubtitle}>
-            This sets default meal mode and summary display style.
-          </Text>
-          <View style={styles.modeActions}>
-            <AppButton
-              title="Estimate"
-              onPress={() => setTrackingMode("estimate")}
-              variant={trackingMode === "estimate" ? "primary" : "secondary"}
-              fullWidth={false}
-              disabled={!isTrackingModeReady}
-            />
-            <AppButton
-              title="Precise"
-              onPress={() => setTrackingMode("precise")}
-              variant={trackingMode === "precise" ? "primary" : "secondary"}
-              fullWidth={false}
-              disabled={!isTrackingModeReady}
-            />
-          </View>
-        </View>
         <View style={styles.card}>
           <View style={styles.summaryToggle}>
             <Pressable
@@ -515,7 +481,6 @@ export function HomeScreen({ navigation }: Props) {
                       key={key}
                       label={formatNutrientLabel(key)}
                       percentDv={summaryTotals.percent_dv[key]}
-                      trackingMode={trackingMode}
                     />
                   ))
                 ) : (
@@ -527,9 +492,7 @@ export function HomeScreen({ navigation }: Props) {
                 {summaryContributors.length ? (
                   summaryContributors.map((item) => (
                     <Text key={item.canonical_id} style={styles.insightItem}>
-                      {trackingMode === "estimate"
-                        ? `${item.name} · Contributor`
-                        : `${item.name} · Total %DV sum ${Math.round(item.score * 100)}%`}
+                      {item.name} · Contributor
                     </Text>
                   ))
                 ) : (
@@ -539,32 +502,26 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.subsection}>
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {summaryShortfalls.length ? (
-                  summaryShortfalls.map((entry) =>
-                    trackingMode === "precise" ? (
-                      <Text key={entry.key} style={[styles.insightItem, getShortfallStyle(entry.value)]}>
-                        {formatNutrientLabel(entry.key)} · {Math.round(entry.value * 100)}%
-                      </Text>
-                    ) : (
-                      <View key={entry.key} style={styles.nutrientRow}>
-                        <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
-                        <View
+                  summaryShortfalls.map((entry) => (
+                    <View key={entry.key} style={styles.nutrientRow}>
+                      <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
+                      <View
+                        style={[
+                          styles.nutrientBandBadge,
+                          { backgroundColor: getNutrientBandTone(entry.value).backgroundColor }
+                        ]}
+                      >
+                        <Text
                           style={[
-                            styles.nutrientBandBadge,
-                            { backgroundColor: getNutrientBandTone(entry.value).backgroundColor }
+                            styles.nutrientBandBadgeText,
+                            { color: getNutrientBandTone(entry.value).textColor }
                           ]}
                         >
-                          <Text
-                            style={[
-                              styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(entry.value).textColor }
-                            ]}
-                          >
-                            {getNutrientBandTone(entry.value).label}
-                          </Text>
-                        </View>
+                          {getNutrientBandTone(entry.value).label}
+                        </Text>
                       </View>
-                    )
-                  )
+                    </View>
+                  ))
                 ) : (
                   <EmptyState message="No shortfalls detected." />
                 )}
@@ -573,9 +530,7 @@ export function HomeScreen({ navigation }: Props) {
           ) : null}
         </View>
         <Text style={styles.disclaimer}>
-          {trackingMode === "estimate"
-            ? "Estimate mode prioritizes directional nutrient signals. Source is informational and not medical advice."
-            : "Precise mode shows exact computed totals, but results still depend on logged quantities. Source is informational and not medical advice."}
+          Source combines %DV totals with signal bands and is informational, not medical advice.
         </Text>
         <View style={styles.actions}>
           <AppButton title="Capture meal photo" onPress={() => navigation.navigate("Capture")} />
@@ -618,17 +573,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 8,
     elevation: 2
-  },
-  modeCard: {
-    width: "100%",
-    padding: 16,
-    borderRadius: 16,
-    backgroundColor: "#f6f6f6",
-    gap: 8
-  },
-  modeActions: {
-    flexDirection: "row",
-    gap: 8
   },
   summaryToggle: {
     flexDirection: "row",
@@ -705,15 +649,6 @@ const styles = StyleSheet.create({
   insightItem: {
     fontSize: 13,
     color: "#333"
-  },
-  shortfallHigh: {
-    color: "#b42318"
-  },
-  shortfallMedium: {
-    color: "#b54708"
-  },
-  shortfallLow: {
-    color: "#027a48"
   },
   errorBanner: {
     backgroundColor: "#fce8e6",

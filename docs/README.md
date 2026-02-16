@@ -8,7 +8,7 @@ This file indexes deeper technical and planning docs.
 - `PROJECT.md` - product scope and constraints
 - `ARCHITECTURE.md` - system architecture and non-negotiables
 - `ROADMAP.md` - current execution priorities
-- `TRACKING_MODES_SPEC.md` - estimate vs precise mode contract
+- `TRACKING_MODES_SPEC.md` - unified nutrient presentation contract (legacy filename)
 - `APPLE_SIGN_IN.md` - Apple auth setup and troubleshooting
 
 ## Historical Execution Notes
