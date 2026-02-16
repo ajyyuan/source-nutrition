@@ -5,23 +5,23 @@ export type NutrientBandTone = {
 };
 
 export const getNutrientBandTone = (percentDv: number): NutrientBandTone => {
-  if (percentDv >= 1) {
+  if (percentDv >= 0.8) {
     return {
       label: "Strong signal",
-      backgroundColor: "#e6f4ea",
-      textColor: "#1a7f37"
+      backgroundColor: "#e7f6ec",
+      textColor: "#176a35"
     };
   }
-  if (percentDv >= 0.5) {
+  if (percentDv >= 0.35) {
     return {
       label: "Medium signal",
-      backgroundColor: "#fff4cc",
-      textColor: "#7a5e00"
+      backgroundColor: "#fff6d6",
+      textColor: "#8a6500"
     };
   }
   return {
     label: "Low signal",
-    backgroundColor: "#eef1f4",
-    textColor: "#475467"
+    backgroundColor: "#f2f4f7",
+    textColor: "#667085"
   };
 };
