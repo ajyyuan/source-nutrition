@@ -14,6 +14,7 @@ import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
 import { getNutrientBandTone } from "../lib/nutrientBands";
+import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
@@ -388,13 +389,9 @@ export function HomeScreen({ navigation }: Props) {
   const weekShortfalls = computeShortfalls(weekTotals.percent_dv);
   const isTodaySummary = summaryRange === "today";
   const summaryTitle =
-    trackingMode === "estimate"
-      ? isTodaySummary
-        ? "Daily totals (estimate view)"
-        : "7-day rolling average (estimate view)"
-      : isTodaySummary
-        ? "Daily totals (precise view)"
-        : "7-day rolling average (precise view)";
+    isTodaySummary
+      ? "Daily totals"
+      : "7-day rolling average";
   const summarySubtitle = isTodaySummary
     ? mealCount
       ? `${mealCount} meal${mealCount === 1 ? "" : "s"} logged`
@@ -494,32 +491,12 @@ export function HomeScreen({ navigation }: Props) {
               <View style={styles.list}>
                 {summaryHasData ? (
                   NUTRIENT_KEYS.map((key) => (
-                    trackingMode === "precise" ? (
-                      <Text key={key} style={styles.item}>
-                        {formatNutrientLabel(key)} · {Math.round(summaryTotals.percent_dv[key] * 100)}%
-                      </Text>
-                    ) : (
-                      <View key={key} style={styles.nutrientRow}>
-                        <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
-                        <View
-                          style={[
-                            styles.nutrientBandBadge,
-                            {
-                              backgroundColor: getNutrientBandTone(summaryTotals.percent_dv[key]).backgroundColor
-                            }
-                          ]}
-                        >
-                          <Text
-                            style={[
-                              styles.nutrientBandBadgeText,
-                              { color: getNutrientBandTone(summaryTotals.percent_dv[key]).textColor }
-                            ]}
-                          >
-                            {getNutrientBandTone(summaryTotals.percent_dv[key]).label}
-                          </Text>
-                        </View>
-                      </View>
-                    )
+                    <NutrientBarRow
+                      key={key}
+                      label={formatNutrientLabel(key)}
+                      percentDv={summaryTotals.percent_dv[key]}
+                      trackingMode={trackingMode}
+                    />
                   ))
                 ) : (
                   <EmptyState message={summaryEmptyMessage} />

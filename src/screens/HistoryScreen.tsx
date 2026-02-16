@@ -15,7 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import type { RootTabParamList } from "../navigation/AppNavigator";
 import { supabase } from "../lib/supabase";
 import { useTrackingMode } from "../lib/trackingMode";
-import { getNutrientBandTone } from "../lib/nutrientBands";
+import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatNutrientLabel } from "../lib/formatters";
@@ -560,32 +560,12 @@ export function HistoryScreen({ navigation }: Props) {
                 {dateMeals.length ? (
                   isDailyTotalsExpanded ? (
                     NUTRIENT_KEYS.map((key) => (
-                      trackingMode === "precise" ? (
-                        <Text key={key} style={styles.item}>
-                          {formatNutrientLabel(key)} · {Math.round(dateTotals.percent_dv[key] * 100)}%
-                        </Text>
-                      ) : (
-                        <View key={key} style={styles.nutrientRow}>
-                          <Text style={styles.item}>{formatNutrientLabel(key)}</Text>
-                          <View
-                            style={[
-                              styles.nutrientBandBadge,
-                              {
-                                backgroundColor: getNutrientBandTone(dateTotals.percent_dv[key]).backgroundColor
-                              }
-                            ]}
-                          >
-                            <Text
-                              style={[
-                                styles.nutrientBandBadgeText,
-                                { color: getNutrientBandTone(dateTotals.percent_dv[key]).textColor }
-                              ]}
-                            >
-                              {getNutrientBandTone(dateTotals.percent_dv[key]).label}
-                            </Text>
-                          </View>
-                        </View>
-                      )
+                      <NutrientBarRow
+                        key={key}
+                        label={formatNutrientLabel(key)}
+                        percentDv={dateTotals.percent_dv[key]}
+                        trackingMode={trackingMode}
+                      />
                     ))
                   ) : (
                     <Text style={styles.cardSubtitle}>
