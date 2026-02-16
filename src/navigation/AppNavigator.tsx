@@ -18,6 +18,7 @@ export function AppNavigator() {
     <Tab.Navigator
       id="root-tabs"
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarIcon: ({ color, size }) => {
           let iconName: keyof typeof Ionicons.glyphMap = "home-outline";
           if (route.name === "Capture") {

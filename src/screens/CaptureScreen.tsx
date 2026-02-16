@@ -249,7 +249,7 @@ const renderBanner = (message: string, variant: "success" | "error") => (
 
 export function CaptureScreen({ navigation, route }: Props) {
   const cameraRef = useRef<CameraView | null>(null);
-  const { trackingMode, setTrackingMode, isTrackingModeReady } = useTrackingMode();
+  const { trackingMode, isTrackingModeReady } = useTrackingMode();
   const trackingModeRef = useRef(trackingMode);
   const [permission, requestPermission] = useCameraPermissions();
   const [entryMode, setEntryMode] = useState<"camera" | "manual" | "edit">("camera");
@@ -810,31 +810,6 @@ export function CaptureScreen({ navigation, route }: Props) {
     previousTrackingModeRef.current = trackingMode;
   }, [trackingMode]);
 
-  const renderTrackingModeSelector = (options?: { disabled?: boolean }) => (
-    <View style={styles.modeSelector}>
-      <Text style={styles.sectionTitle}>App tracking mode</Text>
-      <Text style={styles.modeSubtitle}>
-        Applies to all new meals and summary display style.
-      </Text>
-      <View style={styles.modeActions}>
-        <AppButton
-          title="Estimate"
-          onPress={() => setTrackingMode("estimate")}
-          variant={trackingMode === "estimate" ? "primary" : "secondary"}
-          disabled={options?.disabled || !isTrackingModeReady}
-          fullWidth={false}
-        />
-        <AppButton
-          title="Precise"
-          onPress={() => setTrackingMode("precise")}
-          variant={trackingMode === "precise" ? "primary" : "secondary"}
-          disabled={options?.disabled || !isTrackingModeReady}
-          fullWidth={false}
-        />
-      </View>
-    </View>
-  );
-
   const renderEditableFoods = (options?: { allowCreate?: boolean }) => (
     <View style={styles.editableList}>
       <Text style={styles.sectionTitle}>Editable foods</Text>
@@ -994,9 +969,6 @@ export function CaptureScreen({ navigation, route }: Props) {
           </View>
           {manualError ? renderBanner(manualError, "error") : null}
           {isLoadingMeal ? <ActivityIndicator style={styles.spinner} /> : null}
-          {renderTrackingModeSelector({
-            disabled: isMapping || isCreatingMeal || isLoadingMeal
-          })}
           {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
@@ -1107,7 +1079,6 @@ export function CaptureScreen({ navigation, route }: Props) {
       {photoUri ? (
         <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
           <Image source={{ uri: photoUri }} style={styles.image} />
-          {renderTrackingModeSelector({ disabled: isUploading })}
           <View style={styles.actions}>
             <AppButton
               title="Retake"
@@ -1413,21 +1384,6 @@ const styles = StyleSheet.create({
   convertedHint: {
     fontSize: 12,
     color: "#667085"
-  },
-  modeSelector: {
-    marginHorizontal: 16,
-    padding: 12,
-    gap: 8,
-    backgroundColor: "#f6f6f6",
-    borderRadius: 12
-  },
-  modeSubtitle: {
-    fontSize: 13,
-    color: "#555"
-  },
-  modeActions: {
-    flexDirection: "row",
-    gap: 8
   },
   input: {
     borderWidth: 1,
