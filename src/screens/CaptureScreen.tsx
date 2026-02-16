@@ -415,12 +415,11 @@ export function CaptureScreen({ navigation, route }: Props) {
       if (!isTrackingModeReady) {
         throw new Error("Tracking mode is still loading. Please try again.");
       }
-      const placeholderPath = `manual/${userId}/${Date.now()}`;
       const { data: insertedMeal, error } = await supabase
         .from("meals")
         .insert({
           user_id: userId,
-          photo_path: placeholderPath,
+          photo_path: null,
           tracking_mode: trackingMode
         })
         .select("id")

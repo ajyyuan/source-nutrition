@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -56,10 +57,13 @@ type FinalItem = {
 type MealHistoryItem = {
   id: string;
   created_at: string;
+  photo_path?: string | null;
   nutrient_totals?: NutrientTotals | null;
   final_items?: { name?: string }[] | null;
   parsed_items?: { name?: string }[] | null;
 };
+
+const PHOTO_BUCKET = "meal-photos";
 
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
@@ -190,8 +194,35 @@ export function HistoryScreen({ navigation }: Props) {
     percent_dv: makeEmptyVector()
   });
   const [dateConfidence, setDateConfidence] = useState<number | null>(null);
+  const [mealPhotoUrls, setMealPhotoUrls] = useState<Record<string, string>>({});
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
   const [isDailyTotalsExpanded, setIsDailyTotalsExpanded] = useState(false);
+
+  const buildMealPhotoUrlMap = useCallback(async (meals: MealHistoryItem[]) => {
+    const photoMeals = meals.filter(
+      (meal) =>
+        typeof meal.photo_path === "string" &&
+        meal.photo_path.trim().length > 0 &&
+        !meal.photo_path.startsWith("manual/")
+    );
+    if (!photoMeals.length) {
+      return {};
+    }
+
+    const urlMap: Record<string, string> = {};
+    await Promise.all(
+      photoMeals.map(async (meal) => {
+        const path = meal.photo_path as string;
+        const { data, error } = await supabase.storage
+          .from(PHOTO_BUCKET)
+          .createSignedUrl(path, 60 * 60);
+        if (!error && data?.signedUrl) {
+          urlMap[meal.id] = data.signedUrl;
+        }
+      })
+    );
+    return urlMap;
+  }, []);
 
   const fetchMealsForDate = useCallback(async (date: Date) => {
     setIsLoadingHistory(true);
@@ -204,7 +235,7 @@ export function HistoryScreen({ navigation }: Props) {
       const range = getDayRange(date);
       const { data: historyData, error: historyError } = await supabase
         .from("meals")
-        .select("id, created_at, nutrient_totals, final_items, parsed_items")
+        .select("id, created_at, photo_path, nutrient_totals, final_items, parsed_items")
         .gte("created_at", range.start)
         .lt("created_at", range.end)
         .order("created_at", { ascending: false });
@@ -214,6 +245,7 @@ export function HistoryScreen({ navigation }: Props) {
       }
       const meals = (historyData as MealHistoryItem[]) ?? [];
       setDateMeals(meals);
+      setMealPhotoUrls(await buildMealPhotoUrlMap(meals));
       const computed = computeTotalsFromMeals(meals);
       setDateTotals({
         totals: computed.totals,
@@ -225,6 +257,7 @@ export function HistoryScreen({ navigation }: Props) {
         error instanceof Error ? error.message : "Unable to load meal history.";
       setHistoryError(message);
       setDateMeals([]);
+      setMealPhotoUrls({});
       setDateTotals({
         totals: makeEmptyVector(),
         percent_dv: makeEmptyVector()
@@ -233,7 +266,7 @@ export function HistoryScreen({ navigation }: Props) {
     } finally {
       setIsLoadingHistory(false);
     }
-  }, []);
+  }, [buildMealPhotoUrlMap]);
 
   const fetchMealsForMonth = useCallback(async (month: Date) => {
     setIsLoadingHistory(true);
@@ -300,6 +333,14 @@ export function HistoryScreen({ navigation }: Props) {
                   if (!next.length) {
                     setMonthMealDays((days) => days.filter((day) => day !== selectedKey));
                   }
+                  return next;
+                });
+                setMealPhotoUrls((current) => {
+                  if (!current[meal.id]) {
+                    return current;
+                  }
+                  const next = { ...current };
+                  delete next[meal.id];
                   return next;
                 });
               } catch (error) {
@@ -507,9 +548,14 @@ export function HistoryScreen({ navigation }: Props) {
                 {dateMeals.length ? (
                   dateMeals.map((meal) => (
                     <View key={meal.id} style={styles.historyRow}>
-                      <View style={styles.historyDetails}>
-                        <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
-                        <Text style={styles.cardSubtitle}>{formatMealSummary(meal)}</Text>
+                      <View style={styles.historyContent}>
+                        {mealPhotoUrls[meal.id] ? (
+                          <Image source={{ uri: mealPhotoUrls[meal.id] }} style={styles.mealThumb} />
+                        ) : null}
+                        <View style={styles.historyDetails}>
+                          <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
+                          <Text style={styles.cardSubtitle}>{formatMealSummary(meal)}</Text>
+                        </View>
                       </View>
                       <View style={styles.historyActions}>
                         <AppButton
@@ -635,10 +681,23 @@ const styles = StyleSheet.create({
     gap: 12,
     paddingVertical: 6
   },
+  historyContent: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    minWidth: 0
+  },
   historyActions: {
     flexDirection: "row",
     alignItems: "center",
     gap: 8
+  },
+  mealThumb: {
+    width: 44,
+    height: 44,
+    borderRadius: 10,
+    backgroundColor: "#e4e7ec"
   },
   historyDetails: {
     flex: 1,
