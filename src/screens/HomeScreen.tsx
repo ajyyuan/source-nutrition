@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   Pressable,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -160,6 +161,7 @@ export function HomeScreen({ navigation }: Props) {
   const [todayContributors, setTodayContributors] = useState<Contributor[]>([]);
   const [weekContributors, setWeekContributors] = useState<Contributor[]>([]);
   const [summaryRange, setSummaryRange] = useState<"today" | "week">("today");
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const todayRange = useMemo(() => {
     const start = new Date();
@@ -385,6 +387,15 @@ export function HomeScreen({ navigation }: Props) {
     loadToday();
   }, [loadToday]);
 
+  const handleRefresh = useCallback(async () => {
+    setIsRefreshing(true);
+    try {
+      await loadToday();
+    } finally {
+      setIsRefreshing(false);
+    }
+  }, [loadToday]);
+
   const todayShortfalls = computeShortfalls(todayTotals.percent_dv);
   const weekShortfalls = computeShortfalls(weekTotals.percent_dv);
   const isTodaySummary = summaryRange === "today";
@@ -410,7 +421,16 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+            tintColor="#111"
+          />
+        }
+      >
         <Text style={styles.title}>Source</Text>
         <View style={styles.modeCard}>
           <Text style={styles.cardTitle}>App tracking mode</Text>
@@ -551,7 +571,6 @@ export function HomeScreen({ navigation }: Props) {
               </View>
             </>
           ) : null}
-          <AppButton title="Refresh summary" onPress={loadToday} variant="secondary" />
         </View>
         <Text style={styles.disclaimer}>
           {trackingMode === "estimate"

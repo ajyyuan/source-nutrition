@@ -5,6 +5,7 @@ import {
   Image,
   Modal,
   Pressable,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -199,6 +200,7 @@ export function HistoryScreen({ navigation }: Props) {
   const [expandedPhotoUrl, setExpandedPhotoUrl] = useState<string | null>(null);
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
   const [isDailyTotalsExpanded, setIsDailyTotalsExpanded] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const buildMealPhotoUrlMap = useCallback(async (meals: MealHistoryItem[]) => {
     const photoMeals = meals.filter(
@@ -381,6 +383,18 @@ export function HistoryScreen({ navigation }: Props) {
     setIsDailyTotalsExpanded(false);
   }, [selectedDate]);
 
+  const handleRefresh = useCallback(async () => {
+    setIsRefreshing(true);
+    try {
+      await Promise.all([
+        fetchMealsForDate(selectedDate),
+        fetchMealsForMonth(viewMonth)
+      ]);
+    } finally {
+      setIsRefreshing(false);
+    }
+  }, [fetchMealsForDate, fetchMealsForMonth, selectedDate, viewMonth]);
+
   const formatMealTimestamp = (value: string) => {
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) {
@@ -449,7 +463,16 @@ export function HistoryScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+            tintColor="#111"
+          />
+        }
+      >
         <Text style={styles.title}>History</Text>
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Calendar</Text>
