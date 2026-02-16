@@ -38,6 +38,7 @@ type EditableItem = {
   id: string;
   name: string;
   quantity: number;
+  quantityInput: string;
   unit: QuantityUnit;
   lastPreciseUnit: QuantityUnit;
   confidence: number;
@@ -208,6 +209,16 @@ const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   return totals;
 };
 
+const formatQuantityInput = (value: number) => {
+  if (!Number.isFinite(value) || value <= 0) {
+    return "";
+  }
+  const rounded = Math.round(value * 1000) / 1000;
+  return String(rounded)
+    .replace(/\.0+$/, "")
+    .replace(/(\.\d*?[1-9])0+$/, "$1");
+};
+
 const getConfidenceTone = (value: number) => {
   if (value >= 0.75) {
     return { backgroundColor: "#e6f4ea", textColor: "#1a7f37" };
@@ -331,6 +342,7 @@ export function CaptureScreen({ navigation, route }: Props) {
         id: `${Date.now()}-manual-${Math.random().toString(36).slice(2, 6)}`,
         name: "",
         quantity: 0,
+        quantityInput: "",
         unit: "g",
         lastPreciseUnit: "g",
         confidence: 0.2
@@ -485,10 +497,22 @@ export function CaptureScreen({ navigation, route }: Props) {
             return {
               id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
               name: typeof item?.name === "string" ? item.name : "",
-              quantity:
+              quantity: (() => {
+                const resolved =
+                  isPreciseMode
+                    ? savedQuantity ?? fromGrams(grams, savedUnit)
+                    : grams;
+                return Number.isFinite(resolved) ? Math.max(resolved, 0) : 0;
+              })(),
+              quantityInput: (() => {
+                const resolved =
                 isPreciseMode
                   ? savedQuantity ?? fromGrams(grams, savedUnit)
-                  : grams,
+                  : grams;
+                return formatQuantityInput(
+                  Number.isFinite(resolved) ? Math.max(resolved, 0) : 0
+                );
+              })(),
               unit: isPreciseMode ? savedUnit : "g",
               lastPreciseUnit: savedLastPrecise,
               confidence:
@@ -644,6 +668,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           id: `${Date.now()}-${item.name}-${Math.random().toString(36).slice(2, 6)}`,
           name: item.name,
           quantity: item.estimated_grams,
+          quantityInput: formatQuantityInput(item.estimated_grams),
           unit: "g",
           lastPreciseUnit: "g",
           confidence: item.confidence
@@ -790,6 +815,7 @@ export function CaptureScreen({ navigation, route }: Props) {
         current.map((item) => ({
           ...item,
           quantity: toGrams(item.quantity, item.unit),
+          quantityInput: formatQuantityInput(toGrams(item.quantity, item.unit)),
           unit: "g",
           lastPreciseUnit: item.unit === "g" ? item.lastPreciseUnit : item.unit
         }))
@@ -801,6 +827,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           return {
             ...item,
             quantity: fromGrams(item.quantity, restoredUnit),
+            quantityInput: formatQuantityInput(fromGrams(item.quantity, restoredUnit)),
             unit: restoredUnit
           };
         })
@@ -829,21 +856,35 @@ export function CaptureScreen({ navigation, route }: Props) {
           />
           <TextInput
             style={styles.input}
-            value={Number.isFinite(item.quantity) ? String(item.quantity) : ""}
+            value={item.quantityInput}
             onChangeText={(value) => {
-              const parsed = Number.parseFloat(value);
+              const normalized = value.replace(",", ".");
+              if (!/^\d*\.?\d*$/.test(normalized)) {
+                return;
+              }
+              const parsed = Number.parseFloat(normalized);
               setEditableItems((current) =>
                 current.map((entry) =>
                   entry.id === item.id
                     ? {
                         ...entry,
+                        quantityInput: normalized,
                         quantity: Number.isNaN(parsed) ? 0 : Math.max(parsed, 0)
                       }
                     : entry
                 )
               );
             }}
-            keyboardType="numeric"
+            onBlur={() => {
+              setEditableItems((current) =>
+                current.map((entry) =>
+                  entry.id === item.id
+                    ? { ...entry, quantityInput: formatQuantityInput(entry.quantity) }
+                    : entry
+                )
+              );
+            }}
+            keyboardType="decimal-pad"
             placeholder={trackingMode === "precise" ? "Amount" : "Grams"}
           />
           {trackingMode === "precise" ? (
@@ -905,6 +946,7 @@ export function CaptureScreen({ navigation, route }: Props) {
               id: `${Date.now()}-new-${Math.random().toString(36).slice(2, 6)}`,
               name: "",
               quantity: 0,
+              quantityInput: "",
               unit: "g",
               lastPreciseUnit: "g",
               confidence: 0.2
