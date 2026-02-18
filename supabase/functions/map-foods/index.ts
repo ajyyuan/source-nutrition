@@ -4,10 +4,14 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
   computeMealTotals,
   computeItemTotals,
-  listCanonicalFoods,
   NUTRIENT_DB_VERSION,
   sumPercentDv
 } from "../_shared/nutrients.ts";
+import {
+  rankCanonicalFoodSuggestions,
+  type CanonicalFoodLookupItem,
+  type CanonicalFoodSuggestion
+} from "../_shared/lexicalFoodSearch.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,227 +20,195 @@ const corsHeaders = {
 
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
-
-const FALLBACK_CANONICAL_FOODS = listCanonicalFoods().filter(
-  (item) => item.canonical_id !== "food-unknown"
-);
 const SUPPORTED_UNITS = new Set(["g", "oz", "lb", "ml", "fl oz", "cup", "tbsp", "tsp"]);
-const FALLBACK_CANONICAL_BY_ID = Object.fromEntries(
-  listCanonicalFoods().map((item) => [item.canonical_id, item])
-);
-const ALIAS_MAP = {
-  salmon: "salmon-cooked",
-  "smoked salmon": "salmon-cooked",
-  egg: "egg-whole",
-  eggs: "egg-whole",
-  spinach: "spinach-raw",
-  "baby spinach": "spinach-raw",
-  apple: "apple-raw",
-  apples: "apple-raw"
-};
-const TOKEN_CANONICAL_MAP: Record<string, string> = {
-  eggs: "egg",
-  berries: "strawberry",
-  strawberries: "strawberry",
-  blueberries: "blueberry",
-  raspberries: "raspberry",
-  blackberries: "blackberry",
-  veggies: "vegetable",
-  vegetables: "vegetable",
-  potatoes: "potato",
-  mussels: "mussel",
-  sardines: "sardine",
-  yoghurt: "yogurt"
-};
-const normalizeName = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-const normalizeForMatching = (value: string) =>
-  [
-    { pattern: /\bwhole foods?\b/g, replacement: "" },
-    { pattern: /\bfull fat\b/g, replacement: "whole milk" }
-  ].reduce(
-    (current, rule) => current.replace(rule.pattern, rule.replacement),
-    normalizeName(value)
-  );
-const STOP_WORDS = new Set([
-  "region",
-  "pass",
-  "sample",
-  "samples",
-  "composite",
-  "store",
-  "stores",
-  "organic",
-  "regenerative",
-  "grass",
-  "fed",
-  "pasture",
-  "raised",
-  "wild",
-  "caught",
-  "full",
-  "fat",
-  "fatty",
-  "hard",
-  "boiled",
-  "fermented",
-  "free",
-  "range",
-  "food",
-  "fresh",
-  "raw",
-  "yes",
-  "no",
-  "n",
-  "a",
-  "na",
-  "n/a",
-  "nf",
-  "nfy"
-]);
-const CANDIDATE_FORM_PENALTY_WEIGHTS: Record<string, number> = {
-  flour: 0.32,
-  sauce: 0.28,
-  juice: 0.24,
-  powder: 0.24,
-  dried: 0.2,
-  concentrate: 0.16,
-  ready: 0.12,
-  serve: 0.12
-};
-const cleanTokens = (value: string) =>
-  normalizeForMatching(value)
-    .split(" ")
-    .map((token) => token.trim())
-    .filter(Boolean)
-    .filter((token) => token.length > 1)
-    .map((token) => TOKEN_CANONICAL_MAP[token] ?? token)
-    .filter((token) => !STOP_WORDS.has(token))
-    .filter((token) => !/\d/.test(token));
-const toTokenSet = (value: string) => new Set(cleanTokens(value));
-const matchAlias = (normalized: string) => {
-  for (const [alias, canonicalId] of Object.entries(ALIAS_MAP)) {
-    if (normalized.includes(alias)) {
-      return canonicalId;
-    }
-  }
-  return null;
-};
-const scoreCandidate = (tokens: Set<string>, canonicalName: string) => {
-  const canonicalTokens = toTokenSet(canonicalName);
-  if (!canonicalTokens.size || !tokens.size) {
-    return 0;
-  }
-  const overlap = Array.from(tokens).filter((token) => canonicalTokens.has(token)).length;
-  if (!overlap) {
-    return 0;
-  }
+const OPENAI_MODEL = "gpt-4o-mini";
+const UNKNOWN_CANONICAL_ID = "food-unknown";
+const UNKNOWN_CANONICAL_NAME = "Unknown food";
+const LEXICAL_STRONG_SCORE = 0.95;
+const LEXICAL_MARGIN_TO_SKIP_AI = 0.2;
+const MAX_LEXICAL_CANDIDATES = 8;
+const MAX_AI_CANDIDATES = 6;
+const NUTRIENT_KEYS = [
+  "vitamin_a_ug",
+  "vitamin_c_mg",
+  "vitamin_d_ug",
+  "vitamin_e_mg",
+  "vitamin_k_ug",
+  "thiamin_mg",
+  "riboflavin_mg",
+  "niacin_mg",
+  "vitamin_b6_mg",
+  "folate_ug",
+  "vitamin_b12_ug",
+  "calcium_mg",
+  "iron_mg",
+  "magnesium_mg",
+  "phosphorus_mg",
+  "potassium_mg",
+  "zinc_mg",
+  "selenium_ug",
+  "omega3_g"
+];
 
-  const precision = overlap / tokens.size;
-  const recall = overlap / canonicalTokens.size;
-  const f1 = precision + recall ? (2 * precision * recall) / (precision + recall) : 0;
+const makeZeroVector = () =>
+  Object.fromEntries(NUTRIENT_KEYS.map((key) => [key, 0]));
 
-  let boost = 0;
-  if (tokens.size === 1) {
-    const [singleToken] = Array.from(tokens);
-    if (
-      ["egg", "salmon", "beef", "yogurt", "rice", "potato", "mussel", "sardine"].includes(
-        singleToken
-      ) &&
-      canonicalTokens.has(singleToken)
-    ) {
-      boost += 0.12;
-    }
+const normalizePer100g = (value: unknown) => {
+  const base = makeZeroVector();
+  if (!value || typeof value !== "object") {
+    return base;
   }
-
-  const normalizedCanonical = normalizeName(canonicalName);
-  const tokenPhrase = Array.from(tokens).join(" ");
-  if (tokenPhrase.length >= 4 && normalizedCanonical.includes(tokenPhrase)) {
-    boost += 0.08;
-  }
-
-  const formPenalty = Object.entries(CANDIDATE_FORM_PENALTY_WEIGHTS).reduce(
-    (acc, [token, penalty]) => {
-      if (canonicalTokens.has(token) && !tokens.has(token)) {
-        return acc + penalty;
-      }
-      return acc;
-    },
-    0
-  );
-
-  return f1 + boost - Math.min(formPenalty, 0.36);
-};
-const pickCanonicalId = (
-  name: string,
-  canonicalFoods: typeof FALLBACK_CANONICAL_FOODS
-) => {
-  const tokens = toTokenSet(name);
-  const aliasMatch = matchAlias(normalizeName(name));
-  if (aliasMatch) {
-    return aliasMatch;
-  }
-  let bestId = "food-unknown";
-  let bestScore = 0;
-  canonicalFoods.forEach((candidate) => {
-    const score = scoreCandidate(tokens, candidate.canonical_name);
-    if (score > bestScore) {
-      bestScore = score;
-      bestId = candidate.canonical_id;
-    }
+  NUTRIENT_KEYS.forEach((key) => {
+    const raw = value[key];
+    base[key] = typeof raw === "number" && Number.isFinite(raw) ? raw : 0;
   });
-  return bestScore >= 0.38 ? bestId : "food-unknown";
+  return base;
 };
 
-const mergeCanonicalFoods = (rows: Array<Record<string, unknown>>) => {
-  const byId = { ...FALLBACK_CANONICAL_BY_ID };
+const buildCanonicalIndexes = (rows: Array<Record<string, unknown>>) => {
+  const byId: Record<string, Record<string, unknown>> = {};
+  const lookup: CanonicalFoodLookupItem[] = [];
   rows.forEach((row) => {
-    const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id : "";
-    if (!canonicalId) {
+    const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
+    const canonicalName =
+      typeof row?.canonical_name === "string" ? row.canonical_name.trim() : "";
+    if (!canonicalId || !canonicalName) {
       return;
     }
-    const fallback = byId[canonicalId];
-    const per_100g =
-      row?.per_100g && typeof row.per_100g === "object"
-        ? { ...(fallback?.per_100g ?? {}), ...row.per_100g }
-        : fallback?.per_100g ?? FALLBACK_CANONICAL_BY_ID["food-unknown"].per_100g;
     byId[canonicalId] = {
       canonical_id: canonicalId,
-      canonical_name:
-        typeof row?.canonical_name === "string"
-          ? row.canonical_name
-          : fallback?.canonical_name ?? canonicalId,
-      per_100g,
-      source: row?.source === "usda" ? "usda" : fallback?.source ?? "stub"
+      canonical_name: canonicalName,
+      per_100g: normalizePer100g(row?.per_100g),
+      source: row?.source === "usda" ? "usda" : "stub"
     };
+    lookup.push({
+      canonical_id: canonicalId,
+      canonical_name: canonicalName
+    });
   });
-  return {
-    byId,
-    foods: Object.values(byId).filter((item) => item.canonical_id !== "food-unknown")
-  };
+  return { byId, lookup };
 };
 
 const loadCanonicalFoods = async (supabase) => {
-  try {
-    const { data, error } = await supabase
-      .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, source");
-    if (error || !data?.length) {
-      return {
-        foods: FALLBACK_CANONICAL_FOODS,
-        byId: FALLBACK_CANONICAL_BY_ID
-      };
-    }
-    return mergeCanonicalFoods(data);
-  } catch (_error) {
-    return {
-      foods: FALLBACK_CANONICAL_FOODS,
-      byId: FALLBACK_CANONICAL_BY_ID
-    };
+  const { data, error } = await supabase
+    .from("canonical_foods")
+    .select("canonical_id, canonical_name, per_100g, source");
+  if (error) {
+    throw error;
   }
+  if (!Array.isArray(data) || !data.length) {
+    throw new Error("canonical_foods is empty. Seed canonical foods before mapping.");
+  }
+  const { byId, lookup } = buildCanonicalIndexes(data);
+  if (!lookup.length) {
+    throw new Error("canonical_foods has no valid rows.");
+  }
+  return { byId, lookup };
+};
+
+const shouldTrustLexicalTopCandidate = (candidates: CanonicalFoodSuggestion[]) => {
+  if (!candidates.length) {
+    return false;
+  }
+  if (candidates.length === 1) {
+    return true;
+  }
+  const top = candidates[0];
+  const runnerUp = candidates[1];
+  if (top.lexical_score >= 1.15) {
+    return true;
+  }
+  return top.lexical_score >= LEXICAL_STRONG_SCORE &&
+    top.lexical_score - runnerUp.lexical_score >= LEXICAL_MARGIN_TO_SKIP_AI;
+};
+
+const pickCanonicalWithAi = async (
+  observedName: string,
+  candidates: CanonicalFoodSuggestion[]
+): Promise<string | null> => {
+  const openaiKey = Deno.env.get("OPENAI_API_KEY");
+  if (!openaiKey || !candidates.length) {
+    return null;
+  }
+  const candidateSubset = candidates.slice(0, MAX_AI_CANDIDATES);
+  const candidateById = Object.fromEntries(
+    candidateSubset.map((candidate) => [candidate.canonical_id, candidate])
+  );
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${openaiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      response_format: { type: "json_object" },
+      messages: [
+        {
+          role: "system",
+          content:
+            "Choose the best canonical food candidate for the observed food label. Return strict JSON: {\"canonical_id\":\"<candidate_id or empty string>\"}."
+        },
+        {
+          role: "user",
+          content: JSON.stringify({
+            observed_name: observedName,
+            candidates: candidateSubset.map((candidate) => ({
+              canonical_id: candidate.canonical_id,
+              canonical_name: candidate.canonical_name,
+              lexical_score: candidate.lexical_score
+            }))
+          })
+        }
+      ]
+    })
+  });
+
+  if (!response.ok) {
+    return null;
+  }
+  const result = await response.json().catch(() => null);
+  const content = result?.choices?.[0]?.message?.content;
+  if (typeof content !== "string" || !content.trim()) {
+    return null;
+  }
+  let parsed: Record<string, unknown> | null = null;
+  try {
+    parsed = JSON.parse(content);
+  } catch (_error) {
+    return null;
+  }
+  const selectedId = typeof parsed?.canonical_id === "string" ? parsed.canonical_id.trim() : "";
+  return selectedId && candidateById[selectedId] ? selectedId : null;
+};
+
+const resolveCanonicalForItem = async (
+  itemName: string,
+  explicitCanonicalId: string,
+  canonicalLookup: CanonicalFoodLookupItem[],
+  canonicalById: Record<string, Record<string, unknown>>
+) => {
+  if (explicitCanonicalId) {
+    if (!canonicalById[explicitCanonicalId]) {
+      throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
+    }
+    return explicitCanonicalId;
+  }
+
+  const candidates = rankCanonicalFoodSuggestions(itemName, canonicalLookup, MAX_LEXICAL_CANDIDATES);
+  if (!candidates.length) {
+    return UNKNOWN_CANONICAL_ID;
+  }
+
+  if (shouldTrustLexicalTopCandidate(candidates)) {
+    return candidates[0].canonical_id;
+  }
+
+  const aiChoice = await pickCanonicalWithAi(itemName, candidates);
+  if (aiChoice && canonicalById[aiChoice]) {
+    return aiChoice;
+  }
+  return candidates[0].canonical_id;
 };
 
 const createSupabaseClient = (req: Request) => {
@@ -273,9 +245,10 @@ serve(async (req) => {
     const safeItems = Array.isArray(items) ? items : [];
 
     const supabase = createSupabaseClient(req);
-    const { foods: canonicalFoods, byId: canonicalById } = await loadCanonicalFoods(supabase);
+    const { lookup: canonicalLookup, byId: canonicalById } = await loadCanonicalFoods(supabase);
 
-    const mapped = safeItems.map((item) => {
+    const mapped = [];
+    for (const item of safeItems) {
       const name = typeof item?.name === "string" ? item.name.trim() : "unknown";
       const grams =
         typeof item?.estimated_grams === "number" && Number.isFinite(item.estimated_grams)
@@ -298,24 +271,32 @@ serve(async (req) => {
 
       const explicitCanonicalId =
         typeof item?.canonical_id === "string" ? item.canonical_id.trim() : "";
-      if (explicitCanonicalId && !canonicalById[explicitCanonicalId]) {
-        throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
-      }
+      const canonicalId = await resolveCanonicalForItem(
+        name || "unknown",
+        explicitCanonicalId,
+        canonicalLookup,
+        canonicalById
+      );
+      const canonicalEntry = canonicalById[canonicalId] ?? null;
+      const canonicalName =
+        typeof canonicalEntry?.canonical_name === "string"
+          ? canonicalEntry.canonical_name
+          : canonicalId === UNKNOWN_CANONICAL_ID
+            ? UNKNOWN_CANONICAL_NAME
+            : name || UNKNOWN_CANONICAL_NAME;
 
-      const canonicalId = explicitCanonicalId || pickCanonicalId(name || "unknown", canonicalFoods);
-      const canonicalEntry = canonicalById[canonicalId];
-
-      return {
-        name: explicitCanonicalId ? canonicalEntry?.canonical_name ?? name : name,
+      mapped.push({
+        // Canonical selection is the display value after mapping.
+        name: canonicalName,
         grams,
         canonical_id: canonicalId,
-        canonical_name: (canonicalEntry?.canonical_name ?? name) || "Unknown food",
+        canonical_name: canonicalName,
         quantity,
         unit,
         last_precise_unit: lastPreciseUnit,
         confidence
-      };
-    });
+      });
+    }
 
     const nutrient_totals = computeMealTotals(
       mapped.map((item) => ({
