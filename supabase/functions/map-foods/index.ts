@@ -277,7 +277,6 @@ serve(async (req) => {
 
     const mapped = safeItems.map((item) => {
       const name = typeof item?.name === "string" ? item.name.trim() : "unknown";
-      const normalized = name.toLowerCase();
       const grams =
         typeof item?.estimated_grams === "number" && Number.isFinite(item.estimated_grams)
           ? Math.max(item.estimated_grams, 0)
@@ -297,11 +296,17 @@ serve(async (req) => {
           ? item.confidence
           : 0.2;
 
-      const canonicalId = pickCanonicalId(name || "unknown", canonicalFoods);
+      const explicitCanonicalId =
+        typeof item?.canonical_id === "string" ? item.canonical_id.trim() : "";
+      if (explicitCanonicalId && !canonicalById[explicitCanonicalId]) {
+        throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
+      }
+
+      const canonicalId = explicitCanonicalId || pickCanonicalId(name || "unknown", canonicalFoods);
       const canonicalEntry = canonicalById[canonicalId];
 
       return {
-        name,
+        name: explicitCanonicalId ? canonicalEntry?.canonical_name ?? name : name,
         grams,
         canonical_id: canonicalId,
         canonical_name: (canonicalEntry?.canonical_name ?? name) || "Unknown food",

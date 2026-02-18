@@ -31,6 +31,8 @@ type ParsedItem = {
   quantity?: number;
   unit?: QuantityUnit;
   last_precise_unit?: QuantityUnit;
+  canonical_id?: string;
+  canonical_name?: string;
 };
 
 type EditableItem = {
@@ -41,6 +43,8 @@ type EditableItem = {
   unit: QuantityUnit;
   lastPreciseUnit: QuantityUnit;
   confidence: number;
+  canonicalId: string | null;
+  canonicalName: string | null;
 };
 
 type MappedItem = {
@@ -48,6 +52,17 @@ type MappedItem = {
   canonical_id: string;
   canonical_name: string;
   confidence: number;
+};
+
+type FoodSuggestion = {
+  canonical_id: string;
+  canonical_name: string;
+  lexical_score: number;
+};
+
+type CanonicalLookupItem = {
+  canonical_id: string;
+  canonical_name: string;
 };
 
 type NutrientVector = {
@@ -186,6 +201,133 @@ const parseMappingPayload = (payload: unknown): MappedItem[] => {
   });
 };
 
+const parseFoodSuggestions = (payload: unknown): FoodSuggestion[] => {
+  if (payload === null || payload === undefined || payload === "") {
+    return [];
+  }
+  let parsed: unknown = payload;
+  if (typeof payload === "string") {
+    try {
+      parsed = JSON.parse(payload);
+    } catch (error) {
+      return [];
+    }
+  }
+  const items = Array.isArray(parsed)
+    ? parsed
+    : parsed && typeof parsed === "object" && "items" in parsed
+      ? (parsed as { items: unknown }).items
+      : null;
+  if (!Array.isArray(items)) {
+    return [];
+  }
+  return items
+    .filter((item) => item && typeof item === "object")
+    .map((item) => item as Partial<FoodSuggestion>)
+    .filter(
+      (item) =>
+        typeof item.canonical_id === "string" &&
+        item.canonical_id.trim().length > 0 &&
+        typeof item.canonical_name === "string" &&
+        item.canonical_name.trim().length > 0
+    )
+    .map((item) => ({
+      canonical_id: item.canonical_id!.trim(),
+      canonical_name: item.canonical_name!.trim(),
+      lexical_score:
+        typeof item.lexical_score === "number" && Number.isFinite(item.lexical_score)
+          ? item.lexical_score
+          : 0
+    }));
+};
+
+const normalizeSuggestionText = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const tokenizeSuggestionText = (value: string) =>
+  normalizeSuggestionText(value)
+    .split(" ")
+    .map((token) => token.trim())
+    .filter((token) => token.length > 1);
+
+const scoreSuggestionCandidate = (query: string, candidateName: string) => {
+  const normalizedQuery = normalizeSuggestionText(query);
+  const normalizedCandidate = normalizeSuggestionText(candidateName);
+  if (!normalizedQuery || !normalizedCandidate) {
+    return 0;
+  }
+
+  let score = 0;
+  if (normalizedCandidate === normalizedQuery) {
+    score += 1.2;
+  } else if (normalizedCandidate.startsWith(`${normalizedQuery} `)) {
+    score += 0.95;
+  } else if (normalizedCandidate.startsWith(normalizedQuery)) {
+    score += 0.85;
+  } else if (normalizedCandidate.includes(` ${normalizedQuery} `)) {
+    score += 0.75;
+  } else if (
+    normalizedCandidate.endsWith(` ${normalizedQuery}`) ||
+    normalizedCandidate.includes(normalizedQuery)
+  ) {
+    score += 0.6;
+  }
+
+  const queryTokens = tokenizeSuggestionText(normalizedQuery);
+  const candidateTokenSet = new Set(tokenizeSuggestionText(normalizedCandidate));
+  if (!queryTokens.length || !candidateTokenSet.size) {
+    return score;
+  }
+
+  const overlap = queryTokens.filter((token) => candidateTokenSet.has(token)).length;
+  if (!overlap) {
+    return score;
+  }
+
+  const precision = overlap / queryTokens.length;
+  const recall = overlap / candidateTokenSet.size;
+  const tokenF1 = precision + recall ? (2 * precision * recall) / (precision + recall) : 0;
+  score += tokenF1 * 0.7;
+
+  if (queryTokens.length === 1 && candidateTokenSet.has(queryTokens[0])) {
+    score += 0.15;
+  }
+
+  return score;
+};
+
+const rankFoodSuggestions = (
+  query: string,
+  foods: CanonicalLookupItem[],
+  limit = 8
+): FoodSuggestion[] => {
+  const trimmed = query.trim();
+  if (trimmed.length < 2) {
+    return [];
+  }
+  const boundedLimit = Math.max(1, Math.min(Math.round(limit), 12));
+  return foods
+    .map((food) => ({
+      canonical_id: food.canonical_id,
+      canonical_name: food.canonical_name,
+      lexical_score: scoreSuggestionCandidate(trimmed, food.canonical_name)
+    }))
+    .filter((candidate) => candidate.lexical_score > 0.2)
+    .sort((a, b) => {
+      if (b.lexical_score !== a.lexical_score) {
+        return b.lexical_score - a.lexical_score;
+      }
+      if (a.canonical_name.length !== b.canonical_name.length) {
+        return a.canonical_name.length - b.canonical_name.length;
+      }
+      return a.canonical_name.localeCompare(b.canonical_name);
+    })
+    .slice(0, boundedLimit);
+};
+
 const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   if (payload === null || payload === undefined || payload === "") {
     return null;
@@ -281,19 +423,187 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
   const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
+  const [suggestionsByItemId, setSuggestionsByItemId] = useState<
+    Record<string, FoodSuggestion[]>
+  >({});
+  const [suggestionError, setSuggestionError] = useState<string | null>(null);
+  const suggestionRequestIdRef = useRef<Record<string, number>>({});
+  const suggestionTimerRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
 
   const toParsedItems = useCallback(
     (items: EditableItem[]): ParsedItem[] =>
       items.map((item) => ({
-        name: item.name,
+        name: item.canonicalName ?? item.name,
         estimated_grams: toGrams(item.quantity, item.unit),
         confidence: Number.isFinite(item.confidence) ? item.confidence : 0.2,
         quantity: item.quantity,
         unit: item.unit,
-        last_precise_unit: item.lastPreciseUnit
+        last_precise_unit: item.lastPreciseUnit,
+        canonical_id: item.canonicalId ?? undefined,
+        canonical_name: item.canonicalName ?? undefined
       })),
     []
   );
+
+  const clearSuggestionTimersForItem = useCallback((itemId: string) => {
+    const timerId = suggestionTimerRef.current[itemId];
+    if (timerId) {
+      clearTimeout(timerId);
+      delete suggestionTimerRef.current[itemId];
+    }
+  }, []);
+
+  const clearSuggestionsForItem = useCallback(
+    (itemId: string) => {
+      clearSuggestionTimersForItem(itemId);
+      setSuggestionsByItemId((current) => {
+        if (!(itemId in current)) {
+          return current;
+        }
+        const next = { ...current };
+        delete next[itemId];
+        return next;
+      });
+    },
+    [clearSuggestionTimersForItem]
+  );
+
+  const loadFoodSuggestionsFromCanonicalTable = useCallback(async (query: string) => {
+    const trimmedQuery = query.trim();
+    if (trimmedQuery.length < 2) {
+      return [];
+    }
+    const fetchByPattern = async (pattern: string) => {
+      const { data, error } = await supabase
+        .from("canonical_foods")
+        .select("canonical_id, canonical_name")
+        .ilike("canonical_name", pattern)
+        .limit(40);
+      if (error) {
+        throw error;
+      }
+      return (Array.isArray(data) ? data : [])
+        .filter(
+          (item) =>
+            typeof item?.canonical_id === "string" &&
+            item.canonical_id.trim().length > 0 &&
+            typeof item?.canonical_name === "string" &&
+            item.canonical_name.trim().length > 0
+        )
+        .map((item) => ({
+          canonical_id: item.canonical_id.trim(),
+          canonical_name: item.canonical_name.trim()
+        }));
+    };
+
+    let rows = await fetchByPattern(`%${trimmedQuery}%`);
+    if (!rows.length) {
+      const firstToken = tokenizeSuggestionText(trimmedQuery)[0];
+      if (firstToken && firstToken !== trimmedQuery) {
+        rows = await fetchByPattern(`%${firstToken}%`);
+      }
+    }
+    return rankFoodSuggestions(trimmedQuery, rows, 8);
+  }, []);
+
+  const requestFoodSuggestions = useCallback(async (itemId: string, rawQuery: string) => {
+    const query = rawQuery.trim();
+    if (query.length < 2) {
+      setSuggestionError(null);
+      setSuggestionsByItemId((current) => {
+        if (!(itemId in current)) {
+          return current;
+        }
+        const next = { ...current };
+        delete next[itemId];
+        return next;
+      });
+      return;
+    }
+
+    const requestId = (suggestionRequestIdRef.current[itemId] ?? 0) + 1;
+    suggestionRequestIdRef.current[itemId] = requestId;
+    setSuggestionError(null);
+    try {
+      const { data, error } = await supabase.functions.invoke("search-foods", {
+        body: {
+          query,
+          limit: 8
+        }
+      });
+      if (error) {
+        throw error;
+      }
+      const payload =
+        typeof data === "string"
+          ? (() => {
+              try {
+                return JSON.parse(data);
+              } catch (jsonError) {
+                return null;
+              }
+            })()
+          : data;
+      if (
+        payload &&
+        typeof payload === "object" &&
+        "error" in payload &&
+        typeof payload.error === "string" &&
+        payload.error.length > 0
+      ) {
+        throw new Error(payload.error);
+      }
+      const suggestions = parseFoodSuggestions(data);
+      if (suggestionRequestIdRef.current[itemId] !== requestId) {
+        return;
+      }
+      setSuggestionsByItemId((current) => ({
+        ...current,
+        [itemId]: suggestions
+      }));
+    } catch (error) {
+      try {
+        const fallbackSuggestions = await loadFoodSuggestionsFromCanonicalTable(query);
+        if (suggestionRequestIdRef.current[itemId] !== requestId) {
+          return;
+        }
+        setSuggestionsByItemId((current) => ({
+          ...current,
+          [itemId]: fallbackSuggestions
+        }));
+        setSuggestionError(null);
+      } catch (fallbackError) {
+        if (suggestionRequestIdRef.current[itemId] !== requestId) {
+          return;
+        }
+        setSuggestionsByItemId((current) => ({
+          ...current,
+          [itemId]: []
+        }));
+        setSuggestionError("Unable to load food suggestions right now.");
+      }
+    }
+  }, [loadFoodSuggestionsFromCanonicalTable]);
+
+  const scheduleFoodSuggestions = useCallback(
+    (itemId: string, query: string) => {
+      clearSuggestionTimersForItem(itemId);
+      if (query.trim().length < 2) {
+        clearSuggestionsForItem(itemId);
+        return;
+      }
+      suggestionTimerRef.current[itemId] = setTimeout(() => {
+        requestFoodSuggestions(itemId, query);
+      }, 150);
+    },
+    [clearSuggestionTimersForItem, clearSuggestionsForItem, requestFoodSuggestions]
+  );
+
+  useEffect(() => {
+    return () => {
+      Object.values(suggestionTimerRef.current).forEach((timerId) => clearTimeout(timerId));
+    };
+  }, []);
 
   const resetMealState = useCallback(() => {
     setUploadError(null);
@@ -306,6 +616,11 @@ export function CaptureScreen({ navigation, route }: Props) {
     setMappedItems(null);
     setMappingError(null);
     setNutrientTotals(null);
+    setSuggestionsByItemId({});
+    setSuggestionError(null);
+    suggestionRequestIdRef.current = {};
+    Object.values(suggestionTimerRef.current).forEach((timerId) => clearTimeout(timerId));
+    suggestionTimerRef.current = {};
   }, []);
 
   const applySelectedPhoto = useCallback(
@@ -337,7 +652,9 @@ export function CaptureScreen({ navigation, route }: Props) {
         quantityInput: "",
         unit: "g",
         lastPreciseUnit: "g",
-        confidence: 0.2
+        confidence: 0.2,
+        canonicalId: null,
+        canonicalName: null
       }
     ]);
   }, [navigation, resetMealState]);
@@ -471,7 +788,12 @@ export function CaptureScreen({ navigation, route }: Props) {
 
             return {
               id: `${targetMealId}-${Math.random().toString(36).slice(2, 6)}`,
-              name: typeof item?.name === "string" ? item.name : "",
+              name:
+                typeof item?.canonical_name === "string" && item.canonical_name.trim()
+                  ? item.canonical_name
+                  : typeof item?.name === "string"
+                    ? item.name
+                    : "",
               quantity: (() => {
                 const resolved = savedQuantity ?? grams;
                 return Number.isFinite(resolved) ? Math.max(resolved, 0) : 0;
@@ -489,11 +811,42 @@ export function CaptureScreen({ navigation, route }: Props) {
                 item.confidence >= 0 &&
                 item.confidence <= 1
                   ? item.confidence
-                  : 0.2
+                  : 0.2,
+              canonicalId:
+                typeof item?.canonical_id === "string" && item.canonical_id.trim()
+                  ? item.canonical_id
+                  : null,
+              canonicalName:
+                typeof item?.canonical_name === "string" && item.canonical_name.trim()
+                  ? item.canonical_name
+                  : null
             };
           })
         );
-        setMappedItems(finalItems.length ? finalItems : null);
+        setMappedItems(
+          finalItems.length
+            ? finalItems
+                .filter(
+                  (item) =>
+                    typeof item?.canonical_id === "string" &&
+                    typeof item?.canonical_name === "string"
+                )
+                .map((item) => ({
+                  name:
+                    typeof item?.name === "string" && item.name.trim()
+                      ? item.name
+                      : item.canonical_name,
+                  canonical_id: item.canonical_id,
+                  canonical_name: item.canonical_name,
+                  confidence:
+                    typeof item?.confidence === "number" &&
+                    item.confidence >= 0 &&
+                    item.confidence <= 1
+                      ? item.confidence
+                      : 0.2
+                }))
+            : null
+        );
         setNutrientTotals(
           data?.nutrient_totals && typeof data.nutrient_totals === "object"
             ? (data.nutrient_totals as NutrientTotals)
@@ -541,7 +894,10 @@ export function CaptureScreen({ navigation, route }: Props) {
         throw error;
       }
 
-      const mapped = parseMappingPayload(data);
+      const mapped = parseMappingPayload(data).map((mappedItem) => ({
+        ...mappedItem,
+        name: mappedItem.canonical_name
+      }));
       const persistedFinalItems = mapped.map((mappedItem, index) => {
         const sourceItem = items[index];
         const sourceGrams =
@@ -560,6 +916,7 @@ export function CaptureScreen({ navigation, route }: Props) {
 
         return {
           ...mappedItem,
+          name: mappedItem.canonical_name,
           grams: sourceGrams,
           quantity: sourceQuantity,
           unit: sourceUnit,
@@ -577,6 +934,22 @@ export function CaptureScreen({ navigation, route }: Props) {
       }
 
       setMappedItems(mapped);
+      setEditableItems((current) =>
+        current.map((entry, index) => {
+          const mappedItem = mapped[index];
+          if (!mappedItem) {
+            return entry;
+          }
+          return {
+            ...entry,
+            name: mappedItem.canonical_name,
+            canonicalId: mappedItem.canonical_id,
+            canonicalName: mappedItem.canonical_name,
+            confidence: mappedItem.confidence
+          };
+        })
+      );
+      setSuggestionsByItemId({});
       setNutrientTotals(parseNutrientTotals(data));
     } catch (error) {
       const message =
@@ -640,7 +1013,9 @@ export function CaptureScreen({ navigation, route }: Props) {
           quantityInput: formatQuantityInput(item.estimated_grams),
           unit: "g",
           lastPreciseUnit: "g",
-          confidence: item.confidence
+          confidence: item.confidence,
+          canonicalId: null,
+          canonicalName: null
         }))
       );
       return items;
@@ -745,6 +1120,16 @@ export function CaptureScreen({ navigation, route }: Props) {
       setMappingError("Add at least one food to recalculate.");
       return;
     }
+    const hasUnnamedItem = editableItems.some((item) => !item.name.trim());
+    if (hasUnnamedItem) {
+      setMappingError("Each food row needs a name.");
+      return;
+    }
+    const hasUnlockedItem = editableItems.some((item) => !item.canonicalId);
+    if (hasUnlockedItem) {
+      setMappingError("Select a canonical food from suggestions for each row before recalculating.");
+      return;
+    }
     let activeMealId = mealId;
     if (!activeMealId && options?.allowCreate) {
       activeMealId = await createManualMeal();
@@ -768,12 +1153,58 @@ export function CaptureScreen({ navigation, route }: Props) {
             onChangeText={(value) => {
               setEditableItems((current) =>
                 current.map((entry) =>
-                  entry.id === item.id ? { ...entry, name: value } : entry
+                  entry.id === item.id
+                    ? {
+                        ...entry,
+                        name: value,
+                        canonicalId: null,
+                        canonicalName: null
+                      }
+                    : entry
                 )
               );
+              scheduleFoodSuggestions(item.id, value);
             }}
-            placeholder="Food name"
+            onFocus={() => {
+              if (!item.canonicalId) {
+                scheduleFoodSuggestions(item.id, item.name);
+              }
+            }}
+            placeholder="Search canonical food"
           />
+          {item.canonicalId ? (
+            <Text style={styles.lockedCanonicalText}>
+              Locked: {item.canonicalName ?? item.name}
+            </Text>
+          ) : null}
+          {suggestionsByItemId[item.id]?.length ? (
+            <View style={styles.suggestionList}>
+              {suggestionsByItemId[item.id].map((suggestion) => (
+                <Pressable
+                  key={`${item.id}-${suggestion.canonical_id}`}
+                  accessibilityRole="button"
+                  onPress={() => {
+                    setEditableItems((current) =>
+                      current.map((entry) =>
+                        entry.id === item.id
+                          ? {
+                              ...entry,
+                              name: suggestion.canonical_name,
+                              canonicalId: suggestion.canonical_id,
+                              canonicalName: suggestion.canonical_name
+                            }
+                          : entry
+                      )
+                    );
+                    clearSuggestionsForItem(item.id);
+                  }}
+                  style={styles.suggestionRow}
+                >
+                  <Text style={styles.suggestionText}>{suggestion.canonical_name}</Text>
+                </Pressable>
+              ))}
+            </View>
+          ) : null}
           <TextInput
             style={styles.input}
             value={item.quantityInput}
@@ -846,6 +1277,7 @@ export function CaptureScreen({ navigation, route }: Props) {
               setEditableItems((current) =>
                 current.filter((entry) => entry.id !== item.id)
               );
+              clearSuggestionsForItem(item.id);
             }}
             variant="secondary"
             fullWidth={false}
@@ -865,7 +1297,9 @@ export function CaptureScreen({ navigation, route }: Props) {
               quantityInput: "",
               unit: "g",
               lastPreciseUnit: "g",
-              confidence: 0.2
+              confidence: 0.2,
+              canonicalId: null,
+              canonicalName: null
             }
           ]);
         }}
@@ -922,17 +1356,18 @@ export function CaptureScreen({ navigation, route }: Props) {
             )}
           </View>
           {manualError ? renderBanner(manualError, "error") : null}
+          {suggestionError ? renderBanner(suggestionError, "error") : null}
           {isLoadingMeal ? <ActivityIndicator style={styles.spinner} /> : null}
           {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
             <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Canonical mapping</Text>
+              <Text style={styles.sectionTitle}>Canonical selected foods</Text>
               {mappedItems.length ? (
                 mappedItems.map((item, index) => (
                   <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
                     <Text style={styles.parsedItemText}>
-                      {item.name} → {item.canonical_name}
+                      {item.canonical_name}
                     </Text>
                     {renderConfidenceBadge(item.confidence)}
                   </View>
@@ -1016,16 +1451,8 @@ export function CaptureScreen({ navigation, route }: Props) {
               variant="secondary"
               onPress={() => {
                 setPhotoUri(null);
-                setUploadPath(null);
-                setUploadError(null);
-                setMealId(null);
-                setMealError(null);
-                setParsedItems(null);
-                setParseError(null);
-                setEditableItems([]);
-                setMappedItems(null);
-                setMappingError(null);
-                setNutrientTotals(null);
+                setPhotoBase64(null);
+                resetMealState();
               }}
             />
             <AppButton
@@ -1058,16 +1485,17 @@ export function CaptureScreen({ navigation, route }: Props) {
             </View>
           ) : null}
           {parseError ? renderBanner(parseError, "error") : null}
+          {suggestionError ? renderBanner(suggestionError, "error") : null}
           {editableItems.length ? renderEditableFoods() : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {mappedItems ? (
             <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Canonical mapping</Text>
+              <Text style={styles.sectionTitle}>Canonical selected foods</Text>
               {mappedItems.length ? (
                 mappedItems.map((item, index) => (
                   <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
                     <Text style={styles.parsedItemText}>
-                      {item.name} → {item.canonical_name}
+                      {item.canonical_name}
                     </Text>
                     {renderConfidenceBadge(item.confidence)}
                   </View>
@@ -1292,6 +1720,28 @@ const styles = StyleSheet.create({
   convertedHint: {
     fontSize: 12,
     color: "#667085"
+  },
+  lockedCanonicalText: {
+    fontSize: 12,
+    color: "#475467",
+    fontWeight: "600"
+  },
+  suggestionList: {
+    borderWidth: 1,
+    borderColor: "#d0d5dd",
+    borderRadius: 8,
+    overflow: "hidden"
+  },
+  suggestionRow: {
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    backgroundColor: "#f9fafb",
+    borderBottomWidth: 1,
+    borderBottomColor: "#eaecf0"
+  },
+  suggestionText: {
+    fontSize: 13,
+    color: "#1d2939"
   },
   input: {
     borderWidth: 1,
