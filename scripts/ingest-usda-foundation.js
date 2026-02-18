@@ -51,6 +51,7 @@ const ZERO_VECTOR = NUTRIENT_KEYS.reduce((acc, key) => {
   acc[key] = 0;
   return acc;
 }, {});
+const DEFAULT_DATA_TYPE_FILTERS = ["foundation", "sr legacy"];
 
 const normalize = (value) =>
   String(value || "")
@@ -74,6 +75,37 @@ const readCsv = (filePath) => {
     trim: true
   });
 };
+
+const parseDataTypeFilters = (args) => {
+  const dataTypeFlag = args.find(
+    (arg) => arg.startsWith("--data-types=") || arg.startsWith("--types=")
+  );
+  const rawFilters = dataTypeFlag
+    ? dataTypeFlag.split("=")[1]
+    : DEFAULT_DATA_TYPE_FILTERS.join(",");
+  const filters = rawFilters
+    .split(",")
+    .map((value) => normalize(value))
+    .filter(Boolean);
+  if (filters.includes("all")) {
+    return ["all"];
+  }
+  return filters.length ? filters : [...DEFAULT_DATA_TYPE_FILTERS];
+};
+
+const shouldIncludeDataType = (rawDataType, normalizedFilters) => {
+  if (normalizedFilters.includes("all")) {
+    return true;
+  }
+  const normalizedDataType = normalize(rawDataType);
+  if (!normalizedDataType) {
+    return true;
+  }
+  return normalizedFilters.some((filter) => normalizedDataType.includes(filter));
+};
+
+const sumPer100gVector = (vector) =>
+  NUTRIENT_KEYS.reduce((acc, key) => acc + (Number.isFinite(vector[key]) ? vector[key] : 0), 0);
 
 const findHeader = (headers, candidates) => {
   const normalized = headers.map((name) => normalize(name));
@@ -133,6 +165,8 @@ const main = async () => {
   const dryRun = args.includes("--dry-run");
   const outputFlag = args.find((arg) => arg.startsWith("--out="));
   const outputPath = outputFlag ? path.resolve(outputFlag.split("=")[1]) : null;
+  const dataTypeFilters = parseDataTypeFilters(args);
+  const includeZeroVectors = args.includes("--include-zero-vectors");
 
   const foodPath = path.join(dataDir, "food.csv");
   const nutrientPath = path.join(dataDir, "nutrient.csv");
@@ -156,6 +190,7 @@ const main = async () => {
   });
 
   const foods = new Map();
+  const includedTypeCounts = new Map();
   foodRows.forEach((row) => {
     const fdcId = String(row[foodColumns.fdcId] ?? "").trim();
     if (!fdcId) {
@@ -163,9 +198,11 @@ const main = async () => {
     }
     const description = String(row[foodColumns.description] ?? "").trim();
     const dataType = String(row[foodColumns.dataType] ?? "").trim().toLowerCase();
-    if (dataType && !dataType.includes("foundation")) {
+    if (!shouldIncludeDataType(dataType, dataTypeFilters)) {
       return;
     }
+    const dataTypeLabel = dataType || "(missing)";
+    includedTypeCounts.set(dataTypeLabel, (includedTypeCounts.get(dataTypeLabel) || 0) + 1);
     foods.set(fdcId, { description, fdcId });
   });
 
@@ -199,6 +236,7 @@ const main = async () => {
 
   const slugCounts = new Map();
   const rows = [];
+  let skippedZeroVectors = 0;
   for (const [fdcId, info] of foods.entries()) {
     if (!info.description) {
       continue;
@@ -208,6 +246,10 @@ const main = async () => {
     slugCounts.set(baseSlug, count);
     const canonicalId = count === 1 ? baseSlug : `${baseSlug}-${fdcId}`;
     const per_100g = perFood.get(fdcId) ?? { ...ZERO_VECTOR };
+    if (!includeZeroVectors && sumPer100gVector(per_100g) === 0) {
+      skippedZeroVectors += 1;
+      continue;
+    }
     rows.push({
       canonical_id: canonicalId,
       canonical_name: info.description,
@@ -225,6 +267,21 @@ const main = async () => {
     console.log(`Wrote ${rows.length} rows to ${outputPath}`);
   } else {
     console.log(`Prepared ${rows.length} rows.`);
+  }
+  console.log(
+    `Included USDA data types: ${
+      dataTypeFilters.includes("all") ? "all" : dataTypeFilters.join(", ")
+    }`
+  );
+  console.log(
+    `Included type counts: ${Array.from(includedTypeCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 12)
+      .map(([type, count]) => `${type}=${count}`)
+      .join(", ")}`
+  );
+  if (skippedZeroVectors > 0) {
+    console.log(`Skipped ${skippedZeroVectors} rows with all-zero tracked micronutrients.`);
   }
 
   if (dryRun) {

@@ -65,6 +65,28 @@ type CanonicalLookupItem = {
   canonical_name: string;
 };
 
+const NUTRIENT_KEYS = [
+  "vitamin_a_ug",
+  "vitamin_c_mg",
+  "vitamin_d_ug",
+  "vitamin_e_mg",
+  "vitamin_k_ug",
+  "thiamin_mg",
+  "riboflavin_mg",
+  "niacin_mg",
+  "vitamin_b6_mg",
+  "folate_ug",
+  "vitamin_b12_ug",
+  "calcium_mg",
+  "iron_mg",
+  "magnesium_mg",
+  "phosphorus_mg",
+  "potassium_mg",
+  "zinc_mg",
+  "selenium_ug",
+  "omega3_g"
+] as const;
+
 type NutrientVector = {
   vitamin_a_ug: number;
   vitamin_c_mg: number;
@@ -158,6 +180,15 @@ const parseMappingPayload = (payload: unknown): MappedItem[] => {
     } catch (error) {
       throw new Error("Mapping response was not valid JSON.");
     }
+  }
+  if (
+    parsed &&
+    typeof parsed === "object" &&
+    "error" in parsed &&
+    typeof (parsed as { error?: unknown }).error === "string" &&
+    (parsed as { error: string }).error.trim().length > 0
+  ) {
+    throw new Error((parsed as { error: string }).error.trim());
   }
   const items = Array.isArray(parsed)
     ? parsed
@@ -328,6 +359,18 @@ const rankFoodSuggestions = (
     .slice(0, boundedLimit);
 };
 
+const sumPer100gVector = (value: unknown) => {
+  if (!value || typeof value !== "object") {
+    return 0;
+  }
+  return NUTRIENT_KEYS.reduce((acc, key) => {
+    const raw = value[key];
+    return acc + (typeof raw === "number" && Number.isFinite(raw) ? raw : 0);
+  }, 0);
+};
+
+const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
+
 const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   if (payload === null || payload === undefined || payload === "") {
     return null;
@@ -476,7 +519,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     const fetchByPattern = async (pattern: string) => {
       const { data, error } = await supabase
         .from("canonical_foods")
-        .select("canonical_id, canonical_name")
+        .select("canonical_id, canonical_name, per_100g, fdc_id")
         .ilike("canonical_name", pattern)
         .limit(40);
       if (error) {
@@ -488,7 +531,11 @@ export function CaptureScreen({ navigation, route }: Props) {
             typeof item?.canonical_id === "string" &&
             item.canonical_id.trim().length > 0 &&
             typeof item?.canonical_name === "string" &&
-            item.canonical_name.trim().length > 0
+            item.canonical_name.trim().length > 0 &&
+            !(
+              isSurveyFdcId(typeof item?.fdc_id === "string" ? item.fdc_id.trim() : "") &&
+              sumPer100gVector(item?.per_100g) === 0
+            )
         )
         .map((item) => ({
           canonical_id: item.canonical_id.trim(),

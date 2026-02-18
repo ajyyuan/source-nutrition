@@ -15,9 +15,43 @@ const corsHeaders = {
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 const CANONICAL_CACHE_TTL_MS = 60_000;
+const CANONICAL_PAGE_SIZE = 1000;
+const NUTRIENT_KEYS = [
+  "vitamin_a_ug",
+  "vitamin_c_mg",
+  "vitamin_d_ug",
+  "vitamin_e_mg",
+  "vitamin_k_ug",
+  "thiamin_mg",
+  "riboflavin_mg",
+  "niacin_mg",
+  "vitamin_b6_mg",
+  "folate_ug",
+  "vitamin_b12_ug",
+  "calcium_mg",
+  "iron_mg",
+  "magnesium_mg",
+  "phosphorus_mg",
+  "potassium_mg",
+  "zinc_mg",
+  "selenium_ug",
+  "omega3_g"
+];
 
 let canonicalCache: CanonicalFoodLookupItem[] | null = null;
 let canonicalCacheLoadedAt = 0;
+
+const sumPer100gVector = (value: unknown) => {
+  if (!value || typeof value !== "object") {
+    return 0;
+  }
+  return NUTRIENT_KEYS.reduce((acc, key) => {
+    const raw = value[key];
+    return acc + (typeof raw === "number" && Number.isFinite(raw) ? raw : 0);
+  }, 0);
+};
+
+const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
 
 const createSupabaseClient = (req: Request) => {
   if (!supabaseUrl || !supabaseAnonKey) {
@@ -38,23 +72,39 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
     return canonicalCache;
   }
 
-  const { data, error } = await supabase
-    .from("canonical_foods")
-    .select("canonical_id, canonical_name")
-    .limit(5000);
-
-  if (error) {
-    throw error;
+  const allRows = [];
+  let from = 0;
+  while (true) {
+    const to = from + CANONICAL_PAGE_SIZE - 1;
+    const { data, error } = await supabase
+      .from("canonical_foods")
+      .select("canonical_id, canonical_name, per_100g, fdc_id")
+      .range(from, to);
+    if (error) {
+      throw error;
+    }
+    if (!Array.isArray(data) || !data.length) {
+      break;
+    }
+    allRows.push(...data);
+    if (data.length < CANONICAL_PAGE_SIZE) {
+      break;
+    }
+    from += CANONICAL_PAGE_SIZE;
   }
 
-  const foods = Array.isArray(data)
-    ? data
+  const foods = Array.isArray(allRows)
+    ? allRows
         .filter(
           (row) =>
             typeof row?.canonical_id === "string" &&
             row.canonical_id.trim().length > 0 &&
             typeof row?.canonical_name === "string" &&
-            row.canonical_name.trim().length > 0
+            row.canonical_name.trim().length > 0 &&
+            !(
+              isSurveyFdcId(typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "") &&
+              sumPer100gVector(row?.per_100g) === 0
+            )
         )
         .map((row) => ({
           canonical_id: row.canonical_id.trim(),

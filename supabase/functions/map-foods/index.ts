@@ -28,6 +28,7 @@ const LEXICAL_STRONG_SCORE = 0.95;
 const LEXICAL_MARGIN_TO_SKIP_AI = 0.2;
 const MAX_LEXICAL_CANDIDATES = 8;
 const MAX_AI_CANDIDATES = 6;
+const CANONICAL_PAGE_SIZE = 1000;
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
   "vitamin_c_mg",
@@ -65,45 +66,88 @@ const normalizePer100g = (value: unknown) => {
   return base;
 };
 
+const sumPer100gVector = (per100g: Record<string, number>) =>
+  NUTRIENT_KEYS.reduce((acc, key) => acc + (Number.isFinite(per100g[key]) ? per100g[key] : 0), 0);
+
+const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
+
 const buildCanonicalIndexes = (rows: Array<Record<string, unknown>>) => {
   const byId: Record<string, Record<string, unknown>> = {};
   const lookup: CanonicalFoodLookupItem[] = [];
+  const usableIds = new Set<string>();
   rows.forEach((row) => {
     const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
     const canonicalName =
       typeof row?.canonical_name === "string" ? row.canonical_name.trim() : "";
+    const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
     if (!canonicalId || !canonicalName) {
       return;
     }
+    const per100g = normalizePer100g(row?.per_100g);
+    const per100gSum = sumPer100gVector(per100g);
+    const unusableSurveyRow = isSurveyFdcId(fdcId) && per100gSum === 0;
+    const usable = !unusableSurveyRow;
     byId[canonicalId] = {
       canonical_id: canonicalId,
       canonical_name: canonicalName,
-      per_100g: normalizePer100g(row?.per_100g),
+      fdc_id: fdcId,
+      per_100g: per100g,
+      usable,
       source: row?.source === "usda" ? "usda" : "stub"
     };
-    lookup.push({
-      canonical_id: canonicalId,
-      canonical_name: canonicalName
-    });
+    if (usable) {
+      usableIds.add(canonicalId);
+      lookup.push({
+        canonical_id: canonicalId,
+        canonical_name: canonicalName
+      });
+    }
   });
-  return { byId, lookup };
+  return { byId, lookup, usableIds };
+};
+
+const fetchAllCanonicalRows = async (supabase) => {
+  const rows = [];
+  let from = 0;
+  while (true) {
+    const to = from + CANONICAL_PAGE_SIZE - 1;
+    const { data, error } = await supabase
+      .from("canonical_foods")
+      .select("canonical_id, canonical_name, per_100g, source, fdc_id")
+      .range(from, to);
+    if (error) {
+      throw error;
+    }
+    if (!Array.isArray(data) || !data.length) {
+      break;
+    }
+    rows.push(...data);
+    if (data.length < CANONICAL_PAGE_SIZE) {
+      break;
+    }
+    from += CANONICAL_PAGE_SIZE;
+  }
+  return rows;
 };
 
 const loadCanonicalFoods = async (supabase) => {
-  const { data, error } = await supabase
-    .from("canonical_foods")
-    .select("canonical_id, canonical_name, per_100g, source");
-  if (error) {
-    throw error;
-  }
+  const data = await fetchAllCanonicalRows(supabase);
   if (!Array.isArray(data) || !data.length) {
     throw new Error("canonical_foods is empty. Seed canonical foods before mapping.");
   }
-  const { byId, lookup } = buildCanonicalIndexes(data);
+  const { byId, lookup, usableIds } = buildCanonicalIndexes(data);
   if (!lookup.length) {
     throw new Error("canonical_foods has no valid rows.");
   }
-  return { byId, lookup };
+  if (!byId[UNKNOWN_CANONICAL_ID]) {
+    byId[UNKNOWN_CANONICAL_ID] = {
+      canonical_id: UNKNOWN_CANONICAL_ID,
+      canonical_name: UNKNOWN_CANONICAL_NAME,
+      per_100g: makeZeroVector(),
+      source: "stub"
+    };
+  }
+  return { byId, lookup, usableIds };
 };
 
 const shouldTrustLexicalTopCandidate = (candidates: CanonicalFoodSuggestion[]) => {
@@ -186,13 +230,19 @@ const resolveCanonicalForItem = async (
   itemName: string,
   explicitCanonicalId: string,
   canonicalLookup: CanonicalFoodLookupItem[],
-  canonicalById: Record<string, Record<string, unknown>>
+  canonicalById: Record<string, Record<string, unknown>>,
+  usableIds: Set<string>
 ) => {
   if (explicitCanonicalId) {
+    if (explicitCanonicalId === UNKNOWN_CANONICAL_ID) {
+      return UNKNOWN_CANONICAL_ID;
+    }
     if (!canonicalById[explicitCanonicalId]) {
       throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
     }
-    return explicitCanonicalId;
+    if (usableIds.has(explicitCanonicalId)) {
+      return explicitCanonicalId;
+    }
   }
 
   const candidates = rankCanonicalFoodSuggestions(itemName, canonicalLookup, MAX_LEXICAL_CANDIDATES);
@@ -245,7 +295,11 @@ serve(async (req) => {
     const safeItems = Array.isArray(items) ? items : [];
 
     const supabase = createSupabaseClient(req);
-    const { lookup: canonicalLookup, byId: canonicalById } = await loadCanonicalFoods(supabase);
+    const {
+      lookup: canonicalLookup,
+      byId: canonicalById,
+      usableIds
+    } = await loadCanonicalFoods(supabase);
 
     const mapped = [];
     for (const item of safeItems) {
@@ -275,7 +329,8 @@ serve(async (req) => {
         name || "unknown",
         explicitCanonicalId,
         canonicalLookup,
-        canonicalById
+        canonicalById,
+        usableIds
       );
       const canonicalEntry = canonicalById[canonicalId] ?? null;
       const canonicalName =
