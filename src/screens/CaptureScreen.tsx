@@ -1662,16 +1662,14 @@ export function CaptureScreen({ navigation, route }: Props) {
               <Text style={styles.sectionTitle}>
                 Micronutrients (%DV)
               </Text>
-              {Object.entries(nutrientTotals.percent_dv).length ? (
-                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
-                  return (
-                    <NutrientBarRow
-                      key={key}
-                      label={formatNutrientLabel(key)}
-                      percentDv={value}
-                    />
-                  );
-                })
+              {NUTRIENT_KEYS.length ? (
+                NUTRIENT_KEYS.map((key) => (
+                  <NutrientBarRow
+                    key={key}
+                    label={formatNutrientLabel(key)}
+                    percentDv={nutrientTotals.percent_dv[key]}
+                  />
+                ))
               ) : (
                 <EmptyState message="No nutrient totals yet." />
               )}
@@ -1774,16 +1772,14 @@ export function CaptureScreen({ navigation, route }: Props) {
               <Text style={styles.sectionTitle}>
                 Micronutrients (%DV)
               </Text>
-              {Object.entries(nutrientTotals.percent_dv).length ? (
-                Object.entries(nutrientTotals.percent_dv).map(([key, value]) => {
-                  return (
-                    <NutrientBarRow
-                      key={key}
-                      label={formatNutrientLabel(key)}
-                      percentDv={value}
-                    />
-                  );
-                })
+              {NUTRIENT_KEYS.length ? (
+                NUTRIENT_KEYS.map((key) => (
+                  <NutrientBarRow
+                    key={key}
+                    label={formatNutrientLabel(key)}
+                    percentDv={nutrientTotals.percent_dv[key]}
+                  />
+                ))
               ) : (
                 <EmptyState message="No nutrient totals yet." />
               )}
