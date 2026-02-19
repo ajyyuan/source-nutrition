@@ -76,7 +76,9 @@ const NUTRIENT_KEYS = [
   "thiamin_mg",
   "riboflavin_mg",
   "niacin_mg",
+  "vitamin_b5_mg",
   "vitamin_b6_mg",
+  "vitamin_b7_ug",
   "folate_ug",
   "vitamin_b12_ug",
   "calcium_mg",
@@ -98,7 +100,9 @@ type NutrientVector = {
   thiamin_mg: number;
   riboflavin_mg: number;
   niacin_mg: number;
+  vitamin_b5_mg: number;
   vitamin_b6_mg: number;
+  vitamin_b7_ug: number;
   folate_ug: number;
   vitamin_b12_ug: number;
   calcium_mg: number;
@@ -125,7 +129,9 @@ const DAILY_VALUES: NutrientVector = {
   thiamin_mg: 1.2,
   riboflavin_mg: 1.3,
   niacin_mg: 16,
+  vitamin_b5_mg: 5,
   vitamin_b6_mg: 1.7,
+  vitamin_b7_ug: 30,
   folate_ug: 400,
   vitamin_b12_ug: 2.4,
   calcium_mg: 1300,

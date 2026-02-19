@@ -33,7 +33,9 @@ type NutrientVector = {
   thiamin_mg: number;
   riboflavin_mg: number;
   niacin_mg: number;
+  vitamin_b5_mg: number;
   vitamin_b6_mg: number;
+  vitamin_b7_ug: number;
   folate_ug: number;
   vitamin_b12_ug: number;
   calcium_mg: number;
@@ -75,7 +77,9 @@ const NUTRIENT_KEYS = [
   "thiamin_mg",
   "riboflavin_mg",
   "niacin_mg",
+  "vitamin_b5_mg",
   "vitamin_b6_mg",
+  "vitamin_b7_ug",
   "folate_ug",
   "vitamin_b12_ug",
   "calcium_mg",
@@ -97,7 +101,9 @@ const makeEmptyVector = (): NutrientVector => ({
   thiamin_mg: 0,
   riboflavin_mg: 0,
   niacin_mg: 0,
+  vitamin_b5_mg: 0,
   vitamin_b6_mg: 0,
+  vitamin_b7_ug: 0,
   folate_ug: 0,
   vitamin_b12_ug: 0,
   calcium_mg: 0,

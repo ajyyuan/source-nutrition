@@ -7,7 +7,9 @@ export type NutrientKey =
   | "thiamin_mg"
   | "riboflavin_mg"
   | "niacin_mg"
+  | "vitamin_b5_mg"
   | "vitamin_b6_mg"
+  | "vitamin_b7_ug"
   | "folate_ug"
   | "vitamin_b12_ug"
   | "calcium_mg"
@@ -30,7 +32,7 @@ export type CanonicalFoodNutrients = {
   source: "stub" | "usda";
 };
 
-export const NUTRIENT_DB_VERSION = "v0.3-canonical-db";
+export const NUTRIENT_DB_VERSION = "v0.4-canonical-db-b5b7";
 
 export const DAILY_VALUES: DailyValue = {
   vitamin_a_ug: 900,
@@ -41,7 +43,9 @@ export const DAILY_VALUES: DailyValue = {
   thiamin_mg: 1.2,
   riboflavin_mg: 1.3,
   niacin_mg: 16,
+  vitamin_b5_mg: 5,
   vitamin_b6_mg: 1.7,
+  vitamin_b7_ug: 30,
   folate_ug: 400,
   vitamin_b12_ug: 2.4,
   calcium_mg: 1300,
@@ -63,7 +67,9 @@ const makeZeroVector = (): NutrientVector => ({
   thiamin_mg: 0,
   riboflavin_mg: 0,
   niacin_mg: 0,
+  vitamin_b5_mg: 0,
   vitamin_b6_mg: 0,
+  vitamin_b7_ug: 0,
   folate_ug: 0,
   vitamin_b12_ug: 0,
   calcium_mg: 0,
@@ -97,7 +103,9 @@ const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
       thiamin_mg: 0.02,
       riboflavin_mg: 0.03,
       niacin_mg: 0.09,
+      vitamin_b5_mg: 0,
       vitamin_b6_mg: 0.04,
+      vitamin_b7_ug: 0,
       folate_ug: 3,
       vitamin_b12_ug: 0,
       calcium_mg: 6,
@@ -123,7 +131,9 @@ const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
       thiamin_mg: 0.08,
       riboflavin_mg: 0.19,
       niacin_mg: 0.72,
+      vitamin_b5_mg: 0,
       vitamin_b6_mg: 0.2,
+      vitamin_b7_ug: 0,
       folate_ug: 194,
       vitamin_b12_ug: 0,
       calcium_mg: 99,
@@ -149,7 +159,9 @@ const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
       thiamin_mg: 0.28,
       riboflavin_mg: 0.49,
       niacin_mg: 10.1,
+      vitamin_b5_mg: 0,
       vitamin_b6_mg: 0.94,
+      vitamin_b7_ug: 0,
       folate_ug: 29,
       vitamin_b12_ug: 3.1,
       calcium_mg: 15,
@@ -175,7 +187,9 @@ const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
       thiamin_mg: 0.07,
       riboflavin_mg: 0.51,
       niacin_mg: 0.06,
+      vitamin_b5_mg: 0,
       vitamin_b6_mg: 0.12,
+      vitamin_b7_ug: 0,
       folate_ug: 44,
       vitamin_b12_ug: 1.1,
       calcium_mg: 50,
@@ -218,7 +232,9 @@ const addVectors = (base: NutrientVector, delta: NutrientVector): NutrientVector
   thiamin_mg: base.thiamin_mg + delta.thiamin_mg,
   riboflavin_mg: base.riboflavin_mg + delta.riboflavin_mg,
   niacin_mg: base.niacin_mg + delta.niacin_mg,
+  vitamin_b5_mg: base.vitamin_b5_mg + delta.vitamin_b5_mg,
   vitamin_b6_mg: base.vitamin_b6_mg + delta.vitamin_b6_mg,
+  vitamin_b7_ug: base.vitamin_b7_ug + delta.vitamin_b7_ug,
   folate_ug: base.folate_ug + delta.folate_ug,
   vitamin_b12_ug: base.vitamin_b12_ug + delta.vitamin_b12_ug,
   calcium_mg: base.calcium_mg + delta.calcium_mg,
@@ -242,7 +258,9 @@ const scaleVector = (per100g: NutrientVector, grams: number): NutrientVector => 
     thiamin_mg: per100g.thiamin_mg * multiplier,
     riboflavin_mg: per100g.riboflavin_mg * multiplier,
     niacin_mg: per100g.niacin_mg * multiplier,
+    vitamin_b5_mg: per100g.vitamin_b5_mg * multiplier,
     vitamin_b6_mg: per100g.vitamin_b6_mg * multiplier,
+    vitamin_b7_ug: per100g.vitamin_b7_ug * multiplier,
     folate_ug: per100g.folate_ug * multiplier,
     vitamin_b12_ug: per100g.vitamin_b12_ug * multiplier,
     calcium_mg: per100g.calcium_mg * multiplier,
@@ -277,8 +295,14 @@ const computePercentDv = (totals: NutrientVector): NutrientVector => ({
     ? totals.riboflavin_mg / DAILY_VALUES.riboflavin_mg
     : 0,
   niacin_mg: DAILY_VALUES.niacin_mg ? totals.niacin_mg / DAILY_VALUES.niacin_mg : 0,
+  vitamin_b5_mg: DAILY_VALUES.vitamin_b5_mg
+    ? totals.vitamin_b5_mg / DAILY_VALUES.vitamin_b5_mg
+    : 0,
   vitamin_b6_mg: DAILY_VALUES.vitamin_b6_mg
     ? totals.vitamin_b6_mg / DAILY_VALUES.vitamin_b6_mg
+    : 0,
+  vitamin_b7_ug: DAILY_VALUES.vitamin_b7_ug
+    ? totals.vitamin_b7_ug / DAILY_VALUES.vitamin_b7_ug
     : 0,
   folate_ug: DAILY_VALUES.folate_ug ? totals.folate_ug / DAILY_VALUES.folate_ug : 0,
   vitamin_b12_ug: DAILY_VALUES.vitamin_b12_ug
