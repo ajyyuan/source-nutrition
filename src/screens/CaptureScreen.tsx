@@ -188,7 +188,15 @@ const parseVisionPayload = (payload: unknown): ParsedItem[] => {
     return {
       name: candidate.name.trim(),
       estimated_grams: Math.max(candidate.estimated_grams, 0),
-      confidence: candidate.confidence
+      confidence: candidate.confidence,
+      canonical_id:
+        typeof candidate.canonical_id === "string" && candidate.canonical_id.trim()
+          ? candidate.canonical_id.trim()
+          : undefined,
+      canonical_name:
+        typeof candidate.canonical_name === "string" && candidate.canonical_name.trim()
+          ? candidate.canonical_name.trim()
+          : undefined
     };
   });
 };
@@ -1219,14 +1227,14 @@ export function CaptureScreen({ navigation, route }: Props) {
       setEditableItems(
         items.map((item) => ({
           id: `${Date.now()}-${item.name}-${Math.random().toString(36).slice(2, 6)}`,
-          name: item.name,
+          name: item.canonical_name ?? item.name,
           quantity: item.estimated_grams,
           quantityInput: formatQuantityInput(item.estimated_grams),
           unit: "g",
           lastPreciseUnit: "g",
           confidence: item.confidence,
-          canonicalId: null,
-          canonicalName: null
+          canonicalId: item.canonical_id ?? null,
+          canonicalName: item.canonical_name ?? null
         }))
       );
       return items;

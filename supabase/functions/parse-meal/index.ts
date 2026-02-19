@@ -2,6 +2,10 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { encode as base64Encode } from "https://deno.land/std@0.168.0/encoding/base64.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import {
+  rankCanonicalFoodSuggestions,
+  type CanonicalFoodLookupItem
+} from "../_shared/lexicalFoodSearch.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -27,6 +31,35 @@ const createSupabaseClient = (req: Request) => {
 const MODEL_VERSION = "gpt-4o-mini";
 const PHOTO_BUCKET = "meal-photos";
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
+const CANONICAL_CACHE_TTL_MS = 60_000;
+const CANONICAL_PAGE_SIZE = 1000;
+const UNKNOWN_CANONICAL_ID = "food-unknown";
+const UNKNOWN_CANONICAL_NAME = "Unknown food";
+const MAX_LEXICAL_CANDIDATES = 8;
+const NUTRIENT_KEYS = [
+  "vitamin_a_ug",
+  "vitamin_c_mg",
+  "vitamin_d_ug",
+  "vitamin_e_mg",
+  "vitamin_k_ug",
+  "thiamin_mg",
+  "riboflavin_mg",
+  "niacin_mg",
+  "vitamin_b6_mg",
+  "folate_ug",
+  "vitamin_b12_ug",
+  "calcium_mg",
+  "iron_mg",
+  "magnesium_mg",
+  "phosphorus_mg",
+  "potassium_mg",
+  "zinc_mg",
+  "selenium_ug",
+  "omega3_g"
+];
+
+let canonicalCache: CanonicalFoodLookupItem[] | null = null;
+let canonicalCacheLoadedAt = 0;
 
 const fetchMealPhoto = async (supabase, photoPath: string) => {
   const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
@@ -67,6 +100,97 @@ Rules:
 - Unknown foods should be labeled "unknown".
 - Do not include any extra keys or text.
 `.trim();
+
+const sumPer100gVector = (value: unknown) => {
+  if (!value || typeof value !== "object") {
+    return 0;
+  }
+  return NUTRIENT_KEYS.reduce((acc, key) => {
+    const raw = value[key];
+    return acc + (typeof raw === "number" && Number.isFinite(raw) ? raw : 0);
+  }, 0);
+};
+
+const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
+
+const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> => {
+  const now = Date.now();
+  if (canonicalCache && now - canonicalCacheLoadedAt < CANONICAL_CACHE_TTL_MS) {
+    return canonicalCache;
+  }
+
+  const allRows = [];
+  let from = 0;
+  while (true) {
+    const to = from + CANONICAL_PAGE_SIZE - 1;
+    const { data, error } = await supabase
+      .from("canonical_foods")
+      .select("canonical_id, canonical_name, per_100g, fdc_id")
+      .range(from, to);
+    if (error) {
+      throw error;
+    }
+    if (!Array.isArray(data) || !data.length) {
+      break;
+    }
+    allRows.push(...data);
+    if (data.length < CANONICAL_PAGE_SIZE) {
+      break;
+    }
+    from += CANONICAL_PAGE_SIZE;
+  }
+
+  const foods = Array.isArray(allRows)
+    ? allRows
+        .filter(
+          (row) =>
+            typeof row?.canonical_id === "string" &&
+            row.canonical_id.trim().length > 0 &&
+            typeof row?.canonical_name === "string" &&
+            row.canonical_name.trim().length > 0 &&
+            !(
+              isSurveyFdcId(typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "") &&
+              sumPer100gVector(row?.per_100g) === 0
+            )
+        )
+        .map((row) => ({
+          canonical_id: row.canonical_id.trim(),
+          canonical_name: row.canonical_name.trim()
+        }))
+    : [];
+
+  canonicalCache = foods;
+  canonicalCacheLoadedAt = now;
+  return foods;
+};
+
+const resolveCanonicalFromName = (
+  observedName: string,
+  canonicalFoods: CanonicalFoodLookupItem[]
+) => {
+  const trimmedName = observedName.trim();
+  if (!trimmedName || trimmedName.toLowerCase() === "unknown") {
+    return {
+      canonical_id: UNKNOWN_CANONICAL_ID,
+      canonical_name: UNKNOWN_CANONICAL_NAME
+    };
+  }
+  const candidates = rankCanonicalFoodSuggestions(
+    trimmedName,
+    canonicalFoods,
+    MAX_LEXICAL_CANDIDATES
+  );
+  if (!candidates.length) {
+    return {
+      canonical_id: UNKNOWN_CANONICAL_ID,
+      canonical_name: UNKNOWN_CANONICAL_NAME
+    };
+  }
+  return {
+    canonical_id: candidates[0].canonical_id,
+    canonical_name: candidates[0].canonical_name
+  };
+};
 
 const parseItems = (payload: string) => {
   const parsed = JSON.parse(payload);
@@ -165,10 +289,19 @@ serve(async (req) => {
 
     const supabase = createSupabaseClient(req);
     const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
+    const canonicalFoods = await loadCanonicalFoods(supabase);
     let items: unknown[] = [];
     let parseWarning: string | null = null;
     try {
-      items = await callVisionModel(base64, contentType);
+      const parsedItems = await callVisionModel(base64, contentType);
+      items = parsedItems.map((item) => {
+        const canonical = resolveCanonicalFromName(item.name, canonicalFoods);
+        return {
+          ...item,
+          canonical_id: canonical.canonical_id,
+          canonical_name: canonical.canonical_name
+        };
+      });
     } catch (error) {
       parseWarning = error instanceof Error ? error.message : "Vision model failed.";
       items = [];
