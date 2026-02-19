@@ -52,6 +52,8 @@ type MappedItem = {
   canonical_id: string;
   canonical_name: string;
   confidence: number;
+  grams: number;
+  nutrient_totals: NutrientTotals | null;
 };
 
 type FoodSuggestion = {
@@ -112,6 +114,28 @@ type NutrientVector = {
 type NutrientTotals = {
   totals: NutrientVector;
   percent_dv: NutrientVector;
+};
+
+const DAILY_VALUES: NutrientVector = {
+  vitamin_a_ug: 900,
+  vitamin_c_mg: 90,
+  vitamin_d_ug: 20,
+  vitamin_e_mg: 15,
+  vitamin_k_ug: 120,
+  thiamin_mg: 1.2,
+  riboflavin_mg: 1.3,
+  niacin_mg: 16,
+  vitamin_b6_mg: 1.7,
+  folate_ug: 400,
+  vitamin_b12_ug: 2.4,
+  calcium_mg: 1300,
+  iron_mg: 18,
+  magnesium_mg: 420,
+  phosphorus_mg: 1250,
+  potassium_mg: 4700,
+  zinc_mg: 11,
+  selenium_ug: 55,
+  omega3_g: 1.6
 };
 
 type Props = BottomTabScreenProps<RootTabParamList, "Capture">;
@@ -227,9 +251,126 @@ const parseMappingPayload = (payload: unknown): MappedItem[] => {
       name: candidate.name.trim(),
       canonical_id: candidate.canonical_id.trim(),
       canonical_name: candidate.canonical_name.trim(),
-      confidence: candidate.confidence
+      confidence: candidate.confidence,
+      grams:
+        typeof candidate.grams === "number" && Number.isFinite(candidate.grams)
+          ? Math.max(candidate.grams, 0)
+          : 0,
+      nutrient_totals: parseItemNutrientTotals(candidate.nutrient_totals)
     };
   });
+};
+
+const parseNutrientVector = (value: unknown): NutrientVector | null => {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+  const candidate = value as Record<string, unknown>;
+  return NUTRIENT_KEYS.reduce(
+    (acc, key) => {
+      const raw = candidate[key];
+      acc[key] = typeof raw === "number" && Number.isFinite(raw) ? raw : 0;
+      return acc;
+    },
+    {} as NutrientVector
+  );
+};
+
+const parseItemNutrientTotals = (value: unknown): NutrientTotals | null => {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+  const candidate = value as { totals?: unknown; percent_dv?: unknown };
+  const totals = parseNutrientVector(candidate.totals);
+  const percentDv = parseNutrientVector(candidate.percent_dv);
+  if (!totals || !percentDv) {
+    return null;
+  }
+  return {
+    totals,
+    percent_dv: percentDv
+  };
+};
+
+const makeZeroNutrientVector = (): NutrientVector =>
+  NUTRIENT_KEYS.reduce(
+    (acc, key) => {
+      acc[key] = 0;
+      return acc;
+    },
+    {} as NutrientVector
+  );
+
+const computeItemNutrientTotals = (per100g: NutrientVector, grams: number): NutrientTotals => {
+  const safeGrams = Number.isFinite(grams) ? Math.max(grams, 0) : 0;
+  const multiplier = safeGrams / 100;
+  const totals = NUTRIENT_KEYS.reduce(
+    (acc, key) => {
+      acc[key] = per100g[key] * multiplier;
+      return acc;
+    },
+    {} as NutrientVector
+  );
+  const percentDv = NUTRIENT_KEYS.reduce(
+    (acc, key) => {
+      const dailyValue = DAILY_VALUES[key];
+      acc[key] = dailyValue ? totals[key] / dailyValue : 0;
+      return acc;
+    },
+    {} as NutrientVector
+  );
+  return {
+    totals,
+    percent_dv: percentDv
+  };
+};
+
+const hydrateMappedItemsWithNutrients = async (
+  items: MappedItem[]
+): Promise<MappedItem[]> => {
+  const missingIds = Array.from(
+    new Set(
+      items
+        .filter((item) => !item.nutrient_totals)
+        .map((item) => item.canonical_id)
+        .filter((canonicalId) => typeof canonicalId === "string" && canonicalId.length > 0)
+    )
+  );
+
+  if (!missingIds.length) {
+    return items;
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("canonical_foods")
+      .select("canonical_id, per_100g")
+      .in("canonical_id", missingIds);
+    if (error) {
+      return items;
+    }
+    const per100gById: Record<string, NutrientVector> = {};
+    (Array.isArray(data) ? data : []).forEach((row) => {
+      if (typeof row?.canonical_id !== "string" || !row.canonical_id.trim()) {
+        return;
+      }
+      const parsedPer100g = parseNutrientVector(row?.per_100g);
+      per100gById[row.canonical_id] = parsedPer100g ?? makeZeroNutrientVector();
+    });
+
+    return items.map((item) => {
+      if (item.nutrient_totals) {
+        return item;
+      }
+      const per100g = per100gById[item.canonical_id] ?? makeZeroNutrientVector();
+      return {
+        ...item,
+        nutrient_totals: computeItemNutrientTotals(per100g, item.grams)
+      };
+    });
+  } catch (_error) {
+    return items;
+  }
 };
 
 const parseFoodSuggestions = (payload: unknown): FoodSuggestion[] => {
@@ -466,6 +607,9 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [mappingError, setMappingError] = useState<string | null>(null);
   const [mappedItems, setMappedItems] = useState<MappedItem[] | null>(null);
   const [nutrientTotals, setNutrientTotals] = useState<NutrientTotals | null>(null);
+  const [expandedIngredientProfiles, setExpandedIngredientProfiles] = useState<
+    Record<string, boolean>
+  >({});
   const [suggestionsByItemId, setSuggestionsByItemId] = useState<
     Record<string, FoodSuggestion[]>
   >({});
@@ -663,6 +807,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     setMappedItems(null);
     setMappingError(null);
     setNutrientTotals(null);
+    setExpandedIngredientProfiles({});
     setSuggestionsByItemId({});
     setSuggestionError(null);
     suggestionRequestIdRef.current = {};
@@ -870,30 +1015,41 @@ export function CaptureScreen({ navigation, route }: Props) {
             };
           })
         );
-        setMappedItems(
-          finalItems.length
-            ? finalItems
-                .filter(
-                  (item) =>
-                    typeof item?.canonical_id === "string" &&
-                    typeof item?.canonical_name === "string"
-                )
-                .map((item) => ({
-                  name:
-                    typeof item?.name === "string" && item.name.trim()
-                      ? item.name
-                      : item.canonical_name,
-                  canonical_id: item.canonical_id,
-                  canonical_name: item.canonical_name,
-                  confidence:
-                    typeof item?.confidence === "number" &&
-                    item.confidence >= 0 &&
-                    item.confidence <= 1
-                      ? item.confidence
-                      : 0.2
-                }))
-            : null
-        );
+        const mappedFromFinalItems = finalItems.length
+          ? finalItems
+              .filter(
+                (item) =>
+                  typeof item?.canonical_id === "string" &&
+                  typeof item?.canonical_name === "string"
+              )
+              .map((item) => ({
+                name:
+                  typeof item?.name === "string" && item.name.trim()
+                    ? item.name
+                    : item.canonical_name,
+                canonical_id: item.canonical_id,
+                canonical_name: item.canonical_name,
+                confidence:
+                  typeof item?.confidence === "number" &&
+                  item.confidence >= 0 &&
+                  item.confidence <= 1
+                    ? item.confidence
+                    : 0.2,
+                grams:
+                  typeof item?.grams === "number" && Number.isFinite(item.grams)
+                    ? Math.max(item.grams, 0)
+                    : typeof item?.estimated_grams === "number" &&
+                        Number.isFinite(item.estimated_grams)
+                      ? Math.max(item.estimated_grams, 0)
+                      : 0,
+                nutrient_totals: parseItemNutrientTotals(item?.nutrient_totals)
+              }))
+          : null;
+        const hydratedMappedItems = mappedFromFinalItems
+          ? await hydrateMappedItemsWithNutrients(mappedFromFinalItems)
+          : null;
+        setMappedItems(hydratedMappedItems);
+        setExpandedIngredientProfiles({});
         setNutrientTotals(
           data?.nutrient_totals && typeof data.nutrient_totals === "object"
             ? (data.nutrient_totals as NutrientTotals)
@@ -928,6 +1084,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     setMappingError(null);
     setMappedItems(null);
     setNutrientTotals(null);
+    setExpandedIngredientProfiles({});
 
     try {
       const { data, error } = await supabase.functions.invoke("map-foods", {
@@ -941,17 +1098,23 @@ export function CaptureScreen({ navigation, route }: Props) {
         throw error;
       }
 
-      const mapped = parseMappingPayload(data).map((mappedItem) => ({
-        ...mappedItem,
-        name: mappedItem.canonical_name
-      }));
-      const persistedFinalItems = mapped.map((mappedItem, index) => {
+      const mappedWithSourceGrams = parseMappingPayload(data).map((mappedItem, index) => {
         const sourceItem = items[index];
         const sourceGrams =
           typeof sourceItem?.estimated_grams === "number" &&
           Number.isFinite(sourceItem.estimated_grams)
             ? Math.max(sourceItem.estimated_grams, 0)
-            : 0;
+            : mappedItem.grams;
+        return {
+          ...mappedItem,
+          name: mappedItem.canonical_name,
+          grams: sourceGrams
+        };
+      });
+      const mapped = await hydrateMappedItemsWithNutrients(mappedWithSourceGrams);
+      const persistedFinalItems = mapped.map((mappedItem, index) => {
+        const sourceItem = items[index];
+        const sourceGrams = mappedItem.grams;
         const sourceUnit = isQuantityUnit(sourceItem?.unit) ? sourceItem.unit : "g";
         const sourceQuantity =
           typeof sourceItem?.quantity === "number" && Number.isFinite(sourceItem.quantity)
@@ -981,6 +1144,7 @@ export function CaptureScreen({ navigation, route }: Props) {
       }
 
       setMappedItems(mapped);
+      setExpandedIngredientProfiles({});
       setEditableItems((current) =>
         current.map((entry, index) => {
           const mappedItem = mapped[index];
@@ -1366,6 +1530,83 @@ export function CaptureScreen({ navigation, route }: Props) {
     </View>
   );
 
+  const renderMappedFoodsSection = () => {
+    if (!mappedItems) {
+      return null;
+    }
+    return (
+      <View style={styles.parsedList}>
+        <Text style={styles.sectionTitle}>Canonical selected foods</Text>
+        {mappedItems.length ? (
+          mappedItems.map((item, index) => {
+            const itemKey = `${item.canonical_id}-${index}`;
+            const isExpanded = Boolean(expandedIngredientProfiles[itemKey]);
+            const nutrientKeysForItem = item.nutrient_totals
+              ? NUTRIENT_KEYS.filter((key) => item.nutrient_totals!.percent_dv[key] > 0)
+              : [];
+            return (
+              <View key={itemKey} style={styles.ingredientProfileCard}>
+                <View style={styles.parsedRow}>
+                  <Text style={styles.parsedItemText}>
+                    {item.canonical_name}
+                  </Text>
+                  {renderConfidenceBadge(item.confidence)}
+                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={
+                    isExpanded
+                      ? `Hide nutrition profile for ${item.canonical_name}`
+                      : `Show nutrition profile for ${item.canonical_name}`
+                  }
+                  onPress={() =>
+                    setExpandedIngredientProfiles((current) => ({
+                      ...current,
+                      [itemKey]: !current[itemKey]
+                    }))
+                  }
+                  style={({ pressed }) => [
+                    styles.profileToggleButton,
+                    pressed ? styles.profileToggleButtonPressed : null
+                  ]}
+                >
+                  <Text style={styles.profileToggleButtonText}>
+                    {isExpanded ? "Hide profile" : "Show profile"}
+                  </Text>
+                </Pressable>
+                {isExpanded ? (
+                  item.nutrient_totals ? (
+                    nutrientKeysForItem.length ? (
+                      <View style={styles.ingredientNutrientList}>
+                        {nutrientKeysForItem.map((key) => (
+                          <NutrientBarRow
+                            key={`${itemKey}-${key}`}
+                            label={formatNutrientLabel(key)}
+                            percentDv={item.nutrient_totals!.percent_dv[key]}
+                          />
+                        ))}
+                      </View>
+                    ) : (
+                      <Text style={styles.ingredientProfileHint}>
+                        No tracked micronutrients for this ingredient at the current amount.
+                      </Text>
+                    )
+                  ) : (
+                    <Text style={styles.ingredientProfileHint}>
+                      Profile unavailable. Recalculate nutrients to refresh this ingredient.
+                    </Text>
+                  )
+                ) : null}
+              </View>
+            );
+          })
+        ) : (
+          <EmptyState message="No foods mapped yet. Edit foods above and recalculate." />
+        )}
+      </View>
+    );
+  };
+
   if (entryMode === "manual" || entryMode === "edit") {
     return (
       <SafeAreaView style={styles.container}>
@@ -1407,23 +1648,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           {isLoadingMeal ? <ActivityIndicator style={styles.spinner} /> : null}
           {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
-          {mappedItems ? (
-            <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Canonical selected foods</Text>
-              {mappedItems.length ? (
-                mappedItems.map((item, index) => (
-                  <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
-                    <Text style={styles.parsedItemText}>
-                      {item.canonical_name}
-                    </Text>
-                    {renderConfidenceBadge(item.confidence)}
-                  </View>
-                ))
-              ) : (
-                <EmptyState message="No foods mapped yet. Edit foods above and recalculate." />
-              )}
-            </View>
-          ) : null}
+          {renderMappedFoodsSection()}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>
@@ -1535,23 +1760,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           {suggestionError ? renderBanner(suggestionError, "error") : null}
           {editableItems.length ? renderEditableFoods() : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
-          {mappedItems ? (
-            <View style={styles.parsedList}>
-              <Text style={styles.sectionTitle}>Canonical selected foods</Text>
-              {mappedItems.length ? (
-                mappedItems.map((item, index) => (
-                  <View key={`${item.canonical_id}-${index}`} style={styles.parsedRow}>
-                    <Text style={styles.parsedItemText}>
-                      {item.canonical_name}
-                    </Text>
-                    {renderConfidenceBadge(item.confidence)}
-                  </View>
-                ))
-              ) : (
-                <EmptyState message="No foods mapped yet. Edit foods above and recalculate." />
-              )}
-            </View>
-          ) : null}
+          {renderMappedFoodsSection()}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>
@@ -1692,6 +1901,34 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     alignItems: "center",
     gap: 8
+  },
+  ingredientProfileCard: {
+    gap: 8,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#eaecf0"
+  },
+  profileToggleButton: {
+    alignSelf: "flex-start",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 999,
+    backgroundColor: "#eaecf0"
+  },
+  profileToggleButtonPressed: {
+    opacity: 0.8
+  },
+  profileToggleButtonText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#344054"
+  },
+  ingredientNutrientList: {
+    gap: 8
+  },
+  ingredientProfileHint: {
+    fontSize: 12,
+    color: "#667085"
   },
   bandRow: {
     flexDirection: "row",

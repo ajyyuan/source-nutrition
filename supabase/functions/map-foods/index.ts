@@ -339,6 +339,13 @@ serve(async (req) => {
           : canonicalId === UNKNOWN_CANONICAL_ID
             ? UNKNOWN_CANONICAL_NAME
             : name || UNKNOWN_CANONICAL_NAME;
+      const nutrientTotals = computeItemTotals(
+        {
+          canonical_id: canonicalId,
+          grams
+        },
+        canonicalById
+      );
 
       mapped.push({
         // Canonical selection is the display value after mapping.
@@ -349,7 +356,8 @@ serve(async (req) => {
         quantity,
         unit,
         last_precise_unit: lastPreciseUnit,
-        confidence
+        confidence,
+        nutrient_totals: nutrientTotals
       });
     }
 
@@ -363,14 +371,7 @@ serve(async (req) => {
 
     const top_contributors = mapped
       .map((item) => {
-        const totals = computeItemTotals(
-          {
-            canonical_id: item.canonical_id,
-            grams: item.grams
-          },
-          canonicalById
-        );
-        const score = sumPercentDv(totals.percent_dv);
+        const score = sumPercentDv(item.nutrient_totals.percent_dv);
         return {
           canonical_id: item.canonical_id,
           name: item.canonical_name,
