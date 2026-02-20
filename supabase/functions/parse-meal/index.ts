@@ -103,8 +103,7 @@ Rules:
 - Set name to the chosen canonical label (not a free-form observed synonym).
 - Return fewer items rather than uncertain ones.
 - Do NOT return "food-unknown". Omit uncertain foods instead.
-- Prefer the closest canonical equivalent whenever there is a reasonable match.
-- Common forms should map to canonical items (example: spaghetti -> Pasta, grated hard cheese -> Parmesan).
+- Choose the single best canonical item from the catalog for each detected food.
 - Do not invent new canonical ids or canonical names.
 - If unsure, return fewer items, not more.
 - Do not include extra keys or text.
@@ -233,17 +232,6 @@ const buildCanonContext = (canonicalFoods: CanonicalFoodLookupItem[]) =>
       : []
     }));
 
-const CANON_MAPPING_EXAMPLES = [
-  "spaghetti -> Pasta",
-  "grated parmesan cheese -> Parmesan",
-  "scrambled eggs -> Chicken egg",
-  "omelet -> Chicken egg",
-  "ground beef -> Ground beef",
-  "shredded carrot -> Carrot",
-  "tomato sauce -> Tomato sauce",
-  "plain yogurt -> Yogurt (plain)"
-];
-
 const parseItems = (payload: string) => {
   const parsed = JSON.parse(payload);
   const items = Array.isArray(parsed?.items) ? parsed.items : [];
@@ -297,7 +285,7 @@ const callVisionModel = async (
             {
               type: "text",
               text:
-                `Identify foods in this meal photo and map each one to a canonical_id from the provided catalog.\n\nUse these mapping examples as guidance:\n${CANON_MAPPING_EXAMPLES.map((example) => `- ${example}`).join("\n")}\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence. Omit uncertain foods instead of outputting unknowns.`
+                `Identify foods in this meal photo and classify each one to a canonical_id from the provided catalog.\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence. Omit uncertain foods instead of outputting unknowns.`
             },
             {
               type: "image_url",
