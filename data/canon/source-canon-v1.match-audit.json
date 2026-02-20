@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T21:55:41.990Z",
+  "generated_at": "2026-02-20T22:39:39.003Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -85,9 +85,9 @@
       "display_name": "Ground goat",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Game meat, goat, raw",
-      "matched_fdc_id": "175303"
+      "match_confidence": 0.98,
+      "matched_name": "Ground Goat",
+      "matched_fdc_id": "off-0647086012246"
     },
     {
       "canonical_id": "ground-pork",
@@ -121,9 +121,9 @@
       "display_name": "Ground duck",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Duck, domesticated, meat and skin, raw",
-      "matched_fdc_id": "172408"
+      "match_confidence": 0.98,
+      "matched_name": "GROUND DUCK",
+      "matched_fdc_id": "480879"
     },
     {
       "canonical_id": "ribeye",
@@ -184,9 +184,9 @@
       "display_name": "Hanger",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, select, raw",
-      "matched_fdc_id": "172139"
+      "match_confidence": 0.98,
+      "matched_name": "BEEF HANGING TENDERS",
+      "matched_fdc_id": "1460108"
     },
     {
       "canonical_id": "chuck",
@@ -265,7 +265,7 @@
       "display_name": "Stew meat",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.646154,
+      "match_confidence": 0.82,
       "matched_name": "Beef, chuck for stew, separable lean and fat, select, raw",
       "matched_fdc_id": "170809"
     },
@@ -292,9 +292,9 @@
       "display_name": "Rack (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Lamb, New Zealand, imported, loin chop, separable lean and fat, raw",
-      "matched_fdc_id": "172517"
+      "match_confidence": 0.86,
+      "matched_name": "Lamb, New Zealand, imported, rack - fully frenched, separable lean only, raw",
+      "matched_fdc_id": "174456"
     },
     {
       "canonical_id": "chop-lamb-goat",
@@ -310,7 +310,7 @@
       "display_name": "Shank (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.63,
+      "match_confidence": 0.82,
       "matched_name": "Lamb, New Zealand, imported, fore-shank, separable lean only, raw",
       "matched_fdc_id": "174340"
     },
@@ -364,7 +364,7 @@
       "display_name": "Pork ribs",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.63,
+      "match_confidence": 0.82,
       "matched_name": "Pork, fresh, loin, country-style ribs, separable lean only, raw",
       "matched_fdc_id": "168305"
     },
@@ -373,7 +373,7 @@
       "display_name": "Fresh ham",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.572727,
+      "match_confidence": 0.82,
       "matched_name": "Pork, fresh, leg (ham), whole, separable lean only, raw",
       "matched_fdc_id": "168224"
     },
@@ -382,7 +382,7 @@
       "display_name": "Pork shank",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.63,
+      "match_confidence": 0.82,
       "matched_name": "Pork, fresh, leg (ham), shank half, separable lean only, raw",
       "matched_fdc_id": "168228"
     },
@@ -490,9 +490,9 @@
       "display_name": "Duck leg",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Duck, domesticated, meat and skin, raw",
-      "matched_fdc_id": "172408"
+      "match_confidence": 0.86,
+      "matched_name": "Duck, domesticated, meat only, raw",
+      "matched_fdc_id": "172410"
     },
     {
       "canonical_id": "atlantic-salmon",
@@ -553,9 +553,9 @@
       "display_name": "Tuna (albacore)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Fish, tuna, white, canned in water, drained solids",
-      "matched_fdc_id": "175158"
+      "match_confidence": 0.86,
+      "matched_name": "Fish, tuna, raw",
+      "matched_fdc_id": "2341723"
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -769,7 +769,7 @@
       "display_name": "Beef kidney",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.610769,
+      "match_confidence": 0.82,
       "matched_name": "Beef, New Zealand, imported, variety meats and by-products, kidney, raw",
       "matched_fdc_id": "174727"
     },
@@ -1129,7 +1129,7 @@
       "display_name": "Kefir (plain)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.58,
+      "match_confidence": 0.82,
       "matched_name": "Kefir, lowfat, plain, LIFEWAY",
       "matched_fdc_id": "170904"
     },
@@ -1219,9 +1219,9 @@
       "display_name": "Lamb tallow",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Fat, beef tallow",
-      "matched_fdc_id": "171400"
+      "match_confidence": 0.88,
+      "matched_name": "Animal fat, mutton tallow",
+      "matched_fdc_id": "cnf-438"
     },
     {
       "canonical_id": "pork-lard",
@@ -1237,9 +1237,9 @@
       "display_name": "Duck fat",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Fat, goose",
-      "matched_fdc_id": "173572"
+      "match_confidence": 0.98,
+      "matched_name": "Animal fat, duck",
+      "matched_fdc_id": "cnf-447"
     },
     {
       "canonical_id": "chicken-fat",
@@ -2236,7 +2236,7 @@
       "display_name": "Sesame oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.588571,
+      "match_confidence": 0.82,
       "matched_name": "Oil, sesame, salad or cooking",
       "matched_fdc_id": "171016"
     },
@@ -2272,7 +2272,7 @@
       "display_name": "Sourdough bread",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.535,
+      "match_confidence": 0.82,
       "matched_name": "Bread, french or vienna (includes sourdough)",
       "matched_fdc_id": "172675"
     },
@@ -2326,9 +2326,9 @@
       "display_name": "Sourdough pasta",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Pasta, dry, unenriched",
-      "matched_fdc_id": "168927"
+      "match_confidence": 0.9,
+      "matched_name": "Sourdough Spaghetti",
+      "matched_fdc_id": "off-0799210620008"
     },
     {
       "canonical_id": "canola-oil",
@@ -2452,9 +2452,9 @@
       "display_name": "Tortilla (corn)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.588571,
-      "matched_name": "Tortilla, blue corn, Sakwavikaviki (Hopi)",
-      "matched_fdc_id": "169829"
+      "match_confidence": 0.86,
+      "matched_name": "Tortillas, ready-to-bake or -fry, corn",
+      "matched_fdc_id": "175036"
     },
     {
       "canonical_id": "hamburger-bun",
@@ -2479,9 +2479,9 @@
       "display_name": "Sandwich roll",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Bread, roll, Mexican, bollilo",
-      "matched_fdc_id": "174078"
+      "match_confidence": 0.86,
+      "matched_name": "Roll, white, hoagie, submarine",
+      "matched_fdc_id": "2343143"
     },
     {
       "canonical_id": "bread-crumbs",
@@ -2533,9 +2533,9 @@
       "display_name": "Udon noodles",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Noodles, japanese, somen, dry",
-      "matched_fdc_id": "168908"
+      "match_confidence": 0.98,
+      "matched_name": "UDON NOODLES",
+      "matched_fdc_id": "2027691"
     },
     {
       "canonical_id": "ramen-noodles",
@@ -2767,9 +2767,9 @@
       "display_name": "White mushroom",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.593333,
-      "matched_name": "Mushroom, white, exposed to ultraviolet light, raw",
-      "matched_fdc_id": "169376"
+      "match_confidence": 0.86,
+      "matched_name": "Mushrooms, white, raw",
+      "matched_fdc_id": "169251"
     },
     {
       "canonical_id": "cremini",
@@ -2830,9 +2830,9 @@
       "display_name": "Nori",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Seaweed, laver, raw",
-      "matched_fdc_id": "168458"
+      "match_confidence": 0.98,
+      "matched_name": "NORI",
+      "matched_fdc_id": "1662188"
     },
     {
       "canonical_id": "kelp",
@@ -2857,9 +2857,9 @@
       "display_name": "Dulse",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Seaweed, irishmoss, raw",
-      "matched_fdc_id": "168456"
+      "match_confidence": 0.98,
+      "matched_name": "DULSE",
+      "matched_fdc_id": "1589432"
     },
     {
       "canonical_id": "spirulina",
@@ -2875,9 +2875,9 @@
       "display_name": "Chlorella",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Seaweed, spirulina, dried",
-      "matched_fdc_id": "170495"
+      "match_confidence": 0.98,
+      "matched_name": "CHLORELLA POWDER",
+      "matched_fdc_id": "1064099"
     },
     {
       "canonical_id": "sauerkraut",

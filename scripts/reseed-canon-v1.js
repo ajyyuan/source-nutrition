@@ -38,6 +38,9 @@ const DEFAULT_USDA_DIRS = [
 ];
 const DEFAULT_PRIORITY_ALIASES_PATH = path.resolve("data/canon/founder-priority-aliases-v1.json");
 const DEFAULT_CURATION_PATH = path.resolve("data/canon/source-canon-v1.manual-curation.json");
+const DEFAULT_SUPPLEMENTAL_SOURCES_PATH = path.resolve(
+  "data/canon/source-canon-v1.supplemental-source-rows.json"
+);
 const CHUNK_SIZE = 500;
 
 const NUTRIENT_NAME_MAP = [
@@ -107,6 +110,7 @@ const parseArgs = (argv) => {
     usdaDirs: DEFAULT_USDA_DIRS,
     priorityAliasesPath: DEFAULT_PRIORITY_ALIASES_PATH,
     curationPath: DEFAULT_CURATION_PATH,
+    supplementalSourcesPath: DEFAULT_SUPPLEMENTAL_SOURCES_PATH,
     strictCuration: true,
     sourceUsda: false,
     apply: false
@@ -134,6 +138,8 @@ const parseArgs = (argv) => {
       options.priorityAliasesPath = path.resolve(arg.split("=")[1]);
     } else if (arg.startsWith("--curation=")) {
       options.curationPath = path.resolve(arg.split("=")[1]);
+    } else if (arg.startsWith("--supplemental-sources=")) {
+      options.supplementalSourcesPath = path.resolve(arg.split("=")[1]);
     } else if (arg === "--no-strict-curation") {
       options.strictCuration = false;
     } else if (arg === "--source-usda") {
@@ -273,6 +279,56 @@ const loadSourceRowsFromUsdaCsvs = (usdaDirs) => {
     });
   });
   return dedupeByCanonicalId(Array.from(rowsByFdcId.values()));
+};
+
+const loadSupplementalSourceRows = (supplementalSourcesPath) => {
+  if (!supplementalSourcesPath || !fs.existsSync(supplementalSourcesPath)) {
+    return [];
+  }
+  const payload = JSON.parse(fs.readFileSync(supplementalSourcesPath, "utf8"));
+  const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+  return rows
+    .map((row) => {
+      const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
+      if (!fdcId) {
+        return null;
+      }
+      return {
+        canonical_id:
+          typeof row?.canonical_id === "string" && row.canonical_id.trim()
+            ? row.canonical_id.trim()
+            : `supplemental-${fdcId}`,
+        canonical_name:
+          typeof row?.canonical_name === "string" && row.canonical_name.trim()
+            ? row.canonical_name.trim()
+            : fdcId,
+        fdc_id: fdcId,
+        source: "supplemental",
+        source_dataset:
+          typeof row?.source_dataset === "string" && row.source_dataset.trim()
+            ? row.source_dataset.trim()
+            : "supplemental",
+        per_100g: normalizePer100g(row?.per_100g)
+      };
+    })
+    .filter(Boolean);
+};
+
+const mergeSourceRowsByFdcId = (...rowGroups) => {
+  const merged = new Map();
+  rowGroups.forEach((group) => {
+    (Array.isArray(group) ? group : []).forEach((row) => {
+      const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
+      if (!fdcId) {
+        return;
+      }
+      const existing = merged.get(fdcId);
+      if (!existing || sumPer100gVector(row.per_100g || {}) >= sumPer100gVector(existing.per_100g || {})) {
+        merged.set(fdcId, row);
+      }
+    });
+  });
+  return Array.from(merged.values());
 };
 
 const loadCurationMap = (curationPath) => {
@@ -678,10 +734,12 @@ const run = async () => {
   }
 
   const currentRows = supabase ? await loadAllCanonicalRows(supabase) : [];
-  const sourceRows =
+  const baseSourceRows =
     options.sourceUsda || !supabase
       ? loadSourceRowsFromUsdaCsvs(options.usdaDirs)
       : currentRows;
+  const supplementalSourceRows = loadSupplementalSourceRows(options.supplementalSourcesPath);
+  const sourceRows = mergeSourceRowsByFdcId(baseSourceRows, supplementalSourceRows);
   const curationByCanonicalId = loadCurationMap(options.curationPath);
   const { rows: reseededRows, audit } = matchCanonItems(
     flatItems,
@@ -759,6 +817,9 @@ const run = async () => {
     console.log("Dry run only. Use --apply to snapshot + replace canonical tables.");
     if (options.sourceUsda || !supabase) {
       console.log(`Source rows loaded from USDA CSV dirs: ${options.usdaDirs.join(", ")}`);
+    }
+    if (supplementalSourceRows.length) {
+      console.log(`Loaded supplemental source rows: ${supplementalSourceRows.length}`);
     }
     if (curationByCanonicalId.size) {
       console.log(`Loaded manual curation entries: ${curationByCanonicalId.size}`);
