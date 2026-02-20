@@ -28,10 +28,17 @@ This keeps the app honest when CV confidence is imperfect while still exposing c
 - Canon source of truth lives in `data/canon/source-canon-v1.json`
 - Canon tooling scripts:
   - `npm run canon:build`
+  - `npm run canon:curate:build`
+  - `npm run canon:provenance:build`
   - `npm run canon:reseed:dry`
   - `npm run canon:reseed:apply`
   - `npm run canon:audit`
 - Runtime food retrieval is scoped to curated canon rows (`is_canon_v1` + `is_usable`)
+- Canon reseed is strict and curation-first:
+  - no runtime fallback mapping in core parse/map flows
+  - each canon item must map to an explicit source row
+  - supplemental online source rows can be merged via `data/canon/source-canon-v1.supplemental-source-rows.json`
+- Canon provenance manifest is generated at `data/canon/source-canon-v1.provenance.json`
 - See `docs/FOOD_DB_PLAN.md` for full migration and reseed workflow
 
 ## Core Principles
@@ -54,11 +61,13 @@ This keeps the app honest when CV confidence is imperfect while still exposing c
 
 - Macro or calorie optimization
 - Barcode scanning
-- Branded food database
+- Branded food search/browse as a user-facing feature
 - Supplements
 - Meal plans or recipes
 - Social features
 - Android support
+
+Internal canon curation may still use branded or external source rows when needed to complete high-quality nutrient coverage.
 
 ## Positioning
 

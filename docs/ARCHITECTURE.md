@@ -85,6 +85,26 @@ Tracking mode does not relax determinism requirements; it changes how outputs ar
 
 ---
 
+## Canon Source Resolution Contract
+
+* Canon list (`source-canon-v1`) is the gold item set.
+* Canon ID resolution is strict and explicit.
+* Runtime map/parse flow does **not** rely on heuristic fallback food substitution.
+* Reseed flow is curation-first:
+  * each canon row must map to an explicit source row
+  * strict reseed fails if canon rows are unresolved/unusable
+* Source rows can come from:
+  * local USDA CSV datasets
+  * online USDA API rows
+  * approved supplemental external datasets (for hard gaps)
+
+Provenance artifacts:
+* `data/canon/source-canon-v1.manual-curation.json`
+* `data/canon/source-canon-v1.supplemental-source-rows.json`
+* `data/canon/source-canon-v1.provenance.json`
+
+---
+
 ## Architectural Non-Negotiables
 
 * Canonical food IDs must be stable

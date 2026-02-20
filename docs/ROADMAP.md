@@ -27,8 +27,16 @@ That means:
 ## Near-Term Deliverables
 
 1. Complete single-mode cleanup across UI and docs.
-2. Improve food mapping coverage and CV robustness.
-3. Add QA checklist for capture/edit/restart regression cases.
+2. Data quality hardening for canon nutrient vectors:
+   - validate micronutrient completeness and plausibility for every canon item,
+   - prioritize fixing sparse vectors (for example where key micros are missing),
+   - add guardrails to prevent incomplete source rows from silently degrading canon quality.
+3. Nutrient education drill-down:
+   - tap nutrient -> short function/deficiency description,
+   - surface top canon foods for that nutrient.
+4. Micronutrient matrix export:
+   - maintain an up-to-date table with micronutrients as rows and canon foods as columns.
+5. Add QA checklist for capture/edit/restart regression cases.
 
 ## Future Concepts (Founder Notes)
 

@@ -2,6 +2,11 @@
 
 Handoff for the canonical DB reset follow-through: strict parse classification behavior, prompt cleanup, and variant expansion for eggs/dairy/ground beef.
 
+> Historical snapshot note: this document reflects state at Day 17 and is not the
+> latest canon curation/provenance architecture. For current behavior, use
+> `docs/FOOD_DB_PLAN.md`, `docs/ARCHITECTURE.md`, and
+> `data/canon/source-canon-v1.provenance.json`.
+
 ## Session Intent (Founder)
 - Keep canonical selection strict and remove heuristic drift.
 - Avoid parse-time placeholder clutter (unknown rows unless truly intended).

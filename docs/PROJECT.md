@@ -72,11 +72,14 @@ This timeline is **high-risk but feasible** with strict scope control.
 * Calories as a primary metric
 * Macro optimization
 * Barcode scanning
-* Branded food DB
+* Branded food search/browse as a user-facing feature
 * Supplements or recommendations
 * Meal plans
 * Social features
 * Android
+
+Note: internal curation may still use branded or external dataset rows as source data
+for canon items when needed for coverage and quality.
 
 ---
 

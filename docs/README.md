@@ -8,14 +8,19 @@ This file indexes deeper technical and planning docs.
 - `PROJECT.md` - product scope and constraints
 - `ARCHITECTURE.md` - system architecture and non-negotiables
 - `ROADMAP.md` - current execution priorities
+- `FOOD_DB_PLAN.md` - canonical food DB architecture, curation, reseed flow
 - `TRACKING_MODES_SPEC.md` - unified nutrient presentation contract (legacy filename)
 - `APPLE_SIGN_IN.md` - Apple auth setup and troubleshooting
 
 ## Historical Execution Notes
 
 - `PLAN.md` - original sprint plan
-- `HANDOFF_DAY1.md` ... `HANDOFF_DAY10.md` - day-by-day progress notes
+- `HANDOFF_DAY1.md` ... `HANDOFF_DAY17.md` - day-by-day progress snapshots
 - `QA_DAY6.md`, `TESTFLIGHT_DAY6.md`, `APP_STORE_METADATA_DAY6.md`
+
+Historical handoff docs are preserved as time-stamped snapshots and may not reflect
+the latest architecture after subsequent sessions. Treat the "Start Here (Current)"
+docs as source of truth for how the system works now.
 
 ## Reorg Note
 

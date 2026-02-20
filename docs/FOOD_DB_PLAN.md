@@ -1,20 +1,33 @@
 ## Canon v1 Food DB Plan
 
 ### Goal
-Hard-reset the live canonical catalog to a list-first canon (`data/canon/source-canon-v1.json`), then attach USDA nutrients deterministically while keeping stable IDs and deterministic nutrient math.
+Use a list-first canon (`data/canon/source-canon-v1.json`) as the exact food set, then map every canon item to explicit nutrient source rows with deterministic server-side math and stable IDs.
 
-### Canon Source Artifacts
+### Source-of-Truth and Curation Artifacts
 - `data/canon/source-canon-v1.json`
-  - Founder-provided source of truth list.
+  - Founder-provided canon list (gold food set).
 - `data/canon/source-canon-v1.flat.json`
-  - Flattened canon rows with stable `canonical_id` and inherited taxonomy metadata.
-- `data/canon/source-canon-v1.source-audit.json`
-  - Source integrity checks (counts, duplicates).
+  - Built canon rows with stable `canonical_id` and inherited metadata.
+- `data/canon/source-canon-v1.manual-curation.json`
+  - Per-canon-item source mapping (`fdc_id`, dataset, confidence, notes).
+- `data/canon/source-canon-v1.supplemental-source-rows.json`
+  - Supplemental nutrient vectors from approved online/external sources when local USDA CSV rows are insufficient.
+- `data/canon/source-canon-v1.provenance.json`
+  - Full provenance manifest by canon item (dataset/source kind/source row/confidence).
 - `data/canon/founder-priority-aliases-v1.json`
-  - Extra synonyms for founder-priority terms.
+  - Founder-priority alias overrides.
+- Audit outputs:
+  - `data/canon/source-canon-v1.match-audit.json`
+  - `data/canon/source-canon-v1.reseed-preview.json`
+
+### Curation Policy (Current)
+- Canon list is fixed by founder intent; no extra foods are introduced.
+- Curation is explicit and row-level; no hidden runtime substitutions.
+- Strict reseed requires full canon coverage (`unresolved_count = 0`).
+- Runtime map/parse flows are strict against canon IDs and usable rows.
 
 ### Schema (v1 Extensions)
-`public.canonical_foods` now includes:
+`public.canonical_foods` includes:
 - taxonomy metadata: `display_name`, `kingdom`, `domain`, `food_group`, `subgroup`, `default_state`
 - canon metadata: `aliases`, `variant_template_id`, `variant_values`, `notes`
 - curation flags: `is_canon_v1`, `is_usable`
@@ -29,28 +42,32 @@ Related tables:
   - `public.canonical_foods_backups`
   - `public.canonical_food_aliases_backups`
 
-### Reseed Workflow
-1. Build flat canon:
+### Build and Reseed Workflow
+1. Build canon:
    - `npm run canon:build`
-2. Dry-run match + preview + audit:
+2. (Optional) draft curation candidates:
+   - `npm run canon:curate:build`
+3. Generate provenance manifest:
+   - `npm run canon:provenance:build`
+4. Dry-run strict reseed:
    - `npm run canon:reseed:dry`
    - outputs:
      - `data/canon/source-canon-v1.match-audit.json`
      - `data/canon/source-canon-v1.reseed-preview.json`
-3. Apply hard replacement (requires Supabase service role env vars):
+5. Apply replacement (requires Supabase service role env vars):
    - `npm run canon:reseed:apply`
    - snapshots old rows into backup tables
-   - upserts canon v1 rows
+   - upserts canon rows
    - replaces alias + variant metadata
-4. Run audits:
+6. Run audits:
    - preview/local: `npm run canon:audit`
-   - live-db post-cutover: `npm run canon:audit:db`
+   - live-db: `npm run canon:audit:db`
 
 ### Runtime Scope
-`parse-meal`, `search-foods`, and `map-foods` now scope canonical lookups to:
+`parse-meal`, `search-foods`, and `map-foods` scope lookups to:
 - `is_canon_v1 = true`
 - `is_usable = true`
 
-Alias-aware lexical ranking uses both:
+Alias-aware lookup uses:
 - canonical row aliases (`canonical_foods.aliases`)
 - alias table rows (`canonical_food_aliases`)
