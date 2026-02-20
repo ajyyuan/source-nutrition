@@ -126,6 +126,8 @@ const buildVariantDisplayName = (templateId, baseDisplayName, variantValues) => 
     if (eggPart === "whole") return baseDisplayName;
     if (eggPart === "white") return "Egg white";
     if (eggPart === "yolk") return "Egg yolk";
+    if (eggPart === "scrambled") return "Scrambled egg (chicken)";
+    if (eggPart === "fried") return "Fried egg (chicken)";
   }
 
   const fallbackLabel = Object.entries(variantValues)
@@ -167,8 +169,22 @@ const buildVariantAliases = (templateId, baseDisplayName, variantValues, variant
   if (templateId === "egg_parts") {
     const eggPart = variantValues.egg_part;
     if (eggPart === "whole") return ["whole egg", "egg", "eggs", "chicken egg"];
-    if (eggPart === "white") return ["egg white", "egg whites", "eggwhite", "whites"];
-    if (eggPart === "yolk") return ["egg yolk", "egg yolks", "eggyolk", "yolks"];
+    if (eggPart === "white") {
+      return ["egg white", "egg whites", "eggwhite", "whites", "chicken egg white"];
+    }
+    if (eggPart === "yolk") return ["egg yolk", "egg yolks", "eggyolk", "yolks", "chicken egg yolk"];
+    if (eggPart === "scrambled") {
+      return [
+        "scrambled egg",
+        "scrambled eggs",
+        "eggs scrambled",
+        "chicken scrambled egg",
+        "scrambled chicken egg"
+      ];
+    }
+    if (eggPart === "fried") {
+      return ["fried egg", "fried eggs", "egg fried", "chicken fried egg", "fried chicken egg"];
+    }
   }
   if (variantDisplayName !== baseDisplayName) {
     return [baseDisplayName];

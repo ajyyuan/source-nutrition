@@ -53,7 +53,7 @@
       "key": "egg_part",
       "label": "Egg part",
       "value_type": "enum",
-      "allowed_values": ["whole", "white", "yolk"]
+      "allowed_values": ["whole", "white", "yolk", "scrambled", "fried"]
     }
   ],
   "variant_templates": [

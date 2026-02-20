@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "name": "Source Canon Whole Foods",
-  "generated_at": "2026-02-20T16:48:42.337Z",
+  "generated_at": "2026-02-20T17:19:00.948Z",
   "principles": {
     "single_ingredient_only": true,
     "exclude_branded_and_restaurant_items": true,
@@ -65,7 +65,9 @@
       "allowed_values": [
         "whole",
         "white",
-        "yolk"
+        "yolk",
+        "scrambled",
+        "fried"
       ]
     }
   ],
@@ -1690,7 +1692,8 @@
         "egg white",
         "egg whites",
         "eggwhite",
-        "whites"
+        "whites",
+        "chicken egg white"
       ],
       "variant_template_id": "egg_parts",
       "notes": null,
@@ -1712,12 +1715,59 @@
         "egg yolk",
         "egg yolks",
         "eggyolk",
-        "yolks"
+        "yolks",
+        "chicken egg yolk"
       ],
       "variant_template_id": "egg_parts",
       "notes": null,
       "variant_values": {
         "egg_part": "yolk"
+      }
+    },
+    {
+      "canonical_id": "scrambled-egg-chicken",
+      "display_name": "Scrambled egg (chicken)",
+      "canonical_name": "Scrambled egg (chicken)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "whole egg",
+        "scrambled egg",
+        "scrambled eggs",
+        "eggs scrambled",
+        "chicken scrambled egg",
+        "scrambled chicken egg"
+      ],
+      "variant_template_id": "egg_parts",
+      "notes": null,
+      "variant_values": {
+        "egg_part": "scrambled"
+      }
+    },
+    {
+      "canonical_id": "fried-egg-chicken",
+      "display_name": "Fried egg (chicken)",
+      "canonical_name": "Fried egg (chicken)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "whole egg",
+        "fried egg",
+        "fried eggs",
+        "egg fried",
+        "chicken fried egg",
+        "fried chicken egg"
+      ],
+      "variant_template_id": "egg_parts",
+      "notes": null,
+      "variant_values": {
+        "egg_part": "fried"
       }
     },
     {
