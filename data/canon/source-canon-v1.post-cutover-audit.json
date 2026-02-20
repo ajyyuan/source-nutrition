@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-02-20T07:08:10.184Z",
+  "source": "db",
+  "totals": {
+    "rows": 307,
+    "usable_rows": 191,
+    "unusable_rows": 116,
+    "usable_zero_vector_rows": 0
+  },
+  "match_status_counts": {
+    "system": 1,
+    "fuzzy": 188,
+    "unmatched": 114,
+    "matched": 4
+  },
+  "query_checks": [
+    {
+      "query": "egg",
+      "expected": "Chicken egg",
+      "passed": false,
+      "top_result": "Eggplant",
+      "top_score": 0.85,
+      "top5": [
+        "Eggplant",
+        "Parmesan"
+      ]
+    },
+    {
+      "query": "beef liver",
+      "expected": "Beef liver",
+      "passed": false,
+      "top_result": "Beef tallow",
+      "top_score": 0.35,
+      "top5": [
+        "Beef tallow",
+        "Chicken liver",
+        "Ground beef"
+      ]
+    },
+    {
+      "query": "parmesan",
+      "expected": "Parmesan",
+      "passed": true,
+      "top_result": "Parmesan",
+      "top_score": 1.9,
+      "top5": [
+        "Parmesan"
+      ]
+    },
+    {
+      "query": "sardine",
+      "expected": "Sardine",
+      "passed": true,
+      "top_result": "Sardine",
+      "top_score": 1.9,
+      "top5": [
+        "Sardine"
+      ]
+    },
+    {
+      "query": "kimchi",
+      "expected": "Kimchi",
+      "passed": true,
+      "top_result": "Kimchi",
+      "top_score": 1.9,
+      "top5": [
+        "Kimchi"
+      ]
+    }
+  ]
+}

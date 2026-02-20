@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0.0",
+  "name": "Founder priority aliases v1",
+  "aliases": [
+    {
+      "canonical_name": "Parmesan",
+      "aliases": ["parmigiano reggiano", "parmigiano", "parmesan cheese"]
+    },
+    {
+      "canonical_name": "Beef liver",
+      "aliases": ["liver", "beef liver raw", "liver beef"]
+    },
+    {
+      "canonical_name": "Chicken egg",
+      "aliases": ["egg", "eggs", "whole egg", "hen egg"]
+    },
+    {
+      "canonical_name": "Sardine",
+      "aliases": ["sardines", "sardine fish"]
+    },
+    {
+      "canonical_name": "Kimchi",
+      "aliases": ["kimchee"]
+    },
+    {
+      "canonical_name": "Sauerkraut",
+      "aliases": ["kraut", "fermented cabbage"]
+    },
+    {
+      "canonical_name": "Ground beef",
+      "aliases": ["minced beef", "beef mince"]
+    },
+    {
+      "canonical_name": "Strip steak",
+      "aliases": ["new york strip", "ny strip steak"]
+    },
+    {
+      "canonical_name": "Tenderloin",
+      "aliases": ["filet mignon", "filet"]
+    },
+    {
+      "canonical_name": "Whole milk",
+      "aliases": ["milk", "full fat milk"]
+    },
+    {
+      "canonical_name": "Yogurt (plain)",
+      "aliases": ["plain yogurt", "natural yogurt"]
+    },
+    {
+      "canonical_name": "Kefir (plain)",
+      "aliases": ["plain kefir"]
+    },
+    {
+      "canonical_name": "Olive oil",
+      "aliases": ["extra virgin olive oil", "evoo"]
+    },
+    {
+      "canonical_name": "Chicken thigh",
+      "aliases": ["thigh chicken"]
+    },
+    {
+      "canonical_name": "Broth",
+      "aliases": ["stock", "bone broth", "chicken stock", "beef stock"]
+    }
+  ]
+}

@@ -1,58 +1,56 @@
-## Expanded Food DB Plan
+## Canon v1 Food DB Plan
 
 ### Goal
-Move canonical foods out of the hardcoded list in `supabase/functions/_shared/nutrients.ts`
-into a Supabase table, seeded from a larger USDA subset, while keeping deterministic
-nutrient computation and stable canonical IDs.
+Hard-reset the live canonical catalog to a list-first canon (`data/canon/source-canon-v1.json`), then attach USDA nutrients deterministically while keeping stable IDs and deterministic nutrient math.
 
-### Recommended source
-- USDA FoodData Central (Foundation Foods)
-- Start with ~1–2k staple foods to keep the dataset manageable.
-- Use per-100g nutrient values only, matching current pipeline.
+### Canon Source Artifacts
+- `data/canon/source-canon-v1.json`
+  - Founder-provided source of truth list.
+- `data/canon/source-canon-v1.flat.json`
+  - Flattened canon rows with stable `canonical_id` and inherited taxonomy metadata.
+- `data/canon/source-canon-v1.source-audit.json`
+  - Source integrity checks (counts, duplicates).
+- `data/canon/founder-priority-aliases-v1.json`
+  - Extra synonyms for founder-priority terms.
 
-### Proposed schema
-`public.canonical_foods`
-- `canonical_id` text primary key (stable slug)
-- `canonical_name` text not null
-- `per_100g` jsonb not null (NutrientVector)
-- `source` text not null (e.g. "usda")
-- `fdc_id` text null
-- `created_at` timestamptz default now()
+### Schema (v1 Extensions)
+`public.canonical_foods` now includes:
+- taxonomy metadata: `display_name`, `kingdom`, `domain`, `food_group`, `subgroup`, `default_state`
+- canon metadata: `aliases`, `variant_template_id`, `variant_values`, `notes`
+- curation flags: `is_canon_v1`, `is_usable`
+- match metadata: `match_status`, `match_source`, `match_confidence`
 
-Optional:
-`public.canonical_food_aliases`
-- `alias` text primary key
-- `canonical_id` text not null references canonical_foods(canonical_id)
+Related tables:
+- `public.canonical_food_aliases`
+- `public.canonical_variant_dimensions`
+- `public.canonical_variant_templates`
+- `public.canonical_variant_template_dimensions`
+- backup snapshots:
+  - `public.canonical_foods_backups`
+  - `public.canonical_food_aliases_backups`
 
-### Ingestion outline
-1. Download USDA FoodData Central CSV for Foundation Foods.
-2. Map USDA nutrients → current nutrient keys.
-   - Use only the nutrients tracked in `NutrientKey`.
-   - Set missing nutrients to 0.
-3. Create stable canonical IDs:
-   - `slugify(canonical_name)` + optional `fdc_id` suffix to avoid collisions.
-4. Insert into `canonical_foods`.
-5. (Optional) Seed aliases table for common synonyms.
+### Reseed Workflow
+1. Build flat canon:
+   - `npm run canon:build`
+2. Dry-run match + preview + audit:
+   - `npm run canon:reseed:dry`
+   - outputs:
+     - `data/canon/source-canon-v1.match-audit.json`
+     - `data/canon/source-canon-v1.reseed-preview.json`
+3. Apply hard replacement (requires Supabase service role env vars):
+   - `npm run canon:reseed:apply`
+   - snapshots old rows into backup tables
+   - upserts canon v1 rows
+   - replaces alias + variant metadata
+4. Run audits:
+   - preview/local: `npm run canon:audit`
+   - live-db post-cutover: `npm run canon:audit:db`
 
-### Minimal implementation steps
-1. Add `canonical_foods` table + RLS read policy (authenticated).
-2. Add ingestion script (Node/TS) that:
-   - Reads USDA CSV
-   - Outputs JSON rows for `canonical_foods`
-   - Inserts via Supabase service role
-3. Update `map-foods` function:
-   - Load canonical foods from DB (cache per request).
-   - Fallback to in-code `CANONICAL_NUTRIENTS` for safety.
-4. Bump `NUTRIENT_DB_VERSION` to reflect DB migration.
+### Runtime Scope
+`parse-meal`, `search-foods`, and `map-foods` now scope canonical lookups to:
+- `is_canon_v1 = true`
+- `is_usable = true`
 
-### Local ingestion script (in progress)
-`scripts/ingest-usda-foundation.js` expects a data folder with:
-`food.csv`, `nutrient.csv`, `food_nutrient.csv`
-
-Example:
-`node scripts/ingest-usda-foundation.js ./usda --out=canonical_foods.json --dry-run`
-
-### Open questions
-- Do we want branded foods now or later?
-- Should aliases include pluralization and cooking variations?
-- Do we want a nightly sync or one-time seed?
+Alias-aware lexical ranking uses both:
+- canonical row aliases (`canonical_foods.aliases`)
+- alias table rows (`canonical_food_aliases`)

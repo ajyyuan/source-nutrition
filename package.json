@@ -7,7 +7,12 @@
     "start": "expo start",
     "ios": "expo run:ios",
     "android": "expo run:android",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "canon:build": "node scripts/build-canon-v1.js",
+    "canon:reseed:dry": "node scripts/reseed-canon-v1.js",
+    "canon:reseed:apply": "node scripts/reseed-canon-v1.js --apply --source-usda",
+    "canon:audit": "node scripts/audit-canon-v1.js",
+    "canon:audit:db": "node scripts/audit-canon-v1.js --from-db"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

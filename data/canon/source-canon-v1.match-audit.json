@@ -1,0 +1,2769 @@
+{
+  "generated_at": "2026-02-20T07:07:55.543Z",
+  "total_items": 306,
+  "counts": {
+    "matched": 4,
+    "fuzzy": 188,
+    "unmatched": 114
+  },
+  "matched": [
+    {
+      "canonical_id": "honey",
+      "display_name": "Honey",
+      "match_status": "matched",
+      "match_source": "db_exact_name",
+      "match_confidence": 2.05,
+      "matched_name": "Honey",
+      "matched_fdc_id": "169640"
+    },
+    {
+      "canonical_id": "tempeh",
+      "display_name": "Tempeh",
+      "match_status": "matched",
+      "match_source": "db_exact_name",
+      "match_confidence": 2.05,
+      "matched_name": "Tempeh",
+      "matched_fdc_id": "174272"
+    },
+    {
+      "canonical_id": "miso",
+      "display_name": "Miso",
+      "match_status": "matched",
+      "match_source": "db_exact_name",
+      "match_confidence": 2.05,
+      "matched_name": "Miso",
+      "matched_fdc_id": "172442"
+    },
+    {
+      "canonical_id": "natto",
+      "display_name": "Natto",
+      "match_status": "matched",
+      "match_source": "db_exact_name",
+      "match_confidence": 2.05,
+      "matched_name": "Natto",
+      "matched_fdc_id": "172443"
+    }
+  ],
+  "fuzzy": [
+    {
+      "canonical_id": "ground-beef",
+      "display_name": "Ground beef",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.010769,
+      "matched_name": "ON THE BORDER, soft taco with ground beef, cheese and lettuce",
+      "matched_fdc_id": "167657"
+    },
+    {
+      "canonical_id": "ground-lamb",
+      "display_name": "Ground lamb",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Lamb, New Zealand, imported, ground lamb, raw",
+      "matched_fdc_id": "172617"
+    },
+    {
+      "canonical_id": "ribeye",
+      "display_name": "Ribeye",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.025,
+      "matched_name": "Game meat, bison, ribeye, separable lean only, trimmed to 0\" fat, raw",
+      "matched_fdc_id": "172565"
+    },
+    {
+      "canonical_id": "tenderloin",
+      "display_name": "Tenderloin",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Ostrich, tenderloin, raw",
+      "matched_fdc_id": "172845"
+    },
+    {
+      "canonical_id": "sirloin",
+      "display_name": "Sirloin",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.114286,
+      "matched_name": "Veal, sirloin, separable lean only, raw",
+      "matched_fdc_id": "173840"
+    },
+    {
+      "canonical_id": "flank",
+      "display_name": "Flank",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.05,
+      "matched_name": "Beef, New Zealand, imported, flank, separable lean only, raw",
+      "matched_fdc_id": "173078"
+    },
+    {
+      "canonical_id": "skirt",
+      "display_name": "Skirt",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1,
+      "matched_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "172137"
+    },
+    {
+      "canonical_id": "chuck",
+      "display_name": "Chuck",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.036364,
+      "matched_name": "Beef, chuck for stew, separable lean and fat, select, raw",
+      "matched_fdc_id": "170809"
+    },
+    {
+      "canonical_id": "brisket",
+      "display_name": "Brisket",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.15,
+      "matched_name": "Beef, cured, corned beef, brisket, raw",
+      "matched_fdc_id": "170199"
+    },
+    {
+      "canonical_id": "short-ribs",
+      "display_name": "Short ribs",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.1,
+      "matched_name": "Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "170783"
+    },
+    {
+      "canonical_id": "back-ribs",
+      "display_name": "Back ribs",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.0875,
+      "matched_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "172147"
+    },
+    {
+      "canonical_id": "round",
+      "display_name": "Round",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Ostrich, round, raw",
+      "matched_fdc_id": "172844"
+    },
+    {
+      "canonical_id": "shank",
+      "display_name": "Shank",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.114286,
+      "matched_name": "Veal, shank, separable lean only, raw",
+      "matched_fdc_id": "172645"
+    },
+    {
+      "canonical_id": "plate",
+      "display_name": "Plate",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1,
+      "matched_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "172137"
+    },
+    {
+      "canonical_id": "pork-loin",
+      "display_name": "Pork loin",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.442727,
+      "matched_name": "Pork loin, fresh, backribs, bone-in, raw, lean only",
+      "matched_fdc_id": "168376"
+    },
+    {
+      "canonical_id": "pork-tenderloin",
+      "display_name": "Pork tenderloin",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.113333,
+      "matched_name": "HORMEL ALWAYS TENDER, Pork Tenderloin, Teriyaki-Flavored",
+      "matched_fdc_id": "167910"
+    },
+    {
+      "canonical_id": "pork-shoulder",
+      "display_name": "Pork shoulder",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.442727,
+      "matched_name": "Pork, Shoulder breast, boneless, separable lean and fat, raw",
+      "matched_fdc_id": "169187"
+    },
+    {
+      "canonical_id": "chicken-breast",
+      "display_name": "Chicken breast",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.478571,
+      "matched_name": "Chicken breast tenders, breaded, uncooked",
+      "matched_fdc_id": "171515"
+    },
+    {
+      "canonical_id": "chicken-thigh",
+      "display_name": "Chicken thigh",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.114286,
+      "matched_name": "Chicken, thighs, frozen, breaded, reheated",
+      "matched_fdc_id": "168961"
+    },
+    {
+      "canonical_id": "chicken-wing",
+      "display_name": "Chicken wing",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Chicken, wing, frozen, glazed, barbecue flavored",
+      "matched_fdc_id": "171111"
+    },
+    {
+      "canonical_id": "turkey-breast",
+      "display_name": "Turkey breast",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Turkey breast, sliced, prepackaged",
+      "matched_fdc_id": "172941"
+    },
+    {
+      "canonical_id": "turkey-thigh",
+      "display_name": "Turkey thigh",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.47,
+      "matched_name": "Turkey, thigh, from whole bird, meat only, raw",
+      "matched_fdc_id": "171531"
+    },
+    {
+      "canonical_id": "sardine",
+      "display_name": "Sardine",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 0.995,
+      "matched_name": "Fish oil, sardine",
+      "matched_fdc_id": "173578"
+    },
+    {
+      "canonical_id": "tuna-skipjack",
+      "display_name": "Tuna (skipjack)",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.033333,
+      "matched_name": "Fish, tuna, skipjack, fresh, cooked, dry heat",
+      "matched_fdc_id": "172005"
+    },
+    {
+      "canonical_id": "tuna-yellowfin",
+      "display_name": "Tuna (yellowfin)",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.033333,
+      "matched_name": "Fish, tuna, yellowfin, fresh, cooked, dry heat",
+      "matched_fdc_id": "172006"
+    },
+    {
+      "canonical_id": "cod",
+      "display_name": "Cod",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, cod, Atlantic, raw",
+      "matched_fdc_id": "171955"
+    },
+    {
+      "canonical_id": "haddock",
+      "display_name": "Haddock",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Fish, haddock, raw",
+      "matched_fdc_id": "171964"
+    },
+    {
+      "canonical_id": "pollock",
+      "display_name": "Pollock",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, pollock, Alaska, raw",
+      "matched_fdc_id": "173725"
+    },
+    {
+      "canonical_id": "halibut",
+      "display_name": "Halibut",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, halibut, Greenland, raw",
+      "matched_fdc_id": "171965"
+    },
+    {
+      "canonical_id": "mackerel",
+      "display_name": "Mackerel",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, mackerel, spanish, raw",
+      "matched_fdc_id": "173673"
+    },
+    {
+      "canonical_id": "herring",
+      "display_name": "Herring",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, herring, Pacific, raw",
+      "matched_fdc_id": "173669"
+    },
+    {
+      "canonical_id": "trout",
+      "display_name": "Trout",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.15,
+      "matched_name": "Fish, trout, rainbow, farmed, raw",
+      "matched_fdc_id": "173717"
+    },
+    {
+      "canonical_id": "tilapia",
+      "display_name": "Tilapia",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Fish, tilapia, raw",
+      "matched_fdc_id": "175176"
+    },
+    {
+      "canonical_id": "catfish",
+      "display_name": "Catfish",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.15,
+      "matched_name": "Fish, catfish, channel, wild, raw",
+      "matched_fdc_id": "174186"
+    },
+    {
+      "canonical_id": "anchovy",
+      "display_name": "Anchovy",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Fish, anchovy, european, raw",
+      "matched_fdc_id": "174182"
+    },
+    {
+      "canonical_id": "shrimp",
+      "display_name": "Shrimp",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Crustaceans, shrimp, raw",
+      "matched_fdc_id": "175179"
+    },
+    {
+      "canonical_id": "scallop",
+      "display_name": "Scallop",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Squash, summer, scallop, raw",
+      "matched_fdc_id": "169289"
+    },
+    {
+      "canonical_id": "mussel",
+      "display_name": "Mussel",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Mollusks, mussel, blue, raw",
+      "matched_fdc_id": "174216"
+    },
+    {
+      "canonical_id": "clam",
+      "display_name": "Clam",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.15,
+      "matched_name": "Mollusks, clam, mixed species, raw",
+      "matched_fdc_id": "174214"
+    },
+    {
+      "canonical_id": "oyster",
+      "display_name": "Oyster",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Mushrooms, oyster, raw",
+      "matched_fdc_id": "168580"
+    },
+    {
+      "canonical_id": "crab",
+      "display_name": "Crab",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Crustaceans, crab, dungeness, raw",
+      "matched_fdc_id": "171968"
+    },
+    {
+      "canonical_id": "lobster",
+      "display_name": "Lobster",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Crustaceans, lobster, northern, raw",
+      "matched_fdc_id": "174208"
+    },
+    {
+      "canonical_id": "squid",
+      "display_name": "Squid",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.15,
+      "matched_name": "Mollusks, squid, mixed species, raw",
+      "matched_fdc_id": "174223"
+    },
+    {
+      "canonical_id": "octopus",
+      "display_name": "Octopus",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Octopus (Alaska Native)",
+      "matched_fdc_id": "168019"
+    },
+    {
+      "canonical_id": "chicken-liver",
+      "display_name": "Chicken liver",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.598571,
+      "matched_name": "Chicken, liver, all classes, raw",
+      "matched_fdc_id": "171060"
+    },
+    {
+      "canonical_id": "chicken-heart",
+      "display_name": "Chicken heart",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.598571,
+      "matched_name": "Chicken, heart, all classes, raw",
+      "matched_fdc_id": "171458"
+    },
+    {
+      "canonical_id": "chicken-gizzard",
+      "display_name": "Chicken gizzard",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.598571,
+      "matched_name": "Chicken, gizzard, all classes, raw",
+      "matched_fdc_id": "171456"
+    },
+    {
+      "canonical_id": "whole-milk",
+      "display_name": "Whole milk",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Cheese, mozzarella, whole milk, low moisture",
+      "matched_fdc_id": "170846"
+    },
+    {
+      "canonical_id": "cream",
+      "display_name": "Cream",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Cream, sour, cultured",
+      "matched_fdc_id": "171257"
+    },
+    {
+      "canonical_id": "butter",
+      "display_name": "Butter",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Butter, salted",
+      "matched_fdc_id": "173410"
+    },
+    {
+      "canonical_id": "ghee",
+      "display_name": "Ghee",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 0.995,
+      "matched_name": "Butter, Clarified butter (ghee)",
+      "matched_fdc_id": "171314"
+    },
+    {
+      "canonical_id": "yogurt-plain",
+      "display_name": "Yogurt (plain)",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Yogurt, plain, low fat",
+      "matched_fdc_id": "170886"
+    },
+    {
+      "canonical_id": "cheddar",
+      "display_name": "Cheddar",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Cheese, american cheddar, imitation",
+      "matched_fdc_id": "169901"
+    },
+    {
+      "canonical_id": "gouda",
+      "display_name": "Gouda",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Cheese, gouda",
+      "matched_fdc_id": "171241"
+    },
+    {
+      "canonical_id": "gruyere",
+      "display_name": "Gruyere",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Cheese, gruyere",
+      "matched_fdc_id": "171242"
+    },
+    {
+      "canonical_id": "parmesan",
+      "display_name": "Parmesan",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.3,
+      "matched_name": "Parmesan cheese topping, fat free",
+      "matched_fdc_id": "172206"
+    },
+    {
+      "canonical_id": "mozzarella",
+      "display_name": "Mozzarella",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "APPLEBEE'S, mozzarella sticks",
+      "matched_fdc_id": "169011"
+    },
+    {
+      "canonical_id": "feta",
+      "display_name": "Feta",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Cheese, feta",
+      "matched_fdc_id": "173420"
+    },
+    {
+      "canonical_id": "swiss",
+      "display_name": "Swiss",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Chard, swiss, raw",
+      "matched_fdc_id": "169991"
+    },
+    {
+      "canonical_id": "beef-tallow",
+      "display_name": "Beef tallow",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.22,
+      "matched_name": "Fat, beef tallow",
+      "matched_fdc_id": "171400"
+    },
+    {
+      "canonical_id": "american-cheese",
+      "display_name": "American cheese",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.03,
+      "matched_name": "Cereals, QUAKER, Instant Grits Product with American Cheese Flavor, dry",
+      "matched_fdc_id": "172993"
+    },
+    {
+      "canonical_id": "cream-cheese",
+      "display_name": "Cream cheese",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.28,
+      "matched_name": "Cheese spread, cream cheese base",
+      "matched_fdc_id": "169081"
+    },
+    {
+      "canonical_id": "sour-cream",
+      "display_name": "Sour cream",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.65,
+      "matched_name": "Sour cream, light",
+      "matched_fdc_id": "173443"
+    },
+    {
+      "canonical_id": "broccoli",
+      "display_name": "Broccoli",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Broccoli, raw",
+      "matched_fdc_id": "170379"
+    },
+    {
+      "canonical_id": "cauliflower",
+      "display_name": "Cauliflower",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Cauliflower, raw",
+      "matched_fdc_id": "169986"
+    },
+    {
+      "canonical_id": "cabbage",
+      "display_name": "Cabbage",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Cabbage, raw",
+      "matched_fdc_id": "169975"
+    },
+    {
+      "canonical_id": "brussels-sprouts",
+      "display_name": "Brussels sprouts",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.77,
+      "matched_name": "Brussels sprouts, raw",
+      "matched_fdc_id": "170383"
+    },
+    {
+      "canonical_id": "kale",
+      "display_name": "Kale",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Kale, raw",
+      "matched_fdc_id": "168421"
+    },
+    {
+      "canonical_id": "arugula",
+      "display_name": "Arugula",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Arugula, raw",
+      "matched_fdc_id": "169387"
+    },
+    {
+      "canonical_id": "radish",
+      "display_name": "Radish",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.47,
+      "matched_name": "Radish seeds, sprouted, raw",
+      "matched_fdc_id": "170095"
+    },
+    {
+      "canonical_id": "turnip",
+      "display_name": "Turnip",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Turnip greens, raw",
+      "matched_fdc_id": "170061"
+    },
+    {
+      "canonical_id": "rutabaga",
+      "display_name": "Rutabaga",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Rutabagas, raw",
+      "matched_fdc_id": "168454"
+    },
+    {
+      "canonical_id": "mustard-greens",
+      "display_name": "Mustard greens",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.77,
+      "matched_name": "Mustard greens, raw",
+      "matched_fdc_id": "169256"
+    },
+    {
+      "canonical_id": "carrot",
+      "display_name": "Carrot",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Carrot, dehydrated",
+      "matched_fdc_id": "170500"
+    },
+    {
+      "canonical_id": "celery",
+      "display_name": "Celery",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Celery, raw",
+      "matched_fdc_id": "169988"
+    },
+    {
+      "canonical_id": "parsnip",
+      "display_name": "Parsnip",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Parsnips, raw",
+      "matched_fdc_id": "170417"
+    },
+    {
+      "canonical_id": "fennel",
+      "display_name": "Fennel",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Fennel, bulb, raw",
+      "matched_fdc_id": "169385"
+    },
+    {
+      "canonical_id": "parsley",
+      "display_name": "Parsley",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Parsley, fresh",
+      "matched_fdc_id": "170416"
+    },
+    {
+      "canonical_id": "dill",
+      "display_name": "Dill",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Dill weed, fresh",
+      "matched_fdc_id": "172233"
+    },
+    {
+      "canonical_id": "cilantro",
+      "display_name": "Cilantro",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Coriander (cilantro) leaves, raw",
+      "matched_fdc_id": "169997"
+    },
+    {
+      "canonical_id": "garlic",
+      "display_name": "Garlic",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Garlic, raw",
+      "matched_fdc_id": "169230"
+    },
+    {
+      "canonical_id": "onion",
+      "display_name": "Onion",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2375,
+      "matched_name": "Onion rings, breaded, par fried, frozen, unprepared",
+      "matched_fdc_id": "170414"
+    },
+    {
+      "canonical_id": "shallot",
+      "display_name": "Shallot",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Shallots, raw",
+      "matched_fdc_id": "170499"
+    },
+    {
+      "canonical_id": "leek",
+      "display_name": "Leek",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Leeks, (bulb and lower leaf-portion), raw",
+      "matched_fdc_id": "169246"
+    },
+    {
+      "canonical_id": "chive",
+      "display_name": "Chive",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Chives, raw",
+      "matched_fdc_id": "169994"
+    },
+    {
+      "canonical_id": "potato",
+      "display_name": "Potato",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Potato flour",
+      "matched_fdc_id": "168446"
+    },
+    {
+      "canonical_id": "tomato",
+      "display_name": "Tomato",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Tomato powder",
+      "matched_fdc_id": "170461"
+    },
+    {
+      "canonical_id": "eggplant",
+      "display_name": "Eggplant",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Eggplant, raw",
+      "matched_fdc_id": "169228"
+    },
+    {
+      "canonical_id": "zucchini",
+      "display_name": "Zucchini",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Squash, zucchini, baby, raw",
+      "matched_fdc_id": "168565"
+    },
+    {
+      "canonical_id": "cucumber",
+      "display_name": "Cucumber",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Cucumber, peeled, raw",
+      "matched_fdc_id": "169225"
+    },
+    {
+      "canonical_id": "pumpkin",
+      "display_name": "Pumpkin",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Pumpkin, raw",
+      "matched_fdc_id": "168448"
+    },
+    {
+      "canonical_id": "butternut-squash",
+      "display_name": "Butternut squash",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Babyfood, vegetable, butternut squash and corn",
+      "matched_fdc_id": "173510"
+    },
+    {
+      "canonical_id": "watermelon",
+      "display_name": "Watermelon",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Watermelon, raw",
+      "matched_fdc_id": "167765"
+    },
+    {
+      "canonical_id": "spinach",
+      "display_name": "Spinach",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Spinach, raw",
+      "matched_fdc_id": "168462"
+    },
+    {
+      "canonical_id": "beet",
+      "display_name": "Beet",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Beet greens, raw",
+      "matched_fdc_id": "170375"
+    },
+    {
+      "canonical_id": "quinoa",
+      "display_name": "Quinoa",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Quinoa, uncooked",
+      "matched_fdc_id": "168874"
+    },
+    {
+      "canonical_id": "amaranth",
+      "display_name": "Amaranth",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Amaranth leaves, raw",
+      "matched_fdc_id": "168385"
+    },
+    {
+      "canonical_id": "lettuce",
+      "display_name": "Lettuce",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.47,
+      "matched_name": "Lettuce, red leaf, raw",
+      "matched_fdc_id": "168431"
+    },
+    {
+      "canonical_id": "endive",
+      "display_name": "Endive",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Endive, raw",
+      "matched_fdc_id": "168412"
+    },
+    {
+      "canonical_id": "radicchio",
+      "display_name": "Radicchio",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Radicchio, raw",
+      "matched_fdc_id": "168564"
+    },
+    {
+      "canonical_id": "artichoke",
+      "display_name": "Artichoke",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Artichokes, (globe or french), raw",
+      "matched_fdc_id": "169205"
+    },
+    {
+      "canonical_id": "lentil",
+      "display_name": "Lentil",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.02,
+      "matched_name": "Lentils, sprouted, raw",
+      "matched_fdc_id": "168427"
+    },
+    {
+      "canonical_id": "chickpea",
+      "display_name": "Chickpea",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Chickpea flour (besan)",
+      "matched_fdc_id": "174288"
+    },
+    {
+      "canonical_id": "black-bean",
+      "display_name": "Black bean",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.208571,
+      "matched_name": "Soup, black bean, canned, condensed",
+      "matched_fdc_id": "171141"
+    },
+    {
+      "canonical_id": "pinto-bean",
+      "display_name": "Pinto bean",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.113333,
+      "matched_name": "Stew, pinto bean and hominy, badufsuki (Hopi)",
+      "matched_fdc_id": "169006"
+    },
+    {
+      "canonical_id": "soybean",
+      "display_name": "Soybean",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Soybean, curd cheese",
+      "matched_fdc_id": "169083"
+    },
+    {
+      "canonical_id": "pea",
+      "display_name": "Pea",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.03,
+      "matched_name": "Soup, pea, green, canned, condensed",
+      "matched_fdc_id": "171554"
+    },
+    {
+      "canonical_id": "white-rice",
+      "display_name": "White rice",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 0.98,
+      "matched_name": "Crackers, gluten-free, multigrain and vegetable, made with corn starch and white rice flour",
+      "matched_fdc_id": "174103"
+    },
+    {
+      "canonical_id": "brown-rice",
+      "display_name": "Brown rice",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.28,
+      "matched_name": "Snacks, brown rice chips",
+      "matched_fdc_id": "173155"
+    },
+    {
+      "canonical_id": "wild-rice",
+      "display_name": "Wild rice",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.77,
+      "matched_name": "Wild rice, raw",
+      "matched_fdc_id": "169726"
+    },
+    {
+      "canonical_id": "oats",
+      "display_name": "Oats",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.216667,
+      "matched_name": "Oats (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "169705"
+    },
+    {
+      "canonical_id": "wheat",
+      "display_name": "Wheat",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Wheat, durum",
+      "matched_fdc_id": "169721"
+    },
+    {
+      "canonical_id": "barley",
+      "display_name": "Barley",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Barley, hulled",
+      "matched_fdc_id": "170283"
+    },
+    {
+      "canonical_id": "rye",
+      "display_name": "Rye",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Rye grain",
+      "matched_fdc_id": "168884"
+    },
+    {
+      "canonical_id": "corn",
+      "display_name": "Corn",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.47,
+      "matched_name": "Corn, sweet, white, raw",
+      "matched_fdc_id": "168538"
+    },
+    {
+      "canonical_id": "millet",
+      "display_name": "Millet",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Millet, raw",
+      "matched_fdc_id": "169702"
+    },
+    {
+      "canonical_id": "sweet-potato",
+      "display_name": "Sweet potato",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Sweet potato leaves, raw",
+      "matched_fdc_id": "169303"
+    },
+    {
+      "canonical_id": "yam",
+      "display_name": "Yam",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Yam, raw",
+      "matched_fdc_id": "170071"
+    },
+    {
+      "canonical_id": "cassava",
+      "display_name": "Cassava",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Cassava, raw",
+      "matched_fdc_id": "169985"
+    },
+    {
+      "canonical_id": "taro",
+      "display_name": "Taro",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.67,
+      "matched_name": "Taro, raw",
+      "matched_fdc_id": "169308"
+    },
+    {
+      "canonical_id": "ginger",
+      "display_name": "Ginger",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Ginger root, raw",
+      "matched_fdc_id": "169231"
+    },
+    {
+      "canonical_id": "turmeric",
+      "display_name": "Turmeric",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Spices, turmeric, ground",
+      "matched_fdc_id": "172231"
+    },
+    {
+      "canonical_id": "apple",
+      "display_name": "Apple",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2,
+      "matched_name": "Mammy-apple, (mamey), raw",
+      "matched_fdc_id": "169909"
+    },
+    {
+      "canonical_id": "banana",
+      "display_name": "Banana",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Pepper, banana, raw",
+      "matched_fdc_id": "169394"
+    },
+    {
+      "canonical_id": "orange",
+      "display_name": "Orange",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Orange peel, raw",
+      "matched_fdc_id": "169103"
+    },
+    {
+      "canonical_id": "tangerine",
+      "display_name": "Tangerine",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Tangerine juice, raw",
+      "matched_fdc_id": "169925"
+    },
+    {
+      "canonical_id": "lemon",
+      "display_name": "Lemon",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Lemon juice, raw",
+      "matched_fdc_id": "167747"
+    },
+    {
+      "canonical_id": "lime",
+      "display_name": "Lime",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Lime juice, raw",
+      "matched_fdc_id": "168156"
+    },
+    {
+      "canonical_id": "strawberry",
+      "display_name": "Strawberry",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.3,
+      "matched_name": "Strawberry-flavor beverage mix, powder",
+      "matched_fdc_id": "174869"
+    },
+    {
+      "canonical_id": "blueberry",
+      "display_name": "Blueberry",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Pie fillings, blueberry, canned",
+      "matched_fdc_id": "167738"
+    },
+    {
+      "canonical_id": "raspberry",
+      "display_name": "Raspberry",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Raspberry juice concentrate",
+      "matched_fdc_id": "168217"
+    },
+    {
+      "canonical_id": "kiwi",
+      "display_name": "Kiwi",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.03,
+      "matched_name": "Beverages, Kiwi Strawberry Juice Drink",
+      "matched_fdc_id": "174111"
+    },
+    {
+      "canonical_id": "avocado",
+      "display_name": "Avocado",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Oil, avocado",
+      "matched_fdc_id": "173573"
+    },
+    {
+      "canonical_id": "olive",
+      "display_name": "Olive",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Olive loaf, pork",
+      "matched_fdc_id": "172926"
+    },
+    {
+      "canonical_id": "mango",
+      "display_name": "Mango",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Mango nectar, canned",
+      "matched_fdc_id": "167785"
+    },
+    {
+      "canonical_id": "pineapple",
+      "display_name": "Pineapple",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.47,
+      "matched_name": "Pineapple, raw, traditional varieties",
+      "matched_fdc_id": "168193"
+    },
+    {
+      "canonical_id": "papaya",
+      "display_name": "Papaya",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Papaya nectar, canned",
+      "matched_fdc_id": "169107"
+    },
+    {
+      "canonical_id": "grapes",
+      "display_name": "Grapes",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.545,
+      "matched_name": "Grapes, muscadine, raw",
+      "matched_fdc_id": "173040"
+    },
+    {
+      "canonical_id": "pear",
+      "display_name": "Pear",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2375,
+      "matched_name": "Pear nectar, canned, with added ascorbic acid",
+      "matched_fdc_id": "168186"
+    },
+    {
+      "canonical_id": "peach",
+      "display_name": "Peach",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2375,
+      "matched_name": "Peach nectar, canned, with added ascorbic acid",
+      "matched_fdc_id": "168185"
+    },
+    {
+      "canonical_id": "apricot",
+      "display_name": "Apricot",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.2375,
+      "matched_name": "Apricot nectar, canned, with added ascorbic acid",
+      "matched_fdc_id": "171704"
+    },
+    {
+      "canonical_id": "almond",
+      "display_name": "Almond",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Nuts, almond paste",
+      "matched_fdc_id": "170160"
+    },
+    {
+      "canonical_id": "walnut",
+      "display_name": "Walnut",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Oil, walnut",
+      "matched_fdc_id": "171030"
+    },
+    {
+      "canonical_id": "pecan",
+      "display_name": "Pecan",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Pie, pecan, commercially prepared",
+      "matched_fdc_id": "175021"
+    },
+    {
+      "canonical_id": "macadamia",
+      "display_name": "Macadamia",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Nuts, macadamia nuts, raw",
+      "matched_fdc_id": "170178"
+    },
+    {
+      "canonical_id": "hazelnut",
+      "display_name": "Hazelnut",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "SILK Hazelnut Creamer",
+      "matched_fdc_id": "173782"
+    },
+    {
+      "canonical_id": "pistachio",
+      "display_name": "Pistachio",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Nuts, pistachio nuts, raw",
+      "matched_fdc_id": "170184"
+    },
+    {
+      "canonical_id": "cashew",
+      "display_name": "Cashew",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Nuts, cashew nuts, raw",
+      "matched_fdc_id": "170162"
+    },
+    {
+      "canonical_id": "pumpkin-seed",
+      "display_name": "Pumpkin seed",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.328571,
+      "matched_name": "Fish, sunfish, pumpkin seed, raw",
+      "matched_fdc_id": "175151"
+    },
+    {
+      "canonical_id": "sunflower-seed",
+      "display_name": "Sunflower seed",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.208571,
+      "matched_name": "Seeds, sunflower seed kernels, dried",
+      "matched_fdc_id": "170562"
+    },
+    {
+      "canonical_id": "sesame",
+      "display_name": "Sesame",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Candies, sesame crunch",
+      "matched_fdc_id": "169588"
+    },
+    {
+      "canonical_id": "chia",
+      "display_name": "Chia",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.155,
+      "matched_name": "Seeds, chia seeds, dried",
+      "matched_fdc_id": "170554"
+    },
+    {
+      "canonical_id": "hemp",
+      "display_name": "Hemp",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Seeds, hemp seed, hulled",
+      "matched_fdc_id": "170148"
+    },
+    {
+      "canonical_id": "olive-oil",
+      "display_name": "Olive oil",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 0.995,
+      "matched_name": "Mayonnaise, reduced fat, with olive oil",
+      "matched_fdc_id": "171443"
+    },
+    {
+      "canonical_id": "bread",
+      "display_name": "Bread",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Bread, potato",
+      "matched_fdc_id": "167943"
+    },
+    {
+      "canonical_id": "pita",
+      "display_name": "Pita",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Bread, pita, white, unenriched",
+      "matched_fdc_id": "172816"
+    },
+    {
+      "canonical_id": "naan",
+      "display_name": "Naan",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 0.994286,
+      "matched_name": "Bread, naan, plain, commercially prepared, refrigerated",
+      "matched_fdc_id": "171845"
+    },
+    {
+      "canonical_id": "noodles",
+      "display_name": "Noodles",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.35,
+      "matched_name": "Noodles, chinese, chow mein",
+      "matched_fdc_id": "168905"
+    },
+    {
+      "canonical_id": "pasta",
+      "display_name": "Pasta",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Pasta, dry, unenriched",
+      "matched_fdc_id": "168927"
+    },
+    {
+      "canonical_id": "soybean-oil",
+      "display_name": "Soybean oil",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.113333,
+      "matched_name": "Salad dressing, mayonnaise, soybean oil, without salt",
+      "matched_fdc_id": "171418"
+    },
+    {
+      "canonical_id": "safflower-oil",
+      "display_name": "Safflower oil",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.052727,
+      "matched_name": "Salad dressing, mayonnaise, soybean and safflower oil, with salt",
+      "matched_fdc_id": "171010"
+    },
+    {
+      "canonical_id": "vegetable-oil",
+      "display_name": "Vegetable oil",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Vegetable oil, palm kernel",
+      "matched_fdc_id": "171422"
+    },
+    {
+      "canonical_id": "white-bread",
+      "display_name": "White bread",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.208571,
+      "matched_name": "Wheat flour, white, bread, enriched",
+      "matched_fdc_id": "168896"
+    },
+    {
+      "canonical_id": "bagel",
+      "display_name": "Bagel",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.08,
+      "matched_name": "Snacks, bagel chips, plain",
+      "matched_fdc_id": "173150"
+    },
+    {
+      "canonical_id": "bread-crumbs",
+      "display_name": "Bread crumbs",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.478571,
+      "matched_name": "Bread, crumbs, dry, grated, seasoned",
+      "matched_fdc_id": "172806"
+    },
+    {
+      "canonical_id": "crackers-plain",
+      "display_name": "Crackers (plain)",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.113333,
+      "matched_name": "Cookies, graham crackers, plain or honey, lowfat",
+      "matched_fdc_id": "174083"
+    },
+    {
+      "canonical_id": "rice-cakes",
+      "display_name": "Rice cakes",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.208571,
+      "matched_name": "Snacks, rice cakes, brown rice, buckwheat",
+      "matched_fdc_id": "167967"
+    },
+    {
+      "canonical_id": "rice-noodles",
+      "display_name": "Rice noodles",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.65,
+      "matched_name": "Rice noodles, cooked",
+      "matched_fdc_id": "168914"
+    },
+    {
+      "canonical_id": "couscous",
+      "display_name": "Couscous",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Couscous, dry",
+      "matched_fdc_id": "169699"
+    },
+    {
+      "canonical_id": "bulgur",
+      "display_name": "Bulgur",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Bulgur, cooked",
+      "matched_fdc_id": "170287"
+    },
+    {
+      "canonical_id": "peanut-butter",
+      "display_name": "Peanut butter",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Peanut butter, reduced sodium",
+      "matched_fdc_id": "169869"
+    },
+    {
+      "canonical_id": "almond-butter",
+      "display_name": "Almond butter",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.113333,
+      "matched_name": "Nuts, almond butter, plain, without salt added",
+      "matched_fdc_id": "168588"
+    },
+    {
+      "canonical_id": "sunflower-seed-butter",
+      "display_name": "Sunflower seed butter",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.28,
+      "matched_name": "Seeds, sunflower seed butter, without salt",
+      "matched_fdc_id": "170155"
+    },
+    {
+      "canonical_id": "tomato-sauce",
+      "display_name": "Tomato sauce",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Tomato sauce, canned, no salt added",
+      "matched_fdc_id": "169074"
+    },
+    {
+      "canonical_id": "coconut-milk",
+      "display_name": "Coconut milk",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.03,
+      "matched_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+      "matched_fdc_id": "174116"
+    },
+    {
+      "canonical_id": "broth",
+      "display_name": "Broth",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Fish broth",
+      "matched_fdc_id": "171606"
+    },
+    {
+      "canonical_id": "mustard",
+      "display_name": "Mustard",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Mustard greens, raw",
+      "matched_fdc_id": "169256"
+    },
+    {
+      "canonical_id": "mayonnaise",
+      "display_name": "Mayonnaise",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.35,
+      "matched_name": "Mayonnaise, made with tofu",
+      "matched_fdc_id": "167695"
+    },
+    {
+      "canonical_id": "soy-sauce",
+      "display_name": "Soy sauce",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.478571,
+      "matched_name": "Soy sauce made from soy (tamari)",
+      "matched_fdc_id": "174278"
+    },
+    {
+      "canonical_id": "vinegar",
+      "display_name": "Vinegar",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.55,
+      "matched_name": "Vinegar, distilled",
+      "matched_fdc_id": "172237"
+    },
+    {
+      "canonical_id": "pickles",
+      "display_name": "Pickles",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.425,
+      "matched_name": "Pickles, cucumber, sour",
+      "matched_fdc_id": "169379"
+    },
+    {
+      "canonical_id": "shiitake",
+      "display_name": "Shiitake",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Mushrooms, shiitake, raw",
+      "matched_fdc_id": "169242"
+    },
+    {
+      "canonical_id": "maitake",
+      "display_name": "Maitake",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Mushrooms, maitake, raw",
+      "matched_fdc_id": "169403"
+    },
+    {
+      "canonical_id": "kelp",
+      "display_name": "Kelp",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Seaweed, kelp, raw",
+      "matched_fdc_id": "168457"
+    },
+    {
+      "canonical_id": "wakame",
+      "display_name": "Wakame",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Seaweed, wakame, raw",
+      "matched_fdc_id": "170496"
+    },
+    {
+      "canonical_id": "spirulina",
+      "display_name": "Spirulina",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.275,
+      "matched_name": "Seaweed, spirulina, raw",
+      "matched_fdc_id": "170091"
+    },
+    {
+      "canonical_id": "sauerkraut",
+      "display_name": "Sauerkraut",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.3,
+      "matched_name": "Sauerkraut, canned, solids and liquids",
+      "matched_fdc_id": "169279"
+    },
+    {
+      "canonical_id": "kimchi",
+      "display_name": "Kimchi",
+      "match_status": "fuzzy",
+      "match_source": "db_fuzzy",
+      "match_confidence": 1.12,
+      "matched_name": "Cabbage, kimchi",
+      "matched_fdc_id": "170392"
+    }
+  ],
+  "unmatched": [
+    {
+      "canonical_id": "ground-bison",
+      "display_name": "Ground bison",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-goat",
+      "display_name": "Ground goat",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-pork",
+      "display_name": "Ground pork",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-chicken",
+      "display_name": "Ground chicken",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-turkey",
+      "display_name": "Ground turkey",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-duck",
+      "display_name": "Ground duck",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "strip-steak",
+      "display_name": "Strip steak",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "hanger",
+      "display_name": "Hanger",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "oxtail",
+      "display_name": "Oxtail",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "stew-meat",
+      "display_name": "Stew meat",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "leg-lamb-goat",
+      "display_name": "Leg (lamb/goat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "shoulder-lamb-goat",
+      "display_name": "Shoulder (lamb/goat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "rack-lamb-goat",
+      "display_name": "Rack (lamb/goat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chop-lamb-goat",
+      "display_name": "Chop (lamb/goat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "shank-lamb-goat",
+      "display_name": "Shank (lamb/goat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-chop",
+      "display_name": "Pork chop",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-belly",
+      "display_name": "Pork belly",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-ribs",
+      "display_name": "Pork ribs",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "fresh-ham",
+      "display_name": "Fresh ham",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-shank",
+      "display_name": "Pork shank",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-jowl",
+      "display_name": "Pork jowl",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "whole-chicken",
+      "display_name": "Whole chicken",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chicken-drumstick",
+      "display_name": "Chicken drumstick",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "whole-turkey",
+      "display_name": "Whole turkey",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "whole-duck",
+      "display_name": "Whole duck",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "duck-breast",
+      "display_name": "Duck breast",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "duck-leg",
+      "display_name": "Duck leg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "atlantic-salmon",
+      "display_name": "Atlantic salmon",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sockeye-salmon",
+      "display_name": "Sockeye salmon",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "coho-salmon",
+      "display_name": "Coho salmon",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chinook-salmon",
+      "display_name": "Chinook salmon",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "tuna-albacore",
+      "display_name": "Tuna (albacore)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "prawn",
+      "display_name": "Prawn",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-liver",
+      "display_name": "Beef liver",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-heart",
+      "display_name": "Beef heart",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-kidney",
+      "display_name": "Beef kidney",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-tongue",
+      "display_name": "Beef tongue",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-brain",
+      "display_name": "Beef brain",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-spleen",
+      "display_name": "Beef spleen",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-pancreas",
+      "display_name": "Beef pancreas",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-thymus-sweetbreads",
+      "display_name": "Beef thymus (sweetbreads)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "beef-tripe",
+      "display_name": "Beef tripe",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "lamb-liver",
+      "display_name": "Lamb liver",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "lamb-heart",
+      "display_name": "Lamb heart",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "lamb-kidney",
+      "display_name": "Lamb kidney",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-liver",
+      "display_name": "Pork liver",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-heart",
+      "display_name": "Pork heart",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-kidney",
+      "display_name": "Pork kidney",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-brain",
+      "display_name": "Pork brain",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-stomach",
+      "display_name": "Pork stomach",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chicken-egg",
+      "display_name": "Chicken egg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "duck-egg",
+      "display_name": "Duck egg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "turkey-egg",
+      "display_name": "Turkey egg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "quail-egg",
+      "display_name": "Quail egg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "kefir-plain",
+      "display_name": "Kefir (plain)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "cottage-cheese",
+      "display_name": "Cottage cheese",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "lamb-tallow",
+      "display_name": "Lamb tallow",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pork-lard",
+      "display_name": "Pork lard",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "duck-fat",
+      "display_name": "Duck fat",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chicken-fat",
+      "display_name": "Chicken fat",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "processed-cheese-slices",
+      "display_name": "Processed cheese slices",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "bok-choy",
+      "display_name": "Bok choy",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "scallion",
+      "display_name": "Scallion",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "bell-pepper",
+      "display_name": "Bell pepper",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chili-pepper",
+      "display_name": "Chili pepper",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "acorn-squash",
+      "display_name": "Acorn squash",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "spaghetti-squash",
+      "display_name": "Spaghetti squash",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "swiss-chard",
+      "display_name": "Swiss chard",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "kidney-bean",
+      "display_name": "Kidney bean",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "green-bean",
+      "display_name": "Green bean",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "brazil-nut",
+      "display_name": "Brazil nut",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "flax",
+      "display_name": "Flax",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "pine-nut",
+      "display_name": "Pine nut",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "avocado-oil",
+      "display_name": "Avocado oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "coconut-oil",
+      "display_name": "Coconut oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sesame-oil",
+      "display_name": "Sesame oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "palm-oil",
+      "display_name": "Palm oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "whole-wheat-bread",
+      "display_name": "Whole wheat bread",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sourdough-bread",
+      "display_name": "Sourdough bread",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "soba-noodles",
+      "display_name": "Soba noodles",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sourdough-pasta",
+      "display_name": "Sourdough pasta",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "canola-oil",
+      "display_name": "Canola oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sunflower-oil",
+      "display_name": "Sunflower oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "corn-oil",
+      "display_name": "Corn oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "grapeseed-oil",
+      "display_name": "Grapeseed oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "peanut-oil",
+      "display_name": "Peanut oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "rice-bran-oil",
+      "display_name": "Rice bran oil",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "rye-bread",
+      "display_name": "Rye bread",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "tortilla-flour",
+      "display_name": "Tortilla (flour)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "tortilla-corn",
+      "display_name": "Tortilla (corn)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "hamburger-bun",
+      "display_name": "Hamburger bun",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "hot-dog-bun",
+      "display_name": "Hot dog bun",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "sandwich-roll",
+      "display_name": "Sandwich roll",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "panko",
+      "display_name": "Panko",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "udon-noodles",
+      "display_name": "Udon noodles",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ramen-noodles",
+      "display_name": "Ramen noodles",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "egg-noodles",
+      "display_name": "Egg noodles",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "whole-wheat-pasta",
+      "display_name": "Whole wheat pasta",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "tahini",
+      "display_name": "Tahini",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "jam",
+      "display_name": "Jam",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "maple-syrup",
+      "display_name": "Maple syrup",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "tomato-paste",
+      "display_name": "Tomato paste",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "canned-tomatoes",
+      "display_name": "Canned tomatoes",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ketchup",
+      "display_name": "Ketchup",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "apple-cider-vinegar",
+      "display_name": "Apple cider vinegar",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "hot-sauce",
+      "display_name": "Hot sauce",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "white-mushroom",
+      "display_name": "White mushroom",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "cremini",
+      "display_name": "Cremini",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "portobello",
+      "display_name": "Portobello",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "oyster-mushroom",
+      "display_name": "Oyster mushroom",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "lion-s-mane",
+      "display_name": "Lion's mane",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "nori",
+      "display_name": "Nori",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "dulse",
+      "display_name": "Dulse",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "chlorella",
+      "display_name": "Chlorella",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    }
+  ]
+}

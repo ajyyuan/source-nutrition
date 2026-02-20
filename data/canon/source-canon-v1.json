@@ -1,0 +1,642 @@
+{
+  "schema_version": "1.0.0",
+  "name": "Source Canon Whole Foods",
+  "principles": {
+    "single_ingredient_only": true,
+    "exclude_branded_and_restaurant_items": true,
+    "exclude_composite_dishes": true,
+    "default_state": "raw_baseline",
+    "notes": [
+      "Default state is raw unless the food is inherently processed/preserved (e.g., cheese, yogurt, kefir, canned fish).",
+      "No fine-grained variants (e.g., grass-fed vs grain-fed) in v1 canon.",
+      "Species-level entries preferred for seafood."
+    ]
+  },
+  "canonical_item_schema": {
+    "canonical_id": "string",
+    "display_name": "string",
+    "kingdom": "Animalia | Plantae | Fungi | Algae",
+    "domain": "string",
+    "group": "string",
+    "subgroup": "string",
+    "default_state": "raw | preserved | fermented | oil | dairy_processed",
+    "aliases": ["string"],
+    "variant_template": "string",
+    "notes": "string"
+  },
+  "variant_dimensions": [
+    {
+      "key": "milkfat_level",
+      "label": "Milk fat level",
+      "value_type": "enum",
+      "allowed_values": ["whole", "2%", "1%", "skim"]
+    },
+    {
+      "key": "yogurt_fat_level",
+      "label": "Yogurt fat level",
+      "value_type": "enum",
+      "allowed_values": ["whole", "lowfat", "nonfat"]
+    },
+    {
+      "key": "cream_type",
+      "label": "Cream type",
+      "value_type": "enum",
+      "allowed_values": ["half_and_half", "light_cream", "heavy_cream"]
+    },
+    {
+      "key": "ground_meat_fat_percent",
+      "label": "Ground meat fat percent",
+      "value_type": "number",
+      "allowed_values": [30, 20, 15, 10, 7, 4]
+    }
+  ],
+  "variant_templates": [
+    {
+      "template_id": "milk_fat_levels",
+      "applies_to": ["Whole milk"],
+      "dimensions": [
+        { "key": "milkfat_level", "default": "whole" }
+      ]
+    },
+    {
+      "template_id": "yogurt_fat_levels",
+      "applies_to": ["Yogurt (plain)"],
+      "dimensions": [
+        { "key": "yogurt_fat_level", "default": "whole" }
+      ]
+    },
+    {
+      "template_id": "cream_types",
+      "applies_to": ["Cream"],
+      "dimensions": [
+        { "key": "cream_type", "default": "heavy_cream" }
+      ]
+    },
+    {
+      "template_id": "ground_beef_fat_percents",
+      "applies_to": ["Ground beef"],
+      "dimensions": [
+        { "key": "ground_meat_fat_percent", "default": 20 }
+      ]
+    }
+  ],
+  "canon": [
+    {
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "groups": [
+        {
+          "group": "Ground meats",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Ground beef", "aliases": [], "variant_template": "ground_beef_fat_percents" },
+            { "display_name": "Ground bison", "aliases": [] },
+            { "display_name": "Ground lamb", "aliases": [] },
+            { "display_name": "Ground goat", "aliases": [] },
+            { "display_name": "Ground pork", "aliases": [] },
+            { "display_name": "Ground chicken", "aliases": [] },
+            { "display_name": "Ground turkey", "aliases": [] },
+            { "display_name": "Ground duck", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Beef cuts",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Ribeye", "aliases": ["rib eye"] },
+            { "display_name": "Strip steak", "aliases": ["NY strip", "New York strip"] },
+            { "display_name": "Tenderloin", "aliases": ["filet", "filet mignon"] },
+            { "display_name": "Sirloin", "aliases": [] },
+            { "display_name": "Flank", "aliases": ["flank steak"] },
+            { "display_name": "Skirt", "aliases": ["skirt steak"] },
+            { "display_name": "Hanger", "aliases": ["hanger steak"] },
+            { "display_name": "Chuck", "aliases": ["chuck roast", "chuck steak"] },
+            { "display_name": "Brisket", "aliases": [] },
+            { "display_name": "Short ribs", "aliases": [] },
+            { "display_name": "Back ribs", "aliases": [] },
+            { "display_name": "Round", "aliases": ["top round", "bottom round"] },
+            { "display_name": "Shank", "aliases": [] },
+            { "display_name": "Oxtail", "aliases": [] },
+            { "display_name": "Plate", "aliases": ["plate steak"] },
+            { "display_name": "Stew meat", "aliases": ["beef for stew"] }
+          ]
+        },
+        {
+          "group": "Lamb and goat cuts",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Leg (lamb/goat)", "aliases": ["leg of lamb", "goat leg"] },
+            { "display_name": "Shoulder (lamb/goat)", "aliases": ["lamb shoulder", "goat shoulder"] },
+            { "display_name": "Rack (lamb/goat)", "aliases": ["rack of lamb"] },
+            { "display_name": "Chop (lamb/goat)", "aliases": ["lamb chops"] },
+            { "display_name": "Shank (lamb/goat)", "aliases": ["lamb shank", "goat shank"] }
+          ]
+        },
+        {
+          "group": "Pork cuts",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Pork loin", "aliases": ["loin"] },
+            { "display_name": "Pork tenderloin", "aliases": ["tenderloin"] },
+            { "display_name": "Pork shoulder", "aliases": ["pork butt", "Boston butt"] },
+            { "display_name": "Pork chop", "aliases": ["chops"] },
+            { "display_name": "Pork belly", "aliases": [] },
+            { "display_name": "Pork ribs", "aliases": ["spare ribs", "baby back ribs"] },
+            { "display_name": "Fresh ham", "aliases": ["raw ham"] },
+            { "display_name": "Pork shank", "aliases": [] },
+            { "display_name": "Pork jowl", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Poultry cuts",
+          "default_state": "raw",
+          "subgroups": [
+            {
+              "subgroup": "Chicken",
+              "items": [
+                { "display_name": "Whole chicken", "aliases": [] },
+                { "display_name": "Chicken breast", "aliases": [] },
+                { "display_name": "Chicken thigh", "aliases": [] },
+                { "display_name": "Chicken drumstick", "aliases": [] },
+                { "display_name": "Chicken wing", "aliases": [] }
+              ]
+            },
+            {
+              "subgroup": "Turkey",
+              "items": [
+                { "display_name": "Whole turkey", "aliases": [] },
+                { "display_name": "Turkey breast", "aliases": [] },
+                { "display_name": "Turkey thigh", "aliases": [] }
+              ]
+            },
+            {
+              "subgroup": "Duck",
+              "items": [
+                { "display_name": "Whole duck", "aliases": [] },
+                { "display_name": "Duck breast", "aliases": [] },
+                { "display_name": "Duck leg", "aliases": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Fish (species-level)",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Atlantic salmon", "aliases": [] },
+            { "display_name": "Sockeye salmon", "aliases": [] },
+            { "display_name": "Coho salmon", "aliases": [] },
+            { "display_name": "Chinook salmon", "aliases": ["king salmon"] },
+            { "display_name": "Sardine", "aliases": [] },
+            { "display_name": "Tuna (skipjack)", "aliases": [] },
+            { "display_name": "Tuna (albacore)", "aliases": [] },
+            { "display_name": "Tuna (yellowfin)", "aliases": [] },
+            { "display_name": "Cod", "aliases": [] },
+            { "display_name": "Haddock", "aliases": [] },
+            { "display_name": "Pollock", "aliases": [] },
+            { "display_name": "Halibut", "aliases": [] },
+            { "display_name": "Mackerel", "aliases": [] },
+            { "display_name": "Herring", "aliases": [] },
+            { "display_name": "Trout", "aliases": [] },
+            { "display_name": "Tilapia", "aliases": [] },
+            { "display_name": "Catfish", "aliases": [] },
+            { "display_name": "Anchovy", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Shellfish",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Shrimp", "aliases": [] },
+            { "display_name": "Prawn", "aliases": [] },
+            { "display_name": "Scallop", "aliases": [] },
+            { "display_name": "Mussel", "aliases": [] },
+            { "display_name": "Clam", "aliases": [] },
+            { "display_name": "Oyster", "aliases": [] },
+            { "display_name": "Crab", "aliases": [] },
+            { "display_name": "Lobster", "aliases": [] },
+            { "display_name": "Squid", "aliases": ["calamari"] },
+            { "display_name": "Octopus", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Animal organs",
+          "default_state": "raw",
+          "subgroups": [
+            {
+              "subgroup": "Beef",
+              "items": [
+                { "display_name": "Beef liver", "aliases": [] },
+                { "display_name": "Beef heart", "aliases": [] },
+                { "display_name": "Beef kidney", "aliases": [] },
+                { "display_name": "Beef tongue", "aliases": [] },
+                { "display_name": "Beef brain", "aliases": [] },
+                { "display_name": "Beef spleen", "aliases": [] },
+                { "display_name": "Beef pancreas", "aliases": [] },
+                { "display_name": "Beef thymus (sweetbreads)", "aliases": ["sweetbreads"] },
+                { "display_name": "Beef tripe", "aliases": ["stomach"] }
+              ]
+            },
+            {
+              "subgroup": "Lamb",
+              "items": [
+                { "display_name": "Lamb liver", "aliases": [] },
+                { "display_name": "Lamb heart", "aliases": [] },
+                { "display_name": "Lamb kidney", "aliases": [] }
+              ]
+            },
+            {
+              "subgroup": "Pork",
+              "items": [
+                { "display_name": "Pork liver", "aliases": [] },
+                { "display_name": "Pork heart", "aliases": [] },
+                { "display_name": "Pork kidney", "aliases": [] },
+                { "display_name": "Pork brain", "aliases": [] },
+                { "display_name": "Pork stomach", "aliases": [] }
+              ]
+            },
+            {
+              "subgroup": "Chicken",
+              "items": [
+                { "display_name": "Chicken liver", "aliases": [] },
+                { "display_name": "Chicken heart", "aliases": [] },
+                { "display_name": "Chicken gizzard", "aliases": [] }
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Eggs",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Chicken egg", "aliases": [] },
+            { "display_name": "Duck egg", "aliases": [] },
+            { "display_name": "Turkey egg", "aliases": [] },
+            { "display_name": "Quail egg", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Dairy",
+          "default_state": "dairy_processed",
+          "items": [
+            { "display_name": "Whole milk", "aliases": [], "variant_template": "milk_fat_levels" },
+            { "display_name": "Cream", "aliases": [], "variant_template": "cream_types" },
+            { "display_name": "Butter", "aliases": [] },
+            { "display_name": "Ghee", "aliases": [] },
+            { "display_name": "Yogurt (plain)", "aliases": [], "variant_template": "yogurt_fat_levels" },
+            { "display_name": "Kefir (plain)", "aliases": [] },
+            { "display_name": "Cottage cheese", "aliases": [] },
+            { "display_name": "Cheddar", "aliases": [] },
+            { "display_name": "Gouda", "aliases": [] },
+            { "display_name": "Gruyere", "aliases": [] },
+            { "display_name": "Parmesan", "aliases": ["Parmigiano Reggiano"] },
+            { "display_name": "Mozzarella", "aliases": [] },
+            { "display_name": "Feta", "aliases": [] },
+            { "display_name": "Swiss", "aliases": ["Emmental"] }
+          ]
+        },
+        {
+          "group": "Animal fats",
+          "default_state": "oil",
+          "items": [
+            { "display_name": "Beef tallow", "aliases": [] },
+            { "display_name": "Lamb tallow", "aliases": [] },
+            { "display_name": "Pork lard", "aliases": [] },
+            { "display_name": "Duck fat", "aliases": [] },
+            { "display_name": "Chicken fat", "aliases": ["schmaltz"] }
+          ]
+        },
+        {
+          "group": "Staples (home-cook processed)",
+          "default_state": "dairy_processed",
+          "items": [
+            { "display_name": "American cheese", "aliases": [] },
+            { "display_name": "Processed cheese slices", "aliases": [] },
+            { "display_name": "Cream cheese", "aliases": [] },
+            { "display_name": "Sour cream", "aliases": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "kingdom": "Plantae",
+      "domain": "Plant foods",
+      "groups": [
+        {
+          "group": "Brassicaceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Broccoli", "aliases": [] },
+            { "display_name": "Cauliflower", "aliases": [] },
+            { "display_name": "Cabbage", "aliases": [] },
+            { "display_name": "Brussels sprouts", "aliases": [] },
+            { "display_name": "Kale", "aliases": [] },
+            { "display_name": "Bok choy", "aliases": ["pak choi"] },
+            { "display_name": "Arugula", "aliases": [] },
+            { "display_name": "Radish", "aliases": ["daikon"] },
+            { "display_name": "Turnip", "aliases": [] },
+            { "display_name": "Rutabaga", "aliases": [] },
+            { "display_name": "Mustard greens", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Apiaceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Carrot", "aliases": [] },
+            { "display_name": "Celery", "aliases": [] },
+            { "display_name": "Parsnip", "aliases": [] },
+            { "display_name": "Fennel", "aliases": [] },
+            { "display_name": "Parsley", "aliases": [] },
+            { "display_name": "Dill", "aliases": [] },
+            { "display_name": "Cilantro", "aliases": ["coriander"] }
+          ]
+        },
+        {
+          "group": "Allium",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Garlic", "aliases": [] },
+            { "display_name": "Onion", "aliases": [] },
+            { "display_name": "Shallot", "aliases": [] },
+            { "display_name": "Leek", "aliases": [] },
+            { "display_name": "Scallion", "aliases": [] },
+            { "display_name": "Chive", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Solanaceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Potato", "aliases": [] },
+            { "display_name": "Tomato", "aliases": [] },
+            { "display_name": "Bell pepper", "aliases": [] },
+            { "display_name": "Chili pepper", "aliases": [] },
+            { "display_name": "Eggplant", "aliases": ["aubergine"] }
+          ]
+        },
+        {
+          "group": "Cucurbitaceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Zucchini", "aliases": [] },
+            { "display_name": "Cucumber", "aliases": [] },
+            { "display_name": "Pumpkin", "aliases": [] },
+            { "display_name": "Butternut squash", "aliases": [] },
+            { "display_name": "Acorn squash", "aliases": [] },
+            { "display_name": "Spaghetti squash", "aliases": [] },
+            { "display_name": "Watermelon", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Amaranthaceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Spinach", "aliases": [] },
+            { "display_name": "Beet", "aliases": [] },
+            { "display_name": "Swiss chard", "aliases": [] },
+            { "display_name": "Quinoa", "aliases": [] },
+            { "display_name": "Amaranth", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Asteraceae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Lettuce", "aliases": [] },
+            { "display_name": "Endive", "aliases": [] },
+            { "display_name": "Radicchio", "aliases": [] },
+            { "display_name": "Artichoke", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Fabaceae (legumes)",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Lentil", "aliases": [] },
+            { "display_name": "Chickpea", "aliases": ["garbanzo"] },
+            { "display_name": "Black bean", "aliases": [] },
+            { "display_name": "Kidney bean", "aliases": [] },
+            { "display_name": "Pinto bean", "aliases": [] },
+            { "display_name": "Soybean", "aliases": ["edamame"] },
+            { "display_name": "Pea", "aliases": [] },
+            { "display_name": "Green bean", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Poaceae (grains)",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "White rice", "aliases": [] },
+            { "display_name": "Brown rice", "aliases": [] },
+            { "display_name": "Wild rice", "aliases": [] },
+            { "display_name": "Oats", "aliases": [] },
+            { "display_name": "Wheat", "aliases": [] },
+            { "display_name": "Barley", "aliases": [] },
+            { "display_name": "Rye", "aliases": [] },
+            { "display_name": "Corn", "aliases": [] },
+            { "display_name": "Millet", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Tubers and roots",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Sweet potato", "aliases": [] },
+            { "display_name": "Yam", "aliases": [] },
+            { "display_name": "Cassava", "aliases": ["yucca"] },
+            { "display_name": "Taro", "aliases": [] },
+            { "display_name": "Ginger", "aliases": [] },
+            { "display_name": "Turmeric", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Fruits (core)",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Apple", "aliases": [] },
+            { "display_name": "Banana", "aliases": [] },
+            { "display_name": "Orange", "aliases": [] },
+            { "display_name": "Tangerine", "aliases": [] },
+            { "display_name": "Lemon", "aliases": [] },
+            { "display_name": "Lime", "aliases": [] },
+            { "display_name": "Strawberry", "aliases": [] },
+            { "display_name": "Blueberry", "aliases": [] },
+            { "display_name": "Raspberry", "aliases": [] },
+            { "display_name": "Kiwi", "aliases": [] },
+            { "display_name": "Avocado", "aliases": [] },
+            { "display_name": "Olive", "aliases": [] },
+            { "display_name": "Mango", "aliases": [] },
+            { "display_name": "Pineapple", "aliases": [] },
+            { "display_name": "Papaya", "aliases": [] },
+            { "display_name": "Grapes", "aliases": [] },
+            { "display_name": "Pear", "aliases": [] },
+            { "display_name": "Peach", "aliases": [] },
+            { "display_name": "Apricot", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Nuts",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Almond", "aliases": [] },
+            { "display_name": "Walnut", "aliases": [] },
+            { "display_name": "Pecan", "aliases": [] },
+            { "display_name": "Macadamia", "aliases": [] },
+            { "display_name": "Hazelnut", "aliases": [] },
+            { "display_name": "Pistachio", "aliases": [] },
+            { "display_name": "Brazil nut", "aliases": [] },
+            { "display_name": "Cashew", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Seeds",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Pumpkin seed", "aliases": ["pepitas"] },
+            { "display_name": "Sunflower seed", "aliases": [] },
+            { "display_name": "Sesame", "aliases": [] },
+            { "display_name": "Chia", "aliases": [] },
+            { "display_name": "Flax", "aliases": [] },
+            { "display_name": "Hemp", "aliases": [] },
+            { "display_name": "Pine nut", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Plant oils",
+          "default_state": "oil",
+          "items": [
+            { "display_name": "Olive oil", "aliases": [] },
+            { "display_name": "Avocado oil", "aliases": [] },
+            { "display_name": "Coconut oil", "aliases": [] },
+            { "display_name": "Sesame oil", "aliases": [] },
+            { "display_name": "Palm oil", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Flour-made items",
+          "default_state": "preserved",
+          "items": [
+            { "display_name": "Bread", "aliases": [] },
+            { "display_name": "Whole wheat bread", "aliases": [] },
+            { "display_name": "Sourdough bread", "aliases": [] },
+            { "display_name": "Pita", "aliases": [] },
+            { "display_name": "Naan", "aliases": [] },
+            { "display_name": "Noodles", "aliases": [] },
+            { "display_name": "Soba noodles", "aliases": ["buckwheat noodles"] },
+            { "display_name": "Pasta", "aliases": [] },
+            { "display_name": "Sourdough pasta", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Staples (home-cook processed)",
+          "default_state": "preserved",
+          "items": [
+            { "display_name": "Canola oil", "aliases": [] },
+            { "display_name": "Soybean oil", "aliases": [] },
+            { "display_name": "Sunflower oil", "aliases": [] },
+            { "display_name": "Safflower oil", "aliases": [] },
+            { "display_name": "Corn oil", "aliases": [] },
+            { "display_name": "Grapeseed oil", "aliases": [] },
+            { "display_name": "Peanut oil", "aliases": [] },
+            { "display_name": "Rice bran oil", "aliases": [] },
+            { "display_name": "Vegetable oil", "aliases": [] },
+            { "display_name": "White bread", "aliases": [] },
+            { "display_name": "Rye bread", "aliases": [] },
+            { "display_name": "Bagel", "aliases": [] },
+            { "display_name": "Tortilla (flour)", "aliases": [] },
+            { "display_name": "Tortilla (corn)", "aliases": [] },
+            { "display_name": "Hamburger bun", "aliases": [] },
+            { "display_name": "Hot dog bun", "aliases": [] },
+            { "display_name": "Sandwich roll", "aliases": [] },
+            { "display_name": "Bread crumbs", "aliases": [] },
+            { "display_name": "Panko", "aliases": [] },
+            { "display_name": "Crackers (plain)", "aliases": [] },
+            { "display_name": "Rice cakes", "aliases": [] },
+            { "display_name": "Rice noodles", "aliases": [] },
+            { "display_name": "Udon noodles", "aliases": [] },
+            { "display_name": "Ramen noodles", "aliases": [] },
+            { "display_name": "Egg noodles", "aliases": [] },
+            { "display_name": "Whole wheat pasta", "aliases": [] },
+            { "display_name": "Couscous", "aliases": [] },
+            { "display_name": "Bulgur", "aliases": [] },
+            { "display_name": "Peanut butter", "aliases": [] },
+            { "display_name": "Almond butter", "aliases": [] },
+            { "display_name": "Tahini", "aliases": [] },
+            { "display_name": "Sunflower seed butter", "aliases": [] },
+            { "display_name": "Jam", "aliases": ["jelly", "preserves"] },
+            { "display_name": "Honey", "aliases": [] },
+            { "display_name": "Maple syrup", "aliases": [] },
+            { "display_name": "Tomato sauce", "aliases": [] },
+            { "display_name": "Tomato paste", "aliases": [] },
+            { "display_name": "Canned tomatoes", "aliases": [] },
+            { "display_name": "Coconut milk", "aliases": [] },
+            { "display_name": "Broth", "aliases": ["stock"] },
+            { "display_name": "Ketchup", "aliases": [] },
+            { "display_name": "Mustard", "aliases": [] },
+            { "display_name": "Mayonnaise", "aliases": [] },
+            { "display_name": "Soy sauce", "aliases": [] },
+            { "display_name": "Vinegar", "aliases": [] },
+            { "display_name": "Apple cider vinegar", "aliases": [] },
+            { "display_name": "Hot sauce", "aliases": [] },
+            { "display_name": "Pickles", "aliases": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "kingdom": "Fungi",
+      "domain": "Fungi",
+      "groups": [
+        {
+          "group": "Mushrooms",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "White mushroom", "aliases": ["button mushroom"] },
+            { "display_name": "Cremini", "aliases": [] },
+            { "display_name": "Portobello", "aliases": [] },
+            { "display_name": "Shiitake", "aliases": [] },
+            { "display_name": "Oyster mushroom", "aliases": [] },
+            { "display_name": "Maitake", "aliases": [] },
+            { "display_name": "Lion's mane", "aliases": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "kingdom": "Algae",
+      "domain": "Algae and sea vegetables",
+      "groups": [
+        {
+          "group": "Seaweeds and algae",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Nori", "aliases": [] },
+            { "display_name": "Kelp", "aliases": ["kombu"] },
+            { "display_name": "Wakame", "aliases": [] },
+            { "display_name": "Dulse", "aliases": [] },
+            { "display_name": "Spirulina", "aliases": [] },
+            { "display_name": "Chlorella", "aliases": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "kingdom": "Plantae",
+      "domain": "Fermented foods",
+      "groups": [
+        {
+          "group": "Fermented foods",
+          "default_state": "fermented",
+          "items": [
+            { "display_name": "Sauerkraut", "aliases": [] },
+            { "display_name": "Kimchi", "aliases": [] },
+            { "display_name": "Tempeh", "aliases": [] },
+            { "display_name": "Miso", "aliases": [] },
+            { "display_name": "Natto", "aliases": [] }
+          ]
+        }
+      ]
+    }
+  ]
+}

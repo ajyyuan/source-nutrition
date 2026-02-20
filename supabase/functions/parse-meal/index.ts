@@ -3,7 +3,6 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { encode as base64Encode } from "https://deno.land/std@0.168.0/encoding/base64.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
-  rankCanonicalFoodSuggestions,
   type CanonicalFoodLookupItem
 } from "../_shared/lexicalFoodSearch.ts";
 
@@ -35,7 +34,8 @@ const CANONICAL_CACHE_TTL_MS = 60_000;
 const CANONICAL_PAGE_SIZE = 1000;
 const UNKNOWN_CANONICAL_ID = "food-unknown";
 const UNKNOWN_CANONICAL_NAME = "Unknown food";
-const MAX_LEXICAL_CANDIDATES = 8;
+const MAX_CANON_CONTEXT_ITEMS = 350;
+const MAX_ALIASES_PER_ITEM = 4;
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
   "vitamin_c_mg",
@@ -86,21 +86,27 @@ const fetchMealPhoto = async (supabase, photoPath: string) => {
 };
 
 const SYSTEM_PROMPT = `
-You are an assistant that extracts foods from meal photos.
+You are an assistant that extracts foods from meal photos and must map each item to a provided canonical catalog.
 Return ONLY strict JSON matching this schema:
 {
   "items": [
     {
       "name": "string",
+      "canonical_id": "string",
       "estimated_grams": number,
       "confidence": number (0 to 1)
     }
   ]
 }
 Rules:
+- canonical_id MUST be one of the provided catalog canonical_id values.
+- If none fit, use canonical_id "food-unknown".
+- Set name to the chosen canonical label (not a free-form observed synonym).
+- Prefer the closest canonical equivalent over "food-unknown" whenever there is a reasonable match.
+- Common forms should map to canonical items (example: spaghetti -> Pasta, grated hard cheese -> Parmesan).
+- Do not invent new canonical ids or canonical names.
 - If unsure, return fewer items, not more.
-- Unknown foods should be labeled "unknown".
-- Do not include any extra keys or text.
+- Do not include extra keys or text.
 `.trim();
 
 const sumPer100gVector = (value: unknown) => {
@@ -127,7 +133,9 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
     const to = from + CANONICAL_PAGE_SIZE - 1;
     const { data, error } = await supabase
       .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, fdc_id")
+      .select("canonical_id, canonical_name, per_100g, fdc_id, aliases")
+      .eq("is_canon_v1", true)
+      .eq("is_usable", true)
       .range(from, to);
     if (error) {
       throw error;
@@ -142,7 +150,7 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
     from += CANONICAL_PAGE_SIZE;
   }
 
-  const foods = Array.isArray(allRows)
+  const baseFoods = Array.isArray(allRows)
     ? allRows
         .filter(
           (row) =>
@@ -157,42 +165,78 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
         )
         .map((row) => ({
           canonical_id: row.canonical_id.trim(),
-          canonical_name: row.canonical_name.trim()
+          canonical_name: row.canonical_name.trim(),
+          aliases: Array.isArray(row?.aliases)
+            ? row.aliases.filter((alias) => typeof alias === "string" && alias.trim().length > 0)
+            : []
         }))
     : [];
+
+  const aliasByCanonicalId = new Map<string, Set<string>>();
+  baseFoods.forEach((food) => {
+    aliasByCanonicalId.set(food.canonical_id, new Set(food.aliases || []));
+  });
+
+  try {
+    const canonicalIds = baseFoods.map((food) => food.canonical_id);
+    const { data: aliasRows, error: aliasError } = await supabase
+      .from("canonical_food_aliases")
+      .select("alias, canonical_id")
+      .in("canonical_id", canonicalIds);
+    if (aliasError) {
+      throw aliasError;
+    }
+    (Array.isArray(aliasRows) ? aliasRows : []).forEach((row) => {
+      const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
+      const alias = typeof row?.alias === "string" ? row.alias.trim() : "";
+      if (!canonicalId || !alias) {
+        return;
+      }
+      if (!aliasByCanonicalId.has(canonicalId)) {
+        aliasByCanonicalId.set(canonicalId, new Set());
+      }
+      aliasByCanonicalId.get(canonicalId)?.add(alias);
+    });
+  } catch (_error) {
+    // Keep parse-time canonicalization online even when alias metadata is unavailable.
+  }
+
+  const foods = baseFoods.map((food) => ({
+    canonical_id: food.canonical_id,
+    canonical_name: food.canonical_name,
+    aliases: Array.from(aliasByCanonicalId.get(food.canonical_id) || [])
+  }));
 
   canonicalCache = foods;
   canonicalCacheLoadedAt = now;
   return foods;
 };
 
-const resolveCanonicalFromName = (
-  observedName: string,
-  canonicalFoods: CanonicalFoodLookupItem[]
-) => {
-  const trimmedName = observedName.trim();
-  if (!trimmedName || trimmedName.toLowerCase() === "unknown") {
-    return {
-      canonical_id: UNKNOWN_CANONICAL_ID,
-      canonical_name: UNKNOWN_CANONICAL_NAME
-    };
-  }
-  const candidates = rankCanonicalFoodSuggestions(
-    trimmedName,
-    canonicalFoods,
-    MAX_LEXICAL_CANDIDATES
-  );
-  if (!candidates.length) {
-    return {
-      canonical_id: UNKNOWN_CANONICAL_ID,
-      canonical_name: UNKNOWN_CANONICAL_NAME
-    };
-  }
-  return {
-    canonical_id: candidates[0].canonical_id,
-    canonical_name: candidates[0].canonical_name
-  };
+const buildCanonicalLookup = (canonicalFoods: CanonicalFoodLookupItem[]) => {
+  const byId = new Map<string, CanonicalFoodLookupItem>();
+  canonicalFoods.forEach((food) => {
+    byId.set(food.canonical_id, food);
+  });
+  return byId;
 };
+
+const buildCanonContext = (canonicalFoods: CanonicalFoodLookupItem[]) =>
+  canonicalFoods.slice(0, MAX_CANON_CONTEXT_ITEMS).map((food) => ({
+    canonical_id: food.canonical_id,
+    canonical_name: food.canonical_name,
+    aliases: Array.isArray(food.aliases)
+      ? food.aliases.filter((alias) => typeof alias === "string").slice(0, MAX_ALIASES_PER_ITEM)
+      : []
+  }));
+
+const CANON_MAPPING_EXAMPLES = [
+  "spaghetti -> Pasta",
+  "grated parmesan cheese -> Parmesan",
+  "ground beef -> Ground beef",
+  "shredded carrot -> Carrot",
+  "tomato sauce -> Tomato sauce",
+  "unknown processed mixed casserole -> food-unknown"
+];
 
 const parseItems = (payload: string) => {
   const parsed = JSON.parse(payload);
@@ -200,9 +244,10 @@ const parseItems = (payload: string) => {
   return items
     .map((item) => {
       const name = typeof item?.name === "string" ? item.name.trim() : "";
+      const canonicalId = typeof item?.canonical_id === "string" ? item.canonical_id.trim() : "";
       const estimated = typeof item?.estimated_grams === "number" ? item.estimated_grams : NaN;
       const confidence = typeof item?.confidence === "number" ? item.confidence : NaN;
-      if (!name || !Number.isFinite(estimated) || !Number.isFinite(confidence)) {
+      if (!name || !canonicalId || !Number.isFinite(estimated) || !Number.isFinite(confidence)) {
         return null;
       }
       if (confidence < 0 || confidence > 1) {
@@ -210,6 +255,7 @@ const parseItems = (payload: string) => {
       }
       return {
         name,
+        canonical_id: canonicalId,
         estimated_grams: Math.max(estimated, 0),
         confidence
       };
@@ -217,11 +263,16 @@ const parseItems = (payload: string) => {
     .filter(Boolean);
 };
 
-const callVisionModel = async (imageBase64: string, contentType: string) => {
+const callVisionModel = async (
+  imageBase64: string,
+  contentType: string,
+  canonicalFoods: CanonicalFoodLookupItem[]
+) => {
   const openaiKey = Deno.env.get("OPENAI_API_KEY");
   if (!openaiKey) {
     throw new Error("OPENAI_API_KEY is not set for parse-meal.");
   }
+  const catalogContext = buildCanonContext(canonicalFoods);
 
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -240,7 +291,7 @@ const callVisionModel = async (imageBase64: string, contentType: string) => {
             {
               type: "text",
               text:
-                "Identify foods in this meal photo. Return JSON only with name, estimated_grams, confidence."
+                `Identify foods in this meal photo and map each one to a canonical_id from the provided catalog.\n\nUse these mapping examples as guidance:\n${CANON_MAPPING_EXAMPLES.map((example) => `- ${example}`).join("\n")}\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence.`
             },
             {
               type: "image_url",
@@ -292,18 +343,33 @@ serve(async (req) => {
     const supabase = createSupabaseClient(req);
     const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
     const canonicalFoods = await loadCanonicalFoods(supabase);
+    const canonicalLookupById = buildCanonicalLookup(canonicalFoods);
     let items: unknown[] = [];
     let parseWarning: string | null = null;
     try {
-      const parsedItems = await callVisionModel(base64, contentType);
+      const parsedItems = await callVisionModel(base64, contentType, canonicalFoods);
+      let invalidCanonicalIdCount = 0;
       items = parsedItems.map((item) => {
-        const canonical = resolveCanonicalFromName(item.name, canonicalFoods);
+        const modelCanonical = canonicalLookupById.get(item.canonical_id);
+        if (modelCanonical) {
+          return {
+            ...item,
+            name: modelCanonical.canonical_name,
+            canonical_id: modelCanonical.canonical_id,
+            canonical_name: modelCanonical.canonical_name
+          };
+        }
+        invalidCanonicalIdCount += 1;
         return {
           ...item,
-          canonical_id: canonical.canonical_id,
-          canonical_name: canonical.canonical_name
+          name: UNKNOWN_CANONICAL_NAME,
+          canonical_id: UNKNOWN_CANONICAL_ID,
+          canonical_name: UNKNOWN_CANONICAL_NAME
         };
       });
+      if (invalidCanonicalIdCount > 0) {
+        parseWarning = `Vision returned ${invalidCanonicalIdCount} invalid canonical ids; coerced to unknown.`;
+      }
     } catch (error) {
       parseWarning = error instanceof Error ? error.message : "Vision model failed.";
       items = [];

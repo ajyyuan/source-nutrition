@@ -159,3 +159,21 @@ Detailed handoff for Day 16 covering ingredient profiles, canonical-first photo 
 5) Add alias/synonym map for founder-priority terms and common names.
 6) Run focused QA on founder food list and iterate rules.
 
+## Day 17 Execution Update (Canon v1 hard reset)
+- Implemented list-first canon artifacts:
+  - `data/canon/source-canon-v1.json`
+  - `data/canon/source-canon-v1.flat.json`
+  - `data/canon/source-canon-v1.source-audit.json`
+  - `data/canon/founder-priority-aliases-v1.json`
+- Added schema and backup migrations for canon v1 metadata, aliases, variants, and snapshot tables.
+- Added canon reseed + audit tooling:
+  - `scripts/build-canon-v1.js`
+  - `scripts/reseed-canon-v1.js`
+  - `scripts/audit-canon-v1.js`
+- Runtime canonical loaders now scope to curated rows only (`is_canon_v1=true`, `is_usable=true`) in:
+  - `parse-meal`
+  - `search-foods`
+  - `map-foods`
+- Added alias-aware lexical ranking across canonical names and alias metadata.
+- Nutrient DB version bumped to:
+  - `v0.5-canon-v1-reset`

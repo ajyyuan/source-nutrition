@@ -1,6 +1,7 @@
 export type CanonicalFoodLookupItem = {
   canonical_id: string;
   canonical_name: string;
+  aliases?: string[];
 };
 
 export type CanonicalFoodSuggestion = CanonicalFoodLookupItem & {
@@ -78,11 +79,17 @@ export const rankCanonicalFoodSuggestions = (
 
   const boundedLimit = Math.max(1, Math.min(Math.round(limit), 12));
   return foods
-    .map((food) => ({
-      canonical_id: food.canonical_id,
-      canonical_name: food.canonical_name,
-      lexical_score: scoreCandidate(trimmed, food.canonical_name)
-    }))
+    .map((food) => {
+      const aliasScores = Array.isArray(food.aliases)
+        ? food.aliases.map((alias) => scoreCandidate(trimmed, alias))
+        : [];
+      const lexicalScore = Math.max(scoreCandidate(trimmed, food.canonical_name), ...aliasScores, 0);
+      return {
+        canonical_id: food.canonical_id,
+        canonical_name: food.canonical_name,
+        lexical_score: lexicalScore
+      };
+    })
     .filter((candidate) => candidate.lexical_score > 0.2)
     .sort((a, b) => {
       if (b.lexical_score !== a.lexical_score) {

@@ -23,6 +23,17 @@ This keeps the app honest when CV confidence is imperfect while still exposing c
 - Google OAuth available in UI
 - Magic-link auth removed from app flow
 
+## Canonical Food DB (v1)
+
+- Canon source of truth lives in `data/canon/source-canon-v1.json`
+- Canon tooling scripts:
+  - `npm run canon:build`
+  - `npm run canon:reseed:dry`
+  - `npm run canon:reseed:apply`
+  - `npm run canon:audit`
+- Runtime food retrieval is scoped to curated canon rows (`is_canon_v1` + `is_usable`)
+- See `docs/FOOD_DB_PLAN.md` for full migration and reseed workflow
+
 ## Core Principles
 
 - **Micronutrients > macros**

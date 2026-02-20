@@ -176,7 +176,14 @@ const parseVisionPayload = (payload: unknown): ParsedItem[] => {
       throw new Error(`Item ${index + 1} is not an object.`);
     }
     const candidate = item as Partial<ParsedItem>;
-    if (typeof candidate.name !== "string" || !candidate.name.trim()) {
+    const canonicalName =
+      typeof candidate.canonical_name === "string" && candidate.canonical_name.trim()
+        ? candidate.canonical_name.trim()
+        : undefined;
+    const fallbackName =
+      typeof candidate.name === "string" && candidate.name.trim() ? candidate.name.trim() : "";
+    const resolvedName = canonicalName ?? fallbackName;
+    if (!resolvedName) {
       throw new Error(`Item ${index + 1} is missing a name.`);
     }
     if (typeof candidate.estimated_grams !== "number" || Number.isNaN(candidate.estimated_grams)) {
@@ -192,7 +199,7 @@ const parseVisionPayload = (payload: unknown): ParsedItem[] => {
     }
 
     return {
-      name: candidate.name.trim(),
+      name: resolvedName,
       estimated_grams: Math.max(candidate.estimated_grams, 0),
       confidence: candidate.confidence,
       canonical_id:
@@ -1758,7 +1765,7 @@ export function CaptureScreen({ navigation, route }: Props) {
                 parsedItems.map((item, index) => (
                   <View key={`${item.name}-${index}`} style={styles.parsedRow}>
                     <Text style={styles.parsedItemText}>
-                      {item.name} · {Math.round(item.estimated_grams)}g
+                      {(item.canonical_name ?? item.name)} · {Math.round(item.estimated_grams)}g
                     </Text>
                     {renderConfidenceBadge(item.confidence)}
                   </View>

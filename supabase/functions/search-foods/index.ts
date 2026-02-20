@@ -80,7 +80,9 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
     const to = from + CANONICAL_PAGE_SIZE - 1;
     const { data, error } = await supabase
       .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, fdc_id")
+      .select("canonical_id, canonical_name, per_100g, fdc_id, aliases")
+      .eq("is_canon_v1", true)
+      .eq("is_usable", true)
       .range(from, to);
     if (error) {
       throw error;
@@ -95,7 +97,7 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
     from += CANONICAL_PAGE_SIZE;
   }
 
-  const foods = Array.isArray(allRows)
+  const baseFoods = Array.isArray(allRows)
     ? allRows
         .filter(
           (row) =>
@@ -110,13 +112,51 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
         )
         .map((row) => ({
           canonical_id: row.canonical_id.trim(),
-          canonical_name: row.canonical_name.trim()
+          canonical_name: row.canonical_name.trim(),
+          aliases: Array.isArray(row?.aliases)
+            ? row.aliases.filter((alias) => typeof alias === "string" && alias.trim().length > 0)
+            : []
         }))
     : [];
 
-  if (!foods.length) {
+  if (!baseFoods.length) {
     throw new Error("canonical_foods is empty. Seed canonical foods first.");
   }
+
+  const aliasByCanonicalId = new Map<string, Set<string>>();
+  baseFoods.forEach((food) => {
+    aliasByCanonicalId.set(food.canonical_id, new Set(food.aliases || []));
+  });
+
+  try {
+    const canonicalIds = baseFoods.map((food) => food.canonical_id);
+    const { data: aliasRows, error: aliasError } = await supabase
+      .from("canonical_food_aliases")
+      .select("alias, canonical_id")
+      .in("canonical_id", canonicalIds);
+    if (aliasError) {
+      throw aliasError;
+    }
+    (Array.isArray(aliasRows) ? aliasRows : []).forEach((row) => {
+      const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
+      const alias = typeof row?.alias === "string" ? row.alias.trim() : "";
+      if (!canonicalId || !alias) {
+        return;
+      }
+      if (!aliasByCanonicalId.has(canonicalId)) {
+        aliasByCanonicalId.set(canonicalId, new Set());
+      }
+      aliasByCanonicalId.get(canonicalId)?.add(alias);
+    });
+  } catch (_error) {
+    // Keep canonical lookup functional even if alias metadata is unavailable.
+  }
+
+  const foods = baseFoods.map((food) => ({
+    canonical_id: food.canonical_id,
+    canonical_name: food.canonical_name,
+    aliases: Array.from(aliasByCanonicalId.get(food.canonical_id) || [])
+  }));
 
   canonicalCache = foods;
   canonicalCacheLoadedAt = now;

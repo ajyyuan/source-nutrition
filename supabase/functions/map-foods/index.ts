@@ -73,7 +73,18 @@ const sumPer100gVector = (per100g: Record<string, number>) =>
 
 const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
 
-const buildCanonicalIndexes = (rows: Array<Record<string, unknown>>) => {
+const chunkArray = <T>(items: T[], chunkSize: number): T[][] => {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += chunkSize) {
+    chunks.push(items.slice(i, i + chunkSize));
+  }
+  return chunks;
+};
+
+const buildCanonicalIndexes = (
+  rows: Array<Record<string, unknown>>,
+  aliasByCanonicalId: Map<string, Set<string>>
+) => {
   const byId: Record<string, Record<string, unknown>> = {};
   const lookup: CanonicalFoodLookupItem[] = [];
   const usableIds = new Set<string>();
@@ -89,11 +100,20 @@ const buildCanonicalIndexes = (rows: Array<Record<string, unknown>>) => {
     const per100gSum = sumPer100gVector(per100g);
     const unusableSurveyRow = isSurveyFdcId(fdcId) && per100gSum === 0;
     const usable = !unusableSurveyRow;
+    const rowAliases = Array.isArray(row?.aliases)
+      ? row.aliases.filter((alias) => typeof alias === "string" && alias.trim().length > 0)
+      : [];
+    const mergedAliases = new Set<string>(rowAliases);
+    const linkedAliases = aliasByCanonicalId.get(canonicalId);
+    if (linkedAliases) {
+      linkedAliases.forEach((alias) => mergedAliases.add(alias));
+    }
     byId[canonicalId] = {
       canonical_id: canonicalId,
       canonical_name: canonicalName,
       fdc_id: fdcId,
       per_100g: per100g,
+      aliases: Array.from(mergedAliases),
       usable,
       source: row?.source === "usda" ? "usda" : "stub"
     };
@@ -101,7 +121,8 @@ const buildCanonicalIndexes = (rows: Array<Record<string, unknown>>) => {
       usableIds.add(canonicalId);
       lookup.push({
         canonical_id: canonicalId,
-        canonical_name: canonicalName
+        canonical_name: canonicalName,
+        aliases: Array.from(mergedAliases)
       });
     }
   });
@@ -115,7 +136,9 @@ const fetchAllCanonicalRows = async (supabase) => {
     const to = from + CANONICAL_PAGE_SIZE - 1;
     const { data, error } = await supabase
       .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, source, fdc_id")
+      .select("canonical_id, canonical_name, per_100g, source, fdc_id, aliases")
+      .eq("is_canon_v1", true)
+      .eq("is_usable", true)
       .range(from, to);
     if (error) {
       throw error;
@@ -132,12 +155,52 @@ const fetchAllCanonicalRows = async (supabase) => {
   return rows;
 };
 
+const fetchAliasMap = async (
+  supabase,
+  canonicalIds: string[]
+): Promise<Map<string, Set<string>>> => {
+  const aliasMap = new Map<string, Set<string>>();
+  if (!canonicalIds.length) {
+    return aliasMap;
+  }
+  const chunks = chunkArray(canonicalIds, 500);
+  for (const canonicalIdChunk of chunks) {
+    try {
+      const { data, error } = await supabase
+        .from("canonical_food_aliases")
+        .select("alias, canonical_id")
+        .in("canonical_id", canonicalIdChunk);
+      if (error) {
+        throw error;
+      }
+      (Array.isArray(data) ? data : []).forEach((row) => {
+        const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
+        const alias = typeof row?.alias === "string" ? row.alias.trim() : "";
+        if (!canonicalId || !alias) {
+          return;
+        }
+        if (!aliasMap.has(canonicalId)) {
+          aliasMap.set(canonicalId, new Set<string>());
+        }
+        aliasMap.get(canonicalId)?.add(alias);
+      });
+    } catch (_error) {
+      return aliasMap;
+    }
+  }
+  return aliasMap;
+};
+
 const loadCanonicalFoods = async (supabase) => {
   const data = await fetchAllCanonicalRows(supabase);
   if (!Array.isArray(data) || !data.length) {
     throw new Error("canonical_foods is empty. Seed canonical foods before mapping.");
   }
-  const { byId, lookup, usableIds } = buildCanonicalIndexes(data);
+  const canonicalIds = data
+    .map((row) => (typeof row?.canonical_id === "string" ? row.canonical_id.trim() : ""))
+    .filter(Boolean);
+  const aliasByCanonicalId = await fetchAliasMap(supabase, canonicalIds);
+  const { byId, lookup, usableIds } = buildCanonicalIndexes(data, aliasByCanonicalId);
   if (!lookup.length) {
     throw new Error("canonical_foods has no valid rows.");
   }

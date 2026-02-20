@@ -32,7 +32,7 @@ export type CanonicalFoodNutrients = {
   source: "stub" | "usda";
 };
 
-export const NUTRIENT_DB_VERSION = "v0.4-canonical-db-b5b7";
+export const NUTRIENT_DB_VERSION = "v0.5-canon-v1-reset";
 
 export const DAILY_VALUES: DailyValue = {
   vitamin_a_ug: 900,
