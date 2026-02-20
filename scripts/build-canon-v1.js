@@ -98,10 +98,10 @@ const cartesianProduct = (valueGroups) =>
 const buildVariantDisplayName = (templateId, baseDisplayName, variantValues) => {
   if (templateId === "milk_fat_levels") {
     const level = variantValues.milkfat_level;
-    if (level === "whole") return "Whole milk";
-    if (level === "2%") return "2% milk";
-    if (level === "1%") return "1% milk";
-    if (level === "skim") return "Skim milk";
+    if (level === "whole") return "Cow's milk";
+    if (level === "2%") return "Cow's milk (2%)";
+    if (level === "1%") return "Cow's milk (1%)";
+    if (level === "skim") return "Cow's milk (skim)";
   }
   if (templateId === "yogurt_fat_levels") {
     const level = variantValues.yogurt_fat_level;
@@ -137,10 +137,10 @@ const buildVariantDisplayName = (templateId, baseDisplayName, variantValues) => 
 const buildVariantAliases = (templateId, baseDisplayName, variantValues, variantDisplayName) => {
   if (templateId === "milk_fat_levels") {
     const level = variantValues.milkfat_level;
-    if (level === "whole") return ["whole milk", "full fat milk", "milk"];
-    if (level === "2%") return ["2% milk", "milk 2%", "reduced fat milk"];
-    if (level === "1%") return ["1% milk", "low fat milk"];
-    if (level === "skim") return ["skim milk", "fat free milk"];
+    if (level === "whole") return ["cow milk", "whole milk", "full fat milk", "milk"];
+    if (level === "2%") return ["cow milk 2%", "2% milk", "milk 2%", "reduced fat milk"];
+    if (level === "1%") return ["cow milk 1%", "1% milk", "low fat milk"];
+    if (level === "skim") return ["cow milk skim", "skim milk", "fat free milk"];
   }
   if (templateId === "yogurt_fat_levels") {
     const level = variantValues.yogurt_fat_level;

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "name": "Source Canon Whole Foods",
-  "generated_at": "2026-02-20T16:31:38.960Z",
+  "generated_at": "2026-02-20T16:48:42.337Z",
   "principles": {
     "single_ingredient_only": true,
     "exclude_branded_and_restaurant_items": true,
@@ -1666,9 +1666,9 @@
       "default_state": "raw",
       "aliases": [
         "whole egg",
-        "chicken egg",
         "egg",
-        "eggs"
+        "eggs",
+        "chicken egg"
       ],
       "variant_template_id": "egg_parts",
       "notes": null,
@@ -1686,9 +1686,10 @@
       "subgroup": null,
       "default_state": "raw",
       "aliases": [
+        "whole egg",
         "egg white",
         "egg whites",
-        "chicken egg white",
+        "eggwhite",
         "whites"
       ],
       "variant_template_id": "egg_parts",
@@ -1707,9 +1708,10 @@
       "subgroup": null,
       "default_state": "raw",
       "aliases": [
+        "whole egg",
         "egg yolk",
         "egg yolks",
-        "chicken egg yolk",
+        "eggyolk",
         "yolks"
       ],
       "variant_template_id": "egg_parts",
@@ -1717,41 +1719,6 @@
       "variant_values": {
         "egg_part": "yolk"
       }
-    },
-    {
-      "canonical_id": "scrambled-egg-chicken",
-      "display_name": "Scrambled egg (chicken)",
-      "canonical_name": "Scrambled egg (chicken)",
-      "kingdom": "Animalia",
-      "domain": "Animal foods",
-      "food_group": "Eggs",
-      "subgroup": null,
-      "default_state": "raw",
-      "aliases": [
-        "scrambled eggs",
-        "eggs scrambled"
-      ],
-      "variant_template_id": null,
-      "notes": null,
-      "variant_values": {}
-    },
-    {
-      "canonical_id": "fried-egg-chicken",
-      "display_name": "Fried egg (chicken)",
-      "canonical_name": "Fried egg (chicken)",
-      "kingdom": "Animalia",
-      "domain": "Animal foods",
-      "food_group": "Eggs",
-      "subgroup": null,
-      "default_state": "raw",
-      "aliases": [
-        "fried eggs",
-        "egg fried",
-        "sunny side up"
-      ],
-      "variant_template_id": null,
-      "notes": null,
-      "variant_values": {}
     },
     {
       "canonical_id": "duck-egg",
@@ -1805,10 +1772,10 @@
       "subgroup": null,
       "default_state": "dairy_processed",
       "aliases": [
-        "milk",
         "cow milk",
         "whole milk",
-        "full fat milk"
+        "full fat milk",
+        "milk"
       ],
       "variant_template_id": "milk_fat_levels",
       "notes": null,
@@ -1826,10 +1793,11 @@
       "subgroup": null,
       "default_state": "dairy_processed",
       "aliases": [
+        "cow milk",
+        "cow milk 2%",
         "2% milk",
         "milk 2%",
-        "reduced fat milk",
-        "cow milk 2%"
+        "reduced fat milk"
       ],
       "variant_template_id": "milk_fat_levels",
       "notes": null,
@@ -1847,9 +1815,10 @@
       "subgroup": null,
       "default_state": "dairy_processed",
       "aliases": [
+        "cow milk",
+        "cow milk 1%",
         "1% milk",
-        "low fat milk",
-        "cow milk 1%"
+        "low fat milk"
       ],
       "variant_template_id": "milk_fat_levels",
       "notes": null,
@@ -1867,9 +1836,10 @@
       "subgroup": null,
       "default_state": "dairy_processed",
       "aliases": [
+        "cow milk",
+        "cow milk skim",
         "skim milk",
-        "fat free milk",
-        "cow milk skim"
+        "fat free milk"
       ],
       "variant_template_id": "milk_fat_levels",
       "notes": null,
@@ -1900,9 +1870,7 @@
       "food_group": "Dairy",
       "subgroup": null,
       "default_state": "dairy_processed",
-      "aliases": [
-        "ewe milk"
-      ],
+      "aliases": [],
       "variant_template_id": null,
       "notes": null,
       "variant_values": {}

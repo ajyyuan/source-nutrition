@@ -39,8 +39,8 @@
       "aliases": ["filet mignon", "filet"]
     },
     {
-      "canonical_name": "Whole milk",
-      "aliases": ["milk", "full fat milk"]
+      "canonical_name": "Cow's milk",
+      "aliases": ["milk", "whole milk", "full fat milk", "cow milk"]
     },
     {
       "canonical_name": "Yogurt (plain)",

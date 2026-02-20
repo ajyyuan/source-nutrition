@@ -59,7 +59,7 @@
   "variant_templates": [
     {
       "template_id": "milk_fat_levels",
-      "applies_to": ["Whole milk"],
+      "applies_to": ["Cow's milk"],
       "dimensions": [
         { "key": "milkfat_level", "default": "whole" }
       ]
@@ -292,7 +292,9 @@
           "group": "Dairy",
           "default_state": "dairy_processed",
           "items": [
-            { "display_name": "Whole milk", "aliases": [], "variant_template": "milk_fat_levels" },
+            { "display_name": "Cow's milk", "aliases": ["cow milk"], "variant_template": "milk_fat_levels" },
+            { "display_name": "Goat milk", "aliases": [] },
+            { "display_name": "Sheep milk", "aliases": [] },
             { "display_name": "Cream", "aliases": [], "variant_template": "cream_types" },
             { "display_name": "Butter", "aliases": [] },
             { "display_name": "Ghee", "aliases": [] },
