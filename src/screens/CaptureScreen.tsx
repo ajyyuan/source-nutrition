@@ -62,11 +62,6 @@ type FoodSuggestion = {
   lexical_score: number;
 };
 
-type CanonicalLookupItem = {
-  canonical_id: string;
-  canonical_name: string;
-};
-
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
   "vitamin_c_mg",
@@ -434,105 +429,6 @@ const parseFoodSuggestions = (payload: unknown): FoodSuggestion[] => {
     }));
 };
 
-const normalizeSuggestionText = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-
-const tokenizeSuggestionText = (value: string) =>
-  normalizeSuggestionText(value)
-    .split(" ")
-    .map((token) => token.trim())
-    .filter((token) => token.length > 1);
-
-const scoreSuggestionCandidate = (query: string, candidateName: string) => {
-  const normalizedQuery = normalizeSuggestionText(query);
-  const normalizedCandidate = normalizeSuggestionText(candidateName);
-  if (!normalizedQuery || !normalizedCandidate) {
-    return 0;
-  }
-
-  let score = 0;
-  if (normalizedCandidate === normalizedQuery) {
-    score += 1.2;
-  } else if (normalizedCandidate.startsWith(`${normalizedQuery} `)) {
-    score += 0.95;
-  } else if (normalizedCandidate.startsWith(normalizedQuery)) {
-    score += 0.85;
-  } else if (normalizedCandidate.includes(` ${normalizedQuery} `)) {
-    score += 0.75;
-  } else if (
-    normalizedCandidate.endsWith(` ${normalizedQuery}`) ||
-    normalizedCandidate.includes(normalizedQuery)
-  ) {
-    score += 0.6;
-  }
-
-  const queryTokens = tokenizeSuggestionText(normalizedQuery);
-  const candidateTokenSet = new Set(tokenizeSuggestionText(normalizedCandidate));
-  if (!queryTokens.length || !candidateTokenSet.size) {
-    return score;
-  }
-
-  const overlap = queryTokens.filter((token) => candidateTokenSet.has(token)).length;
-  if (!overlap) {
-    return score;
-  }
-
-  const precision = overlap / queryTokens.length;
-  const recall = overlap / candidateTokenSet.size;
-  const tokenF1 = precision + recall ? (2 * precision * recall) / (precision + recall) : 0;
-  score += tokenF1 * 0.7;
-
-  if (queryTokens.length === 1 && candidateTokenSet.has(queryTokens[0])) {
-    score += 0.15;
-  }
-
-  return score;
-};
-
-const rankFoodSuggestions = (
-  query: string,
-  foods: CanonicalLookupItem[],
-  limit = 8
-): FoodSuggestion[] => {
-  const trimmed = query.trim();
-  if (trimmed.length < 2) {
-    return [];
-  }
-  const boundedLimit = Math.max(1, Math.min(Math.round(limit), 12));
-  return foods
-    .map((food) => ({
-      canonical_id: food.canonical_id,
-      canonical_name: food.canonical_name,
-      lexical_score: scoreSuggestionCandidate(trimmed, food.canonical_name)
-    }))
-    .filter((candidate) => candidate.lexical_score > 0.2)
-    .sort((a, b) => {
-      if (b.lexical_score !== a.lexical_score) {
-        return b.lexical_score - a.lexical_score;
-      }
-      if (a.canonical_name.length !== b.canonical_name.length) {
-        return a.canonical_name.length - b.canonical_name.length;
-      }
-      return a.canonical_name.localeCompare(b.canonical_name);
-    })
-    .slice(0, boundedLimit);
-};
-
-const sumPer100gVector = (value: unknown) => {
-  if (!value || typeof value !== "object") {
-    return 0;
-  }
-  return NUTRIENT_KEYS.reduce((acc, key) => {
-    const raw = value[key];
-    return acc + (typeof raw === "number" && Number.isFinite(raw) ? raw : 0);
-  }, 0);
-};
-
-const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
-
 const parseNutrientTotals = (payload: unknown): NutrientTotals | null => {
   if (payload === null || payload === undefined || payload === "") {
     return null;
@@ -685,48 +581,6 @@ export function CaptureScreen({ navigation, route }: Props) {
     [clearSuggestionTimersForItem]
   );
 
-  const loadFoodSuggestionsFromCanonicalTable = useCallback(async (query: string) => {
-    const trimmedQuery = query.trim();
-    if (trimmedQuery.length < 2) {
-      return [];
-    }
-    const fetchByPattern = async (pattern: string) => {
-      const { data, error } = await supabase
-        .from("canonical_foods")
-        .select("canonical_id, canonical_name, per_100g, fdc_id")
-        .ilike("canonical_name", pattern)
-        .limit(40);
-      if (error) {
-        throw error;
-      }
-      return (Array.isArray(data) ? data : [])
-        .filter(
-          (item) =>
-            typeof item?.canonical_id === "string" &&
-            item.canonical_id.trim().length > 0 &&
-            typeof item?.canonical_name === "string" &&
-            item.canonical_name.trim().length > 0 &&
-            !(
-              isSurveyFdcId(typeof item?.fdc_id === "string" ? item.fdc_id.trim() : "") &&
-              sumPer100gVector(item?.per_100g) === 0
-            )
-        )
-        .map((item) => ({
-          canonical_id: item.canonical_id.trim(),
-          canonical_name: item.canonical_name.trim()
-        }));
-    };
-
-    let rows = await fetchByPattern(`%${trimmedQuery}%`);
-    if (!rows.length) {
-      const firstToken = tokenizeSuggestionText(trimmedQuery)[0];
-      if (firstToken && firstToken !== trimmedQuery) {
-        rows = await fetchByPattern(`%${firstToken}%`);
-      }
-    }
-    return rankFoodSuggestions(trimmedQuery, rows, 8);
-  }, []);
-
   const requestFoodSuggestions = useCallback(async (itemId: string, rawQuery: string) => {
     const query = rawQuery.trim();
     if (query.length < 2) {
@@ -783,28 +637,16 @@ export function CaptureScreen({ navigation, route }: Props) {
         [itemId]: suggestions
       }));
     } catch (error) {
-      try {
-        const fallbackSuggestions = await loadFoodSuggestionsFromCanonicalTable(query);
-        if (suggestionRequestIdRef.current[itemId] !== requestId) {
-          return;
-        }
-        setSuggestionsByItemId((current) => ({
-          ...current,
-          [itemId]: fallbackSuggestions
-        }));
-        setSuggestionError(null);
-      } catch (fallbackError) {
-        if (suggestionRequestIdRef.current[itemId] !== requestId) {
-          return;
-        }
-        setSuggestionsByItemId((current) => ({
-          ...current,
-          [itemId]: []
-        }));
-        setSuggestionError("Unable to load food suggestions right now.");
+      if (suggestionRequestIdRef.current[itemId] !== requestId) {
+        return;
       }
+      setSuggestionsByItemId((current) => ({
+        ...current,
+        [itemId]: []
+      }));
+      setSuggestionError("Unable to load food suggestions right now.");
     }
-  }, [loadFoodSuggestionsFromCanonicalTable]);
+  }, []);
 
   const scheduleFoodSuggestions = useCallback(
     (itemId: string, query: string) => {

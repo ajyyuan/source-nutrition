@@ -8,9 +8,7 @@ import {
   sumPercentDv
 } from "../_shared/nutrients.ts";
 import {
-  rankCanonicalFoodSuggestions,
-  type CanonicalFoodLookupItem,
-  type CanonicalFoodSuggestion
+  type CanonicalFoodLookupItem
 } from "../_shared/lexicalFoodSearch.ts";
 
 const corsHeaders = {
@@ -21,13 +19,7 @@ const corsHeaders = {
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 const SUPPORTED_UNITS = new Set(["g", "oz", "lb", "ml", "fl oz", "cup", "tbsp", "tsp"]);
-const OPENAI_MODEL = "gpt-4o-mini";
 const UNKNOWN_CANONICAL_ID = "food-unknown";
-const UNKNOWN_CANONICAL_NAME = "Unknown food";
-const LEXICAL_STRONG_SCORE = 0.95;
-const LEXICAL_MARGIN_TO_SKIP_AI = 0.2;
-const MAX_LEXICAL_CANDIDATES = 8;
-const MAX_AI_CANDIDATES = 6;
 const CANONICAL_PAGE_SIZE = 1000;
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
@@ -232,132 +224,35 @@ const loadCanonicalFoods = async (supabase) => {
   if (!lookup.length) {
     throw new Error("canonical_foods has no valid rows.");
   }
-  if (!byId[UNKNOWN_CANONICAL_ID]) {
-    byId[UNKNOWN_CANONICAL_ID] = {
-      canonical_id: UNKNOWN_CANONICAL_ID,
-      canonical_name: UNKNOWN_CANONICAL_NAME,
-      per_100g: makeZeroVector(),
-      source: "stub"
-    };
-  }
   return { byId, lookup, usableIds };
 };
 
-const shouldTrustLexicalTopCandidate = (candidates: CanonicalFoodSuggestion[]) => {
-  if (!candidates.length) {
-    return false;
-  }
-  if (candidates.length === 1) {
-    return true;
-  }
-  const top = candidates[0];
-  const runnerUp = candidates[1];
-  if (top.lexical_score >= 1.15) {
-    return true;
-  }
-  return top.lexical_score >= LEXICAL_STRONG_SCORE &&
-    top.lexical_score - runnerUp.lexical_score >= LEXICAL_MARGIN_TO_SKIP_AI;
-};
-
-const pickCanonicalWithAi = async (
-  observedName: string,
-  candidates: CanonicalFoodSuggestion[]
-): Promise<string | null> => {
-  const openaiKey = Deno.env.get("OPENAI_API_KEY");
-  if (!openaiKey || !candidates.length) {
-    return null;
-  }
-  const candidateSubset = candidates.slice(0, MAX_AI_CANDIDATES);
-  const candidateById = Object.fromEntries(
-    candidateSubset.map((candidate) => [candidate.canonical_id, candidate])
-  );
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${openaiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: OPENAI_MODEL,
-      response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content:
-            "Choose the best canonical food candidate for the observed food label. Return strict JSON: {\"canonical_id\":\"<candidate_id or empty string>\"}."
-        },
-        {
-          role: "user",
-          content: JSON.stringify({
-            observed_name: observedName,
-            candidates: candidateSubset.map((candidate) => ({
-              canonical_id: candidate.canonical_id,
-              canonical_name: candidate.canonical_name,
-              lexical_score: candidate.lexical_score
-            }))
-          })
-        }
-      ]
-    })
-  });
-
-  if (!response.ok) {
-    return null;
-  }
-  const result = await response.json().catch(() => null);
-  const content = result?.choices?.[0]?.message?.content;
-  if (typeof content !== "string" || !content.trim()) {
-    return null;
-  }
-  let parsed: Record<string, unknown> | null = null;
-  try {
-    parsed = JSON.parse(content);
-  } catch (_error) {
-    return null;
-  }
-  const selectedId = typeof parsed?.canonical_id === "string" ? parsed.canonical_id.trim() : "";
-  return selectedId && candidateById[selectedId] ? selectedId : null;
-};
-
 const resolveCanonicalForItem = async (
-  itemName: string,
   explicitCanonicalId: string,
   canonicalLookup: CanonicalFoodLookupItem[],
   canonicalById: Record<string, Record<string, unknown>>,
   usableIds: Set<string>
 ) => {
-  if (explicitCanonicalId) {
-    if (explicitCanonicalId === UNKNOWN_CANONICAL_ID) {
-      return UNKNOWN_CANONICAL_ID;
+  if (!explicitCanonicalId) {
+    throw new Error("Each item must include canonical_id.");
+  }
+  if (explicitCanonicalId === UNKNOWN_CANONICAL_ID) {
+    throw new Error("food-unknown is not allowed in strict canon mode.");
+  }
+  if (canonicalById[explicitCanonicalId]) {
+    if (!usableIds.has(explicitCanonicalId)) {
+      throw new Error(`canonical_id is not usable: ${explicitCanonicalId}`);
     }
-    if (canonicalById[explicitCanonicalId] && usableIds.has(explicitCanonicalId)) {
-      return explicitCanonicalId;
+    return explicitCanonicalId;
+  }
+  const normalizedExplicitId = resolveCanonicalIdFromLookupText(explicitCanonicalId, canonicalLookup);
+  if (normalizedExplicitId) {
+    if (!usableIds.has(normalizedExplicitId)) {
+      throw new Error(`canonical_id is not usable: ${normalizedExplicitId}`);
     }
-    if (!canonicalById[explicitCanonicalId]) {
-      const normalizedExplicitId = resolveCanonicalIdFromLookupText(
-        explicitCanonicalId,
-        canonicalLookup
-      );
-      if (normalizedExplicitId && usableIds.has(normalizedExplicitId)) {
-        return normalizedExplicitId;
-      }
-    }
+    return normalizedExplicitId;
   }
-
-  const candidates = rankCanonicalFoodSuggestions(itemName, canonicalLookup, MAX_LEXICAL_CANDIDATES);
-  if (!candidates.length) {
-    return UNKNOWN_CANONICAL_ID;
-  }
-
-  if (shouldTrustLexicalTopCandidate(candidates)) {
-    return candidates[0].canonical_id;
-  }
-
-  const aiChoice = await pickCanonicalWithAi(itemName, candidates);
-  if (aiChoice && canonicalById[aiChoice]) {
-    return aiChoice;
-  }
-  return candidates[0].canonical_id;
+  throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
 };
 
 const createSupabaseClient = (req: Request) => {
@@ -425,7 +320,6 @@ serve(async (req) => {
       const explicitCanonicalId =
         typeof item?.canonical_id === "string" ? item.canonical_id.trim() : "";
       const canonicalId = await resolveCanonicalForItem(
-        name || "unknown",
         explicitCanonicalId,
         canonicalLookup,
         canonicalById,
@@ -435,9 +329,7 @@ serve(async (req) => {
       const canonicalName =
         typeof canonicalEntry?.canonical_name === "string"
           ? canonicalEntry.canonical_name
-          : canonicalId === UNKNOWN_CANONICAL_ID
-            ? UNKNOWN_CANONICAL_NAME
-            : name || UNKNOWN_CANONICAL_NAME;
+          : name || explicitCanonicalId;
       const nutrientTotals = computeItemTotals(
         {
           canonical_id: canonicalId,

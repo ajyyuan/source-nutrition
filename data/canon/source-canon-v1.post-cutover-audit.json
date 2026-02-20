@@ -1,73 +1,53 @@
 {
-  "generated_at": "2026-02-20T16:32:40.790Z",
+  "generated_at": "2026-02-20T17:24:23.889Z",
   "source": "db",
   "totals": {
-    "rows": 325,
-    "usable_rows": 200,
-    "unusable_rows": 125,
+    "rows": 0,
+    "usable_rows": 0,
+    "unusable_rows": 0,
     "usable_zero_vector_rows": 0
   },
-  "match_status_counts": {
-    "matched": 15,
-    "unmatched": 123,
-    "system": 1,
-    "fuzzy": 186
-  },
+  "match_status_counts": {},
   "query_checks": [
     {
       "query": "egg",
       "expected": "Chicken egg",
-      "passed": true,
-      "top_result": "Chicken egg",
-      "top_score": 1.9,
-      "top5": [
-        "Chicken egg",
-        "Egg white",
-        "Egg yolk",
-        "Fried egg (chicken)",
-        "Scrambled egg (chicken)"
-      ]
+      "passed": false,
+      "top_result": null,
+      "top_score": null,
+      "top5": []
     },
     {
       "query": "beef liver",
       "expected": "Beef liver",
       "passed": false,
-      "top_result": "Beef tallow",
-      "top_score": 0.35,
-      "top5": [
-        "Beef tallow",
-        "Chicken liver"
-      ]
+      "top_result": null,
+      "top_score": null,
+      "top5": []
     },
     {
       "query": "parmesan",
       "expected": "Parmesan",
-      "passed": true,
-      "top_result": "Parmesan",
-      "top_score": 1.9,
-      "top5": [
-        "Parmesan"
-      ]
+      "passed": false,
+      "top_result": null,
+      "top_score": null,
+      "top5": []
     },
     {
       "query": "sardine",
       "expected": "Sardine",
-      "passed": true,
-      "top_result": "Sardine",
-      "top_score": 1.9,
-      "top5": [
-        "Sardine"
-      ]
+      "passed": false,
+      "top_result": null,
+      "top_score": null,
+      "top5": []
     },
     {
       "query": "kimchi",
       "expected": "Kimchi",
-      "passed": true,
-      "top_result": "Kimchi",
-      "top_score": 1.9,
-      "top5": [
-        "Kimchi"
-      ]
+      "passed": false,
+      "top_result": null,
+      "top_score": null,
+      "top5": []
     }
   ]
 }

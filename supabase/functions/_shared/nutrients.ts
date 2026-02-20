@@ -85,12 +85,6 @@ const makeZeroVector = (): NutrientVector => ({
 // Values are per 100g and sourced from USDA FoodData Central (via MyFoodData).
 // Any nutrient missing from the source is set to 0 for now.
 const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
-  "food-unknown": {
-    canonical_id: "food-unknown",
-    canonical_name: "Unknown food",
-    per_100g: makeZeroVector(),
-    source: "stub"
-  },
   "apple-raw": {
     canonical_id: "apple-raw",
     canonical_name: "Apple, raw",
@@ -329,10 +323,10 @@ export const computeItemTotals = (
   canonicalById: Record<string, CanonicalFoodNutrients> = CANONICAL_NUTRIENTS
 ): MealNutrientTotals => {
   const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
-  const entry =
-    canonicalById[item.canonical_id] ??
-    getNutrientsForCanonicalId(item.canonical_id) ??
-    CANONICAL_NUTRIENTS["food-unknown"];
+  const entry = canonicalById[item.canonical_id] ?? getNutrientsForCanonicalId(item.canonical_id);
+  if (!entry) {
+    throw new Error(`Unknown canonical_id: ${item.canonical_id}`);
+  }
   const totals = scaleVector(entry.per_100g, grams);
   return {
     totals,
@@ -352,10 +346,10 @@ export const computeMealTotals = (
 ): MealNutrientTotals => {
   const totals = items.reduce((acc, item) => {
     const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
-    const entry =
-      canonicalById[item.canonical_id] ??
-      getNutrientsForCanonicalId(item.canonical_id) ??
-      CANONICAL_NUTRIENTS["food-unknown"];
+    const entry = canonicalById[item.canonical_id] ?? getNutrientsForCanonicalId(item.canonical_id);
+    if (!entry) {
+      throw new Error(`Unknown canonical_id: ${item.canonical_id}`);
+    }
     return addVectors(acc, scaleVector(entry.per_100g, grams));
   }, makeZeroVector());
 

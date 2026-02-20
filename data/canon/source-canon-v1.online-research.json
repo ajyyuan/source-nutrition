@@ -1,0 +1,1885 @@
+{
+  "summary": {
+    "generated_at": "2026-02-20T20:20:38Z",
+    "missing_count": 134,
+    "found_with_nonzero_nutrients": 2,
+    "unresolved_count": 132
+  },
+  "items": [
+    {
+      "canonical_id": "ground-beef-30-fat",
+      "canonical_name": "Ground beef (30% fat)",
+      "required_tokens": [
+        "30",
+        "beef"
+      ],
+      "top_candidate": {
+        "fdc_id": 168652,
+        "description": "Beef, ground, 70% lean meat / 30% fat, raw",
+        "score": 0.6867,
+        "base_score": 0.4667,
+        "required_token_hits": 2,
+        "data_type": "SR Legacy"
+      },
+      "top5": [
+        {
+          "fdc_id": 168652,
+          "description": "Beef, ground, 70% lean meat / 30% fat, raw",
+          "score": 0.6867,
+          "base_score": 0.4667,
+          "required_token_hits": 2,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 173110,
+          "description": "Beef, ground, 93% lean meat / 7% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 171790,
+          "description": "Beef, ground, 95% lean meat / 5% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 173111,
+          "description": "Beef, ground, 97% lean meat / 3% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 168608,
+          "description": "Beef, grass-fed, ground, raw",
+          "score": 0.52,
+          "base_score": 0.35,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        }
+      ],
+      "detail": {
+        "nutrient_nonzero_count": 4,
+        "nutrient_sum": 3.972,
+        "per_100g": {
+          "vitamin_a_ug": 0,
+          "vitamin_c_mg": 0,
+          "vitamin_d_ug": 0,
+          "vitamin_e_mg": 0,
+          "vitamin_k_ug": 0,
+          "thiamin_mg": 0.044,
+          "riboflavin_mg": 0.151,
+          "niacin_mg": 3.382,
+          "vitamin_b5_mg": 0.395,
+          "vitamin_b6_mg": 0,
+          "vitamin_b7_ug": 0,
+          "folate_ug": 0,
+          "vitamin_b12_ug": 0,
+          "calcium_mg": 0,
+          "iron_mg": 0,
+          "magnesium_mg": 0,
+          "phosphorus_mg": 0,
+          "potassium_mg": 0,
+          "zinc_mg": 0,
+          "selenium_ug": 0,
+          "omega3_g": 0
+        }
+      }
+    },
+    {
+      "canonical_id": "ground-beef-20-fat",
+      "canonical_name": "Ground beef (20% fat)",
+      "required_tokens": [
+        "20",
+        "beef"
+      ],
+      "top_candidate": {
+        "fdc_id": 174036,
+        "description": "Beef, ground, 80% lean meat / 20% fat, raw",
+        "score": 0.6867,
+        "base_score": 0.4667,
+        "required_token_hits": 2,
+        "data_type": "SR Legacy"
+      },
+      "top5": [
+        {
+          "fdc_id": 174036,
+          "description": "Beef, ground, 80% lean meat / 20% fat, raw",
+          "score": 0.6867,
+          "base_score": 0.4667,
+          "required_token_hits": 2,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 2514744,
+          "description": "Beef, ground, 80% lean meat / 20% fat, raw",
+          "score": 0.6867,
+          "base_score": 0.4667,
+          "required_token_hits": 2,
+          "data_type": "Foundation"
+        },
+        {
+          "fdc_id": 173110,
+          "description": "Beef, ground, 93% lean meat / 7% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 171790,
+          "description": "Beef, ground, 95% lean meat / 5% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 173111,
+          "description": "Beef, ground, 97% lean meat / 3% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        }
+      ],
+      "detail": {
+        "nutrient_nonzero_count": 4,
+        "nutrient_sum": 4.919,
+        "per_100g": {
+          "vitamin_a_ug": 0,
+          "vitamin_c_mg": 0,
+          "vitamin_d_ug": 0,
+          "vitamin_e_mg": 0,
+          "vitamin_k_ug": 0,
+          "thiamin_mg": 0.043,
+          "riboflavin_mg": 0.151,
+          "niacin_mg": 4.227,
+          "vitamin_b5_mg": 0.498,
+          "vitamin_b6_mg": 0,
+          "vitamin_b7_ug": 0,
+          "folate_ug": 0,
+          "vitamin_b12_ug": 0,
+          "calcium_mg": 0,
+          "iron_mg": 0,
+          "magnesium_mg": 0,
+          "phosphorus_mg": 0,
+          "potassium_mg": 0,
+          "zinc_mg": 0,
+          "selenium_ug": 0,
+          "omega3_g": 0
+        }
+      }
+    },
+    {
+      "canonical_id": "ground-beef-15-fat",
+      "canonical_name": "Ground beef (15% fat)",
+      "required_tokens": [
+        "15",
+        "beef"
+      ],
+      "top_candidate": {
+        "fdc_id": 173068,
+        "description": "Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",
+        "score": 0.5933,
+        "base_score": 0.3733,
+        "required_token_hits": 2,
+        "data_type": "SR Legacy"
+      },
+      "top5": [
+        {
+          "fdc_id": 173068,
+          "description": "Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",
+          "score": 0.5933,
+          "base_score": 0.3733,
+          "required_token_hits": 2,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 174493,
+          "description": "Turkey, ground, 85% lean, 15% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 173110,
+          "description": "Beef, ground, 93% lean meat / 7% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 171790,
+          "description": "Beef, ground, 95% lean meat / 5% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        },
+        {
+          "fdc_id": 173111,
+          "description": "Beef, ground, 97% lean meat / 3% fat, raw",
+          "score": 0.5518,
+          "base_score": 0.3818,
+          "required_token_hits": 1,
+          "data_type": "SR Legacy"
+        }
+      ],
+      "detail": {
+        "error": "HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "canonical_id": "ground-beef-10-fat",
+      "canonical_name": "Ground beef (10% fat)",
+      "required_tokens": [
+        "10",
+        "beef"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-beef-7-fat",
+      "canonical_name": "Ground beef (7% fat)",
+      "required_tokens": [
+        "7",
+        "beef"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-beef-4-fat",
+      "canonical_name": "Ground beef (4% fat)",
+      "required_tokens": [
+        "4",
+        "beef"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-bison",
+      "canonical_name": "Ground bison",
+      "required_tokens": [
+        "bison"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-goat",
+      "canonical_name": "Ground goat",
+      "required_tokens": [
+        "goat"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-pork",
+      "canonical_name": "Ground pork",
+      "required_tokens": [
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-chicken",
+      "canonical_name": "Ground chicken",
+      "required_tokens": [
+        "chicken"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-turkey",
+      "canonical_name": "Ground turkey",
+      "required_tokens": [
+        "turkey"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ground-duck",
+      "canonical_name": "Ground duck",
+      "required_tokens": [
+        "duck"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "strip-steak",
+      "canonical_name": "Strip steak",
+      "required_tokens": [
+        "beef",
+        "steak",
+        "strip"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "hanger",
+      "canonical_name": "Hanger",
+      "required_tokens": [
+        "beef",
+        "hanger"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "oxtail",
+      "canonical_name": "Oxtail",
+      "required_tokens": [
+        "beef",
+        "oxtail"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "stew-meat",
+      "canonical_name": "Stew meat",
+      "required_tokens": [
+        "beef",
+        "meat",
+        "stew"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "leg-lamb-goat",
+      "canonical_name": "Leg (lamb/goat)",
+      "required_tokens": [
+        "goat",
+        "lamb",
+        "leg"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "shoulder-lamb-goat",
+      "canonical_name": "Shoulder (lamb/goat)",
+      "required_tokens": [
+        "goat",
+        "lamb",
+        "shoulder"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "rack-lamb-goat",
+      "canonical_name": "Rack (lamb/goat)",
+      "required_tokens": [
+        "goat",
+        "lamb",
+        "rack"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chop-lamb-goat",
+      "canonical_name": "Chop (lamb/goat)",
+      "required_tokens": [
+        "chop",
+        "goat",
+        "lamb"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "shank-lamb-goat",
+      "canonical_name": "Shank (lamb/goat)",
+      "required_tokens": [
+        "goat",
+        "lamb",
+        "shank"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-chop",
+      "canonical_name": "Pork chop",
+      "required_tokens": [
+        "chop",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-belly",
+      "canonical_name": "Pork belly",
+      "required_tokens": [
+        "belly",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-ribs",
+      "canonical_name": "Pork ribs",
+      "required_tokens": [
+        "pork",
+        "ribs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "fresh-ham",
+      "canonical_name": "Fresh ham",
+      "required_tokens": [
+        "ham",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-shank",
+      "canonical_name": "Pork shank",
+      "required_tokens": [
+        "pork",
+        "shank"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-jowl",
+      "canonical_name": "Pork jowl",
+      "required_tokens": [
+        "jowl",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "whole-chicken",
+      "canonical_name": "Whole chicken",
+      "required_tokens": [
+        "chicken",
+        "poultry"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chicken-drumstick",
+      "canonical_name": "Chicken drumstick",
+      "required_tokens": [
+        "chicken",
+        "drumstick",
+        "poultry"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "whole-turkey",
+      "canonical_name": "Whole turkey",
+      "required_tokens": [
+        "poultry",
+        "turkey"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "whole-duck",
+      "canonical_name": "Whole duck",
+      "required_tokens": [
+        "duck",
+        "poultry"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "duck-breast",
+      "canonical_name": "Duck breast",
+      "required_tokens": [
+        "breast",
+        "duck",
+        "poultry"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "duck-leg",
+      "canonical_name": "Duck leg",
+      "required_tokens": [
+        "duck",
+        "leg",
+        "poultry"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "atlantic-salmon",
+      "canonical_name": "Atlantic salmon",
+      "required_tokens": [
+        "atlantic",
+        "fish",
+        "level",
+        "salmon",
+        "species"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sockeye-salmon",
+      "canonical_name": "Sockeye salmon",
+      "required_tokens": [
+        "fish",
+        "level",
+        "salmon",
+        "sockeye",
+        "species"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "coho-salmon",
+      "canonical_name": "Coho salmon",
+      "required_tokens": [
+        "coho",
+        "fish",
+        "level",
+        "salmon",
+        "species"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chinook-salmon",
+      "canonical_name": "Chinook salmon",
+      "required_tokens": [
+        "chinook",
+        "fish",
+        "level",
+        "salmon",
+        "species"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "tuna-albacore",
+      "canonical_name": "Tuna (albacore)",
+      "required_tokens": [
+        "albacore",
+        "fish",
+        "level",
+        "species",
+        "tuna"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "prawn",
+      "canonical_name": "Prawn",
+      "required_tokens": [
+        "prawn",
+        "shellfish"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-liver",
+      "canonical_name": "Beef liver",
+      "required_tokens": [
+        "beef",
+        "liver",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-heart",
+      "canonical_name": "Beef heart",
+      "required_tokens": [
+        "beef",
+        "heart",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-kidney",
+      "canonical_name": "Beef kidney",
+      "required_tokens": [
+        "beef",
+        "kidney",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-tongue",
+      "canonical_name": "Beef tongue",
+      "required_tokens": [
+        "beef",
+        "organs",
+        "tongue"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-brain",
+      "canonical_name": "Beef brain",
+      "required_tokens": [
+        "beef",
+        "brain",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-spleen",
+      "canonical_name": "Beef spleen",
+      "required_tokens": [
+        "beef",
+        "organs",
+        "spleen"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-pancreas",
+      "canonical_name": "Beef pancreas",
+      "required_tokens": [
+        "beef",
+        "organs",
+        "pancreas"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-thymus-sweetbreads",
+      "canonical_name": "Beef thymus (sweetbreads)",
+      "required_tokens": [
+        "beef",
+        "organs",
+        "sweetbreads",
+        "thymus"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "beef-tripe",
+      "canonical_name": "Beef tripe",
+      "required_tokens": [
+        "beef",
+        "organs",
+        "tripe"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "lamb-liver",
+      "canonical_name": "Lamb liver",
+      "required_tokens": [
+        "lamb",
+        "liver",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "lamb-heart",
+      "canonical_name": "Lamb heart",
+      "required_tokens": [
+        "heart",
+        "lamb",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "lamb-kidney",
+      "canonical_name": "Lamb kidney",
+      "required_tokens": [
+        "kidney",
+        "lamb",
+        "organs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-liver",
+      "canonical_name": "Pork liver",
+      "required_tokens": [
+        "liver",
+        "organs",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-heart",
+      "canonical_name": "Pork heart",
+      "required_tokens": [
+        "heart",
+        "organs",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-kidney",
+      "canonical_name": "Pork kidney",
+      "required_tokens": [
+        "kidney",
+        "organs",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-brain",
+      "canonical_name": "Pork brain",
+      "required_tokens": [
+        "brain",
+        "organs",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-stomach",
+      "canonical_name": "Pork stomach",
+      "required_tokens": [
+        "organs",
+        "pork",
+        "stomach"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chicken-egg",
+      "canonical_name": "Chicken egg",
+      "required_tokens": [
+        "chicken",
+        "egg",
+        "eggs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "scrambled-egg-chicken",
+      "canonical_name": "Scrambled egg (chicken)",
+      "required_tokens": [
+        "chicken",
+        "egg",
+        "eggs",
+        "scrambled"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "fried-egg-chicken",
+      "canonical_name": "Fried egg (chicken)",
+      "required_tokens": [
+        "chicken",
+        "egg",
+        "eggs",
+        "fried"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "duck-egg",
+      "canonical_name": "Duck egg",
+      "required_tokens": [
+        "duck",
+        "egg",
+        "eggs"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "turkey-egg",
+      "canonical_name": "Turkey egg",
+      "required_tokens": [
+        "egg",
+        "eggs",
+        "turkey"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "quail-egg",
+      "canonical_name": "Quail egg",
+      "required_tokens": [
+        "egg",
+        "eggs",
+        "quail"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cow-s-milk",
+      "canonical_name": "Cow's milk",
+      "required_tokens": [
+        "cow",
+        "dairy",
+        "milk"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cow-s-milk-2",
+      "canonical_name": "Cow's milk (2%)",
+      "required_tokens": [
+        "2",
+        "cow",
+        "dairy",
+        "milk"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cow-s-milk-1",
+      "canonical_name": "Cow's milk (1%)",
+      "required_tokens": [
+        "1",
+        "cow",
+        "dairy",
+        "milk"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cow-s-milk-skim",
+      "canonical_name": "Cow's milk (skim)",
+      "required_tokens": [
+        "cow",
+        "dairy",
+        "milk",
+        "skim"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "goat-milk",
+      "canonical_name": "Goat milk",
+      "required_tokens": [
+        "dairy",
+        "goat",
+        "milk"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sheep-milk",
+      "canonical_name": "Sheep milk",
+      "required_tokens": [
+        "dairy",
+        "milk",
+        "sheep"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "light-cream",
+      "canonical_name": "Light cream",
+      "required_tokens": [
+        "cream",
+        "dairy",
+        "light"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "heavy-cream",
+      "canonical_name": "Heavy cream",
+      "required_tokens": [
+        "cream",
+        "dairy",
+        "heavy"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ghee",
+      "canonical_name": "Ghee",
+      "required_tokens": [
+        "dairy",
+        "ghee"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "yogurt-plain-lowfat",
+      "canonical_name": "Yogurt (plain, lowfat)",
+      "required_tokens": [
+        "dairy",
+        "lowfat",
+        "yogurt"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "yogurt-plain-nonfat",
+      "canonical_name": "Yogurt (plain, nonfat)",
+      "required_tokens": [
+        "dairy",
+        "nonfat",
+        "yogurt"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "kefir-plain",
+      "canonical_name": "Kefir (plain)",
+      "required_tokens": [
+        "dairy",
+        "kefir"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cottage-cheese",
+      "canonical_name": "Cottage cheese",
+      "required_tokens": [
+        "cheese",
+        "cottage",
+        "dairy"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "lamb-tallow",
+      "canonical_name": "Lamb tallow",
+      "required_tokens": [
+        "fats",
+        "lamb",
+        "tallow"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pork-lard",
+      "canonical_name": "Pork lard",
+      "required_tokens": [
+        "fats",
+        "lard",
+        "pork"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "duck-fat",
+      "canonical_name": "Duck fat",
+      "required_tokens": [
+        "duck",
+        "fats"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chicken-fat",
+      "canonical_name": "Chicken fat",
+      "required_tokens": [
+        "chicken",
+        "fats"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "processed-cheese-slices",
+      "canonical_name": "Processed cheese slices",
+      "required_tokens": [
+        "cheese",
+        "cook",
+        "home",
+        "processed",
+        "slices",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "bok-choy",
+      "canonical_name": "Bok choy",
+      "required_tokens": [
+        "bok",
+        "brassicaceae",
+        "choy"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "scallion",
+      "canonical_name": "Scallion",
+      "required_tokens": [
+        "allium",
+        "scallion"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "bell-pepper",
+      "canonical_name": "Bell pepper",
+      "required_tokens": [
+        "bell",
+        "pepper",
+        "solanaceae"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chili-pepper",
+      "canonical_name": "Chili pepper",
+      "required_tokens": [
+        "chili",
+        "pepper",
+        "solanaceae"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "acorn-squash",
+      "canonical_name": "Acorn squash",
+      "required_tokens": [
+        "acorn",
+        "cucurbitaceae",
+        "squash"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "spaghetti-squash",
+      "canonical_name": "Spaghetti squash",
+      "required_tokens": [
+        "cucurbitaceae",
+        "spaghetti",
+        "squash"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "swiss-chard",
+      "canonical_name": "Swiss chard",
+      "required_tokens": [
+        "amaranthaceae",
+        "chard",
+        "swiss"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "kidney-bean",
+      "canonical_name": "Kidney bean",
+      "required_tokens": [
+        "bean",
+        "fabaceae",
+        "kidney",
+        "legumes"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "green-bean",
+      "canonical_name": "Green bean",
+      "required_tokens": [
+        "bean",
+        "fabaceae",
+        "green",
+        "legumes"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "avocado",
+      "canonical_name": "Avocado",
+      "required_tokens": [
+        "avocado",
+        "core",
+        "fruits"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "brazil-nut",
+      "canonical_name": "Brazil nut",
+      "required_tokens": [
+        "brazil",
+        "nut",
+        "nuts"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "flax",
+      "canonical_name": "Flax",
+      "required_tokens": [
+        "flax",
+        "seeds"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "pine-nut",
+      "canonical_name": "Pine nut",
+      "required_tokens": [
+        "nut",
+        "pine",
+        "seeds"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "avocado-oil",
+      "canonical_name": "Avocado oil",
+      "required_tokens": [
+        "avocado",
+        "oil",
+        "oils",
+        "plant"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "coconut-oil",
+      "canonical_name": "Coconut oil",
+      "required_tokens": [
+        "coconut",
+        "oil",
+        "oils",
+        "plant"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sesame-oil",
+      "canonical_name": "Sesame oil",
+      "required_tokens": [
+        "oil",
+        "oils",
+        "plant",
+        "sesame"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "palm-oil",
+      "canonical_name": "Palm oil",
+      "required_tokens": [
+        "oil",
+        "oils",
+        "palm",
+        "plant"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "whole-wheat-bread",
+      "canonical_name": "Whole wheat bread",
+      "required_tokens": [
+        "bread",
+        "flour",
+        "items",
+        "made",
+        "wheat"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sourdough-bread",
+      "canonical_name": "Sourdough bread",
+      "required_tokens": [
+        "bread",
+        "flour",
+        "items",
+        "made",
+        "sourdough"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "soba-noodles",
+      "canonical_name": "Soba noodles",
+      "required_tokens": [
+        "flour",
+        "items",
+        "made",
+        "noodles",
+        "soba"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sourdough-pasta",
+      "canonical_name": "Sourdough pasta",
+      "required_tokens": [
+        "flour",
+        "items",
+        "made",
+        "pasta",
+        "sourdough"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "canola-oil",
+      "canonical_name": "Canola oil",
+      "required_tokens": [
+        "canola",
+        "cook",
+        "home",
+        "oil",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sunflower-oil",
+      "canonical_name": "Sunflower oil",
+      "required_tokens": [
+        "cook",
+        "home",
+        "oil",
+        "processed",
+        "staples",
+        "sunflower"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "corn-oil",
+      "canonical_name": "Corn oil",
+      "required_tokens": [
+        "cook",
+        "corn",
+        "home",
+        "oil",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "grapeseed-oil",
+      "canonical_name": "Grapeseed oil",
+      "required_tokens": [
+        "cook",
+        "grapeseed",
+        "home",
+        "oil",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "peanut-oil",
+      "canonical_name": "Peanut oil",
+      "required_tokens": [
+        "cook",
+        "home",
+        "oil",
+        "peanut",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "rice-bran-oil",
+      "canonical_name": "Rice bran oil",
+      "required_tokens": [
+        "bran",
+        "cook",
+        "home",
+        "oil",
+        "processed",
+        "rice",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "rye-bread",
+      "canonical_name": "Rye bread",
+      "required_tokens": [
+        "bread",
+        "cook",
+        "home",
+        "processed",
+        "rye",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "tortilla-flour",
+      "canonical_name": "Tortilla (flour)",
+      "required_tokens": [
+        "cook",
+        "flour",
+        "home",
+        "processed",
+        "staples",
+        "tortilla"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "tortilla-corn",
+      "canonical_name": "Tortilla (corn)",
+      "required_tokens": [
+        "cook",
+        "corn",
+        "home",
+        "processed",
+        "staples",
+        "tortilla"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "hamburger-bun",
+      "canonical_name": "Hamburger bun",
+      "required_tokens": [
+        "bun",
+        "cook",
+        "hamburger",
+        "home",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "hot-dog-bun",
+      "canonical_name": "Hot dog bun",
+      "required_tokens": [
+        "bun",
+        "cook",
+        "dog",
+        "home",
+        "hot",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "sandwich-roll",
+      "canonical_name": "Sandwich roll",
+      "required_tokens": [
+        "cook",
+        "home",
+        "processed",
+        "roll",
+        "sandwich",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "panko",
+      "canonical_name": "Panko",
+      "required_tokens": [
+        "cook",
+        "home",
+        "panko",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "udon-noodles",
+      "canonical_name": "Udon noodles",
+      "required_tokens": [
+        "cook",
+        "home",
+        "noodles",
+        "processed",
+        "staples",
+        "udon"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ramen-noodles",
+      "canonical_name": "Ramen noodles",
+      "required_tokens": [
+        "cook",
+        "home",
+        "noodles",
+        "processed",
+        "ramen",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "egg-noodles",
+      "canonical_name": "Egg noodles",
+      "required_tokens": [
+        "cook",
+        "egg",
+        "home",
+        "noodles",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "whole-wheat-pasta",
+      "canonical_name": "Whole wheat pasta",
+      "required_tokens": [
+        "cook",
+        "home",
+        "pasta",
+        "processed",
+        "staples",
+        "wheat"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "tahini",
+      "canonical_name": "Tahini",
+      "required_tokens": [
+        "cook",
+        "home",
+        "processed",
+        "staples",
+        "tahini"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "jam",
+      "canonical_name": "Jam",
+      "required_tokens": [
+        "cook",
+        "home",
+        "jam",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "maple-syrup",
+      "canonical_name": "Maple syrup",
+      "required_tokens": [
+        "cook",
+        "home",
+        "maple",
+        "processed",
+        "staples",
+        "syrup"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "tomato-paste",
+      "canonical_name": "Tomato paste",
+      "required_tokens": [
+        "cook",
+        "home",
+        "paste",
+        "processed",
+        "staples",
+        "tomato"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "canned-tomatoes",
+      "canonical_name": "Canned tomatoes",
+      "required_tokens": [
+        "canned",
+        "cook",
+        "home",
+        "processed",
+        "staples",
+        "tomatoes"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "ketchup",
+      "canonical_name": "Ketchup",
+      "required_tokens": [
+        "cook",
+        "home",
+        "ketchup",
+        "processed",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "apple-cider-vinegar",
+      "canonical_name": "Apple cider vinegar",
+      "required_tokens": [
+        "apple",
+        "cider",
+        "cook",
+        "home",
+        "processed",
+        "staples",
+        "vinegar"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "hot-sauce",
+      "canonical_name": "Hot sauce",
+      "required_tokens": [
+        "cook",
+        "home",
+        "hot",
+        "processed",
+        "sauce",
+        "staples"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "white-mushroom",
+      "canonical_name": "White mushroom",
+      "required_tokens": [
+        "mushroom",
+        "mushrooms",
+        "white"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "cremini",
+      "canonical_name": "Cremini",
+      "required_tokens": [
+        "cremini",
+        "mushrooms"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "portobello",
+      "canonical_name": "Portobello",
+      "required_tokens": [
+        "mushrooms",
+        "portobello"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "oyster-mushroom",
+      "canonical_name": "Oyster mushroom",
+      "required_tokens": [
+        "mushroom",
+        "mushrooms",
+        "oyster"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "lion-s-mane",
+      "canonical_name": "Lion's mane",
+      "required_tokens": [
+        "lion",
+        "mane",
+        "mushrooms"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "nori",
+      "canonical_name": "Nori",
+      "required_tokens": [
+        "algae",
+        "nori",
+        "seaweeds"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "dulse",
+      "canonical_name": "Dulse",
+      "required_tokens": [
+        "algae",
+        "dulse",
+        "seaweeds"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    },
+    {
+      "canonical_id": "chlorella",
+      "canonical_name": "Chlorella",
+      "required_tokens": [
+        "algae",
+        "chlorella",
+        "seaweeds"
+      ],
+      "top_candidate": null,
+      "top5": [],
+      "detail": null
+    }
+  ]
+}

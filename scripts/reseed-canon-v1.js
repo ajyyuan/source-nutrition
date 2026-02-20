@@ -31,7 +31,13 @@ const DEFAULT_FLAT_INPUT = path.resolve("data/canon/source-canon-v1.flat.json");
 const DEFAULT_AUDIT_OUTPUT = path.resolve("data/canon/source-canon-v1.match-audit.json");
 const DEFAULT_PREVIEW_OUTPUT = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const DEFAULT_USDA_DIR = path.resolve("data/FoodData_Central_sr_legacy_food_csv_2018-04");
+const DEFAULT_USDA_DIRS = [
+  path.resolve("data/FoodData_Central_sr_legacy_food_csv_2018-04"),
+  path.resolve("data/FoodData_Central_foundation_food_csv_2025-12-18"),
+  path.resolve("data/FoodData_Central_survey_food_csv_2022-10-28")
+];
 const DEFAULT_PRIORITY_ALIASES_PATH = path.resolve("data/canon/founder-priority-aliases-v1.json");
+const DEFAULT_CURATION_PATH = path.resolve("data/canon/source-canon-v1.manual-curation.json");
 const CHUNK_SIZE = 500;
 
 const NUTRIENT_NAME_MAP = [
@@ -98,7 +104,10 @@ const parseArgs = (argv) => {
     auditPath: DEFAULT_AUDIT_OUTPUT,
     previewPath: DEFAULT_PREVIEW_OUTPUT,
     usdaDir: DEFAULT_USDA_DIR,
+    usdaDirs: DEFAULT_USDA_DIRS,
     priorityAliasesPath: DEFAULT_PRIORITY_ALIASES_PATH,
+    curationPath: DEFAULT_CURATION_PATH,
+    strictCuration: true,
     sourceUsda: false,
     apply: false
   };
@@ -113,8 +122,20 @@ const parseArgs = (argv) => {
       options.previewPath = path.resolve(arg.split("=")[1]);
     } else if (arg.startsWith("--usda-dir=")) {
       options.usdaDir = path.resolve(arg.split("=")[1]);
+      options.usdaDirs = [options.usdaDir];
+    } else if (arg.startsWith("--usda-dirs=")) {
+      const raw = arg.split("=")[1];
+      options.usdaDirs = raw
+        .split(",")
+        .map((entry) => entry.trim())
+        .filter(Boolean)
+        .map((entry) => path.resolve(entry));
     } else if (arg.startsWith("--priority-aliases=")) {
       options.priorityAliasesPath = path.resolve(arg.split("=")[1]);
+    } else if (arg.startsWith("--curation=")) {
+      options.curationPath = path.resolve(arg.split("=")[1]);
+    } else if (arg === "--no-strict-curation") {
+      options.strictCuration = false;
     } else if (arg === "--source-usda") {
       options.sourceUsda = true;
     }
@@ -234,6 +255,47 @@ const loadSourceRowsFromUsdaCsv = (usdaDir) => {
     foodsById.get(fdcId).per_100g[key] = amount;
   });
   return dedupeByCanonicalId(Array.from(foodsById.values()));
+};
+
+const loadSourceRowsFromUsdaCsvs = (usdaDirs) => {
+  const rowsByFdcId = new Map();
+  (Array.isArray(usdaDirs) ? usdaDirs : []).forEach((dir) => {
+    const rows = loadSourceRowsFromUsdaCsv(dir);
+    rows.forEach((row) => {
+      const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
+      if (!fdcId) {
+        return;
+      }
+      const existing = rowsByFdcId.get(fdcId);
+      if (!existing || sumPer100gVector(row.per_100g) > sumPer100gVector(existing.per_100g)) {
+        rowsByFdcId.set(fdcId, row);
+      }
+    });
+  });
+  return dedupeByCanonicalId(Array.from(rowsByFdcId.values()));
+};
+
+const loadCurationMap = (curationPath) => {
+  if (!curationPath || !fs.existsSync(curationPath)) {
+    return new Map();
+  }
+  const payload = JSON.parse(fs.readFileSync(curationPath, "utf8"));
+  const entries = Array.isArray(payload?.matches) ? payload.matches : [];
+  const map = new Map();
+  entries.forEach((entry) => {
+    const canonicalId = typeof entry?.canonical_id === "string" ? entry.canonical_id.trim() : "";
+    if (!canonicalId) {
+      return;
+    }
+    map.set(canonicalId, {
+      canonical_id: canonicalId,
+      fdc_id: typeof entry?.fdc_id === "string" ? entry.fdc_id.trim() : "",
+      source_name: typeof entry?.source_name === "string" ? entry.source_name.trim() : "",
+      confidence: typeof entry?.confidence === "string" ? entry.confidence.trim() : "",
+      score: Number(entry?.score || 0)
+    });
+  });
+  return map;
 };
 
 const scoreCandidate = (query, candidateName, state) => {
@@ -422,16 +484,25 @@ const buildAliasRows = (items, priorityAliases) => {
   return Array.from(map.values());
 };
 
-const matchCanonItems = (flatItems, sourceRows) => {
+const matchCanonItems = (flatItems, sourceRows, curationByCanonicalId, strictCuration) => {
   const nameIndex = buildNameIndex(sourceRows);
+  const sourceByFdcId = new Map();
+  sourceRows.forEach((row) => {
+    const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
+    if (fdcId) {
+      sourceByFdcId.set(fdcId, row);
+    }
+  });
   const audit = {
     generated_at: new Date().toISOString(),
     total_items: flatItems.length,
     counts: {
+      curated: 0,
       matched: 0,
       fuzzy: 0,
       unmatched: 0
     },
+    curated: [],
     matched: [],
     fuzzy: [],
     unmatched: []
@@ -444,45 +515,68 @@ const matchCanonItems = (flatItems, sourceRows) => {
     let matchSource = null;
     let matchConfidence = 0;
 
-    if (exactNameMatches.length) {
-      selected = pickBest(exactNameMatches, item);
-      if (selected) {
-        matchStatus = "matched";
-        matchSource = "db_exact_name";
+    const curatedEntry = curationByCanonicalId.get(item.canonical_id) || null;
+    if (curatedEntry) {
+      if (curatedEntry.fdc_id && sourceByFdcId.has(curatedEntry.fdc_id)) {
+        selected = {
+          candidate: sourceByFdcId.get(curatedEntry.fdc_id),
+          score: Number.isFinite(curatedEntry.score) ? curatedEntry.score : 1.5
+        };
+        matchStatus = "curated";
+        matchSource = "manual_curation_fdc_id";
         matchConfidence = selected.score;
-      }
-    }
-
-    if (!selected) {
-      const aliasMatches = [];
-      (item.aliases || []).forEach((alias) => {
-        const aliasMatch = nameIndex.get(normalize(alias)) || [];
-        aliasMatches.push(...aliasMatch);
-      });
-      if (aliasMatches.length) {
-        selected = pickBest(aliasMatches, item);
-        if (selected) {
-          matchStatus = "matched";
-          matchSource = "db_exact_alias";
+      } else if (curatedEntry.source_name) {
+        const curatedNameMatches = nameIndex.get(normalize(curatedEntry.source_name)) || [];
+        const curatedNameSelected = pickBest(curatedNameMatches, item);
+        if (curatedNameSelected) {
+          selected = curatedNameSelected;
+          matchStatus = "curated";
+          matchSource = "manual_curation_name";
           matchConfidence = selected.score;
         }
       }
     }
 
-    if (!selected) {
-      const fuzzy = pickBest(sourceRows, item);
-      if (fuzzy && fuzzy.score >= 0.95) {
-        selected = fuzzy;
-        matchStatus = "fuzzy";
-        matchSource = "db_fuzzy";
-        matchConfidence = fuzzy.score;
+    if (!selected && !strictCuration) {
+      if (exactNameMatches.length) {
+        selected = pickBest(exactNameMatches, item);
+        if (selected) {
+          matchStatus = "matched";
+          matchSource = "db_exact_name";
+          matchConfidence = selected.score;
+        }
+      }
+      if (!selected) {
+        const aliasMatches = [];
+        (item.aliases || []).forEach((alias) => {
+          const aliasMatch = nameIndex.get(normalize(alias)) || [];
+          aliasMatches.push(...aliasMatch);
+        });
+        if (aliasMatches.length) {
+          selected = pickBest(aliasMatches, item);
+          if (selected) {
+            matchStatus = "matched";
+            matchSource = "db_exact_alias";
+            matchConfidence = selected.score;
+          }
+        }
+      }
+      if (!selected) {
+        const fuzzy = pickBest(sourceRows, item);
+        if (fuzzy && fuzzy.score >= 0.95) {
+          selected = fuzzy;
+          matchStatus = "fuzzy";
+          matchSource = "db_fuzzy";
+          matchConfidence = fuzzy.score;
+        }
       }
     }
 
     const matchedRow = selected ? selected.candidate : null;
     const per100g = matchedRow ? normalizePer100g(matchedRow.per_100g) : makeZeroVector();
     const per100gSum = sumPer100gVector(per100g);
-    const isUsable = !!matchedRow && per100gSum > 0;
+    const curatedById = !!(curatedEntry && curatedEntry.fdc_id);
+    const isUsable = !!matchedRow && (per100gSum > 0 || curatedById);
 
     const out = {
       canonical_id: item.canonical_id,
@@ -519,7 +613,10 @@ const matchCanonItems = (flatItems, sourceRows) => {
       matched_name: matchedRow ? matchedRow.canonical_name : null,
       matched_fdc_id: matchedRow ? matchedRow.fdc_id : null
     };
-    if (matchStatus === "matched") {
+    if (matchStatus === "curated") {
+      audit.counts.curated += 1;
+      audit.curated.push(auditRow);
+    } else if (matchStatus === "matched") {
       audit.counts.matched += 1;
       audit.matched.push(auditRow);
     } else if (matchStatus === "fuzzy") {
@@ -531,29 +628,6 @@ const matchCanonItems = (flatItems, sourceRows) => {
     }
 
     return out;
-  });
-
-  rows.unshift({
-    canonical_id: "food-unknown",
-    canonical_name: "Unknown food",
-    display_name: "Unknown food",
-    kingdom: "Unknown",
-    domain: "Unknown",
-    food_group: "Unknown",
-    subgroup: null,
-    default_state: "raw",
-    aliases: [],
-    variant_template_id: null,
-    variant_values: {},
-    notes: "System fallback for unresolved foods.",
-    is_canon_v1: true,
-    is_usable: true,
-    match_status: "system",
-    match_source: "system",
-    match_confidence: 1,
-    source: "stub",
-    fdc_id: null,
-    per_100g: makeZeroVector()
   });
 
   return { rows, audit };
@@ -606,9 +680,22 @@ const run = async () => {
   const currentRows = supabase ? await loadAllCanonicalRows(supabase) : [];
   const sourceRows =
     options.sourceUsda || !supabase
-      ? loadSourceRowsFromUsdaCsv(options.usdaDir)
+      ? loadSourceRowsFromUsdaCsvs(options.usdaDirs)
       : currentRows;
-  const { rows: reseededRows, audit } = matchCanonItems(flatItems, sourceRows);
+  const curationByCanonicalId = loadCurationMap(options.curationPath);
+  const { rows: reseededRows, audit } = matchCanonItems(
+    flatItems,
+    sourceRows,
+    curationByCanonicalId,
+    options.strictCuration
+  );
+  const strictFailures = reseededRows.filter((row) => !row.is_usable);
+  if (options.strictCuration && strictFailures.length) {
+    const preview = strictFailures.slice(0, 25).map((row) => row.canonical_id).join(", ");
+    throw new Error(
+      `Strict curation failed: ${strictFailures.length} canon items are unresolved or unusable. First 25: ${preview}`
+    );
+  }
   const priorityAliases = loadPriorityAliases(options.priorityAliasesPath);
   const aliasRows = buildAliasRows(reseededRows, priorityAliases);
   const variantDimensions = Array.isArray(flatPayload?.variant_dimensions)
@@ -663,14 +750,18 @@ const run = async () => {
   console.log(`Audit written: ${options.auditPath}`);
   console.log(`Preview rows written: ${options.previewPath}`);
   console.log(
-    `Match counts -> matched: ${audit.counts.matched}, fuzzy: ${audit.counts.fuzzy}, unmatched: ${audit.counts.unmatched}`
+    `Match counts -> curated: ${audit.counts.curated}, matched: ${audit.counts.matched}, fuzzy: ${audit.counts.fuzzy}, unmatched: ${audit.counts.unmatched}`
   );
   console.log(`Prepared alias rows: ${aliasRows.length}`);
+  console.log(`Strict curation mode: ${options.strictCuration ? "on" : "off"}`);
 
   if (!options.apply) {
     console.log("Dry run only. Use --apply to snapshot + replace canonical tables.");
     if (options.sourceUsda || !supabase) {
-      console.log(`Source rows loaded from USDA CSV: ${options.usdaDir}`);
+      console.log(`Source rows loaded from USDA CSV dirs: ${options.usdaDirs.join(", ")}`);
+    }
+    if (curationByCanonicalId.size) {
+      console.log(`Loaded manual curation entries: ${curationByCanonicalId.size}`);
     }
     return;
   }
