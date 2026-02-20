@@ -81,6 +81,34 @@ const chunkArray = <T>(items: T[], chunkSize: number): T[][] => {
   return chunks;
 };
 
+const normalizeLookupKey = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const resolveCanonicalIdFromLookupText = (
+  rawValue: string,
+  canonicalLookup: CanonicalFoodLookupItem[]
+) => {
+  const normalized = normalizeLookupKey(rawValue);
+  if (!normalized) {
+    return "";
+  }
+  for (const candidate of canonicalLookup) {
+    const lookupValues = [candidate.canonical_id, candidate.canonical_name, ...(candidate.aliases || [])];
+    for (const value of lookupValues) {
+      if (typeof value !== "string" || !value.trim()) {
+        continue;
+      }
+      if (normalizeLookupKey(value) === normalized) {
+        return candidate.canonical_id;
+      }
+    }
+  }
+  return "";
+};
+
 const buildCanonicalIndexes = (
   rows: Array<Record<string, unknown>>,
   aliasByCanonicalId: Map<string, Set<string>>
@@ -302,11 +330,17 @@ const resolveCanonicalForItem = async (
     if (explicitCanonicalId === UNKNOWN_CANONICAL_ID) {
       return UNKNOWN_CANONICAL_ID;
     }
-    if (!canonicalById[explicitCanonicalId]) {
-      throw new Error(`Unknown canonical_id: ${explicitCanonicalId}`);
-    }
-    if (usableIds.has(explicitCanonicalId)) {
+    if (canonicalById[explicitCanonicalId] && usableIds.has(explicitCanonicalId)) {
       return explicitCanonicalId;
+    }
+    if (!canonicalById[explicitCanonicalId]) {
+      const normalizedExplicitId = resolveCanonicalIdFromLookupText(
+        explicitCanonicalId,
+        canonicalLookup
+      );
+      if (normalizedExplicitId && usableIds.has(normalizedExplicitId)) {
+        return normalizedExplicitId;
+      }
     }
   }
 

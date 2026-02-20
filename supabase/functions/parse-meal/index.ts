@@ -63,6 +63,12 @@ const NUTRIENT_KEYS = [
 let canonicalCache: CanonicalFoodLookupItem[] | null = null;
 let canonicalCacheLoadedAt = 0;
 
+const normalizeLookupKey = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
 const fetchMealPhoto = async (supabase, photoPath: string) => {
   const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
   if (error) {
@@ -214,10 +220,22 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
 
 const buildCanonicalLookup = (canonicalFoods: CanonicalFoodLookupItem[]) => {
   const byId = new Map<string, CanonicalFoodLookupItem>();
+  const byNormalizedLabel = new Map<string, CanonicalFoodLookupItem>();
   canonicalFoods.forEach((food) => {
     byId.set(food.canonical_id, food);
+    const lookupValues = [food.canonical_id, food.canonical_name, ...(food.aliases || [])];
+    lookupValues.forEach((value) => {
+      if (typeof value !== "string" || !value.trim()) {
+        return;
+      }
+      const normalized = normalizeLookupKey(value);
+      if (!normalized || byNormalizedLabel.has(normalized)) {
+        return;
+      }
+      byNormalizedLabel.set(normalized, food);
+    });
   });
-  return byId;
+  return { byId, byNormalizedLabel };
 };
 
 const buildCanonContext = (canonicalFoods: CanonicalFoodLookupItem[]) =>
@@ -337,7 +355,7 @@ serve(async (req) => {
     const supabase = createSupabaseClient(req);
     const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
     const canonicalFoods = await loadCanonicalFoods(supabase);
-    const canonicalLookupById = buildCanonicalLookup(canonicalFoods);
+    const canonicalLookup = buildCanonicalLookup(canonicalFoods);
     let items: unknown[] = [];
     let parseWarning: string | null = null;
     let parseError: string | null = null;
@@ -345,7 +363,9 @@ serve(async (req) => {
       const parsedItems = await callVisionModel(base64, contentType, canonicalFoods);
       let omittedCount = 0;
       const strictItems = parsedItems.flatMap((item) => {
-        const modelCanonical = canonicalLookupById.get(item.canonical_id);
+        const modelCanonical =
+          canonicalLookup.byId.get(item.canonical_id) ||
+          canonicalLookup.byNormalizedLabel.get(normalizeLookupKey(item.canonical_id));
         if (!modelCanonical || modelCanonical.canonical_id === UNKNOWN_CANONICAL_ID) {
           omittedCount += 1;
           return [];
