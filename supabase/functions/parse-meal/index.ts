@@ -100,9 +100,10 @@ Return ONLY strict JSON matching this schema:
 }
 Rules:
 - canonical_id MUST be one of the provided catalog canonical_id values.
-- If none fit, use canonical_id "food-unknown".
 - Set name to the chosen canonical label (not a free-form observed synonym).
-- Prefer the closest canonical equivalent over "food-unknown" whenever there is a reasonable match.
+- Return fewer items rather than uncertain ones.
+- Do NOT return "food-unknown". Omit uncertain foods instead.
+- Prefer the closest canonical equivalent whenever there is a reasonable match.
 - Common forms should map to canonical items (example: spaghetti -> Pasta, grated hard cheese -> Parmesan).
 - Do not invent new canonical ids or canonical names.
 - If unsure, return fewer items, not more.
@@ -221,21 +222,26 @@ const buildCanonicalLookup = (canonicalFoods: CanonicalFoodLookupItem[]) => {
 };
 
 const buildCanonContext = (canonicalFoods: CanonicalFoodLookupItem[]) =>
-  canonicalFoods.slice(0, MAX_CANON_CONTEXT_ITEMS).map((food) => ({
+  canonicalFoods
+    .filter((food) => food.canonical_id !== UNKNOWN_CANONICAL_ID)
+    .slice(0, MAX_CANON_CONTEXT_ITEMS)
+    .map((food) => ({
     canonical_id: food.canonical_id,
     canonical_name: food.canonical_name,
     aliases: Array.isArray(food.aliases)
       ? food.aliases.filter((alias) => typeof alias === "string").slice(0, MAX_ALIASES_PER_ITEM)
       : []
-  }));
+    }));
 
 const CANON_MAPPING_EXAMPLES = [
   "spaghetti -> Pasta",
   "grated parmesan cheese -> Parmesan",
+  "scrambled eggs -> Chicken egg",
+  "omelet -> Chicken egg",
   "ground beef -> Ground beef",
   "shredded carrot -> Carrot",
   "tomato sauce -> Tomato sauce",
-  "unknown processed mixed casserole -> food-unknown"
+  "plain yogurt -> Yogurt (plain)"
 ];
 
 const parseItems = (payload: string) => {
@@ -291,7 +297,7 @@ const callVisionModel = async (
             {
               type: "text",
               text:
-                `Identify foods in this meal photo and map each one to a canonical_id from the provided catalog.\n\nUse these mapping examples as guidance:\n${CANON_MAPPING_EXAMPLES.map((example) => `- ${example}`).join("\n")}\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence.`
+                `Identify foods in this meal photo and map each one to a canonical_id from the provided catalog.\n\nUse these mapping examples as guidance:\n${CANON_MAPPING_EXAMPLES.map((example) => `- ${example}`).join("\n")}\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence. Omit uncertain foods instead of outputting unknowns.`
             },
             {
               type: "image_url",
@@ -346,32 +352,29 @@ serve(async (req) => {
     const canonicalLookupById = buildCanonicalLookup(canonicalFoods);
     let items: unknown[] = [];
     let parseWarning: string | null = null;
+    let parseError: string | null = null;
     try {
       const parsedItems = await callVisionModel(base64, contentType, canonicalFoods);
-      let invalidCanonicalIdCount = 0;
-      items = parsedItems.map((item) => {
+      let omittedCount = 0;
+      const strictItems = parsedItems.flatMap((item) => {
         const modelCanonical = canonicalLookupById.get(item.canonical_id);
-        if (modelCanonical) {
-          return {
-            ...item,
-            name: modelCanonical.canonical_name,
-            canonical_id: modelCanonical.canonical_id,
-            canonical_name: modelCanonical.canonical_name
-          };
+        if (!modelCanonical || modelCanonical.canonical_id === UNKNOWN_CANONICAL_ID) {
+          omittedCount += 1;
+          return [];
         }
-        invalidCanonicalIdCount += 1;
-        return {
+        return [{
           ...item,
-          name: UNKNOWN_CANONICAL_NAME,
-          canonical_id: UNKNOWN_CANONICAL_ID,
-          canonical_name: UNKNOWN_CANONICAL_NAME
-        };
+          name: modelCanonical.canonical_name,
+          canonical_id: modelCanonical.canonical_id,
+          canonical_name: modelCanonical.canonical_name
+        }];
       });
-      if (invalidCanonicalIdCount > 0) {
-        parseWarning = `Vision returned ${invalidCanonicalIdCount} invalid canonical ids; coerced to unknown.`;
+      items = strictItems;
+      if (omittedCount > 0) {
+        parseWarning = `Omitted ${omittedCount} uncertain item${omittedCount === 1 ? "" : "s"} that could not be confidently mapped.`;
       }
     } catch (error) {
-      parseWarning = error instanceof Error ? error.message : "Vision model failed.";
+      parseError = error instanceof Error ? error.message : "Vision model failed.";
       items = [];
     }
 
@@ -391,7 +394,8 @@ serve(async (req) => {
       JSON.stringify({
         items,
         model_version: MODEL_VERSION,
-        error: parseWarning ?? undefined
+        warning: parseWarning ?? undefined,
+        error: parseError ?? undefined
       }),
       {
       status: 200,

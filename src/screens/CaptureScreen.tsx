@@ -586,17 +586,25 @@ const renderConfidenceBadge = (value: number) => {
   );
 };
 
-const renderBanner = (message: string, variant: "success" | "error") => (
+const renderBanner = (message: string, variant: "success" | "error" | "warning") => (
   <View
     style={[
       styles.banner,
-      variant === "success" ? styles.bannerSuccess : styles.bannerError
+      variant === "success"
+        ? styles.bannerSuccess
+        : variant === "warning"
+          ? styles.bannerWarning
+          : styles.bannerError
     ]}
   >
     <Text
       style={[
         styles.bannerText,
-        variant === "success" ? styles.bannerTextSuccess : styles.bannerTextError
+        variant === "success"
+          ? styles.bannerTextSuccess
+          : variant === "warning"
+            ? styles.bannerTextWarning
+            : styles.bannerTextError
       ]}
     >
       {message}
@@ -622,6 +630,7 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [mealError, setMealError] = useState<string | null>(null);
   const [isParsing, setIsParsing] = useState(false);
   const [parseError, setParseError] = useState<string | null>(null);
+  const [parseWarning, setParseWarning] = useState<string | null>(null);
   const [parsedItems, setParsedItems] = useState<ParsedItem[] | null>(null);
   const [editableItems, setEditableItems] = useState<EditableItem[]>([]);
   const [isMapping, setIsMapping] = useState(false);
@@ -824,6 +833,7 @@ export function CaptureScreen({ navigation, route }: Props) {
     setMealError(null);
     setParsedItems(null);
     setParseError(null);
+    setParseWarning(null);
     setEditableItems([]);
     setMappedItems(null);
     setMappingError(null);
@@ -1197,6 +1207,7 @@ export function CaptureScreen({ navigation, route }: Props) {
   const parseMealPhoto = useCallback(async (photoPath: string, newMealId: string) => {
     setIsParsing(true);
     setParseError(null);
+    setParseWarning(null);
     setParsedItems(null);
 
     try {
@@ -1212,6 +1223,7 @@ export function CaptureScreen({ navigation, route }: Props) {
       }
 
       let warning: string | null = null;
+      let invokeError: string | null = null;
       if (data) {
         const payload =
           typeof data === "string"
@@ -1226,14 +1238,25 @@ export function CaptureScreen({ navigation, route }: Props) {
         if (
           payload &&
           typeof payload === "object" &&
+          "warning" in payload &&
+          typeof payload.warning === "string"
+        ) {
+          warning = payload.warning;
+        }
+        if (
+          payload &&
+          typeof payload === "object" &&
           "error" in payload &&
           typeof payload.error === "string"
         ) {
-          warning = payload.error;
+          invokeError = payload.error;
         }
       }
       if (warning) {
-        setParseError(warning);
+        setParseWarning(warning);
+      }
+      if (invokeError) {
+        setParseError(invokeError);
       }
       const items = parseVisionPayload(data);
       setParsedItems(items);
@@ -1776,6 +1799,7 @@ export function CaptureScreen({ navigation, route }: Props) {
             </View>
           ) : null}
           {parseError ? renderBanner(parseError, "error") : null}
+          {parseWarning ? renderBanner(parseWarning, "warning") : null}
           {suggestionError ? renderBanner(suggestionError, "error") : null}
           {editableItems.length ? renderEditableFoods() : null}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
@@ -1895,8 +1919,14 @@ const styles = StyleSheet.create({
   bannerError: {
     backgroundColor: "#fce8e6"
   },
+  bannerWarning: {
+    backgroundColor: "#fff4cc"
+  },
   bannerTextSuccess: {
     color: "#1a7f37"
+  },
+  bannerTextWarning: {
+    color: "#7a5e00"
   },
   bannerTextError: {
     color: "#b42318"
