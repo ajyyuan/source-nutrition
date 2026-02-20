@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "name": "Source Canon Whole Foods",
-  "generated_at": "2026-02-20T06:49:00.796Z",
+  "generated_at": "2026-02-20T16:31:38.960Z",
   "principles": {
     "single_ingredient_only": true,
     "exclude_branded_and_restaurant_items": true,
@@ -57,13 +57,23 @@
         7,
         4
       ]
+    },
+    {
+      "key": "egg_part",
+      "label": "Egg part",
+      "value_type": "enum",
+      "allowed_values": [
+        "whole",
+        "white",
+        "yolk"
+      ]
     }
   ],
   "variant_templates": [
     {
       "template_id": "milk_fat_levels",
       "applies_to": [
-        "Whole milk"
+        "Cow's milk"
       ],
       "dimensions": [
         {
@@ -107,21 +117,140 @@
           "default": 20
         }
       ]
+    },
+    {
+      "template_id": "egg_parts",
+      "applies_to": [
+        "Chicken egg"
+      ],
+      "dimensions": [
+        {
+          "key": "egg_part",
+          "default": "whole"
+        }
+      ]
     }
   ],
   "items": [
     {
-      "canonical_id": "ground-beef",
-      "display_name": "Ground beef",
-      "canonical_name": "Ground beef",
+      "canonical_id": "ground-beef-30-fat",
+      "display_name": "Ground beef (30% fat)",
+      "canonical_name": "Ground beef (30% fat)",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Ground meats",
       "subgroup": null,
       "default_state": "raw",
-      "aliases": [],
+      "aliases": [
+        "ground beef 30%",
+        "ground beef 30 percent",
+        "30% lean ground beef"
+      ],
       "variant_template_id": "ground_beef_fat_percents",
-      "notes": null
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 30
+      }
+    },
+    {
+      "canonical_id": "ground-beef-20-fat",
+      "display_name": "Ground beef (20% fat)",
+      "canonical_name": "Ground beef (20% fat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Ground meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "ground beef 20%",
+        "ground beef 20 percent",
+        "20% lean ground beef"
+      ],
+      "variant_template_id": "ground_beef_fat_percents",
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 20
+      }
+    },
+    {
+      "canonical_id": "ground-beef-15-fat",
+      "display_name": "Ground beef (15% fat)",
+      "canonical_name": "Ground beef (15% fat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Ground meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "ground beef 15%",
+        "ground beef 15 percent",
+        "15% lean ground beef"
+      ],
+      "variant_template_id": "ground_beef_fat_percents",
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 15
+      }
+    },
+    {
+      "canonical_id": "ground-beef-10-fat",
+      "display_name": "Ground beef (10% fat)",
+      "canonical_name": "Ground beef (10% fat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Ground meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "ground beef 10%",
+        "ground beef 10 percent",
+        "10% lean ground beef"
+      ],
+      "variant_template_id": "ground_beef_fat_percents",
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 10
+      }
+    },
+    {
+      "canonical_id": "ground-beef-7-fat",
+      "display_name": "Ground beef (7% fat)",
+      "canonical_name": "Ground beef (7% fat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Ground meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "ground beef 7%",
+        "ground beef 7 percent",
+        "7% lean ground beef"
+      ],
+      "variant_template_id": "ground_beef_fat_percents",
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 7
+      }
+    },
+    {
+      "canonical_id": "ground-beef-4-fat",
+      "display_name": "Ground beef (4% fat)",
+      "canonical_name": "Ground beef (4% fat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Ground meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "ground beef 4%",
+        "ground beef 4 percent",
+        "4% lean ground beef"
+      ],
+      "variant_template_id": "ground_beef_fat_percents",
+      "notes": null,
+      "variant_values": {
+        "ground_meat_fat_percent": 4
+      }
     },
     {
       "canonical_id": "ground-bison",
@@ -134,7 +263,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-lamb",
@@ -147,7 +277,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-goat",
@@ -160,7 +291,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-pork",
@@ -173,7 +305,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-chicken",
@@ -186,7 +319,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-turkey",
@@ -199,7 +333,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ground-duck",
@@ -212,7 +347,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ribeye",
@@ -227,7 +363,8 @@
         "rib eye"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "strip-steak",
@@ -243,7 +380,8 @@
         "New York strip"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tenderloin",
@@ -259,7 +397,8 @@
         "filet mignon"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sirloin",
@@ -272,7 +411,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "flank",
@@ -287,7 +427,8 @@
         "flank steak"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "skirt",
@@ -302,7 +443,8 @@
         "skirt steak"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hanger",
@@ -317,7 +459,8 @@
         "hanger steak"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chuck",
@@ -333,7 +476,8 @@
         "chuck steak"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "brisket",
@@ -346,7 +490,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "short-ribs",
@@ -359,7 +504,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "back-ribs",
@@ -372,7 +518,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "round",
@@ -388,7 +535,8 @@
         "bottom round"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shank",
@@ -401,7 +549,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "oxtail",
@@ -414,7 +563,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "plate",
@@ -429,7 +579,8 @@
         "plate steak"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "stew-meat",
@@ -444,7 +595,8 @@
         "beef for stew"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "leg-lamb-goat",
@@ -460,7 +612,8 @@
         "goat leg"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shoulder-lamb-goat",
@@ -476,7 +629,8 @@
         "goat shoulder"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rack-lamb-goat",
@@ -491,7 +645,8 @@
         "rack of lamb"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chop-lamb-goat",
@@ -506,7 +661,8 @@
         "lamb chops"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shank-lamb-goat",
@@ -522,7 +678,8 @@
         "goat shank"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-loin",
@@ -537,7 +694,8 @@
         "loin"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-tenderloin",
@@ -552,7 +710,8 @@
         "tenderloin"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-shoulder",
@@ -568,7 +727,8 @@
         "Boston butt"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-chop",
@@ -583,7 +743,8 @@
         "chops"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-belly",
@@ -596,7 +757,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-ribs",
@@ -612,7 +774,8 @@
         "baby back ribs"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "fresh-ham",
@@ -627,7 +790,8 @@
         "raw ham"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-shank",
@@ -640,7 +804,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-jowl",
@@ -653,7 +818,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "whole-chicken",
@@ -666,7 +832,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-breast",
@@ -679,7 +846,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-thigh",
@@ -692,7 +860,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-drumstick",
@@ -705,7 +874,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-wing",
@@ -718,7 +888,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "whole-turkey",
@@ -731,7 +902,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "turkey-breast",
@@ -744,7 +916,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "turkey-thigh",
@@ -757,7 +930,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "whole-duck",
@@ -770,7 +944,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "duck-breast",
@@ -783,7 +958,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "duck-leg",
@@ -796,7 +972,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "atlantic-salmon",
@@ -809,7 +986,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sockeye-salmon",
@@ -822,7 +1000,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "coho-salmon",
@@ -835,7 +1014,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chinook-salmon",
@@ -850,7 +1030,8 @@
         "king salmon"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sardine",
@@ -863,7 +1044,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tuna-skipjack",
@@ -876,7 +1058,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tuna-albacore",
@@ -889,7 +1072,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -902,7 +1086,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cod",
@@ -915,7 +1100,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "haddock",
@@ -928,7 +1114,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pollock",
@@ -941,7 +1128,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "halibut",
@@ -954,7 +1142,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mackerel",
@@ -967,7 +1156,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "herring",
@@ -980,7 +1170,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "trout",
@@ -993,7 +1184,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tilapia",
@@ -1006,7 +1198,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "catfish",
@@ -1019,7 +1212,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "anchovy",
@@ -1032,7 +1226,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shrimp",
@@ -1045,7 +1240,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "prawn",
@@ -1058,7 +1254,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "scallop",
@@ -1071,7 +1268,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mussel",
@@ -1084,7 +1282,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "clam",
@@ -1097,7 +1296,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "oyster",
@@ -1110,7 +1310,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "crab",
@@ -1123,7 +1324,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lobster",
@@ -1136,7 +1338,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "squid",
@@ -1151,7 +1354,8 @@
         "calamari"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "octopus",
@@ -1164,7 +1368,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-liver",
@@ -1177,7 +1382,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-heart",
@@ -1190,7 +1396,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-kidney",
@@ -1203,7 +1410,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-tongue",
@@ -1216,7 +1424,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-brain",
@@ -1229,7 +1438,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-spleen",
@@ -1242,7 +1452,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-pancreas",
@@ -1255,7 +1466,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-thymus-sweetbreads",
@@ -1270,7 +1482,8 @@
         "sweetbreads"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-tripe",
@@ -1285,7 +1498,8 @@
         "stomach"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lamb-liver",
@@ -1298,7 +1512,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lamb-heart",
@@ -1311,7 +1526,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lamb-kidney",
@@ -1324,7 +1540,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-liver",
@@ -1337,7 +1554,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-heart",
@@ -1350,7 +1568,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-kidney",
@@ -1363,7 +1582,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-brain",
@@ -1376,7 +1596,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-stomach",
@@ -1389,7 +1610,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-liver",
@@ -1402,7 +1624,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-heart",
@@ -1415,7 +1638,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-gizzard",
@@ -1428,7 +1652,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-egg",
@@ -1439,9 +1664,94 @@
       "food_group": "Eggs",
       "subgroup": null,
       "default_state": "raw",
-      "aliases": [],
+      "aliases": [
+        "whole egg",
+        "chicken egg",
+        "egg",
+        "eggs"
+      ],
+      "variant_template_id": "egg_parts",
+      "notes": null,
+      "variant_values": {
+        "egg_part": "whole"
+      }
+    },
+    {
+      "canonical_id": "egg-white",
+      "display_name": "Egg white",
+      "canonical_name": "Egg white",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "egg white",
+        "egg whites",
+        "chicken egg white",
+        "whites"
+      ],
+      "variant_template_id": "egg_parts",
+      "notes": null,
+      "variant_values": {
+        "egg_part": "white"
+      }
+    },
+    {
+      "canonical_id": "egg-yolk",
+      "display_name": "Egg yolk",
+      "canonical_name": "Egg yolk",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "egg yolk",
+        "egg yolks",
+        "chicken egg yolk",
+        "yolks"
+      ],
+      "variant_template_id": "egg_parts",
+      "notes": null,
+      "variant_values": {
+        "egg_part": "yolk"
+      }
+    },
+    {
+      "canonical_id": "scrambled-egg-chicken",
+      "display_name": "Scrambled egg (chicken)",
+      "canonical_name": "Scrambled egg (chicken)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "scrambled eggs",
+        "eggs scrambled"
+      ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "fried-egg-chicken",
+      "display_name": "Fried egg (chicken)",
+      "canonical_name": "Fried egg (chicken)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Eggs",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "fried eggs",
+        "egg fried",
+        "sunny side up"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "duck-egg",
@@ -1454,7 +1764,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "turkey-egg",
@@ -1467,7 +1778,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "quail-egg",
@@ -1480,33 +1792,176 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
-      "canonical_id": "whole-milk",
-      "display_name": "Whole milk",
-      "canonical_name": "Whole milk",
+      "canonical_id": "cow-s-milk",
+      "display_name": "Cow's milk",
+      "canonical_name": "Cow's milk",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Dairy",
       "subgroup": null,
       "default_state": "dairy_processed",
-      "aliases": [],
+      "aliases": [
+        "milk",
+        "cow milk",
+        "whole milk",
+        "full fat milk"
+      ],
       "variant_template_id": "milk_fat_levels",
-      "notes": null
+      "notes": null,
+      "variant_values": {
+        "milkfat_level": "whole"
+      }
     },
     {
-      "canonical_id": "cream",
-      "display_name": "Cream",
-      "canonical_name": "Cream",
+      "canonical_id": "cow-s-milk-2",
+      "display_name": "Cow's milk (2%)",
+      "canonical_name": "Cow's milk (2%)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "2% milk",
+        "milk 2%",
+        "reduced fat milk",
+        "cow milk 2%"
+      ],
+      "variant_template_id": "milk_fat_levels",
+      "notes": null,
+      "variant_values": {
+        "milkfat_level": "2%"
+      }
+    },
+    {
+      "canonical_id": "cow-s-milk-1",
+      "display_name": "Cow's milk (1%)",
+      "canonical_name": "Cow's milk (1%)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "1% milk",
+        "low fat milk",
+        "cow milk 1%"
+      ],
+      "variant_template_id": "milk_fat_levels",
+      "notes": null,
+      "variant_values": {
+        "milkfat_level": "1%"
+      }
+    },
+    {
+      "canonical_id": "cow-s-milk-skim",
+      "display_name": "Cow's milk (skim)",
+      "canonical_name": "Cow's milk (skim)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "skim milk",
+        "fat free milk",
+        "cow milk skim"
+      ],
+      "variant_template_id": "milk_fat_levels",
+      "notes": null,
+      "variant_values": {
+        "milkfat_level": "skim"
+      }
+    },
+    {
+      "canonical_id": "goat-milk",
+      "display_name": "Goat milk",
+      "canonical_name": "Goat milk",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Dairy",
       "subgroup": null,
       "default_state": "dairy_processed",
       "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "sheep-milk",
+      "display_name": "Sheep milk",
+      "canonical_name": "Sheep milk",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "ewe milk"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "half-and-half",
+      "display_name": "Half and half",
+      "canonical_name": "Half and half",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "half and half"
+      ],
       "variant_template_id": "cream_types",
-      "notes": null
+      "notes": null,
+      "variant_values": {
+        "cream_type": "half_and_half"
+      }
+    },
+    {
+      "canonical_id": "light-cream",
+      "display_name": "Light cream",
+      "canonical_name": "Light cream",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "light cream",
+        "coffee cream"
+      ],
+      "variant_template_id": "cream_types",
+      "notes": null,
+      "variant_values": {
+        "cream_type": "light_cream"
+      }
+    },
+    {
+      "canonical_id": "heavy-cream",
+      "display_name": "Heavy cream",
+      "canonical_name": "Heavy cream",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "heavy cream",
+        "heavy whipping cream"
+      ],
+      "variant_template_id": "cream_types",
+      "notes": null,
+      "variant_values": {
+        "cream_type": "heavy_cream"
+      }
     },
     {
       "canonical_id": "butter",
@@ -1519,7 +1974,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ghee",
@@ -1532,7 +1988,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "yogurt-plain",
@@ -1543,9 +2000,53 @@
       "food_group": "Dairy",
       "subgroup": null,
       "default_state": "dairy_processed",
-      "aliases": [],
+      "aliases": [
+        "plain yogurt",
+        "whole yogurt"
+      ],
       "variant_template_id": "yogurt_fat_levels",
-      "notes": null
+      "notes": null,
+      "variant_values": {
+        "yogurt_fat_level": "whole"
+      }
+    },
+    {
+      "canonical_id": "yogurt-plain-lowfat",
+      "display_name": "Yogurt (plain, lowfat)",
+      "canonical_name": "Yogurt (plain, lowfat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "plain lowfat yogurt",
+        "low fat yogurt"
+      ],
+      "variant_template_id": "yogurt_fat_levels",
+      "notes": null,
+      "variant_values": {
+        "yogurt_fat_level": "lowfat"
+      }
+    },
+    {
+      "canonical_id": "yogurt-plain-nonfat",
+      "display_name": "Yogurt (plain, nonfat)",
+      "canonical_name": "Yogurt (plain, nonfat)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "plain nonfat yogurt",
+        "fat free yogurt"
+      ],
+      "variant_template_id": "yogurt_fat_levels",
+      "notes": null,
+      "variant_values": {
+        "yogurt_fat_level": "nonfat"
+      }
     },
     {
       "canonical_id": "kefir-plain",
@@ -1558,7 +2059,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cottage-cheese",
@@ -1571,7 +2073,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cheddar",
@@ -1584,7 +2087,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "gouda",
@@ -1597,7 +2101,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "gruyere",
@@ -1610,7 +2115,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "parmesan",
@@ -1625,7 +2131,8 @@
         "Parmigiano Reggiano"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mozzarella",
@@ -1638,7 +2145,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "feta",
@@ -1651,7 +2159,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "swiss",
@@ -1666,7 +2175,8 @@
         "Emmental"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beef-tallow",
@@ -1679,7 +2189,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lamb-tallow",
@@ -1692,7 +2203,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pork-lard",
@@ -1705,7 +2217,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "duck-fat",
@@ -1718,7 +2231,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chicken-fat",
@@ -1733,7 +2247,8 @@
         "schmaltz"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "american-cheese",
@@ -1746,7 +2261,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "processed-cheese-slices",
@@ -1759,7 +2275,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cream-cheese",
@@ -1772,7 +2289,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sour-cream",
@@ -1785,7 +2303,8 @@
       "default_state": "dairy_processed",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "broccoli",
@@ -1798,7 +2317,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cauliflower",
@@ -1811,7 +2331,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cabbage",
@@ -1824,7 +2345,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "brussels-sprouts",
@@ -1837,7 +2359,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kale",
@@ -1850,7 +2373,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bok-choy",
@@ -1865,7 +2389,8 @@
         "pak choi"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "arugula",
@@ -1878,7 +2403,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "radish",
@@ -1893,7 +2419,8 @@
         "daikon"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "turnip",
@@ -1906,7 +2433,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rutabaga",
@@ -1919,7 +2447,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mustard-greens",
@@ -1932,7 +2461,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "carrot",
@@ -1945,7 +2475,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "celery",
@@ -1958,7 +2489,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "parsnip",
@@ -1971,7 +2503,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "fennel",
@@ -1984,7 +2517,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "parsley",
@@ -1997,7 +2531,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "dill",
@@ -2010,7 +2545,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cilantro",
@@ -2025,7 +2561,8 @@
         "coriander"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "garlic",
@@ -2038,7 +2575,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "onion",
@@ -2051,7 +2589,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shallot",
@@ -2064,7 +2603,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "leek",
@@ -2077,7 +2617,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "scallion",
@@ -2090,7 +2631,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chive",
@@ -2103,7 +2645,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "potato",
@@ -2116,7 +2659,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tomato",
@@ -2129,7 +2673,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bell-pepper",
@@ -2142,7 +2687,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chili-pepper",
@@ -2155,7 +2701,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "eggplant",
@@ -2170,7 +2717,8 @@
         "aubergine"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "zucchini",
@@ -2183,7 +2731,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cucumber",
@@ -2196,7 +2745,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pumpkin",
@@ -2209,7 +2759,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "butternut-squash",
@@ -2222,7 +2773,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "acorn-squash",
@@ -2235,7 +2787,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "spaghetti-squash",
@@ -2248,7 +2801,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "watermelon",
@@ -2261,7 +2815,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "spinach",
@@ -2274,7 +2829,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "beet",
@@ -2287,7 +2843,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "swiss-chard",
@@ -2300,7 +2857,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "quinoa",
@@ -2313,7 +2871,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "amaranth",
@@ -2326,7 +2885,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lettuce",
@@ -2339,7 +2899,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "endive",
@@ -2352,7 +2913,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "radicchio",
@@ -2365,7 +2927,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "artichoke",
@@ -2378,7 +2941,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lentil",
@@ -2391,7 +2955,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chickpea",
@@ -2406,7 +2971,8 @@
         "garbanzo"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "black-bean",
@@ -2419,7 +2985,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kidney-bean",
@@ -2432,7 +2999,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pinto-bean",
@@ -2445,7 +3013,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "soybean",
@@ -2460,7 +3029,8 @@
         "edamame"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pea",
@@ -2473,7 +3043,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "green-bean",
@@ -2486,7 +3057,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "white-rice",
@@ -2499,7 +3071,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "brown-rice",
@@ -2512,7 +3085,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "wild-rice",
@@ -2525,7 +3099,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "oats",
@@ -2538,7 +3113,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "wheat",
@@ -2551,7 +3127,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "barley",
@@ -2564,7 +3141,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rye",
@@ -2577,7 +3155,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "corn",
@@ -2590,7 +3169,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "millet",
@@ -2603,7 +3183,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sweet-potato",
@@ -2616,7 +3197,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "yam",
@@ -2629,7 +3211,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cassava",
@@ -2644,7 +3227,8 @@
         "yucca"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "taro",
@@ -2657,7 +3241,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ginger",
@@ -2670,7 +3255,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "turmeric",
@@ -2683,7 +3269,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "apple",
@@ -2696,7 +3283,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "banana",
@@ -2709,7 +3297,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "orange",
@@ -2722,7 +3311,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tangerine",
@@ -2735,7 +3325,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lemon",
@@ -2748,7 +3339,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lime",
@@ -2761,7 +3353,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "strawberry",
@@ -2774,7 +3367,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "blueberry",
@@ -2787,7 +3381,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "raspberry",
@@ -2800,7 +3395,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kiwi",
@@ -2813,7 +3409,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "avocado",
@@ -2826,7 +3423,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "olive",
@@ -2839,7 +3437,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mango",
@@ -2852,7 +3451,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pineapple",
@@ -2865,7 +3465,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "papaya",
@@ -2878,7 +3479,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "grapes",
@@ -2891,7 +3493,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pear",
@@ -2904,7 +3507,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "peach",
@@ -2917,7 +3521,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "apricot",
@@ -2930,7 +3535,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "almond",
@@ -2943,7 +3549,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "walnut",
@@ -2956,7 +3563,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pecan",
@@ -2969,7 +3577,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "macadamia",
@@ -2982,7 +3591,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hazelnut",
@@ -2995,7 +3605,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pistachio",
@@ -3008,7 +3619,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "brazil-nut",
@@ -3021,7 +3633,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cashew",
@@ -3034,7 +3647,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pumpkin-seed",
@@ -3049,7 +3663,8 @@
         "pepitas"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sunflower-seed",
@@ -3062,7 +3677,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sesame",
@@ -3075,7 +3691,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chia",
@@ -3088,7 +3705,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "flax",
@@ -3101,7 +3719,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hemp",
@@ -3114,7 +3733,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pine-nut",
@@ -3127,7 +3747,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "olive-oil",
@@ -3140,7 +3761,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "avocado-oil",
@@ -3153,7 +3775,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "coconut-oil",
@@ -3166,7 +3789,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sesame-oil",
@@ -3179,7 +3803,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "palm-oil",
@@ -3192,7 +3817,8 @@
       "default_state": "oil",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bread",
@@ -3205,7 +3831,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "whole-wheat-bread",
@@ -3218,7 +3845,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sourdough-bread",
@@ -3231,7 +3859,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pita",
@@ -3244,7 +3873,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "naan",
@@ -3257,7 +3887,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "noodles",
@@ -3270,7 +3901,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "soba-noodles",
@@ -3285,7 +3917,8 @@
         "buckwheat noodles"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pasta",
@@ -3298,7 +3931,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sourdough-pasta",
@@ -3311,7 +3945,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "canola-oil",
@@ -3324,7 +3959,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "soybean-oil",
@@ -3337,7 +3973,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sunflower-oil",
@@ -3350,7 +3987,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "safflower-oil",
@@ -3363,7 +4001,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "corn-oil",
@@ -3376,7 +4015,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "grapeseed-oil",
@@ -3389,7 +4029,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "peanut-oil",
@@ -3402,7 +4043,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rice-bran-oil",
@@ -3415,7 +4057,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "vegetable-oil",
@@ -3428,7 +4071,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "white-bread",
@@ -3441,7 +4085,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rye-bread",
@@ -3454,7 +4099,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bagel",
@@ -3467,7 +4113,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tortilla-flour",
@@ -3480,7 +4127,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tortilla-corn",
@@ -3493,7 +4141,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hamburger-bun",
@@ -3506,7 +4155,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hot-dog-bun",
@@ -3519,7 +4169,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sandwich-roll",
@@ -3532,7 +4183,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bread-crumbs",
@@ -3545,7 +4197,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "panko",
@@ -3558,7 +4211,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "crackers-plain",
@@ -3571,7 +4225,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rice-cakes",
@@ -3584,7 +4239,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "rice-noodles",
@@ -3597,7 +4253,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "udon-noodles",
@@ -3610,7 +4267,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ramen-noodles",
@@ -3623,7 +4281,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "egg-noodles",
@@ -3636,7 +4295,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "whole-wheat-pasta",
@@ -3649,7 +4309,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "couscous",
@@ -3662,7 +4323,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "bulgur",
@@ -3675,7 +4337,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "peanut-butter",
@@ -3688,7 +4351,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "almond-butter",
@@ -3701,7 +4365,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tahini",
@@ -3714,7 +4379,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sunflower-seed-butter",
@@ -3727,7 +4393,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "jam",
@@ -3743,7 +4410,8 @@
         "preserves"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "honey",
@@ -3756,7 +4424,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "maple-syrup",
@@ -3769,7 +4438,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tomato-sauce",
@@ -3782,7 +4452,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tomato-paste",
@@ -3795,7 +4466,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "canned-tomatoes",
@@ -3808,7 +4480,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "coconut-milk",
@@ -3821,7 +4494,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "broth",
@@ -3836,7 +4510,8 @@
         "stock"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "ketchup",
@@ -3849,7 +4524,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mustard",
@@ -3862,7 +4538,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "mayonnaise",
@@ -3875,7 +4552,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "soy-sauce",
@@ -3888,7 +4566,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "vinegar",
@@ -3901,7 +4580,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "apple-cider-vinegar",
@@ -3914,7 +4594,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "hot-sauce",
@@ -3927,7 +4608,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "pickles",
@@ -3940,7 +4622,8 @@
       "default_state": "preserved",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "white-mushroom",
@@ -3955,7 +4638,8 @@
         "button mushroom"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "cremini",
@@ -3968,7 +4652,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "portobello",
@@ -3981,7 +4666,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "shiitake",
@@ -3994,7 +4680,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "oyster-mushroom",
@@ -4007,7 +4694,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "maitake",
@@ -4020,7 +4708,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "lion-s-mane",
@@ -4033,7 +4722,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "nori",
@@ -4046,7 +4736,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kelp",
@@ -4061,7 +4752,8 @@
         "kombu"
       ],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "wakame",
@@ -4074,7 +4766,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "dulse",
@@ -4087,7 +4780,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "spirulina",
@@ -4100,7 +4794,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "chlorella",
@@ -4113,7 +4808,8 @@
       "default_state": "raw",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "sauerkraut",
@@ -4126,7 +4822,8 @@
       "default_state": "fermented",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kimchi",
@@ -4139,7 +4836,8 @@
       "default_state": "fermented",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "tempeh",
@@ -4152,7 +4850,8 @@
       "default_state": "fermented",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "miso",
@@ -4165,7 +4864,8 @@
       "default_state": "fermented",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "natto",
@@ -4178,7 +4878,8 @@
       "default_state": "fermented",
       "aliases": [],
       "variant_template_id": null,
-      "notes": null
+      "notes": null,
+      "variant_values": {}
     }
   ]
 }

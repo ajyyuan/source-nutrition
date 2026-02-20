@@ -1,12 +1,111 @@
 {
-  "generated_at": "2026-02-20T07:07:55.543Z",
-  "total_items": 306,
+  "generated_at": "2026-02-20T16:32:26.317Z",
+  "total_items": 324,
   "counts": {
-    "matched": 4,
-    "fuzzy": 188,
-    "unmatched": 114
+    "matched": 15,
+    "fuzzy": 186,
+    "unmatched": 123
   },
   "matched": [
+    {
+      "canonical_id": "chicken-egg",
+      "display_name": "Chicken egg",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.37,
+      "matched_name": "Egg, whole, raw, fresh",
+      "matched_fdc_id": "171287"
+    },
+    {
+      "canonical_id": "egg-white",
+      "display_name": "Egg white",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 1.67,
+      "matched_name": "Egg, white, raw, fresh",
+      "matched_fdc_id": "172183"
+    },
+    {
+      "canonical_id": "egg-yolk",
+      "display_name": "Egg yolk",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 1.67,
+      "matched_name": "Egg, yolk, raw, fresh",
+      "matched_fdc_id": "172184"
+    },
+    {
+      "canonical_id": "scrambled-egg-chicken",
+      "display_name": "Scrambled egg (chicken)",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.348571,
+      "matched_name": "Egg, whole, cooked, scrambled",
+      "matched_fdc_id": "172187"
+    },
+    {
+      "canonical_id": "fried-egg-chicken",
+      "display_name": "Fried egg (chicken)",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.348571,
+      "matched_name": "Egg, whole, cooked, fried",
+      "matched_fdc_id": "173423"
+    },
+    {
+      "canonical_id": "cow-s-milk",
+      "display_name": "Cow's milk",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.166667,
+      "matched_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+      "matched_fdc_id": "171265"
+    },
+    {
+      "canonical_id": "cow-s-milk-2",
+      "display_name": "Cow's milk (2%)",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.136364,
+      "matched_name": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+      "matched_fdc_id": "171267"
+    },
+    {
+      "canonical_id": "cow-s-milk-1",
+      "display_name": "Cow's milk (1%)",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.15,
+      "matched_name": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+      "matched_fdc_id": "170872"
+    },
+    {
+      "canonical_id": "cow-s-milk-skim",
+      "display_name": "Cow's milk (skim)",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.214286,
+      "matched_name": "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
+      "matched_fdc_id": "171269"
+    },
+    {
+      "canonical_id": "goat-milk",
+      "display_name": "Goat milk",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.375,
+      "matched_name": "Milk, goat, fluid, with added vitamin D",
+      "matched_fdc_id": "171278"
+    },
+    {
+      "canonical_id": "sheep-milk",
+      "display_name": "Sheep milk",
+      "match_status": "matched",
+      "match_source": "db_override",
+      "match_confidence": 0.6,
+      "matched_name": "Milk, sheep, fluid",
+      "matched_fdc_id": "170882"
+    },
     {
       "canonical_id": "honey",
       "display_name": "Honey",
@@ -45,15 +144,6 @@
     }
   ],
   "fuzzy": [
-    {
-      "canonical_id": "ground-beef",
-      "display_name": "Ground beef",
-      "match_status": "fuzzy",
-      "match_source": "db_fuzzy",
-      "match_confidence": 1.010769,
-      "matched_name": "ON THE BORDER, soft taco with ground beef, cheese and lettuce",
-      "matched_fdc_id": "167657"
-    },
     {
       "canonical_id": "ground-lamb",
       "display_name": "Ground lamb",
@@ -469,22 +559,13 @@
       "matched_fdc_id": "171456"
     },
     {
-      "canonical_id": "whole-milk",
-      "display_name": "Whole milk",
+      "canonical_id": "half-and-half",
+      "display_name": "Half and half",
       "match_status": "fuzzy",
       "match_source": "db_fuzzy",
-      "match_confidence": 1.155,
-      "matched_name": "Cheese, mozzarella, whole milk, low moisture",
-      "matched_fdc_id": "170846"
-    },
-    {
-      "canonical_id": "cream",
-      "display_name": "Cream",
-      "match_status": "fuzzy",
-      "match_source": "db_fuzzy",
-      "match_confidence": 1.425,
-      "matched_name": "Cream, sour, cultured",
-      "matched_fdc_id": "171257"
+      "match_confidence": 1.422857,
+      "matched_name": "Cream, half and half, lowfat",
+      "matched_fdc_id": "171308"
     },
     {
       "canonical_id": "butter",
@@ -1740,6 +1821,60 @@
   ],
   "unmatched": [
     {
+      "canonical_id": "ground-beef-30-fat",
+      "display_name": "Ground beef (30% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-beef-20-fat",
+      "display_name": "Ground beef (20% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-beef-15-fat",
+      "display_name": "Ground beef (15% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-beef-10-fat",
+      "display_name": "Ground beef (10% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-beef-7-fat",
+      "display_name": "Ground beef (7% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "ground-beef-4-fat",
+      "display_name": "Ground beef (4% fat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
       "canonical_id": "ground-bison",
       "display_name": "Ground bison",
       "match_status": "unmatched",
@@ -2190,15 +2325,6 @@
       "matched_fdc_id": null
     },
     {
-      "canonical_id": "chicken-egg",
-      "display_name": "Chicken egg",
-      "match_status": "unmatched",
-      "match_source": null,
-      "match_confidence": 0,
-      "matched_name": null,
-      "matched_fdc_id": null
-    },
-    {
       "canonical_id": "duck-egg",
       "display_name": "Duck egg",
       "match_status": "unmatched",
@@ -2219,6 +2345,42 @@
     {
       "canonical_id": "quail-egg",
       "display_name": "Quail egg",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "light-cream",
+      "display_name": "Light cream",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "heavy-cream",
+      "display_name": "Heavy cream",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "yogurt-plain-lowfat",
+      "display_name": "Yogurt (plain, lowfat)",
+      "match_status": "unmatched",
+      "match_source": null,
+      "match_confidence": 0,
+      "matched_name": null,
+      "matched_fdc_id": null
+    },
+    {
+      "canonical_id": "yogurt-plain-nonfat",
+      "display_name": "Yogurt (plain, nonfat)",
       "match_status": "unmatched",
       "match_source": null,
       "match_confidence": 0,

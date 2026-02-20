@@ -65,6 +65,210 @@ const nextCanonicalId = (item, idCounts) => {
   return finalId;
 };
 
+const dedupeStrings = (values) => {
+  const seen = new Set();
+  const out = [];
+  values.forEach((value) => {
+    const cleaned = typeof value === "string" ? value.trim() : "";
+    if (!cleaned) {
+      return;
+    }
+    const key = normalize(cleaned);
+    if (!key || seen.has(key)) {
+      return;
+    }
+    seen.add(key);
+    out.push(cleaned);
+  });
+  return out;
+};
+
+const cartesianProduct = (valueGroups) =>
+  valueGroups.reduce(
+    (acc, group) =>
+      acc.flatMap((current) =>
+        group.map((entry) => ({
+          ...current,
+          [entry.key]: entry.value
+        }))
+      ),
+    [{}]
+  );
+
+const buildVariantDisplayName = (templateId, baseDisplayName, variantValues) => {
+  if (templateId === "milk_fat_levels") {
+    const level = variantValues.milkfat_level;
+    if (level === "whole") return "Whole milk";
+    if (level === "2%") return "2% milk";
+    if (level === "1%") return "1% milk";
+    if (level === "skim") return "Skim milk";
+  }
+  if (templateId === "yogurt_fat_levels") {
+    const level = variantValues.yogurt_fat_level;
+    if (level === "whole") return "Yogurt (plain)";
+    if (level === "lowfat") return "Yogurt (plain, lowfat)";
+    if (level === "nonfat") return "Yogurt (plain, nonfat)";
+  }
+  if (templateId === "cream_types") {
+    const creamType = variantValues.cream_type;
+    if (creamType === "half_and_half") return "Half and half";
+    if (creamType === "light_cream") return "Light cream";
+    if (creamType === "heavy_cream") return "Heavy cream";
+  }
+  if (templateId === "ground_beef_fat_percents") {
+    const fatPercent = variantValues.ground_meat_fat_percent;
+    if (typeof fatPercent === "number") {
+      return `${baseDisplayName} (${fatPercent}% fat)`;
+    }
+  }
+  if (templateId === "egg_parts") {
+    const eggPart = variantValues.egg_part;
+    if (eggPart === "whole") return baseDisplayName;
+    if (eggPart === "white") return "Egg white";
+    if (eggPart === "yolk") return "Egg yolk";
+  }
+
+  const fallbackLabel = Object.entries(variantValues)
+    .map(([key, value]) => `${key}: ${String(value)}`)
+    .join(", ");
+  return fallbackLabel ? `${baseDisplayName} (${fallbackLabel})` : baseDisplayName;
+};
+
+const buildVariantAliases = (templateId, baseDisplayName, variantValues, variantDisplayName) => {
+  if (templateId === "milk_fat_levels") {
+    const level = variantValues.milkfat_level;
+    if (level === "whole") return ["whole milk", "full fat milk", "milk"];
+    if (level === "2%") return ["2% milk", "milk 2%", "reduced fat milk"];
+    if (level === "1%") return ["1% milk", "low fat milk"];
+    if (level === "skim") return ["skim milk", "fat free milk"];
+  }
+  if (templateId === "yogurt_fat_levels") {
+    const level = variantValues.yogurt_fat_level;
+    if (level === "whole") return ["plain yogurt", "whole yogurt"];
+    if (level === "lowfat") return ["plain lowfat yogurt", "low fat yogurt"];
+    if (level === "nonfat") return ["plain nonfat yogurt", "fat free yogurt"];
+  }
+  if (templateId === "cream_types") {
+    const creamType = variantValues.cream_type;
+    if (creamType === "half_and_half") return ["half and half", "half-and-half"];
+    if (creamType === "light_cream") return ["light cream", "coffee cream"];
+    if (creamType === "heavy_cream") return ["heavy cream", "heavy whipping cream"];
+  }
+  if (templateId === "ground_beef_fat_percents") {
+    const fatPercent = variantValues.ground_meat_fat_percent;
+    if (typeof fatPercent === "number") {
+      return [
+        `ground beef ${fatPercent}%`,
+        `ground beef ${fatPercent} percent`,
+        `${fatPercent}% lean ground beef`
+      ];
+    }
+  }
+  if (templateId === "egg_parts") {
+    const eggPart = variantValues.egg_part;
+    if (eggPart === "whole") return ["whole egg", "egg", "eggs", "chicken egg"];
+    if (eggPart === "white") return ["egg white", "egg whites", "eggwhite", "whites"];
+    if (eggPart === "yolk") return ["egg yolk", "egg yolks", "eggyolk", "yolks"];
+  }
+  if (variantDisplayName !== baseDisplayName) {
+    return [baseDisplayName];
+  }
+  return [];
+};
+
+const expandRowsWithVariants = (baseRows, payload) => {
+  const dimensionByKey = new Map();
+  (Array.isArray(payload?.variant_dimensions) ? payload.variant_dimensions : []).forEach((entry) => {
+    const key = typeof entry?.key === "string" ? entry.key.trim() : "";
+    if (!key) {
+      return;
+    }
+    const allowedValues = Array.isArray(entry?.allowed_values) ? entry.allowed_values : [];
+    if (!allowedValues.length) {
+      return;
+    }
+    dimensionByKey.set(key, {
+      key,
+      allowed_values: allowedValues
+    });
+  });
+
+  const templateById = new Map();
+  (Array.isArray(payload?.variant_templates) ? payload.variant_templates : []).forEach((entry) => {
+    const templateId = typeof entry?.template_id === "string" ? entry.template_id.trim() : "";
+    if (!templateId) {
+      return;
+    }
+    const dimensions = Array.isArray(entry?.dimensions) ? entry.dimensions : [];
+    templateById.set(templateId, {
+      template_id: templateId,
+      dimensions
+    });
+  });
+
+  const expanded = [];
+  baseRows.forEach((row) => {
+    const templateId = row.variant_template_id;
+    if (!templateId || !templateById.has(templateId)) {
+      expanded.push({
+        ...row,
+        variant_values: {}
+      });
+      return;
+    }
+    const template = templateById.get(templateId);
+    const valueGroups = [];
+    for (const dimension of template.dimensions) {
+      const key = typeof dimension?.key === "string" ? dimension.key.trim() : "";
+      const dimensionDef = key ? dimensionByKey.get(key) : null;
+      if (!key || !dimensionDef || !Array.isArray(dimensionDef.allowed_values)) {
+        expanded.push({
+          ...row,
+          variant_values: {}
+        });
+        return;
+      }
+      valueGroups.push(
+        dimensionDef.allowed_values.map((value) => ({
+          key,
+          value
+        }))
+      );
+    }
+
+    if (!valueGroups.length) {
+      expanded.push({
+        ...row,
+        variant_values: {}
+      });
+      return;
+    }
+
+    const variantCombos = cartesianProduct(valueGroups);
+    variantCombos.forEach((variantValues) => {
+      const variantDisplayName = buildVariantDisplayName(
+        templateId,
+        row.display_name,
+        variantValues
+      );
+      const variantAliases = buildVariantAliases(
+        templateId,
+        row.display_name,
+        variantValues,
+        variantDisplayName
+      );
+      expanded.push({
+        ...row,
+        display_name: variantDisplayName,
+        canonical_name: variantDisplayName,
+        aliases: dedupeStrings([...(row.aliases || []), ...variantAliases]),
+        variant_values: variantValues
+      });
+    });
+  });
+  return expanded;
+};
+
 const flattenCanon = (payload) => {
   const rows = [];
   const sourceDomains = Array.isArray(payload?.canon) ? payload.canon : [];
@@ -125,8 +329,9 @@ const flattenCanon = (payload) => {
       });
     });
   });
+  const expandedRows = expandRowsWithVariants(rows, payload);
   const idCounts = new Map();
-  const rowsWithIds = rows.map((row) => ({
+  const rowsWithIds = expandedRows.map((row) => ({
     canonical_id: nextCanonicalId(row, idCounts),
     ...row
   }));

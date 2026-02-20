@@ -48,6 +48,12 @@
       "label": "Ground meat fat percent",
       "value_type": "number",
       "allowed_values": [30, 20, 15, 10, 7, 4]
+    },
+    {
+      "key": "egg_part",
+      "label": "Egg part",
+      "value_type": "enum",
+      "allowed_values": ["whole", "white", "yolk"]
     }
   ],
   "variant_templates": [
@@ -77,6 +83,13 @@
       "applies_to": ["Ground beef"],
       "dimensions": [
         { "key": "ground_meat_fat_percent", "default": 20 }
+      ]
+    },
+    {
+      "template_id": "egg_parts",
+      "applies_to": ["Chicken egg"],
+      "dimensions": [
+        { "key": "egg_part", "default": "whole" }
       ]
     }
   ],
@@ -269,7 +282,7 @@
           "group": "Eggs",
           "default_state": "raw",
           "items": [
-            { "display_name": "Chicken egg", "aliases": [] },
+            { "display_name": "Chicken egg", "aliases": ["whole egg"], "variant_template": "egg_parts" },
             { "display_name": "Duck egg", "aliases": [] },
             { "display_name": "Turkey egg", "aliases": [] },
             { "display_name": "Quail egg", "aliases": [] }

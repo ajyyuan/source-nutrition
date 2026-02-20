@@ -1,28 +1,31 @@
 {
-  "generated_at": "2026-02-20T07:08:10.184Z",
+  "generated_at": "2026-02-20T16:32:40.790Z",
   "source": "db",
   "totals": {
-    "rows": 307,
-    "usable_rows": 191,
-    "unusable_rows": 116,
+    "rows": 325,
+    "usable_rows": 200,
+    "unusable_rows": 125,
     "usable_zero_vector_rows": 0
   },
   "match_status_counts": {
+    "matched": 15,
+    "unmatched": 123,
     "system": 1,
-    "fuzzy": 188,
-    "unmatched": 114,
-    "matched": 4
+    "fuzzy": 186
   },
   "query_checks": [
     {
       "query": "egg",
       "expected": "Chicken egg",
-      "passed": false,
-      "top_result": "Eggplant",
-      "top_score": 0.85,
+      "passed": true,
+      "top_result": "Chicken egg",
+      "top_score": 1.9,
       "top5": [
-        "Eggplant",
-        "Parmesan"
+        "Chicken egg",
+        "Egg white",
+        "Egg yolk",
+        "Fried egg (chicken)",
+        "Scrambled egg (chicken)"
       ]
     },
     {
@@ -33,8 +36,7 @@
       "top_score": 0.35,
       "top5": [
         "Beef tallow",
-        "Chicken liver",
-        "Ground beef"
+        "Chicken liver"
       ]
     },
     {

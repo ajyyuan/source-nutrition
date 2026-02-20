@@ -495,7 +495,10 @@ const matchCanonItems = (flatItems, sourceRows) => {
       default_state: item.default_state,
       aliases: Array.isArray(item.aliases) ? item.aliases : [],
       variant_template_id: item.variant_template_id,
-      variant_values: {},
+      variant_values:
+        item?.variant_values && typeof item.variant_values === "object"
+          ? item.variant_values
+          : {},
       notes: item.notes,
       is_canon_v1: true,
       is_usable: isUsable,
