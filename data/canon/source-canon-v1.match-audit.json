@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-20T22:39:39.003Z",
+  "generated_at": "2026-02-21T07:21:52.590Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -22,27 +22,27 @@
       "display_name": "Ground beef (20% fat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.205455,
-      "matched_name": "Beef, ground, 80% lean, 20% fat, raw",
-      "matched_fdc_id": "2514938"
+      "match_confidence": 1.08,
+      "matched_name": "Beef, ground, 80% lean meat / 20% fat, raw",
+      "matched_fdc_id": "174036"
     },
     {
       "canonical_id": "ground-beef-15-fat",
       "display_name": "Ground beef (15% fat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.06,
-      "matched_name": "Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",
-      "matched_fdc_id": "173068"
+      "match_confidence": 0.975789,
+      "matched_name": "Beef, ground, 85% lean meat / 15% fat, raw (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "171796"
     },
     {
       "canonical_id": "ground-beef-10-fat",
       "display_name": "Ground beef (10% fat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.205455,
-      "matched_name": "Beef, ground, 90% lean, 10% fat, raw",
-      "matched_fdc_id": "2514875"
+      "match_confidence": 1.08,
+      "matched_name": "Beef, ground, 90% lean meat / 10% fat, raw",
+      "matched_fdc_id": "174030"
     },
     {
       "canonical_id": "ground-beef-7-fat",

@@ -1,53 +1,73 @@
 {
-  "generated_at": "2026-02-20T17:24:23.889Z",
+  "generated_at": "2026-02-21T07:22:05.850Z",
   "source": "db",
   "totals": {
-    "rows": 0,
-    "usable_rows": 0,
+    "rows": 324,
+    "usable_rows": 324,
     "unusable_rows": 0,
-    "usable_zero_vector_rows": 0
+    "usable_zero_vector_rows": 7
   },
-  "match_status_counts": {},
+  "match_status_counts": {
+    "curated": 324
+  },
   "query_checks": [
     {
       "query": "egg",
       "expected": "Chicken egg",
-      "passed": false,
-      "top_result": null,
-      "top_score": null,
-      "top5": []
+      "passed": true,
+      "top_result": "Chicken egg",
+      "top_score": 1.9,
+      "top5": [
+        "Chicken egg",
+        "Egg noodles",
+        "Egg white",
+        "Egg yolk",
+        "Fried egg (chicken)"
+      ]
     },
     {
       "query": "beef liver",
       "expected": "Beef liver",
-      "passed": false,
-      "top_result": null,
-      "top_score": null,
-      "top5": []
+      "passed": true,
+      "top_result": "Beef liver",
+      "top_score": 1.9,
+      "top5": [
+        "Beef liver",
+        "Beef brain",
+        "Beef heart",
+        "Beef kidney",
+        "Beef pancreas"
+      ]
     },
     {
       "query": "parmesan",
       "expected": "Parmesan",
-      "passed": false,
-      "top_result": null,
-      "top_score": null,
-      "top5": []
+      "passed": true,
+      "top_result": "Parmesan",
+      "top_score": 1.9,
+      "top5": [
+        "Parmesan"
+      ]
     },
     {
       "query": "sardine",
       "expected": "Sardine",
-      "passed": false,
-      "top_result": null,
-      "top_score": null,
-      "top5": []
+      "passed": true,
+      "top_result": "Sardine",
+      "top_score": 1.9,
+      "top5": [
+        "Sardine"
+      ]
     },
     {
       "query": "kimchi",
       "expected": "Kimchi",
-      "passed": false,
-      "top_result": null,
-      "top_score": null,
-      "top5": []
+      "passed": true,
+      "top_result": "Kimchi",
+      "top_score": 1.9,
+      "top5": [
+        "Kimchi"
+      ]
     }
   ]
 }

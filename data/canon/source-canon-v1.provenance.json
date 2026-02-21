@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-02-20T22:49:03.887Z",
+  "generated_at": "2026-02-21T07:09:20.818Z",
   "inputs": {
     "flat_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.flat.json",
     "curation_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.manual-curation.json"
@@ -30,11 +30,11 @@
     "by_source_dataset": [
       {
         "source_dataset": "sr_legacy_food",
-        "count": 224
+        "count": 226
       },
       {
         "source_dataset": "foundation_food",
-        "count": 85
+        "count": 83
       },
       {
         "source_dataset": "usda_api_branded",
@@ -69,35 +69,35 @@
     {
       "canonical_id": "ground-beef-20-fat",
       "canonical_name": "Ground beef (20% fat)",
-      "source_dataset": "foundation_food",
+      "source_dataset": "sr_legacy_food",
       "source_kind": "usda_local_csv",
-      "source_name": "Beef, ground, 80% lean, 20% fat, raw",
-      "fdc_id": "2514938",
+      "source_name": "Beef, ground, 80% lean meat / 20% fat, raw",
+      "fdc_id": "174036",
       "confidence": "medium",
-      "score": 1.205455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.08,
+      "notes": "Manual curation override: switched to USDA SR Legacy row with fuller micronutrient coverage for the same 80/20 raw profile."
     },
     {
       "canonical_id": "ground-beef-15-fat",
       "canonical_name": "Ground beef (15% fat)",
       "source_dataset": "sr_legacy_food",
       "source_kind": "usda_local_csv",
-      "source_name": "Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",
-      "fdc_id": "173068",
+      "source_name": "Beef, ground, 85% lean meat / 15% fat, raw (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "171796",
       "confidence": "medium",
-      "score": 1.06,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.975789,
+      "notes": "Manual curation override: replaced sparse Australian row with fuller USDA SR Legacy 85/15 raw profile."
     },
     {
       "canonical_id": "ground-beef-10-fat",
       "canonical_name": "Ground beef (10% fat)",
-      "source_dataset": "foundation_food",
+      "source_dataset": "sr_legacy_food",
       "source_kind": "usda_local_csv",
-      "source_name": "Beef, ground, 90% lean, 10% fat, raw",
-      "fdc_id": "2514875",
+      "source_name": "Beef, ground, 90% lean meat / 10% fat, raw",
+      "fdc_id": "174030",
       "confidence": "medium",
-      "score": 1.205455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.08,
+      "notes": "Manual curation override: switched to USDA SR Legacy 90/10 raw row with fuller micronutrient coverage."
     },
     {
       "canonical_id": "ground-beef-7-fat",
