@@ -11,6 +11,7 @@
     "canon:build": "node scripts/build-canon-v1.js",
     "canon:curate:build": "node scripts/build-canon-v1-curation.js",
     "canon:provenance:build": "node scripts/build-canon-v1-provenance.js",
+    "canon:matrix:build": "node scripts/build-canon-v1-matrix.js",
     "canon:reseed:dry": "node scripts/reseed-canon-v1.js",
     "canon:reseed:apply": "node scripts/reseed-canon-v1.js --apply --source-usda",
     "canon:audit": "node scripts/audit-canon-v1.js",

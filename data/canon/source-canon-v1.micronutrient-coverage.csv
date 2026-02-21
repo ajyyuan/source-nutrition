@@ -1,0 +1,325 @@
+canonical_id,canonical_name,domain,food_group,fdc_id,source,match_status,nonzero_nutrients,total_nutrients,coverage_ratio,missing_nutrient_keys
+avocado-oil,Avocado oil,Plant foods,Plant oils,173573,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+ghee,Ghee,Animal foods,Dairy,171314,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+hamburger-bun,Hamburger bun,Plant foods,Staples (home-cook processed),2343137,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+hot-dog-bun,Hot dog bun,Plant foods,Staples (home-cook processed),2343136,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+oxtail,Oxtail,Animal foods,Beef cuts,2341248,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sandwich-roll,Sandwich roll,Plant foods,Staples (home-cook processed),2343143,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+tuna-albacore,Tuna (albacore),Animal foods,Fish (species-level),2341723,usda,curated,0,21,0,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+acorn-squash,Acorn squash,Plant foods,Cucurbitaceae,2686144,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+amaranth,Amaranth,Plant foods,Amaranthaceae,2512559,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+bok-choy,Bok choy,Plant foods,Brassicaceae,2686216,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+brazil-nut,Brazil nut,Plant foods,Nuts,2515864,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+brown-rice,Brown rice,Plant foods,Poaceae (grains),2512591,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+canola-oil,Canola oil,Plant foods,Staples (home-cook processed),748240,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+catfish,Catfish,Animal foods,Fish (species-level),2684992,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+chuck,Chuck,Animal foods,Beef cuts,2646604,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+cod,Cod,Animal foods,Fish (species-level),2684984,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+corn,Corn,Plant foods,Poaceae (grains),748282,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+corn-oil,Corn oil,Plant foods,Staples (home-cook processed),748282,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+cottage-cheese,Cottage cheese,Animal foods,Dairy,2346992,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+cow-s-milk,Cow's milk,Animal foods,Dairy,320049,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+cow-s-milk-2,Cow's milk (2%),Animal foods,Dairy,320049,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+crab,Crab,Animal foods,Shellfish,2685000,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+garlic,Garlic,Plant foods,Allium,1104596,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+grapeseed-oil,Grapeseed oil,Plant foods,Staples (home-cook processed),171028,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+green-bean,Green bean,Plant foods,Fabaceae (legumes),2349958,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+ground-duck,Ground duck,Animal foods,Ground meats,480879,supplemental,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+ground-turkey,Ground turkey,Animal foods,Ground meats,330484,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+hazelnut,Hazelnut,Plant foods,Nuts,173782,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+heavy-cream,Heavy cream,Animal foods,Dairy,2346984,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+kiwi,Kiwi,Plant foods,Fruits (core),326976,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+macadamia,Macadamia,Plant foods,Nuts,2516152,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+pistachio,Pistachio,Plant foods,Nuts,2516224,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+pork-tenderloin,Pork tenderloin,Animal foods,Pork cuts,2646451,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+round,Round,Animal foods,Beef cuts,2646586,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sardine,Sardine,Animal foods,Fish (species-level),173578,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+soybean,Soybean,Plant foods,Fabaceae (legumes),748327,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+soybean-oil,Soybean oil,Plant foods,Staples (home-cook processed),748327,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sunflower-seed,Sunflower seed,Plant foods,Seeds,2516296,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+tahini,Tahini,Plant foods,Staples (home-cook processed),2262552,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+tilapia,Tilapia,Animal foods,Fish (species-level),2684976,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+udon-noodles,Udon noodles,Plant foods,Staples (home-cook processed),2027691,supplemental,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+white-rice,White rice,Plant foods,Poaceae (grains),2512687,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+whole-wheat-bread,Whole wheat bread,Plant foods,Flour-made items,335125,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+zucchini,Zucchini,Plant foods,Cucurbitaceae,2685928,usda,curated,1,21,0.0476,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+peanut-oil,Peanut oil,Plant foods,Staples (home-cook processed),1750348,usda,curated,2,21,0.0952,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sesame-oil,Sesame oil,Plant foods,Plant oils,171016,usda,curated,2,21,0.0952,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sunflower-oil,Sunflower oil,Plant foods,Staples (home-cook processed),1750349,usda,curated,2,21,0.0952,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+vegetable-oil,Vegetable oil,Plant foods,Staples (home-cook processed),171422,usda,curated,2,21,0.0952,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+walnut,Walnut,Plant foods,Nuts,171030,usda,curated,2,21,0.0952,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+beef-tallow,Beef tallow,Animal foods,Animal fats,171400,usda,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+chicken-fat,Chicken fat,Animal foods,Animal fats,173564,usda,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|omega3_g
+ground-goat,Ground goat,Animal foods,Ground meats,off-0647086012246,supplemental,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|zinc_mg|selenium_ug|omega3_g
+hanger,Hanger,Animal foods,Beef cuts,1460108,supplemental,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|zinc_mg|selenium_ug|omega3_g
+rice-bran-oil,Rice bran oil,Plant foods,Staples (home-cook processed),171013,usda,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+sourdough-pasta,Sourdough pasta,Plant foods,Flour-made items,off-0799210620008,supplemental,curated,3,21,0.1429,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|zinc_mg|selenium_ug|omega3_g
+duck-fat,Duck fat,Animal foods,Animal fats,cnf-447,supplemental,curated,4,21,0.1905,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg
+dulse,Dulse,Algae and sea vegetables,Seaweeds and algae,1589432,supplemental,curated,4,21,0.1905,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+flax,Flax,Plant foods,Seeds,172371,usda,curated,4,21,0.1905,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|zinc_mg|selenium_ug|omega3_g
+lamb-tallow,Lamb tallow,Animal foods,Animal fats,cnf-438,supplemental,curated,4,21,0.1905,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg
+nori,Nori,Algae and sea vegetables,Seaweeds and algae,1662188,supplemental,curated,4,21,0.1905,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+pork-lard,Pork lard,Animal foods,Animal fats,171401,usda,curated,4,21,0.1905,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|omega3_g
+chlorella,Chlorella,Algae and sea vegetables,Seaweeds and algae,1064099,supplemental,curated,5,21,0.2381,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+coconut-oil,Coconut oil,Plant foods,Plant oils,171412,usda,curated,5,21,0.2381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|selenium_ug|omega3_g
+egg-white,Egg white,Animal foods,Eggs,323607,usda,curated,5,21,0.2381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|phosphorus_mg|selenium_ug|omega3_g
+american-cheese,American cheese,Animal foods,Staples (home-cook processed),746955,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+canned-tomatoes,Canned tomatoes,Plant foods,Staples (home-cook processed),333138,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+chicken-breast,Chicken breast,Animal foods,Poultry cuts,2646170,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+chicken-drumstick,Chicken drumstick,Animal foods,Poultry cuts,2727566,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+chicken-thigh,Chicken thigh,Animal foods,Poultry cuts,2646171,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+chicken-wing,Chicken wing,Animal foods,Poultry cuts,2727568,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+coconut-milk,Coconut milk,Plant foods,Staples (home-cook processed),174116,usda,curated,6,21,0.2857,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|magnesium_mg|phosphorus_mg|zinc_mg|selenium_ug|omega3_g
+egg-yolk,Egg yolk,Animal foods,Eggs,329495,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+flank,Flank,Animal foods,Beef cuts,2646175,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+ground-bison,Ground bison,Animal foods,Ground meats,2727571,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+ground-pork,Ground pork,Animal foods,Ground meats,2514745,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+kale,Kale,Plant foods,Brassicaceae,323449,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+ketchup,Ketchup,Plant foods,Staples (home-cook processed),747453,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pea,Pea,Plant foods,Fabaceae (legumes),2644284,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pear,Pear,Plant foods,Fruits (core),2710836,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|selenium_ug|omega3_g
+pork-belly,Pork belly,Animal foods,Pork cuts,2727576,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pork-chop,Pork chop,Animal foods,Pork cuts,2727575,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pork-loin,Pork loin,Animal foods,Pork cuts,2646168,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+prawn,Prawn,Animal foods,Shellfish,175179,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+ribeye,Ribeye,Animal foods,Beef cuts,2646172,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+shrimp,Shrimp,Animal foods,Shellfish,175179,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+sirloin,Sirloin,Animal foods,Beef cuts,2727574,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+strip-steak,Strip steak,Animal foods,Beef cuts,2727572,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+tenderloin,Tenderloin,Animal foods,Beef cuts,2727573,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+yogurt-plain-nonfat,"Yogurt (plain, nonfat)",Animal foods,Dairy,2647437,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|selenium_ug|omega3_g
+yogurt-plain,Yogurt (plain),Animal foods,Dairy,2647437,usda,curated,6,21,0.2857,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|iron_mg|selenium_ug|omega3_g
+apple-cider-vinegar,Apple cider vinegar,Plant foods,Staples (home-cook processed),173469,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|omega3_g
+apricot,Apricot,Plant foods,Fruits (core),2710815,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+halibut,Halibut,Animal foods,Fish (species-level),2747656,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|iron_mg|omega3_g
+octopus,Octopus,Animal foods,Shellfish,168019,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|potassium_mg|selenium_ug|omega3_g
+scallion,Scallion,Plant foods,Allium,2727585,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+squid,Squid,Animal foods,Shellfish,2747671,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|iron_mg|omega3_g
+tomato-paste,Tomato paste,Plant foods,Staples (home-cook processed),2685580,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+vinegar,Vinegar,Plant foods,Staples (home-cook processed),172237,usda,curated,7,21,0.3333,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|omega3_g
+avocado,Avocado,Plant foods,Fruits (core),2710824,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+lobster,Lobster,Animal foods,Shellfish,2747657,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|omega3_g
+mango,Mango,Plant foods,Fruits (core),2710834,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|folate_ug|vitamin_b12_ug|iron_mg|selenium_ug|omega3_g
+maple-syrup,Maple syrup,Plant foods,Staples (home-cook processed),170276,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|phosphorus_mg|selenium_ug|omega3_g
+olive-oil,Olive oil,Plant foods,Plant oils,2747652,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|omega3_g
+rutabaga,Rutabaga,Plant foods,Brassicaceae,2727580,usda,curated,8,21,0.381,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+apple,Apple,Plant foods,Fruits (core),2003590,usda,curated,10,21,0.4762,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+chia,Chia,Plant foods,Seeds,2710819,usda,curated,10,21,0.4762,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+cream-cheese,Cream cheese,Animal foods,Staples (home-cook processed),2346385,usda,curated,10,21,0.4762,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|riboflavin_mg|vitamin_b5_mg|folate_ug|vitamin_b12_ug|iron_mg|selenium_ug|omega3_g
+grapes,Grapes,Plant foods,Fruits (core),173040,usda,curated,10,21,0.4762,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+lettuce,Lettuce,Plant foods,Asteraceae,2346388,usda,curated,10,21,0.4762,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|riboflavin_mg|vitamin_b5_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pineapple,Pineapple,Plant foods,Fruits (core),2346398,usda,curated,10,21,0.4762,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+lion-s-mane,Lion's mane,Fungi,Mushrooms,1750344,usda,curated,11,21,0.5238,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|calcium_mg|omega3_g
+oyster-mushroom,Oyster mushroom,Fungi,Mushrooms,1750345,usda,curated,11,21,0.5238,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|calcium_mg|omega3_g
+pine-nut,Pine nut,Plant foods,Seeds,2346392,usda,curated,11,21,0.5238,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|riboflavin_mg|vitamin_b5_mg|folate_ug|vitamin_b12_ug|selenium_ug|omega3_g
+couscous,Couscous,Plant foods,Staples (home-cook processed),169699,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+oats,Oats,Plant foods,Poaceae (grains),2346397,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|omega3_g
+pinto-bean,Pinto bean,Plant foods,Fabaceae (legumes),169006,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|omega3_g
+pita,Pita,Plant foods,Flour-made items,172816,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+soba-noodles,Soba noodles,Plant foods,Flour-made items,168906,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+strawberry,Strawberry,Plant foods,Fruits (core),174869,usda,curated,12,21,0.5714,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|vitamin_b12_ug|zinc_mg|omega3_g
+almond,Almond,Plant foods,Nuts,2262074,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|omega3_g
+almond-butter,Almond butter,Plant foods,Staples (home-cook processed),2262074,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|omega3_g
+honey,Honey,Plant foods,Staples (home-cook processed),169640,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+noodles,Noodles,Plant foods,Flour-made items,168905,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|calcium_mg|omega3_g
+peanut-butter,Peanut butter,Plant foods,Staples (home-cook processed),2262072,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|omega3_g
+pickles,Pickles,Plant foods,Staples (home-cook processed),169379,usda,curated,13,21,0.619,vitamin_d_ug|thiamin_mg|niacin_mg|vitamin_b7_ug|vitamin_b12_ug|calcium_mg|selenium_ug|omega3_g
+rice-cakes,Rice cakes,Plant foods,Staples (home-cook processed),167967,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+sesame,Sesame,Plant foods,Seeds,2262073,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|riboflavin_mg|vitamin_b5_mg|vitamin_b12_ug|omega3_g
+soy-sauce,Soy sauce,Plant foods,Staples (home-cook processed),174278,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+tempeh,Tempeh,Fermented foods,Fermented foods,174272,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|selenium_ug|omega3_g
+wheat,Wheat,Plant foods,Poaceae (grains),169721,usda,curated,13,21,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+beef-tripe,Beef tripe,Animal foods,Animal organs,170599,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg|vitamin_b7_ug|omega3_g
+crackers-plain,Crackers (plain),Plant foods,Staples (home-cook processed),174083,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+dill,Dill,Plant foods,Apiaceae,172233,usda,curated,14,21,0.6667,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+fried-egg-chicken,Fried egg (chicken),Animal foods,Eggs,167719,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b5_mg|vitamin_b7_ug|omega3_g
+hemp,Hemp,Plant foods,Seeds,170148,usda,curated,14,21,0.6667,vitamin_d_ug|vitamin_k_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+leg-lamb-goat,Leg (lamb/goat),Animal foods,Lamb and goat cuts,172560,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+naan,Naan,Plant foods,Flour-made items,171845,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+pork-shoulder,Pork shoulder,Animal foods,Pork cuts,169187,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+raspberry,Raspberry,Plant foods,Fruits (core),168217,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+rice-noodles,Rice noodles,Plant foods,Staples (home-cook processed),168914,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+shank,Shank,Animal foods,Beef cuts,169441,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+shiitake,Shiitake,Fungi,Mushrooms,169242,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+sweet-potato,Sweet potato,Plant foods,Tubers and roots,169303,usda,curated,14,21,0.6667,vitamin_d_ug|vitamin_e_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|zinc_mg|omega3_g
+tortilla-corn,Tortilla (corn),Plant foods,Staples (home-cook processed),175036,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+tortilla-flour,Tortilla (flour),Plant foods,Staples (home-cook processed),175037,usda,curated,14,21,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+atlantic-salmon,Atlantic salmon,Animal foods,Fish (species-level),173686,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+bagel,Bagel,Plant foods,Staples (home-cook processed),173150,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+beef-pancreas,Beef pancreas,Animal foods,Animal organs,169452,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+beef-spleen,Beef spleen,Animal foods,Animal organs,169454,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+beef-thymus-sweetbreads,Beef thymus (sweetbreads),Animal foods,Animal organs,170194,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+beef-tongue,Beef tongue,Animal foods,Animal organs,170196,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+brisket,Brisket,Animal foods,Beef cuts,170199,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+broth,Broth,Plant foods,Staples (home-cook processed),171606,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|thiamin_mg|vitamin_b5_mg|vitamin_b7_ug|omega3_g
+bulgur,Bulgur,Plant foods,Staples (home-cook processed),170287,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+chop-lamb-goat,Chop (lamb/goat),Animal foods,Lamb and goat cuts,173810,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+ground-lamb,Ground lamb,Animal foods,Ground meats,172617,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+half-and-half,Half and half,Animal foods,Dairy,171308,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|iron_mg|omega3_g
+herring,Herring,Animal foods,Fish (species-level),173669,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+jam,Jam,Plant foods,Staples (home-cook processed),170645,usda,curated,15,21,0.7143,vitamin_d_ug|vitamin_k_ug|thiamin_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+kimchi,Kimchi,Fermented foods,Fermented foods,170392,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+lamb-heart,Lamb heart,Animal foods,Animal organs,174444,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+lamb-liver,Lamb liver,Animal foods,Animal organs,172615,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+lemon,Lemon,Plant foods,Fruits (core),167747,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+maitake,Maitake,Fungi,Mushrooms,169403,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+millet,Millet,Plant foods,Poaceae (grains),169702,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+natto,Natto,Fermented foods,Fermented foods,172443,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|niacin_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+onion,Onion,Plant foods,Allium,169844,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+oyster,Oyster,Animal foods,Shellfish,168580,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+panko,Panko,Plant foods,Staples (home-cook processed),174924,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+pasta,Pasta,Plant foods,Flour-made items,168927,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+peach,Peach,Plant foods,Fruits (core),168185,usda,curated,15,21,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+pork-brain,Pork brain,Animal foods,Animal organs,168264,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+pork-ribs,Pork ribs,Animal foods,Pork cuts,168305,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+pork-stomach,Pork stomach,Animal foods,Animal organs,167867,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+portobello,Portobello,Fungi,Mushrooms,169255,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|magnesium_mg|omega3_g
+potato,Potato,Plant foods,Solanaceae,168446,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+quinoa,Quinoa,Plant foods,Amaranthaceae,168874,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+radish,Radish,Plant foods,Brassicaceae,170095,usda,curated,15,21,0.7143,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+safflower-oil,Safflower oil,Plant foods,Staples (home-cook processed),171010,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|vitamin_b7_ug|omega3_g
+shank-lamb-goat,Shank (lamb/goat),Animal foods,Lamb and goat cuts,174340,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+shoulder-lamb-goat,Shoulder (lamb/goat),Animal foods,Lamb and goat cuts,172500,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+sourdough-bread,Sourdough bread,Plant foods,Flour-made items,172675,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+sunflower-seed-butter,Sunflower seed butter,Plant foods,Staples (home-cook processed),170155,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+turkey-egg,Turkey egg,Animal foods,Eggs,172192,usda,curated,15,21,0.7143,vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+white-bread,White bread,Plant foods,Staples (home-cook processed),168896,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+whole-wheat-pasta,Whole wheat pasta,Plant foods,Staples (home-cook processed),172749,usda,curated,15,21,0.7143,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+back-ribs,Back ribs,Animal foods,Beef cuts,172147,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_e_mg|vitamin_b5_mg|vitamin_b7_ug|omega3_g
+barley,Barley,Plant foods,Poaceae (grains),170283,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+beef-heart,Beef heart,Animal foods,Animal organs,168625,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+beef-kidney,Beef kidney,Animal foods,Animal organs,174727,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+bell-pepper,Bell pepper,Plant foods,Solanaceae,170427,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+black-bean,Black bean,Plant foods,Fabaceae (legumes),171141,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|selenium_ug|omega3_g
+cashew,Cashew,Plant foods,Nuts,170162,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+cauliflower,Cauliflower,Plant foods,Brassicaceae,169986,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+chicken-heart,Chicken heart,Animal foods,Animal organs,171458,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+chickpea,Chickpea,Plant foods,Fabaceae (legumes),174288,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+chili-pepper,Chili pepper,Plant foods,Solanaceae,171605,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+coho-salmon,Coho salmon,Animal foods,Fish (species-level),173715,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+cremini,Cremini,Fungi,Mushrooms,168434,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+duck-breast,Duck breast,Animal foods,Poultry cuts,174469,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+ginger,Ginger,Plant foods,Tubers and roots,169231,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+ground-chicken,Ground chicken,Animal foods,Ground meats,171116,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+kidney-bean,Kidney bean,Plant foods,Fabaceae (legumes),175193,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+lamb-kidney,Lamb kidney,Animal foods,Animal organs,174442,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+lentil,Lentil,Plant foods,Fabaceae (legumes),171549,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+mayonnaise,Mayonnaise,Plant foods,Staples (home-cook processed),167695,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+mozzarella,Mozzarella,Animal foods,Dairy,169011,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|folate_ug|omega3_g
+orange,Orange,Plant foods,Fruits (core),169103,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+palm-oil,Palm oil,Plant foods,Plant oils,173141,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+papaya,Papaya,Plant foods,Fruits (core),169107,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|phosphorus_mg|omega3_g
+parmesan,Parmesan,Animal foods,Dairy,172206,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|omega3_g
+parsnip,Parsnip,Plant foods,Apiaceae,170417,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+pollock,Pollock,Animal foods,Fish (species-level),333476,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+pork-jowl,Pork jowl,Animal foods,Pork cuts,168269,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+pork-kidney,Pork kidney,Animal foods,Animal organs,168270,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+pork-liver,Pork liver,Animal foods,Animal organs,173869,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+pork-shank,Pork shank,Animal foods,Pork cuts,168228,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+pumpkin-seed,Pumpkin seed,Plant foods,Seeds,175151,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+rack-lamb-goat,Rack (lamb/goat),Animal foods,Lamb and goat cuts,174456,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+rye,Rye,Plant foods,Poaceae (grains),168884,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+rye-bread,Rye bread,Plant foods,Staples (home-cook processed),172684,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+shallot,Shallot,Plant foods,Allium,170499,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+sheep-milk,Sheep milk,Animal foods,Dairy,170882,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+tangerine,Tangerine,Plant foods,Fruits (core),169925,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+tuna-skipjack,Tuna (skipjack),Animal foods,Fish (species-level),175156,usda,curated,16,21,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+turkey-breast,Turkey breast,Animal foods,Poultry cuts,172941,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+turkey-thigh,Turkey thigh,Animal foods,Poultry cuts,171531,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g
+turmeric,Turmeric,Plant foods,Tubers and roots,172231,usda,curated,16,21,0.7619,vitamin_a_ug|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+wild-rice,Wild rice,Plant foods,Poaceae (grains),169726,usda,curated,16,21,0.7619,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+anchovy,Anchovy,Animal foods,Fish (species-level),174182,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+artichoke,Artichoke,Plant foods,Asteraceae,169205,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+arugula,Arugula,Plant foods,Brassicaceae,169387,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+banana,Banana,Plant foods,Fruits (core),169394,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+beef-brain,Beef brain,Animal foods,Animal organs,168622,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+beet,Beet,Plant foods,Amaranthaceae,170375,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+blueberry,Blueberry,Plant foods,Fruits (core),167738,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+broccoli,Broccoli,Plant foods,Brassicaceae,170379,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+brussels-sprouts,Brussels sprouts,Plant foods,Brassicaceae,170383,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+butter,Butter,Animal foods,Dairy,173410,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+butternut-squash,Butternut squash,Plant foods,Cucurbitaceae,173510,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+cabbage,Cabbage,Plant foods,Brassicaceae,169975,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+carrot,Carrot,Plant foods,Apiaceae,170500,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+cassava,Cassava,Plant foods,Tubers and roots,169985,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+celery,Celery,Plant foods,Apiaceae,169988,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+cheddar,Cheddar,Animal foods,Dairy,328637,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+chicken-gizzard,Chicken gizzard,Animal foods,Animal organs,171456,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+chicken-liver,Chicken liver,Animal foods,Animal organs,171060,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+chinook-salmon,Chinook salmon,Animal foods,Fish (species-level),173688,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+chive,Chive,Plant foods,Allium,169994,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+cilantro,Cilantro,Plant foods,Apiaceae,169997,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+clam,Clam,Animal foods,Shellfish,174214,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+cow-s-milk-skim,Cow's milk (skim),Animal foods,Dairy,170887,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_e_mg|vitamin_b7_ug|omega3_g
+cucumber,Cucumber,Plant foods,Cucurbitaceae,169225,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+eggplant,Eggplant,Plant foods,Solanaceae,169228,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+endive,Endive,Plant foods,Asteraceae,168412,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+fennel,Fennel,Plant foods,Apiaceae,169385,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+hot-sauce,Hot sauce,Plant foods,Staples (home-cook processed),171186,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+kelp,Kelp,Algae and sea vegetables,Seaweeds and algae,168457,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+leek,Leek,Plant foods,Allium,169246,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+lime,Lime,Plant foods,Fruits (core),168156,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+miso,Miso,Fermented foods,Fermented foods,172442,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_d_ug|vitamin_b7_ug|omega3_g
+mustard,Mustard,Plant foods,Staples (home-cook processed),169256,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+mustard-greens,Mustard greens,Plant foods,Brassicaceae,169256,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+parsley,Parsley,Plant foods,Apiaceae,170416,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+pork-heart,Pork heart,Animal foods,Animal organs,168267,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+pumpkin,Pumpkin,Plant foods,Cucurbitaceae,168448,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+radicchio,Radicchio,Plant foods,Asteraceae,168564,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+sauerkraut,Sauerkraut,Fermented foods,Fermented foods,169279,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+scallop,Scallop,Animal foods,Shellfish,169289,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+spaghetti-squash,Spaghetti squash,Plant foods,Cucurbitaceae,169298,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+spinach,Spinach,Plant foods,Amaranthaceae,168462,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+spirulina,Spirulina,Algae and sea vegetables,Seaweeds and algae,170091,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+swiss,Swiss,Animal foods,Dairy,169991,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+swiss-chard,Swiss chard,Plant foods,Amaranthaceae,169991,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+taro,Taro,Plant foods,Tubers and roots,169308,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+tomato,Tomato,Plant foods,Solanaceae,170461,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+tomato-sauce,Tomato sauce,Plant foods,Staples (home-cook processed),169074,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+turnip,Turnip,Plant foods,Brassicaceae,170061,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+wakame,Wakame,Algae and sea vegetables,Seaweeds and algae,170496,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+watermelon,Watermelon,Plant foods,Cucurbitaceae,167765,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+white-mushroom,White mushroom,Fungi,Mushrooms,169251,usda,curated,17,21,0.8095,vitamin_a_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g
+whole-turkey,Whole turkey,Animal foods,Poultry cuts,171083,usda,curated,17,21,0.8095,vitamin_c_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g
+yam,Yam,Plant foods,Tubers and roots,170071,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
+yogurt-plain-lowfat,"Yogurt (plain, lowfat)",Animal foods,Dairy,168090,usda,curated,17,21,0.8095,vitamin_d_ug|vitamin_b5_mg|vitamin_b7_ug|omega3_g
+bread,Bread,Plant foods,Flour-made items,167943,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+bread-crumbs,Bread crumbs,Plant foods,Staples (home-cook processed),172806,usda,curated,18,21,0.8571,vitamin_d_ug|vitamin_b7_ug|omega3_g
+chicken-egg,Chicken egg,Animal foods,Eggs,172104,usda,curated,18,21,0.8571,vitamin_d_ug|vitamin_b7_ug|omega3_g
+duck-egg,Duck egg,Animal foods,Eggs,172189,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+egg-noodles,Egg noodles,Plant foods,Staples (home-cook processed),169731,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+feta,Feta,Animal foods,Dairy,173420,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+fresh-ham,Fresh ham,Animal foods,Pork cuts,168224,usda,curated,18,21,0.8571,vitamin_k_ug|vitamin_b7_ug|omega3_g
+gouda,Gouda,Animal foods,Dairy,171241,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-10-fat,Ground beef (10% fat),Animal foods,Ground meats,174030,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-15-fat,Ground beef (15% fat),Animal foods,Ground meats,171796,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-20-fat,Ground beef (20% fat),Animal foods,Ground meats,174036,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-30-fat,Ground beef (30% fat),Animal foods,Ground meats,168652,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-4-fat,Ground beef (4% fat),Animal foods,Ground meats,173111,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ground-beef-7-fat,Ground beef (7% fat),Animal foods,Ground meats,173110,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+gruyere,Gruyere,Animal foods,Dairy,171242,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+haddock,Haddock,Animal foods,Fish (species-level),171964,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+mussel,Mussel,Animal foods,Shellfish,174216,usda,curated,18,21,0.8571,vitamin_d_ug|vitamin_b7_ug|omega3_g
+olive,Olive,Plant foods,Fruits (core),172926,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+pecan,Pecan,Plant foods,Nuts,175021,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+plate,Plate,Animal foods,Beef cuts,172137,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+processed-cheese-slices,Processed cheese slices,Animal foods,Staples (home-cook processed),171290,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+quail-egg,Quail egg,Animal foods,Eggs,172191,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+ramen-noodles,Ramen noodles,Plant foods,Staples (home-cook processed),171177,usda,curated,18,21,0.8571,vitamin_d_ug|vitamin_b7_ug|omega3_g
+scrambled-egg-chicken,Scrambled egg (chicken),Animal foods,Eggs,172187,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+short-ribs,Short ribs,Animal foods,Beef cuts,170783,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+skirt,Skirt,Animal foods,Beef cuts,172137,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+sockeye-salmon,Sockeye salmon,Animal foods,Fish (species-level),173691,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+sour-cream,Sour cream,Animal foods,Staples (home-cook processed),173443,usda,curated,18,21,0.8571,vitamin_b5_mg|vitamin_b7_ug|omega3_g
+stew-meat,Stew meat,Animal foods,Beef cuts,170809,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+tuna-yellowfin,Tuna (yellowfin),Animal foods,Fish (species-level),175159,usda,curated,18,21,0.8571,vitamin_c_mg|vitamin_b7_ug|omega3_g
+beef-liver,Beef liver,Animal foods,Animal organs,169451,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+cow-s-milk-1,Cow's milk (1%),Animal foods,Dairy,171874,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+duck-leg,Duck leg,Animal foods,Poultry cuts,172410,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+goat-milk,Goat milk,Animal foods,Dairy,171278,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+kefir-plain,Kefir (plain),Animal foods,Dairy,170904,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+light-cream,Light cream,Animal foods,Dairy,170857,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+mackerel,Mackerel,Animal foods,Fish (species-level),173673,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+trout,Trout,Animal foods,Fish (species-level),173717,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+whole-chicken,Whole chicken,Animal foods,Poultry cuts,171447,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
+whole-duck,Whole duck,Animal foods,Poultry cuts,172408,usda,curated,19,21,0.9048,vitamin_b7_ug|omega3_g
