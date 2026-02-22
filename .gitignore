@@ -33,7 +33,8 @@ android/
 # Supabase local CLI artifacts
 supabase/.temp/
 
-# Canon one-off scratch artifacts
+# Canon one-off scratch / generated artifacts
 data/canon/source-canon-v1.unresolved-*.json
 data/canon/source-canon-v1.online-research.json
+data/canon/source-canon-v1.match-audit.json
 
