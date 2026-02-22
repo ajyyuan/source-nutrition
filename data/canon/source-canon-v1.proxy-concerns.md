@@ -19,7 +19,7 @@ Scope: semantic/form proxy concerns in canonical source mappings (not generic vi
 
 | canonical_id | current mapping | status | concern | rationale | next action |
 |---|---|---|---|---|---|
-| `oxtail` | `canadian_nutrient_file/cnf-1092` (`Soup, oxtail, dehydrated, water added`) | `open` | soup-form proxy | Exact oxtail non-soup row with strong vitamin coverage not yet found in USDA/CNF. | Continue external-source search for true oxtail row; replace immediately if found. |
+| `oxtail` | `canadian_nutrient_file/cnf-1092` (`Soup, oxtail, dehydrated, water added`) | `open` | soup-form proxy | Exact oxtail non-soup row with strong vitamin coverage not yet found in USDA/CNF. Latest check confirmed `survey_fndds_food/2341248` (`Beef, oxtails`) exists but has no `food_nutrient` records in local USDA snapshot, so it cannot seed a usable nutrient vector. | Continue external-source search for true oxtail row with complete nutrient fields; replace immediately if found. |
 | `chlorella` | `usda_api_branded/1064099` (`CHLORELLA POWDER`) | `accepted` | product-form proxy | Canonical item is ingredient-level chlorella; powder form is currently the best exact available labeled source. | Keep as accepted unless a more authoritative non-branded ingredient row is found. |
 | `sardine` | `sr_legacy_food/175139` (`Fish, sardine, Atlantic, canned in oil, drained solids with bone`) | `accepted` | packed-in-oil form | This is still whole sardine food (not fish oil), but oil-packed form can bias fat-soluble nutrients. | Prefer equivalent non-oil sardine row with equal or better vitamin completeness when available. |
 

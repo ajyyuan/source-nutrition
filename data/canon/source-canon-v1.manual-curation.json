@@ -281,7 +281,7 @@
       "source_name": "Soup, oxtail, dehydrated, water added",
       "confidence": "medium",
       "score": 0.86,
-      "notes": "Manual curation override: USDA local rows were vitamin/mineral sparse; switched to CNF oxtail-linked row with explicit vitamin and mineral reporting."
+      "notes": "Manual curation override: USDA local rows were vitamin/mineral sparse; switched to CNF oxtail-linked row with explicit vitamin and mineral reporting. Re-check (Day 20): USDA survey_fndds_food non-soup row 2341248 (Beef, oxtails) exists but has no food_nutrient entries in local CSV snapshot, so it is not currently usable for canon nutrient vectors."
     },
     {
       "canonical_id": "plate",
