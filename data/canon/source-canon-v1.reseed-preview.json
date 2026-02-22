@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T06:16:02.425Z",
+  "generated_at": "2026-02-22T18:00:04.742Z",
   "rows": [
     {
       "canonical_id": "ground-beef-30-fat",
@@ -48,7 +48,7 @@
         "potassium_mg": 218,
         "zinc_mg": 3.57,
         "selenium_ug": 13.5,
-        "omega3_g": 0
+        "omega3_g": 0.065
       }
     },
     {
@@ -98,7 +98,7 @@
         "potassium_mg": 270,
         "zinc_mg": 4.18,
         "selenium_ug": 15,
-        "omega3_g": 0
+        "omega3_g": 0.051
       }
     },
     {
@@ -148,7 +148,7 @@
         "potassium_mg": 295,
         "zinc_mg": 4.48,
         "selenium_ug": 15.8,
-        "omega3_g": 0
+        "omega3_g": 0.045000000000000005
       }
     },
     {
@@ -198,7 +198,7 @@
         "potassium_mg": 321,
         "zinc_mg": 4.79,
         "selenium_ug": 16.6,
-        "omega3_g": 0
+        "omega3_g": 0.036
       }
     },
     {
@@ -248,7 +248,7 @@
         "potassium_mg": 336,
         "zinc_mg": 4.97,
         "selenium_ug": 17.1,
-        "omega3_g": 0
+        "omega3_g": 0.031
       }
     },
     {
@@ -298,7 +298,7 @@
         "potassium_mg": 357,
         "zinc_mg": 5.21,
         "selenium_ug": 17.7,
-        "omega3_g": 0
+        "omega3_g": 0.025
       }
     },
     {
@@ -474,7 +474,7 @@
         "potassium_mg": 310,
         "zinc_mg": 1.93,
         "selenium_ug": 34.8,
-        "omega3_g": 0
+        "omega3_g": 0.037
       }
     },
     {
@@ -518,7 +518,7 @@
         "potassium_mg": 522,
         "zinc_mg": 1.47,
         "selenium_ug": 10.2,
-        "omega3_g": 0
+        "omega3_g": 0.088
       }
     },
     {
@@ -562,7 +562,7 @@
         "potassium_mg": 237,
         "zinc_mg": 2.35,
         "selenium_ug": 21.9,
-        "omega3_g": 0
+        "omega3_g": 0.11699999999999999
       }
     },
     {
@@ -652,7 +652,7 @@
         "potassium_mg": 262,
         "zinc_mg": 5.63,
         "selenium_ug": 27.5,
-        "omega3_g": 0
+        "omega3_g": 0.008
       }
     },
     {
@@ -746,7 +746,7 @@
         "potassium_mg": 329,
         "zinc_mg": 4.76,
         "selenium_ug": 28.6,
-        "omega3_g": 0
+        "omega3_g": 0.004
       }
     },
     {
@@ -790,7 +790,7 @@
         "potassium_mg": 357,
         "zinc_mg": 4,
         "selenium_ug": 30.8,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -836,7 +836,7 @@
         "potassium_mg": 340,
         "zinc_mg": 4.12,
         "selenium_ug": 25.4,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -882,7 +882,7 @@
         "potassium_mg": 264,
         "zinc_mg": 6.25,
         "selenium_ug": 24,
-        "omega3_g": 0
+        "omega3_g": 0.015
       }
     },
     {
@@ -928,7 +928,7 @@
         "potassium_mg": 272,
         "zinc_mg": 6.26,
         "selenium_ug": 23,
-        "omega3_g": 0
+        "omega3_g": 0.015
       }
     },
     {
@@ -975,7 +975,7 @@
         "potassium_mg": 359,
         "zinc_mg": 5.51,
         "selenium_ug": 26,
-        "omega3_g": 0
+        "omega3_g": 0.005
       }
     },
     {
@@ -1063,7 +1063,7 @@
         "potassium_mg": 313,
         "zinc_mg": 8.25,
         "selenium_ug": 22.3,
-        "omega3_g": 0
+        "omega3_g": 0.019
       }
     },
     {
@@ -1107,7 +1107,7 @@
         "potassium_mg": 284,
         "zinc_mg": 6.1,
         "selenium_ug": 28.6,
-        "omega3_g": 0
+        "omega3_g": 0.001
       }
     },
     {
@@ -1154,7 +1154,7 @@
         "potassium_mg": 352,
         "zinc_mg": 4.29,
         "selenium_ug": 28.6,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -1288,7 +1288,7 @@
         "potassium_mg": 264,
         "zinc_mg": 6.25,
         "selenium_ug": 24,
-        "omega3_g": 0
+        "omega3_g": 0.015
       }
     },
     {
@@ -1334,7 +1334,7 @@
         "potassium_mg": 359,
         "zinc_mg": 5.51,
         "selenium_ug": 26,
-        "omega3_g": 0
+        "omega3_g": 0.005
       }
     },
     {
@@ -1474,7 +1474,7 @@
         "potassium_mg": 304,
         "zinc_mg": 2.69,
         "selenium_ug": 4,
-        "omega3_g": 0
+        "omega3_g": 0.21500000000000002
       }
     },
     {
@@ -1659,7 +1659,7 @@
         "potassium_mg": 399,
         "zinc_mg": 1.89,
         "selenium_ug": 30.8,
-        "omega3_g": 0
+        "omega3_g": 0.008
       }
     },
     {
@@ -1706,7 +1706,7 @@
         "potassium_mg": 339,
         "zinc_mg": 3.36,
         "selenium_ug": 28.2,
-        "omega3_g": 0
+        "omega3_g": 0.019
       }
     },
     {
@@ -1752,7 +1752,7 @@
         "potassium_mg": 362,
         "zinc_mg": 1.86,
         "selenium_ug": 36,
-        "omega3_g": 0
+        "omega3_g": 0.014
       }
     },
     {
@@ -1843,7 +1843,7 @@
         "potassium_mg": 338,
         "zinc_mg": 3,
         "selenium_ug": 34.8,
-        "omega3_g": 0
+        "omega3_g": 0.025
       }
     },
     {
@@ -1933,7 +1933,7 @@
         "potassium_mg": 329,
         "zinc_mg": 2.25,
         "selenium_ug": 21.3,
-        "omega3_g": 0
+        "omega3_g": 0.014
       }
     },
     {
@@ -2021,7 +2021,7 @@
         "potassium_mg": 189,
         "zinc_mg": 1.31,
         "selenium_ug": 14.4,
-        "omega3_g": 0
+        "omega3_g": 0.04
       }
     },
     {
@@ -2065,7 +2065,7 @@
         "potassium_mg": 220,
         "zinc_mg": 0.8,
         "selenium_ug": 16.6,
-        "omega3_g": 0
+        "omega3_g": 0.03
       }
     },
     {
@@ -2109,7 +2109,7 @@
         "potassium_mg": 204,
         "zinc_mg": 1.29,
         "selenium_ug": 18.9,
-        "omega3_g": 0
+        "omega3_g": 0.155
       }
     },
     {
@@ -2153,7 +2153,7 @@
         "potassium_mg": 211,
         "zinc_mg": 1.86,
         "selenium_ug": 20.2,
-        "omega3_g": 0
+        "omega3_g": 0.08700000000000001
       }
     },
     {
@@ -2197,7 +2197,7 @@
         "potassium_mg": 194,
         "zinc_mg": 1.63,
         "selenium_ug": 17.8,
-        "omega3_g": 0
+        "omega3_g": 0.060000000000000005
       }
     },
     {
@@ -2241,7 +2241,7 @@
         "potassium_mg": 198,
         "zinc_mg": 3.23,
         "selenium_ug": 49.3,
-        "omega3_g": 0
+        "omega3_g": 0.07200000000000001
       }
     },
     {
@@ -2285,7 +2285,7 @@
         "potassium_mg": 371,
         "zinc_mg": 0.94,
         "selenium_ug": 13,
-        "omega3_g": 0
+        "omega3_g": 0.057
       }
     },
     {
@@ -2329,7 +2329,7 @@
         "potassium_mg": 226,
         "zinc_mg": 2.68,
         "selenium_ug": 22.4,
-        "omega3_g": 0
+        "omega3_g": 0.049999999999999996
       }
     },
     {
@@ -2505,7 +2505,7 @@
         "potassium_mg": 363,
         "zinc_mg": 0.36,
         "selenium_ug": 24,
-        "omega3_g": 0
+        "omega3_g": 2.1140000000000003
       }
     },
     {
@@ -2549,7 +2549,7 @@
         "potassium_mg": 367,
         "zinc_mg": 0.46,
         "selenium_ug": 29.8,
-        "omega3_g": 0
+        "omega3_g": 0.769
       }
     },
     {
@@ -2593,7 +2593,7 @@
         "potassium_mg": 423,
         "zinc_mg": 0.41,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 1.085
       }
     },
     {
@@ -2639,7 +2639,7 @@
         "potassium_mg": 175,
         "zinc_mg": 0.31,
         "selenium_ug": 32.4,
-        "omega3_g": 0
+        "omega3_g": 0.45
       }
     },
     {
@@ -2683,7 +2683,7 @@
         "potassium_mg": 397,
         "zinc_mg": 1.31,
         "selenium_ug": 52.7,
-        "omega3_g": 0
+        "omega3_g": 0.982
       }
     },
     {
@@ -2727,7 +2727,7 @@
         "potassium_mg": 407,
         "zinc_mg": 0.82,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 0.256
       }
     },
     {
@@ -2771,7 +2771,7 @@
         "potassium_mg": 252,
         "zinc_mg": 0.6,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 1.173
       }
     },
     {
@@ -2815,7 +2815,7 @@
         "potassium_mg": 441,
         "zinc_mg": 0.37,
         "selenium_ug": 90.6,
-        "omega3_g": 0
+        "omega3_g": 0.102
       }
     },
     {
@@ -2859,7 +2859,7 @@
         "potassium_mg": 413,
         "zinc_mg": 0.45,
         "selenium_ug": 33.1,
-        "omega3_g": 0
+        "omega3_g": 0.184
       }
     },
     {
@@ -2903,7 +2903,7 @@
         "potassium_mg": 286,
         "zinc_mg": 0.32,
         "selenium_ug": 25.9,
-        "omega3_g": 0
+        "omega3_g": 0.133
       }
     },
     {
@@ -2947,7 +2947,7 @@
         "potassium_mg": 356,
         "zinc_mg": 0.47,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 0.421
       }
     },
     {
@@ -2991,7 +2991,7 @@
         "potassium_mg": 268,
         "zinc_mg": 0.4,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 0.919
       }
     },
     {
@@ -3035,7 +3035,7 @@
         "potassium_mg": 446,
         "zinc_mg": 0.49,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 1.341
       }
     },
     {
@@ -3079,7 +3079,7 @@
         "potassium_mg": 327,
         "zinc_mg": 0.99,
         "selenium_ug": 36.5,
-        "omega3_g": 0
+        "omega3_g": 1.571
       }
     },
     {
@@ -3123,7 +3123,7 @@
         "potassium_mg": 377,
         "zinc_mg": 0.45,
         "selenium_ug": 23.6,
-        "omega3_g": 0
+        "omega3_g": 0.792
       }
     },
     {
@@ -3167,7 +3167,7 @@
         "potassium_mg": 302,
         "zinc_mg": 0.33,
         "selenium_ug": 41.8,
-        "omega3_g": 0
+        "omega3_g": 0.124
       }
     },
     {
@@ -3211,7 +3211,7 @@
         "potassium_mg": 302,
         "zinc_mg": 0.48,
         "selenium_ug": 8.2,
-        "omega3_g": 0
+        "omega3_g": 0.128
       }
     },
     {
@@ -3299,7 +3299,7 @@
         "potassium_mg": 113,
         "zinc_mg": 0.97,
         "selenium_ug": 29.6,
-        "omega3_g": 0
+        "omega3_g": 0.14400000000000002
       }
     },
     {
@@ -3343,7 +3343,7 @@
         "potassium_mg": 113,
         "zinc_mg": 0.97,
         "selenium_ug": 29.6,
-        "omega3_g": 0
+        "omega3_g": 0.14400000000000002
       }
     },
     {
@@ -3387,7 +3387,7 @@
         "potassium_mg": 205,
         "zinc_mg": 0.91,
         "selenium_ug": 12.8,
-        "omega3_g": 0
+        "omega3_g": 0.10600000000000001
       }
     },
     {
@@ -3431,7 +3431,7 @@
         "potassium_mg": 320,
         "zinc_mg": 1.6,
         "selenium_ug": 44.8,
-        "omega3_g": 0
+        "omega3_g": 0.441
       }
     },
     {
@@ -3475,7 +3475,7 @@
         "potassium_mg": 46,
         "zinc_mg": 0.51,
         "selenium_ug": 30.6,
-        "omega3_g": 0
+        "omega3_g": 0.122
       }
     },
     {
@@ -3519,7 +3519,7 @@
         "potassium_mg": 156,
         "zinc_mg": 39.3,
         "selenium_ug": 19.7,
-        "omega3_g": 0
+        "omega3_g": 0.313
       }
     },
     {
@@ -3563,7 +3563,7 @@
         "potassium_mg": 259,
         "zinc_mg": 3.81,
         "selenium_ug": 42.9,
-        "omega3_g": 0
+        "omega3_g": 0.168
       }
     },
     {
@@ -3607,7 +3607,7 @@
         "potassium_mg": 200,
         "zinc_mg": 3.53,
         "selenium_ug": 63.6,
-        "omega3_g": 0
+        "omega3_g": 0.16999999999999998
       }
     },
     {
@@ -3653,7 +3653,7 @@
         "potassium_mg": 246,
         "zinc_mg": 1.53,
         "selenium_ug": 44.8,
-        "omega3_g": 0
+        "omega3_g": 0.488
       }
     },
     {
@@ -3697,7 +3697,7 @@
         "potassium_mg": 350,
         "zinc_mg": 1.68,
         "selenium_ug": 44.8,
-        "omega3_g": 0
+        "omega3_g": 0.157
       }
     },
     {
@@ -3741,7 +3741,7 @@
         "potassium_mg": 313,
         "zinc_mg": 4,
         "selenium_ug": 39.7,
-        "omega3_g": 0
+        "omega3_g": 0.007
       }
     },
     {
@@ -3785,7 +3785,7 @@
         "potassium_mg": 219,
         "zinc_mg": 2.87,
         "selenium_ug": 38.9,
-        "omega3_g": 0
+        "omega3_g": 0.012
       }
     },
     {
@@ -3917,7 +3917,7 @@
         "potassium_mg": 244,
         "zinc_mg": 1.09,
         "selenium_ug": 21.8,
-        "omega3_g": 0
+        "omega3_g": 0.855
       }
     },
     {
@@ -4051,7 +4051,7 @@
         "potassium_mg": 318,
         "zinc_mg": 1,
         "selenium_ug": 9,
-        "omega3_g": 0
+        "omega3_g": 0.144
       }
     },
     {
@@ -4097,7 +4097,7 @@
         "potassium_mg": 67,
         "zinc_mg": 1.42,
         "selenium_ug": 12.5,
-        "omega3_g": 0
+        "omega3_g": 0.007
       }
     },
     {
@@ -4185,7 +4185,7 @@
         "potassium_mg": 277,
         "zinc_mg": 1.65,
         "selenium_ug": 10.9,
-        "omega3_g": 0
+        "omega3_g": 0.176
       }
     },
     {
@@ -4229,7 +4229,7 @@
         "potassium_mg": 231,
         "zinc_mg": 1.81,
         "selenium_ug": 93.6,
-        "omega3_g": 0
+        "omega3_g": 0.179
       }
     },
     {
@@ -4405,7 +4405,7 @@
         "potassium_mg": 258,
         "zinc_mg": 1.27,
         "selenium_ug": 15.9,
-        "omega3_g": 0
+        "omega3_g": 0.45
       }
     },
     {
@@ -4449,7 +4449,7 @@
         "potassium_mg": 140,
         "zinc_mg": 1.85,
         "selenium_ug": 31.1,
-        "omega3_g": 0
+        "omega3_g": 0.021
       }
     },
     {
@@ -4493,7 +4493,7 @@
         "potassium_mg": 230,
         "zinc_mg": 2.67,
         "selenium_ug": 54.6,
-        "omega3_g": 0
+        "omega3_g": 0.006
       }
     },
     {
@@ -4581,7 +4581,7 @@
         "potassium_mg": 179,
         "zinc_mg": 4.42,
         "selenium_ug": 41.1,
-        "omega3_g": 0
+        "omega3_g": 0.004
       }
     },
     {
@@ -4632,7 +4632,7 @@
         "potassium_mg": 281,
         "zinc_mg": 0.52,
         "selenium_ug": 17.3,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -4738,7 +4738,7 @@
         "potassium_mg": 109,
         "zinc_mg": 2.3,
         "selenium_ug": 56,
-        "omega3_g": 0
+        "omega3_g": 0.125
       }
     },
     {
@@ -4791,7 +4791,7 @@
         "potassium_mg": 132,
         "zinc_mg": 1.04,
         "selenium_ug": 23.5,
-        "omega3_g": 0
+        "omega3_g": 0.043
       }
     },
     {
@@ -4844,7 +4844,7 @@
         "potassium_mg": 152,
         "zinc_mg": 1.39,
         "selenium_ug": 33.1,
-        "omega3_g": 0
+        "omega3_g": 0.063
       }
     },
     {
@@ -5079,7 +5079,7 @@
         "potassium_mg": 140,
         "zinc_mg": 0.48,
         "selenium_ug": 2.5,
-        "omega3_g": 0
+        "omega3_g": 0.008
       }
     },
     {
@@ -5130,7 +5130,7 @@
         "potassium_mg": 150,
         "zinc_mg": 0.42,
         "selenium_ug": 3.3,
-        "omega3_g": 0
+        "omega3_g": 0.004
       }
     },
     {
@@ -5366,7 +5366,7 @@
         "potassium_mg": 136,
         "zinc_mg": 0.32,
         "selenium_ug": 4.6,
-        "omega3_g": 0
+        "omega3_g": 0.067
       }
     },
     {
@@ -5415,7 +5415,7 @@
         "potassium_mg": 95,
         "zinc_mg": 0.24,
         "selenium_ug": 3,
-        "omega3_g": 0
+        "omega3_g": 0.131
       }
     },
     {
@@ -5459,7 +5459,7 @@
         "potassium_mg": 24,
         "zinc_mg": 0.09,
         "selenium_ug": 1,
-        "omega3_g": 0
+        "omega3_g": 0.315
       }
     },
     {
@@ -5601,7 +5601,7 @@
         "potassium_mg": 141,
         "zinc_mg": 0.6,
         "selenium_ug": 12.4,
-        "omega3_g": 0
+        "omega3_g": 0.007
       }
     },
     {
@@ -5650,7 +5650,7 @@
         "potassium_mg": 132,
         "zinc_mg": 0.45,
         "selenium_ug": 9.4,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -5694,7 +5694,7 @@
         "potassium_mg": 164,
         "zinc_mg": 0.46,
         "selenium_ug": 3.6,
-        "omega3_g": 0
+        "omega3_g": 0.006
       }
     },
     {
@@ -5738,7 +5738,7 @@
         "potassium_mg": 125,
         "zinc_mg": 0.51,
         "selenium_ug": 11.9,
-        "omega3_g": 0
+        "omega3_g": 0.008
       }
     },
     {
@@ -5782,7 +5782,7 @@
         "potassium_mg": 76,
         "zinc_mg": 3.74,
         "selenium_ug": 28.3,
-        "omega3_g": 0
+        "omega3_g": 0.128
       }
     },
     {
@@ -6316,7 +6316,7 @@
         "potassium_mg": 132,
         "zinc_mg": 2.49,
         "selenium_ug": 20.2,
-        "omega3_g": 0
+        "omega3_g": 0.15500000000000003
       }
     },
     {
@@ -6360,7 +6360,7 @@
         "potassium_mg": 132,
         "zinc_mg": 2.49,
         "selenium_ug": 20.2,
-        "omega3_g": 0
+        "omega3_g": 0.15500000000000003
       }
     },
     {
@@ -6404,7 +6404,7 @@
         "potassium_mg": 132,
         "zinc_mg": 0.5,
         "selenium_ug": 8.6,
-        "omega3_g": 0
+        "omega3_g": 0.135
       }
     },
     {
@@ -6448,7 +6448,7 @@
         "potassium_mg": 125,
         "zinc_mg": 0.33,
         "selenium_ug": 3.7,
-        "omega3_g": 0
+        "omega3_g": 0.07500000000000001
       }
     },
     {
@@ -6536,7 +6536,7 @@
         "potassium_mg": 299,
         "zinc_mg": 0.27,
         "selenium_ug": 0.6,
-        "omega3_g": 0
+        "omega3_g": 0.015
       }
     },
     {
@@ -7776,7 +7776,7 @@
         "potassium_mg": 261,
         "zinc_mg": 0.32,
         "selenium_ug": 0.2,
-        "omega3_g": 0
+        "omega3_g": 0.061
       }
     },
     {
@@ -8216,7 +8216,7 @@
         "potassium_mg": 563,
         "zinc_mg": 3.1,
         "selenium_ug": 8.5,
-        "omega3_g": 0
+        "omega3_g": 0.047
       }
     },
     {
@@ -8260,7 +8260,7 @@
         "potassium_mg": 508,
         "zinc_mg": 2.87,
         "selenium_ug": 18.7,
-        "omega3_g": 0
+        "omega3_g": 0.042
       }
     },
     {
@@ -8880,7 +8880,7 @@
         "potassium_mg": 250,
         "zinc_mg": 2.13,
         "selenium_ug": 17.1,
-        "omega3_g": 0
+        "omega3_g": 0.032
       }
     },
     {
@@ -8968,7 +8968,7 @@
         "potassium_mg": 366,
         "zinc_mg": 2.51,
         "selenium_ug": 23.2,
-        "omega3_g": 0
+        "omega3_g": 0.07
       }
     },
     {
@@ -9454,7 +9454,7 @@
         "potassium_mg": 2080,
         "zinc_mg": 4.5,
         "selenium_ug": 6.2,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -9938,7 +9938,7 @@
         "potassium_mg": 485,
         "zinc_mg": 0.64,
         "selenium_ug": 0.4,
-        "omega3_g": 0
+        "omega3_g": 0.111
       }
     },
     {
@@ -10334,7 +10334,7 @@
         "potassium_mg": 733,
         "zinc_mg": 3.12,
         "selenium_ug": 4.1,
-        "omega3_g": 0
+        "omega3_g": 0.003
       }
     },
     {
@@ -10598,7 +10598,7 @@
         "potassium_mg": 659,
         "zinc_mg": 4.06,
         "selenium_ug": 1917,
-        "omega3_g": 0
+        "omega3_g": 0.018
       }
     },
     {
@@ -10688,7 +10688,7 @@
         "potassium_mg": 809,
         "zinc_mg": 7.81,
         "selenium_ug": 9.4,
-        "omega3_g": 0
+        "omega3_g": 0.12
       }
     },
     {
@@ -10732,7 +10732,7 @@
         "potassium_mg": 645,
         "zinc_mg": 5,
         "selenium_ug": 53,
-        "omega3_g": 0
+        "omega3_g": 0.014
       }
     },
     {
@@ -10908,7 +10908,7 @@
         "potassium_mg": 1200,
         "zinc_mg": 9.9,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 8.684
       }
     },
     {
@@ -10952,7 +10952,7 @@
         "potassium_mg": 597,
         "zinc_mg": 6.45,
         "selenium_ug": 0.7,
-        "omega3_g": 0
+        "omega3_g": 0.112
       }
     },
     {
@@ -11084,7 +11084,7 @@
         "potassium_mg": 0,
         "zinc_mg": 0.02,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 0.019
       }
     },
     {
@@ -11260,7 +11260,7 @@
         "potassium_mg": 254,
         "zinc_mg": 1.77,
         "selenium_ug": 25.7,
-        "omega3_g": 0
+        "omega3_g": 0.137
       }
     },
     {
@@ -11304,7 +11304,7 @@
         "potassium_mg": 117,
         "zinc_mg": 1.04,
         "selenium_ug": 28.6,
-        "omega3_g": 0
+        "omega3_g": 0.063
       }
     },
     {
@@ -11526,7 +11526,7 @@
         "potassium_mg": 223,
         "zinc_mg": 1.41,
         "selenium_ug": 63.2,
-        "omega3_g": 0
+        "omega3_g": 0.024
       }
     },
     {
@@ -11570,7 +11570,7 @@
         "potassium_mg": 223,
         "zinc_mg": 1.41,
         "selenium_ug": 63.2,
-        "omega3_g": 0
+        "omega3_g": 0.024
       }
     },
     {
@@ -11614,7 +11614,7 @@
         "potassium_mg": 0,
         "zinc_mg": 0,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 9.137
       }
     },
     {
@@ -11658,7 +11658,7 @@
         "potassium_mg": 0,
         "zinc_mg": 0.01,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 6.789
       }
     },
     {
@@ -11746,7 +11746,7 @@
         "potassium_mg": 0,
         "zinc_mg": 0,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 0.096
       }
     },
     {
@@ -11790,7 +11790,7 @@
         "potassium_mg": 0,
         "zinc_mg": 0,
         "selenium_ug": 0,
-        "omega3_g": 0
+        "omega3_g": 1.161
       }
     },
     {
@@ -12010,7 +12010,7 @@
         "potassium_mg": 126,
         "zinc_mg": 0.74,
         "selenium_ug": 22,
-        "omega3_g": 0
+        "omega3_g": 0.167
       }
     },
     {
@@ -12098,7 +12098,7 @@
         "potassium_mg": 107,
         "zinc_mg": 0.83,
         "selenium_ug": 21.5,
-        "omega3_g": 0
+        "omega3_g": 0.024
       }
     },
     {
@@ -12142,7 +12142,7 @@
         "potassium_mg": 125,
         "zinc_mg": 0.53,
         "selenium_ug": 22.3,
-        "omega3_g": 0
+        "omega3_g": 0.214
       }
     },
     {
@@ -12230,7 +12230,7 @@
         "potassium_mg": 122,
         "zinc_mg": 0.73,
         "selenium_ug": 27.2,
-        "omega3_g": 0
+        "omega3_g": 0.176
       }
     },
     {
@@ -12274,7 +12274,7 @@
         "potassium_mg": 122,
         "zinc_mg": 0.73,
         "selenium_ug": 27.2,
-        "omega3_g": 0
+        "omega3_g": 0.176
       }
     },
     {
@@ -12318,7 +12318,7 @@
         "potassium_mg": 122,
         "zinc_mg": 0.73,
         "selenium_ug": 27.2,
-        "omega3_g": 0
+        "omega3_g": 0.176
       }
     },
     {
@@ -12406,7 +12406,7 @@
         "potassium_mg": 126,
         "zinc_mg": 0.74,
         "selenium_ug": 22,
-        "omega3_g": 0
+        "omega3_g": 0.167
       }
     },
     {
@@ -12626,7 +12626,7 @@
         "potassium_mg": 181,
         "zinc_mg": 0.6,
         "selenium_ug": 23.1,
-        "omega3_g": 0
+        "omega3_g": 0.056
       }
     },
     {
@@ -12670,7 +12670,7 @@
         "potassium_mg": 244,
         "zinc_mg": 1.92,
         "selenium_ug": 78.8,
-        "omega3_g": 0
+        "omega3_g": 0.058
       }
     },
     {
@@ -12714,7 +12714,7 @@
         "potassium_mg": 345,
         "zinc_mg": 2.63,
         "selenium_ug": 10.1,
-        "omega3_g": 0
+        "omega3_g": 0.831
       }
     },
     {
@@ -12978,7 +12978,7 @@
         "potassium_mg": 576,
         "zinc_mg": 4.89,
         "selenium_ug": 104.4,
-        "omega3_g": 0
+        "omega3_g": 0.05
       }
     },
     {
@@ -14087,7 +14087,7 @@
         "potassium_mg": 89,
         "zinc_mg": 1.23,
         "selenium_ug": 0.7,
-        "omega3_g": 0
+        "omega3_g": 0.004
       }
     },
     {
@@ -14131,7 +14131,7 @@
         "potassium_mg": 50,
         "zinc_mg": 0.38,
         "selenium_ug": 0.7,
-        "omega3_g": 0
+        "omega3_g": 0.186
       }
     },
     {

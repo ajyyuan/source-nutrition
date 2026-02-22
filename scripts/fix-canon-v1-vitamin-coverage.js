@@ -73,7 +73,13 @@ const NUTRIENT_NAME_MAP = [
   { key: "potassium_mg", unit: "MG", names: ["potassium, k"] },
   { key: "zinc_mg", unit: "MG", names: ["zinc, zn"] },
   { key: "selenium_ug", unit: "UG", names: ["selenium, se"] },
-  { key: "omega3_g", unit: "G", names: ["fatty acids, total omega-3"] }
+  { key: "omega3_g", unit: "G", names: ["fatty acids, total omega-3"], priority: 5 },
+  { key: "omega3_g", unit: "G", names: ["pufa 18:3 n-3 c,c,c (ala)"], priority: 4, omega3_component: "ala" },
+  { key: "omega3_g", unit: "G", names: ["pufa 18:3 c"], priority: 1, omega3_component: "ala" },
+  { key: "omega3_g", unit: "G", names: ["pufa 20:5 n-3 (epa)"], priority: 4, omega3_component: "epa" },
+  { key: "omega3_g", unit: "G", names: ["pufa 20:5c"], priority: 1, omega3_component: "epa" },
+  { key: "omega3_g", unit: "G", names: ["pufa 22:6 n-3 (dha)"], priority: 4, omega3_component: "dha" },
+  { key: "omega3_g", unit: "G", names: ["pufa 22:6 c"], priority: 1, omega3_component: "dha" }
 ];
 
 const SPECIES_TOKENS = [
@@ -254,7 +260,8 @@ const buildNutrientLookup = (nutrientRows) => {
       lookup.set(id, {
         key: match.key,
         factor: Number.isFinite(match.factor) ? match.factor : 1,
-        priority: Number.isFinite(match.priority) ? match.priority : 1
+        priority: Number.isFinite(match.priority) ? match.priority : 1,
+        omega3_component: typeof match.omega3_component === "string" ? match.omega3_component : null
       });
     }
   });
@@ -308,7 +315,9 @@ const loadUsdaRows = (usdaDirs) => {
         fdc_id: fdcId,
         per_100g: makeZeroVector(),
         reported: new Set(),
-        nutrient_priority: {}
+        nutrient_priority: {},
+        omega3_components: {},
+        omega3_component_priority: {}
       });
     });
     foodNutrientRows.forEach((row) => {
@@ -322,6 +331,18 @@ const loadUsdaRows = (usdaDirs) => {
       const convertedAmount = amount * mapped.factor;
       if (!Number.isFinite(convertedAmount)) return;
       const target = byFdcId.get(fdcId);
+      if (mapped.key === "omega3_g" && mapped.omega3_component) {
+        const currentComponentPriority = Number.isFinite(
+          target.omega3_component_priority[mapped.omega3_component]
+        )
+          ? target.omega3_component_priority[mapped.omega3_component]
+          : -Infinity;
+        if (mapped.priority >= currentComponentPriority) {
+          target.omega3_components[mapped.omega3_component] = convertedAmount;
+          target.omega3_component_priority[mapped.omega3_component] = mapped.priority;
+        }
+        return;
+      }
       const currentPriority = Number.isFinite(target.nutrient_priority[mapped.key])
         ? target.nutrient_priority[mapped.key]
         : -Infinity;
@@ -332,7 +353,20 @@ const loadUsdaRows = (usdaDirs) => {
       target.reported.add(mapped.key);
     });
     byFdcId.forEach((row) => {
+      if (
+        !Number.isFinite(row.nutrient_priority.omega3_g) &&
+        Object.keys(row.omega3_components).length > 0
+      ) {
+        row.per_100g.omega3_g = Object.values(row.omega3_components).reduce(
+          (acc, value) => acc + (Number.isFinite(value) ? value : 0),
+          0
+        );
+        row.nutrient_priority.omega3_g = 0;
+        row.reported.add("omega3_g");
+      }
       delete row.nutrient_priority;
+      delete row.omega3_components;
+      delete row.omega3_component_priority;
       rows.push(row);
     });
   });

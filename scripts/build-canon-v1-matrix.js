@@ -81,7 +81,13 @@ const NUTRIENT_NAME_MAP = [
   { key: "potassium_mg", unit: "MG", names: ["potassium, k"] },
   { key: "zinc_mg", unit: "MG", names: ["zinc, zn"] },
   { key: "selenium_ug", unit: "UG", names: ["selenium, se"] },
-  { key: "omega3_g", unit: "G", names: ["fatty acids, total omega-3"] }
+  { key: "omega3_g", unit: "G", names: ["fatty acids, total omega-3"], priority: 5 },
+  { key: "omega3_g", unit: "G", names: ["pufa 18:3 n-3 c,c,c (ala)"], priority: 4 },
+  { key: "omega3_g", unit: "G", names: ["pufa 18:3 c"], priority: 1 },
+  { key: "omega3_g", unit: "G", names: ["pufa 20:5 n-3 (epa)"], priority: 4 },
+  { key: "omega3_g", unit: "G", names: ["pufa 20:5c"], priority: 1 },
+  { key: "omega3_g", unit: "G", names: ["pufa 22:6 n-3 (dha)"], priority: 4 },
+  { key: "omega3_g", unit: "G", names: ["pufa 22:6 c"], priority: 1 }
 ];
 
 const parseArgs = (argv) => {
