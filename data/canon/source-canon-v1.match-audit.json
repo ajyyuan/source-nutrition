@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-21T07:21:52.590Z",
+  "generated_at": "2026-02-22T05:03:54.741Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -67,36 +67,36 @@
       "display_name": "Ground bison",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.06,
-      "matched_name": "Bison, ground, raw",
-      "matched_fdc_id": "2727571"
+      "match_confidence": 0.888571,
+      "matched_name": "Bison, ground, grass-fed, raw",
+      "matched_fdc_id": "175293"
     },
     {
       "canonical_id": "ground-lamb",
       "display_name": "Ground lamb",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.615,
-      "matched_name": "Lamb, New Zealand, imported, ground lamb, raw",
-      "matched_fdc_id": "172617"
+      "match_confidence": 1.06,
+      "matched_name": "Lamb, ground, raw",
+      "matched_fdc_id": "174370"
     },
     {
       "canonical_id": "ground-goat",
       "display_name": "Ground goat",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.98,
-      "matched_name": "Ground Goat",
-      "matched_fdc_id": "off-0647086012246"
+      "match_confidence": 0.92,
+      "matched_name": "Game meat, goat, raw",
+      "matched_fdc_id": "175303"
     },
     {
       "canonical_id": "ground-pork",
       "display_name": "Ground pork",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.06,
-      "matched_name": "Pork, ground, raw",
-      "matched_fdc_id": "2514745"
+      "match_confidence": 0.835,
+      "matched_name": "Pork, ground, 96% lean / 4% fat, raw",
+      "matched_fdc_id": "169190"
     },
     {
       "canonical_id": "ground-chicken",
@@ -112,63 +112,63 @@
       "display_name": "Ground turkey",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.54,
-      "matched_name": "Vitamin E, Ground turkey, 93% lean, 7% fat, raw (National)",
-      "matched_fdc_id": "330484"
+      "match_confidence": 1.06,
+      "matched_name": "Turkey, Ground, raw",
+      "matched_fdc_id": "171505"
     },
     {
       "canonical_id": "ground-duck",
       "display_name": "Ground duck",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.98,
-      "matched_name": "GROUND DUCK",
-      "matched_fdc_id": "480879"
+      "match_confidence": 0.91,
+      "matched_name": "Duck, domesticated, meat and skin, raw",
+      "matched_fdc_id": "172408"
     },
     {
       "canonical_id": "ribeye",
       "display_name": "Ribeye",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.294286,
-      "matched_name": "Beef, ribeye, steak, boneless, choice, raw",
-      "matched_fdc_id": "2646172"
+      "match_confidence": 1.176471,
+      "matched_name": "Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "173380"
     },
     {
       "canonical_id": "strip-steak",
       "display_name": "Strip steak",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.493333,
-      "matched_name": "Beef, short loin (NY strip steak), raw",
-      "matched_fdc_id": "2727572"
+      "match_confidence": 1.1,
+      "matched_name": "Beef, loin, strip loin (new york) steak, boneless, lean and fat, 0mm (0\") trim, raw",
+      "matched_fdc_id": "cnf-6107"
     },
     {
       "canonical_id": "tenderloin",
       "display_name": "Tenderloin",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Beef, tenderloin steak, raw",
-      "matched_fdc_id": "2727573"
+      "match_confidence": 1.21,
+      "matched_name": "Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, cooked, broiled",
+      "matched_fdc_id": "169543"
     },
     {
       "canonical_id": "sirloin",
       "display_name": "Sirloin",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.33,
-      "matched_name": "Beef, top sirloin steak, raw",
-      "matched_fdc_id": "2727574"
+      "match_confidence": 1.195385,
+      "matched_name": "Beef, top sirloin, steak, separable lean only, trimmed to 1/8\" fat, select, raw",
+      "matched_fdc_id": "171804"
     },
     {
       "canonical_id": "flank",
       "display_name": "Flank",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.455,
-      "matched_name": "Beef, flank, steak, boneless, choice, raw",
-      "matched_fdc_id": "2646175"
+      "match_confidence": 1.310769,
+      "matched_name": "Beef, flank, steak, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "168609"
     },
     {
       "canonical_id": "skirt",
@@ -184,27 +184,27 @@
       "display_name": "Hanger",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.98,
-      "matched_name": "BEEF HANGING TENDERS",
-      "matched_fdc_id": "1460108"
+      "match_confidence": 0.9,
+      "matched_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, all grades, raw",
+      "matched_fdc_id": "173374"
     },
     {
       "canonical_id": "chuck",
       "display_name": "Chuck",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.48,
-      "matched_name": "beef, chuck, roast, boneless",
-      "matched_fdc_id": "2646604"
+      "match_confidence": 1.216364,
+      "matched_name": "Beef, chuck for stew, separable lean and fat, select, raw",
+      "matched_fdc_id": "170809"
     },
     {
       "canonical_id": "brisket",
       "display_name": "Brisket",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.33,
-      "matched_name": "Beef, cured, corned beef, brisket, raw",
-      "matched_fdc_id": "170199"
+      "match_confidence": 1.187143,
+      "matched_name": "Beef, brisket, flat half, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
+      "matched_fdc_id": "168657"
     },
     {
       "canonical_id": "short-ribs",
@@ -220,18 +220,18 @@
       "display_name": "Back ribs",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.3475,
-      "matched_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, choice, raw",
-      "matched_fdc_id": "172147"
+      "match_confidence": 1.35,
+      "matched_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, all grades, cooked, braised",
+      "matched_fdc_id": "173383"
     },
     {
       "canonical_id": "round",
       "display_name": "Round",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.48,
-      "matched_name": "beef, top round, boneless",
-      "matched_fdc_id": "2646586"
+      "match_confidence": 1.294286,
+      "matched_name": "Beef, round, top round, steak, separable lean only, trimmed to 1/8\" fat, choice, raw",
+      "matched_fdc_id": "171820"
     },
     {
       "canonical_id": "shank",
@@ -247,9 +247,9 @@
       "display_name": "Oxtail",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Beef, oxtails",
-      "matched_fdc_id": "2341248"
+      "match_confidence": 0.86,
+      "matched_name": "Soup, oxtail, dehydrated, water added",
+      "matched_fdc_id": "cnf-1092"
     },
     {
       "canonical_id": "plate",
@@ -274,90 +274,90 @@
       "display_name": "Leg (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Lamb, New Zealand, imported, frozen, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/8\" fat, raw",
-      "matched_fdc_id": "172560"
+      "match_confidence": 0.84,
+      "matched_name": "Lamb, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/4\" fat, choice, cooked, roasted",
+      "matched_fdc_id": "174312"
     },
     {
       "canonical_id": "shoulder-lamb-goat",
       "display_name": "Shoulder (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.660769,
-      "matched_name": "Lamb, shoulder, arm, separable lean and fat, trimmed to 1/4\" fat, choice, raw",
-      "matched_fdc_id": "172500"
+      "match_confidence": 1.63,
+      "matched_name": "Lamb, shoulder, whole (arm and blade), separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+      "matched_fdc_id": "172496"
     },
     {
       "canonical_id": "rack-lamb-goat",
       "display_name": "Rack (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.86,
-      "matched_name": "Lamb, New Zealand, imported, rack - fully frenched, separable lean only, raw",
-      "matched_fdc_id": "174456"
+      "match_confidence": 0.88,
+      "matched_name": "Lamb, New Zealand, imported, rack - partly frenched, separable lean and fat, cooked, fast roasted",
+      "matched_fdc_id": "173813"
     },
     {
       "canonical_id": "chop-lamb-goat",
       "display_name": "Chop (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Lamb, New Zealand, imported, loin chop, separable lean only, raw",
-      "matched_fdc_id": "173810"
+      "match_confidence": 0.9,
+      "matched_name": "Lamb, New Zealand, frozen, loin chop, lean and fat, broiled",
+      "matched_fdc_id": "cnf-3496"
     },
     {
       "canonical_id": "shank-lamb-goat",
       "display_name": "Shank (lamb/goat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.82,
-      "matched_name": "Lamb, New Zealand, imported, fore-shank, separable lean only, raw",
-      "matched_fdc_id": "174340"
+      "match_confidence": 0.9,
+      "matched_name": "Lamb, foreshank, separable lean and fat, trimmed to 1/4\" fat, choice, cooked, braised",
+      "matched_fdc_id": "172482"
     },
     {
       "canonical_id": "pork-loin",
       "display_name": "Pork loin",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.93,
-      "matched_name": "Pork, loin, boneless, raw",
-      "matched_fdc_id": "2646168"
+      "match_confidence": 1.326667,
+      "matched_name": "Pork, fresh, loin, whole, separable lean only, raw",
+      "matched_fdc_id": "168230"
     },
     {
       "canonical_id": "pork-tenderloin",
       "display_name": "Pork tenderloin",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.93,
-      "matched_name": "pork, tenderloin, boneless",
-      "matched_fdc_id": "2646451"
+      "match_confidence": 0.9,
+      "matched_name": "Pork, fresh, loin, tenderloin, separable lean only, raw",
+      "matched_fdc_id": "168249"
     },
     {
       "canonical_id": "pork-shoulder",
       "display_name": "Pork shoulder",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.702727,
-      "matched_name": "Pork, Shoulder breast, boneless, separable lean and fat, raw",
-      "matched_fdc_id": "169187"
+      "match_confidence": 1.390769,
+      "matched_name": "Pork, fresh, shoulder, (Boston butt), blade (steaks), separable lean only, raw",
+      "matched_fdc_id": "168260"
     },
     {
       "canonical_id": "pork-chop",
       "display_name": "Pork chop",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Pork, chop, center cut, raw",
-      "matched_fdc_id": "2727575"
+      "match_confidence": 0.9,
+      "matched_name": "Pork, fresh, loin, center loin (chops), bone-in, separable lean only, raw",
+      "matched_fdc_id": "167829"
     },
     {
       "canonical_id": "pork-belly",
       "display_name": "Pork belly",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Pork, belly, with skin, raw",
-      "matched_fdc_id": "2727576"
+      "match_confidence": 0.9,
+      "matched_name": "Pork, wholesale cuts, belly, raw",
+      "matched_fdc_id": "cnf-1758"
     },
     {
       "canonical_id": "pork-ribs",
@@ -409,36 +409,36 @@
       "display_name": "Chicken breast",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Chicken, breast, boneless, skinless, raw",
-      "matched_fdc_id": "2646170"
+      "match_confidence": 0.652727,
+      "matched_name": "Chicken, broilers or fryers, breast, meat and skin, raw",
+      "matched_fdc_id": "171474"
     },
     {
       "canonical_id": "chicken-thigh",
       "display_name": "Chicken thigh",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Chicken, thigh, boneless, skinless, raw",
-      "matched_fdc_id": "2646171"
+      "match_confidence": 0.652727,
+      "matched_name": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+      "matched_fdc_id": "172385"
     },
     {
       "canonical_id": "chicken-drumstick",
       "display_name": "Chicken drumstick",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.805,
-      "matched_name": "Chicken, drumstick, meat and skin, raw",
-      "matched_fdc_id": "2727566"
+      "match_confidence": 0.652727,
+      "matched_name": "Chicken, broilers or fryers, drumstick, meat and skin, raw",
+      "matched_fdc_id": "172373"
     },
     {
       "canonical_id": "chicken-wing",
       "display_name": "Chicken wing",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.805,
-      "matched_name": "Chicken, wing, meat and skin, raw",
-      "matched_fdc_id": "2727568"
+      "match_confidence": 0.68,
+      "matched_name": "Chicken, broilers or fryers, wing, meat only, raw",
+      "matched_fdc_id": "173632"
     },
     {
       "canonical_id": "whole-turkey",
@@ -463,9 +463,9 @@
       "display_name": "Turkey thigh",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.73,
-      "matched_name": "Turkey, thigh, from whole bird, meat only, raw",
-      "matched_fdc_id": "171531"
+      "match_confidence": 1.660769,
+      "matched_name": "Turkey, thigh, from whole bird, meat only, with added solution, raw",
+      "matched_fdc_id": "171129"
     },
     {
       "canonical_id": "whole-duck",
@@ -481,9 +481,9 @@
       "display_name": "Duck breast",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.755,
-      "matched_name": "Duck, wild, breast, meat only, raw",
-      "matched_fdc_id": "174469"
+      "match_confidence": 0.83,
+      "matched_name": "Duck, domesticated, meat only, raw",
+      "matched_fdc_id": "cnf-664"
     },
     {
       "canonical_id": "duck-leg",
@@ -500,8 +500,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Fish, salmon, Atlantic, wild, raw",
-      "matched_fdc_id": "173686"
+      "matched_name": "Fish, salmon, Atlantic, farmed, raw",
+      "matched_fdc_id": "175167"
     },
     {
       "canonical_id": "sockeye-salmon",
@@ -518,26 +518,26 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Fish, salmon, coho, farmed, raw",
-      "matched_fdc_id": "173715"
+      "matched_name": "Fish, salmon, coho, wild, raw",
+      "matched_fdc_id": "175136"
     },
     {
       "canonical_id": "chinook-salmon",
       "display_name": "Chinook salmon",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.88,
-      "matched_name": "Fish, salmon, chinook, raw",
-      "matched_fdc_id": "173688"
+      "match_confidence": 0.8,
+      "matched_name": "Fish, salmon, chinook, smoked",
+      "matched_fdc_id": "173687"
     },
     {
       "canonical_id": "sardine",
       "display_name": "Sardine",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.195,
-      "matched_name": "Fish oil, sardine",
-      "matched_fdc_id": "173578"
+      "match_confidence": 0.93,
+      "matched_name": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+      "matched_fdc_id": "175139"
     },
     {
       "canonical_id": "tuna-skipjack",
@@ -553,9 +553,9 @@
       "display_name": "Tuna (albacore)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.86,
-      "matched_name": "Fish, tuna, raw",
-      "matched_fdc_id": "2341723"
+      "match_confidence": 0.7,
+      "matched_name": "Fish, tuna, fresh, bluefin, raw",
+      "matched_fdc_id": "173706"
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -571,9 +571,9 @@
       "display_name": "Cod",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.5375,
-      "matched_name": "cod, Atlantic, wild caught, raw, skin removed",
-      "matched_fdc_id": "2684984"
+      "match_confidence": 1.38,
+      "matched_name": "Fish, cod, Atlantic, raw",
+      "matched_fdc_id": "171955"
     },
     {
       "canonical_id": "haddock",
@@ -589,18 +589,18 @@
       "display_name": "Pollock",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.455,
-      "matched_name": "Fish, pollock, raw",
-      "matched_fdc_id": "333476"
+      "match_confidence": 1.38,
+      "matched_name": "Fish, pollock, Atlantic, raw",
+      "matched_fdc_id": "175129"
     },
     {
       "canonical_id": "halibut",
       "display_name": "Halibut",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.55,
-      "matched_name": "Halibut, frozen, wild caught",
-      "matched_fdc_id": "2747656"
+      "match_confidence": 1.38,
+      "matched_name": "Fish, halibut, Greenland, raw",
+      "matched_fdc_id": "171965"
     },
     {
       "canonical_id": "mackerel",
@@ -617,8 +617,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Fish, herring, Pacific, raw",
-      "matched_fdc_id": "173669"
+      "matched_name": "Fish, herring, Atlantic, raw",
+      "matched_fdc_id": "175116"
     },
     {
       "canonical_id": "trout",
@@ -634,54 +634,54 @@
       "display_name": "Tilapia",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.564286,
-      "matched_name": "tilapia, farm raised, raw, skin removed",
-      "matched_fdc_id": "2684976"
+      "match_confidence": 1.455,
+      "matched_name": "Fish, tilapia, raw",
+      "matched_fdc_id": "175176"
     },
     {
       "canonical_id": "catfish",
       "display_name": "Catfish",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.564286,
-      "matched_name": "catfish, farm raised, raw, skin removed",
-      "matched_fdc_id": "2684992"
+      "match_confidence": 1.33,
+      "matched_name": "Fish, catfish, channel, farmed, raw",
+      "matched_fdc_id": "175165"
     },
     {
       "canonical_id": "anchovy",
       "display_name": "Anchovy",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
+      "match_confidence": 1.4,
       "matched_name": "Fish, anchovy, european, raw",
-      "matched_fdc_id": "174182"
+      "matched_fdc_id": "cnf-2984"
     },
     {
       "canonical_id": "shrimp",
       "display_name": "Shrimp",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.455,
-      "matched_name": "Crustaceans, shrimp, raw",
-      "matched_fdc_id": "175179"
+      "match_confidence": 1.205,
+      "matched_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "matched_fdc_id": "174210"
     },
     {
       "canonical_id": "prawn",
       "display_name": "Prawn",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Crustaceans, shrimp, raw",
-      "matched_fdc_id": "175179"
+      "match_confidence": 0.7,
+      "matched_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "matched_fdc_id": "174210"
     },
     {
       "canonical_id": "scallop",
       "display_name": "Scallop",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Squash, summer, scallop, raw",
-      "matched_fdc_id": "169289"
+      "match_confidence": 0.95,
+      "matched_name": "Mollusks, scallop, mixed species, raw",
+      "matched_fdc_id": "174220"
     },
     {
       "canonical_id": "mussel",
@@ -706,45 +706,45 @@
       "display_name": "Oyster",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.455,
-      "matched_name": "Mushrooms, oyster, raw",
-      "matched_fdc_id": "168580"
+      "match_confidence": 1.46,
+      "matched_name": "Mollusks, oyster, eastern, wild, raw",
+      "matched_fdc_id": "171978"
     },
     {
       "canonical_id": "crab",
       "display_name": "Crab",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.464286,
-      "matched_name": "crab, blue swimming, lump, pasteurized, refrigerated",
-      "matched_fdc_id": "2685000"
+      "match_confidence": 1.39,
+      "matched_name": "Crustaceans, crab, blue, canned",
+      "matched_fdc_id": "171966"
     },
     {
       "canonical_id": "lobster",
       "display_name": "Lobster",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.464286,
-      "matched_name": "Lobster, tail only, frozen, wild caught",
-      "matched_fdc_id": "2747657"
+      "match_confidence": 1.38,
+      "matched_name": "Crustaceans, lobster, northern, raw",
+      "matched_fdc_id": "174208"
     },
     {
       "canonical_id": "squid",
       "display_name": "Squid",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.5,
-      "matched_name": "Squid (calamari), frozen, tubes only",
-      "matched_fdc_id": "2747671"
+      "match_confidence": 1.33,
+      "matched_name": "Mollusks, squid, mixed species, raw",
+      "matched_fdc_id": "174223"
     },
     {
       "canonical_id": "octopus",
       "display_name": "Octopus",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.625,
-      "matched_name": "Octopus (Alaska Native)",
-      "matched_fdc_id": "168019"
+      "match_confidence": 1.38,
+      "matched_name": "Mollusks, octopus, common, raw",
+      "matched_fdc_id": "174218"
     },
     {
       "canonical_id": "beef-liver",
@@ -760,36 +760,36 @@
       "display_name": "Beef heart",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.68,
-      "matched_name": "Beef, variety meats and by-products, heart, raw",
-      "matched_fdc_id": "168625"
+      "match_confidence": 0.72,
+      "matched_name": "Beef, variety meats and by-products, heart, cooked, simmered",
+      "matched_fdc_id": "169448"
     },
     {
       "canonical_id": "beef-kidney",
       "display_name": "Beef kidney",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.82,
-      "matched_name": "Beef, New Zealand, imported, variety meats and by-products, kidney, raw",
-      "matched_fdc_id": "174727"
+      "match_confidence": 0.9,
+      "matched_name": "Beef, kidneys, raw",
+      "matched_fdc_id": "cnf-2787"
     },
     {
       "canonical_id": "beef-tongue",
       "display_name": "Beef tongue",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.68,
-      "matched_name": "Beef, variety meats and by-products, tongue, raw",
-      "matched_fdc_id": "170196"
+      "match_confidence": 0.85,
+      "matched_name": "Beef, tongue, simmered",
+      "matched_fdc_id": "cnf-2669"
     },
     {
       "canonical_id": "beef-brain",
       "display_name": "Beef brain",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.68,
-      "matched_name": "Beef, variety meats and by-products, brain, raw",
-      "matched_fdc_id": "168622"
+      "match_confidence": 0.72,
+      "matched_name": "Beef, variety meats and by-products, brain, cooked, simmered",
+      "matched_fdc_id": "168624"
     },
     {
       "canonical_id": "beef-spleen",
@@ -832,9 +832,9 @@
       "display_name": "Lamb liver",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.755,
-      "matched_name": "Lamb, New Zealand, imported, liver, raw",
-      "matched_fdc_id": "172615"
+      "match_confidence": 0.87,
+      "matched_name": "Lamb, liver, raw",
+      "matched_fdc_id": "cnf-3614"
     },
     {
       "canonical_id": "lamb-heart",
@@ -859,27 +859,27 @@
       "display_name": "Pork liver",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.88,
-      "matched_name": "Liver cheese, pork",
-      "matched_fdc_id": "173869"
+      "match_confidence": 0.9,
+      "matched_name": "Pork, liver, raw",
+      "matched_fdc_id": "cnf-1844"
     },
     {
       "canonical_id": "pork-heart",
       "display_name": "Pork heart",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.652727,
-      "matched_name": "Pork, fresh, variety meats and by-products, heart, raw",
-      "matched_fdc_id": "168267"
+      "match_confidence": 1.7,
+      "matched_name": "Pork, heart, raw",
+      "matched_fdc_id": "cnf-1839"
     },
     {
       "canonical_id": "pork-kidney",
       "display_name": "Pork kidney",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Pork, fresh, variety meats and by-products, kidneys, raw",
-      "matched_fdc_id": "168270"
+      "match_confidence": 1.7,
+      "matched_name": "Pork, kidney, braised",
+      "matched_fdc_id": "cnf-1842"
     },
     {
       "canonical_id": "pork-brain",
@@ -913,18 +913,18 @@
       "display_name": "Chicken heart",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Chicken, heart, all classes, raw",
-      "matched_fdc_id": "171458"
+      "match_confidence": 1,
+      "matched_name": "Chicken, broiler, heart, raw",
+      "matched_fdc_id": "cnf-576"
     },
     {
       "canonical_id": "chicken-gizzard",
       "display_name": "Chicken gizzard",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.858571,
-      "matched_name": "Chicken, gizzard, all classes, raw",
-      "matched_fdc_id": "171456"
+      "match_confidence": 1.86,
+      "matched_name": "Chicken, gizzard, all classes, cooked, simmered",
+      "matched_fdc_id": "171457"
     },
     {
       "canonical_id": "chicken-egg",
@@ -940,18 +940,18 @@
       "display_name": "Egg white",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.13,
-      "matched_name": "Egg whites",
-      "matched_fdc_id": "323607"
+      "match_confidence": 1.81,
+      "matched_name": "Egg, white, raw, fresh",
+      "matched_fdc_id": "172183"
     },
     {
       "canonical_id": "egg-yolk",
       "display_name": "Egg yolk",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "Egg yolk",
-      "matched_fdc_id": "329495"
+      "match_confidence": 1.81,
+      "matched_name": "Egg, yolk, raw, fresh",
+      "matched_fdc_id": "172184"
     },
     {
       "canonical_id": "scrambled-egg-chicken",
@@ -967,9 +967,9 @@
       "display_name": "Fried egg (chicken)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.708571,
-      "matched_name": "Chicken, meatless, breaded, fried",
-      "matched_fdc_id": "167719"
+      "match_confidence": 0.93,
+      "matched_name": "Egg, whole, cooked, fried",
+      "matched_fdc_id": "173423"
     },
     {
       "canonical_id": "duck-egg",
@@ -1003,36 +1003,36 @@
       "display_name": "Cow's milk",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.88,
-      "matched_name": "MILK, 2%",
-      "matched_fdc_id": "320049"
+      "match_confidence": 1.44,
+      "matched_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+      "matched_fdc_id": "171265"
     },
     {
       "canonical_id": "cow-s-milk-2",
       "display_name": "Cow's milk (2%)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.13,
-      "matched_name": "MILK, 2%",
-      "matched_fdc_id": "320049"
+      "match_confidence": 0.85,
+      "matched_name": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+      "matched_fdc_id": "171267"
     },
     {
       "canonical_id": "cow-s-milk-1",
       "display_name": "Cow's milk (1%)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.026667,
-      "matched_name": "Beverages, chocolate malt powder, prepared with 1% milk, fortified",
-      "matched_fdc_id": "171874"
+      "match_confidence": 1.03,
+      "matched_name": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+      "matched_fdc_id": "170872"
     },
     {
       "canonical_id": "cow-s-milk-skim",
       "display_name": "Cow's milk (skim)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.28,
-      "matched_name": "Yogurt, plain, skim milk",
-      "matched_fdc_id": "170887"
+      "match_confidence": 1.29,
+      "matched_name": "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
+      "matched_fdc_id": "171269"
     },
     {
       "canonical_id": "goat-milk",
@@ -1057,9 +1057,9 @@
       "display_name": "Half and half",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.502857,
-      "matched_name": "Cream, half and half, lowfat",
-      "matched_fdc_id": "171308"
+      "match_confidence": 1.4225,
+      "matched_name": "Cream, half and half, fat free",
+      "matched_fdc_id": "172212"
     },
     {
       "canonical_id": "light-cream",
@@ -1075,9 +1075,9 @@
       "display_name": "Heavy cream",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "heavy cream",
-      "matched_fdc_id": "2346984"
+      "match_confidence": 0.802857,
+      "matched_name": "Cream, fluid, heavy whipping",
+      "matched_fdc_id": "170859"
     },
     {
       "canonical_id": "butter",
@@ -1093,36 +1093,36 @@
       "display_name": "Ghee",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Butter, Clarified butter (ghee)",
-      "matched_fdc_id": "171314"
+      "match_confidence": 0.78,
+      "matched_name": "Butter, unsalted",
+      "matched_fdc_id": "cnf-92"
     },
     {
       "canonical_id": "yogurt-plain",
       "display_name": "Yogurt (plain)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.73,
-      "matched_name": "Yogurt, plain, nonfat",
-      "matched_fdc_id": "2647437"
+      "match_confidence": 1.63,
+      "matched_name": "Yogurt, plain, low fat",
+      "matched_fdc_id": "170886"
     },
     {
       "canonical_id": "yogurt-plain-lowfat",
       "display_name": "Yogurt (plain, lowfat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.15,
-      "matched_name": "Babyfood, banana juice with low fat yogurt",
-      "matched_fdc_id": "168090"
+      "match_confidence": 0.802857,
+      "matched_name": "Yogurt, Greek, plain, lowfat",
+      "matched_fdc_id": "170903"
     },
     {
       "canonical_id": "yogurt-plain-nonfat",
       "display_name": "Yogurt (plain, nonfat)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "Yogurt, plain, nonfat",
-      "matched_fdc_id": "2647437"
+      "match_confidence": 0.588571,
+      "matched_name": "Yogurt, Greek, strawberry, nonfat",
+      "matched_fdc_id": "170901"
     },
     {
       "canonical_id": "kefir-plain",
@@ -1138,18 +1138,18 @@
       "display_name": "Cottage cheese",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.638571,
-      "matched_name": "cottage cheese, 4% milkfat, small curd",
-      "matched_fdc_id": "2346992"
+      "match_confidence": 0.66,
+      "matched_name": "Cheese, cottage, lowfat, 2% milkfat",
+      "matched_fdc_id": "172182"
     },
     {
       "canonical_id": "cheddar",
       "display_name": "Cheddar",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.2,
-      "matched_name": "Cheese, cheddar",
-      "matched_fdc_id": "328637"
+      "match_confidence": 1.16,
+      "matched_name": "Cheese, cheddar, sharp, sliced",
+      "matched_fdc_id": "170899"
     },
     {
       "canonical_id": "gouda",
@@ -1174,18 +1174,18 @@
       "display_name": "Parmesan",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Parmesan cheese topping, fat free",
-      "matched_fdc_id": "172206"
+      "match_confidence": 1.235,
+      "matched_name": "Cheese, parmesan, hard",
+      "matched_fdc_id": "170848"
     },
     {
       "canonical_id": "mozzarella",
       "display_name": "Mozzarella",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.235,
-      "matched_name": "APPLEBEE'S, mozzarella sticks",
-      "matched_fdc_id": "169011"
+      "match_confidence": 1.16,
+      "matched_name": "Cheese, mozzarella, whole milk",
+      "matched_fdc_id": "170845"
     },
     {
       "canonical_id": "feta",
@@ -1255,9 +1255,9 @@
       "display_name": "American cheese",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "American Cheese",
-      "matched_fdc_id": "746955"
+      "match_confidence": 0.7,
+      "matched_name": "Cheese, pasteurized process, American, fortified with vitamin D",
+      "matched_fdc_id": "170853"
     },
     {
       "canonical_id": "processed-cheese-slices",
@@ -1273,18 +1273,18 @@
       "display_name": "Cream cheese",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.638571,
-      "matched_name": "Cream cheese, full fat, block",
-      "matched_fdc_id": "2346385"
+      "match_confidence": 0.91,
+      "matched_name": "Cheese, cream",
+      "matched_fdc_id": "173418"
     },
     {
       "canonical_id": "sour-cream",
       "display_name": "Sour cream",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.81,
-      "matched_name": "Sour cream, light",
-      "matched_fdc_id": "173443"
+      "match_confidence": 0.76,
+      "matched_name": "Cream, sour, cultured",
+      "matched_fdc_id": "171257"
     },
     {
       "canonical_id": "broccoli",
@@ -1327,18 +1327,18 @@
       "display_name": "Kale",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.13,
-      "matched_name": "Kale",
-      "matched_fdc_id": "323449"
+      "match_confidence": 1.73,
+      "matched_name": "Kale, raw",
+      "matched_fdc_id": "168421"
     },
     {
       "canonical_id": "bok-choy",
       "display_name": "Bok choy",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.685,
-      "matched_name": "Bok choy, regular (not baby), raw",
-      "matched_fdc_id": "2686216"
+      "match_confidence": 1.54,
+      "matched_name": "Cabbage, chinese (pak-choi), raw",
+      "matched_fdc_id": "170390"
     },
     {
       "canonical_id": "arugula",
@@ -1354,9 +1354,9 @@
       "display_name": "Radish",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.53,
-      "matched_name": "Radish seeds, sprouted, raw",
-      "matched_fdc_id": "170095"
+      "match_confidence": 1,
+      "matched_name": "Radishes, oriental, raw",
+      "matched_fdc_id": "168451"
     },
     {
       "canonical_id": "turnip",
@@ -1373,8 +1373,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.605,
-      "matched_name": "Rutabaga, peeled, raw",
-      "matched_fdc_id": "2727580"
+      "matched_name": "Rutabagas, raw",
+      "matched_fdc_id": "168454"
     },
     {
       "canonical_id": "mustard-greens",
@@ -1435,9 +1435,9 @@
       "display_name": "Dill",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Dill weed, fresh",
-      "matched_fdc_id": "172233"
+      "match_confidence": 1.11,
+      "matched_name": "Pickles, cucumber, dill or kosher dill",
+      "matched_fdc_id": "168558"
     },
     {
       "canonical_id": "cilantro",
@@ -1453,18 +1453,18 @@
       "display_name": "Garlic",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.13,
-      "matched_name": "GARLIC",
-      "matched_fdc_id": "1104596"
+      "match_confidence": 1.73,
+      "matched_name": "Garlic, raw",
+      "matched_fdc_id": "169230"
     },
     {
       "canonical_id": "onion",
       "display_name": "Onion",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.235,
-      "matched_name": "DENNY'S, onion rings",
-      "matched_fdc_id": "169844"
+      "match_confidence": 1.24,
+      "matched_name": "Onions, raw",
+      "matched_fdc_id": "170000"
     },
     {
       "canonical_id": "shallot",
@@ -1489,9 +1489,9 @@
       "display_name": "Scallion",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.11,
-      "matched_name": "Green onion, (scallion), bulb and greens, root removed, raw",
-      "matched_fdc_id": "2727585"
+      "match_confidence": 0.95,
+      "matched_name": "Onions, spring or scallions (includes tops and bulb), raw",
+      "matched_fdc_id": "170005"
     },
     {
       "canonical_id": "chive",
@@ -1507,18 +1507,18 @@
       "display_name": "Potato",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "Potato flour",
-      "matched_fdc_id": "168446"
+      "match_confidence": 1.64,
+      "matched_name": "Potatoes, flesh and skin, raw",
+      "matched_fdc_id": "170026"
     },
     {
       "canonical_id": "tomato",
       "display_name": "Tomato",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "Tomato powder",
-      "matched_fdc_id": "170461"
+      "match_confidence": 1.64,
+      "matched_name": "Tomatoes, red, ripe, raw, year round average",
+      "matched_fdc_id": "170457"
     },
     {
       "canonical_id": "bell-pepper",
@@ -1534,9 +1534,9 @@
       "display_name": "Chili pepper",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.866667,
-      "matched_name": "Sauce, chili, peppers, hot, immature green, canned",
-      "matched_fdc_id": "171605"
+      "match_confidence": 0.95,
+      "matched_name": "Peppers, hot chili, red, raw",
+      "matched_fdc_id": "170106"
     },
     {
       "canonical_id": "eggplant",
@@ -1552,9 +1552,9 @@
       "display_name": "Zucchini",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.335,
-      "matched_name": "Squash, zucchini, raw",
-      "matched_fdc_id": "2685928"
+      "match_confidence": 1.174286,
+      "matched_name": "Squash, summer, zucchini, includes skin, raw",
+      "matched_fdc_id": "169291"
     },
     {
       "canonical_id": "cucumber",
@@ -1579,18 +1579,18 @@
       "display_name": "Butternut squash",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.315,
-      "matched_name": "Babyfood, vegetable, butternut squash and corn",
-      "matched_fdc_id": "173510"
+      "match_confidence": 1,
+      "matched_name": "Squash, winter, butternut, raw",
+      "matched_fdc_id": "169295"
     },
     {
       "canonical_id": "acorn-squash",
       "display_name": "Acorn squash",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.86,
-      "matched_name": "Squash, acorn, raw",
-      "matched_fdc_id": "2686144"
+      "match_confidence": 1.04,
+      "matched_name": "Squash, winter, acorn, raw",
+      "matched_fdc_id": "cnf-2448"
     },
     {
       "canonical_id": "spaghetti-squash",
@@ -1651,18 +1651,18 @@
       "display_name": "Amaranth",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "amaranth, flour",
-      "matched_fdc_id": "2512559"
+      "match_confidence": 1.505,
+      "matched_name": "Amaranth grain, uncooked",
+      "matched_fdc_id": "170682"
     },
     {
       "canonical_id": "lettuce",
       "display_name": "Lettuce",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Lettuce, iceberg, raw",
-      "matched_fdc_id": "2346388"
+      "match_confidence": 1.53,
+      "matched_name": "Lettuce, red leaf, raw",
+      "matched_fdc_id": "168431"
     },
     {
       "canonical_id": "endive",
@@ -1696,9 +1696,9 @@
       "display_name": "Lentil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.026667,
-      "matched_name": "Soup, lentil with ham, canned, ready-to-serve",
-      "matched_fdc_id": "171549"
+      "match_confidence": 1.12,
+      "matched_name": "Lentils, raw",
+      "matched_fdc_id": "172420"
     },
     {
       "canonical_id": "chickpea",
@@ -1714,9 +1714,9 @@
       "display_name": "Black bean",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.368571,
-      "matched_name": "Soup, black bean, canned, condensed",
-      "matched_fdc_id": "171141"
+      "match_confidence": 1.37,
+      "matched_name": "Beans, black, mature seeds, raw",
+      "matched_fdc_id": "173734"
     },
     {
       "canonical_id": "kidney-bean",
@@ -1732,54 +1732,54 @@
       "display_name": "Pinto bean",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.273333,
-      "matched_name": "Stew, pinto bean and hominy, badufsuki (Hopi)",
-      "matched_fdc_id": "169006"
+      "match_confidence": 1.3,
+      "matched_name": "Beans, pinto, mature seeds, raw (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "175199"
     },
     {
       "canonical_id": "soybean",
       "display_name": "Soybean",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "Soybean oil",
-      "matched_fdc_id": "748327"
+      "match_confidence": 1.51,
+      "matched_name": "Soybeans, mature seeds, raw",
+      "matched_fdc_id": "174270"
     },
     {
       "canonical_id": "pea",
       "display_name": "Pea",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.235,
-      "matched_name": "Blackeye pea, dry",
-      "matched_fdc_id": "2644284"
+      "match_confidence": 0.95,
+      "matched_name": "Peas, green, raw",
+      "matched_fdc_id": "170419"
     },
     {
       "canonical_id": "green-bean",
       "display_name": "Green bean",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Green beans, raw",
-      "matched_fdc_id": "2349958"
+      "match_confidence": 0.95,
+      "matched_name": "Beans, snap, green, raw",
+      "matched_fdc_id": "169961"
     },
     {
       "canonical_id": "white-rice",
       "display_name": "White rice",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.638571,
-      "matched_name": "white rice, long grain, unenriched",
-      "matched_fdc_id": "2512687"
+      "match_confidence": 0.8,
+      "matched_name": "Rice, white, long-grain, regular, raw, unenriched",
+      "matched_fdc_id": "169756"
     },
     {
       "canonical_id": "brown-rice",
       "display_name": "Brown rice",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.638571,
-      "matched_name": "brown rice, long grain, unenriched",
-      "matched_fdc_id": "2512591"
+      "match_confidence": 1.45,
+      "matched_name": "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "169703"
     },
     {
       "canonical_id": "wild-rice",
@@ -1795,18 +1795,18 @@
       "display_name": "Oats",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Oats, whole grain, steel cut",
-      "matched_fdc_id": "2346397"
+      "match_confidence": 1.074286,
+      "matched_name": "Cereals, oats, instant, fortified, plain, dry",
+      "matched_fdc_id": "171661"
     },
     {
       "canonical_id": "wheat",
       "display_name": "Wheat",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "Wheat, durum",
-      "matched_fdc_id": "169721"
+      "match_confidence": 1.505,
+      "matched_name": "Wheat, hard white",
+      "matched_fdc_id": "169719"
     },
     {
       "canonical_id": "barley",
@@ -1831,9 +1831,9 @@
       "display_name": "Corn",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.63,
-      "matched_name": "Corn oil",
-      "matched_fdc_id": "748282"
+      "match_confidence": 1.53,
+      "matched_name": "Corn, sweet, white, raw",
+      "matched_fdc_id": "168538"
     },
     {
       "canonical_id": "millet",
@@ -1849,9 +1849,9 @@
       "display_name": "Sweet potato",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.81,
-      "matched_name": "Sweet potato leaves, raw",
-      "matched_fdc_id": "169303"
+      "match_confidence": 1.540769,
+      "matched_name": "Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "168482"
     },
     {
       "canonical_id": "yam",
@@ -1903,108 +1903,108 @@
       "display_name": "Apple",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.28,
-      "matched_name": "Apple juice, with added vitamin C, from concentrate, shelf stable",
-      "matched_fdc_id": "2003590"
+      "match_confidence": 1.3,
+      "matched_name": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "171688"
     },
     {
       "canonical_id": "banana",
       "display_name": "Banana",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.335,
-      "matched_name": "Pepper, banana, raw",
-      "matched_fdc_id": "169394"
+      "match_confidence": 1.34,
+      "matched_name": "Bananas, raw",
+      "matched_fdc_id": "173944"
     },
     {
       "canonical_id": "orange",
       "display_name": "Orange",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Orange peel, raw",
-      "matched_fdc_id": "169103"
+      "match_confidence": 1.37,
+      "matched_name": "Oranges, raw, all commercial varieties",
+      "matched_fdc_id": "169097"
     },
     {
       "canonical_id": "tangerine",
       "display_name": "Tangerine",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Tangerine juice, raw",
-      "matched_fdc_id": "169925"
+      "match_confidence": 1.61,
+      "matched_name": "Tangerines, (mandarin oranges), raw",
+      "matched_fdc_id": "169105"
     },
     {
       "canonical_id": "lemon",
       "display_name": "Lemon",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Lemon juice, raw",
-      "matched_fdc_id": "167747"
+      "match_confidence": 1.61,
+      "matched_name": "Lemons, raw, without peel",
+      "matched_fdc_id": "167746"
     },
     {
       "canonical_id": "lime",
       "display_name": "Lime",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Lime juice, raw",
-      "matched_fdc_id": "168156"
+      "match_confidence": 1.61,
+      "matched_name": "Limes, raw",
+      "matched_fdc_id": "168155"
     },
     {
       "canonical_id": "strawberry",
       "display_name": "Strawberry",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "Strawberry-flavor beverage mix, powder",
-      "matched_fdc_id": "174869"
+      "match_confidence": 1.39,
+      "matched_name": "Strawberries, raw",
+      "matched_fdc_id": "167762"
     },
     {
       "canonical_id": "blueberry",
       "display_name": "Blueberry",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.16,
-      "matched_name": "Pie fillings, blueberry, canned",
-      "matched_fdc_id": "167738"
+      "match_confidence": 1.2,
+      "matched_name": "Blueberries, raw",
+      "matched_fdc_id": "171711"
     },
     {
       "canonical_id": "raspberry",
       "display_name": "Raspberry",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Raspberry juice concentrate",
-      "matched_fdc_id": "168217"
+      "match_confidence": 1.52,
+      "matched_name": "Raspberries, raw",
+      "matched_fdc_id": "167755"
     },
     {
       "canonical_id": "kiwi",
       "display_name": "Kiwi",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.396667,
-      "matched_name": "Kiwi, Raw, Pass 2, Region 1, n/a, Potassium, Sodium, Selenium - NFY010H8T",
-      "matched_fdc_id": "326976"
+      "match_confidence": 1.18,
+      "matched_name": "Kiwifruit, green, raw",
+      "matched_fdc_id": "168153"
     },
     {
       "canonical_id": "avocado",
       "display_name": "Avocado",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.53,
-      "matched_name": "Avocado, Hass, peeled, raw",
-      "matched_fdc_id": "2710824"
+      "match_confidence": 1.2,
+      "matched_name": "Avocados, raw, all commercial varieties",
+      "matched_fdc_id": "171705"
     },
     {
       "canonical_id": "olive",
       "display_name": "Olive",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Olive loaf, pork",
-      "matched_fdc_id": "172926"
+      "match_confidence": 1.51,
+      "matched_name": "Olives, ripe, canned (small-extra large)",
+      "matched_fdc_id": "169094"
     },
     {
       "canonical_id": "mango",
@@ -2012,71 +2012,71 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.53,
-      "matched_name": "Mango, Ataulfo, peeled, raw",
-      "matched_fdc_id": "2710834"
+      "matched_name": "Mangos, raw",
+      "matched_fdc_id": "169910"
     },
     {
       "canonical_id": "pineapple",
       "display_name": "Pineapple",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.73,
-      "matched_name": "Pineapple, raw",
-      "matched_fdc_id": "2346398"
+      "match_confidence": 1.53,
+      "matched_name": "Pineapple, raw, all varieties",
+      "matched_fdc_id": "169124"
     },
     {
       "canonical_id": "papaya",
       "display_name": "Papaya",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Papaya nectar, canned",
-      "matched_fdc_id": "169107"
+      "match_confidence": 1.51,
+      "matched_name": "Papayas, raw",
+      "matched_fdc_id": "169926"
     },
     {
       "canonical_id": "grapes",
       "display_name": "Grapes",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "Grapes, muscadine, raw",
-      "matched_fdc_id": "173040"
+      "match_confidence": 1.444286,
+      "matched_name": "Grapes, american type (slip skin), raw",
+      "matched_fdc_id": "174682"
     },
     {
       "canonical_id": "pear",
       "display_name": "Pear",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.444286,
-      "matched_name": "Pear, Anjou, green, with skin, raw",
-      "matched_fdc_id": "2710836"
+      "match_confidence": 1.08,
+      "matched_name": "Pears, raw",
+      "matched_fdc_id": "169118"
     },
     {
       "canonical_id": "peach",
       "display_name": "Peach",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.3175,
-      "matched_name": "Peach nectar, canned, with added ascorbic acid",
-      "matched_fdc_id": "168185"
+      "match_confidence": 1.21,
+      "matched_name": "Peaches, yellow, raw",
+      "matched_fdc_id": "169928"
     },
     {
       "canonical_id": "apricot",
       "display_name": "Apricot",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.53,
-      "matched_name": "Apricot, with skin, raw",
-      "matched_fdc_id": "2710815"
+      "match_confidence": 1.08,
+      "matched_name": "Apricots, raw",
+      "matched_fdc_id": "171697"
     },
     {
       "canonical_id": "almond",
       "display_name": "Almond",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Almond butter, creamy",
-      "matched_fdc_id": "2262074"
+      "match_confidence": 1.24,
+      "matched_name": "Nuts, almonds",
+      "matched_fdc_id": "170567"
     },
     {
       "canonical_id": "walnut",
@@ -2084,53 +2084,53 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.2,
-      "matched_name": "Oil, walnut",
-      "matched_fdc_id": "171030"
+      "matched_name": "Nuts, walnuts, english",
+      "matched_fdc_id": "170187"
     },
     {
       "canonical_id": "pecan",
       "display_name": "Pecan",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.16,
-      "matched_name": "Pie, pecan, commercially prepared",
-      "matched_fdc_id": "175021"
+      "match_confidence": 1.2,
+      "matched_name": "Nuts, pecans",
+      "matched_fdc_id": "170182"
     },
     {
       "canonical_id": "macadamia",
       "display_name": "Macadamia",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "macadamia nuts, raw",
-      "matched_fdc_id": "2516152"
+      "match_confidence": 1.335,
+      "matched_name": "Nuts, macadamia nuts, raw",
+      "matched_fdc_id": "170178"
     },
     {
       "canonical_id": "hazelnut",
       "display_name": "Hazelnut",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.235,
-      "matched_name": "SILK Hazelnut Creamer",
-      "matched_fdc_id": "173782"
+      "match_confidence": 1.22,
+      "matched_name": "Nuts, hazelnuts or filberts",
+      "matched_fdc_id": "170581"
     },
     {
       "canonical_id": "pistachio",
       "display_name": "Pistachio",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.605,
-      "matched_name": "pistachio nuts, raw",
-      "matched_fdc_id": "2516224"
+      "match_confidence": 1.335,
+      "matched_name": "Nuts, pistachio nuts, raw",
+      "matched_fdc_id": "170184"
     },
     {
       "canonical_id": "brazil-nut",
       "display_name": "Brazil nut",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.38,
-      "matched_name": "brazil nuts, raw",
-      "matched_fdc_id": "2515864"
+      "match_confidence": 0.75,
+      "matched_name": "Nuts, brazilnuts, dried, unblanched",
+      "matched_fdc_id": "170569"
     },
     {
       "canonical_id": "cashew",
@@ -2146,45 +2146,45 @@
       "display_name": "Pumpkin seed",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.468571,
-      "matched_name": "Fish, sunfish, pumpkin seed, raw",
-      "matched_fdc_id": "175151"
+      "match_confidence": 1.47,
+      "matched_name": "Seeds, pumpkin and squash seed kernels, dried",
+      "matched_fdc_id": "170556"
     },
     {
       "canonical_id": "sunflower-seed",
       "display_name": "Sunflower seed",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.81,
-      "matched_name": "sunflower seed kernels, raw",
-      "matched_fdc_id": "2516296"
+      "match_confidence": 1.33,
+      "matched_name": "Seeds, sunflower seed kernels, dried",
+      "matched_fdc_id": "170562"
     },
     {
       "canonical_id": "sesame",
       "display_name": "Sesame",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.505,
-      "matched_name": "Sesame butter, creamy",
-      "matched_fdc_id": "2262073"
+      "match_confidence": 1.24,
+      "matched_name": "Seeds, sesame seed kernels, dried (decorticated)",
+      "matched_fdc_id": "169412"
     },
     {
       "canonical_id": "chia",
       "display_name": "Chia",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.53,
-      "matched_name": "Chia seeds, dry, raw",
-      "matched_fdc_id": "2710819"
+      "match_confidence": 1.4,
+      "matched_name": "Seeds, chia seeds, dried",
+      "matched_fdc_id": "cnf-2511"
     },
     {
       "canonical_id": "flax",
       "display_name": "Flax",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.996364,
-      "matched_name": "Margarine-like spread, SMART BALANCE Regular Buttery Spread with flax oil",
-      "matched_fdc_id": "172371"
+      "match_confidence": 1.1,
+      "matched_name": "Seeds, flaxseed",
+      "matched_fdc_id": "169414"
     },
     {
       "canonical_id": "hemp",
@@ -2200,27 +2200,27 @@
       "display_name": "Pine nut",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.1,
-      "matched_name": "Nuts, pine nuts, raw",
-      "matched_fdc_id": "2346392"
+      "match_confidence": 1.11,
+      "matched_name": "Nuts, pine nuts, dried",
+      "matched_fdc_id": "170591"
     },
     {
       "canonical_id": "olive-oil",
       "display_name": "Olive oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.24,
-      "matched_name": "Anchovies, canned in olive oil, with salt, drained",
-      "matched_fdc_id": "2747652"
+      "match_confidence": 0.588571,
+      "matched_name": "Oil, corn, peanut, and olive",
+      "matched_fdc_id": "167737"
     },
     {
       "canonical_id": "avocado-oil",
       "display_name": "Avocado oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.75,
-      "matched_name": "Oil, avocado",
-      "matched_fdc_id": "173573"
+      "match_confidence": 0.9,
+      "matched_name": "Vegetable oil, avocado",
+      "matched_fdc_id": "cnf-450"
     },
     {
       "canonical_id": "coconut-oil",
@@ -2263,9 +2263,9 @@
       "display_name": "Whole wheat bread",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.395,
-      "matched_name": "Tocopherols, Whole wheat bread, NATURES OWN (FL,NC) - NFY1204Q0",
-      "matched_fdc_id": "335125"
+      "match_confidence": 0.9,
+      "matched_name": "Bread, whole-wheat, commercially prepared",
+      "matched_fdc_id": "172688"
     },
     {
       "canonical_id": "sourdough-bread",
@@ -2281,27 +2281,27 @@
       "display_name": "Pita",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.16,
-      "matched_name": "Bread, pita, white, unenriched",
-      "matched_fdc_id": "172816"
+      "match_confidence": 1.2,
+      "matched_name": "Bread, pita, white, enriched",
+      "matched_fdc_id": "174915"
     },
     {
       "canonical_id": "naan",
       "display_name": "Naan",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.074286,
-      "matched_name": "Bread, naan, plain, commercially prepared, refrigerated",
-      "matched_fdc_id": "171845"
+      "match_confidence": 1.4,
+      "matched_name": "Indian, bread, naan",
+      "matched_fdc_id": "cnf-6606"
     },
     {
       "canonical_id": "noodles",
       "display_name": "Noodles",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.43,
-      "matched_name": "Noodles, chinese, chow mein",
-      "matched_fdc_id": "168905"
+      "match_confidence": 1.28,
+      "matched_name": "Noodles, chinese, cellophane or long rice (mung beans), dehydrated",
+      "matched_fdc_id": "174258"
     },
     {
       "canonical_id": "soba-noodles",
@@ -2326,81 +2326,81 @@
       "display_name": "Sourdough pasta",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.9,
-      "matched_name": "Sourdough Spaghetti",
-      "matched_fdc_id": "off-0799210620008"
+      "match_confidence": 0.74,
+      "matched_name": "Pasta, dry, unenriched",
+      "matched_fdc_id": "168927"
     },
     {
       "canonical_id": "canola-oil",
       "display_name": "Canola oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "Canola oil",
-      "matched_fdc_id": "748240"
+      "match_confidence": 0.91,
+      "matched_name": "Oil, canola",
+      "matched_fdc_id": "172336"
     },
     {
       "canonical_id": "soybean-oil",
       "display_name": "Soybean oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "Soybean oil",
-      "matched_fdc_id": "748327"
+      "match_confidence": 0.85,
+      "matched_name": "Oil, soybean, salad or cooking",
+      "matched_fdc_id": "171411"
     },
     {
       "canonical_id": "sunflower-oil",
       "display_name": "Sunflower oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.91,
-      "matched_name": "Oil, sunflower",
-      "matched_fdc_id": "1750349"
+      "match_confidence": 0.588571,
+      "matched_name": "Oil, sunflower, linoleic, (approx. 65%)",
+      "matched_fdc_id": "171025"
     },
     {
       "canonical_id": "safflower-oil",
       "display_name": "Safflower oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.212727,
-      "matched_name": "Salad dressing, mayonnaise, soybean and safflower oil, with salt",
-      "matched_fdc_id": "171010"
+      "match_confidence": 1.19,
+      "matched_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
+      "matched_fdc_id": "171027"
     },
     {
       "canonical_id": "corn-oil",
       "display_name": "Corn oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.21,
-      "matched_name": "Corn oil",
-      "matched_fdc_id": "748282"
+      "match_confidence": 0.83,
+      "matched_name": "Oil, corn, industrial and retail, all purpose salad or cooking",
+      "matched_fdc_id": "171029"
     },
     {
       "canonical_id": "grapeseed-oil",
       "display_name": "Grapeseed oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.91,
-      "matched_name": "Oil, grapeseed",
-      "matched_fdc_id": "171028"
+      "match_confidence": 0.92,
+      "matched_name": "Vegetable oil, grapeseed",
+      "matched_fdc_id": "cnf-436"
     },
     {
       "canonical_id": "peanut-oil",
       "display_name": "Peanut oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.91,
-      "matched_name": "Oil, peanut",
-      "matched_fdc_id": "1750348"
+      "match_confidence": 0.9,
+      "matched_name": "Oil, peanut, salad or cooking",
+      "matched_fdc_id": "171410"
     },
     {
       "canonical_id": "rice-bran-oil",
       "display_name": "Rice bran oil",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.99,
-      "matched_name": "Oil, rice bran",
-      "matched_fdc_id": "171013"
+      "match_confidence": 0.9,
+      "matched_name": "Vegetable oil, rice bran",
+      "matched_fdc_id": "cnf-416"
     },
     {
       "canonical_id": "vegetable-oil",
@@ -2416,9 +2416,9 @@
       "display_name": "White bread",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.368571,
-      "matched_name": "Wheat flour, white, bread, enriched",
-      "matched_fdc_id": "168896"
+      "match_confidence": 1.37,
+      "matched_name": "Bread, white, commercially prepared (includes soft bread crumbs)",
+      "matched_fdc_id": "174924"
     },
     {
       "canonical_id": "rye-bread",
@@ -2434,9 +2434,9 @@
       "display_name": "Bagel",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.16,
-      "matched_name": "Snacks, bagel chips, plain",
-      "matched_fdc_id": "173150"
+      "match_confidence": 1.2,
+      "matched_name": "Bagels, plain, enriched, with calcium propionate (includes onion, poppy, sesame)",
+      "matched_fdc_id": "174899"
     },
     {
       "canonical_id": "tortilla-flour",
@@ -2461,27 +2461,27 @@
       "display_name": "Hamburger bun",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Roll, white, hamburger bun",
-      "matched_fdc_id": "2343137"
+      "match_confidence": 0.95,
+      "matched_name": "Rolls, hamburger or hotdog, plain",
+      "matched_fdc_id": "172796"
     },
     {
       "canonical_id": "hot-dog-bun",
       "display_name": "Hot dog bun",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.72,
-      "matched_name": "Roll, white, hot dog bun",
-      "matched_fdc_id": "2343136"
+      "match_confidence": 0.95,
+      "matched_name": "Rolls, hamburger or hotdog, plain",
+      "matched_fdc_id": "172796"
     },
     {
       "canonical_id": "sandwich-roll",
       "display_name": "Sandwich roll",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.86,
-      "matched_name": "Roll, white, hoagie, submarine",
-      "matched_fdc_id": "2343143"
+      "match_confidence": 0.9,
+      "matched_name": "Rolls, hamburger or hotdog, plain",
+      "matched_fdc_id": "172796"
     },
     {
       "canonical_id": "bread-crumbs",
@@ -2506,18 +2506,18 @@
       "display_name": "Crackers (plain)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.193333,
-      "matched_name": "Cookies, graham crackers, plain or honey, lowfat",
-      "matched_fdc_id": "174083"
+      "match_confidence": 0.68,
+      "matched_name": "Crackers, matzo, plain",
+      "matched_fdc_id": "172740"
     },
     {
       "canonical_id": "rice-cakes",
       "display_name": "Rice cakes",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.368571,
-      "matched_name": "Snacks, rice cakes, brown rice, buckwheat",
-      "matched_fdc_id": "167967"
+      "match_confidence": 1.315,
+      "matched_name": "Snacks, rice cakes, brown rice, plain, unsalted",
+      "matched_fdc_id": "170250"
     },
     {
       "canonical_id": "rice-noodles",
@@ -2533,9 +2533,9 @@
       "display_name": "Udon noodles",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.98,
-      "matched_name": "UDON NOODLES",
-      "matched_fdc_id": "2027691"
+      "match_confidence": 0.7,
+      "matched_name": "Noodles, japanese, somen, dry",
+      "matched_fdc_id": "168908"
     },
     {
       "canonical_id": "ramen-noodles",
@@ -2570,8 +2570,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.63,
-      "matched_name": "Couscous, dry",
-      "matched_fdc_id": "169699"
+      "matched_name": "Couscous, cooked",
+      "matched_fdc_id": "169700"
     },
     {
       "canonical_id": "bulgur",
@@ -2587,27 +2587,27 @@
       "display_name": "Peanut butter",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.81,
-      "matched_name": "Peanut butter, creamy",
-      "matched_fdc_id": "2262072"
+      "match_confidence": 1.638571,
+      "matched_name": "Peanut butter, smooth, reduced fat",
+      "matched_fdc_id": "172458"
     },
     {
       "canonical_id": "almond-butter",
       "display_name": "Almond butter",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.81,
-      "matched_name": "Almond butter, creamy",
-      "matched_fdc_id": "2262074"
+      "match_confidence": 1.273333,
+      "matched_name": "Nuts, almond butter, plain, without salt added",
+      "matched_fdc_id": "168588"
     },
     {
       "canonical_id": "tahini",
       "display_name": "Tahini",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.11,
-      "matched_name": "sesame seed butter (tahini), creamy",
-      "matched_fdc_id": "2262552"
+      "match_confidence": 0.95,
+      "matched_name": "Seeds, sesame butter, tahini, from roasted and toasted kernels (most common type)",
+      "matched_fdc_id": "170189"
     },
     {
       "canonical_id": "sunflower-seed-butter",
@@ -2660,44 +2660,44 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.585,
-      "matched_name": "Tomato, paste, canned, without salt added",
-      "matched_fdc_id": "2685580"
+      "matched_name": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+      "matched_fdc_id": "170459"
     },
     {
       "canonical_id": "canned-tomatoes",
       "display_name": "Canned tomatoes",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.91,
-      "matched_name": "Tomatoes, canned",
-      "matched_fdc_id": "333138"
+      "match_confidence": 0.76,
+      "matched_name": "Tomatoes, crushed, canned",
+      "matched_fdc_id": "170501"
     },
     {
       "canonical_id": "coconut-milk",
       "display_name": "Coconut milk",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.19,
-      "matched_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
-      "matched_fdc_id": "174116"
+      "match_confidence": 1.170769,
+      "matched_name": "Nuts, coconut milk, raw (liquid expressed from grated meat and water)",
+      "matched_fdc_id": "170172"
     },
     {
       "canonical_id": "broth",
       "display_name": "Broth",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.2,
-      "matched_name": "Fish broth",
-      "matched_fdc_id": "171606"
+      "match_confidence": 1.11,
+      "matched_name": "Soup, chicken broth, canned, condensed",
+      "matched_fdc_id": "171542"
     },
     {
       "canonical_id": "ketchup",
       "display_name": "Ketchup",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 2.13,
-      "matched_name": "Ketchup",
-      "matched_fdc_id": "747453"
+      "match_confidence": 0.94,
+      "matched_name": "Tomato ketchup (catsup)",
+      "matched_fdc_id": "cnf-2494"
     },
     {
       "canonical_id": "mustard",
@@ -2749,9 +2749,9 @@
       "display_name": "Hot sauce",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.66,
-      "matched_name": "Sauce, hot chile, sriracha",
-      "matched_fdc_id": "171186"
+      "match_confidence": 0.9,
+      "matched_name": "Sauce, pepper or hot, ready-to-serve",
+      "matched_fdc_id": "cnf-1029"
     },
     {
       "canonical_id": "pickles",
@@ -2794,18 +2794,18 @@
       "display_name": "Shiitake",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.335,
-      "matched_name": "Mushrooms, shiitake, raw",
-      "matched_fdc_id": "169242"
+      "match_confidence": 1.34,
+      "matched_name": "Mushrooms, shiitake, stir-fried",
+      "matched_fdc_id": "168435"
     },
     {
       "canonical_id": "oyster-mushroom",
       "display_name": "Oyster mushroom",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 1.03,
-      "matched_name": "Mushroom, oyster",
-      "matched_fdc_id": "1750345"
+      "match_confidence": 1,
+      "matched_name": "Mushroom, oyster, raw",
+      "matched_fdc_id": "cnf-4866"
     },
     {
       "canonical_id": "maitake",
@@ -2823,7 +2823,7 @@
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
       "matched_name": "Mushroom, lion's mane",
-      "matched_fdc_id": "1750344"
+      "matched_fdc_id": "1999626"
     },
     {
       "canonical_id": "nori",

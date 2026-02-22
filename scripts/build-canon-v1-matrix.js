@@ -52,9 +52,17 @@ const DEFAULT_SUMMARY_OUT = path.resolve(
 );
 
 const NUTRIENT_NAME_MAP = [
-  { key: "vitamin_a_ug", unit: "UG", names: ["vitamin a, rae"] },
+  { key: "vitamin_a_ug", unit: "UG", names: ["vitamin a, rae"], priority: 3 },
+  { key: "vitamin_a_ug", unit: "UG", names: ["retinol"], priority: 2 },
+  { key: "vitamin_a_ug", unit: "IU", names: ["vitamin a, iu"], priority: 1 },
   { key: "vitamin_c_mg", unit: "MG", names: ["vitamin c, total ascorbic acid"] },
-  { key: "vitamin_d_ug", unit: "UG", names: ["vitamin d (d2 + d3)"] },
+  { key: "vitamin_d_ug", unit: "UG", names: ["vitamin d (d2 + d3)"], priority: 2 },
+  {
+    key: "vitamin_d_ug",
+    unit: "IU",
+    names: ["vitamin d (d2 + d3), international units"],
+    priority: 1
+  },
   { key: "vitamin_e_mg", unit: "MG", names: ["vitamin e (alpha-tocopherol)"] },
   { key: "vitamin_k_ug", unit: "UG", names: ["vitamin k (phylloquinone)"] },
   { key: "thiamin_mg", unit: "MG", names: ["thiamin"] },
@@ -63,7 +71,8 @@ const NUTRIENT_NAME_MAP = [
   { key: "vitamin_b5_mg", unit: "MG", names: ["pantothenic acid", "vitamin b-5"] },
   { key: "vitamin_b6_mg", unit: "MG", names: ["vitamin b-6"] },
   { key: "vitamin_b7_ug", unit: "UG", names: ["biotin", "vitamin b-7"] },
-  { key: "folate_ug", unit: "UG", names: ["folate, total"] },
+  { key: "folate_ug", unit: "UG", names: ["folate, total"], priority: 2 },
+  { key: "folate_ug", unit: "UG", names: ["folate, dfe"], priority: 1 },
   { key: "vitamin_b12_ug", unit: "UG", names: ["vitamin b-12"] },
   { key: "calcium_mg", unit: "MG", names: ["calcium, ca"] },
   { key: "iron_mg", unit: "MG", names: ["iron, fe"] },
@@ -209,7 +218,14 @@ const buildNutrientLookup = (nutrientRows) => {
       (entry) => entry.unit === unit && entry.names.some((candidate) => normalize(candidate) === name)
     );
     if (match) {
-      lookup.set(id, match.key);
+      const existing = lookup.get(id);
+      const next = {
+        key: match.key,
+        priority: Number.isFinite(match.priority) ? match.priority : 1
+      };
+      if (!existing || next.priority >= existing.priority) {
+        lookup.set(id, next);
+      }
     }
   });
   return lookup;
@@ -242,8 +258,8 @@ const buildUsdaReportedLookup = (usdaDirs) => {
         return;
       }
       const nutrientId = String(row[cols.nutrientId] || "").trim();
-      const nutrientKey = nutrientLookup.get(nutrientId);
-      if (!nutrientKey) {
+      const mapped = nutrientLookup.get(nutrientId);
+      if (!mapped) {
         return;
       }
       const amount = Number(row[cols.amount]);
@@ -254,7 +270,7 @@ const buildUsdaReportedLookup = (usdaDirs) => {
       if (!reportedByDatasetAndFdcId.has(key)) {
         reportedByDatasetAndFdcId.set(key, new Set());
       }
-      reportedByDatasetAndFdcId.get(key).add(nutrientKey);
+      reportedByDatasetAndFdcId.get(key).add(mapped.key);
     });
   });
   return reportedByDatasetAndFdcId;

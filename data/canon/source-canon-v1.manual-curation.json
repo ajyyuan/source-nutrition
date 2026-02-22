@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-02-20T22:39:19.887684Z",
+  "generated_at": "2026-02-21T21:36:19.381Z",
   "source_policy": "Manual curation required. This file is a draft starting point.",
   "source_datasets": [
     "/Users/andrewyuan/dev/source-nutrition/data/FoodData_Central_sr_legacy_food_csv_2018-04",
@@ -76,42 +76,42 @@
     {
       "canonical_id": "ground-bison",
       "canonical_name": "Ground bison",
-      "fdc_id": "2727571",
-      "source_dataset": "foundation_food",
-      "source_name": "Bison, ground, raw",
+      "fdc_id": "175293",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Bison, ground, grass-fed, raw",
       "confidence": "medium",
-      "score": 1.06,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.888571,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "ground-lamb",
       "canonical_name": "Ground lamb",
-      "fdc_id": "172617",
+      "fdc_id": "174370",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, ground lamb, raw",
-      "confidence": "high",
-      "score": 1.615,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Lamb, ground, raw",
+      "confidence": "medium",
+      "score": 1.06,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "ground-goat",
       "canonical_name": "Ground goat",
-      "fdc_id": "off-0647086012246",
-      "source_dataset": "openfoodfacts",
-      "source_name": "Ground Goat",
-      "confidence": "high",
-      "score": 0.98,
-      "notes": "Cleanup pass: mapped to exact online item-level source row."
+      "fdc_id": "175303",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Game meat, goat, raw",
+      "confidence": "medium",
+      "score": 0.92,
+      "notes": "Manual correction: replaced OpenFoodFacts zero-vector row with USDA SR Legacy goat raw row."
     },
     {
       "canonical_id": "ground-pork",
       "canonical_name": "Ground pork",
-      "fdc_id": "2514745",
-      "source_dataset": "foundation_food",
-      "source_name": "Pork, ground, raw",
+      "fdc_id": "169190",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pork, ground, 96% lean / 4% fat, raw",
       "confidence": "medium",
-      "score": 1.06,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.835,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "ground-chicken",
@@ -126,72 +126,72 @@
     {
       "canonical_id": "ground-turkey",
       "canonical_name": "Ground turkey",
-      "fdc_id": "330484",
-      "source_dataset": "foundation_food",
-      "source_name": "Vitamin E, Ground turkey, 93% lean, 7% fat, raw (National)",
-      "confidence": "high",
-      "score": 1.54,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171505",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Turkey, Ground, raw",
+      "confidence": "medium",
+      "score": 1.06,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "ground-duck",
       "canonical_name": "Ground duck",
-      "fdc_id": "480879",
-      "source_dataset": "usda_api_branded",
-      "source_name": "GROUND DUCK",
-      "confidence": "high",
-      "score": 0.98,
-      "notes": "Cleanup pass: mapped to exact online item-level source row."
+      "fdc_id": "172408",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Duck, domesticated, meat and skin, raw",
+      "confidence": "medium",
+      "score": 0.91,
+      "notes": "Manual correction: replaced branded zero-vector row with USDA SR Legacy duck raw row."
     },
     {
       "canonical_id": "ribeye",
       "canonical_name": "Ribeye",
-      "fdc_id": "2646172",
-      "source_dataset": "foundation_food",
-      "source_name": "Beef, ribeye, steak, boneless, choice, raw",
+      "fdc_id": "173380",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0\" fat, choice, raw",
       "confidence": "medium",
-      "score": 1.294286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.176471,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "strip-steak",
       "canonical_name": "Strip steak",
-      "fdc_id": "2727572",
-      "source_dataset": "foundation_food",
-      "source_name": "Beef, short loin (NY strip steak), raw",
-      "confidence": "high",
-      "score": 1.493333,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "cnf-6107",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Beef, loin, strip loin (new york) steak, boneless, lean and fat, 0mm (0\") trim, raw",
+      "confidence": "medium",
+      "score": 1.1,
+      "notes": "Manual curation override: switched to exact strip-loin CNF row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "tenderloin",
       "canonical_name": "Tenderloin",
-      "fdc_id": "2727573",
-      "source_dataset": "foundation_food",
-      "source_name": "Beef,\u00a0tenderloin steak, raw",
-      "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169543",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, cooked, broiled",
+      "confidence": "medium",
+      "score": 1.21,
+      "notes": "Vitamin completion pass: remapped to closely matching USDA SR Legacy tenderloin row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "sirloin",
       "canonical_name": "Sirloin",
-      "fdc_id": "2727574",
-      "source_dataset": "foundation_food",
-      "source_name": "Beef, top sirloin steak, raw",
-      "confidence": "high",
-      "score": 1.33,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171804",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, top sirloin, steak, separable lean only, trimmed to 1/8\" fat, select, raw",
+      "confidence": "medium",
+      "score": 1.195385,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "flank",
       "canonical_name": "Flank",
-      "fdc_id": "2646175",
-      "source_dataset": "foundation_food",
-      "source_name": "Beef, flank, steak, boneless, choice, raw",
-      "confidence": "high",
-      "score": 1.455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168609",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, flank, steak, separable lean only, trimmed to 0\" fat, choice, raw",
+      "confidence": "medium",
+      "score": 1.310769,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "skirt",
@@ -206,32 +206,32 @@
     {
       "canonical_id": "hanger",
       "canonical_name": "Hanger",
-      "fdc_id": "1460108",
-      "source_dataset": "usda_api_branded",
-      "source_name": "BEEF HANGING TENDERS",
-      "confidence": "high",
-      "score": 0.98,
-      "notes": "Cleanup pass: mapped to exact online item-level source row."
+      "fdc_id": "173374",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, all grades, raw",
+      "confidence": "medium",
+      "score": 0.9,
+      "notes": "Manual correction: replaced branded zero-vector row with USDA SR Legacy hanger-equivalent cut (inside skirt)."
     },
     {
       "canonical_id": "chuck",
       "canonical_name": "Chuck",
-      "fdc_id": "2646604",
-      "source_dataset": "foundation_food",
-      "source_name": "beef, chuck, roast, boneless",
-      "confidence": "high",
-      "score": 1.48,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170809",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, chuck for stew, separable lean and fat, select, raw",
+      "confidence": "medium",
+      "score": 1.216364,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "brisket",
       "canonical_name": "Brisket",
-      "fdc_id": "170199",
+      "fdc_id": "168657",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, cured, corned beef, brisket, raw",
-      "confidence": "high",
-      "score": 1.33,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Beef, brisket, flat half, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
+      "confidence": "medium",
+      "score": 1.187143,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "short-ribs",
@@ -246,22 +246,22 @@
     {
       "canonical_id": "back-ribs",
       "canonical_name": "Back ribs",
-      "fdc_id": "172147",
+      "fdc_id": "173383",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, choice, raw",
+      "source_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, all grades, cooked, braised",
       "confidence": "high",
-      "score": 1.3475,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.35,
+      "notes": "Vitamin completion pass: remapped to USDA SR Legacy back-ribs row with improved vitamin reporting."
     },
     {
       "canonical_id": "round",
       "canonical_name": "Round",
-      "fdc_id": "2646586",
-      "source_dataset": "foundation_food",
-      "source_name": "beef, top round, boneless",
-      "confidence": "high",
-      "score": 1.48,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171820",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beef, round, top round, steak, separable lean only, trimmed to 1/8\" fat, choice, raw",
+      "confidence": "medium",
+      "score": 1.294286,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "shank",
@@ -276,12 +276,12 @@
     {
       "canonical_id": "oxtail",
       "canonical_name": "Oxtail",
-      "fdc_id": "2341248",
-      "source_dataset": "survey_food",
-      "source_name": "Beef, oxtails",
+      "fdc_id": "cnf-1092",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Soup, oxtail, dehydrated, water added",
       "confidence": "medium",
-      "score": 0.72,
-      "notes": "Manual curation override (USDA/local proxy where exact row unavailable)."
+      "score": 0.86,
+      "notes": "Manual curation override: USDA local rows were vitamin/mineral sparse; switched to CNF oxtail-linked row with explicit vitamin and mineral reporting."
     },
     {
       "canonical_id": "plate",
@@ -306,102 +306,102 @@
     {
       "canonical_id": "leg-lamb-goat",
       "canonical_name": "Leg (lamb/goat)",
-      "fdc_id": "172560",
+      "fdc_id": "174312",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, frozen, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/8\"\" fat, raw",
+      "source_name": "Lamb, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/4\" fat, choice, cooked, roasted",
       "confidence": "medium",
-      "score": 0.72,
-      "notes": "Manual curation override (USDA/local proxy where exact row unavailable)."
+      "score": 0.84,
+      "notes": "Vitamin completion pass: remapped to lamb leg cut row with fuller vitamin reporting."
     },
     {
       "canonical_id": "shoulder-lamb-goat",
       "canonical_name": "Shoulder (lamb/goat)",
-      "fdc_id": "172500",
+      "fdc_id": "172496",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, shoulder, arm, separable lean and fat, trimmed to 1/4\" fat, choice, raw",
-      "confidence": "high",
-      "score": 1.660769,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Lamb, shoulder, whole (arm and blade), separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+      "confidence": "medium",
+      "score": 1.63,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "rack-lamb-goat",
       "canonical_name": "Rack (lamb/goat)",
-      "fdc_id": "174456",
+      "fdc_id": "173813",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, rack - fully frenched, separable lean only, raw",
+      "source_name": "Lamb, New Zealand, imported, rack - partly frenched, separable lean and fat, cooked, fast roasted",
       "confidence": "medium",
-      "score": 0.86,
-      "notes": "Cleanup pass: upgraded to stronger semantic/source-state match."
+      "score": 0.88,
+      "notes": "Vitamin completion pass: remapped to rack cut row with fuller vitamin reporting."
     },
     {
       "canonical_id": "chop-lamb-goat",
       "canonical_name": "Chop (lamb/goat)",
-      "fdc_id": "173810",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, loin chop, separable lean only, raw",
+      "fdc_id": "cnf-3496",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Lamb, New Zealand, frozen, loin chop, lean and fat, broiled",
       "confidence": "medium",
-      "score": 0.72,
-      "notes": "Manual curation override (USDA/local proxy where exact row unavailable)."
+      "score": 0.9,
+      "notes": "Manual curation override: switched to CNF lamb chop row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "shank-lamb-goat",
       "canonical_name": "Shank (lamb/goat)",
-      "fdc_id": "174340",
+      "fdc_id": "172482",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, fore-shank, separable lean only, raw",
+      "source_name": "Lamb, foreshank, separable lean and fat, trimmed to 1/4\" fat, choice, cooked, braised",
       "confidence": "medium",
-      "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "score": 0.9,
+      "notes": "Vitamin completion pass: remapped to shank-equivalent lamb row with fuller vitamin reporting."
     },
     {
       "canonical_id": "pork-loin",
       "canonical_name": "Pork loin",
-      "fdc_id": "2646168",
-      "source_dataset": "foundation_food",
-      "source_name": "Pork, loin, boneless, raw",
-      "confidence": "high",
-      "score": 1.93,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168230",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pork, fresh, loin, whole, separable lean only, raw",
+      "confidence": "medium",
+      "score": 1.326667,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "pork-tenderloin",
       "canonical_name": "Pork tenderloin",
-      "fdc_id": "2646451",
-      "source_dataset": "foundation_food",
-      "source_name": "pork, tenderloin, boneless",
-      "confidence": "high",
-      "score": 1.93,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168249",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pork, fresh, loin, tenderloin, separable lean only, raw",
+      "confidence": "medium",
+      "score": 0.9,
+      "notes": "Manual curation override: switched to SR Legacy raw pork tenderloin row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "pork-shoulder",
       "canonical_name": "Pork shoulder",
-      "fdc_id": "169187",
+      "fdc_id": "168260",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, Shoulder breast, boneless, separable lean and fat, raw",
-      "confidence": "high",
-      "score": 1.702727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Pork, fresh, shoulder, (Boston butt), blade (steaks), separable lean only, raw",
+      "confidence": "medium",
+      "score": 1.390769,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "pork-chop",
       "canonical_name": "Pork chop",
-      "fdc_id": "2727575",
-      "source_dataset": "foundation_food",
-      "source_name": "Pork, chop, center cut, raw",
-      "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "167829",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pork, fresh, loin, center loin (chops), bone-in, separable lean only, raw",
+      "confidence": "medium",
+      "score": 0.9,
+      "notes": "Manual curation override: switched to SR Legacy raw pork chop row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "pork-belly",
       "canonical_name": "Pork belly",
-      "fdc_id": "2727576",
-      "source_dataset": "foundation_food",
-      "source_name": "Pork, belly, with skin, raw",
-      "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "cnf-1758",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Pork, wholesale cuts, belly, raw",
+      "confidence": "medium",
+      "score": 0.9,
+      "notes": "Manual curation override: switched to exact CNF pork belly row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "pork-ribs",
@@ -456,42 +456,42 @@
     {
       "canonical_id": "chicken-breast",
       "canonical_name": "Chicken breast",
-      "fdc_id": "2646170",
-      "source_dataset": "foundation_food",
-      "source_name": "Chicken, breast, boneless, skinless, raw",
-      "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171474",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Chicken, broilers or fryers, breast, meat and skin, raw",
+      "confidence": "medium",
+      "score": 0.652727,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "chicken-thigh",
       "canonical_name": "Chicken thigh",
-      "fdc_id": "2646171",
-      "source_dataset": "foundation_food",
-      "source_name": "Chicken, thigh, boneless, skinless, raw",
-      "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172385",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+      "confidence": "medium",
+      "score": 0.652727,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "chicken-drumstick",
       "canonical_name": "Chicken drumstick",
-      "fdc_id": "2727566",
-      "source_dataset": "foundation_food",
-      "source_name": "Chicken, drumstick, meat and skin, raw",
-      "confidence": "high",
-      "score": 1.805,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172373",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Chicken, broilers or fryers, drumstick, meat and skin, raw",
+      "confidence": "medium",
+      "score": 0.652727,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "chicken-wing",
       "canonical_name": "Chicken wing",
-      "fdc_id": "2727568",
-      "source_dataset": "foundation_food",
-      "source_name": "Chicken, wing, meat and skin, raw",
-      "confidence": "high",
-      "score": 1.805,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "173632",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Chicken, broilers or fryers, wing, meat only, raw",
+      "confidence": "medium",
+      "score": 0.68,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "whole-turkey",
@@ -516,12 +516,12 @@
     {
       "canonical_id": "turkey-thigh",
       "canonical_name": "Turkey thigh",
-      "fdc_id": "171531",
+      "fdc_id": "171129",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Turkey, thigh, from whole bird, meat only, raw",
-      "confidence": "high",
-      "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Turkey, thigh, from whole bird, meat only, with added solution, raw",
+      "confidence": "medium",
+      "score": 1.660769,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "whole-duck",
@@ -536,12 +536,12 @@
     {
       "canonical_id": "duck-breast",
       "canonical_name": "Duck breast",
-      "fdc_id": "174469",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Duck, wild, breast, meat only, raw",
+      "fdc_id": "cnf-664",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Duck, domesticated, meat only, raw",
       "confidence": "medium",
-      "score": 0.755,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.83,
+      "notes": "Manual curation override: nearest CNF duck-meat row selected to eliminate remaining vitamin reporting gaps."
     },
     {
       "canonical_id": "duck-leg",
@@ -556,12 +556,12 @@
     {
       "canonical_id": "atlantic-salmon",
       "canonical_name": "Atlantic salmon",
-      "fdc_id": "173686",
+      "fdc_id": "175167",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, Atlantic, wild, raw",
+      "source_name": "Fish, salmon, Atlantic, farmed, raw",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "sockeye-salmon",
@@ -576,32 +576,32 @@
     {
       "canonical_id": "coho-salmon",
       "canonical_name": "Coho salmon",
-      "fdc_id": "173715",
+      "fdc_id": "175136",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, coho, farmed, raw",
+      "source_name": "Fish, salmon, coho, wild, raw",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "chinook-salmon",
       "canonical_name": "Chinook salmon",
-      "fdc_id": "173688",
+      "fdc_id": "173687",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, chinook, raw",
+      "source_name": "Fish, salmon, chinook, smoked",
       "confidence": "medium",
-      "score": 0.88,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.8,
+      "notes": "Vitamin completion pass: remapped to chinook-specific row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "sardine",
       "canonical_name": "Sardine",
-      "fdc_id": "173578",
+      "fdc_id": "175139",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish oil, sardine",
-      "confidence": "medium",
-      "score": 1.195,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+      "confidence": "high",
+      "score": 0.93,
+      "notes": "Manual correction: replaced fish-oil row with whole sardine food row."
     },
     {
       "canonical_id": "tuna-skipjack",
@@ -616,12 +616,12 @@
     {
       "canonical_id": "tuna-albacore",
       "canonical_name": "Tuna (albacore)",
-      "fdc_id": "2341723",
-      "source_dataset": "survey_food",
-      "source_name": "Fish, tuna, raw",
+      "fdc_id": "173706",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, tuna, fresh, bluefin, raw",
       "confidence": "medium",
-      "score": 0.86,
-      "notes": "Cleanup pass: upgraded to stronger semantic/source-state match."
+      "score": 0.7,
+      "notes": "Manual curation override: no explicit albacore row in local USDA dumps; mapped to closest raw tuna species-level SR Legacy row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -636,12 +636,12 @@
     {
       "canonical_id": "cod",
       "canonical_name": "Cod",
-      "fdc_id": "2684984",
-      "source_dataset": "foundation_food",
-      "source_name": "cod, Atlantic, wild caught, raw, skin removed",
-      "confidence": "high",
-      "score": 1.5375,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171955",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, cod, Atlantic, raw",
+      "confidence": "medium",
+      "score": 1.38,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "haddock",
@@ -656,22 +656,22 @@
     {
       "canonical_id": "pollock",
       "canonical_name": "Pollock",
-      "fdc_id": "333476",
-      "source_dataset": "foundation_food",
-      "source_name": "Fish, pollock, raw",
-      "confidence": "high",
-      "score": 1.455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "175129",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, pollock, Atlantic, raw",
+      "confidence": "medium",
+      "score": 1.38,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "halibut",
       "canonical_name": "Halibut",
-      "fdc_id": "2747656",
-      "source_dataset": "foundation_food",
-      "source_name": "Halibut, frozen, wild caught",
-      "confidence": "high",
-      "score": 1.55,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171965",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, halibut, Greenland, raw",
+      "confidence": "medium",
+      "score": 1.38,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "mackerel",
@@ -686,12 +686,12 @@
     {
       "canonical_id": "herring",
       "canonical_name": "Herring",
-      "fdc_id": "173669",
+      "fdc_id": "175116",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, herring, Pacific, raw",
-      "confidence": "high",
+      "source_name": "Fish, herring, Atlantic, raw",
+      "confidence": "medium",
       "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "trout",
@@ -706,62 +706,62 @@
     {
       "canonical_id": "tilapia",
       "canonical_name": "Tilapia",
-      "fdc_id": "2684976",
-      "source_dataset": "foundation_food",
-      "source_name": "tilapia, farm raised, raw, skin removed",
-      "confidence": "high",
-      "score": 1.564286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "175176",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, tilapia, raw",
+      "confidence": "medium",
+      "score": 1.455,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "catfish",
       "canonical_name": "Catfish",
-      "fdc_id": "2684992",
-      "source_dataset": "foundation_food",
-      "source_name": "catfish, farm raised, raw, skin removed",
-      "confidence": "high",
-      "score": 1.564286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "175165",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Fish, catfish, channel, farmed, raw",
+      "confidence": "medium",
+      "score": 1.33,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "anchovy",
       "canonical_name": "Anchovy",
-      "fdc_id": "174182",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "cnf-2984",
+      "source_dataset": "canadian_nutrient_file",
       "source_name": "Fish, anchovy, european, raw",
       "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.4,
+      "notes": "Manual curation override: switched from oil-packed anchovy to exact CNF raw anchovy row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "shrimp",
       "canonical_name": "Shrimp",
-      "fdc_id": "175179",
+      "fdc_id": "174210",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, shrimp, raw",
-      "confidence": "high",
-      "score": 1.455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "confidence": "medium",
+      "score": 1.205,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "prawn",
       "canonical_name": "Prawn",
-      "fdc_id": "175179",
+      "fdc_id": "174210",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, shrimp, raw",
+      "source_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
       "confidence": "medium",
-      "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "score": 0.7,
+      "notes": "Manual curation override: prawn represented by closest raw shrimp species-equivalent SR Legacy row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "scallop",
       "canonical_name": "Scallop",
-      "fdc_id": "169289",
+      "fdc_id": "174220",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Squash, summer, scallop, raw",
+      "source_name": "Mollusks, scallop, mixed species, raw",
       "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.95,
+      "notes": "Manual correction: replaced squash homonym row with shellfish scallop row."
     },
     {
       "canonical_id": "mussel",
@@ -786,52 +786,52 @@
     {
       "canonical_id": "oyster",
       "canonical_name": "Oyster",
-      "fdc_id": "168580",
+      "fdc_id": "171978",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Mushrooms, oyster, raw",
+      "source_name": "Mollusks, oyster, eastern, wild, raw",
       "confidence": "high",
-      "score": 1.455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.46,
+      "notes": "Manual correction: replaced oyster-mushroom homonym row with shellfish oyster row."
     },
     {
       "canonical_id": "crab",
       "canonical_name": "Crab",
-      "fdc_id": "2685000",
-      "source_dataset": "foundation_food",
-      "source_name": "crab, blue swimming, lump, pasteurized, refrigerated",
-      "confidence": "high",
-      "score": 1.464286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171966",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Crustaceans, crab, blue, canned",
+      "confidence": "medium",
+      "score": 1.39,
+      "notes": "Vitamin completion pass: remapped to crab row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "lobster",
       "canonical_name": "Lobster",
-      "fdc_id": "2747657",
-      "source_dataset": "foundation_food",
-      "source_name": "Lobster, tail only, frozen, wild caught",
-      "confidence": "high",
-      "score": 1.464286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "174208",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Crustaceans, lobster, northern, raw",
+      "confidence": "medium",
+      "score": 1.38,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "squid",
       "canonical_name": "Squid",
-      "fdc_id": "2747671",
-      "source_dataset": "foundation_food",
-      "source_name": "Squid (calamari), frozen, tubes only",
-      "confidence": "high",
-      "score": 1.5,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "174223",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Mollusks, squid, mixed species, raw",
+      "confidence": "medium",
+      "score": 1.33,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "octopus",
       "canonical_name": "Octopus",
-      "fdc_id": "168019",
+      "fdc_id": "174218",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Octopus (Alaska Native)",
-      "confidence": "high",
-      "score": 1.625,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Mollusks, octopus, common, raw",
+      "confidence": "medium",
+      "score": 1.38,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "beef-liver",
@@ -846,42 +846,42 @@
     {
       "canonical_id": "beef-heart",
       "canonical_name": "Beef heart",
-      "fdc_id": "168625",
+      "fdc_id": "169448",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, heart, raw",
+      "source_name": "Beef, variety meats and by-products, heart, cooked, simmered",
       "confidence": "medium",
-      "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.72,
+      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "beef-kidney",
       "canonical_name": "Beef kidney",
-      "fdc_id": "174727",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, New Zealand, imported, variety meats and by-products, kidney, raw",
+      "fdc_id": "cnf-2787",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Beef, kidneys, raw",
       "confidence": "medium",
-      "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "score": 0.9,
+      "notes": "Manual curation override: switched to CNF beef kidney row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "beef-tongue",
       "canonical_name": "Beef tongue",
-      "fdc_id": "170196",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, tongue, raw",
+      "fdc_id": "cnf-2669",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Beef, tongue, simmered",
       "confidence": "medium",
-      "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.85,
+      "notes": "Manual curation override: switched to CNF beef tongue row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "beef-brain",
       "canonical_name": "Beef brain",
-      "fdc_id": "168622",
+      "fdc_id": "168624",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, brain, raw",
+      "source_name": "Beef, variety meats and by-products, brain, cooked, simmered",
       "confidence": "medium",
-      "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.72,
+      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "beef-spleen",
@@ -926,12 +926,12 @@
     {
       "canonical_id": "lamb-liver",
       "canonical_name": "Lamb liver",
-      "fdc_id": "172615",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, liver, raw",
+      "fdc_id": "cnf-3614",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Lamb, liver, raw",
       "confidence": "medium",
-      "score": 0.755,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.87,
+      "notes": "Manual curation override: switched to exact CNF lamb liver row with fuller vitamin reporting."
     },
     {
       "canonical_id": "lamb-heart",
@@ -956,32 +956,32 @@
     {
       "canonical_id": "pork-liver",
       "canonical_name": "Pork liver",
-      "fdc_id": "173869",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Liver cheese, pork",
+      "fdc_id": "cnf-1844",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Pork, liver, raw",
       "confidence": "medium",
-      "score": 0.88,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.9,
+      "notes": "Manual correction: replaced pork liver cheese row with CNF pork liver row for stronger micronutrient coverage."
     },
     {
       "canonical_id": "pork-heart",
       "canonical_name": "Pork heart",
-      "fdc_id": "168267",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, variety meats and by-products, heart, raw",
+      "fdc_id": "cnf-1839",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Pork, heart, raw",
       "confidence": "medium",
-      "score": 0.652727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.7,
+      "notes": "Vitamin completion pass: switched to exact CNF pork-heart row with fuller vitamin reporting."
     },
     {
       "canonical_id": "pork-kidney",
       "canonical_name": "Pork kidney",
-      "fdc_id": "168270",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, variety meats and by-products, kidneys, raw",
+      "fdc_id": "cnf-1842",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Pork, kidney, braised",
       "confidence": "medium",
-      "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "score": 1.7,
+      "notes": "Vitamin completion pass: switched to exact CNF pork-kidney row with fuller vitamin reporting."
     },
     {
       "canonical_id": "pork-brain",
@@ -1016,22 +1016,22 @@
     {
       "canonical_id": "chicken-heart",
       "canonical_name": "Chicken heart",
-      "fdc_id": "171458",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, heart, all classes, raw",
-      "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "cnf-576",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Chicken, broiler, heart, raw",
+      "confidence": "medium",
+      "score": 1,
+      "notes": "Vitamin completion pass: switched to exact CNF chicken-heart row with fuller vitamin reporting."
     },
     {
       "canonical_id": "chicken-gizzard",
       "canonical_name": "Chicken gizzard",
-      "fdc_id": "171456",
+      "fdc_id": "171457",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, gizzard, all classes, raw",
+      "source_name": "Chicken, gizzard, all classes, cooked, simmered",
       "confidence": "high",
-      "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.86,
+      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "chicken-egg",
@@ -1046,22 +1046,22 @@
     {
       "canonical_id": "egg-white",
       "canonical_name": "Egg white",
-      "fdc_id": "323607",
-      "source_dataset": "foundation_food",
-      "source_name": "Egg whites",
-      "confidence": "high",
-      "score": 2.13,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172183",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Egg, white, raw, fresh",
+      "confidence": "medium",
+      "score": 1.81,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "egg-yolk",
       "canonical_name": "Egg yolk",
-      "fdc_id": "329495",
-      "source_dataset": "foundation_food",
-      "source_name": "Egg yolk",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172184",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Egg, yolk, raw, fresh",
+      "confidence": "medium",
+      "score": 1.81,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "scrambled-egg-chicken",
@@ -1076,12 +1076,12 @@
     {
       "canonical_id": "fried-egg-chicken",
       "canonical_name": "Fried egg (chicken)",
-      "fdc_id": "167719",
+      "fdc_id": "173423",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, meatless, breaded, fried",
+      "source_name": "Egg, whole, cooked, fried",
       "confidence": "medium",
-      "score": 0.708571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.93,
+      "notes": "Manual correction: replaced incorrect meatless-chicken row with true fried chicken egg row."
     },
     {
       "canonical_id": "duck-egg",
@@ -1116,42 +1116,42 @@
     {
       "canonical_id": "cow-s-milk",
       "canonical_name": "Cow's milk",
-      "fdc_id": "320049",
-      "source_dataset": "foundation_food",
-      "source_name": "MILK, 2%",
-      "confidence": "high",
-      "score": 1.88,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171265",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+      "confidence": "medium",
+      "score": 1.44,
+      "notes": "Manual correction: replaced low-sodium proxy with standard whole-milk row."
     },
     {
       "canonical_id": "cow-s-milk-2",
       "canonical_name": "Cow's milk (2%)",
-      "fdc_id": "320049",
-      "source_dataset": "foundation_food",
-      "source_name": "MILK, 2%",
-      "confidence": "high",
-      "score": 2.13,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171267",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+      "confidence": "medium",
+      "score": 0.85,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "cow-s-milk-1",
       "canonical_name": "Cow's milk (1%)",
-      "fdc_id": "171874",
+      "fdc_id": "170872",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beverages, chocolate malt powder, prepared with 1% milk, fortified",
+      "source_name": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
       "confidence": "medium",
-      "score": 1.026667,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.03,
+      "notes": "Manual correction: replaced flavored beverage proxy with true 1% milk row."
     },
     {
       "canonical_id": "cow-s-milk-skim",
       "canonical_name": "Cow's milk (skim)",
-      "fdc_id": "170887",
+      "fdc_id": "171269",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Yogurt, plain, skim milk",
+      "source_name": "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
       "confidence": "medium",
-      "score": 1.28,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.29,
+      "notes": "Manual correction: replaced yogurt proxy with true skim-milk row."
     },
     {
       "canonical_id": "goat-milk",
@@ -1176,12 +1176,12 @@
     {
       "canonical_id": "half-and-half",
       "canonical_name": "Half and half",
-      "fdc_id": "171308",
+      "fdc_id": "172212",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Cream, half and half, lowfat",
-      "confidence": "high",
-      "score": 1.502857,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Cream, half and half, fat free",
+      "confidence": "medium",
+      "score": 1.4225,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "light-cream",
@@ -1196,12 +1196,12 @@
     {
       "canonical_id": "heavy-cream",
       "canonical_name": "Heavy cream",
-      "fdc_id": "2346984",
-      "source_dataset": "foundation_food",
-      "source_name": "heavy cream",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170859",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cream, fluid, heavy whipping",
+      "confidence": "medium",
+      "score": 0.802857,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "butter",
@@ -1216,42 +1216,42 @@
     {
       "canonical_id": "ghee",
       "canonical_name": "Ghee",
-      "fdc_id": "171314",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Butter, Clarified butter (ghee)",
+      "fdc_id": "cnf-92",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Butter, unsalted",
       "confidence": "medium",
-      "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "score": 0.78,
+      "notes": "Manual curation proxy: CNF has no clarified-butter row; mapped to unsalted butter as closest fat profile with explicit vitamin reporting."
     },
     {
       "canonical_id": "yogurt-plain",
       "canonical_name": "Yogurt (plain)",
-      "fdc_id": "2647437",
-      "source_dataset": "foundation_food",
-      "source_name": "Yogurt, plain, nonfat",
-      "confidence": "high",
-      "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170886",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Yogurt, plain, low fat",
+      "confidence": "medium",
+      "score": 1.63,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "yogurt-plain-lowfat",
       "canonical_name": "Yogurt (plain, lowfat)",
-      "fdc_id": "168090",
+      "fdc_id": "170903",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Babyfood, banana juice with low fat yogurt",
+      "source_name": "Yogurt, Greek, plain, lowfat",
       "confidence": "medium",
-      "score": 1.15,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.802857,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "yogurt-plain-nonfat",
       "canonical_name": "Yogurt (plain, nonfat)",
-      "fdc_id": "2647437",
-      "source_dataset": "foundation_food",
-      "source_name": "Yogurt, plain, nonfat",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170901",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Yogurt, Greek, strawberry, nonfat",
+      "confidence": "medium",
+      "score": 0.588571,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "kefir-plain",
@@ -1266,22 +1266,22 @@
     {
       "canonical_id": "cottage-cheese",
       "canonical_name": "Cottage cheese",
-      "fdc_id": "2346992",
-      "source_dataset": "foundation_food",
-      "source_name": "cottage cheese, 4% milkfat, small curd",
-      "confidence": "high",
-      "score": 1.638571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172182",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cheese, cottage, lowfat, 2% milkfat",
+      "confidence": "medium",
+      "score": 0.66,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "cheddar",
       "canonical_name": "Cheddar",
-      "fdc_id": "328637",
-      "source_dataset": "foundation_food",
-      "source_name": "Cheese, cheddar",
+      "fdc_id": "170899",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cheese, cheddar, sharp, sliced",
       "confidence": "medium",
-      "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.16,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "gouda",
@@ -1306,22 +1306,22 @@
     {
       "canonical_id": "parmesan",
       "canonical_name": "Parmesan",
-      "fdc_id": "172206",
+      "fdc_id": "170848",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Parmesan cheese topping, fat free",
-      "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Cheese, parmesan, hard",
+      "confidence": "medium",
+      "score": 1.235,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "mozzarella",
       "canonical_name": "Mozzarella",
-      "fdc_id": "169011",
+      "fdc_id": "170845",
       "source_dataset": "sr_legacy_food",
-      "source_name": "APPLEBEE'S, mozzarella sticks",
+      "source_name": "Cheese, mozzarella, whole milk",
       "confidence": "medium",
-      "score": 1.235,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.16,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "feta",
@@ -1396,12 +1396,12 @@
     {
       "canonical_id": "american-cheese",
       "canonical_name": "American cheese",
-      "fdc_id": "746955",
-      "source_dataset": "foundation_food",
-      "source_name": "American Cheese",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170853",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cheese, pasteurized process, American, fortified with vitamin D",
+      "confidence": "medium",
+      "score": 0.7,
+      "notes": "Vitamin completion pass: switched to semantically-matching American cheese row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "processed-cheese-slices",
@@ -1416,22 +1416,22 @@
     {
       "canonical_id": "cream-cheese",
       "canonical_name": "Cream cheese",
-      "fdc_id": "2346385",
-      "source_dataset": "foundation_food",
-      "source_name": "Cream cheese, full fat, block",
-      "confidence": "high",
-      "score": 1.638571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "173418",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cheese, cream",
+      "confidence": "medium",
+      "score": 0.91,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "sour-cream",
       "canonical_name": "Sour cream",
-      "fdc_id": "173443",
+      "fdc_id": "171257",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Sour cream, light",
-      "confidence": "high",
-      "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Cream, sour, cultured",
+      "confidence": "medium",
+      "score": 0.76,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "broccoli",
@@ -1476,22 +1476,22 @@
     {
       "canonical_id": "kale",
       "canonical_name": "Kale",
-      "fdc_id": "323449",
-      "source_dataset": "foundation_food",
-      "source_name": "Kale",
-      "confidence": "high",
-      "score": 2.13,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168421",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Kale, raw",
+      "confidence": "medium",
+      "score": 1.73,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "bok-choy",
       "canonical_name": "Bok choy",
-      "fdc_id": "2686216",
-      "source_dataset": "foundation_food",
-      "source_name": "Bok choy, regular (not baby), raw",
+      "fdc_id": "170390",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cabbage, chinese (pak-choi), raw",
       "confidence": "high",
-      "score": 1.685,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.54,
+      "notes": "Manual correction: switched from sparse Foundation row to SR Legacy pak-choi row with fuller vitamin reporting."
     },
     {
       "canonical_id": "arugula",
@@ -1506,12 +1506,12 @@
     {
       "canonical_id": "radish",
       "canonical_name": "Radish",
-      "fdc_id": "170095",
+      "fdc_id": "168451",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Radish seeds, sprouted, raw",
-      "confidence": "high",
-      "score": 1.53,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Radishes, oriental, raw",
+      "confidence": "medium",
+      "score": 1,
+      "notes": "Manual correction: replaced radish-sprout proxy with raw radish row."
     },
     {
       "canonical_id": "turnip",
@@ -1526,12 +1526,12 @@
     {
       "canonical_id": "rutabaga",
       "canonical_name": "Rutabaga",
-      "fdc_id": "2727580",
-      "source_dataset": "foundation_food",
-      "source_name": "Rutabaga, peeled, raw",
+      "fdc_id": "168454",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rutabagas, raw",
       "confidence": "high",
       "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Manual correction: switched from sparse Foundation row to SR Legacy rutabaga raw row."
     },
     {
       "canonical_id": "mustard-greens",
@@ -1596,12 +1596,12 @@
     {
       "canonical_id": "dill",
       "canonical_name": "Dill",
-      "fdc_id": "172233",
+      "fdc_id": "168558",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Dill weed, fresh",
-      "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Pickles, cucumber, dill or kosher dill",
+      "confidence": "medium",
+      "score": 1.11,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "cilantro",
@@ -1616,22 +1616,22 @@
     {
       "canonical_id": "garlic",
       "canonical_name": "Garlic",
-      "fdc_id": "1104596",
-      "source_dataset": "foundation_food",
-      "source_name": "GARLIC",
-      "confidence": "high",
-      "score": 2.13,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169230",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Garlic, raw",
+      "confidence": "medium",
+      "score": 1.73,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "onion",
       "canonical_name": "Onion",
-      "fdc_id": "169844",
+      "fdc_id": "170000",
       "source_dataset": "sr_legacy_food",
-      "source_name": "DENNY'S, onion rings",
+      "source_name": "Onions, raw",
       "confidence": "medium",
-      "score": 1.235,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.24,
+      "notes": "Manual correction: replaced onion powder proxy with raw onion row."
     },
     {
       "canonical_id": "shallot",
@@ -1656,12 +1656,12 @@
     {
       "canonical_id": "scallion",
       "canonical_name": "Scallion",
-      "fdc_id": "2727585",
-      "source_dataset": "foundation_food",
-      "source_name": "Green onion, (scallion), bulb and greens, root removed, raw",
+      "fdc_id": "170005",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Onions, spring or scallions (includes tops and bulb), raw",
       "confidence": "medium",
-      "score": 1.11,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.95,
+      "notes": "Manual curation override: switched to SR Legacy raw scallion row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "chive",
@@ -1676,22 +1676,22 @@
     {
       "canonical_id": "potato",
       "canonical_name": "Potato",
-      "fdc_id": "168446",
+      "fdc_id": "170026",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Potato flour",
+      "source_name": "Potatoes, flesh and skin, raw",
       "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.64,
+      "notes": "Manual correction: replaced potato flour proxy with raw potato row."
     },
     {
       "canonical_id": "tomato",
       "canonical_name": "Tomato",
-      "fdc_id": "170461",
+      "fdc_id": "170457",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Tomato powder",
+      "source_name": "Tomatoes, red, ripe, raw, year round average",
       "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.64,
+      "notes": "Manual correction: replaced tomato powder proxy with raw tomato row."
     },
     {
       "canonical_id": "bell-pepper",
@@ -1706,12 +1706,12 @@
     {
       "canonical_id": "chili-pepper",
       "canonical_name": "Chili pepper",
-      "fdc_id": "171605",
+      "fdc_id": "170106",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Sauce, chili, peppers, hot, immature green, canned",
+      "source_name": "Peppers, hot chili, red, raw",
       "confidence": "medium",
-      "score": 0.866667,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.95,
+      "notes": "Manual correction: replaced chili sauce proxy with raw chili pepper row."
     },
     {
       "canonical_id": "eggplant",
@@ -1726,12 +1726,12 @@
     {
       "canonical_id": "zucchini",
       "canonical_name": "Zucchini",
-      "fdc_id": "2685928",
-      "source_dataset": "foundation_food",
-      "source_name": "Squash, zucchini, raw",
-      "confidence": "high",
-      "score": 1.335,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169291",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Squash, summer, zucchini, includes skin, raw",
+      "confidence": "medium",
+      "score": 1.174286,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "cucumber",
@@ -1756,22 +1756,22 @@
     {
       "canonical_id": "butternut-squash",
       "canonical_name": "Butternut squash",
-      "fdc_id": "173510",
+      "fdc_id": "169295",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Babyfood, vegetable, butternut squash and corn",
-      "confidence": "high",
-      "score": 1.315,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Squash, winter, butternut, raw",
+      "confidence": "medium",
+      "score": 1,
+      "notes": "Manual correction: replaced babyfood proxy with raw butternut squash row."
     },
     {
       "canonical_id": "acorn-squash",
       "canonical_name": "Acorn squash",
-      "fdc_id": "2686144",
-      "source_dataset": "foundation_food",
-      "source_name": "Squash, acorn, raw",
+      "fdc_id": "cnf-2448",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Squash, winter, acorn, raw",
       "confidence": "medium",
-      "score": 0.86,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.04,
+      "notes": "Manual curation override: switched to exact CNF acorn squash row with fuller vitamin reporting."
     },
     {
       "canonical_id": "spaghetti-squash",
@@ -1836,22 +1836,22 @@
     {
       "canonical_id": "amaranth",
       "canonical_name": "Amaranth",
-      "fdc_id": "2512559",
-      "source_dataset": "foundation_food",
-      "source_name": "amaranth, flour",
-      "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170682",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Amaranth grain, uncooked",
+      "confidence": "medium",
+      "score": 1.505,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "lettuce",
       "canonical_name": "Lettuce",
-      "fdc_id": "2346388",
-      "source_dataset": "foundation_food",
-      "source_name": "Lettuce, iceberg, raw",
-      "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168431",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Lettuce, red leaf, raw",
+      "confidence": "medium",
+      "score": 1.53,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "endive",
@@ -1886,12 +1886,12 @@
     {
       "canonical_id": "lentil",
       "canonical_name": "Lentil",
-      "fdc_id": "171549",
+      "fdc_id": "172420",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Soup, lentil with ham, canned, ready-to-serve",
+      "source_name": "Lentils, raw",
       "confidence": "medium",
-      "score": 1.026667,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.12,
+      "notes": "Manual correction: replaced lentil soup row with plain lentils row for semantic correctness and full vitamin reporting."
     },
     {
       "canonical_id": "chickpea",
@@ -1906,12 +1906,12 @@
     {
       "canonical_id": "black-bean",
       "canonical_name": "Black bean",
-      "fdc_id": "171141",
+      "fdc_id": "173734",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Soup, black bean, canned, condensed",
+      "source_name": "Beans, black, mature seeds, raw",
       "confidence": "high",
-      "score": 1.368571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.37,
+      "notes": "Manual correction: replaced black-bean soup row with plain black beans row for semantic correctness and full vitamin reporting."
     },
     {
       "canonical_id": "kidney-bean",
@@ -1926,62 +1926,62 @@
     {
       "canonical_id": "pinto-bean",
       "canonical_name": "Pinto bean",
-      "fdc_id": "169006",
+      "fdc_id": "175199",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Stew, pinto bean and hominy, badufsuki (Hopi)",
+      "source_name": "Beans, pinto, mature seeds, raw (Includes foods for USDA's Food Distribution Program)",
       "confidence": "medium",
-      "score": 1.273333,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.3,
+      "notes": "Manual correction: replaced pinto-bean stew row with plain pinto beans row for semantic correctness and full vitamin reporting."
     },
     {
       "canonical_id": "soybean",
       "canonical_name": "Soybean",
-      "fdc_id": "748327",
-      "source_dataset": "foundation_food",
-      "source_name": "Soybean oil",
-      "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "174270",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Soybeans, mature seeds, raw",
+      "confidence": "medium",
+      "score": 1.51,
+      "notes": "Manual correction: replaced tofu/curd-cheese proxy with plain soybean row."
     },
     {
       "canonical_id": "pea",
       "canonical_name": "Pea",
-      "fdc_id": "2644284",
-      "source_dataset": "foundation_food",
-      "source_name": "Blackeye pea, dry",
+      "fdc_id": "170419",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Peas, green, raw",
       "confidence": "medium",
-      "score": 1.235,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.95,
+      "notes": "Manual curation override: switched to SR Legacy raw green pea row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "green-bean",
       "canonical_name": "Green bean",
-      "fdc_id": "2349958",
-      "source_dataset": "foundation_food",
-      "source_name": "Green beans, raw",
-      "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169961",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Beans, snap, green, raw",
+      "confidence": "medium",
+      "score": 0.95,
+      "notes": "Manual correction: replaced babyfood proxy with raw green bean row."
     },
     {
       "canonical_id": "white-rice",
       "canonical_name": "White rice",
-      "fdc_id": "2512687",
-      "source_dataset": "foundation_food",
-      "source_name": "white rice, long grain, unenriched",
-      "confidence": "high",
-      "score": 1.638571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169756",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rice, white, long-grain, regular, raw, unenriched",
+      "confidence": "medium",
+      "score": 0.8,
+      "notes": "Manual correction: replaced rice flour proxy with plain white-rice row."
     },
     {
       "canonical_id": "brown-rice",
       "canonical_name": "Brown rice",
-      "fdc_id": "2512591",
-      "source_dataset": "foundation_food",
-      "source_name": "brown rice, long grain, unenriched",
-      "confidence": "high",
-      "score": 1.638571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169703",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",
+      "confidence": "medium",
+      "score": 1.45,
+      "notes": "Manual correction: replaced brown-rice chips proxy with plain brown-rice row."
     },
     {
       "canonical_id": "wild-rice",
@@ -1996,22 +1996,22 @@
     {
       "canonical_id": "oats",
       "canonical_name": "Oats",
-      "fdc_id": "2346397",
-      "source_dataset": "foundation_food",
-      "source_name": "Oats, whole grain, steel cut",
-      "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171661",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Cereals, oats, instant, fortified, plain, dry",
+      "confidence": "medium",
+      "score": 1.074286,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "wheat",
       "canonical_name": "Wheat",
-      "fdc_id": "169721",
+      "fdc_id": "169719",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Wheat, durum",
-      "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Wheat, hard white",
+      "confidence": "medium",
+      "score": 1.505,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "barley",
@@ -2036,12 +2036,12 @@
     {
       "canonical_id": "corn",
       "canonical_name": "Corn",
-      "fdc_id": "748282",
-      "source_dataset": "foundation_food",
-      "source_name": "Corn oil",
-      "confidence": "high",
-      "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168538",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Corn, sweet, white, raw",
+      "confidence": "medium",
+      "score": 1.53,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "millet",
@@ -2056,12 +2056,12 @@
     {
       "canonical_id": "sweet-potato",
       "canonical_name": "Sweet potato",
-      "fdc_id": "169303",
+      "fdc_id": "168482",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Sweet potato leaves, raw",
-      "confidence": "high",
-      "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)",
+      "confidence": "medium",
+      "score": 1.540769,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "yam",
@@ -2116,262 +2116,262 @@
     {
       "canonical_id": "apple",
       "canonical_name": "Apple",
-      "fdc_id": "2003590",
-      "source_dataset": "foundation_food",
-      "source_name": "Apple juice, with added vitamin C, from concentrate, shelf stable",
+      "fdc_id": "171688",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
       "confidence": "medium",
-      "score": 1.28,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.3,
+      "notes": "Manual correction: replaced apple juice proxy with raw apple row."
     },
     {
       "canonical_id": "banana",
       "canonical_name": "Banana",
-      "fdc_id": "169394",
+      "fdc_id": "173944",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Pepper, banana, raw",
+      "source_name": "Bananas, raw",
       "confidence": "high",
-      "score": 1.335,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.34,
+      "notes": "Manual correction: replaced banana-pepper homonym row with banana fruit row."
     },
     {
       "canonical_id": "orange",
       "canonical_name": "Orange",
-      "fdc_id": "169103",
+      "fdc_id": "169097",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Orange peel, raw",
-      "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Oranges, raw, all commercial varieties",
+      "confidence": "medium",
+      "score": 1.37,
+      "notes": "Manual correction: replaced orange juice proxy with raw orange row."
     },
     {
       "canonical_id": "tangerine",
       "canonical_name": "Tangerine",
-      "fdc_id": "169925",
+      "fdc_id": "169105",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Tangerine juice, raw",
+      "source_name": "Tangerines, (mandarin oranges), raw",
       "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.61,
+      "notes": "Manual correction: replaced tangerine juice proxy with raw tangerine row."
     },
     {
       "canonical_id": "lemon",
       "canonical_name": "Lemon",
-      "fdc_id": "167747",
+      "fdc_id": "167746",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lemon juice, raw",
+      "source_name": "Lemons, raw, without peel",
       "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.61,
+      "notes": "Manual correction: replaced lemon juice proxy with raw lemon row."
     },
     {
       "canonical_id": "lime",
       "canonical_name": "Lime",
-      "fdc_id": "168156",
+      "fdc_id": "168155",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Lime juice, raw",
+      "source_name": "Limes, raw",
       "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.61,
+      "notes": "Manual correction: replaced lime juice proxy with raw lime row."
     },
     {
       "canonical_id": "strawberry",
       "canonical_name": "Strawberry",
-      "fdc_id": "174869",
+      "fdc_id": "167762",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Strawberry-flavor beverage mix, powder",
+      "source_name": "Strawberries, raw",
       "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.39,
+      "notes": "Manual correction: replaced flavored beverage mix proxy with raw strawberry row."
     },
     {
       "canonical_id": "blueberry",
       "canonical_name": "Blueberry",
-      "fdc_id": "167738",
+      "fdc_id": "171711",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Pie fillings, blueberry, canned",
+      "source_name": "Blueberries, raw",
       "confidence": "medium",
-      "score": 1.16,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.2,
+      "notes": "Manual correction: replaced pie-filling proxy with raw blueberry row."
     },
     {
       "canonical_id": "raspberry",
       "canonical_name": "Raspberry",
-      "fdc_id": "168217",
+      "fdc_id": "167755",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Raspberry juice concentrate",
+      "source_name": "Raspberries, raw",
       "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.52,
+      "notes": "Manual correction: replaced raspberry juice concentrate row with raw raspberries row."
     },
     {
       "canonical_id": "kiwi",
       "canonical_name": "Kiwi",
-      "fdc_id": "326976",
-      "source_dataset": "foundation_food",
-      "source_name": "Kiwi, Raw, Pass 2, Region 1, n/a, Potassium, Sodium, Selenium - NFY010H8T",
+      "fdc_id": "168153",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Kiwifruit, green, raw",
       "confidence": "high",
-      "score": 1.396667,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.18,
+      "notes": "Manual correction: replaced kiwi beverage row with raw kiwifruit row."
     },
     {
       "canonical_id": "avocado",
       "canonical_name": "Avocado",
-      "fdc_id": "2710824",
-      "source_dataset": "foundation_food",
-      "source_name": "Avocado, Hass, peeled, raw",
+      "fdc_id": "171705",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Avocados, raw, all commercial varieties",
       "confidence": "high",
-      "score": 1.53,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.2,
+      "notes": "Manual correction: replaced avocado oil row with raw avocado fruit row."
     },
     {
       "canonical_id": "olive",
       "canonical_name": "Olive",
-      "fdc_id": "172926",
+      "fdc_id": "169094",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Olive loaf, pork",
+      "source_name": "Olives, ripe, canned (small-extra large)",
       "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.51,
+      "notes": "Manual correction: replaced olive-loaf (pork) proxy with olive fruit row."
     },
     {
       "canonical_id": "mango",
       "canonical_name": "Mango",
-      "fdc_id": "2710834",
-      "source_dataset": "foundation_food",
-      "source_name": "Mango, Ataulfo, peeled, raw",
+      "fdc_id": "169910",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Mangos, raw",
       "confidence": "high",
       "score": 1.53,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Manual correction: switched to SR Legacy raw mango row with fuller vitamin reporting."
     },
     {
       "canonical_id": "pineapple",
       "canonical_name": "Pineapple",
-      "fdc_id": "2346398",
-      "source_dataset": "foundation_food",
-      "source_name": "Pineapple, raw",
-      "confidence": "high",
-      "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169124",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pineapple, raw, all varieties",
+      "confidence": "medium",
+      "score": 1.53,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "papaya",
       "canonical_name": "Papaya",
-      "fdc_id": "169107",
+      "fdc_id": "169926",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Papaya nectar, canned",
+      "source_name": "Papayas, raw",
       "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.51,
+      "notes": "Manual correction: replaced papaya nectar proxy with raw papaya row."
     },
     {
       "canonical_id": "grapes",
       "canonical_name": "Grapes",
-      "fdc_id": "173040",
+      "fdc_id": "174682",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Grapes, muscadine, raw",
-      "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Grapes, american type (slip skin), raw",
+      "confidence": "medium",
+      "score": 1.444286,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "pear",
       "canonical_name": "Pear",
-      "fdc_id": "2710836",
-      "source_dataset": "foundation_food",
-      "source_name": "Pear, Anjou, green, with skin, raw",
-      "confidence": "high",
-      "score": 1.444286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169118",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pears, raw",
+      "confidence": "medium",
+      "score": 1.08,
+      "notes": "Manual correction: replaced pear juice row with raw pears row."
     },
     {
       "canonical_id": "peach",
       "canonical_name": "Peach",
-      "fdc_id": "168185",
+      "fdc_id": "169928",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Peach nectar, canned, with added ascorbic acid",
-      "confidence": "high",
-      "score": 1.3175,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Peaches, yellow, raw",
+      "confidence": "medium",
+      "score": 1.21,
+      "notes": "Manual correction: replaced peach pie proxy with raw peach row."
     },
     {
       "canonical_id": "apricot",
       "canonical_name": "Apricot",
-      "fdc_id": "2710815",
-      "source_dataset": "foundation_food",
-      "source_name": "Apricot, with skin, raw",
-      "confidence": "high",
-      "score": 1.53,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171697",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Apricots, raw",
+      "confidence": "medium",
+      "score": 1.08,
+      "notes": "Manual correction: replaced apricot babyfood proxy with raw apricot row."
     },
     {
       "canonical_id": "almond",
       "canonical_name": "Almond",
-      "fdc_id": "2262074",
-      "source_dataset": "foundation_food",
-      "source_name": "Almond butter, creamy",
-      "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170567",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, almonds",
+      "confidence": "medium",
+      "score": 1.24,
+      "notes": "Manual correction: replaced almond paste proxy with whole almond row."
     },
     {
       "canonical_id": "walnut",
       "canonical_name": "Walnut",
-      "fdc_id": "171030",
+      "fdc_id": "170187",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Oil, walnut",
-      "confidence": "medium",
+      "source_name": "Nuts, walnuts, english",
+      "confidence": "high",
       "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Manual correction: replaced walnut oil row with whole walnut row."
     },
     {
       "canonical_id": "pecan",
       "canonical_name": "Pecan",
-      "fdc_id": "175021",
+      "fdc_id": "170182",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Pie, pecan, commercially prepared",
+      "source_name": "Nuts, pecans",
       "confidence": "medium",
-      "score": 1.16,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.2,
+      "notes": "Manual correction: replaced pecan pie proxy with whole pecan row."
     },
     {
       "canonical_id": "macadamia",
       "canonical_name": "Macadamia",
-      "fdc_id": "2516152",
-      "source_dataset": "foundation_food",
-      "source_name": "macadamia nuts, raw",
-      "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170178",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, macadamia nuts, raw",
+      "confidence": "medium",
+      "score": 1.335,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "hazelnut",
       "canonical_name": "Hazelnut",
-      "fdc_id": "173782",
+      "fdc_id": "170581",
       "source_dataset": "sr_legacy_food",
-      "source_name": "SILK Hazelnut Creamer",
+      "source_name": "Nuts, hazelnuts or filberts",
       "confidence": "medium",
-      "score": 1.235,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.22,
+      "notes": "Manual correction: replaced hazelnut oil row with whole hazelnut row."
     },
     {
       "canonical_id": "pistachio",
       "canonical_name": "Pistachio",
-      "fdc_id": "2516224",
-      "source_dataset": "foundation_food",
-      "source_name": "pistachio nuts, raw",
-      "confidence": "high",
-      "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170184",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, pistachio nuts, raw",
+      "confidence": "medium",
+      "score": 1.335,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "brazil-nut",
       "canonical_name": "Brazil nut",
-      "fdc_id": "2515864",
-      "source_dataset": "foundation_food",
-      "source_name": "brazil nuts, raw",
-      "confidence": "high",
-      "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170569",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, brazilnuts, dried, unblanched",
+      "confidence": "medium",
+      "score": 0.75,
+      "notes": "Manual curation override: switched to SR Legacy brazil nut row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "cashew",
@@ -2386,52 +2386,52 @@
     {
       "canonical_id": "pumpkin-seed",
       "canonical_name": "Pumpkin seed",
-      "fdc_id": "175151",
+      "fdc_id": "170556",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, sunfish, pumpkin seed, raw",
+      "source_name": "Seeds, pumpkin and squash seed kernels, dried",
       "confidence": "high",
-      "score": 1.468571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.47,
+      "notes": "Manual correction: replaced fish homonym row with true pumpkin seed row."
     },
     {
       "canonical_id": "sunflower-seed",
       "canonical_name": "Sunflower seed",
-      "fdc_id": "2516296",
-      "source_dataset": "foundation_food",
-      "source_name": "sunflower seed kernels, raw",
-      "confidence": "high",
-      "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "170562",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Seeds, sunflower seed kernels, dried",
+      "confidence": "medium",
+      "score": 1.33,
+      "notes": "Manual correction: replaced sunflower seed butter row with whole sunflower seed kernels row."
     },
     {
       "canonical_id": "sesame",
       "canonical_name": "Sesame",
-      "fdc_id": "2262073",
-      "source_dataset": "foundation_food",
-      "source_name": "Sesame butter, creamy",
-      "confidence": "high",
-      "score": 1.505,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "169412",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Seeds, sesame seed kernels, dried (decorticated)",
+      "confidence": "medium",
+      "score": 1.24,
+      "notes": "Manual correction: replaced sesame candy proxy with sesame seed row."
     },
     {
       "canonical_id": "chia",
       "canonical_name": "Chia",
-      "fdc_id": "2710819",
-      "source_dataset": "foundation_food",
-      "source_name": "Chia seeds, dry, raw",
+      "fdc_id": "cnf-2511",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Seeds, chia seeds, dried",
       "confidence": "high",
-      "score": 1.53,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.4,
+      "notes": "Vitamin completion pass: switched to exact CNF chia-seed row with fuller vitamin reporting."
     },
     {
       "canonical_id": "flax",
       "canonical_name": "Flax",
-      "fdc_id": "172371",
+      "fdc_id": "169414",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Margarine-like spread, SMART BALANCE Regular Buttery Spread with flax oil",
+      "source_name": "Seeds, flaxseed",
       "confidence": "medium",
-      "score": 0.996364,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.1,
+      "notes": "Manual correction: replaced flax-oil spread product row with plain flaxseed row."
     },
     {
       "canonical_id": "hemp",
@@ -2446,32 +2446,32 @@
     {
       "canonical_id": "pine-nut",
       "canonical_name": "Pine nut",
-      "fdc_id": "2346392",
-      "source_dataset": "foundation_food",
-      "source_name": "Nuts, pine nuts, raw",
+      "fdc_id": "170591",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, pine nuts, dried",
       "confidence": "medium",
-      "score": 1.1,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.11,
+      "notes": "Vitamin completion pass: remapped to pine nut row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "olive-oil",
       "canonical_name": "Olive oil",
-      "fdc_id": "2747652",
-      "source_dataset": "foundation_food",
-      "source_name": "Anchovies, canned in olive oil, with salt, drained",
+      "fdc_id": "167737",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, corn, peanut, and olive",
       "confidence": "medium",
-      "score": 1.24,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.588571,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "avocado-oil",
       "canonical_name": "Avocado oil",
-      "fdc_id": "173573",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Oil, avocado",
+      "fdc_id": "cnf-450",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Vegetable oil, avocado",
       "confidence": "medium",
-      "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "score": 0.9,
+      "notes": "Manual curation override: switched to exact CNF avocado-oil row with fuller vitamin reporting."
     },
     {
       "canonical_id": "coconut-oil",
@@ -2516,12 +2516,12 @@
     {
       "canonical_id": "whole-wheat-bread",
       "canonical_name": "Whole wheat bread",
-      "fdc_id": "335125",
-      "source_dataset": "foundation_food",
-      "source_name": "Tocopherols, Whole wheat bread, NATURES OWN (FL,NC) - NFY1204Q0",
-      "confidence": "high",
-      "score": 1.395,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172688",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Bread, whole-wheat, commercially prepared",
+      "confidence": "medium",
+      "score": 0.9,
+      "notes": "Manual correction: replaced pita proxy with whole-wheat bread row."
     },
     {
       "canonical_id": "sourdough-bread",
@@ -2536,32 +2536,32 @@
     {
       "canonical_id": "pita",
       "canonical_name": "Pita",
-      "fdc_id": "172816",
+      "fdc_id": "174915",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Bread, pita, white, unenriched",
+      "source_name": "Bread, pita, white, enriched",
       "confidence": "medium",
-      "score": 1.16,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.2,
+      "notes": "Manual correction: replaced pita-chips proxy with pita bread row."
     },
     {
       "canonical_id": "naan",
       "canonical_name": "Naan",
-      "fdc_id": "171845",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bread, naan, plain, commercially prepared, refrigerated",
+      "fdc_id": "cnf-6606",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Indian, bread, naan",
       "confidence": "medium",
-      "score": 1.074286,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.4,
+      "notes": "Vitamin completion pass: switched to exact CNF naan row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "noodles",
       "canonical_name": "Noodles",
-      "fdc_id": "168905",
+      "fdc_id": "174258",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Noodles, chinese, chow mein",
-      "confidence": "high",
-      "score": 1.43,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Noodles, chinese, cellophane or long rice (mung beans), dehydrated",
+      "confidence": "medium",
+      "score": 1.28,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "soba-noodles",
@@ -2586,92 +2586,92 @@
     {
       "canonical_id": "sourdough-pasta",
       "canonical_name": "Sourdough pasta",
-      "fdc_id": "off-0799210620008",
-      "source_dataset": "openfoodfacts",
-      "source_name": "Sourdough Spaghetti",
-      "confidence": "medium",
-      "score": 0.9,
-      "notes": "Cleanup pass: mapped to exact sourdough pasta product data from OpenFoodFacts."
+      "fdc_id": "168927",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Pasta, dry, unenriched",
+      "confidence": "low",
+      "score": 0.74,
+      "notes": "Manual correction: replaced OpenFoodFacts zero-vector row with closest USDA plain pasta baseline."
     },
     {
       "canonical_id": "canola-oil",
       "canonical_name": "Canola oil",
-      "fdc_id": "748240",
-      "source_dataset": "foundation_food",
-      "source_name": "Canola oil",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172336",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, canola",
+      "confidence": "medium",
+      "score": 0.91,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "soybean-oil",
       "canonical_name": "Soybean oil",
-      "fdc_id": "748327",
-      "source_dataset": "foundation_food",
-      "source_name": "Soybean oil",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171411",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, soybean, salad or cooking",
+      "confidence": "medium",
+      "score": 0.85,
+      "notes": "Manual correction: replaced soybean lecithin proxy with soybean oil row."
     },
     {
       "canonical_id": "sunflower-oil",
       "canonical_name": "Sunflower oil",
-      "fdc_id": "1750349",
-      "source_dataset": "foundation_food",
-      "source_name": "Oil, sunflower",
+      "fdc_id": "171025",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, sunflower, linoleic, (approx. 65%)",
       "confidence": "medium",
-      "score": 0.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.588571,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "safflower-oil",
       "canonical_name": "Safflower oil",
-      "fdc_id": "171010",
+      "fdc_id": "171027",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Salad dressing, mayonnaise, soybean and safflower oil, with salt",
+      "source_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
       "confidence": "medium",
-      "score": 1.212727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.19,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "corn-oil",
       "canonical_name": "Corn oil",
-      "fdc_id": "748282",
-      "source_dataset": "foundation_food",
-      "source_name": "Corn oil",
-      "confidence": "high",
-      "score": 2.21,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "171029",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, corn, industrial and retail, all purpose salad or cooking",
+      "confidence": "medium",
+      "score": 0.83,
+      "notes": "Manual correction: replaced popcorn proxy with corn-oil row."
     },
     {
       "canonical_id": "grapeseed-oil",
       "canonical_name": "Grapeseed oil",
-      "fdc_id": "171028",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Oil, grapeseed",
+      "fdc_id": "cnf-436",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Vegetable oil, grapeseed",
       "confidence": "medium",
-      "score": 0.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.92,
+      "notes": "Manual curation override: switched to exact CNF grapeseed-oil row with fuller vitamin reporting."
     },
     {
       "canonical_id": "peanut-oil",
       "canonical_name": "Peanut oil",
-      "fdc_id": "1750348",
-      "source_dataset": "foundation_food",
-      "source_name": "Oil, peanut",
+      "fdc_id": "171410",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Oil, peanut, salad or cooking",
       "confidence": "medium",
-      "score": 0.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.9,
+      "notes": "Manual correction: replaced blended-oil proxy with peanut oil row."
     },
     {
       "canonical_id": "rice-bran-oil",
       "canonical_name": "Rice bran oil",
-      "fdc_id": "171013",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Oil, rice bran",
+      "fdc_id": "cnf-416",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Vegetable oil, rice bran",
       "confidence": "medium",
-      "score": 0.99,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.9,
+      "notes": "Manual correction: replaced rice-bran proxy with exact CNF rice-bran oil row."
     },
     {
       "canonical_id": "vegetable-oil",
@@ -2686,12 +2686,12 @@
     {
       "canonical_id": "white-bread",
       "canonical_name": "White bread",
-      "fdc_id": "168896",
+      "fdc_id": "174924",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Wheat flour, white, bread, enriched",
+      "source_name": "Bread, white, commercially prepared (includes soft bread crumbs)",
       "confidence": "high",
-      "score": 1.368571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.37,
+      "notes": "Manual correction: replaced flour proxy with white-bread row."
     },
     {
       "canonical_id": "rye-bread",
@@ -2706,12 +2706,12 @@
     {
       "canonical_id": "bagel",
       "canonical_name": "Bagel",
-      "fdc_id": "173150",
+      "fdc_id": "174899",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Snacks, bagel chips, plain",
+      "source_name": "Bagels, plain, enriched, with calcium propionate (includes onion, poppy, sesame)",
       "confidence": "medium",
-      "score": 1.16,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.2,
+      "notes": "Manual correction: replaced bagel-chips proxy with plain bagel row."
     },
     {
       "canonical_id": "tortilla-flour",
@@ -2736,32 +2736,32 @@
     {
       "canonical_id": "hamburger-bun",
       "canonical_name": "Hamburger bun",
-      "fdc_id": "2343137",
-      "source_dataset": "survey_food",
-      "source_name": "Roll, white, hamburger bun",
+      "fdc_id": "172796",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rolls, hamburger or hotdog, plain",
       "confidence": "medium",
-      "score": 0.72,
-      "notes": "Manual curation override (USDA/local proxy where exact row unavailable)."
+      "score": 0.95,
+      "notes": "Manual curation override: switched to SR Legacy plain hamburger/hotdog roll row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "hot-dog-bun",
       "canonical_name": "Hot dog bun",
-      "fdc_id": "2343136",
-      "source_dataset": "survey_food",
-      "source_name": "Roll, white, hot dog bun",
+      "fdc_id": "172796",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rolls, hamburger or hotdog, plain",
       "confidence": "medium",
-      "score": 0.72,
-      "notes": "Manual curation override (USDA/local proxy where exact row unavailable)."
+      "score": 0.95,
+      "notes": "Manual curation override: switched to SR Legacy plain hamburger/hotdog roll row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "sandwich-roll",
       "canonical_name": "Sandwich roll",
-      "fdc_id": "2343143",
-      "source_dataset": "survey_food",
-      "source_name": "Roll, white, hoagie, submarine",
+      "fdc_id": "172796",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Rolls, hamburger or hotdog, plain",
       "confidence": "medium",
-      "score": 0.86,
-      "notes": "Cleanup pass: upgraded to stronger semantic/source-state match."
+      "score": 0.9,
+      "notes": "Manual curation override: switched to closest SR Legacy plain roll row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "bread-crumbs",
@@ -2786,22 +2786,22 @@
     {
       "canonical_id": "crackers-plain",
       "canonical_name": "Crackers (plain)",
-      "fdc_id": "174083",
+      "fdc_id": "172740",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Cookies, graham crackers, plain or honey, lowfat",
+      "source_name": "Crackers, matzo, plain",
       "confidence": "medium",
-      "score": 1.193333,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.68,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "rice-cakes",
       "canonical_name": "Rice cakes",
-      "fdc_id": "167967",
+      "fdc_id": "170250",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Snacks, rice cakes, brown rice, buckwheat",
-      "confidence": "high",
-      "score": 1.368571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "source_name": "Snacks, rice cakes, brown rice, plain, unsalted",
+      "confidence": "medium",
+      "score": 1.315,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "rice-noodles",
@@ -2816,12 +2816,12 @@
     {
       "canonical_id": "udon-noodles",
       "canonical_name": "Udon noodles",
-      "fdc_id": "2027691",
-      "source_dataset": "usda_api_branded",
-      "source_name": "UDON NOODLES",
-      "confidence": "high",
-      "score": 0.98,
-      "notes": "Cleanup pass: mapped to exact online item-level source row."
+      "fdc_id": "168908",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Noodles, japanese, somen, dry",
+      "confidence": "low",
+      "score": 0.7,
+      "notes": "Manual correction: replaced branded zero-vector row with closest USDA Japanese wheat noodle row."
     },
     {
       "canonical_id": "ramen-noodles",
@@ -2856,12 +2856,12 @@
     {
       "canonical_id": "couscous",
       "canonical_name": "Couscous",
-      "fdc_id": "169699",
+      "fdc_id": "169700",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Couscous, dry",
-      "confidence": "high",
+      "source_name": "Couscous, cooked",
+      "confidence": "medium",
       "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "bulgur",
@@ -2876,32 +2876,32 @@
     {
       "canonical_id": "peanut-butter",
       "canonical_name": "Peanut butter",
-      "fdc_id": "2262072",
-      "source_dataset": "foundation_food",
-      "source_name": "Peanut butter, creamy",
-      "confidence": "high",
-      "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "172458",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Peanut butter, smooth, reduced fat",
+      "confidence": "medium",
+      "score": 1.638571,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "almond-butter",
       "canonical_name": "Almond butter",
-      "fdc_id": "2262074",
-      "source_dataset": "foundation_food",
-      "source_name": "Almond butter, creamy",
-      "confidence": "high",
-      "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "168588",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Nuts, almond butter, plain, without salt added",
+      "confidence": "medium",
+      "score": 1.273333,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "tahini",
       "canonical_name": "Tahini",
-      "fdc_id": "2262552",
-      "source_dataset": "foundation_food",
-      "source_name": "sesame seed butter (tahini), creamy",
+      "fdc_id": "170189",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Seeds, sesame butter, tahini, from roasted and toasted kernels (most common type)",
       "confidence": "medium",
-      "score": 1.11,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.95,
+      "notes": "Manual curation override: switched to SR Legacy tahini row with full non-biotin vitamin reporting."
     },
     {
       "canonical_id": "sunflower-seed-butter",
@@ -2956,52 +2956,52 @@
     {
       "canonical_id": "tomato-paste",
       "canonical_name": "Tomato paste",
-      "fdc_id": "2685580",
-      "source_dataset": "foundation_food",
-      "source_name": "Tomato, paste, canned, without salt added",
+      "fdc_id": "170459",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
       "confidence": "high",
       "score": 1.585,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Manual correction: switched from sparse Foundation row to SR Legacy tomato paste row."
     },
     {
       "canonical_id": "canned-tomatoes",
       "canonical_name": "Canned tomatoes",
-      "fdc_id": "333138",
-      "source_dataset": "foundation_food",
-      "source_name": "Tomatoes, canned",
+      "fdc_id": "170501",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Tomatoes, crushed, canned",
       "confidence": "medium",
-      "score": 0.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.76,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "coconut-milk",
       "canonical_name": "Coconut milk",
-      "fdc_id": "174116",
+      "fdc_id": "170172",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+      "source_name": "Nuts, coconut milk, raw (liquid expressed from grated meat and water)",
       "confidence": "medium",
-      "score": 1.19,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.170769,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "broth",
       "canonical_name": "Broth",
-      "fdc_id": "171606",
+      "fdc_id": "171542",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Fish broth",
+      "source_name": "Soup, chicken broth, canned, condensed",
       "confidence": "medium",
-      "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.11,
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "ketchup",
       "canonical_name": "Ketchup",
-      "fdc_id": "747453",
-      "source_dataset": "foundation_food",
-      "source_name": "Ketchup",
-      "confidence": "high",
-      "score": 2.13,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "cnf-2494",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Tomato ketchup (catsup)",
+      "confidence": "medium",
+      "score": 0.94,
+      "notes": "Manual correction: USDA Foundation ketchup row had no vitamin reporting; switched to CNF tomato ketchup row with full vitamin fields."
     },
     {
       "canonical_id": "mustard",
@@ -3056,12 +3056,12 @@
     {
       "canonical_id": "hot-sauce",
       "canonical_name": "Hot sauce",
-      "fdc_id": "171186",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Sauce, hot chile, sriracha",
+      "fdc_id": "cnf-1029",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Sauce, pepper or hot, ready-to-serve",
       "confidence": "medium",
-      "score": 0.66,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.9,
+      "notes": "Manual curation override: switched to exact CNF hot-sauce row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "pickles",
@@ -3106,22 +3106,22 @@
     {
       "canonical_id": "shiitake",
       "canonical_name": "Shiitake",
-      "fdc_id": "169242",
+      "fdc_id": "168435",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Mushrooms, shiitake, raw",
+      "source_name": "Mushrooms, shiitake, stir-fried",
       "confidence": "high",
-      "score": 1.335,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 1.34,
+      "notes": "Vitamin completion pass: remapped to shiitake row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "oyster-mushroom",
       "canonical_name": "Oyster mushroom",
-      "fdc_id": "1750345",
-      "source_dataset": "foundation_food",
-      "source_name": "Mushroom, oyster",
-      "confidence": "medium",
-      "score": 1.03,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "fdc_id": "cnf-4866",
+      "source_dataset": "canadian_nutrient_file",
+      "source_name": "Mushroom, oyster, raw",
+      "confidence": "high",
+      "score": 1,
+      "notes": "Vitamin completion pass: switched to exact CNF oyster-mushroom row with complete non-biotin vitamin reporting."
     },
     {
       "canonical_id": "maitake",
@@ -3136,12 +3136,12 @@
     {
       "canonical_id": "lion-s-mane",
       "canonical_name": "Lion's mane",
-      "fdc_id": "1750344",
+      "fdc_id": "1999626",
       "source_dataset": "foundation_food",
       "source_name": "Mushroom, lion's mane",
-      "confidence": "high",
+      "confidence": "medium",
       "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
     },
     {
       "canonical_id": "nori",

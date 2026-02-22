@@ -37,9 +37,18 @@ const NUTRIENT_KEYS = [
 ];
 
 const NUTRIENT_NAME_MAP = [
-  { key: "vitamin_a_ug", unit: "UG", names: ["vitamin a, rae"] },
+  { key: "vitamin_a_ug", unit: "UG", names: ["vitamin a, rae"], factor: 1, priority: 3 },
+  { key: "vitamin_a_ug", unit: "UG", names: ["retinol"], factor: 1, priority: 2 },
+  { key: "vitamin_a_ug", unit: "IU", names: ["vitamin a, iu"], factor: 0.3, priority: 1 },
   { key: "vitamin_c_mg", unit: "MG", names: ["vitamin c, total ascorbic acid"] },
-  { key: "vitamin_d_ug", unit: "UG", names: ["vitamin d (d2 + d3)"] },
+  { key: "vitamin_d_ug", unit: "UG", names: ["vitamin d (d2 + d3)"], factor: 1, priority: 2 },
+  {
+    key: "vitamin_d_ug",
+    unit: "IU",
+    names: ["vitamin d (d2 + d3), international units"],
+    factor: 0.025,
+    priority: 1
+  },
   { key: "vitamin_e_mg", unit: "MG", names: ["vitamin e (alpha-tocopherol)"] },
   { key: "vitamin_k_ug", unit: "UG", names: ["vitamin k (phylloquinone)"] },
   { key: "thiamin_mg", unit: "MG", names: ["thiamin"] },
@@ -48,7 +57,8 @@ const NUTRIENT_NAME_MAP = [
   { key: "vitamin_b5_mg", unit: "MG", names: ["pantothenic acid", "vitamin b-5"] },
   { key: "vitamin_b6_mg", unit: "MG", names: ["vitamin b-6"] },
   { key: "vitamin_b7_ug", unit: "UG", names: ["biotin", "vitamin b-7"] },
-  { key: "folate_ug", unit: "UG", names: ["folate, total"] },
+  { key: "folate_ug", unit: "UG", names: ["folate, total"], factor: 1, priority: 2 },
+  { key: "folate_ug", unit: "UG", names: ["folate, dfe"], factor: 1, priority: 1 },
   { key: "vitamin_b12_ug", unit: "UG", names: ["vitamin b-12"] },
   { key: "calcium_mg", unit: "MG", names: ["calcium, ca"] },
   { key: "iron_mg", unit: "MG", names: ["iron, fe"] },
@@ -249,7 +259,11 @@ const buildNutrientLookup = (nutrientRows) => {
       (entry) => entry.unit === unit && entry.names.some((candidate) => normalize(candidate) === name)
     );
     if (match) {
-      lookup.set(id, match.key);
+      lookup.set(id, {
+        key: match.key,
+        factor: Number.isFinite(match.factor) ? match.factor : 1,
+        priority: Number.isFinite(match.priority) ? match.priority : 1
+      });
     }
   });
   return lookup;
@@ -293,7 +307,8 @@ const loadSourceRowsFromUsdaCsv = (usdaDir) => {
       fdc_id: fdcId,
       source: "usda",
       source_dataset: sourceTag,
-      per_100g: makeZeroVector()
+      per_100g: makeZeroVector(),
+      _nutrient_priority: {}
     });
   });
   foodNutrientRows.forEach((row) => {
@@ -302,20 +317,31 @@ const loadSourceRowsFromUsdaCsv = (usdaDir) => {
     if (!fdcId || !foodsById.has(fdcId)) {
       return;
     }
-    const key = nutrientLookup.get(nutrientId);
-    if (!key) {
+    const mapped = nutrientLookup.get(nutrientId);
+    if (!mapped) {
       return;
     }
     const amount = Number(row[nutrientCols.amount]);
     if (!Number.isFinite(amount)) {
       return;
     }
-    foodsById.get(fdcId).per_100g[key] = amount;
+    const convertedAmount = amount * mapped.factor;
+    if (!Number.isFinite(convertedAmount)) {
+      return;
+    }
+    const target = foodsById.get(fdcId);
+    const currentPriority = Number.isFinite(target._nutrient_priority[mapped.key])
+      ? target._nutrient_priority[mapped.key]
+      : -Infinity;
+    if (mapped.priority >= currentPriority) {
+      target.per_100g[mapped.key] = convertedAmount;
+      target._nutrient_priority[mapped.key] = mapped.priority;
+    }
   });
 
   return Array.from(foodsById.values())
     .map((row) => ({
-      ...row,
+      ...(Object.fromEntries(Object.entries(row).filter(([key]) => key !== "_nutrient_priority"))),
       per_100g: normalizePer100g(row.per_100g)
     }))
     .filter((row) => sumPer100g(row.per_100g) > 0);
