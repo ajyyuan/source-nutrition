@@ -1,0 +1,1304 @@
+{
+  "vitamin_a_ug": [
+    {
+      "name": "Chlorella",
+      "value": 17499.3
+    },
+    {
+      "name": "Lamb liver",
+      "value": 7391
+    },
+    {
+      "name": "Pork liver",
+      "value": 6502
+    },
+    {
+      "name": "Beef liver",
+      "value": 4968
+    },
+    {
+      "name": "Whole turkey",
+      "value": 3939
+    },
+    {
+      "name": "Nori",
+      "value": 3428.7
+    },
+    {
+      "name": "Carrot",
+      "value": 3423
+    },
+    {
+      "name": "Chicken liver",
+      "value": 3296
+    },
+    {
+      "name": "Oats",
+      "value": 772
+    },
+    {
+      "name": "Sweet potato",
+      "value": 709
+    },
+    {
+      "name": "Butter",
+      "value": 684
+    },
+    {
+      "name": "Ghee",
+      "value": 684
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 655
+    },
+    {
+      "name": "Turnip",
+      "value": 579
+    },
+    {
+      "name": "Butternut squash",
+      "value": 532
+    }
+  ],
+  "vitamin_c_mg": [
+    {
+      "name": "Chili pepper",
+      "value": 143.7
+    },
+    {
+      "name": "Parsley",
+      "value": 133
+    },
+    {
+      "name": "Kale",
+      "value": 93.4
+    },
+    {
+      "name": "Kiwi",
+      "value": 92.7
+    },
+    {
+      "name": "Broccoli",
+      "value": 89.2
+    },
+    {
+      "name": "Brussels sprouts",
+      "value": 85
+    },
+    {
+      "name": "Bell pepper",
+      "value": 80.4
+    },
+    {
+      "name": "Hot sauce",
+      "value": 74.8
+    },
+    {
+      "name": "Mustard greens",
+      "value": 70
+    },
+    {
+      "name": "Mustard",
+      "value": 70
+    },
+    {
+      "name": "Papaya",
+      "value": 60.9
+    },
+    {
+      "name": "Turnip",
+      "value": 60
+    },
+    {
+      "name": "Strawberry",
+      "value": 58.8
+    },
+    {
+      "name": "Chive",
+      "value": 58.1
+    },
+    {
+      "name": "Orange",
+      "value": 53.2
+    }
+  ],
+  "vitamin_d_ug": [
+    {
+      "name": "Maitake",
+      "value": 28.1
+    },
+    {
+      "name": "Halibut",
+      "value": 27.4
+    },
+    {
+      "name": "Chinook salmon",
+      "value": 17.1
+    },
+    {
+      "name": "Trout",
+      "value": 15.9
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 14.1
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 11
+    },
+    {
+      "name": "Coho salmon",
+      "value": 9
+    },
+    {
+      "name": "American cheese",
+      "value": 7.5
+    },
+    {
+      "name": "Mackerel",
+      "value": 7.3
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 5.7
+    },
+    {
+      "name": "Egg yolk",
+      "value": 5.4
+    },
+    {
+      "name": "Sardine",
+      "value": 4.8
+    },
+    {
+      "name": "Duck fat",
+      "value": 4.8
+    },
+    {
+      "name": "Chicken fat",
+      "value": 4.8
+    },
+    {
+      "name": "Herring",
+      "value": 4.2
+    }
+  ],
+  "vitamin_e_mg": [
+    {
+      "name": "Sunflower oil",
+      "value": 41.08
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 35.17
+    },
+    {
+      "name": "Safflower oil",
+      "value": 34.1
+    },
+    {
+      "name": "Rice bran oil",
+      "value": 32.3
+    },
+    {
+      "name": "Grapeseed oil",
+      "value": 28.8
+    },
+    {
+      "name": "Almond",
+      "value": 25.63
+    },
+    {
+      "name": "Almond butter",
+      "value": 24.21
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 22.89
+    },
+    {
+      "name": "Canola oil",
+      "value": 17.46
+    },
+    {
+      "name": "Peanut oil",
+      "value": 15.69
+    },
+    {
+      "name": "Hazelnut",
+      "value": 15.03
+    },
+    {
+      "name": "Olive oil",
+      "value": 14.78
+    },
+    {
+      "name": "Corn oil",
+      "value": 14.3
+    },
+    {
+      "name": "Avocado oil",
+      "value": 14.12
+    },
+    {
+      "name": "Pine nut",
+      "value": 9.33
+    }
+  ],
+  "vitamin_k_ug": [
+    {
+      "name": "Parsley",
+      "value": 1640
+    },
+    {
+      "name": "Swiss",
+      "value": 830
+    },
+    {
+      "name": "Swiss chard",
+      "value": 830
+    },
+    {
+      "name": "Spinach",
+      "value": 482.9
+    },
+    {
+      "name": "Beet",
+      "value": 400
+    },
+    {
+      "name": "Kale",
+      "value": 389.6
+    },
+    {
+      "name": "Cilantro",
+      "value": 310
+    },
+    {
+      "name": "Mustard greens",
+      "value": 257.5
+    },
+    {
+      "name": "Mustard",
+      "value": 257.5
+    },
+    {
+      "name": "Radicchio",
+      "value": 255.2
+    },
+    {
+      "name": "Turnip",
+      "value": 251
+    },
+    {
+      "name": "Endive",
+      "value": 231
+    },
+    {
+      "name": "Chive",
+      "value": 212.7
+    },
+    {
+      "name": "Scallion",
+      "value": 207
+    },
+    {
+      "name": "Soybean oil",
+      "value": 183.9
+    }
+  ],
+  "thiamin_mg": [
+    {
+      "name": "Flax",
+      "value": 1.644
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 1.48
+    },
+    {
+      "name": "Hemp",
+      "value": 1.275
+    },
+    {
+      "name": "Tahini",
+      "value": 1.22
+    },
+    {
+      "name": "Macadamia",
+      "value": 1.195
+    },
+    {
+      "name": "Egg noodles",
+      "value": 1.133
+    },
+    {
+      "name": "Pork tenderloin",
+      "value": 0.998
+    },
+    {
+      "name": "Pork loin",
+      "value": 0.989
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 0.961
+    },
+    {
+      "name": "Black bean",
+      "value": 0.9
+    },
+    {
+      "name": "Fresh ham",
+      "value": 0.875
+    },
+    {
+      "name": "Soybean",
+      "value": 0.874
+    },
+    {
+      "name": "Lentil",
+      "value": 0.873
+    },
+    {
+      "name": "Pistachio",
+      "value": 0.87
+    },
+    {
+      "name": "Naan",
+      "value": 0.78
+    }
+  ],
+  "riboflavin_mg": [
+    {
+      "name": "Lamb liver",
+      "value": 3.63
+    },
+    {
+      "name": "Pork liver",
+      "value": 3.005
+    },
+    {
+      "name": "Beef kidney",
+      "value": 2.84
+    },
+    {
+      "name": "Beef liver",
+      "value": 2.755
+    },
+    {
+      "name": "Chicken liver",
+      "value": 1.778
+    },
+    {
+      "name": "Pork kidney",
+      "value": 1.586
+    },
+    {
+      "name": "Whole turkey",
+      "value": 1.393
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 1.279
+    },
+    {
+      "name": "Maple syrup",
+      "value": 1.27
+    },
+    {
+      "name": "Beef heart",
+      "value": 1.21
+    },
+    {
+      "name": "Pork heart",
+      "value": 1.185
+    },
+    {
+      "name": "Almond",
+      "value": 1.138
+    },
+    {
+      "name": "Almond butter",
+      "value": 0.939
+    },
+    {
+      "name": "Soybean",
+      "value": 0.87
+    },
+    {
+      "name": "Feta",
+      "value": 0.844
+    }
+  ],
+  "niacin_mg": [
+    {
+      "name": "Tuna (yellowfin)",
+      "value": 18.475
+    },
+    {
+      "name": "Lamb liver",
+      "value": 16.11
+    },
+    {
+      "name": "Tuna (skipjack)",
+      "value": 15.4
+    },
+    {
+      "name": "Pork liver",
+      "value": 15.301
+    },
+    {
+      "name": "Peanut butter",
+      "value": 14.6
+    },
+    {
+      "name": "Anchovy",
+      "value": 14.024
+    },
+    {
+      "name": "Beef liver",
+      "value": 13.175
+    },
+    {
+      "name": "Chicken breast",
+      "value": 9.908
+    },
+    {
+      "name": "Chicken liver",
+      "value": 9.728
+    },
+    {
+      "name": "Hemp",
+      "value": 9.2
+    },
+    {
+      "name": "Chia",
+      "value": 8.83
+    },
+    {
+      "name": "Whole turkey",
+      "value": 8.694
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 8.672
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 8.654
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 8.507
+    }
+  ],
+  "vitamin_b5_mg": [
+    {
+      "name": "Beef liver",
+      "value": 7.173
+    },
+    {
+      "name": "Pork liver",
+      "value": 6.65
+    },
+    {
+      "name": "Chicken liver",
+      "value": 6.233
+    },
+    {
+      "name": "Lamb liver",
+      "value": 6.13
+    },
+    {
+      "name": "Beef kidney",
+      "value": 3.97
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 3.9
+    },
+    {
+      "name": "Whole turkey",
+      "value": 3.889
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 3.207
+    },
+    {
+      "name": "Egg yolk",
+      "value": 2.99
+    },
+    {
+      "name": "Pork kidney",
+      "value": 2.873
+    },
+    {
+      "name": "Pork brain",
+      "value": 2.8
+    },
+    {
+      "name": "Chicken heart",
+      "value": 2.559
+    },
+    {
+      "name": "Pork heart",
+      "value": 2.515
+    },
+    {
+      "name": "Lamb heart",
+      "value": 2.244
+    },
+    {
+      "name": "Lentil",
+      "value": 2.14
+    }
+  ],
+  "vitamin_b6_mg": [
+    {
+      "name": "Pistachio",
+      "value": 1.7
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 1.345
+    },
+    {
+      "name": "Garlic",
+      "value": 1.235
+    },
+    {
+      "name": "Beef liver",
+      "value": 1.083
+    },
+    {
+      "name": "Carrot",
+      "value": 1.04
+    },
+    {
+      "name": "Tuna (yellowfin)",
+      "value": 0.933
+    },
+    {
+      "name": "Lamb liver",
+      "value": 0.9
+    },
+    {
+      "name": "Chicken liver",
+      "value": 0.853
+    },
+    {
+      "name": "Tuna (skipjack)",
+      "value": 0.85
+    },
+    {
+      "name": "Pork tenderloin",
+      "value": 0.777
+    },
+    {
+      "name": "Pork chop",
+      "value": 0.742
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 0.731
+    },
+    {
+      "name": "Pork liver",
+      "value": 0.69
+    },
+    {
+      "name": "Ground pork",
+      "value": 0.668
+    },
+    {
+      "name": "Round",
+      "value": 0.666
+    }
+  ],
+  "vitamin_b7_ug": [
+    {
+      "name": "Beef liver",
+      "value": 100
+    },
+    {
+      "name": "Egg yolk",
+      "value": 63.6
+    },
+    {
+      "name": "Chicken liver",
+      "value": 62.21
+    },
+    {
+      "name": "Hazelnut",
+      "value": 61.6
+    },
+    {
+      "name": "Beef kidney",
+      "value": 58
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 56
+    },
+    {
+      "name": "Maitake",
+      "value": 47.3
+    },
+    {
+      "name": "Lamb liver",
+      "value": 41
+    },
+    {
+      "name": "Catfish",
+      "value": 37.9
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 37
+    },
+    {
+      "name": "Walnut",
+      "value": 35.5
+    },
+    {
+      "name": "Pecan",
+      "value": 35.5
+    },
+    {
+      "name": "Chicken egg",
+      "value": 19.5
+    },
+    {
+      "name": "Duck egg",
+      "value": 19.5
+    },
+    {
+      "name": "Turkey egg",
+      "value": 19.5
+    }
+  ],
+  "folate_ug": [
+    {
+      "name": "Chicken liver",
+      "value": 588
+    },
+    {
+      "name": "Pinto bean",
+      "value": 525
+    },
+    {
+      "name": "Lentil",
+      "value": 479
+    },
+    {
+      "name": "Black bean",
+      "value": 444
+    },
+    {
+      "name": "Chickpea",
+      "value": 437
+    },
+    {
+      "name": "Kidney bean",
+      "value": 394
+    },
+    {
+      "name": "Soybean",
+      "value": 375
+    },
+    {
+      "name": "Whole turkey",
+      "value": 331
+    },
+    {
+      "name": "Beef liver",
+      "value": 290
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 237
+    },
+    {
+      "name": "Lamb liver",
+      "value": 230
+    },
+    {
+      "name": "Egg noodles",
+      "value": 230
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 227
+    },
+    {
+      "name": "Pork liver",
+      "value": 212
+    },
+    {
+      "name": "Wakame",
+      "value": 196
+    }
+  ],
+  "vitamin_b12_ug": [
+    {
+      "name": "Chlorella",
+      "value": 300
+    },
+    {
+      "name": "Lamb liver",
+      "value": 90.05
+    },
+    {
+      "name": "Beef liver",
+      "value": 59.3
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 50.37
+    },
+    {
+      "name": "Beef kidney",
+      "value": 27.5
+    },
+    {
+      "name": "Pork liver",
+      "value": 26
+    },
+    {
+      "name": "Octopus",
+      "value": 20
+    },
+    {
+      "name": "Chicken liver",
+      "value": 16.58
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 14
+    },
+    {
+      "name": "Herring",
+      "value": 13.67
+    },
+    {
+      "name": "Whole turkey",
+      "value": 13.06
+    },
+    {
+      "name": "Mussel",
+      "value": 12
+    },
+    {
+      "name": "Clam",
+      "value": 11.28
+    },
+    {
+      "name": "Beef heart",
+      "value": 10.8
+    },
+    {
+      "name": "Beef brain",
+      "value": 10.1
+    }
+  ],
+  "calcium_mg": [
+    {
+      "name": "Parmesan",
+      "value": 1184
+    },
+    {
+      "name": "American cheese",
+      "value": 1045
+    },
+    {
+      "name": "Processed cheese slices",
+      "value": 1045
+    },
+    {
+      "name": "Gruyere",
+      "value": 1011
+    },
+    {
+      "name": "Cheddar",
+      "value": 711
+    },
+    {
+      "name": "Gouda",
+      "value": 700
+    },
+    {
+      "name": "Chia",
+      "value": 631
+    },
+    {
+      "name": "Mozzarella",
+      "value": 505
+    },
+    {
+      "name": "Feta",
+      "value": 493
+    },
+    {
+      "name": "Tahini",
+      "value": 426
+    },
+    {
+      "name": "Sardine",
+      "value": 382
+    },
+    {
+      "name": "Oats",
+      "value": 351
+    },
+    {
+      "name": "Almond butter",
+      "value": 347
+    },
+    {
+      "name": "Chlorella",
+      "value": 333
+    },
+    {
+      "name": "Nori",
+      "value": 286
+    }
+  ],
+  "iron_mg": [
+    {
+      "name": "Chlorella",
+      "value": 240
+    },
+    {
+      "name": "Turmeric",
+      "value": 55
+    },
+    {
+      "name": "Nori",
+      "value": 51.43
+    },
+    {
+      "name": "Beef spleen",
+      "value": 44.55
+    },
+    {
+      "name": "Dulse",
+      "value": 28.29
+    },
+    {
+      "name": "Oats",
+      "value": 24.72
+    },
+    {
+      "name": "Pork liver",
+      "value": 23.3
+    },
+    {
+      "name": "Soybean",
+      "value": 15.7
+    },
+    {
+      "name": "Chicken liver",
+      "value": 8.99
+    },
+    {
+      "name": "Tahini",
+      "value": 8.95
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 8.82
+    },
+    {
+      "name": "Natto",
+      "value": 8.6
+    },
+    {
+      "name": "Kidney bean",
+      "value": 8.2
+    },
+    {
+      "name": "Hemp",
+      "value": 7.95
+    },
+    {
+      "name": "Chia",
+      "value": 7.72
+    }
+  ],
+  "magnesium_mg": [
+    {
+      "name": "Hemp",
+      "value": 700
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 592
+    },
+    {
+      "name": "Flax",
+      "value": 392
+    },
+    {
+      "name": "Brazil nut",
+      "value": 376
+    },
+    {
+      "name": "Sesame",
+      "value": 345
+    },
+    {
+      "name": "Chia",
+      "value": 335
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 325
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 311
+    },
+    {
+      "name": "Cashew",
+      "value": 292
+    },
+    {
+      "name": "Soybean",
+      "value": 280
+    },
+    {
+      "name": "Almond butter",
+      "value": 279
+    },
+    {
+      "name": "Almond",
+      "value": 270
+    },
+    {
+      "name": "Pine nut",
+      "value": 251
+    },
+    {
+      "name": "Amaranth",
+      "value": 248
+    },
+    {
+      "name": "Turmeric",
+      "value": 208
+    }
+  ],
+  "phosphorus_mg": [
+    {
+      "name": "Hemp",
+      "value": 1650
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 1233
+    },
+    {
+      "name": "Chia",
+      "value": 860
+    },
+    {
+      "name": "Tahini",
+      "value": 732
+    },
+    {
+      "name": "Brazil nut",
+      "value": 725
+    },
+    {
+      "name": "Soybean",
+      "value": 704
+    },
+    {
+      "name": "Parmesan",
+      "value": 694
+    },
+    {
+      "name": "Sesame",
+      "value": 667
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 666
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 660
+    },
+    {
+      "name": "Flax",
+      "value": 642
+    },
+    {
+      "name": "American cheese",
+      "value": 641
+    },
+    {
+      "name": "Processed cheese slices",
+      "value": 641
+    },
+    {
+      "name": "Gruyere",
+      "value": 605
+    },
+    {
+      "name": "Cashew",
+      "value": 593
+    }
+  ],
+  "potassium_mg": [
+    {
+      "name": "Carrot",
+      "value": 2540
+    },
+    {
+      "name": "Turmeric",
+      "value": 2080
+    },
+    {
+      "name": "Soybean",
+      "value": 1797
+    },
+    {
+      "name": "Black bean",
+      "value": 1483
+    },
+    {
+      "name": "Kidney bean",
+      "value": 1406
+    },
+    {
+      "name": "Pinto bean",
+      "value": 1393
+    },
+    {
+      "name": "Hemp",
+      "value": 1200
+    },
+    {
+      "name": "Pistachio",
+      "value": 1025
+    },
+    {
+      "name": "Tomato paste",
+      "value": 1014
+    },
+    {
+      "name": "Chickpea",
+      "value": 846
+    },
+    {
+      "name": "Yam",
+      "value": 816
+    },
+    {
+      "name": "Flax",
+      "value": 813
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 809
+    },
+    {
+      "name": "Beet",
+      "value": 762
+    },
+    {
+      "name": "Almond butter",
+      "value": 748
+    }
+  ],
+  "zinc_mg": [
+    {
+      "name": "Oyster",
+      "value": 39.3
+    },
+    {
+      "name": "Hemp",
+      "value": 9.9
+    },
+    {
+      "name": "Short ribs",
+      "value": 8.25
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 7.81
+    },
+    {
+      "name": "Shank (lamb/goat)",
+      "value": 7.69
+    },
+    {
+      "name": "Shank",
+      "value": 6.94
+    },
+    {
+      "name": "Sesame",
+      "value": 6.73
+    },
+    {
+      "name": "Chicken heart",
+      "value": 6.59
+    },
+    {
+      "name": "Pine nut",
+      "value": 6.45
+    },
+    {
+      "name": "Hanger",
+      "value": 6.26
+    },
+    {
+      "name": "Skirt",
+      "value": 6.25
+    },
+    {
+      "name": "Plate",
+      "value": 6.25
+    },
+    {
+      "name": "Back ribs",
+      "value": 6.1
+    },
+    {
+      "name": "Wild rice",
+      "value": 5.96
+    },
+    {
+      "name": "Cashew",
+      "value": 5.78
+    }
+  ],
+  "selenium_ug": [
+    {
+      "name": "Brazil nut",
+      "value": 1917
+    },
+    {
+      "name": "Pork kidney",
+      "value": 311.5
+    },
+    {
+      "name": "Beef kidney",
+      "value": 141
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 104.4
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 93.6
+    },
+    {
+      "name": "Tuna (yellowfin)",
+      "value": 90.6
+    },
+    {
+      "name": "Lamb liver",
+      "value": 82.4
+    },
+    {
+      "name": "Egg noodles",
+      "value": 78.8
+    },
+    {
+      "name": "Lobster",
+      "value": 63.6
+    },
+    {
+      "name": "Pasta",
+      "value": 63.2
+    },
+    {
+      "name": "Sourdough pasta",
+      "value": 63.2
+    },
+    {
+      "name": "Beef spleen",
+      "value": 62.2
+    },
+    {
+      "name": "Egg yolk",
+      "value": 56
+    },
+    {
+      "name": "Chia",
+      "value": 55.2
+    },
+    {
+      "name": "Chicken liver",
+      "value": 54.6
+    }
+  ],
+  "omega3_g": [
+    {
+      "name": "Canola oil",
+      "value": 9.137
+    },
+    {
+      "name": "Hemp",
+      "value": 8.684
+    },
+    {
+      "name": "Soybean oil",
+      "value": 6.789
+    },
+    {
+      "name": "Lamb tallow",
+      "value": 2.3
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 2.1140000000000003
+    },
+    {
+      "name": "Herring",
+      "value": 1.571
+    },
+    {
+      "name": "Mackerel",
+      "value": 1.341
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 1.173
+    },
+    {
+      "name": "Corn oil",
+      "value": 1.161
+    },
+    {
+      "name": "Coho salmon",
+      "value": 1.085
+    },
+    {
+      "name": "Duck fat",
+      "value": 1
+    },
+    {
+      "name": "Sardine",
+      "value": 0.982
+    },
+    {
+      "name": "Halibut",
+      "value": 0.919
+    },
+    {
+      "name": "Beef brain",
+      "value": 0.855
+    },
+    {
+      "name": "Whole wheat pasta",
+      "value": 0.831
+    }
+  ]
+}

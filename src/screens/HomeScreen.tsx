@@ -487,6 +487,12 @@ export function HomeScreen({ navigation }: Props) {
                       key={key}
                       label={formatNutrientLabel(key)}
                       percentDv={summaryTotals.percent_dv[key]}
+                      onPress={() =>
+                        (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                          "NutrientDetail",
+                          { nutrientKey: key }
+                        )
+                      }
                     />
                   ))
                 ) : (
@@ -509,7 +515,21 @@ export function HomeScreen({ navigation }: Props) {
                 <Text style={styles.subsectionTitle}>Likely shortfalls</Text>
                 {summaryShortfalls.length ? (
                   summaryShortfalls.map((entry) => (
-                    <View key={entry.key} style={styles.nutrientRow}>
+                    <Pressable
+                      key={entry.key}
+                      style={({ pressed }) => [
+                        styles.nutrientRow,
+                        pressed ? styles.nutrientRowPressed : null
+                      ]}
+                      onPress={() =>
+                        (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                          "NutrientDetail",
+                          { nutrientKey: entry.key }
+                        )
+                      }
+                      accessibilityRole="button"
+                      accessibilityLabel={`${formatNutrientLabel(entry.key)}. Tap for details.`}
+                    >
                       <Text style={styles.insightItem}>{formatNutrientLabel(entry.key)}</Text>
                       <View
                         style={[
@@ -526,7 +546,7 @@ export function HomeScreen({ navigation }: Props) {
                           {getNutrientBandTone(entry.value).label}
                         </Text>
                       </View>
-                    </View>
+                    </Pressable>
                   ))
                 ) : (
                   <EmptyState message="No shortfalls detected." />
@@ -642,6 +662,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     gap: 8
+  },
+  nutrientRowPressed: {
+    opacity: 0.7
   },
   nutrientBandBadge: {
     paddingHorizontal: 10,

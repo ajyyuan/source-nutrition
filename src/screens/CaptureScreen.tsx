@@ -1469,6 +1469,12 @@ export function CaptureScreen({ navigation, route }: Props) {
                             key={`${itemKey}-${key}`}
                             label={formatNutrientLabel(key)}
                             percentDv={item.nutrient_totals!.percent_dv[key]}
+                            onPress={() =>
+                              (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                                "NutrientDetail",
+                                { nutrientKey: key }
+                              )
+                            }
                           />
                         ))}
                       </View>
@@ -1546,6 +1552,12 @@ export function CaptureScreen({ navigation, route }: Props) {
                     key={key}
                     label={formatNutrientLabel(key)}
                     percentDv={nutrientTotals.percent_dv[key]}
+                    onPress={() =>
+                      (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                        "NutrientDetail",
+                        { nutrientKey: key }
+                      )
+                    }
                   />
                 ))
               ) : (
@@ -1657,6 +1669,12 @@ export function CaptureScreen({ navigation, route }: Props) {
                     key={key}
                     label={formatNutrientLabel(key)}
                     percentDv={nutrientTotals.percent_dv[key]}
+                    onPress={() =>
+                      (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                        "NutrientDetail",
+                        { nutrientKey: key }
+                      )
+                    }
                   />
                 ))
               ) : (

@@ -649,6 +649,12 @@ export function HistoryScreen({ navigation }: Props) {
                         key={key}
                         label={formatNutrientLabel(key)}
                         percentDv={dateTotals.percent_dv[key]}
+                        onPress={() =>
+                          (navigation.getParent() as { navigate: (a: string, b: { nutrientKey: string }) => void }).navigate(
+                            "NutrientDetail",
+                            { nutrientKey: key }
+                          )
+                        }
                       />
                     ))
                   ) : (

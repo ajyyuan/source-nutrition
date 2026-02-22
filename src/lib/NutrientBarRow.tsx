@@ -1,23 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { getNutrientBandTone } from "./nutrientBands";
 
 type Props = {
   label: string;
   percentDv: number;
+  /** When set, the row is tappable and opens the nutrient detail screen. */
+  onPress?: () => void;
 };
 
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
-export function NutrientBarRow({ label, percentDv }: Props) {
+export function NutrientBarRow({ label, percentDv, onPress }: Props) {
   const normalizedPercent = Number.isFinite(percentDv) ? percentDv : 0;
   const fillPercent = clamp(normalizedPercent, 0, 1);
   const tone = getNutrientBandTone(normalizedPercent);
   const percentLabel = `${Math.round(normalizedPercent * 100)}%`;
 
-  return (
-    <View style={styles.row}>
+  const content = (
+    <>
       <View style={styles.header}>
         <Text style={styles.label}>{label}</Text>
         <Text style={styles.valueLabel}>{percentLabel}</Text>
@@ -33,13 +35,31 @@ export function NutrientBarRow({ label, percentDv }: Props) {
           ]}
         />
       </View>
-    </View>
+    </>
   );
+
+  if (onPress) {
+    return (
+      <Pressable
+        onPress={onPress}
+        style={({ pressed }) => [styles.row, pressed ? styles.rowPressed : null]}
+        accessibilityRole="button"
+        accessibilityLabel={`${label}, ${percentLabel}. Tap for details.`}
+      >
+        {content}
+      </Pressable>
+    );
+  }
+
+  return <View style={styles.row}>{content}</View>;
 }
 
 const styles = StyleSheet.create({
   row: {
     gap: 6
+  },
+  rowPressed: {
+    opacity: 0.7
   },
   header: {
     flexDirection: "row",

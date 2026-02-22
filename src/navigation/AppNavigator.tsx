@@ -1,9 +1,16 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 
 import { CaptureScreen } from "../screens/CaptureScreen";
 import { HistoryScreen } from "../screens/HistoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
+import { NutrientDetailScreen } from "../screens/NutrientDetailScreen";
+
+export type RootStackParamList = {
+  MainTabs: undefined;
+  NutrientDetail: { nutrientKey: string };
+};
 
 export type RootTabParamList = {
   Home: undefined;
@@ -11,9 +18,10 @@ export type RootTabParamList = {
   History: undefined;
 };
 
+const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
-export function AppNavigator() {
+function MainTabs() {
   return (
     <Tab.Navigator
       id="root-tabs"
@@ -36,5 +44,19 @@ export function AppNavigator() {
       <Tab.Screen name="Capture" component={CaptureScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
     </Tab.Navigator>
+  );
+}
+
+export function AppNavigator() {
+  return (
+    <Stack.Navigator
+      id="root-stack"
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="MainTabs" component={MainTabs} />
+      <Stack.Screen name="NutrientDetail" component={NutrientDetailScreen} />
+    </Stack.Navigator>
   );
 }
