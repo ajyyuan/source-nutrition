@@ -15,7 +15,7 @@ This file indexes deeper technical and planning docs.
 ## Historical Execution Notes
 
 - `PLAN.md` - original sprint plan
-- `HANDOFF_DAY1.md` ... `HANDOFF_DAY18.md` - day-by-day progress snapshots
+- `HANDOFF_DAY1.md` ... `HANDOFF_DAY19.md` - day-by-day progress snapshots
 - `QA_DAY6.md`, `TESTFLIGHT_DAY6.md`, `APP_STORE_METADATA_DAY6.md`
 
 Historical handoff docs are preserved as time-stamped snapshots and may not reflect
