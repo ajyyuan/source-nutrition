@@ -644,7 +644,20 @@ export function CaptureScreen({ navigation, route }: Props) {
         ...current,
         [itemId]: []
       }));
-      setSuggestionError("Unable to load food suggestions right now.");
+      let message =
+        error instanceof Error
+          ? error.message
+          : typeof error === "object" &&
+              error !== null &&
+              "message" in error &&
+              typeof (error as { message: unknown }).message === "string"
+            ? (error as { message: string }).message
+            : "Unable to load food suggestions right now.";
+      if (message.includes("non-2xx status code")) {
+        message =
+          "Food search is temporarily unavailable. You can still type a food name and continue.";
+      }
+      setSuggestionError(message);
     }
   }, []);
 

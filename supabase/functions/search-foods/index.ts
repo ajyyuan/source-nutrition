@@ -163,24 +163,32 @@ const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> 
   return foods;
 };
 
-serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
-  }
-
+const safeJsonResponse = (body: { items: unknown[]; error?: string }) => {
   try {
-    const { query, limit } = await req.json().catch(() => ({}));
+    return new Response(JSON.stringify(body), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
+  } catch (_e) {
+    return new Response('{"items":[],"error":"Internal error"}', {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" }
+    });
+  }
+};
+
+serve(async (req) => {
+  try {
+    if (req.method === "OPTIONS") {
+      return new Response("ok", { headers: corsHeaders });
+    }
+
+    const body = await req.json().catch(() => ({}));
+    const query = body && typeof body === "object" && "query" in body ? body.query : undefined;
+    const limit = body && typeof body === "object" && "limit" in body ? body.limit : undefined;
     const trimmedQuery = typeof query === "string" ? query.trim() : "";
     if (!trimmedQuery || trimmedQuery.length < 2) {
-      return new Response(
-        JSON.stringify({
-          items: []
-        }),
-        {
-          status: 200,
-          headers: { ...corsHeaders, "Content-Type": "application/json" }
-        }
-      );
+      return safeJsonResponse({ items: [] });
     }
 
     const suggestionLimit =
@@ -189,25 +197,9 @@ serve(async (req) => {
     const canonicalFoods = await loadCanonicalFoods(supabase);
     const items = rankCanonicalFoodSuggestions(trimmedQuery, canonicalFoods, suggestionLimit);
 
-    return new Response(
-      JSON.stringify({
-        items
-      }),
-      {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" }
-      }
-    );
+    return safeJsonResponse({ items });
   } catch (error) {
-    return new Response(
-      JSON.stringify({
-        items: [],
-        error: error instanceof Error ? error.message : "Unknown error"
-      }),
-      {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" }
-      }
-    );
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return safeJsonResponse({ items: [], error: message });
   }
 });
