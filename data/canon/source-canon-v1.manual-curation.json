@@ -2416,12 +2416,12 @@
     {
       "canonical_id": "chia",
       "canonical_name": "Chia",
-      "fdc_id": "cnf-2511",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Seeds, chia seeds, dried",
+      "fdc_id": "biotin-patch-chia-2712620",
+      "source_dataset": "supplemental_biotin_patch",
+      "source_name": "Biotin patch blend: CNF chia baseline + Foundation Food 2712620 biotin",
       "confidence": "high",
       "score": 1.4,
-      "notes": "Vitamin completion pass: switched to exact CNF chia-seed row with fuller vitamin reporting."
+      "notes": "Biotin pass: preserve strict CNF chia baseline nutrients and inject biotin from exact Foundation Food chia row (2712620) to address missing biotin without non-biotin regression."
     },
     {
       "canonical_id": "flax",
@@ -3076,12 +3076,12 @@
     {
       "canonical_id": "white-mushroom",
       "canonical_name": "White mushroom",
-      "fdc_id": "169251",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mushrooms, white, raw",
+      "fdc_id": "biotin-patch-white-mushroom-1757173",
+      "source_dataset": "supplemental_biotin_patch",
+      "source_name": "Biotin patch blend: SR Legacy white mushroom baseline + Foundation Food 1757173 biotin",
       "confidence": "medium",
       "score": 0.86,
-      "notes": "Cleanup pass: upgraded to stronger semantic/source-state match."
+      "notes": "Biotin pass: preserve SR Legacy white-mushroom baseline nutrients and inject biotin from exact Foundation Food white-button mushroom row (1757173)."
     },
     {
       "canonical_id": "cremini",
@@ -3106,32 +3106,32 @@
     {
       "canonical_id": "shiitake",
       "canonical_name": "Shiitake",
-      "fdc_id": "168435",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mushrooms, shiitake, stir-fried",
+      "fdc_id": "biotin-patch-shiitake-1757262",
+      "source_dataset": "supplemental_biotin_patch",
+      "source_name": "Biotin patch blend: SR Legacy shiitake baseline + Foundation Food 1757262 biotin",
       "confidence": "high",
       "score": 1.34,
-      "notes": "Vitamin completion pass: remapped to shiitake row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass: preserve SR Legacy shiitake baseline nutrients and inject biotin from exact Foundation Food shiitake row (1757262)."
     },
     {
       "canonical_id": "oyster-mushroom",
       "canonical_name": "Oyster mushroom",
-      "fdc_id": "cnf-4866",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Mushroom, oyster, raw",
+      "fdc_id": "biotin-patch-oyster-mushroom-1750345",
+      "source_dataset": "supplemental_biotin_patch",
+      "source_name": "Biotin patch blend: CNF oyster-mushroom baseline + Foundation Food 1750345 biotin",
       "confidence": "high",
       "score": 1,
-      "notes": "Vitamin completion pass: switched to exact CNF oyster-mushroom row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass: preserve strict CNF oyster-mushroom baseline nutrients and inject biotin from exact Foundation Food oyster mushroom row (1750345)."
     },
     {
       "canonical_id": "maitake",
       "canonical_name": "Maitake",
-      "fdc_id": "169403",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mushrooms, maitake, raw",
+      "fdc_id": "biotin-patch-maitake-2006839",
+      "source_dataset": "supplemental_biotin_patch",
+      "source_name": "Biotin patch blend: SR Legacy maitake baseline + Foundation Food 2006839 biotin",
       "confidence": "high",
       "score": 1.335,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass: preserve SR Legacy maitake baseline nutrients and inject biotin from exact Foundation Food maitake row (2006839)."
     },
     {
       "canonical_id": "lion-s-mane",

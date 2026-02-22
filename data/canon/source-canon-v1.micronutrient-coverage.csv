@@ -3,13 +3,13 @@ ground-goat,Ground goat,Animal foods,Ground meats,sr_legacy_food,175303,usda,cur
 lion-s-mane,Lion's mane,Fungi,Mushrooms,foundation_food,1999626,usda,curated,14,7,0,13,1,21,0.6667,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b12_ug|omega3_g,,calcium_mg
 hemp,Hemp,Plant foods,Seeds,sr_legacy_food,170148,usda,curated,15,6,0,15,0,21,0.7143,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug,,
 soba-noodles,Soba noodles,Plant foods,Flour-made items,sr_legacy_food,168906,usda,curated,16,5,0,12,4,21,0.7619,0.5714,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|selenium_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
-chia,Chia,Plant foods,Seeds,canadian_nutrient_file,cnf-2511,supplemental,curated,16,5,0,14,2,21,0.7619,0.6667,vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|omega3_g,,vitamin_d_ug|vitamin_b12_ug
 turkey-egg,Turkey egg,Animal foods,Eggs,sr_legacy_food,172192,usda,curated,16,5,0,15,1,21,0.7619,0.7143,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_c_mg
 sheep-milk,Sheep milk,Animal foods,Dairy,sr_legacy_food,170882,usda,curated,16,5,0,16,0,21,0.7619,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g,,
 tempeh,Tempeh,Fermented foods,Fermented foods,sr_legacy_food,174272,usda,curated,17,4,0,13,4,21,0.8095,0.619,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|selenium_ug
 shank,Shank,Animal foods,Beef cuts,sr_legacy_food,169441,usda,curated,17,4,0,14,3,21,0.8095,0.6667,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|omega3_g
 beef-pancreas,Beef pancreas,Animal foods,Animal organs,sr_legacy_food,169452,usda,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|omega3_g
 beef-spleen,Beef spleen,Animal foods,Animal organs,sr_legacy_food,169454,usda,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|omega3_g
+chia,Chia,Plant foods,Seeds,supplemental_biotin_patch,biotin-patch-chia-2712620,supplemental,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|omega3_g,,vitamin_d_ug|vitamin_b12_ug
 pork-brain,Pork brain,Animal foods,Animal organs,sr_legacy_food,168264,usda,curated,17,4,0,16,1,21,0.8095,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug
 chicken-heart,Chicken heart,Animal foods,Animal organs,canadian_nutrient_file,cnf-576,supplemental,curated,17,4,0,17,0,21,0.8095,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g,,
 pork-heart,Pork heart,Animal foods,Animal organs,canadian_nutrient_file,cnf-1839,supplemental,curated,17,4,0,17,0,21,0.8095,0.8095,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g,,
@@ -32,7 +32,6 @@ ground-bison,Ground bison,Animal foods,Ground meats,sr_legacy_food,175293,usda,c
 kimchi,Kimchi,Fermented foods,Fermented foods,sr_legacy_food,170392,usda,curated,19,2,0,15,4,21,0.9048,0.7143,vitamin_b5_mg|vitamin_b7_ug,,vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 macadamia,Macadamia,Plant foods,Nuts,sr_legacy_food,170178,usda,curated,19,2,0,15,4,21,0.9048,0.7143,vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 millet,Millet,Plant foods,Poaceae (grains),sr_legacy_food,169702,usda,curated,19,2,0,15,4,21,0.9048,0.7143,vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
-oyster-mushroom,Oyster mushroom,Fungi,Mushrooms,canadian_nutrient_file,cnf-4866,supplemental,curated,19,2,0,15,4,21,0.9048,0.7143,vitamin_b7_ug|omega3_g,,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug
 portobello,Portobello,Fungi,Mushrooms,sr_legacy_food,169255,usda,curated,19,2,0,15,4,21,0.9048,0.7143,vitamin_b7_ug|magnesium_mg,,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|omega3_g
 corn,Corn,Plant foods,Poaceae (grains),sr_legacy_food,168538,usda,curated,19,2,0,16,3,21,0.9048,0.7619,vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug
 hot-sauce,Hot sauce,Plant foods,Staples (home-cook processed),canadian_nutrient_file,cnf-1029,supplemental,curated,19,2,0,16,3,21,0.9048,0.7619,vitamin_b7_ug|omega3_g,,vitamin_d_ug|vitamin_b12_ug|selenium_ug
@@ -78,7 +77,6 @@ pickles,Pickles,Plant foods,Staples (home-cook processed),sr_legacy_food,169379,
 soy-sauce,Soy sauce,Plant foods,Staples (home-cook processed),sr_legacy_food,174278,usda,curated,20,1,0,13,7,21,0.9524,0.619,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
 egg-white,Egg white,Animal foods,Eggs,sr_legacy_food,172183,usda,curated,20,1,0,14,6,21,0.9524,0.6667,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|omega3_g
 rice-noodles,Rice noodles,Plant foods,Staples (home-cook processed),sr_legacy_food,168914,usda,curated,20,1,0,14,6,21,0.9524,0.6667,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug|omega3_g
-shiitake,Shiitake,Fungi,Mushrooms,sr_legacy_food,168435,usda,curated,20,1,0,14,6,21,0.9524,0.6667,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
 tortilla-corn,Tortilla (corn),Plant foods,Staples (home-cook processed),sr_legacy_food,175036,usda,curated,20,1,0,14,6,21,0.9524,0.6667,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug|omega3_g
 almond,Almond,Plant foods,Nuts,sr_legacy_food,170567,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug
 beef-tripe,Beef tripe,Animal foods,Animal organs,sr_legacy_food,170599,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|thiamin_mg
@@ -89,7 +87,6 @@ coconut-milk,Coconut milk,Plant foods,Staples (home-cook processed),sr_legacy_fo
 couscous,Couscous,Plant foods,Staples (home-cook processed),sr_legacy_food,169700,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 crackers-plain,Crackers (plain),Plant foods,Staples (home-cook processed),sr_legacy_food,172740,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 jam,Jam,Plant foods,Staples (home-cook processed),sr_legacy_food,170645,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_d_ug|vitamin_k_ug|thiamin_mg|vitamin_b12_ug|omega3_g
-maitake,Maitake,Fungi,Mushrooms,sr_legacy_food,169403,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
 natto,Natto,Fermented foods,Fermented foods,sr_legacy_food,172443,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|niacin_mg|vitamin_b12_ug|omega3_g
 olive,Olive,Plant foods,Fruits (core),sr_legacy_food,169094,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_d_ug|riboflavin_mg|folate_ug|vitamin_b12_ug|omega3_g
 peanut-butter,Peanut butter,Plant foods,Staples (home-cook processed),sr_legacy_food,172458,usda,curated,20,1,0,15,5,21,0.9524,0.7143,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
@@ -120,6 +117,7 @@ lemon,Lemon,Plant foods,Fruits (core),sr_legacy_food,167746,usda,curated,20,1,0,
 mayonnaise,Mayonnaise,Plant foods,Staples (home-cook processed),sr_legacy_food,167695,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 onion,Onion,Plant foods,Allium,sr_legacy_food,170000,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 orange,Orange,Plant foods,Fruits (core),sr_legacy_food,169097,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug|omega3_g
+oyster-mushroom,Oyster mushroom,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-oyster-mushroom-1750345,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,omega3_g,,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug
 palm-oil,Palm oil,Plant foods,Plant oils,sr_legacy_food,173141,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 panko,Panko,Plant foods,Staples (home-cook processed),sr_legacy_food,174924,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
 pasta,Pasta,Plant foods,Flour-made items,sr_legacy_food,168927,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
@@ -218,7 +216,6 @@ turmeric,Turmeric,Plant foods,Tubers and roots,sr_legacy_food,172231,usda,curate
 turnip,Turnip,Plant foods,Brassicaceae,sr_legacy_food,170061,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 walnut,Walnut,Plant foods,Nuts,sr_legacy_food,170187,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 watermelon,Watermelon,Plant foods,Cucurbitaceae,sr_legacy_food,167765,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
-white-mushroom,White mushroom,Fungi,Mushrooms,sr_legacy_food,169251,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_a_ug|vitamin_k_ug|omega3_g
 yam,Yam,Plant foods,Tubers and roots,sr_legacy_food,170071,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 avocado,Avocado,Plant foods,Fruits (core),sr_legacy_food,171705,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
 beef-heart,Beef heart,Animal foods,Animal organs,sr_legacy_food,169448,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg
@@ -323,3 +320,6 @@ dulse,Dulse,Algae and sea vegetables,Seaweeds and algae,usda_api_branded,1589432
 lamb-tallow,Lamb tallow,Animal foods,Animal fats,canadian_nutrient_file,cnf-438,supplemental,curated,21,0,0,4,17,21,1,0.1905,,,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg
 nori,Nori,Algae and sea vegetables,Seaweeds and algae,usda_api_branded,1662188,supplemental,curated,21,0,0,4,17,21,1,0.1905,,,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
 chlorella,Chlorella,Algae and sea vegetables,Seaweeds and algae,usda_api_branded,1064099,supplemental,curated,21,0,0,5,16,21,1,0.2381,,,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g
+shiitake,Shiitake,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-shiitake-1757262,supplemental,curated,21,0,0,15,6,21,1,0.7143,,,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
+maitake,Maitake,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-maitake-2006839,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
+white-mushroom,White mushroom,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-white-mushroom-1757173,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_a_ug|vitamin_k_ug|omega3_g
