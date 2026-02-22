@@ -906,12 +906,12 @@
     {
       "canonical_id": "beef-thymus-sweetbreads",
       "canonical_name": "Beef thymus (sweetbreads)",
-      "fdc_id": "170194",
+      "fdc_id": "173093",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, thymus, raw",
+      "source_name": "Beef, New Zealand, imported, sweetbread, raw",
       "confidence": "medium",
-      "score": 0.652727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.466667,
+      "notes": "Vitamin completion pass: remapped to exact beef sweetbread raw row to improve non-biotin vitamin reporting while staying species/organ consistent."
     },
     {
       "canonical_id": "beef-tripe",
@@ -2936,12 +2936,12 @@
     {
       "canonical_id": "maple-syrup",
       "canonical_name": "Maple syrup",
-      "fdc_id": "170276",
+      "fdc_id": "169661",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Syrup, maple, Canadian",
+      "source_name": "Syrups, maple",
       "confidence": "medium",
-      "score": 0.76,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "score": 0.455,
+      "notes": "Vitamin completion pass: remapped to maple-syrup row with broader non-biotin vitamin field reporting under strict semantic match."
     },
     {
       "canonical_id": "tomato-sauce",

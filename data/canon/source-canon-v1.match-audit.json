@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T05:03:54.741Z",
+  "generated_at": "2026-02-22T06:16:02.419Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -814,9 +814,9 @@
       "display_name": "Beef thymus (sweetbreads)",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.652727,
-      "matched_name": "Beef, variety meats and by-products, thymus, raw",
-      "matched_fdc_id": "170194"
+      "match_confidence": 0.466667,
+      "matched_name": "Beef, New Zealand, imported, sweetbread, raw",
+      "matched_fdc_id": "173093"
     },
     {
       "canonical_id": "beef-tripe",
@@ -2641,9 +2641,9 @@
       "display_name": "Maple syrup",
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
-      "match_confidence": 0.76,
-      "matched_name": "Syrup, maple, Canadian",
-      "matched_fdc_id": "170276"
+      "match_confidence": 0.455,
+      "matched_name": "Syrups, maple",
+      "matched_fdc_id": "169661"
     },
     {
       "canonical_id": "tomato-sauce",

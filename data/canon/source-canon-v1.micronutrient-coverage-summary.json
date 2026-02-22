@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-02-22T05:03:58.871Z",
+  "generated_at": "2026-02-22T06:16:06.416Z",
   "inputs": {
     "preview_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.reseed-preview.json",
     "curation_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.manual-curation.json",
@@ -52,27 +52,6 @@
     }
   ],
   "highest_missing_foods": [
-    {
-      "canonical_id": "maple-syrup",
-      "canonical_name": "Maple syrup",
-      "domain": "Plant foods",
-      "food_group": "Staples (home-cook processed)",
-      "source_dataset": "sr_legacy_food",
-      "fdc_id": "170276",
-      "source": "usda",
-      "match_status": "curated",
-      "reported_nutrients": 11,
-      "missing_nutrients": 10,
-      "unknown_nutrients": 0,
-      "nonzero_reported_nutrients": 8,
-      "zero_reported_nutrients": 3,
-      "total_nutrients": 21,
-      "reported_ratio": 0.5238,
-      "nonzero_reported_ratio": 0.381,
-      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|phosphorus_mg|selenium_ug|omega3_g",
-      "unknown_nutrient_keys": "",
-      "reported_zero_nutrient_keys": "vitamin_a_ug|vitamin_c_mg|vitamin_b12_ug"
-    },
     {
       "canonical_id": "ground-goat",
       "canonical_name": "Ground goat",
@@ -242,27 +221,6 @@
       "reported_zero_nutrient_keys": "vitamin_a_ug"
     },
     {
-      "canonical_id": "beef-thymus-sweetbreads",
-      "canonical_name": "Beef thymus (sweetbreads)",
-      "domain": "Animal foods",
-      "food_group": "Animal organs",
-      "source_dataset": "sr_legacy_food",
-      "fdc_id": "170194",
-      "source": "usda",
-      "match_status": "curated",
-      "reported_nutrients": 16,
-      "missing_nutrients": 5,
-      "unknown_nutrients": 0,
-      "nonzero_reported_nutrients": 15,
-      "zero_reported_nutrients": 1,
-      "total_nutrients": 21,
-      "reported_ratio": 0.7619,
-      "nonzero_reported_ratio": 0.7143,
-      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g",
-      "unknown_nutrient_keys": "",
-      "reported_zero_nutrient_keys": "vitamin_a_ug"
-    },
-    {
       "canonical_id": "pork-brain",
       "canonical_name": "Pork brain",
       "domain": "Animal foods",
@@ -408,6 +366,27 @@
       "missing_nutrient_keys": "vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": "vitamin_c_mg|vitamin_d_ug"
+    },
+    {
+      "canonical_id": "beef-thymus-sweetbreads",
+      "canonical_name": "Beef thymus (sweetbreads)",
+      "domain": "Animal foods",
+      "food_group": "Animal organs",
+      "source_dataset": "sr_legacy_food",
+      "fdc_id": "173093",
+      "source": "usda",
+      "match_status": "curated",
+      "reported_nutrients": 17,
+      "missing_nutrients": 4,
+      "unknown_nutrients": 0,
+      "nonzero_reported_nutrients": 16,
+      "zero_reported_nutrients": 1,
+      "total_nutrients": 21,
+      "reported_ratio": 0.8095,
+      "nonzero_reported_ratio": 0.7619,
+      "missing_nutrient_keys": "vitamin_k_ug|vitamin_b7_ug|folate_ug|omega3_g",
+      "unknown_nutrient_keys": "",
+      "reported_zero_nutrient_keys": "vitamin_c_mg"
     },
     {
       "canonical_id": "lamb-kidney",
@@ -681,6 +660,27 @@
       "missing_nutrient_keys": "vitamin_c_mg|vitamin_b7_ug|omega3_g",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": "vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug"
+    },
+    {
+      "canonical_id": "sunflower-seed-butter",
+      "canonical_name": "Sunflower seed butter",
+      "domain": "Plant foods",
+      "food_group": "Staples (home-cook processed)",
+      "source_dataset": "sr_legacy_food",
+      "fdc_id": "170155",
+      "source": "usda",
+      "match_status": "curated",
+      "reported_nutrients": 18,
+      "missing_nutrients": 3,
+      "unknown_nutrients": 0,
+      "nonzero_reported_nutrients": 15,
+      "zero_reported_nutrients": 3,
+      "total_nutrients": 21,
+      "reported_ratio": 0.8571,
+      "nonzero_reported_ratio": 0.7143,
+      "missing_nutrient_keys": "vitamin_k_ug|vitamin_b7_ug|omega3_g",
+      "unknown_nutrient_keys": "",
+      "reported_zero_nutrient_keys": "vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug"
     }
   ]
 }
