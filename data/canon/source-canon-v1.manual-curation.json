@@ -166,22 +166,22 @@
     {
       "canonical_id": "tenderloin",
       "canonical_name": "Tenderloin",
-      "fdc_id": "169543",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, cooked, broiled",
+      "fdc_id": "biotin-patch-bls4-tenderloin-u211100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U211100 (Beef fillet (tenderloin) raw)",
       "confidence": "medium",
       "score": 1.21,
-      "notes": "Vitamin completion pass: remapped to closely matching USDA SR Legacy tenderloin row with full non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169543 baseline nutrient vector and inject biotin from German BLS 4.0 row U211100 (Beef fillet (tenderloin) raw) as exact donor match."
     },
     {
       "canonical_id": "sirloin",
       "canonical_name": "Sirloin",
-      "fdc_id": "171804",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, top sirloin, steak, separable lean only, trimmed to 1/8\" fat, select, raw",
+      "fdc_id": "biotin-patch-bls4-sirloin-u175100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U175100 (Beef meat for roasting (sirloin) raw)",
       "confidence": "medium",
       "score": 1.195385,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171804 baseline nutrient vector and inject biotin from German BLS 4.0 row U175100 (Beef meat for roasting (sirloin) raw) as exact donor match."
     },
     {
       "canonical_id": "flank",
@@ -226,12 +226,12 @@
     {
       "canonical_id": "brisket",
       "canonical_name": "Brisket",
-      "fdc_id": "168657",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, brisket, flat half, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-bls4-brisket-u255100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U255100 (Beef brisket/centre cut, raw)",
       "confidence": "medium",
       "score": 1.187143,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168657 baseline nutrient vector and inject biotin from German BLS 4.0 row U255100 (Beef brisket/centre cut, raw) as exact donor match."
     },
     {
       "canonical_id": "short-ribs",
@@ -276,12 +276,12 @@
     {
       "canonical_id": "oxtail",
       "canonical_name": "Oxtail",
-      "fdc_id": "cnf-1092",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Soup, oxtail, dehydrated, water added",
+      "fdc_id": "biotin-patch-bls4-oxtail-u109100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U109100 (Beef oxtail, raw)",
       "confidence": "medium",
       "score": 0.86,
-      "notes": "Manual curation override: USDA local rows were vitamin/mineral sparse; switched to CNF oxtail-linked row with explicit vitamin and mineral reporting. Re-check (Day 20): USDA survey_fndds_food non-soup row 2341248 (Beef, oxtails) exists but has no food_nutrient entries in local CSV snapshot, so it is not currently usable for canon nutrient vectors."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1092 baseline nutrient vector and inject biotin from German BLS 4.0 row U109100 (Beef oxtail, raw) as exact donor match."
     },
     {
       "canonical_id": "plate",
@@ -456,12 +456,12 @@
     {
       "canonical_id": "chicken-breast",
       "canonical_name": "Chicken breast",
-      "fdc_id": "171474",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, broilers or fryers, breast, meat and skin, raw",
+      "fdc_id": "biotin-patch-bls4-chicken-breast-v416100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V416100 (Chicken breast fillet, raw)",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171474 baseline nutrient vector and inject biotin from German BLS 4.0 row V416100 (Chicken breast fillet, raw) as exact donor match."
     },
     {
       "canonical_id": "chicken-thigh",
@@ -506,12 +506,12 @@
     {
       "canonical_id": "turkey-breast",
       "canonical_name": "Turkey breast",
-      "fdc_id": "172941",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Turkey breast, sliced, prepackaged",
+      "fdc_id": "biotin-patch-bls4-turkey-breast-v486100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V486100 (Turkey breast, without skin, raw)",
       "confidence": "high",
       "score": 1.83,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172941 baseline nutrient vector and inject biotin from German BLS 4.0 row V486100 (Turkey breast, without skin, raw) as exact donor match."
     },
     {
       "canonical_id": "turkey-thigh",
@@ -556,32 +556,32 @@
     {
       "canonical_id": "atlantic-salmon",
       "canonical_name": "Atlantic salmon",
-      "fdc_id": "175167",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, Atlantic, farmed, raw",
+      "fdc_id": "biotin-patch-bls4-atlantic-salmon-t410100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T410100 (Salmon raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175167 baseline nutrient vector and inject biotin from German BLS 4.0 row T410100 (Salmon raw) as closest species proxy donor."
     },
     {
       "canonical_id": "sockeye-salmon",
       "canonical_name": "Sockeye salmon",
-      "fdc_id": "173691",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, sockeye, raw",
+      "fdc_id": "biotin-patch-bls4-sockeye-salmon-t410100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T410100 (Salmon raw)",
       "confidence": "medium",
       "score": 0.88,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173691 baseline nutrient vector and inject biotin from German BLS 4.0 row T410100 (Salmon raw) as closest species proxy donor."
     },
     {
       "canonical_id": "coho-salmon",
       "canonical_name": "Coho salmon",
-      "fdc_id": "175136",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, coho, wild, raw",
+      "fdc_id": "biotin-patch-bls4-coho-salmon-t410100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T410100 (Salmon raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175136 baseline nutrient vector and inject biotin from German BLS 4.0 row T410100 (Salmon raw) as closest species proxy donor."
     },
     {
       "canonical_id": "chinook-salmon",
@@ -596,32 +596,32 @@
     {
       "canonical_id": "sardine",
       "canonical_name": "Sardine",
-      "fdc_id": "175139",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
+      "fdc_id": "biotin-patch-bls4-sardine-t105100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T105100 (Sardine raw)",
       "confidence": "high",
       "score": 0.93,
-      "notes": "Manual correction: replaced fish-oil row with whole sardine food row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175139 baseline nutrient vector and inject biotin from German BLS 4.0 row T105100 (Sardine raw) as exact donor match."
     },
     {
       "canonical_id": "tuna-skipjack",
       "canonical_name": "Tuna (skipjack)",
-      "fdc_id": "175156",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, tuna, fresh, skipjack, raw",
+      "fdc_id": "biotin-patch-bls4-tuna-skipjack-t121100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T121100 (Tuna raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175156 baseline nutrient vector and inject biotin from German BLS 4.0 row T121100 (Tuna raw) as closest species proxy donor."
     },
     {
       "canonical_id": "tuna-albacore",
       "canonical_name": "Tuna (albacore)",
-      "fdc_id": "173706",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, tuna, fresh, bluefin, raw",
+      "fdc_id": "biotin-patch-bls4-tuna-albacore-t122100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T122100 (Albacore raw)",
       "confidence": "medium",
       "score": 0.7,
-      "notes": "Manual curation override: no explicit albacore row in local USDA dumps; mapped to closest raw tuna species-level SR Legacy row with full non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173706 baseline nutrient vector and inject biotin from German BLS 4.0 row T122100 (Albacore raw) as exact donor match."
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -666,12 +666,12 @@
     {
       "canonical_id": "halibut",
       "canonical_name": "Halibut",
-      "fdc_id": "171965",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, halibut, Greenland, raw",
+      "fdc_id": "biotin-patch-bls4-halibut-t306100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T306100 (Halibut/white halibut, raw)",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171965 baseline nutrient vector and inject biotin from German BLS 4.0 row T306100 (Halibut/white halibut, raw) as exact donor match."
     },
     {
       "canonical_id": "mackerel",
@@ -716,12 +716,12 @@
     {
       "canonical_id": "catfish",
       "canonical_name": "Catfish",
-      "fdc_id": "175165",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, catfish, channel, farmed, raw",
+      "fdc_id": "biotin-patch-bls4-catfish-t507100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T507100 (Striped catfish raw)",
       "confidence": "medium",
       "score": 1.33,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175165 baseline nutrient vector and inject biotin from German BLS 4.0 row T507100 (Striped catfish raw) as closest species proxy donor."
     },
     {
       "canonical_id": "anchovy",
@@ -766,32 +766,32 @@
     {
       "canonical_id": "mussel",
       "canonical_name": "Mussel",
-      "fdc_id": "174216",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, mussel, blue, raw",
+      "fdc_id": "biotin-patch-bls4-mussel-t792100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T792100 (Common mussel raw)",
       "confidence": "high",
       "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174216 baseline nutrient vector and inject biotin from German BLS 4.0 row T792100 (Common mussel raw) as closest species proxy donor."
     },
     {
       "canonical_id": "clam",
       "canonical_name": "Clam",
-      "fdc_id": "174214",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, clam, mixed species, raw",
+      "fdc_id": "biotin-patch-bls4-clam-t797100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T797100 (Venus clam raw)",
       "confidence": "high",
       "score": 1.33,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174214 baseline nutrient vector and inject biotin from German BLS 4.0 row T797100 (Venus clam raw) as closest species proxy donor."
     },
     {
       "canonical_id": "oyster",
       "canonical_name": "Oyster",
-      "fdc_id": "171978",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, oyster, eastern, wild, raw",
+      "fdc_id": "biotin-patch-bls4-oyster-t780100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T780100 (European oyster raw)",
       "confidence": "high",
       "score": 1.46,
-      "notes": "Manual correction: replaced oyster-mushroom homonym row with shellfish oyster row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171978 baseline nutrient vector and inject biotin from German BLS 4.0 row T780100 (European oyster raw) as closest species proxy donor."
     },
     {
       "canonical_id": "crab",
@@ -1046,42 +1046,42 @@
     {
       "canonical_id": "egg-white",
       "canonical_name": "Egg white",
-      "fdc_id": "172183",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, white, raw, fresh",
+      "fdc_id": "biotin-patch-bls4-egg-white-e113100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E113100 (Chicken egg white, raw)",
       "confidence": "medium",
       "score": 1.81,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172183 baseline nutrient vector and inject biotin from German BLS 4.0 row E113100 (Chicken egg white, raw) as exact donor match."
     },
     {
       "canonical_id": "egg-yolk",
       "canonical_name": "Egg yolk",
-      "fdc_id": "172184",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, yolk, raw, fresh",
+      "fdc_id": "biotin-patch-bls4-egg-yolk-e112100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E112100 (Chicken egg yolk, raw)",
       "confidence": "medium",
       "score": 1.81,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172184 baseline nutrient vector and inject biotin from German BLS 4.0 row E112100 (Chicken egg yolk, raw) as exact donor match."
     },
     {
       "canonical_id": "scrambled-egg-chicken",
       "canonical_name": "Scrambled egg (chicken)",
-      "fdc_id": "172187",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, whole, cooked, scrambled",
+      "fdc_id": "biotin-patch-bls4-scrambled-egg-chicken-y720143",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 Y720143 (Scrambled eggs fried)",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172187 baseline nutrient vector and inject biotin from German BLS 4.0 row Y720143 (Scrambled eggs fried) as exact donor match."
     },
     {
       "canonical_id": "fried-egg-chicken",
       "canonical_name": "Fried egg (chicken)",
-      "fdc_id": "173423",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, whole, cooked, fried",
+      "fdc_id": "biotin-patch-bls4-fried-egg-chicken-y710142",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 Y710142 (Fried egg)",
       "confidence": "medium",
       "score": 0.93,
-      "notes": "Manual correction: replaced incorrect meatless-chicken row with true fried chicken egg row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173423 baseline nutrient vector and inject biotin from German BLS 4.0 row Y710142 (Fried egg) as exact donor match."
     },
     {
       "canonical_id": "duck-egg",
@@ -1156,22 +1156,22 @@
     {
       "canonical_id": "goat-milk",
       "canonical_name": "Goat milk",
-      "fdc_id": "171278",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, goat, fluid, with added vitamin D",
+      "fdc_id": "biotin-patch-bls4-goat-milk-m021000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 M021000 (Goat's milk min. 3 % fat)",
       "confidence": "medium",
       "score": 0.655,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171278 baseline nutrient vector and inject biotin from German BLS 4.0 row M021000 (Goat's milk min. 3 % fat) as exact donor match."
     },
     {
       "canonical_id": "sheep-milk",
       "canonical_name": "Sheep milk",
-      "fdc_id": "170882",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, sheep, fluid",
+      "fdc_id": "biotin-patch-bls4-sheep-milk-m011000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 M011000 (Sheep's milk min. 4.5 % fat)",
       "confidence": "medium",
       "score": 0.76,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170882 baseline nutrient vector and inject biotin from German BLS 4.0 row M011000 (Sheep's milk min. 4.5 % fat) as exact donor match."
     },
     {
       "canonical_id": "half-and-half",
@@ -1256,22 +1256,22 @@
     {
       "canonical_id": "kefir-plain",
       "canonical_name": "Kefir (plain)",
-      "fdc_id": "170904",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Kefir, lowfat, plain, LIFEWAY",
+      "fdc_id": "biotin-patch-bls4-kefir-plain-m130300",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 M130300 (Kefir min. 3.5 % fat)",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170904 baseline nutrient vector and inject biotin from German BLS 4.0 row M130300 (Kefir min. 3.5 % fat) as exact donor match."
     },
     {
       "canonical_id": "cottage-cheese",
       "canonical_name": "Cottage cheese",
-      "fdc_id": "172182",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, cottage, lowfat, 2% milkfat",
+      "fdc_id": "biotin-patch-bls4-cottage-cheese-m711300",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 M711300 (Cottage cheese min. 20 % fat in dry matter)",
       "confidence": "medium",
       "score": 0.66,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172182 baseline nutrient vector and inject biotin from German BLS 4.0 row M711300 (Cottage cheese min. 20 % fat in dry matter) as exact donor match."
     },
     {
       "canonical_id": "cheddar",
@@ -1426,12 +1426,12 @@
     {
       "canonical_id": "sour-cream",
       "canonical_name": "Sour cream",
-      "fdc_id": "171257",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cream, sour, cultured",
+      "fdc_id": "biotin-patch-bls4-sour-cream-m172900",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 M172900 (Sour cream 40 % fat)",
       "confidence": "medium",
       "score": 0.76,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171257 baseline nutrient vector and inject biotin from German BLS 4.0 row M172900 (Sour cream 40 % fat) as exact donor match."
     },
     {
       "canonical_id": "broccoli",

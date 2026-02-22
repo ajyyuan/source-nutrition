@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-02-22T18:37:41.536Z",
+  "generated_at": "2026-02-22T18:55:13.413Z",
   "inputs": {
     "preview_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.reseed-preview.json",
     "curation_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.manual-curation.json",
@@ -9,25 +9,25 @@
   "totals": {
     "foods": 324,
     "nutrients": 21,
-    "foods_with_any_missing": 248,
-    "foods_with_all_reported": 76,
+    "foods_with_any_missing": 225,
+    "foods_with_all_reported": 99,
     "foods_with_any_unknown": 0,
     "foods_with_zero_nonzero_reported": 0
   },
   "by_domain_missing": [
-    {
-      "domain": "Animal foods",
-      "total": 142,
-      "with_missing": 123,
-      "with_unknown": 0,
-      "all_reported": 19
-    },
     {
       "domain": "Plant foods",
       "total": 164,
       "with_missing": 113,
       "with_unknown": 0,
       "all_reported": 51
+    },
+    {
+      "domain": "Animal foods",
+      "total": 142,
+      "with_missing": 100,
+      "with_unknown": 0,
+      "all_reported": 42
     },
     {
       "domain": "Fermented foods",
@@ -135,27 +135,6 @@
       "missing_nutrient_keys": "vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|selenium_ug|omega3_g",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": "vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug"
-    },
-    {
-      "canonical_id": "sheep-milk",
-      "canonical_name": "Sheep milk",
-      "domain": "Animal foods",
-      "food_group": "Dairy",
-      "source_dataset": "sr_legacy_food",
-      "fdc_id": "170882",
-      "source": "usda",
-      "match_status": "curated",
-      "reported_nutrients": 16,
-      "missing_nutrients": 5,
-      "unknown_nutrients": 0,
-      "nonzero_reported_nutrients": 16,
-      "zero_reported_nutrients": 0,
-      "total_nutrients": 21,
-      "reported_ratio": 0.7619,
-      "nonzero_reported_ratio": 0.7619,
-      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g",
-      "unknown_nutrient_keys": "",
-      "reported_zero_nutrient_keys": ""
     },
     {
       "canonical_id": "tempeh",
@@ -284,13 +263,13 @@
       "reported_zero_nutrient_keys": "vitamin_c_mg"
     },
     {
-      "canonical_id": "tuna-skipjack",
-      "canonical_name": "Tuna (skipjack)",
+      "canonical_id": "sheep-milk",
+      "canonical_name": "Sheep milk",
       "domain": "Animal foods",
-      "food_group": "Fish (species-level)",
-      "source_dataset": "sr_legacy_food",
-      "fdc_id": "175156",
-      "source": "usda",
+      "food_group": "Dairy",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "biotin-patch-bls4-sheep-milk-m011000",
+      "source": "supplemental",
       "match_status": "curated",
       "reported_nutrients": 17,
       "missing_nutrients": 4,
@@ -300,7 +279,7 @@
       "total_nutrients": 21,
       "reported_ratio": 0.8095,
       "nonzero_reported_ratio": 0.8095,
-      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug",
+      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|omega3_g",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": ""
     },
@@ -490,6 +469,27 @@
       "reported_ratio": 0.8571,
       "nonzero_reported_ratio": 0.8571,
       "missing_nutrient_keys": "vitamin_d_ug|vitamin_k_ug|omega3_g",
+      "unknown_nutrient_keys": "",
+      "reported_zero_nutrient_keys": ""
+    },
+    {
+      "canonical_id": "tuna-skipjack",
+      "canonical_name": "Tuna (skipjack)",
+      "domain": "Animal foods",
+      "food_group": "Fish (species-level)",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "biotin-patch-bls4-tuna-skipjack-t121100",
+      "source": "supplemental",
+      "match_status": "curated",
+      "reported_nutrients": 18,
+      "missing_nutrients": 3,
+      "unknown_nutrients": 0,
+      "nonzero_reported_nutrients": 18,
+      "zero_reported_nutrients": 0,
+      "total_nutrients": 21,
+      "reported_ratio": 0.8571,
+      "nonzero_reported_ratio": 0.8571,
+      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": ""
     },

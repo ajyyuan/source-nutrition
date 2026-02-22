@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T18:37:37.669Z",
+  "generated_at": "2026-02-22T18:55:09.750Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -149,8 +149,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.21,
-      "matched_name": "Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8\" fat, all grades, cooked, broiled",
-      "matched_fdc_id": "169543"
+      "matched_name": "Tenderloin",
+      "matched_fdc_id": "biotin-patch-bls4-tenderloin-u211100"
     },
     {
       "canonical_id": "sirloin",
@@ -158,8 +158,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.195385,
-      "matched_name": "Beef, top sirloin, steak, separable lean only, trimmed to 1/8\" fat, select, raw",
-      "matched_fdc_id": "171804"
+      "matched_name": "Sirloin",
+      "matched_fdc_id": "biotin-patch-bls4-sirloin-u175100"
     },
     {
       "canonical_id": "flank",
@@ -203,8 +203,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.187143,
-      "matched_name": "Beef, brisket, flat half, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
-      "matched_fdc_id": "168657"
+      "matched_name": "Brisket",
+      "matched_fdc_id": "biotin-patch-bls4-brisket-u255100"
     },
     {
       "canonical_id": "short-ribs",
@@ -248,8 +248,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.86,
-      "matched_name": "Soup, oxtail, dehydrated, water added",
-      "matched_fdc_id": "cnf-1092"
+      "matched_name": "Oxtail",
+      "matched_fdc_id": "biotin-patch-bls4-oxtail-u109100"
     },
     {
       "canonical_id": "plate",
@@ -410,8 +410,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.652727,
-      "matched_name": "Chicken, broilers or fryers, breast, meat and skin, raw",
-      "matched_fdc_id": "171474"
+      "matched_name": "Chicken breast",
+      "matched_fdc_id": "biotin-patch-bls4-chicken-breast-v416100"
     },
     {
       "canonical_id": "chicken-thigh",
@@ -455,8 +455,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.83,
-      "matched_name": "Turkey breast, sliced, prepackaged",
-      "matched_fdc_id": "172941"
+      "matched_name": "Turkey breast",
+      "matched_fdc_id": "biotin-patch-bls4-turkey-breast-v486100"
     },
     {
       "canonical_id": "turkey-thigh",
@@ -500,8 +500,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Fish, salmon, Atlantic, farmed, raw",
-      "matched_fdc_id": "175167"
+      "matched_name": "Atlantic salmon",
+      "matched_fdc_id": "biotin-patch-bls4-atlantic-salmon-t410100"
     },
     {
       "canonical_id": "sockeye-salmon",
@@ -509,8 +509,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.88,
-      "matched_name": "Fish, salmon, sockeye, raw",
-      "matched_fdc_id": "173691"
+      "matched_name": "Sockeye salmon",
+      "matched_fdc_id": "biotin-patch-bls4-sockeye-salmon-t410100"
     },
     {
       "canonical_id": "coho-salmon",
@@ -518,8 +518,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Fish, salmon, coho, wild, raw",
-      "matched_fdc_id": "175136"
+      "matched_name": "Coho salmon",
+      "matched_fdc_id": "biotin-patch-bls4-coho-salmon-t410100"
     },
     {
       "canonical_id": "chinook-salmon",
@@ -536,8 +536,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.93,
-      "matched_name": "Fish, sardine, Atlantic, canned in oil, drained solids with bone",
-      "matched_fdc_id": "175139"
+      "matched_name": "Sardine",
+      "matched_fdc_id": "biotin-patch-bls4-sardine-t105100"
     },
     {
       "canonical_id": "tuna-skipjack",
@@ -545,8 +545,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Fish, tuna, fresh, skipjack, raw",
-      "matched_fdc_id": "175156"
+      "matched_name": "Tuna (skipjack)",
+      "matched_fdc_id": "biotin-patch-bls4-tuna-skipjack-t121100"
     },
     {
       "canonical_id": "tuna-albacore",
@@ -554,8 +554,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.7,
-      "matched_name": "Fish, tuna, fresh, bluefin, raw",
-      "matched_fdc_id": "173706"
+      "matched_name": "Tuna (albacore)",
+      "matched_fdc_id": "biotin-patch-bls4-tuna-albacore-t122100"
     },
     {
       "canonical_id": "tuna-yellowfin",
@@ -599,8 +599,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Fish, halibut, Greenland, raw",
-      "matched_fdc_id": "171965"
+      "matched_name": "Halibut",
+      "matched_fdc_id": "biotin-patch-bls4-halibut-t306100"
     },
     {
       "canonical_id": "mackerel",
@@ -644,8 +644,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.33,
-      "matched_name": "Fish, catfish, channel, farmed, raw",
-      "matched_fdc_id": "175165"
+      "matched_name": "Catfish",
+      "matched_fdc_id": "biotin-patch-bls4-catfish-t507100"
     },
     {
       "canonical_id": "anchovy",
@@ -689,8 +689,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Mollusks, mussel, blue, raw",
-      "matched_fdc_id": "174216"
+      "matched_name": "Mussel",
+      "matched_fdc_id": "biotin-patch-bls4-mussel-t792100"
     },
     {
       "canonical_id": "clam",
@@ -698,8 +698,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.33,
-      "matched_name": "Mollusks, clam, mixed species, raw",
-      "matched_fdc_id": "174214"
+      "matched_name": "Clam",
+      "matched_fdc_id": "biotin-patch-bls4-clam-t797100"
     },
     {
       "canonical_id": "oyster",
@@ -707,8 +707,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.46,
-      "matched_name": "Mollusks, oyster, eastern, wild, raw",
-      "matched_fdc_id": "171978"
+      "matched_name": "Oyster",
+      "matched_fdc_id": "biotin-patch-bls4-oyster-t780100"
     },
     {
       "canonical_id": "crab",
@@ -941,8 +941,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.81,
-      "matched_name": "Egg, white, raw, fresh",
-      "matched_fdc_id": "172183"
+      "matched_name": "Egg white",
+      "matched_fdc_id": "biotin-patch-bls4-egg-white-e113100"
     },
     {
       "canonical_id": "egg-yolk",
@@ -950,8 +950,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.81,
-      "matched_name": "Egg, yolk, raw, fresh",
-      "matched_fdc_id": "172184"
+      "matched_name": "Egg yolk",
+      "matched_fdc_id": "biotin-patch-bls4-egg-yolk-e112100"
     },
     {
       "canonical_id": "scrambled-egg-chicken",
@@ -959,8 +959,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.75,
-      "matched_name": "Egg, whole, cooked, scrambled",
-      "matched_fdc_id": "172187"
+      "matched_name": "Scrambled egg (chicken)",
+      "matched_fdc_id": "biotin-patch-bls4-scrambled-egg-chicken-y720143"
     },
     {
       "canonical_id": "fried-egg-chicken",
@@ -968,8 +968,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.93,
-      "matched_name": "Egg, whole, cooked, fried",
-      "matched_fdc_id": "173423"
+      "matched_name": "Fried egg (chicken)",
+      "matched_fdc_id": "biotin-patch-bls4-fried-egg-chicken-y710142"
     },
     {
       "canonical_id": "duck-egg",
@@ -1040,8 +1040,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.655,
-      "matched_name": "Milk, goat, fluid, with added vitamin D",
-      "matched_fdc_id": "171278"
+      "matched_name": "Goat milk",
+      "matched_fdc_id": "biotin-patch-bls4-goat-milk-m021000"
     },
     {
       "canonical_id": "sheep-milk",
@@ -1049,8 +1049,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.76,
-      "matched_name": "Milk, sheep, fluid",
-      "matched_fdc_id": "170882"
+      "matched_name": "Sheep milk",
+      "matched_fdc_id": "biotin-patch-bls4-sheep-milk-m011000"
     },
     {
       "canonical_id": "half-and-half",
@@ -1130,8 +1130,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.82,
-      "matched_name": "Kefir, lowfat, plain, LIFEWAY",
-      "matched_fdc_id": "170904"
+      "matched_name": "Kefir (plain)",
+      "matched_fdc_id": "biotin-patch-bls4-kefir-plain-m130300"
     },
     {
       "canonical_id": "cottage-cheese",
@@ -1139,8 +1139,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.66,
-      "matched_name": "Cheese, cottage, lowfat, 2% milkfat",
-      "matched_fdc_id": "172182"
+      "matched_name": "Cottage cheese",
+      "matched_fdc_id": "biotin-patch-bls4-cottage-cheese-m711300"
     },
     {
       "canonical_id": "cheddar",
@@ -1283,8 +1283,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.76,
-      "matched_name": "Cream, sour, cultured",
-      "matched_fdc_id": "171257"
+      "matched_name": "Sour cream",
+      "matched_fdc_id": "biotin-patch-bls4-sour-cream-m172900"
     },
     {
       "canonical_id": "broccoli",
