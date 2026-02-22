@@ -14,8 +14,8 @@ Scope: explicit biotin (`vitamin_b7_ug`) and omega-3 (`omega3_g`) completeness t
   - foods missing omega-3: `319 -> 36`
   - foods with omega-3 reported: `5 -> 288`
 - Biotin remained source-limited in core USDA/CNF rows, then improved via external-source patch blending:
-  - foods missing biotin: `313 -> 229 -> 203`
-  - foods with biotin reported: `11 -> 95 -> 121`
+  - foods missing biotin: `313 -> 229 -> 203 -> 119`
+  - foods with biotin reported: `11 -> 95 -> 121 -> 205`
 - External biotin donor source added:
   - German Nutrient Database (BLS), version 4.0 (2025), DOI `10.25826/Data20251217-134202-0`
   - URL: `https://www.blsdb.de/download`
@@ -26,16 +26,20 @@ Scope: explicit biotin (`vitamin_b7_ug`) and omega-3 (`omega3_g`) completeness t
 - Follow-up targeted animal-food pass:
   - added `26` additional animal-focused donor patches (eggs, shellfish, fish species, selected dairy/cuts)
   - proxy-species donor rows were used only when an exact species row was unavailable and tagged in provenance
+- **Complete animal-domain biotin pass (Day 20+):**
+  - all remaining animal-product biotin blanks filled (`82` foods)
+  - BLS used where same food/cut; literature proxy (e.g. eatforhealth, ODS) for muscle/cheese/dairy/fat where no BLS match
+  - provenance: `external_biotin_literature_patch` or `german_bls_4_0_biotin_patch` with URL/DOI and `semantic_match_type`
 
 ## Biotin current state
 
-Biotin is now reported for `121` canon foods.
+Biotin is now reported for `205` canon foods. **All animal-domain foods now report biotin** (0 animal blanks remaining).
 
 Provenance for external-source injections is tracked in:
 
 - `source-canon-v1.external-biotin-provenance.json`
 
-Status: `open` (improved, but still source-limited for `203` foods).
+Status: `open` (improved; `119` foods still missing biotin, predominantly plant/fermented/fungi).
 
 ## Residual omega-3 missing set
 

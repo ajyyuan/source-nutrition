@@ -16,152 +16,152 @@
     {
       "canonical_id": "ground-beef-30-fat",
       "canonical_name": "Ground beef (30% fat)",
-      "fdc_id": "168652",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 70% lean meat / 30% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-beef-30-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 1.16,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-beef-20-fat",
       "canonical_name": "Ground beef (20% fat)",
-      "fdc_id": "174036",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 80% lean meat / 20% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-beef-20-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 1.08,
-      "notes": "Manual curation override: switched to USDA SR Legacy row with fuller micronutrient coverage for the same 80/20 raw profile."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-beef-15-fat",
       "canonical_name": "Ground beef (15% fat)",
-      "fdc_id": "171796",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 85% lean meat / 15% fat, raw (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "biotin-patch-animal-ground-beef-15-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 0.975789,
-      "notes": "Manual curation override: replaced sparse Australian row with fuller USDA SR Legacy 85/15 raw profile."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-beef-10-fat",
       "canonical_name": "Ground beef (10% fat)",
-      "fdc_id": "174030",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 90% lean meat / 10% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-beef-10-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 1.08,
-      "notes": "Manual curation override: switched to USDA SR Legacy 90/10 raw row with fuller micronutrient coverage."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-beef-7-fat",
       "canonical_name": "Ground beef (7% fat)",
-      "fdc_id": "173110",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 93% lean meat / 7% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-beef-7-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 1.11,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-beef-4-fat",
       "canonical_name": "Ground beef (4% fat)",
-      "fdc_id": "173111",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, ground, 97% lean meat / 3% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-beef-4-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hamburger patty, cooked, 3 oz (NIH ODS Table 2; 4.5 µg/100g)",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin-only patch: NIH ODS Biotin fact sheet, Table 2 (category-proxy)."
     },
     {
       "canonical_id": "ground-bison",
       "canonical_name": "Ground bison",
-      "fdc_id": "175293",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bison, ground, grass-fed, raw",
+      "fdc_id": "biotin-patch-animal-ground-bison-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Ground beef muscle proxy",
       "confidence": "medium",
       "score": 0.888571,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Ground beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ground-lamb",
       "canonical_name": "Ground lamb",
-      "fdc_id": "174370",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, ground, raw",
+      "fdc_id": "biotin-patch-animal-ground-lamb-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Lamb muscle proxy",
       "confidence": "medium",
       "score": 1.06,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Lamb muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ground-goat",
       "canonical_name": "Ground goat",
-      "fdc_id": "175303",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Game meat, goat, raw",
+      "fdc_id": "biotin-patch-animal-ground-goat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Muscle meat proxy (literature ~1 µg/100g)",
       "confidence": "medium",
       "score": 0.92,
-      "notes": "Manual correction: replaced OpenFoodFacts zero-vector row with USDA SR Legacy goat raw row."
+      "notes": "Biotin-only patch: Muscle meat proxy (literature ~1 µg/100g) (category-proxy)."
     },
     {
       "canonical_id": "ground-pork",
       "canonical_name": "Ground pork",
-      "fdc_id": "169190",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, ground, 96% lean / 4% fat, raw",
+      "fdc_id": "biotin-patch-animal-ground-pork-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Pork muscle proxy",
       "confidence": "medium",
       "score": 0.835,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Pork muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ground-chicken",
       "canonical_name": "Ground chicken",
-      "fdc_id": "171116",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, ground, raw",
+      "fdc_id": "biotin-patch-animal-ground-chicken-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Poultry muscle proxy",
       "confidence": "medium",
       "score": 1.06,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Poultry muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ground-turkey",
       "canonical_name": "Ground turkey",
-      "fdc_id": "171505",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Turkey, Ground, raw",
+      "fdc_id": "biotin-patch-animal-ground-turkey-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Poultry muscle proxy",
       "confidence": "medium",
       "score": 1.06,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Poultry muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ground-duck",
       "canonical_name": "Ground duck",
-      "fdc_id": "172408",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Duck, domesticated, meat and skin, raw",
+      "fdc_id": "biotin-patch-animal-ground-duck-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Poultry muscle proxy",
       "confidence": "medium",
       "score": 0.91,
-      "notes": "Manual correction: replaced branded zero-vector row with USDA SR Legacy duck raw row."
+      "notes": "Biotin-only patch: Poultry muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "ribeye",
       "canonical_name": "Ribeye",
-      "fdc_id": "173380",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-animal-ribeye-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 1.176471,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "strip-steak",
       "canonical_name": "Strip steak",
-      "fdc_id": "cnf-6107",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Beef, loin, strip loin (new york) steak, boneless, lean and fat, 0mm (0\") trim, raw",
+      "fdc_id": "biotin-patch-bls4-strip-steak-U211100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef fillet (tenderloin) raw",
       "confidence": "medium",
       "score": 1.1,
-      "notes": "Manual curation override: switched to exact strip-loin CNF row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Beef fillet (tenderloin) raw (cut-proxy)."
     },
     {
       "canonical_id": "tenderloin",
@@ -186,42 +186,42 @@
     {
       "canonical_id": "flank",
       "canonical_name": "Flank",
-      "fdc_id": "168609",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, flank, steak, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-animal-flank-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 1.310769,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "skirt",
       "canonical_name": "Skirt",
-      "fdc_id": "172137",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-animal-skirt-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 1.18,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "hanger",
       "canonical_name": "Hanger",
-      "fdc_id": "173374",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, all grades, raw",
+      "fdc_id": "biotin-patch-animal-hanger-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual correction: replaced branded zero-vector row with USDA SR Legacy hanger-equivalent cut (inside skirt)."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "chuck",
       "canonical_name": "Chuck",
-      "fdc_id": "170809",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, chuck for stew, separable lean and fat, select, raw",
+      "fdc_id": "biotin-patch-bls4-chuck-U231100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef neck/chuck, raw",
       "confidence": "medium",
       "score": 1.216364,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef neck/chuck, raw (exact)."
     },
     {
       "canonical_id": "brisket",
@@ -236,42 +236,42 @@
     {
       "canonical_id": "short-ribs",
       "canonical_name": "Short ribs",
-      "fdc_id": "170783",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-bls4-short-ribs-U235100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef forerib/prime rib, raw",
       "confidence": "high",
       "score": 1.36,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef forerib/prime rib, raw (cut-proxy)."
     },
     {
       "canonical_id": "back-ribs",
       "canonical_name": "Back ribs",
-      "fdc_id": "173383",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0\" fat, all grades, cooked, braised",
+      "fdc_id": "biotin-patch-bls4-back-ribs-U235100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef forerib/prime rib, raw",
       "confidence": "high",
       "score": 1.35,
-      "notes": "Vitamin completion pass: remapped to USDA SR Legacy back-ribs row with improved vitamin reporting."
+      "notes": "Biotin-only patch: Beef forerib/prime rib, raw (cut-proxy)."
     },
     {
       "canonical_id": "round",
       "canonical_name": "Round",
-      "fdc_id": "171820",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, round, top round, steak, separable lean only, trimmed to 1/8\" fat, choice, raw",
+      "fdc_id": "biotin-patch-bls4-round-U287100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef topside/top round, raw",
       "confidence": "medium",
       "score": 1.294286,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef topside/top round, raw (exact)."
     },
     {
       "canonical_id": "shank",
       "canonical_name": "Shank",
-      "fdc_id": "169441",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, shank crosscuts, separable lean only, trimmed to 1/4\" fat, choice, raw",
+      "fdc_id": "biotin-patch-bls4-shank-U291100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef leg/hindshank, raw",
       "confidence": "medium",
       "score": 1.205,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef leg/hindshank, raw (exact)."
     },
     {
       "canonical_id": "oxtail",
@@ -286,82 +286,82 @@
     {
       "canonical_id": "plate",
       "canonical_name": "Plate",
-      "fdc_id": "172137",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0\" fat, choice, raw",
+      "fdc_id": "biotin-patch-animal-plate-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 1.2675,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "stew-meat",
       "canonical_name": "Stew meat",
-      "fdc_id": "170809",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, chuck for stew, separable lean and fat, select, raw",
+      "fdc_id": "biotin-patch-animal-stew-meat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "leg-lamb-goat",
       "canonical_name": "Leg (lamb/goat)",
-      "fdc_id": "174312",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, leg, whole (shank and sirloin), separable lean and fat, trimmed to 1/4\" fat, choice, cooked, roasted",
+      "fdc_id": "biotin-patch-animal-leg-lamb-goat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Lamb muscle proxy",
       "confidence": "medium",
       "score": 0.84,
-      "notes": "Vitamin completion pass: remapped to lamb leg cut row with fuller vitamin reporting."
+      "notes": "Biotin-only patch: Lamb muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "shoulder-lamb-goat",
       "canonical_name": "Shoulder (lamb/goat)",
-      "fdc_id": "172496",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, shoulder, whole (arm and blade), separable lean and fat, trimmed to 1/4\" fat, choice, raw",
+      "fdc_id": "biotin-patch-bls4-shoulder-lamb-goat-U867100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Lamb shoulder, raw",
       "confidence": "medium",
       "score": 1.63,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Lamb shoulder, raw (exact)."
     },
     {
       "canonical_id": "rack-lamb-goat",
       "canonical_name": "Rack (lamb/goat)",
-      "fdc_id": "173813",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, rack - partly frenched, separable lean and fat, cooked, fast roasted",
+      "fdc_id": "biotin-patch-animal-rack-lamb-goat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Lamb muscle proxy",
       "confidence": "medium",
       "score": 0.88,
-      "notes": "Vitamin completion pass: remapped to rack cut row with fuller vitamin reporting."
+      "notes": "Biotin-only patch: Lamb muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "chop-lamb-goat",
       "canonical_name": "Chop (lamb/goat)",
-      "fdc_id": "cnf-3496",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Lamb, New Zealand, frozen, loin chop, lean and fat, broiled",
+      "fdc_id": "biotin-patch-animal-chop-lamb-goat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Lamb muscle proxy",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual curation override: switched to CNF lamb chop row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Lamb muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "shank-lamb-goat",
       "canonical_name": "Shank (lamb/goat)",
-      "fdc_id": "172482",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, foreshank, separable lean and fat, trimmed to 1/4\" fat, choice, cooked, braised",
+      "fdc_id": "biotin-patch-animal-shank-lamb-goat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Lamb muscle proxy",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Vitamin completion pass: remapped to shank-equivalent lamb row with fuller vitamin reporting."
+      "notes": "Biotin-only patch: Lamb muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "pork-loin",
       "canonical_name": "Pork loin",
-      "fdc_id": "168230",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, loin, whole, separable lean only, raw",
+      "fdc_id": "biotin-patch-animal-pork-loin-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Pork loin raw (literature 3-5 µg)",
       "confidence": "medium",
       "score": 1.326667,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Pork loin raw (literature 3-5 µg) (category-proxy)."
     },
     {
       "canonical_id": "pork-tenderloin",
@@ -376,12 +376,12 @@
     {
       "canonical_id": "pork-shoulder",
       "canonical_name": "Pork shoulder",
-      "fdc_id": "168260",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, shoulder, (Boston butt), blade (steaks), separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-pork-shoulder-U665100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork shoulder (without fat and rind) raw",
       "confidence": "medium",
       "score": 1.390769,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Pork shoulder (without fat and rind) raw (exact)."
     },
     {
       "canonical_id": "pork-chop",
@@ -406,152 +406,152 @@
     {
       "canonical_id": "pork-ribs",
       "canonical_name": "Pork ribs",
-      "fdc_id": "168305",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, loin, country-style ribs, separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-pork-ribs-Y395222",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork spare ribs boiled",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "notes": "Biotin-only patch: Pork spare ribs boiled (cut-proxy)."
     },
     {
       "canonical_id": "fresh-ham",
       "canonical_name": "Fresh ham",
-      "fdc_id": "168224",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, leg (ham), whole, separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-fresh-ham-U682700",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork ham raw, with fat, raw cured, smoked",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "notes": "Biotin-only patch: Pork ham raw, with fat, raw cured, smoked (cut-proxy)."
     },
     {
       "canonical_id": "pork-shank",
       "canonical_name": "Pork shank",
-      "fdc_id": "168228",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, leg (ham), shank half, separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-pork-shank-U672100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork foreshank (hock) raw",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Cleanup pass: reviewed and promoted as acceptable close semantic match in USDA local datasets."
+      "notes": "Biotin-only patch: Pork foreshank (hock) raw (exact)."
     },
     {
       "canonical_id": "pork-jowl",
       "canonical_name": "Pork jowl",
-      "fdc_id": "168269",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, variety meats and by-products, jowl, raw",
+      "fdc_id": "biotin-patch-bls4-pork-jowl-U507100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork fat jowl, without rind (S VI) raw",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Pork fat jowl, without rind (S VI) raw (exact)."
     },
     {
       "canonical_id": "whole-chicken",
       "canonical_name": "Whole chicken",
-      "fdc_id": "171447",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, broilers or fryers, meat and skin, raw",
+      "fdc_id": "biotin-patch-bls4-whole-chicken-V414100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Chicken whole, boneless, with skin, raw",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin-only patch: Chicken whole, boneless, with skin, raw (exact)."
     },
     {
       "canonical_id": "chicken-breast",
       "canonical_name": "Chicken breast",
-      "fdc_id": "biotin-patch-bls4-chicken-breast-v416100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-chicken-breast",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 V416100 (Chicken breast fillet, raw)",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/171474 baseline nutrient vector and inject biotin from German BLS 4.0 row V416100 (Chicken breast fillet, raw) as exact donor match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171474 baseline nutrient vector and inject biotin from German BLS 4.0 row V416100 (Chicken breast fillet, raw) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "chicken-thigh",
       "canonical_name": "Chicken thigh",
-      "fdc_id": "172385",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, broilers or fryers, thigh, meat and skin, raw",
+      "fdc_id": "biotin-patch-bls4-chicken-thigh-V4A5100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Chicken thigh, with skin, raw",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Chicken thigh, with skin, raw (exact)."
     },
     {
       "canonical_id": "chicken-drumstick",
       "canonical_name": "Chicken drumstick",
-      "fdc_id": "172373",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, broilers or fryers, drumstick, meat and skin, raw",
+      "fdc_id": "biotin-patch-bls4-chicken-drumstick-V420000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Chicken drumstick, with skin, marinated, raw",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Chicken drumstick, with skin, marinated, raw (cut-proxy)."
     },
     {
       "canonical_id": "chicken-wing",
       "canonical_name": "Chicken wing",
-      "fdc_id": "173632",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, broilers or fryers, wing, meat only, raw",
+      "fdc_id": "vitamin-patch-chicken-wing",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Chicken wings, with skin, raw",
       "confidence": "medium",
       "score": 0.68,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Chicken wings, with skin, raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "whole-turkey",
       "canonical_name": "Whole turkey",
-      "fdc_id": "171083",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Turkey, whole, giblets, raw",
+      "fdc_id": "vitamin-patch-whole-turkey",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Poultry muscle proxy",
       "confidence": "medium",
       "score": 0.88,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Poultry muscle proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "turkey-breast",
       "canonical_name": "Turkey breast",
-      "fdc_id": "biotin-patch-bls4-turkey-breast-v486100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-turkey-breast",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 V486100 (Turkey breast, without skin, raw)",
       "confidence": "high",
       "score": 1.83,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/172941 baseline nutrient vector and inject biotin from German BLS 4.0 row V486100 (Turkey breast, without skin, raw) as exact donor match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172941 baseline nutrient vector and inject biotin from German BLS 4.0 row V486100 (Turkey breast, without skin, raw) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "turkey-thigh",
       "canonical_name": "Turkey thigh",
-      "fdc_id": "171129",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Turkey, thigh, from whole bird, meat only, with added solution, raw",
+      "fdc_id": "vitamin-patch-turkey-thigh",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Poultry muscle proxy",
       "confidence": "medium",
       "score": 1.660769,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Poultry muscle proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "whole-duck",
       "canonical_name": "Whole duck",
-      "fdc_id": "172408",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Duck, domesticated, meat and skin, raw",
+      "fdc_id": "biotin-patch-animal-whole-duck-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Poultry whole-carcass proxy",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin-only patch: Poultry whole-carcass proxy (category-proxy)."
     },
     {
       "canonical_id": "duck-breast",
       "canonical_name": "Duck breast",
-      "fdc_id": "cnf-664",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Duck, domesticated, meat only, raw",
+      "fdc_id": "biotin-patch-bls4-duck-breast-V466172",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Duck breast, with skin, grilled",
       "confidence": "medium",
       "score": 0.83,
-      "notes": "Manual curation override: nearest CNF duck-meat row selected to eliminate remaining vitamin reporting gaps."
+      "notes": "Biotin-only patch: Duck breast, with skin, grilled (species-proxy)."
     },
     {
       "canonical_id": "duck-leg",
       "canonical_name": "Duck leg",
-      "fdc_id": "172410",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Duck, domesticated, meat only, raw",
+      "fdc_id": "biotin-patch-bls4-duck-leg-V465100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Duck leg, with skin, raw",
       "confidence": "medium",
       "score": 0.86,
-      "notes": "Cleanup pass: upgraded to stronger semantic/source-state match."
+      "notes": "Biotin-only patch: Duck leg, with skin, raw (exact)."
     },
     {
       "canonical_id": "atlantic-salmon",
@@ -606,12 +606,12 @@
     {
       "canonical_id": "tuna-skipjack",
       "canonical_name": "Tuna (skipjack)",
-      "fdc_id": "biotin-patch-bls4-tuna-skipjack-t121100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-tuna-skipjack",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 T121100 (Tuna raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/175156 baseline nutrient vector and inject biotin from German BLS 4.0 row T121100 (Tuna raw) as closest species proxy donor."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175156 baseline nutrient vector and inject biotin from German BLS 4.0 row T121100 (Tuna raw) as closest species proxy donor. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "tuna-albacore",
@@ -626,12 +626,12 @@
     {
       "canonical_id": "tuna-yellowfin",
       "canonical_name": "Tuna (yellowfin)",
-      "fdc_id": "175159",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, tuna, fresh, yellowfin, raw",
+      "fdc_id": "biotin-patch-bls4-tuna-yellowfin-T124100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Yellowfin tuna raw",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Yellowfin tuna raw (exact)."
     },
     {
       "canonical_id": "cod",
@@ -656,12 +656,12 @@
     {
       "canonical_id": "pollock",
       "canonical_name": "Pollock",
-      "fdc_id": "175129",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, pollock, Atlantic, raw",
+      "fdc_id": "biotin-patch-bls4-pollock-T213100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Alaska pollock raw",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Alaska pollock raw (exact)."
     },
     {
       "canonical_id": "halibut",
@@ -706,12 +706,12 @@
     {
       "canonical_id": "tilapia",
       "canonical_name": "Tilapia",
-      "fdc_id": "175176",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, tilapia, raw",
+      "fdc_id": "biotin-patch-animal-tilapia-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Fish muscle proxy",
       "confidence": "medium",
       "score": 1.455,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Fish muscle proxy (category-proxy)."
     },
     {
       "canonical_id": "catfish",
@@ -736,22 +736,22 @@
     {
       "canonical_id": "shrimp",
       "canonical_name": "Shrimp",
-      "fdc_id": "174210",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "fdc_id": "biotin-patch-bls4-shrimp-T753100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Common shrimp raw",
       "confidence": "medium",
       "score": 1.205,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Common shrimp raw (exact)."
     },
     {
       "canonical_id": "prawn",
       "canonical_name": "Prawn",
-      "fdc_id": "174210",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, shrimp, mixed species, raw (may contain additives to retain moisture)",
+      "fdc_id": "biotin-patch-bls4-prawn-T753100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Common shrimp raw",
       "confidence": "medium",
       "score": 0.7,
-      "notes": "Manual curation override: prawn represented by closest raw shrimp species-equivalent SR Legacy row with full non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Common shrimp raw (species-proxy)."
     },
     {
       "canonical_id": "scallop",
@@ -796,12 +796,12 @@
     {
       "canonical_id": "crab",
       "canonical_name": "Crab",
-      "fdc_id": "171966",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, crab, blue, canned",
+      "fdc_id": "biotin-patch-animal-crab-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Shellfish proxy",
       "confidence": "medium",
       "score": 1.39,
-      "notes": "Vitamin completion pass: remapped to crab row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Shellfish proxy (category-proxy)."
     },
     {
       "canonical_id": "lobster",
@@ -816,22 +816,22 @@
     {
       "canonical_id": "squid",
       "canonical_name": "Squid",
-      "fdc_id": "174223",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, squid, mixed species, raw",
+      "fdc_id": "biotin-patch-animal-squid-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Shellfish proxy",
       "confidence": "medium",
       "score": 1.33,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Shellfish proxy (category-proxy)."
     },
     {
       "canonical_id": "octopus",
       "canonical_name": "Octopus",
-      "fdc_id": "174218",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, octopus, common, raw",
+      "fdc_id": "biotin-patch-animal-octopus-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Shellfish proxy",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Shellfish proxy (category-proxy)."
     },
     {
       "canonical_id": "beef-liver",
@@ -876,12 +876,12 @@
     {
       "canonical_id": "beef-brain",
       "canonical_name": "Beef brain",
-      "fdc_id": "168624",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, brain, cooked, simmered",
+      "fdc_id": "biotin-patch-animal-beef-brain-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Brain/organ proxy",
       "confidence": "medium",
       "score": 0.72,
-      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Brain/organ proxy (category-proxy)."
     },
     {
       "canonical_id": "beef-spleen",
@@ -896,42 +896,42 @@
     {
       "canonical_id": "beef-pancreas",
       "canonical_name": "Beef pancreas",
-      "fdc_id": "169452",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, pancreas, raw",
+      "fdc_id": "biotin-patch-animal-beef-pancreas-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Organ meat proxy (literature)",
       "confidence": "medium",
       "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Organ meat proxy (literature) (category-proxy)."
     },
     {
       "canonical_id": "beef-thymus-sweetbreads",
       "canonical_name": "Beef thymus (sweetbreads)",
-      "fdc_id": "173093",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, New Zealand, imported, sweetbread, raw",
+      "fdc_id": "biotin-patch-bls4-beef-thymus-sweetbreads-V582100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Veal sweetbread, raw",
       "confidence": "medium",
       "score": 0.466667,
-      "notes": "Vitamin completion pass: remapped to exact beef sweetbread raw row to improve non-biotin vitamin reporting while staying species/organ consistent."
+      "notes": "Biotin-only patch: Veal sweetbread, raw (species-proxy)."
     },
     {
       "canonical_id": "beef-tripe",
       "canonical_name": "Beef tripe",
-      "fdc_id": "170599",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, tripe, raw",
+      "fdc_id": "biotin-patch-bls4-beef-tripe-V551100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Beef stomach/tripe, raw",
       "confidence": "medium",
       "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Beef stomach/tripe, raw (exact)."
     },
     {
       "canonical_id": "lamb-liver",
       "canonical_name": "Lamb liver",
-      "fdc_id": "biotin-patch-bls4-lamb-liver-v535100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-lamb-liver",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 V535100 (Lamb liver, raw)",
       "confidence": "medium",
       "score": 0.87,
-      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-3614 baseline nutrient vector and inject biotin from German BLS 4.0 row V535100 (Lamb liver, raw)."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-3614 baseline nutrient vector and inject biotin from German BLS 4.0 row V535100 (Lamb liver, raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "lamb-heart",
@@ -986,12 +986,12 @@
     {
       "canonical_id": "pork-brain",
       "canonical_name": "Pork brain",
-      "fdc_id": "168264",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, variety meats and by-products, brain, raw",
+      "fdc_id": "biotin-patch-bls4-pork-brain-Y372012",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Pork brain fried with egg",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Pork brain fried with egg (species-proxy)."
     },
     {
       "canonical_id": "pork-stomach",
@@ -1026,22 +1026,22 @@
     {
       "canonical_id": "chicken-gizzard",
       "canonical_name": "Chicken gizzard",
-      "fdc_id": "171457",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, gizzard, all classes, cooked, simmered",
+      "fdc_id": "biotin-patch-animal-chicken-gizzard-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Organ meat proxy",
       "confidence": "high",
       "score": 1.86,
-      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Organ meat proxy (category-proxy)."
     },
     {
       "canonical_id": "chicken-egg",
       "canonical_name": "Chicken egg",
-      "fdc_id": "biotin-patch-bls4-chicken-egg-e111100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-chicken-egg",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 E111100 (Chicken egg raw)",
       "confidence": "high",
       "score": 1.58,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/172104 baseline nutrient vector and inject biotin from German BLS 4.0 row E111100 (Chicken egg raw)."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172104 baseline nutrient vector and inject biotin from German BLS 4.0 row E111100 (Chicken egg raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "egg-white",
@@ -1096,12 +1096,12 @@
     {
       "canonical_id": "turkey-egg",
       "canonical_name": "Turkey egg",
-      "fdc_id": "biotin-patch-bls4-turkey-egg-e151100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-turkey-egg",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 E151100 (Turkey egg raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/172192 baseline nutrient vector and inject biotin from German BLS 4.0 row E151100 (Turkey egg raw)."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172192 baseline nutrient vector and inject biotin from German BLS 4.0 row E151100 (Turkey egg raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "quail-egg",
@@ -1116,42 +1116,42 @@
     {
       "canonical_id": "cow-s-milk",
       "canonical_name": "Cow's milk",
-      "fdc_id": "171265",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+      "fdc_id": "biotin-patch-animal-cow-s-milk-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Cow milk (literature)",
       "confidence": "medium",
       "score": 1.44,
-      "notes": "Manual correction: replaced low-sodium proxy with standard whole-milk row."
+      "notes": "Biotin-only patch: Cow milk (literature) (category-proxy)."
     },
     {
       "canonical_id": "cow-s-milk-2",
       "canonical_name": "Cow's milk (2%)",
-      "fdc_id": "171267",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+      "fdc_id": "biotin-patch-animal-cow-s-milk-2-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Reduced-fat milk proxy",
       "confidence": "medium",
       "score": 0.85,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Reduced-fat milk proxy (category-proxy)."
     },
     {
       "canonical_id": "cow-s-milk-1",
       "canonical_name": "Cow's milk (1%)",
-      "fdc_id": "170872",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",
+      "fdc_id": "biotin-patch-animal-cow-s-milk-1-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Reduced-fat milk proxy",
       "confidence": "medium",
       "score": 1.03,
-      "notes": "Manual correction: replaced flavored beverage proxy with true 1% milk row."
+      "notes": "Biotin-only patch: Reduced-fat milk proxy (category-proxy)."
     },
     {
       "canonical_id": "cow-s-milk-skim",
       "canonical_name": "Cow's milk (skim)",
-      "fdc_id": "171269",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
+      "fdc_id": "biotin-patch-animal-cow-s-milk-skim-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Skim milk biotin (literature)",
       "confidence": "medium",
       "score": 1.29,
-      "notes": "Manual correction: replaced yogurt proxy with true skim-milk row."
+      "notes": "Biotin-only patch: Skim milk biotin (literature) (category-proxy)."
     },
     {
       "canonical_id": "goat-milk",
@@ -1176,82 +1176,82 @@
     {
       "canonical_id": "half-and-half",
       "canonical_name": "Half and half",
-      "fdc_id": "172212",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cream, half and half, fat free",
+      "fdc_id": "vitamin-patch-half-and-half",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Milk/cream blend proxy",
       "confidence": "medium",
       "score": 1.4225,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Milk/cream blend proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "light-cream",
       "canonical_name": "Light cream",
-      "fdc_id": "170857",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cream, fluid, light (coffee cream or table cream)",
+      "fdc_id": "biotin-patch-animal-light-cream-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Cream (dairy)",
       "confidence": "high",
       "score": 1.315,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Cream (dairy) (category-proxy)."
     },
     {
       "canonical_id": "heavy-cream",
       "canonical_name": "Heavy cream",
-      "fdc_id": "170859",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cream, fluid, heavy whipping",
+      "fdc_id": "biotin-patch-animal-heavy-cream-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Cream (dairy)",
       "confidence": "medium",
       "score": 0.802857,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Cream (dairy) (category-proxy)."
     },
     {
       "canonical_id": "butter",
       "canonical_name": "Butter",
-      "fdc_id": "173410",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Butter, salted",
+      "fdc_id": "biotin-patch-animal-butter-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Butter (dairy fat)",
       "confidence": "high",
       "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Butter (dairy fat) (category-proxy)."
     },
     {
       "canonical_id": "ghee",
       "canonical_name": "Ghee",
-      "fdc_id": "cnf-92",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Butter, unsalted",
+      "fdc_id": "biotin-patch-animal-ghee-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Butter fat proxy",
       "confidence": "medium",
       "score": 0.78,
-      "notes": "Manual curation proxy: CNF has no clarified-butter row; mapped to unsalted butter as closest fat profile with explicit vitamin reporting."
+      "notes": "Biotin-only patch: Butter fat proxy (category-proxy)."
     },
     {
       "canonical_id": "yogurt-plain",
       "canonical_name": "Yogurt (plain)",
-      "fdc_id": "170886",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Yogurt, plain, low fat",
+      "fdc_id": "vitamin-patch-yogurt-plain",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Yogurt (dairy)",
       "confidence": "medium",
       "score": 1.63,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Yogurt (dairy) (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "yogurt-plain-lowfat",
       "canonical_name": "Yogurt (plain, lowfat)",
-      "fdc_id": "170903",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-yogurt-plain-lowfat",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Yogurt, Greek, plain, lowfat",
       "confidence": "medium",
       "score": 0.802857,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "yogurt-plain-nonfat",
       "canonical_name": "Yogurt (plain, nonfat)",
-      "fdc_id": "170901",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-yogurt-plain-nonfat",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Yogurt, Greek, strawberry, nonfat",
       "confidence": "medium",
       "score": 0.588571,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "kefir-plain",
@@ -1266,92 +1266,92 @@
     {
       "canonical_id": "cottage-cheese",
       "canonical_name": "Cottage cheese",
-      "fdc_id": "biotin-patch-bls4-cottage-cheese-m711300",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-cottage-cheese",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 M711300 (Cottage cheese min. 20 % fat in dry matter)",
       "confidence": "medium",
       "score": 0.66,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/172182 baseline nutrient vector and inject biotin from German BLS 4.0 row M711300 (Cottage cheese min. 20 % fat in dry matter) as exact donor match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172182 baseline nutrient vector and inject biotin from German BLS 4.0 row M711300 (Cottage cheese min. 20 % fat in dry matter) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "cheddar",
       "canonical_name": "Cheddar",
-      "fdc_id": "170899",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, cheddar, sharp, sliced",
+      "fdc_id": "biotin-patch-bls4-cheddar-M303700",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Chester (Cheddar) cheese min. 50 % fat in dry matter",
       "confidence": "medium",
       "score": 1.16,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Chester (Cheddar) cheese min. 50 % fat in dry matter (exact)."
     },
     {
       "canonical_id": "gouda",
       "canonical_name": "Gouda",
-      "fdc_id": "171241",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, gouda",
+      "fdc_id": "biotin-patch-bls4-gouda-M402600",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Gouda cheese 48 % fat in dry matter",
       "confidence": "medium",
       "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Gouda cheese 48 % fat in dry matter (exact)."
     },
     {
       "canonical_id": "gruyere",
       "canonical_name": "Gruyere",
-      "fdc_id": "171242",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, gruyere",
+      "fdc_id": "biotin-patch-animal-gruyere-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Hard cheese proxy",
       "confidence": "medium",
       "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Hard cheese proxy (category-proxy)."
     },
     {
       "canonical_id": "parmesan",
       "canonical_name": "Parmesan",
-      "fdc_id": "170848",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, parmesan, hard",
+      "fdc_id": "biotin-patch-bls4-parmesan-M306400",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Parmesan cheese min. 30 % fat in dry matter",
       "confidence": "medium",
       "score": 1.235,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Parmesan cheese min. 30 % fat in dry matter (exact)."
     },
     {
       "canonical_id": "mozzarella",
       "canonical_name": "Mozzarella",
-      "fdc_id": "170845",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, mozzarella, whole milk",
+      "fdc_id": "biotin-patch-animal-mozzarella-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Cheese proxy",
       "confidence": "medium",
       "score": 1.16,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Cheese proxy (category-proxy)."
     },
     {
       "canonical_id": "feta",
       "canonical_name": "Feta",
-      "fdc_id": "173420",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, feta",
+      "fdc_id": "biotin-patch-bls4-feta-M012200",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Feta min. 45 % fat in dry matter",
       "confidence": "medium",
       "score": 1.2,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Feta min. 45 % fat in dry matter (exact)."
     },
     {
       "canonical_id": "swiss",
       "canonical_name": "Swiss",
-      "fdc_id": "169991",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chard, swiss, raw",
+      "fdc_id": "vitamin-patch-swiss",
+      "source_dataset": "animal_vitamin_zero_patch",
+      "source_name": "Hard cheese proxy",
       "confidence": "medium",
       "score": 1.235,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Hard cheese proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "beef-tallow",
       "canonical_name": "Beef tallow",
-      "fdc_id": "171400",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fat, beef tallow",
+      "fdc_id": "biotin-patch-animal-beef-tallow-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Refined fat (no biotin)",
       "confidence": "high",
       "score": 1.5,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Refined fat (no biotin) (category-proxy)."
     },
     {
       "canonical_id": "lamb-tallow",
@@ -1366,12 +1366,12 @@
     {
       "canonical_id": "pork-lard",
       "canonical_name": "Pork lard",
-      "fdc_id": "171401",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lard",
+      "fdc_id": "biotin-patch-bls4-pork-lard-Y371013",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Larded pork heart (fat proxy)",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin-only patch: Larded pork heart (fat proxy) (category-proxy)."
     },
     {
       "canonical_id": "duck-fat",
@@ -1386,42 +1386,42 @@
     {
       "canonical_id": "chicken-fat",
       "canonical_name": "Chicken fat",
-      "fdc_id": "173564",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fat, chicken",
+      "fdc_id": "biotin-patch-animal-chicken-fat-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Refined fat (no biotin)",
       "confidence": "medium",
       "score": 0.95,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Refined fat (no biotin) (category-proxy)."
     },
     {
       "canonical_id": "american-cheese",
       "canonical_name": "American cheese",
-      "fdc_id": "170853",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, pasteurized process, American, fortified with vitamin D",
+      "fdc_id": "biotin-patch-animal-american-cheese-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Processed cheese proxy",
       "confidence": "medium",
       "score": 0.7,
-      "notes": "Vitamin completion pass: switched to semantically-matching American cheese row with complete non-biotin vitamin reporting."
+      "notes": "Biotin-only patch: Processed cheese proxy (category-proxy)."
     },
     {
       "canonical_id": "processed-cheese-slices",
       "canonical_name": "Processed cheese slices",
-      "fdc_id": "171290",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, pasteurized process, American, without added vitamin D",
+      "fdc_id": "biotin-patch-bls4-processed-cheese-slices-M816000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Processed cheese preparation 45 - 52 % fat in dry matter",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override (USDA SR Legacy exact/near-exact match)."
+      "notes": "Biotin-only patch: Processed cheese preparation 45 - 52 % fat in dry matter (cut-proxy)."
     },
     {
       "canonical_id": "cream-cheese",
       "canonical_name": "Cream cheese",
-      "fdc_id": "173418",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cheese, cream",
+      "fdc_id": "biotin-patch-animal-cream-cheese-lit",
+      "source_dataset": "external_biotin_literature_patch",
+      "source_name": "Soft cheese proxy",
       "confidence": "medium",
       "score": 0.91,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin-only patch: Soft cheese proxy (category-proxy)."
     },
     {
       "canonical_id": "sour-cream",

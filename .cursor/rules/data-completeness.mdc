@@ -1,0 +1,11 @@
+---
+description: Data completeness and sourcing — use search, no lazy placeholders
+alwaysApply: true
+---
+
+# Data completeness
+
+- **Completeness over all else** when filling nutrient or food data: prefer finding real values over leaving blanks or using placeholders.
+- **Use web search** (e.g. Google, USDA FoodData Central, NIH ODS, BLS, peer‑reviewed papers) to find cited values. Do not skip search in favor of generic “trace” or “~1” without a source.
+- **Do not make things up** and **do not use bad proxies**: only use values that are clearly for the same food (or a documented, same-species/cut proxy) with a citable source. Document source and URL/DOI in provenance.
+- For **animal products**, reported 0 for vitamins A, D, E, K, or B vitamins should be replaced with real values when a reliable source exists; avoid substituting un-sourced “trace” minima when search can find an actual value.

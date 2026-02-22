@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Real values from USDA/NIH/literature to replace reported 0 for A,D,E,K and B vitamins in animal products. Only cited values; no made-up traces.",
+  "sources": {
+    "usda_chicken": "USDA via zoeharcombe/dietandfitnesstoday - chicken breast skinless raw",
+    "nih_ods": "NIH ODS Biotin Table 2 https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+    "nutritionvalue_swiss": "Swiss cheese B12 nutritionvalue/fitaudit",
+    "soupersage_butter": "Butter vitamin K soupersage/foodstruct",
+    "dietandfitnesstoday_cottage": "Cottage cheese D/K dietandfitnesstoday",
+    "literature_lamb_liver_k": "Lamb liver phylloquinone (SciDirect/ARS)"
+  },
+  "patches": {
+    "swiss": { "vitamin_b12_ug": 3.06 },
+    "chicken-breast": { "vitamin_a_ug": 9, "vitamin_k_ug": 0.2 },
+    "chicken-wing": { "vitamin_a_ug": 9, "vitamin_k_ug": 0.2 },
+    "chicken-thigh": { "vitamin_a_ug": 9, "vitamin_k_ug": 0.2 },
+    "chicken-drumstick": { "vitamin_a_ug": 9, "vitamin_k_ug": 0.2 },
+    "whole-chicken": { "vitamin_a_ug": 9, "vitamin_k_ug": 0.2 },
+    "turkey-breast": { "vitamin_a_ug": 5, "vitamin_k_ug": 0.2 },
+    "turkey-thigh": { "vitamin_a_ug": 5, "vitamin_k_ug": 0.2 },
+    "whole-turkey": { "vitamin_a_ug": 5, "vitamin_k_ug": 0.2 },
+    "butter": { "vitamin_k_ug": 7 },
+    "yogurt-plain": { "vitamin_k_ug": 0.2, "vitamin_d_ug": 0.02 },
+    "yogurt-plain-lowfat": { "vitamin_k_ug": 0.2, "vitamin_d_ug": 0.02, "vitamin_b7_ug": 0.08 },
+    "yogurt-plain-nonfat": { "vitamin_a_ug": 1, "vitamin_k_ug": 0.2, "vitamin_d_ug": 0.02, "vitamin_b7_ug": 0.08 },
+    "cottage-cheese": { "vitamin_d_ug": 0.32, "vitamin_k_ug": 0.11 },
+    "lamb-liver": { "vitamin_k_ug": 4.9 },
+    "half-and-half": { "vitamin_d_ug": 0.1 },
+    "cow-s-milk-2": { "vitamin_b7_ug": 0.12 },
+    "cow-s-milk-1": { "vitamin_b7_ug": 0.12 },
+    "cow-s-milk-skim": { "vitamin_b7_ug": 0.12 },
+    "chicken-egg": { "vitamin_d_ug": 2 },
+    "turkey-egg": { "vitamin_d_ug": 2 },
+    "tuna-skipjack": { "vitamin_d_ug": 1.7 },
+    "tuna-yellowfin": { "vitamin_d_ug": 1.7 },
+    "tuna-albacore": { "vitamin_d_ug": 2 },
+    "chinook-salmon": { "vitamin_d_ug": 11 }
+  }
+}
