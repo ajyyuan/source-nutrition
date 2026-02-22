@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-22T18:22:17.313Z",
+  "generated_at": "2026-02-22T18:37:37.669Z",
   "total_items": 324,
   "counts": {
     "curated": 324,
@@ -329,8 +329,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.9,
-      "matched_name": "Pork, fresh, loin, tenderloin, separable lean only, raw",
-      "matched_fdc_id": "168249"
+      "matched_name": "Pork tenderloin",
+      "matched_fdc_id": "biotin-patch-bls4-pork-tenderloin-u611100"
     },
     {
       "canonical_id": "pork-shoulder",
@@ -347,8 +347,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.9,
-      "matched_name": "Pork, fresh, loin, center loin (chops), bone-in, separable lean only, raw",
-      "matched_fdc_id": "167829"
+      "matched_name": "Pork chop",
+      "matched_fdc_id": "biotin-patch-bls4-pork-chop-u522100"
     },
     {
       "canonical_id": "pork-belly",
@@ -356,8 +356,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.9,
-      "matched_name": "Pork, wholesale cuts, belly, raw",
-      "matched_fdc_id": "cnf-1758"
+      "matched_name": "Pork belly",
+      "matched_fdc_id": "biotin-patch-bls4-pork-belly-u642100"
     },
     {
       "canonical_id": "pork-ribs",
@@ -527,8 +527,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.8,
-      "matched_name": "Fish, salmon, chinook, smoked",
-      "matched_fdc_id": "173687"
+      "matched_name": "Chinook salmon",
+      "matched_fdc_id": "biotin-patch-bls4-chinook-salmon-t415100"
     },
     {
       "canonical_id": "sardine",
@@ -572,8 +572,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Fish, cod, Atlantic, raw",
-      "matched_fdc_id": "171955"
+      "matched_name": "Cod",
+      "matched_fdc_id": "biotin-patch-bls4-cod-t204100"
     },
     {
       "canonical_id": "haddock",
@@ -581,8 +581,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.455,
-      "matched_name": "Fish, haddock, raw",
-      "matched_fdc_id": "171964"
+      "matched_name": "Haddock",
+      "matched_fdc_id": "biotin-patch-bls4-haddock-t206100"
     },
     {
       "canonical_id": "pollock",
@@ -608,8 +608,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Fish, mackerel, spanish, raw",
-      "matched_fdc_id": "173673"
+      "matched_name": "Mackerel",
+      "matched_fdc_id": "biotin-patch-bls4-mackerel-t107100"
     },
     {
       "canonical_id": "herring",
@@ -617,8 +617,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Fish, herring, Atlantic, raw",
-      "matched_fdc_id": "175116"
+      "matched_name": "Herring",
+      "matched_fdc_id": "biotin-patch-bls4-herring-t102100"
     },
     {
       "canonical_id": "trout",
@@ -626,8 +626,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.33,
-      "matched_name": "Fish, trout, rainbow, farmed, raw",
-      "matched_fdc_id": "173717"
+      "matched_name": "Trout",
+      "matched_fdc_id": "biotin-patch-bls4-trout-t422100"
     },
     {
       "canonical_id": "tilapia",
@@ -653,8 +653,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.4,
-      "matched_name": "Fish, anchovy, european, raw",
-      "matched_fdc_id": "cnf-2984"
+      "matched_name": "Anchovy",
+      "matched_fdc_id": "biotin-patch-bls4-anchovy-t104100"
     },
     {
       "canonical_id": "shrimp",
@@ -680,8 +680,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.95,
-      "matched_name": "Mollusks, scallop, mixed species, raw",
-      "matched_fdc_id": "174220"
+      "matched_name": "Scallop",
+      "matched_fdc_id": "biotin-patch-bls4-scallop-t793100"
     },
     {
       "canonical_id": "mussel",
@@ -725,8 +725,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.38,
-      "matched_name": "Crustaceans, lobster, northern, raw",
-      "matched_fdc_id": "174208"
+      "matched_name": "Lobster",
+      "matched_fdc_id": "biotin-patch-bls4-lobster-t730100"
     },
     {
       "canonical_id": "squid",
@@ -752,8 +752,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.68,
-      "matched_name": "Beef, variety meats and by-products, liver, raw",
-      "matched_fdc_id": "169451"
+      "matched_name": "Beef liver",
+      "matched_fdc_id": "biotin-patch-bls4-beef-liver-v531100"
     },
     {
       "canonical_id": "beef-heart",
@@ -761,8 +761,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.72,
-      "matched_name": "Beef, variety meats and by-products, heart, cooked, simmered",
-      "matched_fdc_id": "169448"
+      "matched_name": "Beef heart",
+      "matched_fdc_id": "biotin-patch-bls4-beef-heart-v511100"
     },
     {
       "canonical_id": "beef-kidney",
@@ -770,8 +770,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.9,
-      "matched_name": "Beef, kidneys, raw",
-      "matched_fdc_id": "cnf-2787"
+      "matched_name": "Beef kidney",
+      "matched_fdc_id": "biotin-patch-bls4-beef-kidney-v571100"
     },
     {
       "canonical_id": "beef-tongue",
@@ -779,8 +779,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.85,
-      "matched_name": "Beef, tongue, simmered",
-      "matched_fdc_id": "cnf-2669"
+      "matched_name": "Beef tongue",
+      "matched_fdc_id": "biotin-patch-bls4-beef-tongue-v591100"
     },
     {
       "canonical_id": "beef-brain",
@@ -797,8 +797,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.68,
-      "matched_name": "Beef, variety meats and by-products, spleen, raw",
-      "matched_fdc_id": "169454"
+      "matched_name": "Beef spleen",
+      "matched_fdc_id": "biotin-patch-bls4-beef-spleen-v561100"
     },
     {
       "canonical_id": "beef-pancreas",
@@ -833,8 +833,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.87,
-      "matched_name": "Lamb, liver, raw",
-      "matched_fdc_id": "cnf-3614"
+      "matched_name": "Lamb liver",
+      "matched_fdc_id": "biotin-patch-bls4-lamb-liver-v535100"
     },
     {
       "canonical_id": "lamb-heart",
@@ -842,8 +842,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.755,
-      "matched_name": "Lamb, New Zealand, imported, heart, raw",
-      "matched_fdc_id": "174444"
+      "matched_name": "Lamb heart",
+      "matched_fdc_id": "biotin-patch-bls4-lamb-heart-v515100"
     },
     {
       "canonical_id": "lamb-kidney",
@@ -851,8 +851,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.755,
-      "matched_name": "Lamb, New Zealand, imported, kidney, raw",
-      "matched_fdc_id": "174442"
+      "matched_name": "Lamb kidney",
+      "matched_fdc_id": "biotin-patch-bls4-lamb-kidney-v575100"
     },
     {
       "canonical_id": "pork-liver",
@@ -860,8 +860,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.9,
-      "matched_name": "Pork, liver, raw",
-      "matched_fdc_id": "cnf-1844"
+      "matched_name": "Pork liver",
+      "matched_fdc_id": "biotin-patch-bls4-pork-liver-v533100"
     },
     {
       "canonical_id": "pork-heart",
@@ -869,8 +869,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.7,
-      "matched_name": "Pork, heart, raw",
-      "matched_fdc_id": "cnf-1839"
+      "matched_name": "Pork heart",
+      "matched_fdc_id": "biotin-patch-bls4-pork-heart-v513100"
     },
     {
       "canonical_id": "pork-kidney",
@@ -878,8 +878,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.7,
-      "matched_name": "Pork, kidney, braised",
-      "matched_fdc_id": "cnf-1842"
+      "matched_name": "Pork kidney",
+      "matched_fdc_id": "biotin-patch-bls4-pork-kidney-v573100"
     },
     {
       "canonical_id": "pork-brain",
@@ -896,8 +896,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.652727,
-      "matched_name": "Pork, fresh, variety meats and by-products, stomach, raw",
-      "matched_fdc_id": "167867"
+      "matched_name": "Pork stomach",
+      "matched_fdc_id": "biotin-patch-bls4-pork-stomach-v553100"
     },
     {
       "canonical_id": "chicken-liver",
@@ -905,8 +905,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.858571,
-      "matched_name": "Chicken, liver, all classes, raw",
-      "matched_fdc_id": "171060"
+      "matched_name": "Chicken liver",
+      "matched_fdc_id": "biotin-patch-bls4-chicken-liver-v634100"
     },
     {
       "canonical_id": "chicken-heart",
@@ -914,8 +914,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1,
-      "matched_name": "Chicken, broiler, heart, raw",
-      "matched_fdc_id": "cnf-576"
+      "matched_name": "Chicken heart",
+      "matched_fdc_id": "biotin-patch-bls4-chicken-heart-v614100"
     },
     {
       "canonical_id": "chicken-gizzard",
@@ -932,8 +932,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.58,
-      "matched_name": "Egg rolls, chicken, refrigerated, heated",
-      "matched_fdc_id": "172104"
+      "matched_name": "Chicken egg",
+      "matched_fdc_id": "biotin-patch-bls4-chicken-egg-e111100"
     },
     {
       "canonical_id": "egg-white",
@@ -977,8 +977,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Egg, duck, whole, fresh, raw",
-      "matched_fdc_id": "172189"
+      "matched_name": "Duck egg",
+      "matched_fdc_id": "biotin-patch-bls4-duck-egg-e131100"
     },
     {
       "canonical_id": "turkey-egg",
@@ -986,8 +986,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.808571,
-      "matched_name": "Egg, turkey, whole, fresh, raw",
-      "matched_fdc_id": "172192"
+      "matched_name": "Turkey egg",
+      "matched_fdc_id": "biotin-patch-bls4-turkey-egg-e151100"
     },
     {
       "canonical_id": "quail-egg",
@@ -995,8 +995,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.688571,
-      "matched_name": "Egg, quail, whole, fresh, raw",
-      "matched_fdc_id": "172191"
+      "matched_name": "Quail egg",
+      "matched_fdc_id": "biotin-patch-bls4-quail-egg-e106100"
     },
     {
       "canonical_id": "cow-s-milk",
@@ -1292,8 +1292,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Broccoli, raw",
-      "matched_fdc_id": "170379"
+      "matched_name": "Broccoli",
+      "matched_fdc_id": "biotin-patch-bls4-broccoli-g312100"
     },
     {
       "canonical_id": "cauliflower",
@@ -1301,8 +1301,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Cauliflower, raw",
-      "matched_fdc_id": "169986"
+      "matched_name": "Cauliflower",
+      "matched_fdc_id": "biotin-patch-bls4-cauliflower-g311100"
     },
     {
       "canonical_id": "cabbage",
@@ -1319,8 +1319,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.91,
-      "matched_name": "Brussels sprouts, raw",
-      "matched_fdc_id": "170383"
+      "matched_name": "Brussels sprouts",
+      "matched_fdc_id": "biotin-patch-bls4-brussels-sprouts-g332100"
     },
     {
       "canonical_id": "kale",
@@ -1355,8 +1355,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1,
-      "matched_name": "Radishes, oriental, raw",
-      "matched_fdc_id": "168451"
+      "matched_name": "Radish",
+      "matched_fdc_id": "biotin-patch-bls4-radish-g680100"
     },
     {
       "canonical_id": "turnip",
@@ -1364,8 +1364,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.605,
-      "matched_name": "Turnip greens, raw",
-      "matched_fdc_id": "170061"
+      "matched_name": "Turnip",
+      "matched_fdc_id": "biotin-patch-bls4-turnip-g614100"
     },
     {
       "canonical_id": "rutabaga",
@@ -1391,8 +1391,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.63,
-      "matched_name": "Carrot, dehydrated",
-      "matched_fdc_id": "170500"
+      "matched_name": "Carrot",
+      "matched_fdc_id": "biotin-patch-bls4-carrot-g620100"
     },
     {
       "canonical_id": "celery",
@@ -1409,8 +1409,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1,
-      "matched_name": "Parsnips, raw",
-      "matched_fdc_id": "170417"
+      "matched_name": "Parsnip",
+      "matched_fdc_id": "biotin-patch-bls4-parsnip-g640100"
     },
     {
       "canonical_id": "fennel",
@@ -1454,8 +1454,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Garlic, raw",
-      "matched_fdc_id": "169230"
+      "matched_name": "Garlic",
+      "matched_fdc_id": "biotin-patch-bls4-garlic-g490100"
     },
     {
       "canonical_id": "onion",
@@ -1463,8 +1463,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.24,
-      "matched_name": "Onions, raw",
-      "matched_fdc_id": "170000"
+      "matched_name": "Onion",
+      "matched_fdc_id": "biotin-patch-bls4-onion-g480100"
     },
     {
       "canonical_id": "shallot",
@@ -1472,8 +1472,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1,
-      "matched_name": "Shallots, raw",
-      "matched_fdc_id": "170499"
+      "matched_name": "Shallot",
+      "matched_fdc_id": "biotin-patch-bls4-shallot-g485100"
     },
     {
       "canonical_id": "leek",
@@ -1481,8 +1481,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1,
-      "matched_name": "Leeks, (bulb and lower leaf-portion), raw",
-      "matched_fdc_id": "169246"
+      "matched_name": "Leek",
+      "matched_fdc_id": "biotin-patch-bls4-leek-g470100"
     },
     {
       "canonical_id": "scallion",
@@ -1517,8 +1517,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.64,
-      "matched_name": "Tomatoes, red, ripe, raw, year round average",
-      "matched_fdc_id": "170457"
+      "matched_name": "Tomato",
+      "matched_fdc_id": "biotin-patch-bls4-tomato-g561100"
     },
     {
       "canonical_id": "bell-pepper",
@@ -1562,8 +1562,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.605,
-      "matched_name": "Cucumber, peeled, raw",
-      "matched_fdc_id": "169225"
+      "matched_name": "Cucumber",
+      "matched_fdc_id": "biotin-patch-bls4-cucumber-g520100"
     },
     {
       "canonical_id": "pumpkin",
@@ -1571,8 +1571,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Pumpkin, raw",
-      "matched_fdc_id": "168448"
+      "matched_name": "Pumpkin",
+      "matched_fdc_id": "biotin-patch-bls4-pumpkin-g581100"
     },
     {
       "canonical_id": "butternut-squash",
@@ -1616,8 +1616,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Spinach, raw",
-      "matched_fdc_id": "168462"
+      "matched_name": "Spinach",
+      "matched_fdc_id": "biotin-patch-bls4-spinach-g211100"
     },
     {
       "canonical_id": "beet",
@@ -1652,8 +1652,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.505,
-      "matched_name": "Amaranth grain, uncooked",
-      "matched_fdc_id": "170682"
+      "matched_name": "Amaranth",
+      "matched_fdc_id": "biotin-patch-bls4-amaranth-c335000"
     },
     {
       "canonical_id": "lettuce",
@@ -1769,8 +1769,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.8,
-      "matched_name": "Rice, white, long-grain, regular, raw, unenriched",
-      "matched_fdc_id": "169756"
+      "matched_name": "White rice",
+      "matched_fdc_id": "biotin-patch-bls4-white-rice-c352000"
     },
     {
       "canonical_id": "brown-rice",
@@ -1778,8 +1778,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.45,
-      "matched_name": "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",
-      "matched_fdc_id": "169703"
+      "matched_name": "Brown rice",
+      "matched_fdc_id": "biotin-patch-bls4-brown-rice-c351000"
     },
     {
       "canonical_id": "wild-rice",
@@ -1787,8 +1787,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.91,
-      "matched_name": "Wild rice, raw",
-      "matched_fdc_id": "169726"
+      "matched_name": "Wild rice",
+      "matched_fdc_id": "biotin-patch-bls4-wild-rice-c353100"
     },
     {
       "canonical_id": "oats",
@@ -1841,8 +1841,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.73,
-      "matched_name": "Millet, raw",
-      "matched_fdc_id": "169702"
+      "matched_name": "Millet",
+      "matched_fdc_id": "biotin-patch-bls4-millet-c332000"
     },
     {
       "canonical_id": "sweet-potato",
@@ -1904,8 +1904,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.3,
-      "matched_name": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
-      "matched_fdc_id": "171688"
+      "matched_name": "Apple",
+      "matched_fdc_id": "biotin-patch-bls4-apple-f110100"
     },
     {
       "canonical_id": "banana",
@@ -1913,8 +1913,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.34,
-      "matched_name": "Bananas, raw",
-      "matched_fdc_id": "173944"
+      "matched_name": "Banana",
+      "matched_fdc_id": "biotin-patch-bls4-banana-f503100"
     },
     {
       "canonical_id": "orange",
@@ -1922,8 +1922,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.37,
-      "matched_name": "Oranges, raw, all commercial varieties",
-      "matched_fdc_id": "169097"
+      "matched_name": "Orange",
+      "matched_fdc_id": "biotin-patch-bls4-orange-f603100"
     },
     {
       "canonical_id": "tangerine",
@@ -1931,8 +1931,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.61,
-      "matched_name": "Tangerines, (mandarin oranges), raw",
-      "matched_fdc_id": "169105"
+      "matched_name": "Tangerine",
+      "matched_fdc_id": "biotin-patch-bls4-tangerine-f609100"
     },
     {
       "canonical_id": "lemon",
@@ -1940,8 +1940,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.61,
-      "matched_name": "Lemons, raw, without peel",
-      "matched_fdc_id": "167746"
+      "matched_name": "Lemon",
+      "matched_fdc_id": "biotin-patch-bls4-lemon-f601100"
     },
     {
       "canonical_id": "lime",
@@ -1949,8 +1949,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.61,
-      "matched_name": "Limes, raw",
-      "matched_fdc_id": "168155"
+      "matched_name": "Lime",
+      "matched_fdc_id": "biotin-patch-bls4-lime-f602100"
     },
     {
       "canonical_id": "strawberry",
@@ -1958,8 +1958,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.39,
-      "matched_name": "Strawberries, raw",
-      "matched_fdc_id": "167762"
+      "matched_name": "Strawberry",
+      "matched_fdc_id": "biotin-patch-bls4-strawberry-f301100"
     },
     {
       "canonical_id": "blueberry",
@@ -1967,8 +1967,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.2,
-      "matched_name": "Blueberries, raw",
-      "matched_fdc_id": "171711"
+      "matched_name": "Blueberry",
+      "matched_fdc_id": "biotin-patch-bls4-blueberry-f304100"
     },
     {
       "canonical_id": "raspberry",
@@ -1976,8 +1976,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.52,
-      "matched_name": "Raspberries, raw",
-      "matched_fdc_id": "167755"
+      "matched_name": "Raspberry",
+      "matched_fdc_id": "biotin-patch-bls4-raspberry-f302100"
     },
     {
       "canonical_id": "kiwi",
@@ -1994,8 +1994,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.2,
-      "matched_name": "Avocados, raw, all commercial varieties",
-      "matched_fdc_id": "171705"
+      "matched_name": "Avocado",
+      "matched_fdc_id": "biotin-patch-bls4-avocado-f502100"
     },
     {
       "canonical_id": "olive",
@@ -2012,8 +2012,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.53,
-      "matched_name": "Mangos, raw",
-      "matched_fdc_id": "169910"
+      "matched_name": "Mango",
+      "matched_fdc_id": "biotin-patch-bls4-mango-f516100"
     },
     {
       "canonical_id": "pineapple",
@@ -2021,8 +2021,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.53,
-      "matched_name": "Pineapple, raw, all varieties",
-      "matched_fdc_id": "169124"
+      "matched_name": "Pineapple",
+      "matched_fdc_id": "biotin-patch-bls4-pineapple-f501100"
     },
     {
       "canonical_id": "papaya",
@@ -2030,8 +2030,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.51,
-      "matched_name": "Papayas, raw",
-      "matched_fdc_id": "169926"
+      "matched_name": "Papaya",
+      "matched_fdc_id": "biotin-patch-bls4-papaya-f517100"
     },
     {
       "canonical_id": "grapes",
@@ -2048,8 +2048,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.08,
-      "matched_name": "Pears, raw",
-      "matched_fdc_id": "169118"
+      "matched_name": "Pear",
+      "matched_fdc_id": "biotin-patch-bls4-pear-f130100"
     },
     {
       "canonical_id": "peach",
@@ -2057,8 +2057,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.21,
-      "matched_name": "Peaches, yellow, raw",
-      "matched_fdc_id": "169928"
+      "matched_name": "Peach",
+      "matched_fdc_id": "biotin-patch-bls4-peach-f203100"
     },
     {
       "canonical_id": "apricot",
@@ -2066,8 +2066,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.08,
-      "matched_name": "Apricots, raw",
-      "matched_fdc_id": "171697"
+      "matched_name": "Apricot",
+      "matched_fdc_id": "biotin-patch-bls4-apricot-f201100"
     },
     {
       "canonical_id": "almond",
@@ -2084,8 +2084,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.2,
-      "matched_name": "Nuts, walnuts, english",
-      "matched_fdc_id": "170187"
+      "matched_name": "Walnut",
+      "matched_fdc_id": "biotin-patch-bls4-walnut-h120100"
     },
     {
       "canonical_id": "pecan",
@@ -2093,8 +2093,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.2,
-      "matched_name": "Nuts, pecans",
-      "matched_fdc_id": "170182"
+      "matched_name": "Pecan",
+      "matched_fdc_id": "biotin-patch-bls4-pecan-h160100"
     },
     {
       "canonical_id": "macadamia",
@@ -2111,8 +2111,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.22,
-      "matched_name": "Nuts, hazelnuts or filberts",
-      "matched_fdc_id": "170581"
+      "matched_name": "Hazelnut",
+      "matched_fdc_id": "biotin-patch-bls4-hazelnut-h130100"
     },
     {
       "canonical_id": "pistachio",
@@ -2129,8 +2129,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.75,
-      "matched_name": "Nuts, brazilnuts, dried, unblanched",
-      "matched_fdc_id": "170569"
+      "matched_name": "Brazil nut",
+      "matched_fdc_id": "biotin-patch-bls4-brazil-nut-h180100"
     },
     {
       "canonical_id": "cashew",
@@ -2147,8 +2147,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.47,
-      "matched_name": "Seeds, pumpkin and squash seed kernels, dried",
-      "matched_fdc_id": "170556"
+      "matched_name": "Pumpkin seed",
+      "matched_fdc_id": "biotin-patch-bls4-pumpkin-seed-h310100"
     },
     {
       "canonical_id": "sunflower-seed",
@@ -2156,8 +2156,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.33,
-      "matched_name": "Seeds, sunflower seed kernels, dried",
-      "matched_fdc_id": "170562"
+      "matched_name": "Sunflower seed",
+      "matched_fdc_id": "biotin-patch-bls4-sunflower-seed-h430100"
     },
     {
       "canonical_id": "sesame",
@@ -2201,8 +2201,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.11,
-      "matched_name": "Nuts, pine nuts, dried",
-      "matched_fdc_id": "170591"
+      "matched_name": "Pine nut",
+      "matched_fdc_id": "biotin-patch-bls4-pine-nut-h320100"
     },
     {
       "canonical_id": "olive-oil",
@@ -2363,8 +2363,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.19,
-      "matched_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
-      "matched_fdc_id": "171027"
+      "matched_name": "Safflower oil",
+      "matched_fdc_id": "biotin-patch-bls4-safflower-oil-q340000"
     },
     {
       "canonical_id": "corn-oil",
@@ -2381,8 +2381,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.92,
-      "matched_name": "Vegetable oil, grapeseed",
-      "matched_fdc_id": "cnf-436"
+      "matched_name": "Grapeseed oil",
+      "matched_fdc_id": "biotin-patch-bls4-grapeseed-oil-q330000"
     },
     {
       "canonical_id": "peanut-oil",
@@ -2426,8 +2426,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.91,
-      "matched_name": "Bread, rye",
-      "matched_fdc_id": "172684"
+      "matched_name": "Rye bread",
+      "matched_fdc_id": "biotin-patch-bls4-rye-bread-b221000"
     },
     {
       "canonical_id": "bagel",
@@ -2489,8 +2489,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.638571,
-      "matched_name": "Bread, crumbs, dry, grated, seasoned",
-      "matched_fdc_id": "172806"
+      "matched_name": "Bread crumbs",
+      "matched_fdc_id": "biotin-patch-bls4-bread-crumbs-b821000"
     },
     {
       "canonical_id": "panko",
@@ -2525,8 +2525,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.81,
-      "matched_name": "Rice noodles, cooked",
-      "matched_fdc_id": "168914"
+      "matched_name": "Rice noodles",
+      "matched_fdc_id": "biotin-patch-bls4-rice-noodles-c559000"
     },
     {
       "canonical_id": "udon-noodles",
@@ -2579,8 +2579,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.63,
-      "matched_name": "Bulgur, cooked",
-      "matched_fdc_id": "170287"
+      "matched_name": "Bulgur",
+      "matched_fdc_id": "biotin-patch-bls4-bulgur-c119100"
     },
     {
       "canonical_id": "peanut-butter",
@@ -2588,8 +2588,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.638571,
-      "matched_name": "Peanut butter, smooth, reduced fat",
-      "matched_fdc_id": "172458"
+      "matched_name": "Peanut butter",
+      "matched_fdc_id": "biotin-patch-bls4-peanut-butter-h880200"
     },
     {
       "canonical_id": "almond-butter",
@@ -2642,8 +2642,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 0.455,
-      "matched_name": "Syrups, maple",
-      "matched_fdc_id": "169661"
+      "matched_name": "Maple syrup",
+      "matched_fdc_id": "biotin-patch-bls4-maple-syrup-s151100"
     },
     {
       "canonical_id": "tomato-sauce",
@@ -2660,8 +2660,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.585,
-      "matched_name": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
-      "matched_fdc_id": "170459"
+      "matched_name": "Tomato paste",
+      "matched_fdc_id": "biotin-patch-bls4-tomato-paste-r160000"
     },
     {
       "canonical_id": "canned-tomatoes",
@@ -2678,8 +2678,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.170769,
-      "matched_name": "Nuts, coconut milk, raw (liquid expressed from grated meat and water)",
-      "matched_fdc_id": "170172"
+      "matched_name": "Coconut milk",
+      "matched_fdc_id": "biotin-patch-bls4-coconut-milk-h154000"
     },
     {
       "canonical_id": "broth",
@@ -2714,8 +2714,8 @@
       "match_status": "curated",
       "match_source": "manual_curation_fdc_id",
       "match_confidence": 1.43,
-      "matched_name": "Mayonnaise, made with tofu",
-      "matched_fdc_id": "167695"
+      "matched_name": "Mayonnaise",
+      "matched_fdc_id": "biotin-patch-bls4-mayonnaise-q991000"
     },
     {
       "canonical_id": "soy-sauce",

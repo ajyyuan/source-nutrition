@@ -13,33 +13,26 @@ Scope: explicit biotin (`vitamin_b7_ug`) and omega-3 (`omega3_g`) completeness t
 - Coverage impact after rebuild:
   - foods missing omega-3: `319 -> 36`
   - foods with omega-3 reported: `5 -> 288`
-- Biotin remained largely source-limited in current datasets:
-  - foods missing biotin: `313`
-  - foods with biotin reported: `11`
-- High-confidence biotin patch blends were added for semantically exact rows where a strict baseline row had full non-biotin coverage but missing biotin:
-  - `chia` (from Foundation 2712620)
-  - `oyster-mushroom` (from Foundation 1750345)
-  - `shiitake` (from Foundation 1757262)
-  - `maitake` (from Foundation 2006839)
-  - `white-mushroom` (from Foundation 1757173)
+- Biotin remained source-limited in core USDA/CNF rows, then improved via external-source patch blending:
+  - foods missing biotin: `313 -> 229`
+  - foods with biotin reported: `11 -> 95`
+- External biotin donor source added:
+  - German Nutrient Database (BLS), version 4.0 (2025), DOI `10.25826/Data20251217-134202-0`
+  - URL: `https://www.blsdb.de/download`
+- Patch strategy for this pass:
+  - preserve existing canon baseline vectors
+  - inject only `vitamin_b7_ug` from high-confidence BLS matches
+  - keep all previously missing non-biotin nutrients missing (no non-biotin fill-in)
 
 ## Biotin current state
 
-Biotin is currently reported for:
+Biotin is now reported for `95` canon foods.
 
-- `chlorella`
-- `chia`
-- `duck-fat`
-- `dulse`
-- `lamb-tallow`
-- `lion-s-mane`
-- `maitake`
-- `nori`
-- `oyster-mushroom`
-- `shiitake`
-- `white-mushroom`
+Provenance for external-source injections is tracked in:
 
-Status: `open` (dataset sparsity / reporting limitation in current source rows).
+- `source-canon-v1.external-biotin-provenance.json`
+
+Status: `open` (improved, but still source-limited for `229` foods).
 
 ## Residual omega-3 missing set
 

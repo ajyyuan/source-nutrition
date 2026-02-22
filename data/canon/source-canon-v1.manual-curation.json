@@ -366,12 +366,12 @@
     {
       "canonical_id": "pork-tenderloin",
       "canonical_name": "Pork tenderloin",
-      "fdc_id": "168249",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, loin, tenderloin, separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-pork-tenderloin-u611100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U611100 (Pork tenderloin, raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual curation override: switched to SR Legacy raw pork tenderloin row with full non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168249 baseline nutrient vector and inject biotin from German BLS 4.0 row U611100 (Pork tenderloin, raw)."
     },
     {
       "canonical_id": "pork-shoulder",
@@ -386,22 +386,22 @@
     {
       "canonical_id": "pork-chop",
       "canonical_name": "Pork chop",
-      "fdc_id": "167829",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, loin, center loin (chops), bone-in, separable lean only, raw",
+      "fdc_id": "biotin-patch-bls4-pork-chop-u522100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U522100 (Pork chop (loin) raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual curation override: switched to SR Legacy raw pork chop row with full non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167829 baseline nutrient vector and inject biotin from German BLS 4.0 row U522100 (Pork chop (loin) raw)."
     },
     {
       "canonical_id": "pork-belly",
       "canonical_name": "Pork belly",
-      "fdc_id": "cnf-1758",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Pork, wholesale cuts, belly, raw",
+      "fdc_id": "biotin-patch-bls4-pork-belly-u642100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 U642100 (Pork belly (untrimmed) raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual curation override: switched to exact CNF pork belly row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1758 baseline nutrient vector and inject biotin from German BLS 4.0 row U642100 (Pork belly (untrimmed) raw)."
     },
     {
       "canonical_id": "pork-ribs",
@@ -586,12 +586,12 @@
     {
       "canonical_id": "chinook-salmon",
       "canonical_name": "Chinook salmon",
-      "fdc_id": "173687",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, salmon, chinook, smoked",
+      "fdc_id": "biotin-patch-bls4-chinook-salmon-t415100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T415100 (Chinook salmon raw)",
       "confidence": "medium",
       "score": 0.8,
-      "notes": "Vitamin completion pass: remapped to chinook-specific row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173687 baseline nutrient vector and inject biotin from German BLS 4.0 row T415100 (Chinook salmon raw)."
     },
     {
       "canonical_id": "sardine",
@@ -636,22 +636,22 @@
     {
       "canonical_id": "cod",
       "canonical_name": "Cod",
-      "fdc_id": "171955",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, cod, Atlantic, raw",
+      "fdc_id": "biotin-patch-bls4-cod-t204100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T204100 (Cod raw)",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171955 baseline nutrient vector and inject biotin from German BLS 4.0 row T204100 (Cod raw)."
     },
     {
       "canonical_id": "haddock",
       "canonical_name": "Haddock",
-      "fdc_id": "171964",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, haddock, raw",
+      "fdc_id": "biotin-patch-bls4-haddock-t206100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T206100 (Haddock raw)",
       "confidence": "high",
       "score": 1.455,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171964 baseline nutrient vector and inject biotin from German BLS 4.0 row T206100 (Haddock raw)."
     },
     {
       "canonical_id": "pollock",
@@ -676,32 +676,32 @@
     {
       "canonical_id": "mackerel",
       "canonical_name": "Mackerel",
-      "fdc_id": "173673",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, mackerel, spanish, raw",
+      "fdc_id": "biotin-patch-bls4-mackerel-t107100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T107100 (Mackerel raw)",
       "confidence": "high",
       "score": 1.38,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173673 baseline nutrient vector and inject biotin from German BLS 4.0 row T107100 (Mackerel raw)."
     },
     {
       "canonical_id": "herring",
       "canonical_name": "Herring",
-      "fdc_id": "175116",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, herring, Atlantic, raw",
+      "fdc_id": "biotin-patch-bls4-herring-t102100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T102100 (Herring raw)",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/175116 baseline nutrient vector and inject biotin from German BLS 4.0 row T102100 (Herring raw)."
     },
     {
       "canonical_id": "trout",
       "canonical_name": "Trout",
-      "fdc_id": "173717",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Fish, trout, rainbow, farmed, raw",
+      "fdc_id": "biotin-patch-bls4-trout-t422100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T422100 (Trout raw)",
       "confidence": "high",
       "score": 1.33,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173717 baseline nutrient vector and inject biotin from German BLS 4.0 row T422100 (Trout raw)."
     },
     {
       "canonical_id": "tilapia",
@@ -726,12 +726,12 @@
     {
       "canonical_id": "anchovy",
       "canonical_name": "Anchovy",
-      "fdc_id": "cnf-2984",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Fish, anchovy, european, raw",
+      "fdc_id": "biotin-patch-bls4-anchovy-t104100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T104100 (Anchovy raw)",
       "confidence": "high",
       "score": 1.4,
-      "notes": "Manual curation override: switched from oil-packed anchovy to exact CNF raw anchovy row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-2984 baseline nutrient vector and inject biotin from German BLS 4.0 row T104100 (Anchovy raw)."
     },
     {
       "canonical_id": "shrimp",
@@ -756,12 +756,12 @@
     {
       "canonical_id": "scallop",
       "canonical_name": "Scallop",
-      "fdc_id": "174220",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mollusks, scallop, mixed species, raw",
+      "fdc_id": "biotin-patch-bls4-scallop-t793100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T793100 (Scallop raw)",
       "confidence": "high",
       "score": 0.95,
-      "notes": "Manual correction: replaced squash homonym row with shellfish scallop row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174220 baseline nutrient vector and inject biotin from German BLS 4.0 row T793100 (Scallop raw)."
     },
     {
       "canonical_id": "mussel",
@@ -806,12 +806,12 @@
     {
       "canonical_id": "lobster",
       "canonical_name": "Lobster",
-      "fdc_id": "174208",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Crustaceans, lobster, northern, raw",
+      "fdc_id": "biotin-patch-bls4-lobster-t730100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 T730100 (Lobster raw)",
       "confidence": "medium",
       "score": 1.38,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174208 baseline nutrient vector and inject biotin from German BLS 4.0 row T730100 (Lobster raw)."
     },
     {
       "canonical_id": "squid",
@@ -836,42 +836,42 @@
     {
       "canonical_id": "beef-liver",
       "canonical_name": "Beef liver",
-      "fdc_id": "169451",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, liver, raw",
+      "fdc_id": "biotin-patch-bls4-beef-liver-v531100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V531100 (Beef liver, raw)",
       "confidence": "medium",
       "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169451 baseline nutrient vector and inject biotin from German BLS 4.0 row V531100 (Beef liver, raw)."
     },
     {
       "canonical_id": "beef-heart",
       "canonical_name": "Beef heart",
-      "fdc_id": "169448",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, heart, cooked, simmered",
+      "fdc_id": "biotin-patch-bls4-beef-heart-v511100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V511100 (Beef heart, raw)",
       "confidence": "medium",
       "score": 0.72,
-      "notes": "Vitamin completion pass: remapped to same-organ USDA row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169448 baseline nutrient vector and inject biotin from German BLS 4.0 row V511100 (Beef heart, raw)."
     },
     {
       "canonical_id": "beef-kidney",
       "canonical_name": "Beef kidney",
-      "fdc_id": "cnf-2787",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Beef, kidneys, raw",
+      "fdc_id": "biotin-patch-bls4-beef-kidney-v571100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V571100 (Beef kidney, raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual curation override: switched to CNF beef kidney row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-2787 baseline nutrient vector and inject biotin from German BLS 4.0 row V571100 (Beef kidney, raw)."
     },
     {
       "canonical_id": "beef-tongue",
       "canonical_name": "Beef tongue",
-      "fdc_id": "cnf-2669",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Beef, tongue, simmered",
+      "fdc_id": "biotin-patch-bls4-beef-tongue-v591100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V591100 (Beef tongue, raw)",
       "confidence": "medium",
       "score": 0.85,
-      "notes": "Manual curation override: switched to CNF beef tongue row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-2669 baseline nutrient vector and inject biotin from German BLS 4.0 row V591100 (Beef tongue, raw)."
     },
     {
       "canonical_id": "beef-brain",
@@ -886,12 +886,12 @@
     {
       "canonical_id": "beef-spleen",
       "canonical_name": "Beef spleen",
-      "fdc_id": "169454",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Beef, variety meats and by-products, spleen, raw",
+      "fdc_id": "biotin-patch-bls4-beef-spleen-v561100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V561100 (Beef spleen, raw)",
       "confidence": "medium",
       "score": 0.68,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169454 baseline nutrient vector and inject biotin from German BLS 4.0 row V561100 (Beef spleen, raw)."
     },
     {
       "canonical_id": "beef-pancreas",
@@ -926,62 +926,62 @@
     {
       "canonical_id": "lamb-liver",
       "canonical_name": "Lamb liver",
-      "fdc_id": "cnf-3614",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Lamb, liver, raw",
+      "fdc_id": "biotin-patch-bls4-lamb-liver-v535100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V535100 (Lamb liver, raw)",
       "confidence": "medium",
       "score": 0.87,
-      "notes": "Manual curation override: switched to exact CNF lamb liver row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-3614 baseline nutrient vector and inject biotin from German BLS 4.0 row V535100 (Lamb liver, raw)."
     },
     {
       "canonical_id": "lamb-heart",
       "canonical_name": "Lamb heart",
-      "fdc_id": "174444",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, heart, raw",
+      "fdc_id": "biotin-patch-bls4-lamb-heart-v515100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V515100 (Lamb heart, raw)",
       "confidence": "medium",
       "score": 0.755,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174444 baseline nutrient vector and inject biotin from German BLS 4.0 row V515100 (Lamb heart, raw)."
     },
     {
       "canonical_id": "lamb-kidney",
       "canonical_name": "Lamb kidney",
-      "fdc_id": "174442",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lamb, New Zealand, imported, kidney, raw",
+      "fdc_id": "biotin-patch-bls4-lamb-kidney-v575100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V575100 (Lamb kidney, raw)",
       "confidence": "medium",
       "score": 0.755,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/174442 baseline nutrient vector and inject biotin from German BLS 4.0 row V575100 (Lamb kidney, raw)."
     },
     {
       "canonical_id": "pork-liver",
       "canonical_name": "Pork liver",
-      "fdc_id": "cnf-1844",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Pork, liver, raw",
+      "fdc_id": "biotin-patch-bls4-pork-liver-v533100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V533100 (Pork liver, raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Manual correction: replaced pork liver cheese row with CNF pork liver row for stronger micronutrient coverage."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1844 baseline nutrient vector and inject biotin from German BLS 4.0 row V533100 (Pork liver, raw)."
     },
     {
       "canonical_id": "pork-heart",
       "canonical_name": "Pork heart",
-      "fdc_id": "cnf-1839",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Pork, heart, raw",
+      "fdc_id": "biotin-patch-bls4-pork-heart-v513100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V513100 (Pork heart, raw)",
       "confidence": "medium",
       "score": 1.7,
-      "notes": "Vitamin completion pass: switched to exact CNF pork-heart row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1839 baseline nutrient vector and inject biotin from German BLS 4.0 row V513100 (Pork heart, raw)."
     },
     {
       "canonical_id": "pork-kidney",
       "canonical_name": "Pork kidney",
-      "fdc_id": "cnf-1842",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Pork, kidney, braised",
+      "fdc_id": "biotin-patch-bls4-pork-kidney-v573100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V573100 (Pork kidney, raw)",
       "confidence": "medium",
       "score": 1.7,
-      "notes": "Vitamin completion pass: switched to exact CNF pork-kidney row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1842 baseline nutrient vector and inject biotin from German BLS 4.0 row V573100 (Pork kidney, raw)."
     },
     {
       "canonical_id": "pork-brain",
@@ -996,32 +996,32 @@
     {
       "canonical_id": "pork-stomach",
       "canonical_name": "Pork stomach",
-      "fdc_id": "167867",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pork, fresh, variety meats and by-products, stomach, raw",
+      "fdc_id": "biotin-patch-bls4-pork-stomach-v553100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V553100 (Pork stomach, raw)",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167867 baseline nutrient vector and inject biotin from German BLS 4.0 row V553100 (Pork stomach, raw)."
     },
     {
       "canonical_id": "chicken-liver",
       "canonical_name": "Chicken liver",
-      "fdc_id": "171060",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Chicken, liver, all classes, raw",
+      "fdc_id": "biotin-patch-bls4-chicken-liver-v634100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V634100 (Chicken liver, raw)",
       "confidence": "high",
       "score": 1.858571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171060 baseline nutrient vector and inject biotin from German BLS 4.0 row V634100 (Chicken liver, raw)."
     },
     {
       "canonical_id": "chicken-heart",
       "canonical_name": "Chicken heart",
-      "fdc_id": "cnf-576",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Chicken, broiler, heart, raw",
+      "fdc_id": "biotin-patch-bls4-chicken-heart-v614100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 V614100 (Chicken heart, raw)",
       "confidence": "medium",
       "score": 1,
-      "notes": "Vitamin completion pass: switched to exact CNF chicken-heart row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-576 baseline nutrient vector and inject biotin from German BLS 4.0 row V614100 (Chicken heart, raw)."
     },
     {
       "canonical_id": "chicken-gizzard",
@@ -1036,12 +1036,12 @@
     {
       "canonical_id": "chicken-egg",
       "canonical_name": "Chicken egg",
-      "fdc_id": "172104",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg rolls, chicken, refrigerated, heated",
+      "fdc_id": "biotin-patch-bls4-chicken-egg-e111100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E111100 (Chicken egg raw)",
       "confidence": "high",
       "score": 1.58,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172104 baseline nutrient vector and inject biotin from German BLS 4.0 row E111100 (Chicken egg raw)."
     },
     {
       "canonical_id": "egg-white",
@@ -1086,32 +1086,32 @@
     {
       "canonical_id": "duck-egg",
       "canonical_name": "Duck egg",
-      "fdc_id": "172189",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, duck, whole, fresh, raw",
+      "fdc_id": "biotin-patch-bls4-duck-egg-e131100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E131100 (Duck egg raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172189 baseline nutrient vector and inject biotin from German BLS 4.0 row E131100 (Duck egg raw)."
     },
     {
       "canonical_id": "turkey-egg",
       "canonical_name": "Turkey egg",
-      "fdc_id": "172192",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, turkey, whole, fresh, raw",
+      "fdc_id": "biotin-patch-bls4-turkey-egg-e151100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E151100 (Turkey egg raw)",
       "confidence": "medium",
       "score": 0.808571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172192 baseline nutrient vector and inject biotin from German BLS 4.0 row E151100 (Turkey egg raw)."
     },
     {
       "canonical_id": "quail-egg",
       "canonical_name": "Quail egg",
-      "fdc_id": "172191",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Egg, quail, whole, fresh, raw",
+      "fdc_id": "biotin-patch-bls4-quail-egg-e106100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 E106100 (Quail egg raw)",
       "confidence": "medium",
       "score": 0.688571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172191 baseline nutrient vector and inject biotin from German BLS 4.0 row E106100 (Quail egg raw)."
     },
     {
       "canonical_id": "cow-s-milk",
@@ -1436,22 +1436,22 @@
     {
       "canonical_id": "broccoli",
       "canonical_name": "Broccoli",
-      "fdc_id": "170379",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Broccoli, raw",
+      "fdc_id": "biotin-patch-bls4-broccoli-g312100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G312100 (Broccoli raw)",
       "confidence": "high",
       "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170379 baseline nutrient vector and inject biotin from German BLS 4.0 row G312100 (Broccoli raw)."
     },
     {
       "canonical_id": "cauliflower",
       "canonical_name": "Cauliflower",
-      "fdc_id": "169986",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cauliflower, raw",
+      "fdc_id": "biotin-patch-bls4-cauliflower-g311100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G311100 (Cauliflower raw)",
       "confidence": "high",
       "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169986 baseline nutrient vector and inject biotin from German BLS 4.0 row G311100 (Cauliflower raw)."
     },
     {
       "canonical_id": "cabbage",
@@ -1466,12 +1466,12 @@
     {
       "canonical_id": "brussels-sprouts",
       "canonical_name": "Brussels sprouts",
-      "fdc_id": "170383",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Brussels sprouts, raw",
+      "fdc_id": "biotin-patch-bls4-brussels-sprouts-g332100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G332100 (Brussels sprouts raw)",
       "confidence": "high",
       "score": 1.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170383 baseline nutrient vector and inject biotin from German BLS 4.0 row G332100 (Brussels sprouts raw)."
     },
     {
       "canonical_id": "kale",
@@ -1506,22 +1506,22 @@
     {
       "canonical_id": "radish",
       "canonical_name": "Radish",
-      "fdc_id": "168451",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Radishes, oriental, raw",
+      "fdc_id": "biotin-patch-bls4-radish-g680100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G680100 (Radish raw)",
       "confidence": "medium",
       "score": 1,
-      "notes": "Manual correction: replaced radish-sprout proxy with raw radish row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168451 baseline nutrient vector and inject biotin from German BLS 4.0 row G680100 (Radish raw)."
     },
     {
       "canonical_id": "turnip",
       "canonical_name": "Turnip",
-      "fdc_id": "170061",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Turnip greens, raw",
+      "fdc_id": "biotin-patch-bls4-turnip-g614100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G614100 (Turnip raw)",
       "confidence": "high",
       "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170061 baseline nutrient vector and inject biotin from German BLS 4.0 row G614100 (Turnip raw)."
     },
     {
       "canonical_id": "rutabaga",
@@ -1546,12 +1546,12 @@
     {
       "canonical_id": "carrot",
       "canonical_name": "Carrot",
-      "fdc_id": "170500",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Carrot, dehydrated",
+      "fdc_id": "biotin-patch-bls4-carrot-g620100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G620100 (Carrot raw)",
       "confidence": "high",
       "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170500 baseline nutrient vector and inject biotin from German BLS 4.0 row G620100 (Carrot raw)."
     },
     {
       "canonical_id": "celery",
@@ -1566,12 +1566,12 @@
     {
       "canonical_id": "parsnip",
       "canonical_name": "Parsnip",
-      "fdc_id": "170417",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Parsnips, raw",
+      "fdc_id": "biotin-patch-bls4-parsnip-g640100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G640100 (Parsnip raw)",
       "confidence": "medium",
       "score": 1,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170417 baseline nutrient vector and inject biotin from German BLS 4.0 row G640100 (Parsnip raw)."
     },
     {
       "canonical_id": "fennel",
@@ -1616,42 +1616,42 @@
     {
       "canonical_id": "garlic",
       "canonical_name": "Garlic",
-      "fdc_id": "169230",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Garlic, raw",
+      "fdc_id": "biotin-patch-bls4-garlic-g490100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G490100 (Garlic raw)",
       "confidence": "medium",
       "score": 1.73,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169230 baseline nutrient vector and inject biotin from German BLS 4.0 row G490100 (Garlic raw)."
     },
     {
       "canonical_id": "onion",
       "canonical_name": "Onion",
-      "fdc_id": "170000",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Onions, raw",
+      "fdc_id": "biotin-patch-bls4-onion-g480100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G480100 (Onion raw)",
       "confidence": "medium",
       "score": 1.24,
-      "notes": "Manual correction: replaced onion powder proxy with raw onion row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170000 baseline nutrient vector and inject biotin from German BLS 4.0 row G480100 (Onion raw)."
     },
     {
       "canonical_id": "shallot",
       "canonical_name": "Shallot",
-      "fdc_id": "170499",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Shallots, raw",
+      "fdc_id": "biotin-patch-bls4-shallot-g485100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G485100 (Shallot raw)",
       "confidence": "medium",
       "score": 1,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170499 baseline nutrient vector and inject biotin from German BLS 4.0 row G485100 (Shallot raw)."
     },
     {
       "canonical_id": "leek",
       "canonical_name": "Leek",
-      "fdc_id": "169246",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Leeks, (bulb and lower leaf-portion), raw",
+      "fdc_id": "biotin-patch-bls4-leek-g470100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G470100 (Leek raw)",
       "confidence": "medium",
       "score": 1,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169246 baseline nutrient vector and inject biotin from German BLS 4.0 row G470100 (Leek raw)."
     },
     {
       "canonical_id": "scallion",
@@ -1686,12 +1686,12 @@
     {
       "canonical_id": "tomato",
       "canonical_name": "Tomato",
-      "fdc_id": "170457",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Tomatoes, red, ripe, raw, year round average",
+      "fdc_id": "biotin-patch-bls4-tomato-g561100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G561100 (Tomato raw)",
       "confidence": "high",
       "score": 1.64,
-      "notes": "Manual correction: replaced tomato powder proxy with raw tomato row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170457 baseline nutrient vector and inject biotin from German BLS 4.0 row G561100 (Tomato raw)."
     },
     {
       "canonical_id": "bell-pepper",
@@ -1736,22 +1736,22 @@
     {
       "canonical_id": "cucumber",
       "canonical_name": "Cucumber",
-      "fdc_id": "169225",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Cucumber, peeled, raw",
+      "fdc_id": "biotin-patch-bls4-cucumber-g520100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G520100 (Cucumber raw)",
       "confidence": "high",
       "score": 1.605,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169225 baseline nutrient vector and inject biotin from German BLS 4.0 row G520100 (Cucumber raw)."
     },
     {
       "canonical_id": "pumpkin",
       "canonical_name": "Pumpkin",
-      "fdc_id": "168448",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pumpkin, raw",
+      "fdc_id": "biotin-patch-bls4-pumpkin-g581100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G581100 (Pumpkin (C. pepo) raw)",
       "confidence": "high",
       "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168448 baseline nutrient vector and inject biotin from German BLS 4.0 row G581100 (Pumpkin (C. pepo) raw)."
     },
     {
       "canonical_id": "butternut-squash",
@@ -1796,12 +1796,12 @@
     {
       "canonical_id": "spinach",
       "canonical_name": "Spinach",
-      "fdc_id": "168462",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Spinach, raw",
+      "fdc_id": "biotin-patch-bls4-spinach-g211100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 G211100 (Spinach raw)",
       "confidence": "high",
       "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168462 baseline nutrient vector and inject biotin from German BLS 4.0 row G211100 (Spinach raw)."
     },
     {
       "canonical_id": "beet",
@@ -1836,12 +1836,12 @@
     {
       "canonical_id": "amaranth",
       "canonical_name": "Amaranth",
-      "fdc_id": "170682",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Amaranth grain, uncooked",
+      "fdc_id": "biotin-patch-bls4-amaranth-c335000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C335000 (Amaranth raw)",
       "confidence": "medium",
       "score": 1.505,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170682 baseline nutrient vector and inject biotin from German BLS 4.0 row C335000 (Amaranth raw)."
     },
     {
       "canonical_id": "lettuce",
@@ -1966,32 +1966,32 @@
     {
       "canonical_id": "white-rice",
       "canonical_name": "White rice",
-      "fdc_id": "169756",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Rice, white, long-grain, regular, raw, unenriched",
+      "fdc_id": "biotin-patch-bls4-white-rice-c352000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C352000 (White rice raw)",
       "confidence": "medium",
       "score": 0.8,
-      "notes": "Manual correction: replaced rice flour proxy with plain white-rice row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169756 baseline nutrient vector and inject biotin from German BLS 4.0 row C352000 (White rice raw)."
     },
     {
       "canonical_id": "brown-rice",
       "canonical_name": "Brown rice",
-      "fdc_id": "169703",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "biotin-patch-bls4-brown-rice-c351000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C351000 (Brown rice raw)",
       "confidence": "medium",
       "score": 1.45,
-      "notes": "Manual correction: replaced brown-rice chips proxy with plain brown-rice row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169703 baseline nutrient vector and inject biotin from German BLS 4.0 row C351000 (Brown rice raw)."
     },
     {
       "canonical_id": "wild-rice",
       "canonical_name": "Wild rice",
-      "fdc_id": "169726",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Wild rice, raw",
+      "fdc_id": "biotin-patch-bls4-wild-rice-c353100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C353100 (Wild rice raw)",
       "confidence": "high",
       "score": 1.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169726 baseline nutrient vector and inject biotin from German BLS 4.0 row C353100 (Wild rice raw)."
     },
     {
       "canonical_id": "oats",
@@ -2046,12 +2046,12 @@
     {
       "canonical_id": "millet",
       "canonical_name": "Millet",
-      "fdc_id": "169702",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Millet, raw",
+      "fdc_id": "biotin-patch-bls4-millet-c332000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C332000 (Millet raw)",
       "confidence": "high",
       "score": 1.73,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169702 baseline nutrient vector and inject biotin from German BLS 4.0 row C332000 (Millet raw)."
     },
     {
       "canonical_id": "sweet-potato",
@@ -2116,92 +2116,92 @@
     {
       "canonical_id": "apple",
       "canonical_name": "Apple",
-      "fdc_id": "171688",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "biotin-patch-bls4-apple-f110100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F110100 (Apple raw)",
       "confidence": "medium",
       "score": 1.3,
-      "notes": "Manual correction: replaced apple juice proxy with raw apple row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171688 baseline nutrient vector and inject biotin from German BLS 4.0 row F110100 (Apple raw)."
     },
     {
       "canonical_id": "banana",
       "canonical_name": "Banana",
-      "fdc_id": "173944",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bananas, raw",
+      "fdc_id": "biotin-patch-bls4-banana-f503100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F503100 (Banana raw)",
       "confidence": "high",
       "score": 1.34,
-      "notes": "Manual correction: replaced banana-pepper homonym row with banana fruit row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/173944 baseline nutrient vector and inject biotin from German BLS 4.0 row F503100 (Banana raw)."
     },
     {
       "canonical_id": "orange",
       "canonical_name": "Orange",
-      "fdc_id": "169097",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Oranges, raw, all commercial varieties",
+      "fdc_id": "biotin-patch-bls4-orange-f603100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F603100 (Orange raw)",
       "confidence": "medium",
       "score": 1.37,
-      "notes": "Manual correction: replaced orange juice proxy with raw orange row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169097 baseline nutrient vector and inject biotin from German BLS 4.0 row F603100 (Orange raw)."
     },
     {
       "canonical_id": "tangerine",
       "canonical_name": "Tangerine",
-      "fdc_id": "169105",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Tangerines, (mandarin oranges), raw",
+      "fdc_id": "biotin-patch-bls4-tangerine-f609100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F609100 (Tangerine raw)",
       "confidence": "high",
       "score": 1.61,
-      "notes": "Manual correction: replaced tangerine juice proxy with raw tangerine row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169105 baseline nutrient vector and inject biotin from German BLS 4.0 row F609100 (Tangerine raw)."
     },
     {
       "canonical_id": "lemon",
       "canonical_name": "Lemon",
-      "fdc_id": "167746",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Lemons, raw, without peel",
+      "fdc_id": "biotin-patch-bls4-lemon-f601100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F601100 (Lemon raw)",
       "confidence": "high",
       "score": 1.61,
-      "notes": "Manual correction: replaced lemon juice proxy with raw lemon row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167746 baseline nutrient vector and inject biotin from German BLS 4.0 row F601100 (Lemon raw)."
     },
     {
       "canonical_id": "lime",
       "canonical_name": "Lime",
-      "fdc_id": "168155",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Limes, raw",
+      "fdc_id": "biotin-patch-bls4-lime-f602100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F602100 (Lime raw)",
       "confidence": "high",
       "score": 1.61,
-      "notes": "Manual correction: replaced lime juice proxy with raw lime row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168155 baseline nutrient vector and inject biotin from German BLS 4.0 row F602100 (Lime raw)."
     },
     {
       "canonical_id": "strawberry",
       "canonical_name": "Strawberry",
-      "fdc_id": "167762",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Strawberries, raw",
+      "fdc_id": "biotin-patch-bls4-strawberry-f301100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F301100 (Strawberry raw)",
       "confidence": "high",
       "score": 1.39,
-      "notes": "Manual correction: replaced flavored beverage mix proxy with raw strawberry row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167762 baseline nutrient vector and inject biotin from German BLS 4.0 row F301100 (Strawberry raw)."
     },
     {
       "canonical_id": "blueberry",
       "canonical_name": "Blueberry",
-      "fdc_id": "171711",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Blueberries, raw",
+      "fdc_id": "biotin-patch-bls4-blueberry-f304100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F304100 (Blueberry raw)",
       "confidence": "medium",
       "score": 1.2,
-      "notes": "Manual correction: replaced pie-filling proxy with raw blueberry row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171711 baseline nutrient vector and inject biotin from German BLS 4.0 row F304100 (Blueberry raw)."
     },
     {
       "canonical_id": "raspberry",
       "canonical_name": "Raspberry",
-      "fdc_id": "167755",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Raspberries, raw",
+      "fdc_id": "biotin-patch-bls4-raspberry-f302100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F302100 (Raspberry raw)",
       "confidence": "high",
       "score": 1.52,
-      "notes": "Manual correction: replaced raspberry juice concentrate row with raw raspberries row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167755 baseline nutrient vector and inject biotin from German BLS 4.0 row F302100 (Raspberry raw)."
     },
     {
       "canonical_id": "kiwi",
@@ -2216,12 +2216,12 @@
     {
       "canonical_id": "avocado",
       "canonical_name": "Avocado",
-      "fdc_id": "171705",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Avocados, raw, all commercial varieties",
+      "fdc_id": "biotin-patch-bls4-avocado-f502100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F502100 (Avocado raw)",
       "confidence": "high",
       "score": 1.2,
-      "notes": "Manual correction: replaced avocado oil row with raw avocado fruit row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171705 baseline nutrient vector and inject biotin from German BLS 4.0 row F502100 (Avocado raw)."
     },
     {
       "canonical_id": "olive",
@@ -2236,32 +2236,32 @@
     {
       "canonical_id": "mango",
       "canonical_name": "Mango",
-      "fdc_id": "169910",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mangos, raw",
+      "fdc_id": "biotin-patch-bls4-mango-f516100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F516100 (Mango raw)",
       "confidence": "high",
       "score": 1.53,
-      "notes": "Manual correction: switched to SR Legacy raw mango row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169910 baseline nutrient vector and inject biotin from German BLS 4.0 row F516100 (Mango raw)."
     },
     {
       "canonical_id": "pineapple",
       "canonical_name": "Pineapple",
-      "fdc_id": "169124",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pineapple, raw, all varieties",
+      "fdc_id": "biotin-patch-bls4-pineapple-f501100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F501100 (Pineapple raw)",
       "confidence": "medium",
       "score": 1.53,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169124 baseline nutrient vector and inject biotin from German BLS 4.0 row F501100 (Pineapple raw)."
     },
     {
       "canonical_id": "papaya",
       "canonical_name": "Papaya",
-      "fdc_id": "169926",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Papayas, raw",
+      "fdc_id": "biotin-patch-bls4-papaya-f517100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F517100 (Papaya raw)",
       "confidence": "high",
       "score": 1.51,
-      "notes": "Manual correction: replaced papaya nectar proxy with raw papaya row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169926 baseline nutrient vector and inject biotin from German BLS 4.0 row F517100 (Papaya raw)."
     },
     {
       "canonical_id": "grapes",
@@ -2276,32 +2276,32 @@
     {
       "canonical_id": "pear",
       "canonical_name": "Pear",
-      "fdc_id": "169118",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Pears, raw",
+      "fdc_id": "biotin-patch-bls4-pear-f130100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F130100 (Pear raw)",
       "confidence": "medium",
       "score": 1.08,
-      "notes": "Manual correction: replaced pear juice row with raw pears row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169118 baseline nutrient vector and inject biotin from German BLS 4.0 row F130100 (Pear raw)."
     },
     {
       "canonical_id": "peach",
       "canonical_name": "Peach",
-      "fdc_id": "169928",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Peaches, yellow, raw",
+      "fdc_id": "biotin-patch-bls4-peach-f203100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F203100 (Peach raw)",
       "confidence": "medium",
       "score": 1.21,
-      "notes": "Manual correction: replaced peach pie proxy with raw peach row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169928 baseline nutrient vector and inject biotin from German BLS 4.0 row F203100 (Peach raw)."
     },
     {
       "canonical_id": "apricot",
       "canonical_name": "Apricot",
-      "fdc_id": "171697",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Apricots, raw",
+      "fdc_id": "biotin-patch-bls4-apricot-f201100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 F201100 (Apricot raw)",
       "confidence": "medium",
       "score": 1.08,
-      "notes": "Manual correction: replaced apricot babyfood proxy with raw apricot row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171697 baseline nutrient vector and inject biotin from German BLS 4.0 row F201100 (Apricot raw)."
     },
     {
       "canonical_id": "almond",
@@ -2316,22 +2316,22 @@
     {
       "canonical_id": "walnut",
       "canonical_name": "Walnut",
-      "fdc_id": "170187",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, walnuts, english",
+      "fdc_id": "biotin-patch-bls4-walnut-h120100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H120100 (Walnut)",
       "confidence": "high",
       "score": 1.2,
-      "notes": "Manual correction: replaced walnut oil row with whole walnut row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170187 baseline nutrient vector and inject biotin from German BLS 4.0 row H120100 (Walnut)."
     },
     {
       "canonical_id": "pecan",
       "canonical_name": "Pecan",
-      "fdc_id": "170182",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, pecans",
+      "fdc_id": "biotin-patch-bls4-pecan-h160100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H160100 (Pecan)",
       "confidence": "medium",
       "score": 1.2,
-      "notes": "Manual correction: replaced pecan pie proxy with whole pecan row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170182 baseline nutrient vector and inject biotin from German BLS 4.0 row H160100 (Pecan)."
     },
     {
       "canonical_id": "macadamia",
@@ -2346,12 +2346,12 @@
     {
       "canonical_id": "hazelnut",
       "canonical_name": "Hazelnut",
-      "fdc_id": "170581",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, hazelnuts or filberts",
+      "fdc_id": "biotin-patch-bls4-hazelnut-h130100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H130100 (Hazelnut)",
       "confidence": "medium",
       "score": 1.22,
-      "notes": "Manual correction: replaced hazelnut oil row with whole hazelnut row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170581 baseline nutrient vector and inject biotin from German BLS 4.0 row H130100 (Hazelnut)."
     },
     {
       "canonical_id": "pistachio",
@@ -2366,12 +2366,12 @@
     {
       "canonical_id": "brazil-nut",
       "canonical_name": "Brazil nut",
-      "fdc_id": "170569",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, brazilnuts, dried, unblanched",
+      "fdc_id": "biotin-patch-bls4-brazil-nut-h180100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H180100 (Brazil nut)",
       "confidence": "medium",
       "score": 0.75,
-      "notes": "Manual curation override: switched to SR Legacy brazil nut row with full non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170569 baseline nutrient vector and inject biotin from German BLS 4.0 row H180100 (Brazil nut)."
     },
     {
       "canonical_id": "cashew",
@@ -2386,22 +2386,22 @@
     {
       "canonical_id": "pumpkin-seed",
       "canonical_name": "Pumpkin seed",
-      "fdc_id": "170556",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Seeds, pumpkin and squash seed kernels, dried",
+      "fdc_id": "biotin-patch-bls4-pumpkin-seed-h310100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H310100 (Pumpkin seed)",
       "confidence": "high",
       "score": 1.47,
-      "notes": "Manual correction: replaced fish homonym row with true pumpkin seed row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170556 baseline nutrient vector and inject biotin from German BLS 4.0 row H310100 (Pumpkin seed)."
     },
     {
       "canonical_id": "sunflower-seed",
       "canonical_name": "Sunflower seed",
-      "fdc_id": "170562",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Seeds, sunflower seed kernels, dried",
+      "fdc_id": "biotin-patch-bls4-sunflower-seed-h430100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H430100 (Sunflower seed)",
       "confidence": "medium",
       "score": 1.33,
-      "notes": "Manual correction: replaced sunflower seed butter row with whole sunflower seed kernels row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170562 baseline nutrient vector and inject biotin from German BLS 4.0 row H430100 (Sunflower seed)."
     },
     {
       "canonical_id": "sesame",
@@ -2446,12 +2446,12 @@
     {
       "canonical_id": "pine-nut",
       "canonical_name": "Pine nut",
-      "fdc_id": "170591",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, pine nuts, dried",
+      "fdc_id": "biotin-patch-bls4-pine-nut-h320100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H320100 (Pine nut)",
       "confidence": "medium",
       "score": 1.11,
-      "notes": "Vitamin completion pass: remapped to pine nut row with complete non-biotin vitamin reporting."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170591 baseline nutrient vector and inject biotin from German BLS 4.0 row H320100 (Pine nut)."
     },
     {
       "canonical_id": "olive-oil",
@@ -2626,12 +2626,12 @@
     {
       "canonical_id": "safflower-oil",
       "canonical_name": "Safflower oil",
-      "fdc_id": "171027",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
+      "fdc_id": "biotin-patch-bls4-safflower-oil-q340000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 Q340000 (Safflower oil)",
       "confidence": "medium",
       "score": 1.19,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171027 baseline nutrient vector and inject biotin from German BLS 4.0 row Q340000 (Safflower oil)."
     },
     {
       "canonical_id": "corn-oil",
@@ -2646,12 +2646,12 @@
     {
       "canonical_id": "grapeseed-oil",
       "canonical_name": "Grapeseed oil",
-      "fdc_id": "cnf-436",
-      "source_dataset": "canadian_nutrient_file",
-      "source_name": "Vegetable oil, grapeseed",
+      "fdc_id": "biotin-patch-bls4-grapeseed-oil-q330000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 Q330000 (Grapeseed oil)",
       "confidence": "medium",
       "score": 0.92,
-      "notes": "Manual curation override: switched to exact CNF grapeseed-oil row with fuller vitamin reporting."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-436 baseline nutrient vector and inject biotin from German BLS 4.0 row Q330000 (Grapeseed oil)."
     },
     {
       "canonical_id": "peanut-oil",
@@ -2696,12 +2696,12 @@
     {
       "canonical_id": "rye-bread",
       "canonical_name": "Rye bread",
-      "fdc_id": "172684",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bread, rye",
+      "fdc_id": "biotin-patch-bls4-rye-bread-b221000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 B221000 (Rye bread)",
       "confidence": "medium",
       "score": 0.91,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172684 baseline nutrient vector and inject biotin from German BLS 4.0 row B221000 (Rye bread)."
     },
     {
       "canonical_id": "bagel",
@@ -2766,12 +2766,12 @@
     {
       "canonical_id": "bread-crumbs",
       "canonical_name": "Bread crumbs",
-      "fdc_id": "172806",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bread, crumbs, dry, grated, seasoned",
+      "fdc_id": "biotin-patch-bls4-bread-crumbs-b821000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 B821000 (Bread crumbs)",
       "confidence": "high",
       "score": 1.638571,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172806 baseline nutrient vector and inject biotin from German BLS 4.0 row B821000 (Bread crumbs)."
     },
     {
       "canonical_id": "panko",
@@ -2806,12 +2806,12 @@
     {
       "canonical_id": "rice-noodles",
       "canonical_name": "Rice noodles",
-      "fdc_id": "168914",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Rice noodles, cooked",
+      "fdc_id": "biotin-patch-bls4-rice-noodles-c559000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C559000 (Rice noodles raw)",
       "confidence": "high",
       "score": 1.81,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168914 baseline nutrient vector and inject biotin from German BLS 4.0 row C559000 (Rice noodles raw)."
     },
     {
       "canonical_id": "udon-noodles",
@@ -2866,22 +2866,22 @@
     {
       "canonical_id": "bulgur",
       "canonical_name": "Bulgur",
-      "fdc_id": "170287",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Bulgur, cooked",
+      "fdc_id": "biotin-patch-bls4-bulgur-c119100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 C119100 (Bulgur (durum wheat) raw)",
       "confidence": "high",
       "score": 1.63,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170287 baseline nutrient vector and inject biotin from German BLS 4.0 row C119100 (Bulgur (durum wheat) raw)."
     },
     {
       "canonical_id": "peanut-butter",
       "canonical_name": "Peanut butter",
-      "fdc_id": "172458",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Peanut butter, smooth, reduced fat",
+      "fdc_id": "biotin-patch-bls4-peanut-butter-h880200",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H880200 (Peanut butter)",
       "confidence": "medium",
       "score": 1.638571,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/172458 baseline nutrient vector and inject biotin from German BLS 4.0 row H880200 (Peanut butter)."
     },
     {
       "canonical_id": "almond-butter",
@@ -2936,12 +2936,12 @@
     {
       "canonical_id": "maple-syrup",
       "canonical_name": "Maple syrup",
-      "fdc_id": "169661",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Syrups, maple",
+      "fdc_id": "biotin-patch-bls4-maple-syrup-s151100",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 S151100 (Maple syrup)",
       "confidence": "medium",
       "score": 0.455,
-      "notes": "Vitamin completion pass: remapped to maple-syrup row with broader non-biotin vitamin field reporting under strict semantic match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169661 baseline nutrient vector and inject biotin from German BLS 4.0 row S151100 (Maple syrup)."
     },
     {
       "canonical_id": "tomato-sauce",
@@ -2956,12 +2956,12 @@
     {
       "canonical_id": "tomato-paste",
       "canonical_name": "Tomato paste",
-      "fdc_id": "170459",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "biotin-patch-bls4-tomato-paste-r160000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 R160000 (Tomato paste)",
       "confidence": "high",
       "score": 1.585,
-      "notes": "Manual correction: switched from sparse Foundation row to SR Legacy tomato paste row."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170459 baseline nutrient vector and inject biotin from German BLS 4.0 row R160000 (Tomato paste)."
     },
     {
       "canonical_id": "canned-tomatoes",
@@ -2976,12 +2976,12 @@
     {
       "canonical_id": "coconut-milk",
       "canonical_name": "Coconut milk",
-      "fdc_id": "170172",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Nuts, coconut milk, raw (liquid expressed from grated meat and water)",
+      "fdc_id": "biotin-patch-bls4-coconut-milk-h154000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 H154000 (Coconut milk)",
       "confidence": "medium",
       "score": 1.170769,
-      "notes": "Vitamin coverage pass: remapped to source row with stronger non-biotin vitamin reporting under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/170172 baseline nutrient vector and inject biotin from German BLS 4.0 row H154000 (Coconut milk)."
     },
     {
       "canonical_id": "broth",
@@ -3016,12 +3016,12 @@
     {
       "canonical_id": "mayonnaise",
       "canonical_name": "Mayonnaise",
-      "fdc_id": "167695",
-      "source_dataset": "sr_legacy_food",
-      "source_name": "Mayonnaise, made with tofu",
+      "fdc_id": "biotin-patch-bls4-mayonnaise-q991000",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "source_name": "Biotin patch blend: baseline + BLS 4.0 Q991000 (Mayonnaise (ready-made product))",
       "confidence": "high",
       "score": 1.43,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167695 baseline nutrient vector and inject biotin from German BLS 4.0 row Q991000 (Mayonnaise (ready-made product))."
     },
     {
       "canonical_id": "soy-sauce",
