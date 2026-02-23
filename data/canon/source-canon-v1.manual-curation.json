@@ -106,12 +106,12 @@
     {
       "canonical_id": "ground-pork",
       "canonical_name": "Ground pork",
-      "fdc_id": "biotin-patch-animal-ground-pork-lit",
-      "source_dataset": "external_biotin_literature_patch",
+      "fdc_id": "vitamin-patch-ground-pork",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork muscle proxy",
       "confidence": "medium",
       "score": 0.835,
-      "notes": "Biotin-only patch: Pork muscle proxy (category-proxy)."
+      "notes": "Biotin-only patch: Pork muscle proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "ground-chicken",
@@ -356,92 +356,92 @@
     {
       "canonical_id": "pork-loin",
       "canonical_name": "Pork loin",
-      "fdc_id": "biotin-patch-animal-pork-loin-lit",
-      "source_dataset": "external_biotin_literature_patch",
+      "fdc_id": "vitamin-patch-pork-loin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork loin raw (literature 3-5 µg)",
       "confidence": "medium",
       "score": 1.326667,
-      "notes": "Biotin-only patch: Pork loin raw (literature 3-5 µg) (category-proxy)."
+      "notes": "Biotin-only patch: Pork loin raw (literature 3-5 µg) (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-tenderloin",
       "canonical_name": "Pork tenderloin",
-      "fdc_id": "biotin-patch-bls4-pork-tenderloin-u611100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-tenderloin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U611100 (Pork tenderloin, raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/168249 baseline nutrient vector and inject biotin from German BLS 4.0 row U611100 (Pork tenderloin, raw)."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/168249 baseline nutrient vector and inject biotin from German BLS 4.0 row U611100 (Pork tenderloin, raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-shoulder",
       "canonical_name": "Pork shoulder",
-      "fdc_id": "biotin-patch-bls4-pork-shoulder-U665100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-shoulder",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork shoulder (without fat and rind) raw",
       "confidence": "medium",
       "score": 1.390769,
-      "notes": "Biotin-only patch: Pork shoulder (without fat and rind) raw (exact)."
+      "notes": "Biotin-only patch: Pork shoulder (without fat and rind) raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-chop",
       "canonical_name": "Pork chop",
-      "fdc_id": "biotin-patch-bls4-pork-chop-u522100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-chop",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U522100 (Pork chop (loin) raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/167829 baseline nutrient vector and inject biotin from German BLS 4.0 row U522100 (Pork chop (loin) raw)."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/167829 baseline nutrient vector and inject biotin from German BLS 4.0 row U522100 (Pork chop (loin) raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-belly",
       "canonical_name": "Pork belly",
-      "fdc_id": "biotin-patch-bls4-pork-belly-u642100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-belly",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U642100 (Pork belly (untrimmed) raw)",
       "confidence": "medium",
       "score": 0.9,
-      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1758 baseline nutrient vector and inject biotin from German BLS 4.0 row U642100 (Pork belly (untrimmed) raw)."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1758 baseline nutrient vector and inject biotin from German BLS 4.0 row U642100 (Pork belly (untrimmed) raw). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-ribs",
       "canonical_name": "Pork ribs",
-      "fdc_id": "biotin-patch-bls4-pork-ribs-Y395222",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-ribs",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork spare ribs boiled",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Biotin-only patch: Pork spare ribs boiled (cut-proxy)."
+      "notes": "Biotin-only patch: Pork spare ribs boiled (cut-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "fresh-ham",
       "canonical_name": "Fresh ham",
-      "fdc_id": "biotin-patch-bls4-fresh-ham-U682700",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-fresh-ham",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork ham raw, with fat, raw cured, smoked",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Biotin-only patch: Pork ham raw, with fat, raw cured, smoked (cut-proxy)."
+      "notes": "Biotin-only patch: Pork ham raw, with fat, raw cured, smoked (cut-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-shank",
       "canonical_name": "Pork shank",
-      "fdc_id": "biotin-patch-bls4-pork-shank-U672100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-shank",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork foreshank (hock) raw",
       "confidence": "medium",
       "score": 0.82,
-      "notes": "Biotin-only patch: Pork foreshank (hock) raw (exact)."
+      "notes": "Biotin-only patch: Pork foreshank (hock) raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "pork-jowl",
       "canonical_name": "Pork jowl",
-      "fdc_id": "biotin-patch-bls4-pork-jowl-U507100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-pork-jowl",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Pork fat jowl, without rind (S VI) raw",
       "confidence": "medium",
       "score": 0.652727,
-      "notes": "Biotin-only patch: Pork fat jowl, without rind (S VI) raw (exact)."
+      "notes": "Biotin-only patch: Pork fat jowl, without rind (S VI) raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "whole-chicken",
@@ -3256,142 +3256,142 @@
     {
       "canonical_id": "greek-yogurt-plain",
       "canonical_name": "Greek yogurt (plain)",
-      "fdc_id": "171304",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-greek-yogurt-plain",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Yogurt, Greek, plain, whole milk",
       "confidence": "high",
       "score": 1.5,
-      "notes": "USDA SR Legacy FDC 171304; whole-milk Greek plain."
+      "notes": "USDA SR Legacy FDC 171304; whole-milk Greek plain. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-ribeye",
       "canonical_name": "Veal ribeye",
-      "fdc_id": "173828",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-ribeye",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, rib, separable lean only, raw",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 173828."
+      "notes": "USDA SR Legacy FDC 173828. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-strip-steak",
       "canonical_name": "Veal strip steak",
-      "fdc_id": "173826",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-strip-steak",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, loin, separable lean only, raw",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 173826; strip from loin."
+      "notes": "USDA SR Legacy FDC 173826; strip from loin. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-tenderloin",
       "canonical_name": "Veal tenderloin",
-      "fdc_id": "173826",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-tenderloin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, loin, separable lean only, raw",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 173826; tenderloin from loin."
+      "notes": "USDA SR Legacy FDC 173826; tenderloin from loin. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-sirloin",
       "canonical_name": "Veal sirloin",
-      "fdc_id": "173840",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-sirloin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, sirloin, separable lean only, raw",
       "confidence": "high",
       "score": 1.3,
-      "notes": "USDA SR Legacy FDC 173840."
+      "notes": "USDA SR Legacy FDC 173840. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-flank",
       "canonical_name": "Veal flank",
-      "fdc_id": "173826",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-flank",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, loin, separable lean only, raw",
       "confidence": "medium",
-      "score": 1.0,
-      "notes": "USDA SR Legacy FDC 173826; no veal flank in SR, loin as proxy."
+      "score": 1,
+      "notes": "USDA SR Legacy FDC 173826; no veal flank in SR, loin as proxy. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-chuck",
       "canonical_name": "Veal chuck",
-      "fdc_id": "173838",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-chuck",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, shoulder, blade chop, separable lean only, raw",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 173838; chuck = shoulder."
+      "notes": "USDA SR Legacy FDC 173838; chuck = shoulder. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-round",
       "canonical_name": "Veal round",
-      "fdc_id": "172643",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-round",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, leg, top round, cap off, cutlet, boneless, raw",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 172643."
+      "notes": "USDA SR Legacy FDC 172643. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "veal-shank",
       "canonical_name": "Veal shank",
-      "fdc_id": "172570",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-veal-shank",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, shank (fore and hind), separable lean only, raw",
       "confidence": "high",
       "score": 1.3,
-      "notes": "USDA SR Legacy FDC 172570; osso buco cut."
+      "notes": "USDA SR Legacy FDC 172570; osso buco cut. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "ground-veal",
       "canonical_name": "Ground veal",
-      "fdc_id": "173817",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-ground-veal",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Veal, composite of trimmed retail cuts, separable lean only, raw",
       "confidence": "high",
       "score": 1.1,
-      "notes": "USDA SR Legacy FDC 173817; composite lean as proxy for ground."
+      "notes": "USDA SR Legacy FDC 173817; composite lean as proxy for ground. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "venison",
       "canonical_name": "Venison",
-      "fdc_id": "167622",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-venison",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Deer (venison), sitka, raw (Alaska Native)",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 167622."
+      "notes": "USDA SR Legacy FDC 167622. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "ground-venison",
       "canonical_name": "Ground venison",
-      "fdc_id": "167622",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-ground-venison",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Deer (venison), sitka, raw (Alaska Native)",
       "confidence": "medium",
-      "score": 1.0,
-      "notes": "USDA SR Legacy FDC 167622; no separate ground venison, same raw proxy."
+      "score": 1,
+      "notes": "USDA SR Legacy FDC 167622; no separate ground venison, same raw proxy. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "elk",
       "canonical_name": "Elk",
-      "fdc_id": "167652",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-elk",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Elk, free range, roast, eye of round, raw (Shoshone Bannock)",
       "confidence": "high",
       "score": 1.2,
-      "notes": "USDA SR Legacy FDC 167652."
+      "notes": "USDA SR Legacy FDC 167652. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "ground-elk",
       "canonical_name": "Ground elk",
-      "fdc_id": "168056",
-      "source_dataset": "sr_legacy_food",
+      "fdc_id": "vitamin-patch-ground-elk",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Elk, free range, ground, raw (Shoshone Bannock)",
       "confidence": "high",
       "score": 1.3,
-      "notes": "USDA SR Legacy FDC 168056."
+      "notes": "USDA SR Legacy FDC 168056. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     }
   ]
 }

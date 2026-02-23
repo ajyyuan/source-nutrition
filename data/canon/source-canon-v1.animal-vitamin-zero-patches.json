@@ -8,7 +8,12 @@
     "soupersage_butter": "Butter vitamin K soupersage/foodstruct",
     "dietandfitnesstoday_cottage": "Cottage cheese D/K dietandfitnesstoday",
     "literature_lamb_liver_k": "Lamb liver phylloquinone (SciDirect/ARS)",
-    "usda_fdc_beef_round": "USDA FDC 173998 (beef round eye of round roast, raw). Vitamin A RAE 0.85mcg/85g → 1mcg/100g; vitamin K 1.3mcg/85g → 1.5mcg/100g. USDA: https://fdc.nal.usda.gov/fdc-app.html#/food-details/173998/nutrients MyFoodData: https://tools.myfooddata.com/nutrition-facts/173998/wt1 Applied as proxy to lean beef muscle cuts (tenderloin, sirloin, flank, round, shank, oxtail) and ground bison."
+    "usda_fdc_beef_round": "USDA FDC 173998 (beef round eye of round roast, raw). Vitamin A RAE 0.85mcg/85g → 1mcg/100g; vitamin K 1.3mcg/85g → 1.5mcg/100g. USDA: https://fdc.nal.usda.gov/fdc-app.html#/food-details/173998/nutrients MyFoodData: https://tools.myfooddata.com/nutrition-facts/173998/wt1 Applied as proxy to lean beef muscle cuts (tenderloin, sirloin, flank, round, shank, oxtail) and ground bison.",
+    "usda_fdc_greek_yogurt": "USDA FDC 171304 Greek yogurt plain whole milk; vitamin A ~2 µg RAE/100g (WhatYouEat/USDA). D/K same as yogurt-plain proxy.",
+    "venison_elk_literature": "Venison B12 ~3 µg/100g, folate ~15 µg (USDA/nutritionvalue roasted deer). Elk/ground elk folate ~6 µg, B vitamins from lean game proxy. A/K/D/E from beef round/lean meat proxy.",
+    "veal_shank_d_e": "Veal shank vitamin D 0.7 µg, vitamin E 0.15 mg from USDA FDC 172645 (Veal, shank, separable lean only, raw) per MyFoodData/fdc.nal.usda.gov.",
+    "veal_biotin": "Veal muscle biotin ~5 µg/100g from J Nutrition 2023 (S0022-3166(23)13556-5) biotin in meat; applied to all veal cuts. Veal sirloin vitamin D 0.2 µg lean meat proxy (SR Legacy 173840 has no D).",
+    "pork_vitamin_k": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
   },
   "patches": {
     "swiss": { "vitamin_b12_ug": 3.06 },
@@ -42,6 +47,30 @@
     "round": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
     "shank": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
     "oxtail": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
-    "ground-bison": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 }
+    "ground-bison": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "greek-yogurt-plain": { "vitamin_a_ug": 2, "vitamin_k_ug": 0.2, "vitamin_d_ug": 0.02 },
+    "veal-ribeye": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_b7_ug": 5 },
+    "veal-strip-steak": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_b7_ug": 5 },
+    "veal-tenderloin": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_b7_ug": 5 },
+    "veal-sirloin": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_b7_ug": 5 },
+    "veal-flank": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_b7_ug": 5 },
+    "veal-chuck": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_b7_ug": 5 },
+    "veal-round": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_b7_ug": 5 },
+    "veal-shank": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.7, "vitamin_e_mg": 0.15, "vitamin_b7_ug": 5 },
+    "ground-veal": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_b7_ug": 5 },
+    "venison": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_e_mg": 0.2, "vitamin_b5_mg": 0.5, "vitamin_b6_mg": 0.3, "vitamin_b7_ug": 1, "folate_ug": 15, "vitamin_b12_ug": 3 },
+    "ground-venison": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_e_mg": 0.2, "vitamin_b5_mg": 0.5, "vitamin_b6_mg": 0.3, "vitamin_b7_ug": 1, "folate_ug": 15, "vitamin_b12_ug": 3 },
+    "elk": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_b7_ug": 1, "folate_ug": 6 },
+    "ground-elk": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5, "vitamin_d_ug": 0.2, "vitamin_e_mg": 0.2, "vitamin_b7_ug": 1, "folate_ug": 6 },
+    "pork-loin": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-tenderloin": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-shoulder": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-chop": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-belly": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-ribs": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "fresh-ham": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-shank": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "pork-jowl": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" },
+    "ground-pork": { "vitamin_k_ug": 0.2, "_source_key": "pork_vitamin_k" }
   }
 }

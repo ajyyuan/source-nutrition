@@ -1,0 +1,629 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-02-23T22:59:04.580Z",
+  "source": "animal_vitamin_zero_patches",
+  "entries": [
+    {
+      "canonical_id": "chicken-breast",
+      "canonical_name": "Chicken breast",
+      "patch_fdc_id": "vitamin-patch-chicken-breast",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "chicken-wing",
+      "canonical_name": "Chicken wing",
+      "patch_fdc_id": "vitamin-patch-chicken-wing",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "whole-turkey",
+      "canonical_name": "Whole turkey",
+      "patch_fdc_id": "vitamin-patch-whole-turkey",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "turkey-breast",
+      "canonical_name": "Turkey breast",
+      "patch_fdc_id": "vitamin-patch-turkey-breast",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "turkey-thigh",
+      "canonical_name": "Turkey thigh",
+      "patch_fdc_id": "vitamin-patch-turkey-thigh",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "lamb-liver",
+      "canonical_name": "Lamb liver",
+      "patch_fdc_id": "vitamin-patch-lamb-liver",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "half-and-half",
+      "canonical_name": "Half and half",
+      "patch_fdc_id": "vitamin-patch-half-and-half",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "yogurt-plain",
+      "canonical_name": "Yogurt (plain)",
+      "patch_fdc_id": "vitamin-patch-yogurt-plain",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug",
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "yogurt-plain-lowfat",
+      "canonical_name": "Yogurt (plain, lowfat)",
+      "patch_fdc_id": "vitamin-patch-yogurt-plain-lowfat",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "yogurt-plain-nonfat",
+      "canonical_name": "Yogurt (plain, nonfat)",
+      "patch_fdc_id": "vitamin-patch-yogurt-plain-nonfat",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "cottage-cheese",
+      "canonical_name": "Cottage cheese",
+      "patch_fdc_id": "vitamin-patch-cottage-cheese",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_d_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "swiss",
+      "canonical_name": "Swiss",
+      "patch_fdc_id": "vitamin-patch-swiss",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_b12_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "tuna-skipjack",
+      "canonical_name": "Tuna (skipjack)",
+      "patch_fdc_id": "vitamin-patch-tuna-skipjack",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "chicken-egg",
+      "canonical_name": "Chicken egg",
+      "patch_fdc_id": "vitamin-patch-chicken-egg",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "turkey-egg",
+      "canonical_name": "Turkey egg",
+      "patch_fdc_id": "vitamin-patch-turkey-egg",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "ground-bison",
+      "canonical_name": "Ground bison",
+      "patch_fdc_id": "vitamin-patch-ground-bison",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "tenderloin",
+      "canonical_name": "Tenderloin",
+      "patch_fdc_id": "vitamin-patch-tenderloin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "sirloin",
+      "canonical_name": "Sirloin",
+      "patch_fdc_id": "vitamin-patch-sirloin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "flank",
+      "canonical_name": "Flank",
+      "patch_fdc_id": "vitamin-patch-flank",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "round",
+      "canonical_name": "Round",
+      "patch_fdc_id": "vitamin-patch-round",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "shank",
+      "canonical_name": "Shank",
+      "patch_fdc_id": "vitamin-patch-shank",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "oxtail",
+      "canonical_name": "Oxtail",
+      "patch_fdc_id": "vitamin-patch-oxtail",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-ribeye",
+      "canonical_name": "Veal ribeye",
+      "patch_fdc_id": "vitamin-patch-veal-ribeye",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-strip-steak",
+      "canonical_name": "Veal strip steak",
+      "patch_fdc_id": "vitamin-patch-veal-strip-steak",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-tenderloin",
+      "canonical_name": "Veal tenderloin",
+      "patch_fdc_id": "vitamin-patch-veal-tenderloin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-sirloin",
+      "canonical_name": "Veal sirloin",
+      "patch_fdc_id": "vitamin-patch-veal-sirloin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-flank",
+      "canonical_name": "Veal flank",
+      "patch_fdc_id": "vitamin-patch-veal-flank",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-chuck",
+      "canonical_name": "Veal chuck",
+      "patch_fdc_id": "vitamin-patch-veal-chuck",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-round",
+      "canonical_name": "Veal round",
+      "patch_fdc_id": "vitamin-patch-veal-round",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "veal-shank",
+      "canonical_name": "Veal shank",
+      "patch_fdc_id": "vitamin-patch-veal-shank",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_e_mg",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "ground-veal",
+      "canonical_name": "Ground veal",
+      "patch_fdc_id": "vitamin-patch-ground-veal",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "venison",
+      "canonical_name": "Venison",
+      "patch_fdc_id": "vitamin-patch-venison",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_e_mg",
+        "vitamin_b5_mg",
+        "vitamin_b6_mg",
+        "vitamin_b7_ug",
+        "folate_ug",
+        "vitamin_b12_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "ground-venison",
+      "canonical_name": "Ground venison",
+      "patch_fdc_id": "vitamin-patch-ground-venison",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_e_mg",
+        "vitamin_b5_mg",
+        "vitamin_b6_mg",
+        "vitamin_b7_ug",
+        "folate_ug",
+        "vitamin_b12_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "elk",
+      "canonical_name": "Elk",
+      "patch_fdc_id": "vitamin-patch-elk",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_b7_ug",
+        "folate_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "ground-elk",
+      "canonical_name": "Ground elk",
+      "patch_fdc_id": "vitamin-patch-ground-elk",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug",
+        "vitamin_e_mg",
+        "vitamin_b7_ug",
+        "folate_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "greek-yogurt-plain",
+      "canonical_name": "Greek yogurt (plain)",
+      "patch_fdc_id": "vitamin-patch-greek-yogurt-plain",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_a_ug",
+        "vitamin_k_ug",
+        "vitamin_d_ug"
+      ],
+      "source_key": null,
+      "source_citation": null
+    },
+    {
+      "canonical_id": "ground-pork",
+      "canonical_name": "Ground pork",
+      "patch_fdc_id": "vitamin-patch-ground-pork",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-loin",
+      "canonical_name": "Pork loin",
+      "patch_fdc_id": "vitamin-patch-pork-loin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-tenderloin",
+      "canonical_name": "Pork tenderloin",
+      "patch_fdc_id": "vitamin-patch-pork-tenderloin",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-shoulder",
+      "canonical_name": "Pork shoulder",
+      "patch_fdc_id": "vitamin-patch-pork-shoulder",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-chop",
+      "canonical_name": "Pork chop",
+      "patch_fdc_id": "vitamin-patch-pork-chop",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-belly",
+      "canonical_name": "Pork belly",
+      "patch_fdc_id": "vitamin-patch-pork-belly",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-ribs",
+      "canonical_name": "Pork ribs",
+      "patch_fdc_id": "vitamin-patch-pork-ribs",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "fresh-ham",
+      "canonical_name": "Fresh ham",
+      "patch_fdc_id": "vitamin-patch-fresh-ham",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-shank",
+      "canonical_name": "Pork shank",
+      "patch_fdc_id": "vitamin-patch-pork-shank",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    },
+    {
+      "canonical_id": "pork-jowl",
+      "canonical_name": "Pork jowl",
+      "patch_fdc_id": "vitamin-patch-pork-jowl",
+      "baseline_source": null,
+      "baseline_fdc_id": null,
+      "applied_patch_keys": [
+        "vitamin_k_ug"
+      ],
+      "source_key": "pork_vitamin_k",
+      "source_citation": "USDA J Agric Food Chem 2016 (PMID 27191033): fresh and processed pork phylloquinone (K1) low, <2.1 ± 0.5 µg/100g; pork also contains menaquinone-4 (K2). We report K1 only; use 0.2 µg as conservative non-zero so 0 is not displayed."
+    }
+  ]
+}

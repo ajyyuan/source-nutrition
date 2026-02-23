@@ -1,0 +1,20 @@
+---
+description: When canon or canon-related data changes, run the full canon pipeline
+alwaysApply: true
+---
+
+# Canon pipeline after data changes
+
+Whenever you **add or modify** data in the canon DB or related artifacts, run the canon build pipeline so matrix and provenance stay in sync:
+
+1. **`npm run canon:build`** — rebuilds `source-canon-v1.flat.json` from `source-canon-v1.json`.
+2. **`npm run canon:provenance:build`** — rebuilds `source-canon-v1.provenance.json` from flat + manual-curation.
+3. **`npm run canon:reseed:dry`** — rebuilds `source-canon-v1.reseed-preview.json` (and match-audit); required before matrix.
+4. **`npm run canon:matrix:build`** — rebuilds micronutrient matrix (and coverage) from reseed-preview.
+
+If the app uses derived data from the reseed preview, also run:
+
+- **`npm run canon:top-foods`** — rebuilds `src/data/topFoodsByNutrient.json`.
+- **`npm run canon:food-profiles`** — rebuilds `src/data/foodProfiles.json`.
+
+Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Do not leave matrix or provenance stale after canon edits.
