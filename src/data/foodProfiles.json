@@ -338,7 +338,7 @@
     }
   },
   "ribeye": {
-    "display_name": "Ribeye",
+    "display_name": "Beef ribeye",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -364,7 +364,7 @@
     }
   },
   "strip-steak": {
-    "display_name": "Strip steak",
+    "display_name": "Beef strip steak",
     "per_100g": {
       "vitamin_a_ug": 4,
       "vitamin_c_mg": 0,
@@ -390,7 +390,7 @@
     }
   },
   "tenderloin": {
-    "display_name": "Tenderloin",
+    "display_name": "Beef tenderloin",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0,
@@ -416,7 +416,7 @@
     }
   },
   "sirloin": {
-    "display_name": "Sirloin",
+    "display_name": "Beef sirloin",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0,
@@ -442,7 +442,7 @@
     }
   },
   "flank": {
-    "display_name": "Flank",
+    "display_name": "Beef flank",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0,
@@ -468,7 +468,7 @@
     }
   },
   "skirt": {
-    "display_name": "Skirt",
+    "display_name": "Beef skirt",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -494,7 +494,7 @@
     }
   },
   "hanger": {
-    "display_name": "Hanger",
+    "display_name": "Beef hanger",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -520,7 +520,7 @@
     }
   },
   "chuck": {
-    "display_name": "Chuck",
+    "display_name": "Beef chuck",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -546,7 +546,7 @@
     }
   },
   "brisket": {
-    "display_name": "Brisket",
+    "display_name": "Beef brisket",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -572,7 +572,7 @@
     }
   },
   "short-ribs": {
-    "display_name": "Short ribs",
+    "display_name": "Beef short ribs",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -598,7 +598,7 @@
     }
   },
   "back-ribs": {
-    "display_name": "Back ribs",
+    "display_name": "Beef back ribs",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -624,7 +624,7 @@
     }
   },
   "round": {
-    "display_name": "Round",
+    "display_name": "Beef round",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0,
@@ -650,7 +650,7 @@
     }
   },
   "shank": {
-    "display_name": "Shank",
+    "display_name": "Beef shank",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0,
@@ -676,7 +676,7 @@
     }
   },
   "oxtail": {
-    "display_name": "Oxtail",
+    "display_name": "Beef oxtail",
     "per_100g": {
       "vitamin_a_ug": 1,
       "vitamin_c_mg": 0.1,
@@ -702,7 +702,7 @@
     }
   },
   "plate": {
-    "display_name": "Plate",
+    "display_name": "Beef plate",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,
@@ -728,7 +728,7 @@
     }
   },
   "stew-meat": {
-    "display_name": "Stew meat",
+    "display_name": "Beef stew meat",
     "per_100g": {
       "vitamin_a_ug": 2,
       "vitamin_c_mg": 0,

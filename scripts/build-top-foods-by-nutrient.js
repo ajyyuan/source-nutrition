@@ -35,6 +35,26 @@ const TOP_N = 15;
 const PREVIEW_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const OUT_PATH = path.resolve("src/data/topFoodsByNutrient.json");
 
+/** Display name overrides for beef cuts so we show "Beef chuck" etc. in the app. */
+const BEEF_CUT_DISPLAY_OVERRIDES = {
+  ribeye: "Beef ribeye",
+  "strip-steak": "Beef strip steak",
+  tenderloin: "Beef tenderloin",
+  sirloin: "Beef sirloin",
+  flank: "Beef flank",
+  skirt: "Beef skirt",
+  hanger: "Beef hanger",
+  chuck: "Beef chuck",
+  brisket: "Beef brisket",
+  "short-ribs": "Beef short ribs",
+  "back-ribs": "Beef back ribs",
+  round: "Beef round",
+  shank: "Beef shank",
+  oxtail: "Beef oxtail",
+  plate: "Beef plate",
+  "stew-meat": "Beef stew meat"
+};
+
 const run = () => {
   if (!fs.existsSync(PREVIEW_PATH)) {
     throw new Error(`Missing reseed preview: ${PREVIEW_PATH}. Run npm run canon:reseed:dry first.`);
@@ -48,11 +68,19 @@ const run = () => {
   NUTRIENT_KEYS.forEach((key) => {
     const entries = rows
       .filter((r) => r.per_100g && Number.isFinite(r.per_100g[key]) && r.per_100g[key] > 0)
-      .map((r) => ({
-        name: r.canonical_name || r.display_name || r.canonical_id || "",
-        value: r.per_100g[key],
-        canonical_id: r.canonical_id || null
-      }))
+      .map((r) => {
+        const name =
+          BEEF_CUT_DISPLAY_OVERRIDES[r.canonical_id] ??
+          r.canonical_name ??
+          r.display_name ??
+          r.canonical_id ??
+          "";
+        return {
+          name,
+          value: r.per_100g[key],
+          canonical_id: r.canonical_id || null
+        };
+      })
       .sort((a, b) => b.value - a.value)
       .slice(0, TOP_N);
 

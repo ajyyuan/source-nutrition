@@ -764,7 +764,7 @@
       "canonical_id": "ground-pork"
     },
     {
-      "name": "Round",
+      "name": "Beef round",
       "value": 0.666,
       "canonical_id": "round"
     }
@@ -1397,7 +1397,7 @@
       "canonical_id": "hemp"
     },
     {
-      "name": "Short ribs",
+      "name": "Beef short ribs",
       "value": 8.25,
       "canonical_id": "short-ribs"
     },
@@ -1412,7 +1412,7 @@
       "canonical_id": "shank-lamb-goat"
     },
     {
-      "name": "Shank",
+      "name": "Beef shank",
       "value": 6.94,
       "canonical_id": "shank"
     },
@@ -1432,22 +1432,22 @@
       "canonical_id": "pine-nut"
     },
     {
-      "name": "Hanger",
+      "name": "Beef hanger",
       "value": 6.26,
       "canonical_id": "hanger"
     },
     {
-      "name": "Skirt",
+      "name": "Beef skirt",
       "value": 6.25,
       "canonical_id": "skirt"
     },
     {
-      "name": "Plate",
+      "name": "Beef plate",
       "value": 6.25,
       "canonical_id": "plate"
     },
     {
-      "name": "Back ribs",
+      "name": "Beef back ribs",
       "value": 6.1,
       "canonical_id": "back-ribs"
     },
