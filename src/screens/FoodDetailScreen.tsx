@@ -6,8 +6,11 @@ import { Pressable } from "react-native";
 
 import type { RootStackParamList } from "../navigation/AppNavigator";
 import { formatNutrientLabel, formatNutrientValue } from "../lib/formatters";
+import { percentDv } from "../lib/dailyValues";
 import { NUTRIENT_INFO } from "../lib/nutrientInfo";
 import foodProfiles from "../data/foodProfiles.json";
+
+const HIGH_NUTRIENT_DV_THRESHOLD = 0.2; // 20% DV per 100g = highlight
 
 type Props = NativeStackScreenProps<RootStackParamList, "FoodDetail">;
 
@@ -52,22 +55,32 @@ export function FoodDetailScreen({ navigation, route }: Props) {
           <>
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Micronutrients per 100 g</Text>
-              <Text style={styles.hint}>From our canonical food database</Text>
+              <Text style={styles.hint}>
+                From our canonical food database. Green = 20%+ DV per 100 g.
+              </Text>
               <View style={styles.nutrientList}>
                 {NUTRIENT_KEYS.map((key) => {
                   const value = profile.per_100g?.[key];
                   const num = typeof value === "number" && Number.isFinite(value) ? value : null;
+                  const pctDv = num !== null ? percentDv(key, num) : 0;
+                  const isHigh = pctDv >= HIGH_NUTRIENT_DV_THRESHOLD;
                   return (
                     <Pressable
                       key={key}
                       onPress={() => navigation.navigate("NutrientDetail", { nutrientKey: key })}
-                      style={({ pressed }) =>
-                        pressed ? [styles.nutrientRow, styles.nutrientRowPressed] : styles.nutrientRow
-                      }
+                      style={({ pressed }) => [
+                        styles.nutrientRow,
+                        isHigh && styles.nutrientRowHigh,
+                        pressed && styles.nutrientRowPressed
+                      ]}
                       accessibilityRole="button"
                       accessibilityLabel={`View ${formatNutrientLabel(key)} details`}
                     >
-                      <Text style={styles.nutrientName}>{formatNutrientLabel(key)}</Text>
+                      <Text
+                        style={[styles.nutrientName, isHigh && styles.nutrientNameHigh]}
+                      >
+                        {formatNutrientLabel(key)}
+                      </Text>
                       <Text style={styles.nutrientValue}>
                         {num !== null ? formatNutrientValue(key, num) : "—"}
                       </Text>
@@ -150,10 +163,17 @@ const styles = StyleSheet.create({
   nutrientRowPressed: {
     opacity: 0.7
   },
+  nutrientRowHigh: {
+    backgroundColor: "#e8f5e9"
+  },
   nutrientName: {
     fontSize: 14,
     color: "#333",
     flex: 1
+  },
+  nutrientNameHigh: {
+    color: "#1b5e20",
+    fontWeight: "600"
   },
   nutrientValue: {
     fontSize: 13,
