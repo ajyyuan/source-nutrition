@@ -35,6 +35,12 @@ const TOP_N = 15;
 const PREVIEW_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const OUT_PATH = path.resolve("src/data/topFoodsByNutrient.json");
 
+/** Exclude cooking oils/fats from top-foods list (per 100g they dominate many nutrients). */
+const EXCLUDED_FOOD_GROUPS = new Set(["Plant oils", "Animal fats"]);
+
+const isCookingOilOrFat = (r) =>
+  EXCLUDED_FOOD_GROUPS.has(r.food_group) || (r.canonical_id && r.canonical_id.endsWith("-oil"));
+
 /** Display name overrides for beef cuts so we show "Beef chuck" etc. in the app. */
 const BEEF_CUT_DISPLAY_OVERRIDES = {
   ribeye: "Beef ribeye",
@@ -67,7 +73,13 @@ const run = () => {
 
   NUTRIENT_KEYS.forEach((key) => {
     const entries = rows
-      .filter((r) => r.per_100g && Number.isFinite(r.per_100g[key]) && r.per_100g[key] > 0)
+      .filter(
+        (r) =>
+          r.per_100g &&
+          Number.isFinite(r.per_100g[key]) &&
+          r.per_100g[key] > 0 &&
+          !isCookingOilOrFat(r)
+      )
       .map((r) => {
         const name =
           BEEF_CUT_DISPLAY_OVERRIDES[r.canonical_id] ??

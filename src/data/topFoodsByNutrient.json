@@ -215,46 +215,26 @@
       "canonical_id": "sardine"
     },
     {
-      "name": "Duck fat",
-      "value": 4.8,
-      "canonical_id": "duck-fat"
-    },
-    {
-      "name": "Chicken fat",
-      "value": 4.8,
-      "canonical_id": "chicken-fat"
-    },
-    {
       "name": "Herring",
       "value": 4.2,
       "canonical_id": "herring"
+    },
+    {
+      "name": "Tilapia",
+      "value": 3.1,
+      "canonical_id": "tilapia"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 2.2,
+      "canonical_id": "fried-egg-chicken"
     }
   ],
   "vitamin_e_mg": [
     {
-      "name": "Sunflower oil",
-      "value": 41.08,
-      "canonical_id": "sunflower-oil"
-    },
-    {
       "name": "Sunflower seed",
       "value": 35.17,
       "canonical_id": "sunflower-seed"
-    },
-    {
-      "name": "Safflower oil",
-      "value": 34.1,
-      "canonical_id": "safflower-oil"
-    },
-    {
-      "name": "Rice bran oil",
-      "value": 32.3,
-      "canonical_id": "rice-bran-oil"
-    },
-    {
-      "name": "Grapeseed oil",
-      "value": 28.8,
-      "canonical_id": "grapeseed-oil"
     },
     {
       "name": "Almond",
@@ -272,39 +252,59 @@
       "canonical_id": "sunflower-seed-butter"
     },
     {
-      "name": "Canola oil",
-      "value": 17.46,
-      "canonical_id": "canola-oil"
-    },
-    {
-      "name": "Peanut oil",
-      "value": 15.69,
-      "canonical_id": "peanut-oil"
-    },
-    {
       "name": "Hazelnut",
       "value": 15.03,
       "canonical_id": "hazelnut"
     },
     {
-      "name": "Olive oil",
-      "value": 14.78,
-      "canonical_id": "olive-oil"
-    },
-    {
-      "name": "Corn oil",
-      "value": 14.3,
-      "canonical_id": "corn-oil"
-    },
-    {
-      "name": "Avocado oil",
-      "value": 14.12,
-      "canonical_id": "avocado-oil"
-    },
-    {
       "name": "Pine nut",
       "value": 9.33,
       "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Peanut butter",
+      "value": 9.04,
+      "canonical_id": "peanut-butter"
+    },
+    {
+      "name": "Bagel",
+      "value": 7.46,
+      "canonical_id": "bagel"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 5.65,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Carrot",
+      "value": 5.45,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Turmeric",
+      "value": 4.43,
+      "canonical_id": "turmeric"
+    },
+    {
+      "name": "Tomato paste",
+      "value": 4.3,
+      "canonical_id": "tomato-paste"
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 3.55,
+      "canonical_id": "atlantic-salmon"
+    },
+    {
+      "name": "Turnip",
+      "value": 2.86,
+      "canonical_id": "turnip"
+    },
+    {
+      "name": "Pistachio",
+      "value": 2.86,
+      "canonical_id": "pistachio"
     }
   ],
   "vitamin_k_ug": [
@@ -379,9 +379,9 @@
       "canonical_id": "scallion"
     },
     {
-      "name": "Soybean oil",
-      "value": 183.9,
-      "canonical_id": "soybean-oil"
+      "name": "Brussels sprouts",
+      "value": 177,
+      "canonical_id": "brussels-sprouts"
     }
   ],
   "thiamin_mg": [
@@ -1541,24 +1541,9 @@
   ],
   "omega3_g": [
     {
-      "name": "Canola oil",
-      "value": 9.137,
-      "canonical_id": "canola-oil"
-    },
-    {
       "name": "Hemp",
       "value": 8.684,
       "canonical_id": "hemp"
-    },
-    {
-      "name": "Soybean oil",
-      "value": 6.789,
-      "canonical_id": "soybean-oil"
-    },
-    {
-      "name": "Lamb tallow",
-      "value": 2.3,
-      "canonical_id": "lamb-tallow"
     },
     {
       "name": "Atlantic salmon",
@@ -1581,19 +1566,9 @@
       "canonical_id": "tuna-albacore"
     },
     {
-      "name": "Corn oil",
-      "value": 1.161,
-      "canonical_id": "corn-oil"
-    },
-    {
       "name": "Coho salmon",
       "value": 1.085,
       "canonical_id": "coho-salmon"
-    },
-    {
-      "name": "Duck fat",
-      "value": 1,
-      "canonical_id": "duck-fat"
     },
     {
       "name": "Sardine",
@@ -1614,6 +1589,31 @@
       "name": "Whole wheat pasta",
       "value": 0.831,
       "canonical_id": "whole-wheat-pasta"
+    },
+    {
+      "name": "Trout",
+      "value": 0.792,
+      "canonical_id": "trout"
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 0.769,
+      "canonical_id": "sockeye-salmon"
+    },
+    {
+      "name": "Squid",
+      "value": 0.488,
+      "canonical_id": "squid"
+    },
+    {
+      "name": "Chinook salmon",
+      "value": 0.45,
+      "canonical_id": "chinook-salmon"
+    },
+    {
+      "name": "Pork brain",
+      "value": 0.45,
+      "canonical_id": "pork-brain"
     }
   ]
 }
