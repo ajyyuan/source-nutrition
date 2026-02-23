@@ -82,130 +82,11 @@ const makeZeroVector = (): NutrientVector => ({
   omega3_g: 0
 });
 
-// Values are per 100g and sourced from USDA FoodData Central (via MyFoodData).
-// Any nutrient missing from the source is set to 0 for now.
-const CANONICAL_NUTRIENTS: Record<string, CanonicalFoodNutrients> = {
-  "apple-raw": {
-    canonical_id: "apple-raw",
-    canonical_name: "Apple, raw",
-    per_100g: {
-      vitamin_a_ug: 3,
-      vitamin_c_mg: 4.6,
-      vitamin_d_ug: 0,
-      vitamin_e_mg: 0.18,
-      vitamin_k_ug: 2.2,
-      thiamin_mg: 0.02,
-      riboflavin_mg: 0.03,
-      niacin_mg: 0.09,
-      vitamin_b5_mg: 0,
-      vitamin_b6_mg: 0.04,
-      vitamin_b7_ug: 0,
-      folate_ug: 3,
-      vitamin_b12_ug: 0,
-      calcium_mg: 6,
-      iron_mg: 0.12,
-      magnesium_mg: 5,
-      phosphorus_mg: 11,
-      potassium_mg: 107,
-      zinc_mg: 0.04,
-      selenium_ug: 0,
-      omega3_g: 0.009
-    },
-    source: "usda"
-  },
-  "spinach-raw": {
-    canonical_id: "spinach-raw",
-    canonical_name: "Spinach, raw",
-    per_100g: {
-      vitamin_a_ug: 469,
-      vitamin_c_mg: 28.1,
-      vitamin_d_ug: 0,
-      vitamin_e_mg: 2,
-      vitamin_k_ug: 482.9,
-      thiamin_mg: 0.08,
-      riboflavin_mg: 0.19,
-      niacin_mg: 0.72,
-      vitamin_b5_mg: 0,
-      vitamin_b6_mg: 0.2,
-      vitamin_b7_ug: 0,
-      folate_ug: 194,
-      vitamin_b12_ug: 0,
-      calcium_mg: 99,
-      iron_mg: 2.7,
-      magnesium_mg: 79,
-      phosphorus_mg: 49,
-      potassium_mg: 558,
-      zinc_mg: 0.53,
-      selenium_ug: 1,
-      omega3_g: 0.138
-    },
-    source: "usda"
-  },
-  "salmon-cooked": {
-    canonical_id: "salmon-cooked",
-    canonical_name: "Salmon, cooked",
-    per_100g: {
-      vitamin_a_ug: 13,
-      vitamin_c_mg: 0,
-      vitamin_d_ug: 0,
-      vitamin_e_mg: 0,
-      vitamin_k_ug: 0,
-      thiamin_mg: 0.28,
-      riboflavin_mg: 0.49,
-      niacin_mg: 10.1,
-      vitamin_b5_mg: 0,
-      vitamin_b6_mg: 0.94,
-      vitamin_b7_ug: 0,
-      folate_ug: 29,
-      vitamin_b12_ug: 3.1,
-      calcium_mg: 15,
-      iron_mg: 1,
-      magnesium_mg: 37,
-      phosphorus_mg: 256,
-      potassium_mg: 628,
-      zinc_mg: 0.82,
-      selenium_ug: 46.8,
-      omega3_g: 2.208
-    },
-    source: "usda"
-  },
-  "egg-whole": {
-    canonical_id: "egg-whole",
-    canonical_name: "Egg, whole",
-    per_100g: {
-      vitamin_a_ug: 149,
-      vitamin_c_mg: 0,
-      vitamin_d_ug: 2.2,
-      vitamin_e_mg: 1,
-      vitamin_k_ug: 0.3,
-      thiamin_mg: 0.07,
-      riboflavin_mg: 0.51,
-      niacin_mg: 0.06,
-      vitamin_b5_mg: 0,
-      vitamin_b6_mg: 0.12,
-      vitamin_b7_ug: 0,
-      folate_ug: 44,
-      vitamin_b12_ug: 1.1,
-      calcium_mg: 50,
-      iron_mg: 1.2,
-      magnesium_mg: 10,
-      phosphorus_mg: 172,
-      potassium_mg: 126,
-      zinc_mg: 1.1,
-      selenium_ug: 30.8,
-      omega3_g: 0.035
-    },
-    source: "usda"
-  }
-};
-
-export const listCanonicalFoods = (): CanonicalFoodNutrients[] =>
-  Object.values(CANONICAL_NUTRIENTS);
-
+// Canonical food nutrients are loaded from DB (canon table) at runtime in map-foods.
+// No hardcoded fallback; unknown canonical_id results in error in computeItemTotals.
 export const getNutrientsForCanonicalId = (
-  canonicalId: string
-): CanonicalFoodNutrients | null =>
-  CANONICAL_NUTRIENTS[canonicalId] ?? null;
+  _canonicalId: string
+): CanonicalFoodNutrients | null => null;
 
 export type MealItemInput = {
   canonical_id: string;
@@ -320,7 +201,7 @@ const computePercentDv = (totals: NutrientVector): NutrientVector => ({
 
 export const computeItemTotals = (
   item: MealItemInput,
-  canonicalById: Record<string, CanonicalFoodNutrients> = CANONICAL_NUTRIENTS
+  canonicalById: Record<string, CanonicalFoodNutrients>
 ): MealNutrientTotals => {
   const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
   const entry = canonicalById[item.canonical_id] ?? getNutrientsForCanonicalId(item.canonical_id);
@@ -342,7 +223,7 @@ export const sumPercentDv = (percent: NutrientVector): number =>
 
 export const computeMealTotals = (
   items: MealItemInput[],
-  canonicalById: Record<string, CanonicalFoodNutrients> = CANONICAL_NUTRIENTS
+  canonicalById: Record<string, CanonicalFoodNutrients>
 ): MealNutrientTotals => {
   const totals = items.reduce((acc, item) => {
     const grams = Number.isFinite(item.grams) ? Math.max(item.grams, 0) : 0;
