@@ -6,6 +6,7 @@ import { Pressable } from "react-native";
 
 import type { RootStackParamList } from "../navigation/AppNavigator";
 import { formatNutrientLabel, formatNutrientValue } from "../lib/formatters";
+import { DAILY_VALUES } from "../lib/dailyValues";
 import { NUTRIENT_INFO } from "../lib/nutrientInfo";
 import topFoodsByNutrient from "../data/topFoodsByNutrient.json";
 
@@ -58,6 +59,11 @@ export function NutrientDetailScreen({ navigation, route }: Props) {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Foods high in {label}</Text>
           <Text style={styles.hint}>Per 100 g (from our database)</Text>
+          {typeof DAILY_VALUES[nutrientKey] === "number" && (
+            <Text style={styles.dvLine}>
+              Daily Value (DV): {formatNutrientValue(nutrientKey, DAILY_VALUES[nutrientKey] as number)}
+            </Text>
+          )}
           {topFoods.length > 0 ? (
             <View style={styles.foodList}>
               {topFoods.map((item, index) => {
@@ -145,6 +151,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#666",
     marginBottom: 8
+  },
+  dvLine: {
+    fontSize: 13,
+    color: "#444",
+    marginBottom: 12
   },
   body: {
     fontSize: 15,
