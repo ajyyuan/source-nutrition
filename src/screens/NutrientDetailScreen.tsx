@@ -5,7 +5,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Pressable } from "react-native";
 
 import type { RootStackParamList } from "../navigation/AppNavigator";
-import { formatNutrientLabel } from "../lib/formatters";
+import { formatNutrientLabel, formatNutrientValue } from "../lib/formatters";
 import { NUTRIENT_INFO } from "../lib/nutrientInfo";
 import topFoodsByNutrient from "../data/topFoodsByNutrient.json";
 
@@ -15,9 +15,10 @@ export function NutrientDetailScreen({ navigation, route }: Props) {
   const { nutrientKey } = route.params;
   const label = formatNutrientLabel(nutrientKey);
   const info = NUTRIENT_INFO[nutrientKey];
-  const topFoods = (topFoodsByNutrient as Record<string, Array<{ name: string; value: number }>>)[
-    nutrientKey
-  ] ?? [];
+  const topFoods = (topFoodsByNutrient as Record<
+    string,
+    Array<{ name: string; value: number; canonical_id?: string | null }>
+  >)[nutrientKey] ?? [];
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -59,12 +60,36 @@ export function NutrientDetailScreen({ navigation, route }: Props) {
           <Text style={styles.hint}>Per 100 g (from our database)</Text>
           {topFoods.length > 0 ? (
             <View style={styles.foodList}>
-              {topFoods.map((item, index) => (
-                <View key={`${item.name}-${index}`} style={styles.foodRow}>
+              {topFoods.map((item, index) => {
+              const key = `${item.canonical_id ?? item.name}-${index}`;
+              const canonicalId = item.canonical_id ?? null;
+              if (canonicalId) {
+                return (
+                  <Pressable
+                    key={key}
+                    onPress={() => navigation.navigate("FoodDetail", { canonicalId })}
+                    style={({ pressed }) =>
+                      pressed ? [styles.foodRow, styles.foodRowPressed] : styles.foodRow
+                    }
+                    accessibilityRole="button"
+                    accessibilityLabel={`View ${item.name} micronutrient profile`}
+                  >
+                    <Text style={styles.foodName}>{item.name}</Text>
+                    <Text style={styles.foodValue}>
+                      {formatNutrientValue(nutrientKey, item.value)}
+                    </Text>
+                  </Pressable>
+                );
+              }
+              return (
+                <View key={key} style={styles.foodRow}>
                   <Text style={styles.foodName}>{item.name}</Text>
-                  <Text style={styles.foodValue}>{formatValue(nutrientKey, item.value)}</Text>
+                  <Text style={styles.foodValue}>
+                    {formatNutrientValue(nutrientKey, item.value)}
+                  </Text>
                 </View>
-              ))}
+              );
+            })}
             </View>
           ) : (
             <Text style={styles.body}>No high-source foods in our database for this nutrient.</Text>
@@ -73,22 +98,6 @@ export function NutrientDetailScreen({ navigation, route }: Props) {
       </ScrollView>
     </SafeAreaView>
   );
-}
-
-function formatValue(nutrientKey: string, value: number): string {
-  if (nutrientKey === "omega3_g") {
-    return value >= 1 ? `${value.toFixed(1)} g` : `${(value * 1000).toFixed(0)} mg`;
-  }
-  if (nutrientKey.endsWith("_ug")) {
-    return `${value.toFixed(1)} µg`;
-  }
-  if (nutrientKey.endsWith("_mg")) {
-    return value >= 1 ? `${value.toFixed(1)} mg` : `${(value * 1000).toFixed(0)} µg`;
-  }
-  if (nutrientKey.endsWith("_g")) {
-    return `${value.toFixed(2)} g`;
-  }
-  return String(value);
 }
 
 const styles = StyleSheet.create({
@@ -153,6 +162,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     backgroundColor: "#f8f8f8",
     borderRadius: 8
+  },
+  foodRowPressed: {
+    opacity: 0.7
   },
   foodName: {
     fontSize: 14,

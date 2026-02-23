@@ -50,7 +50,8 @@ const run = () => {
       .filter((r) => r.per_100g && Number.isFinite(r.per_100g[key]) && r.per_100g[key] > 0)
       .map((r) => ({
         name: r.canonical_name || r.display_name || r.canonical_id || "",
-        value: r.per_100g[key]
+        value: r.per_100g[key],
+        canonical_id: r.canonical_id || null
       }))
       .sort((a, b) => b.value - a.value)
       .slice(0, TOP_N);

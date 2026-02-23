@@ -6,10 +6,12 @@ import { CaptureScreen } from "../screens/CaptureScreen";
 import { HistoryScreen } from "../screens/HistoryScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 import { NutrientDetailScreen } from "../screens/NutrientDetailScreen";
+import { FoodDetailScreen } from "../screens/FoodDetailScreen";
 
 export type RootStackParamList = {
   MainTabs: undefined;
   NutrientDetail: { nutrientKey: string };
+  FoodDetail: { canonicalId: string };
 };
 
 export type RootTabParamList = {
@@ -57,6 +59,7 @@ export function AppNavigator() {
     >
       <Stack.Screen name="MainTabs" component={MainTabs} />
       <Stack.Screen name="NutrientDetail" component={NutrientDetailScreen} />
+      <Stack.Screen name="FoodDetail" component={FoodDetailScreen} />
     </Stack.Navigator>
   );
 }

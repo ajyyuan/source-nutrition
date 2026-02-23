@@ -33,3 +33,20 @@ export const formatNutrientLabel = (key: string) =>
 
 export const formatConfidence = (value: number) =>
   `Confidence: ${Math.round(value * 100)}%`;
+
+/** Format a nutrient value for display (per 100 g). */
+export function formatNutrientValue(nutrientKey: string, value: number): string {
+  if (nutrientKey === "omega3_g") {
+    return value >= 1 ? `${value.toFixed(1)} g` : `${(value * 1000).toFixed(0)} mg`;
+  }
+  if (nutrientKey.endsWith("_ug")) {
+    return `${value.toFixed(1)} µg`;
+  }
+  if (nutrientKey.endsWith("_mg")) {
+    return value >= 1 ? `${value.toFixed(1)} mg` : `${(value * 1000).toFixed(0)} µg`;
+  }
+  if (nutrientKey.endsWith("_g")) {
+    return `${value.toFixed(2)} g`;
+  }
+  return String(value);
+}

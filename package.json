@@ -16,7 +16,8 @@
     "canon:reseed:apply": "node scripts/reseed-canon-v1.js --apply --source-usda",
     "canon:audit": "node scripts/audit-canon-v1.js",
     "canon:audit:db": "node scripts/audit-canon-v1.js --from-db",
-    "canon:top-foods": "node scripts/build-top-foods-by-nutrient.js"
+    "canon:top-foods": "node scripts/build-top-foods-by-nutrient.js",
+    "canon:food-profiles": "node scripts/build-food-profiles.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

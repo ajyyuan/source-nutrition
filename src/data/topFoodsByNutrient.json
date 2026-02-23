@@ -2,1303 +2,1618 @@
   "vitamin_a_ug": [
     {
       "name": "Chlorella",
-      "value": 17499.3
+      "value": 17499.3,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Lamb liver",
-      "value": 7391
+      "value": 7391,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Pork liver",
-      "value": 6502
+      "value": 6502,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Beef liver",
-      "value": 4968
+      "value": 4968,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Whole turkey",
-      "value": 3939
+      "value": 3939,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Nori",
-      "value": 3428.7
+      "value": 3428.7,
+      "canonical_id": "nori"
     },
     {
       "name": "Carrot",
-      "value": 3423
+      "value": 3423,
+      "canonical_id": "carrot"
     },
     {
       "name": "Chicken liver",
-      "value": 3296
+      "value": 3296,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Oats",
-      "value": 772
+      "value": 772,
+      "canonical_id": "oats"
     },
     {
       "name": "Sweet potato",
-      "value": 709
+      "value": 709,
+      "canonical_id": "sweet-potato"
     },
     {
       "name": "Butter",
-      "value": 684
+      "value": 684,
+      "canonical_id": "butter"
     },
     {
       "name": "Ghee",
-      "value": 684
+      "value": 684,
+      "canonical_id": "ghee"
     },
     {
       "name": "Tuna (albacore)",
-      "value": 655
+      "value": 655,
+      "canonical_id": "tuna-albacore"
     },
     {
       "name": "Turnip",
-      "value": 579
+      "value": 579,
+      "canonical_id": "turnip"
     },
     {
       "name": "Butternut squash",
-      "value": 532
+      "value": 532,
+      "canonical_id": "butternut-squash"
     }
   ],
   "vitamin_c_mg": [
     {
       "name": "Chili pepper",
-      "value": 143.7
+      "value": 143.7,
+      "canonical_id": "chili-pepper"
     },
     {
       "name": "Parsley",
-      "value": 133
+      "value": 133,
+      "canonical_id": "parsley"
     },
     {
       "name": "Kale",
-      "value": 93.4
+      "value": 93.4,
+      "canonical_id": "kale"
     },
     {
       "name": "Kiwi",
-      "value": 92.7
+      "value": 92.7,
+      "canonical_id": "kiwi"
     },
     {
       "name": "Broccoli",
-      "value": 89.2
+      "value": 89.2,
+      "canonical_id": "broccoli"
     },
     {
       "name": "Brussels sprouts",
-      "value": 85
+      "value": 85,
+      "canonical_id": "brussels-sprouts"
     },
     {
       "name": "Bell pepper",
-      "value": 80.4
+      "value": 80.4,
+      "canonical_id": "bell-pepper"
     },
     {
       "name": "Hot sauce",
-      "value": 74.8
+      "value": 74.8,
+      "canonical_id": "hot-sauce"
     },
     {
       "name": "Mustard greens",
-      "value": 70
+      "value": 70,
+      "canonical_id": "mustard-greens"
     },
     {
       "name": "Mustard",
-      "value": 70
+      "value": 70,
+      "canonical_id": "mustard"
     },
     {
       "name": "Papaya",
-      "value": 60.9
+      "value": 60.9,
+      "canonical_id": "papaya"
     },
     {
       "name": "Turnip",
-      "value": 60
+      "value": 60,
+      "canonical_id": "turnip"
     },
     {
       "name": "Strawberry",
-      "value": 58.8
+      "value": 58.8,
+      "canonical_id": "strawberry"
     },
     {
       "name": "Chive",
-      "value": 58.1
+      "value": 58.1,
+      "canonical_id": "chive"
     },
     {
       "name": "Orange",
-      "value": 53.2
+      "value": 53.2,
+      "canonical_id": "orange"
     }
   ],
   "vitamin_d_ug": [
     {
       "name": "Maitake",
-      "value": 28.1
+      "value": 28.1,
+      "canonical_id": "maitake"
     },
     {
       "name": "Halibut",
-      "value": 27.4
+      "value": 27.4,
+      "canonical_id": "halibut"
     },
     {
       "name": "Chinook salmon",
-      "value": 17.1
+      "value": 17.1,
+      "canonical_id": "chinook-salmon"
     },
     {
       "name": "Trout",
-      "value": 15.9
+      "value": 15.9,
+      "canonical_id": "trout"
     },
     {
       "name": "Sockeye salmon",
-      "value": 14.1
+      "value": 14.1,
+      "canonical_id": "sockeye-salmon"
     },
     {
       "name": "Atlantic salmon",
-      "value": 11
+      "value": 11,
+      "canonical_id": "atlantic-salmon"
     },
     {
       "name": "Coho salmon",
-      "value": 9
+      "value": 9,
+      "canonical_id": "coho-salmon"
     },
     {
       "name": "American cheese",
-      "value": 7.5
+      "value": 7.5,
+      "canonical_id": "american-cheese"
     },
     {
       "name": "Mackerel",
-      "value": 7.3
+      "value": 7.3,
+      "canonical_id": "mackerel"
     },
     {
       "name": "Tuna (albacore)",
-      "value": 5.7
+      "value": 5.7,
+      "canonical_id": "tuna-albacore"
     },
     {
       "name": "Egg yolk",
-      "value": 5.4
+      "value": 5.4,
+      "canonical_id": "egg-yolk"
     },
     {
       "name": "Sardine",
-      "value": 4.8
+      "value": 4.8,
+      "canonical_id": "sardine"
     },
     {
       "name": "Duck fat",
-      "value": 4.8
+      "value": 4.8,
+      "canonical_id": "duck-fat"
     },
     {
       "name": "Chicken fat",
-      "value": 4.8
+      "value": 4.8,
+      "canonical_id": "chicken-fat"
     },
     {
       "name": "Herring",
-      "value": 4.2
+      "value": 4.2,
+      "canonical_id": "herring"
     }
   ],
   "vitamin_e_mg": [
     {
       "name": "Sunflower oil",
-      "value": 41.08
+      "value": 41.08,
+      "canonical_id": "sunflower-oil"
     },
     {
       "name": "Sunflower seed",
-      "value": 35.17
+      "value": 35.17,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Safflower oil",
-      "value": 34.1
+      "value": 34.1,
+      "canonical_id": "safflower-oil"
     },
     {
       "name": "Rice bran oil",
-      "value": 32.3
+      "value": 32.3,
+      "canonical_id": "rice-bran-oil"
     },
     {
       "name": "Grapeseed oil",
-      "value": 28.8
+      "value": 28.8,
+      "canonical_id": "grapeseed-oil"
     },
     {
       "name": "Almond",
-      "value": 25.63
+      "value": 25.63,
+      "canonical_id": "almond"
     },
     {
       "name": "Almond butter",
-      "value": 24.21
+      "value": 24.21,
+      "canonical_id": "almond-butter"
     },
     {
       "name": "Sunflower seed butter",
-      "value": 22.89
+      "value": 22.89,
+      "canonical_id": "sunflower-seed-butter"
     },
     {
       "name": "Canola oil",
-      "value": 17.46
+      "value": 17.46,
+      "canonical_id": "canola-oil"
     },
     {
       "name": "Peanut oil",
-      "value": 15.69
+      "value": 15.69,
+      "canonical_id": "peanut-oil"
     },
     {
       "name": "Hazelnut",
-      "value": 15.03
+      "value": 15.03,
+      "canonical_id": "hazelnut"
     },
     {
       "name": "Olive oil",
-      "value": 14.78
+      "value": 14.78,
+      "canonical_id": "olive-oil"
     },
     {
       "name": "Corn oil",
-      "value": 14.3
+      "value": 14.3,
+      "canonical_id": "corn-oil"
     },
     {
       "name": "Avocado oil",
-      "value": 14.12
+      "value": 14.12,
+      "canonical_id": "avocado-oil"
     },
     {
       "name": "Pine nut",
-      "value": 9.33
+      "value": 9.33,
+      "canonical_id": "pine-nut"
     }
   ],
   "vitamin_k_ug": [
     {
       "name": "Parsley",
-      "value": 1640
+      "value": 1640,
+      "canonical_id": "parsley"
     },
     {
       "name": "Swiss",
-      "value": 830
+      "value": 830,
+      "canonical_id": "swiss"
     },
     {
       "name": "Swiss chard",
-      "value": 830
+      "value": 830,
+      "canonical_id": "swiss-chard"
     },
     {
       "name": "Spinach",
-      "value": 482.9
+      "value": 482.9,
+      "canonical_id": "spinach"
     },
     {
       "name": "Beet",
-      "value": 400
+      "value": 400,
+      "canonical_id": "beet"
     },
     {
       "name": "Kale",
-      "value": 389.6
+      "value": 389.6,
+      "canonical_id": "kale"
     },
     {
       "name": "Cilantro",
-      "value": 310
+      "value": 310,
+      "canonical_id": "cilantro"
     },
     {
       "name": "Mustard greens",
-      "value": 257.5
+      "value": 257.5,
+      "canonical_id": "mustard-greens"
     },
     {
       "name": "Mustard",
-      "value": 257.5
+      "value": 257.5,
+      "canonical_id": "mustard"
     },
     {
       "name": "Radicchio",
-      "value": 255.2
+      "value": 255.2,
+      "canonical_id": "radicchio"
     },
     {
       "name": "Turnip",
-      "value": 251
+      "value": 251,
+      "canonical_id": "turnip"
     },
     {
       "name": "Endive",
-      "value": 231
+      "value": 231,
+      "canonical_id": "endive"
     },
     {
       "name": "Chive",
-      "value": 212.7
+      "value": 212.7,
+      "canonical_id": "chive"
     },
     {
       "name": "Scallion",
-      "value": 207
+      "value": 207,
+      "canonical_id": "scallion"
     },
     {
       "name": "Soybean oil",
-      "value": 183.9
+      "value": 183.9,
+      "canonical_id": "soybean-oil"
     }
   ],
   "thiamin_mg": [
     {
       "name": "Flax",
-      "value": 1.644
+      "value": 1.644,
+      "canonical_id": "flax"
     },
     {
       "name": "Sunflower seed",
-      "value": 1.48
+      "value": 1.48,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Hemp",
-      "value": 1.275
+      "value": 1.275,
+      "canonical_id": "hemp"
     },
     {
       "name": "Tahini",
-      "value": 1.22
+      "value": 1.22,
+      "canonical_id": "tahini"
     },
     {
       "name": "Macadamia",
-      "value": 1.195
+      "value": 1.195,
+      "canonical_id": "macadamia"
     },
     {
       "name": "Egg noodles",
-      "value": 1.133
+      "value": 1.133,
+      "canonical_id": "egg-noodles"
     },
     {
       "name": "Pork tenderloin",
-      "value": 0.998
+      "value": 0.998,
+      "canonical_id": "pork-tenderloin"
     },
     {
       "name": "Pork loin",
-      "value": 0.989
+      "value": 0.989,
+      "canonical_id": "pork-loin"
     },
     {
       "name": "Bread crumbs",
-      "value": 0.961
+      "value": 0.961,
+      "canonical_id": "bread-crumbs"
     },
     {
       "name": "Black bean",
-      "value": 0.9
+      "value": 0.9,
+      "canonical_id": "black-bean"
     },
     {
       "name": "Fresh ham",
-      "value": 0.875
+      "value": 0.875,
+      "canonical_id": "fresh-ham"
     },
     {
       "name": "Soybean",
-      "value": 0.874
+      "value": 0.874,
+      "canonical_id": "soybean"
     },
     {
       "name": "Lentil",
-      "value": 0.873
+      "value": 0.873,
+      "canonical_id": "lentil"
     },
     {
       "name": "Pistachio",
-      "value": 0.87
+      "value": 0.87,
+      "canonical_id": "pistachio"
     },
     {
       "name": "Naan",
-      "value": 0.78
+      "value": 0.78,
+      "canonical_id": "naan"
     }
   ],
   "riboflavin_mg": [
     {
       "name": "Lamb liver",
-      "value": 3.63
+      "value": 3.63,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Pork liver",
-      "value": 3.005
+      "value": 3.005,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Beef kidney",
-      "value": 2.84
+      "value": 2.84,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Beef liver",
-      "value": 2.755
+      "value": 2.755,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Chicken liver",
-      "value": 1.778
+      "value": 1.778,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Pork kidney",
-      "value": 1.586
+      "value": 1.586,
+      "canonical_id": "pork-kidney"
     },
     {
       "name": "Whole turkey",
-      "value": 1.393
+      "value": 1.393,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Lamb kidney",
-      "value": 1.279
+      "value": 1.279,
+      "canonical_id": "lamb-kidney"
     },
     {
       "name": "Maple syrup",
-      "value": 1.27
+      "value": 1.27,
+      "canonical_id": "maple-syrup"
     },
     {
       "name": "Beef heart",
-      "value": 1.21
+      "value": 1.21,
+      "canonical_id": "beef-heart"
     },
     {
       "name": "Pork heart",
-      "value": 1.185
+      "value": 1.185,
+      "canonical_id": "pork-heart"
     },
     {
       "name": "Almond",
-      "value": 1.138
+      "value": 1.138,
+      "canonical_id": "almond"
     },
     {
       "name": "Almond butter",
-      "value": 0.939
+      "value": 0.939,
+      "canonical_id": "almond-butter"
     },
     {
       "name": "Soybean",
-      "value": 0.87
+      "value": 0.87,
+      "canonical_id": "soybean"
     },
     {
       "name": "Feta",
-      "value": 0.844
+      "value": 0.844,
+      "canonical_id": "feta"
     }
   ],
   "niacin_mg": [
     {
       "name": "Tuna (yellowfin)",
-      "value": 18.475
+      "value": 18.475,
+      "canonical_id": "tuna-yellowfin"
     },
     {
       "name": "Lamb liver",
-      "value": 16.11
+      "value": 16.11,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Tuna (skipjack)",
-      "value": 15.4
+      "value": 15.4,
+      "canonical_id": "tuna-skipjack"
     },
     {
       "name": "Pork liver",
-      "value": 15.301
+      "value": 15.301,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Peanut butter",
-      "value": 14.6
+      "value": 14.6,
+      "canonical_id": "peanut-butter"
     },
     {
       "name": "Anchovy",
-      "value": 14.024
+      "value": 14.024,
+      "canonical_id": "anchovy"
     },
     {
       "name": "Beef liver",
-      "value": 13.175
+      "value": 13.175,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Chicken breast",
-      "value": 9.908
+      "value": 9.908,
+      "canonical_id": "chicken-breast"
     },
     {
       "name": "Chicken liver",
-      "value": 9.728
+      "value": 9.728,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Hemp",
-      "value": 9.2
+      "value": 9.2,
+      "canonical_id": "hemp"
     },
     {
       "name": "Chia",
-      "value": 8.83
+      "value": 8.83,
+      "canonical_id": "chia"
     },
     {
       "name": "Whole turkey",
-      "value": 8.694
+      "value": 8.694,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Atlantic salmon",
-      "value": 8.672
+      "value": 8.672,
+      "canonical_id": "atlantic-salmon"
     },
     {
       "name": "Tuna (albacore)",
-      "value": 8.654
+      "value": 8.654,
+      "canonical_id": "tuna-albacore"
     },
     {
       "name": "Sockeye salmon",
-      "value": 8.507
+      "value": 8.507,
+      "canonical_id": "sockeye-salmon"
     }
   ],
   "vitamin_b5_mg": [
     {
       "name": "Beef liver",
-      "value": 7.173
+      "value": 7.173,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Pork liver",
-      "value": 6.65
+      "value": 6.65,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Chicken liver",
-      "value": 6.233
+      "value": 6.233,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Lamb liver",
-      "value": 6.13
+      "value": 6.13,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Beef kidney",
-      "value": 3.97
+      "value": 3.97,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Beef pancreas",
-      "value": 3.9
+      "value": 3.9,
+      "canonical_id": "beef-pancreas"
     },
     {
       "name": "Whole turkey",
-      "value": 3.889
+      "value": 3.889,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Lamb kidney",
-      "value": 3.207
+      "value": 3.207,
+      "canonical_id": "lamb-kidney"
     },
     {
       "name": "Egg yolk",
-      "value": 2.99
+      "value": 2.99,
+      "canonical_id": "egg-yolk"
     },
     {
       "name": "Pork kidney",
-      "value": 2.873
+      "value": 2.873,
+      "canonical_id": "pork-kidney"
     },
     {
       "name": "Pork brain",
-      "value": 2.8
+      "value": 2.8,
+      "canonical_id": "pork-brain"
     },
     {
       "name": "Chicken heart",
-      "value": 2.559
+      "value": 2.559,
+      "canonical_id": "chicken-heart"
     },
     {
       "name": "Pork heart",
-      "value": 2.515
+      "value": 2.515,
+      "canonical_id": "pork-heart"
     },
     {
       "name": "Lamb heart",
-      "value": 2.244
+      "value": 2.244,
+      "canonical_id": "lamb-heart"
     },
     {
       "name": "Lentil",
-      "value": 2.14
+      "value": 2.14,
+      "canonical_id": "lentil"
     }
   ],
   "vitamin_b6_mg": [
     {
       "name": "Pistachio",
-      "value": 1.7
+      "value": 1.7,
+      "canonical_id": "pistachio"
     },
     {
       "name": "Sunflower seed",
-      "value": 1.345
+      "value": 1.345,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Garlic",
-      "value": 1.235
+      "value": 1.235,
+      "canonical_id": "garlic"
     },
     {
       "name": "Beef liver",
-      "value": 1.083
+      "value": 1.083,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Carrot",
-      "value": 1.04
+      "value": 1.04,
+      "canonical_id": "carrot"
     },
     {
       "name": "Tuna (yellowfin)",
-      "value": 0.933
+      "value": 0.933,
+      "canonical_id": "tuna-yellowfin"
     },
     {
       "name": "Lamb liver",
-      "value": 0.9
+      "value": 0.9,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Chicken liver",
-      "value": 0.853
+      "value": 0.853,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Tuna (skipjack)",
-      "value": 0.85
+      "value": 0.85,
+      "canonical_id": "tuna-skipjack"
     },
     {
       "name": "Pork tenderloin",
-      "value": 0.777
+      "value": 0.777,
+      "canonical_id": "pork-tenderloin"
     },
     {
       "name": "Pork chop",
-      "value": 0.742
+      "value": 0.742,
+      "canonical_id": "pork-chop"
     },
     {
       "name": "Sockeye salmon",
-      "value": 0.731
+      "value": 0.731,
+      "canonical_id": "sockeye-salmon"
     },
     {
       "name": "Pork liver",
-      "value": 0.69
+      "value": 0.69,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Ground pork",
-      "value": 0.668
+      "value": 0.668,
+      "canonical_id": "ground-pork"
     },
     {
       "name": "Round",
-      "value": 0.666
+      "value": 0.666,
+      "canonical_id": "round"
     }
   ],
   "vitamin_b7_ug": [
     {
       "name": "Beef liver",
-      "value": 100
+      "value": 100,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Egg yolk",
-      "value": 63.6
+      "value": 63.6,
+      "canonical_id": "egg-yolk"
     },
     {
       "name": "Chicken liver",
-      "value": 62.21
+      "value": 62.21,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Hazelnut",
-      "value": 61.6
+      "value": 61.6,
+      "canonical_id": "hazelnut"
     },
     {
       "name": "Beef kidney",
-      "value": 58
+      "value": 58,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Sunflower seed",
-      "value": 56
+      "value": 56,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Maitake",
-      "value": 47.3
+      "value": 47.3,
+      "canonical_id": "maitake"
     },
     {
       "name": "Lamb liver",
-      "value": 41
+      "value": 41,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Catfish",
-      "value": 37.9
+      "value": 37.9,
+      "canonical_id": "catfish"
     },
     {
       "name": "Lamb kidney",
-      "value": 37
+      "value": 37,
+      "canonical_id": "lamb-kidney"
     },
     {
       "name": "Walnut",
-      "value": 35.5
+      "value": 35.5,
+      "canonical_id": "walnut"
     },
     {
       "name": "Pecan",
-      "value": 35.5
+      "value": 35.5,
+      "canonical_id": "pecan"
     },
     {
       "name": "Chicken egg",
-      "value": 19.5
+      "value": 19.5,
+      "canonical_id": "chicken-egg"
     },
     {
       "name": "Duck egg",
-      "value": 19.5
+      "value": 19.5,
+      "canonical_id": "duck-egg"
     },
     {
       "name": "Turkey egg",
-      "value": 19.5
+      "value": 19.5,
+      "canonical_id": "turkey-egg"
     }
   ],
   "folate_ug": [
     {
       "name": "Chicken liver",
-      "value": 588
+      "value": 588,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Pinto bean",
-      "value": 525
+      "value": 525,
+      "canonical_id": "pinto-bean"
     },
     {
       "name": "Lentil",
-      "value": 479
+      "value": 479,
+      "canonical_id": "lentil"
     },
     {
       "name": "Black bean",
-      "value": 444
+      "value": 444,
+      "canonical_id": "black-bean"
     },
     {
       "name": "Chickpea",
-      "value": 437
+      "value": 437,
+      "canonical_id": "chickpea"
     },
     {
       "name": "Kidney bean",
-      "value": 394
+      "value": 394,
+      "canonical_id": "kidney-bean"
     },
     {
       "name": "Soybean",
-      "value": 375
+      "value": 375,
+      "canonical_id": "soybean"
     },
     {
       "name": "Whole turkey",
-      "value": 331
+      "value": 331,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Beef liver",
-      "value": 290
+      "value": 290,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Sunflower seed butter",
-      "value": 237
+      "value": 237,
+      "canonical_id": "sunflower-seed-butter"
     },
     {
       "name": "Lamb liver",
-      "value": 230
+      "value": 230,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Egg noodles",
-      "value": 230
+      "value": 230,
+      "canonical_id": "egg-noodles"
     },
     {
       "name": "Sunflower seed",
-      "value": 227
+      "value": 227,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Pork liver",
-      "value": 212
+      "value": 212,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Wakame",
-      "value": 196
+      "value": 196,
+      "canonical_id": "wakame"
     }
   ],
   "vitamin_b12_ug": [
     {
       "name": "Chlorella",
-      "value": 300
+      "value": 300,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Lamb liver",
-      "value": 90.05
+      "value": 90.05,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Beef liver",
-      "value": 59.3
+      "value": 59.3,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Lamb kidney",
-      "value": 50.37
+      "value": 50.37,
+      "canonical_id": "lamb-kidney"
     },
     {
       "name": "Beef kidney",
-      "value": 27.5
+      "value": 27.5,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Pork liver",
-      "value": 26
+      "value": 26,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Octopus",
-      "value": 20
+      "value": 20,
+      "canonical_id": "octopus"
     },
     {
       "name": "Chicken liver",
-      "value": 16.58
+      "value": 16.58,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Beef pancreas",
-      "value": 14
+      "value": 14,
+      "canonical_id": "beef-pancreas"
     },
     {
       "name": "Herring",
-      "value": 13.67
+      "value": 13.67,
+      "canonical_id": "herring"
     },
     {
       "name": "Whole turkey",
-      "value": 13.06
+      "value": 13.06,
+      "canonical_id": "whole-turkey"
     },
     {
       "name": "Mussel",
-      "value": 12
+      "value": 12,
+      "canonical_id": "mussel"
     },
     {
       "name": "Clam",
-      "value": 11.28
+      "value": 11.28,
+      "canonical_id": "clam"
     },
     {
       "name": "Beef heart",
-      "value": 10.8
+      "value": 10.8,
+      "canonical_id": "beef-heart"
     },
     {
       "name": "Beef brain",
-      "value": 10.1
+      "value": 10.1,
+      "canonical_id": "beef-brain"
     }
   ],
   "calcium_mg": [
     {
       "name": "Parmesan",
-      "value": 1184
+      "value": 1184,
+      "canonical_id": "parmesan"
     },
     {
       "name": "American cheese",
-      "value": 1045
+      "value": 1045,
+      "canonical_id": "american-cheese"
     },
     {
       "name": "Processed cheese slices",
-      "value": 1045
+      "value": 1045,
+      "canonical_id": "processed-cheese-slices"
     },
     {
       "name": "Gruyere",
-      "value": 1011
+      "value": 1011,
+      "canonical_id": "gruyere"
     },
     {
       "name": "Cheddar",
-      "value": 711
+      "value": 711,
+      "canonical_id": "cheddar"
     },
     {
       "name": "Gouda",
-      "value": 700
+      "value": 700,
+      "canonical_id": "gouda"
     },
     {
       "name": "Chia",
-      "value": 631
+      "value": 631,
+      "canonical_id": "chia"
     },
     {
       "name": "Mozzarella",
-      "value": 505
+      "value": 505,
+      "canonical_id": "mozzarella"
     },
     {
       "name": "Feta",
-      "value": 493
+      "value": 493,
+      "canonical_id": "feta"
     },
     {
       "name": "Tahini",
-      "value": 426
+      "value": 426,
+      "canonical_id": "tahini"
     },
     {
       "name": "Sardine",
-      "value": 382
+      "value": 382,
+      "canonical_id": "sardine"
     },
     {
       "name": "Oats",
-      "value": 351
+      "value": 351,
+      "canonical_id": "oats"
     },
     {
       "name": "Almond butter",
-      "value": 347
+      "value": 347,
+      "canonical_id": "almond-butter"
     },
     {
       "name": "Chlorella",
-      "value": 333
+      "value": 333,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Nori",
-      "value": 286
+      "value": 286,
+      "canonical_id": "nori"
     }
   ],
   "iron_mg": [
     {
       "name": "Chlorella",
-      "value": 240
+      "value": 240,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Turmeric",
-      "value": 55
+      "value": 55,
+      "canonical_id": "turmeric"
     },
     {
       "name": "Nori",
-      "value": 51.43
+      "value": 51.43,
+      "canonical_id": "nori"
     },
     {
       "name": "Beef spleen",
-      "value": 44.55
+      "value": 44.55,
+      "canonical_id": "beef-spleen"
     },
     {
       "name": "Dulse",
-      "value": 28.29
+      "value": 28.29,
+      "canonical_id": "dulse"
     },
     {
       "name": "Oats",
-      "value": 24.72
+      "value": 24.72,
+      "canonical_id": "oats"
     },
     {
       "name": "Pork liver",
-      "value": 23.3
+      "value": 23.3,
+      "canonical_id": "pork-liver"
     },
     {
       "name": "Soybean",
-      "value": 15.7
+      "value": 15.7,
+      "canonical_id": "soybean"
     },
     {
       "name": "Chicken liver",
-      "value": 8.99
+      "value": 8.99,
+      "canonical_id": "chicken-liver"
     },
     {
       "name": "Tahini",
-      "value": 8.95
+      "value": 8.95,
+      "canonical_id": "tahini"
     },
     {
       "name": "Pumpkin seed",
-      "value": 8.82
+      "value": 8.82,
+      "canonical_id": "pumpkin-seed"
     },
     {
       "name": "Natto",
-      "value": 8.6
+      "value": 8.6,
+      "canonical_id": "natto"
     },
     {
       "name": "Kidney bean",
-      "value": 8.2
+      "value": 8.2,
+      "canonical_id": "kidney-bean"
     },
     {
       "name": "Hemp",
-      "value": 7.95
+      "value": 7.95,
+      "canonical_id": "hemp"
     },
     {
       "name": "Chia",
-      "value": 7.72
+      "value": 7.72,
+      "canonical_id": "chia"
     }
   ],
   "magnesium_mg": [
     {
       "name": "Hemp",
-      "value": 700
+      "value": 700,
+      "canonical_id": "hemp"
     },
     {
       "name": "Pumpkin seed",
-      "value": 592
+      "value": 592,
+      "canonical_id": "pumpkin-seed"
     },
     {
       "name": "Flax",
-      "value": 392
+      "value": 392,
+      "canonical_id": "flax"
     },
     {
       "name": "Brazil nut",
-      "value": 376
+      "value": 376,
+      "canonical_id": "brazil-nut"
     },
     {
       "name": "Sesame",
-      "value": 345
+      "value": 345,
+      "canonical_id": "sesame"
     },
     {
       "name": "Chia",
-      "value": 335
+      "value": 335,
+      "canonical_id": "chia"
     },
     {
       "name": "Sunflower seed",
-      "value": 325
+      "value": 325,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Sunflower seed butter",
-      "value": 311
+      "value": 311,
+      "canonical_id": "sunflower-seed-butter"
     },
     {
       "name": "Cashew",
-      "value": 292
+      "value": 292,
+      "canonical_id": "cashew"
     },
     {
       "name": "Soybean",
-      "value": 280
+      "value": 280,
+      "canonical_id": "soybean"
     },
     {
       "name": "Almond butter",
-      "value": 279
+      "value": 279,
+      "canonical_id": "almond-butter"
     },
     {
       "name": "Almond",
-      "value": 270
+      "value": 270,
+      "canonical_id": "almond"
     },
     {
       "name": "Pine nut",
-      "value": 251
+      "value": 251,
+      "canonical_id": "pine-nut"
     },
     {
       "name": "Amaranth",
-      "value": 248
+      "value": 248,
+      "canonical_id": "amaranth"
     },
     {
       "name": "Turmeric",
-      "value": 208
+      "value": 208,
+      "canonical_id": "turmeric"
     }
   ],
   "phosphorus_mg": [
     {
       "name": "Hemp",
-      "value": 1650
+      "value": 1650,
+      "canonical_id": "hemp"
     },
     {
       "name": "Pumpkin seed",
-      "value": 1233
+      "value": 1233,
+      "canonical_id": "pumpkin-seed"
     },
     {
       "name": "Chia",
-      "value": 860
+      "value": 860,
+      "canonical_id": "chia"
     },
     {
       "name": "Tahini",
-      "value": 732
+      "value": 732,
+      "canonical_id": "tahini"
     },
     {
       "name": "Brazil nut",
-      "value": 725
+      "value": 725,
+      "canonical_id": "brazil-nut"
     },
     {
       "name": "Soybean",
-      "value": 704
+      "value": 704,
+      "canonical_id": "soybean"
     },
     {
       "name": "Parmesan",
-      "value": 694
+      "value": 694,
+      "canonical_id": "parmesan"
     },
     {
       "name": "Sesame",
-      "value": 667
+      "value": 667,
+      "canonical_id": "sesame"
     },
     {
       "name": "Sunflower seed butter",
-      "value": 666
+      "value": 666,
+      "canonical_id": "sunflower-seed-butter"
     },
     {
       "name": "Sunflower seed",
-      "value": 660
+      "value": 660,
+      "canonical_id": "sunflower-seed"
     },
     {
       "name": "Flax",
-      "value": 642
+      "value": 642,
+      "canonical_id": "flax"
     },
     {
       "name": "American cheese",
-      "value": 641
+      "value": 641,
+      "canonical_id": "american-cheese"
     },
     {
       "name": "Processed cheese slices",
-      "value": 641
+      "value": 641,
+      "canonical_id": "processed-cheese-slices"
     },
     {
       "name": "Gruyere",
-      "value": 605
+      "value": 605,
+      "canonical_id": "gruyere"
     },
     {
       "name": "Cashew",
-      "value": 593
+      "value": 593,
+      "canonical_id": "cashew"
     }
   ],
   "potassium_mg": [
     {
       "name": "Carrot",
-      "value": 2540
+      "value": 2540,
+      "canonical_id": "carrot"
     },
     {
       "name": "Turmeric",
-      "value": 2080
+      "value": 2080,
+      "canonical_id": "turmeric"
     },
     {
       "name": "Soybean",
-      "value": 1797
+      "value": 1797,
+      "canonical_id": "soybean"
     },
     {
       "name": "Black bean",
-      "value": 1483
+      "value": 1483,
+      "canonical_id": "black-bean"
     },
     {
       "name": "Kidney bean",
-      "value": 1406
+      "value": 1406,
+      "canonical_id": "kidney-bean"
     },
     {
       "name": "Pinto bean",
-      "value": 1393
+      "value": 1393,
+      "canonical_id": "pinto-bean"
     },
     {
       "name": "Hemp",
-      "value": 1200
+      "value": 1200,
+      "canonical_id": "hemp"
     },
     {
       "name": "Pistachio",
-      "value": 1025
+      "value": 1025,
+      "canonical_id": "pistachio"
     },
     {
       "name": "Tomato paste",
-      "value": 1014
+      "value": 1014,
+      "canonical_id": "tomato-paste"
     },
     {
       "name": "Chickpea",
-      "value": 846
+      "value": 846,
+      "canonical_id": "chickpea"
     },
     {
       "name": "Yam",
-      "value": 816
+      "value": 816,
+      "canonical_id": "yam"
     },
     {
       "name": "Flax",
-      "value": 813
+      "value": 813,
+      "canonical_id": "flax"
     },
     {
       "name": "Pumpkin seed",
-      "value": 809
+      "value": 809,
+      "canonical_id": "pumpkin-seed"
     },
     {
       "name": "Beet",
-      "value": 762
+      "value": 762,
+      "canonical_id": "beet"
     },
     {
       "name": "Almond butter",
-      "value": 748
+      "value": 748,
+      "canonical_id": "almond-butter"
     }
   ],
   "zinc_mg": [
     {
       "name": "Oyster",
-      "value": 39.3
+      "value": 39.3,
+      "canonical_id": "oyster"
     },
     {
       "name": "Hemp",
-      "value": 9.9
+      "value": 9.9,
+      "canonical_id": "hemp"
     },
     {
       "name": "Short ribs",
-      "value": 8.25
+      "value": 8.25,
+      "canonical_id": "short-ribs"
     },
     {
       "name": "Pumpkin seed",
-      "value": 7.81
+      "value": 7.81,
+      "canonical_id": "pumpkin-seed"
     },
     {
       "name": "Shank (lamb/goat)",
-      "value": 7.69
+      "value": 7.69,
+      "canonical_id": "shank-lamb-goat"
     },
     {
       "name": "Shank",
-      "value": 6.94
+      "value": 6.94,
+      "canonical_id": "shank"
     },
     {
       "name": "Sesame",
-      "value": 6.73
+      "value": 6.73,
+      "canonical_id": "sesame"
     },
     {
       "name": "Chicken heart",
-      "value": 6.59
+      "value": 6.59,
+      "canonical_id": "chicken-heart"
     },
     {
       "name": "Pine nut",
-      "value": 6.45
+      "value": 6.45,
+      "canonical_id": "pine-nut"
     },
     {
       "name": "Hanger",
-      "value": 6.26
+      "value": 6.26,
+      "canonical_id": "hanger"
     },
     {
       "name": "Skirt",
-      "value": 6.25
+      "value": 6.25,
+      "canonical_id": "skirt"
     },
     {
       "name": "Plate",
-      "value": 6.25
+      "value": 6.25,
+      "canonical_id": "plate"
     },
     {
       "name": "Back ribs",
-      "value": 6.1
+      "value": 6.1,
+      "canonical_id": "back-ribs"
     },
     {
       "name": "Wild rice",
-      "value": 5.96
+      "value": 5.96,
+      "canonical_id": "wild-rice"
     },
     {
       "name": "Cashew",
-      "value": 5.78
+      "value": 5.78,
+      "canonical_id": "cashew"
     }
   ],
   "selenium_ug": [
     {
       "name": "Brazil nut",
-      "value": 1917
+      "value": 1917,
+      "canonical_id": "brazil-nut"
     },
     {
       "name": "Pork kidney",
-      "value": 311.5
+      "value": 311.5,
+      "canonical_id": "pork-kidney"
     },
     {
       "name": "Beef kidney",
-      "value": 141
+      "value": 141,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Sunflower seed butter",
-      "value": 104.4
+      "value": 104.4,
+      "canonical_id": "sunflower-seed-butter"
     },
     {
       "name": "Lamb kidney",
-      "value": 93.6
+      "value": 93.6,
+      "canonical_id": "lamb-kidney"
     },
     {
       "name": "Tuna (yellowfin)",
-      "value": 90.6
+      "value": 90.6,
+      "canonical_id": "tuna-yellowfin"
     },
     {
       "name": "Lamb liver",
-      "value": 82.4
+      "value": 82.4,
+      "canonical_id": "lamb-liver"
     },
     {
       "name": "Egg noodles",
-      "value": 78.8
+      "value": 78.8,
+      "canonical_id": "egg-noodles"
     },
     {
       "name": "Lobster",
-      "value": 63.6
+      "value": 63.6,
+      "canonical_id": "lobster"
     },
     {
       "name": "Pasta",
-      "value": 63.2
+      "value": 63.2,
+      "canonical_id": "pasta"
     },
     {
       "name": "Sourdough pasta",
-      "value": 63.2
+      "value": 63.2,
+      "canonical_id": "sourdough-pasta"
     },
     {
       "name": "Beef spleen",
-      "value": 62.2
+      "value": 62.2,
+      "canonical_id": "beef-spleen"
     },
     {
       "name": "Egg yolk",
-      "value": 56
+      "value": 56,
+      "canonical_id": "egg-yolk"
     },
     {
       "name": "Chia",
-      "value": 55.2
+      "value": 55.2,
+      "canonical_id": "chia"
     },
     {
       "name": "Chicken liver",
-      "value": 54.6
+      "value": 54.6,
+      "canonical_id": "chicken-liver"
     }
   ],
   "omega3_g": [
     {
       "name": "Canola oil",
-      "value": 9.137
+      "value": 9.137,
+      "canonical_id": "canola-oil"
     },
     {
       "name": "Hemp",
-      "value": 8.684
+      "value": 8.684,
+      "canonical_id": "hemp"
     },
     {
       "name": "Soybean oil",
-      "value": 6.789
+      "value": 6.789,
+      "canonical_id": "soybean-oil"
     },
     {
       "name": "Lamb tallow",
-      "value": 2.3
+      "value": 2.3,
+      "canonical_id": "lamb-tallow"
     },
     {
       "name": "Atlantic salmon",
-      "value": 2.1140000000000003
+      "value": 2.1140000000000003,
+      "canonical_id": "atlantic-salmon"
     },
     {
       "name": "Herring",
-      "value": 1.571
+      "value": 1.571,
+      "canonical_id": "herring"
     },
     {
       "name": "Mackerel",
-      "value": 1.341
+      "value": 1.341,
+      "canonical_id": "mackerel"
     },
     {
       "name": "Tuna (albacore)",
-      "value": 1.173
+      "value": 1.173,
+      "canonical_id": "tuna-albacore"
     },
     {
       "name": "Corn oil",
-      "value": 1.161
+      "value": 1.161,
+      "canonical_id": "corn-oil"
     },
     {
       "name": "Coho salmon",
-      "value": 1.085
+      "value": 1.085,
+      "canonical_id": "coho-salmon"
     },
     {
       "name": "Duck fat",
-      "value": 1
+      "value": 1,
+      "canonical_id": "duck-fat"
     },
     {
       "name": "Sardine",
-      "value": 0.982
+      "value": 0.982,
+      "canonical_id": "sardine"
     },
     {
       "name": "Halibut",
-      "value": 0.919
+      "value": 0.919,
+      "canonical_id": "halibut"
     },
     {
       "name": "Beef brain",
-      "value": 0.855
+      "value": 0.855,
+      "canonical_id": "beef-brain"
     },
     {
       "name": "Whole wheat pasta",
-      "value": 0.831
+      "value": 0.831,
+      "canonical_id": "whole-wheat-pasta"
     }
   ]
 }
