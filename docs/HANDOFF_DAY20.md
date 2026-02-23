@@ -85,6 +85,14 @@ Handoff for animal-product biotin completion, vitamin-zero patches with cited va
 4. Focus search on largest remaining gaps: vitamin_a_ug, vitamin_d_ug, vitamin_k_ug (e.g. beef/pork/lamb muscle A, shellfish D, pork K) where a cited per-100g value exists.
 5. After any canon/supplemental/provenance change: run `npm run canon:reseed:dry` and `npm run canon:matrix:build` and refresh docs.
 
+## Later / backlog (not urgent)
+- **Food detail page:** A page for every canon food showing its full micronutrient profile. From the nutrient click-through page, tapping a listed “top food” should open that food’s detail page.
+- **Discover tab:** Searchable/browsable list of all foods (e.g. discover tab with search), linking into the same food detail pages.
+
+## npm audit (as of Day 20)
+- Ran `npm audit fix`: fixed **@isaacs/brace-expansion** and **tar** (2 of 21 high). **19 high** remain.
+- Remaining issues are all **minimatch** (ReDoS) and **glob** in the **react-native / expo** dependency tree. They are transitive; fixing them would require `npm audit fix --force`, which would downgrade to **expo@51** (breaking change from current ~54). Safe to leave until the next planned Expo upgrade; the vulnerable code is in dev/build tooling (Metro, codegen, jest), not in the app runtime.
+
 ## Notes for the Next Agent
 - **First:** Ship the nutrient click-through page (tap nutrient → page with description, deficiency signs, top foods). **Second:** Audit minerals for suspicious mixing, mis-mapping, or missing; fix before other completeness work.
 - Follow `.cursor/rules/data-completeness.mdc`: use web search for completeness; no made-up traces or bad proxies.
