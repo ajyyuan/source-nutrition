@@ -58,12 +58,20 @@ export function FoodDetailScreen({ navigation, route }: Props) {
                   const value = profile.per_100g?.[key];
                   const num = typeof value === "number" && Number.isFinite(value) ? value : null;
                   return (
-                    <View key={key} style={styles.nutrientRow}>
+                    <Pressable
+                      key={key}
+                      onPress={() => navigation.navigate("NutrientDetail", { nutrientKey: key })}
+                      style={({ pressed }) =>
+                        pressed ? [styles.nutrientRow, styles.nutrientRowPressed] : styles.nutrientRow
+                      }
+                      accessibilityRole="button"
+                      accessibilityLabel={`View ${formatNutrientLabel(key)} details`}
+                    >
                       <Text style={styles.nutrientName}>{formatNutrientLabel(key)}</Text>
                       <Text style={styles.nutrientValue}>
                         {num !== null ? formatNutrientValue(key, num) : "—"}
                       </Text>
-                    </View>
+                    </Pressable>
                   );
                 })}
               </View>
@@ -138,6 +146,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     backgroundColor: "#f8f8f8",
     borderRadius: 6
+  },
+  nutrientRowPressed: {
+    opacity: 0.7
   },
   nutrientName: {
     fontSize: 14,
