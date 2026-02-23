@@ -8,7 +8,6 @@ chia,Chia,Plant foods,Seeds,supplemental_biotin_patch,biotin-patch-chia-2712620,
 sheep-milk,Sheep milk,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-sheep-milk-m011000,supplemental,curated,17,4,0,17,0,21,0.8095,0.8095,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|omega3_g,,
 avocado-oil,Avocado oil,Plant foods,Plant oils,canadian_nutrient_file,cnf-450,supplemental,curated,18,3,0,1,17,21,0.8571,0.0476,vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug
 udon-noodles,Udon noodles,Plant foods,Staples (home-cook processed),sr_legacy_food,168908,usda,curated,18,3,0,13,5,21,0.8571,0.619,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
-shank,Shank,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-shank-U291100,supplemental,curated,18,3,0,14,4,21,0.8571,0.6667,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_b7_ug|omega3_g
 acorn-squash,Acorn squash,Plant foods,Cucurbitaceae,canadian_nutrient_file,cnf-2448,supplemental,curated,18,3,0,16,2,21,0.8571,0.7619,vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_d_ug|vitamin_b12_ug
 beef-pancreas,Beef pancreas,Animal foods,Animal organs,external_biotin_literature_patch,biotin-patch-animal-beef-pancreas-lit,supplemental,curated,18,3,0,16,2,21,0.8571,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug,,vitamin_a_ug|omega3_g
 beef-spleen,Beef spleen,Animal foods,Animal organs,german_bls_4_0_biotin_patch,biotin-patch-bls4-beef-spleen-v561100,supplemental,curated,18,3,0,16,2,21,0.8571,0.7619,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug,,vitamin_a_ug|omega3_g
@@ -76,7 +75,6 @@ cremini,Cremini,Fungi,Mushrooms,sr_legacy_food,168434,usda,curated,20,1,0,16,4,2
 dill,Dill,Plant foods,Apiaceae,sr_legacy_food,168558,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|selenium_ug|omega3_g
 flax,Flax,Plant foods,Seeds,sr_legacy_food,169414,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 ginger,Ginger,Plant foods,Tubers and roots,sr_legacy_food,169231,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
-ground-bison,Ground bison,Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-bison-lit,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b5_mg,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|omega3_g
 kidney-bean,Kidney bean,Plant foods,Fabaceae (legumes),sr_legacy_food,175193,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 millet,Millet,Plant foods,Poaceae (grains),german_bls_4_0_biotin_patch,biotin-patch-bls4-millet-c332000,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
 oyster-mushroom,Oyster mushroom,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-oyster-mushroom-1750345,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,omega3_g,,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug
@@ -134,7 +132,6 @@ bread,Bread,Plant foods,Flour-made items,sr_legacy_food,167943,usda,curated,20,1
 chop-lamb-goat,Chop (lamb/goat),Animal foods,Lamb and goat cuts,external_biotin_literature_patch,biotin-patch-animal-chop-lamb-goat-lit,supplemental,curated,20,1,0,18,2,21,0.9524,0.8571,omega3_g,,vitamin_a_ug|vitamin_c_mg
 ground-chicken,Ground chicken,Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-chicken-lit,supplemental,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_d_ug,,vitamin_a_ug|vitamin_c_mg
 kelp,Kelp,Algae and sea vegetables,Seaweeds and algae,sr_legacy_food,168457,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
-oxtail,Oxtail,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-oxtail-u109100,supplemental,curated,20,1,0,18,2,21,0.9524,0.8571,omega3_g,,vitamin_a_ug|vitamin_d_ug
 wakame,Wakame,Algae and sea vegetables,Seaweeds and algae,sr_legacy_food,170496,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
 zucchini,Zucchini,Plant foods,Cucurbitaceae,sr_legacy_food,169291,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
 anchovy,Anchovy,Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-anchovy-t104100,supplemental,curated,20,1,0,19,1,21,0.9524,0.9048,omega3_g,,vitamin_c_mg
@@ -169,6 +166,7 @@ bulgur,Bulgur,Plant foods,Staples (home-cook processed),german_bls_4_0_biotin_pa
 maitake,Maitake,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-maitake-2006839,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_a_ug|vitamin_c_mg|vitamin_k_ug|vitamin_b12_ug|omega3_g
 peanut-butter,Peanut butter,Plant foods,Staples (home-cook processed),german_bls_4_0_biotin_patch,biotin-patch-bls4-peanut-butter-h880200,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 radish,Radish,Plant foods,Brassicaceae,german_bls_4_0_biotin_patch,biotin-patch-bls4-radish-g680100,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_a_ug|vitamin_d_ug|vitamin_e_mg|vitamin_b12_ug|omega3_g
+shank,Shank,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-shank,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_b7_ug|omega3_g
 tangerine,Tangerine,Plant foods,Fruits (core),german_bls_4_0_biotin_patch,biotin-patch-bls4-tangerine-f609100,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|vitamin_b12_ug|omega3_g
 white-rice,White rice,Plant foods,Poaceae (grains),german_bls_4_0_biotin_patch,biotin-patch-bls4-white-rice-c352000,supplemental,curated,21,0,0,16,5,21,1,0.7619,,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 amaranth,Amaranth,Plant foods,Amaranthaceae,german_bls_4_0_biotin_patch,biotin-patch-bls4-amaranth-c335000,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_a_ug|vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug
@@ -178,6 +176,7 @@ brazil-nut,Brazil nut,Plant foods,Nuts,german_bls_4_0_biotin_patch,biotin-patch-
 brown-rice,Brown rice,Plant foods,Poaceae (grains),german_bls_4_0_biotin_patch,biotin-patch-bls4-brown-rice-c351000,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
 chicken-gizzard,Chicken gizzard,Animal foods,Animal organs,external_biotin_literature_patch,biotin-patch-animal-chicken-gizzard-lit,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_k_ug
 garlic,Garlic,Plant foods,Allium,german_bls_4_0_biotin_patch,biotin-patch-bls4-garlic-g490100,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
+ground-bison,Ground bison,Animal foods,Ground meats,animal_vitamin_zero_patch,vitamin-patch-ground-bison,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_c_mg|vitamin_d_ug|vitamin_b5_mg|omega3_g
 lemon,Lemon,Plant foods,Fruits (core),german_bls_4_0_biotin_patch,biotin-patch-bls4-lemon-f601100,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug|omega3_g
 mayonnaise,Mayonnaise,Plant foods,Staples (home-cook processed),german_bls_4_0_biotin_patch,biotin-patch-bls4-mayonnaise-q991000,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
 onion,Onion,Plant foods,Allium,german_bls_4_0_biotin_patch,biotin-patch-bls4-onion-g480100,supplemental,curated,21,0,0,17,4,21,1,0.8095,,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
@@ -220,7 +219,6 @@ rack-lamb-goat,Rack (lamb/goat),Animal foods,Lamb and goat cuts,external_biotin_
 raspberry,Raspberry,Plant foods,Fruits (core),german_bls_4_0_biotin_patch,biotin-patch-bls4-raspberry-f302100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 shank-lamb-goat,Shank (lamb/goat),Animal foods,Lamb and goat cuts,external_biotin_literature_patch,biotin-patch-animal-shank-lamb-goat-lit,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_a_ug|vitamin_c_mg|omega3_g
 shoulder-lamb-goat,Shoulder (lamb/goat),Animal foods,Lamb and goat cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-shoulder-lamb-goat-U867100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_a_ug|vitamin_c_mg|omega3_g
-sirloin,Sirloin,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-sirloin-u175100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug
 spinach,Spinach,Plant foods,Amaranthaceae,german_bls_4_0_biotin_patch,biotin-patch-bls4-spinach-g211100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 strawberry,Strawberry,Plant foods,Fruits (core),german_bls_4_0_biotin_patch,biotin-patch-bls4-strawberry-f301100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 sunflower-seed,Sunflower seed,Plant foods,Seeds,german_bls_4_0_biotin_patch,biotin-patch-bls4-sunflower-seed-h430100,supplemental,curated,21,0,0,18,3,21,1,0.8571,,,vitamin_d_ug|vitamin_k_ug|vitamin_b12_ug
@@ -241,7 +239,6 @@ cow-s-milk,Cow's milk,Animal foods,Dairy,external_biotin_literature_patch,biotin
 cream-cheese,Cream cheese,Animal foods,Staples (home-cook processed),external_biotin_literature_patch,biotin-patch-animal-cream-cheese-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|vitamin_d_ug
 duck-egg,Duck egg,Animal foods,Eggs,german_bls_4_0_biotin_patch,biotin-patch-bls4-duck-egg-e131100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
 feta,Feta,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-feta-M012200,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
-flank,Flank,Animal foods,Beef cuts,external_biotin_literature_patch,biotin-patch-animal-flank-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_a_ug|vitamin_c_mg
 fresh-ham,Fresh ham,Animal foods,Pork cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-fresh-ham-U682700,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_k_ug|omega3_g
 gouda,Gouda,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-gouda-M402600,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
 ground-turkey,Ground turkey,Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-turkey-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|vitamin_k_ug
@@ -249,16 +246,16 @@ gruyere,Gruyere,Animal foods,Dairy,external_biotin_literature_patch,biotin-patch
 half-and-half,Half and half,Animal foods,Dairy,animal_vitamin_zero_patch,vitamin-patch-half-and-half,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,iron_mg|omega3_g
 lamb-liver,Lamb liver,Animal foods,Animal organs,animal_vitamin_zero_patch,vitamin-patch-lamb-liver,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|omega3_g
 mozzarella,Mozzarella,Animal foods,Dairy,external_biotin_literature_patch,biotin-patch-animal-mozzarella-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
+oxtail,Oxtail,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-oxtail,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|omega3_g
 oyster,Oyster,Animal foods,Shellfish,german_bls_4_0_biotin_patch,biotin-patch-bls4-oyster-t780100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|vitamin_d_ug
 parmesan,Parmesan,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-parmesan-M306400,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
 pine-nut,Pine nut,Plant foods,Seeds,german_bls_4_0_biotin_patch,biotin-patch-bls4-pine-nut-h320100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|vitamin_b12_ug
 pork-loin,Pork loin,Animal foods,Pork cuts,external_biotin_literature_patch,biotin-patch-animal-pork-loin-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_k_ug|omega3_g
 pumpkin-seed,Pumpkin seed,Plant foods,Seeds,german_bls_4_0_biotin_patch,biotin-patch-bls4-pumpkin-seed-h310100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|vitamin_b12_ug
 quail-egg,Quail egg,Animal foods,Eggs,german_bls_4_0_biotin_patch,biotin-patch-bls4-quail-egg-e106100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|omega3_g
-round,Round,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-round-U287100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_a_ug|vitamin_c_mg
+sirloin,Sirloin,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-sirloin,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|vitamin_d_ug
 squid,Squid,Animal foods,Shellfish,external_biotin_literature_patch,biotin-patch-animal-squid-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|vitamin_k_ug
 swiss,Swiss,Animal foods,Dairy,animal_vitamin_zero_patch,vitamin-patch-swiss,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_d_ug|omega3_g
-tenderloin,Tenderloin,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-tenderloin-u211100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_a_ug|vitamin_c_mg
 tilapia,Tilapia,Animal foods,Fish (species-level),external_biotin_literature_patch,biotin-patch-animal-tilapia-lit,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_a_ug|vitamin_c_mg
 tuna-albacore,Tuna (albacore),Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-tuna-albacore-t122100,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_c_mg|vitamin_k_ug
 tuna-skipjack,Tuna (skipjack),Animal foods,Fish (species-level),animal_vitamin_zero_patch,vitamin-patch-tuna-skipjack,supplemental,curated,21,0,0,19,2,21,1,0.9048,,,vitamin_e_mg|vitamin_k_ug
@@ -274,6 +271,7 @@ cow-s-milk-1,Cow's milk (1%),Animal foods,Dairy,external_biotin_literature_patch
 crab,Crab,Animal foods,Shellfish,external_biotin_literature_patch,biotin-patch-animal-crab-lit,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_d_ug
 duck-leg,Duck leg,Animal foods,Poultry cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-duck-leg-V465100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,omega3_g
 egg-yolk,Egg yolk,Animal foods,Eggs,german_bls_4_0_biotin_patch,biotin-patch-bls4-egg-yolk-e112100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
+flank,Flank,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-flank,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 fried-egg-chicken,Fried egg (chicken),Animal foods,Eggs,german_bls_4_0_biotin_patch,biotin-patch-bls4-fried-egg-chicken-y710142,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 goat-milk,Goat milk,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-goat-milk-m021000,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,omega3_g
 ground-beef-10-fat,Ground beef (10% fat),Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-beef-10-fat-lit,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
@@ -293,6 +291,7 @@ pollock,Pollock,Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,bi
 prawn,Prawn,Animal foods,Shellfish,german_bls_4_0_biotin_patch,biotin-patch-bls4-prawn-T753100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 processed-cheese-slices,Processed cheese slices,Animal foods,Staples (home-cook processed),german_bls_4_0_biotin_patch,biotin-patch-bls4-processed-cheese-slices-M816000,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 ribeye,Ribeye,Animal foods,Beef cuts,external_biotin_literature_patch,biotin-patch-animal-ribeye-lit,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
+round,Round,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-round,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 sardine,Sardine,Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-sardine-t105100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 scrambled-egg-chicken,Scrambled egg (chicken),Animal foods,Eggs,german_bls_4_0_biotin_patch,biotin-patch-bls4-scrambled-egg-chicken-y720143,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 short-ribs,Short ribs,Animal foods,Beef cuts,german_bls_4_0_biotin_patch,biotin-patch-bls4-short-ribs-U235100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
@@ -301,6 +300,7 @@ skirt,Skirt,Animal foods,Beef cuts,external_biotin_literature_patch,biotin-patch
 sockeye-salmon,Sockeye salmon,Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-sockeye-salmon-t410100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 sour-cream,Sour cream,Animal foods,Staples (home-cook processed),german_bls_4_0_biotin_patch,biotin-patch-bls4-sour-cream-m172900,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_d_ug
 stew-meat,Stew meat,Animal foods,Beef cuts,external_biotin_literature_patch,biotin-patch-animal-stew-meat-lit,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
+tenderloin,Tenderloin,Animal foods,Beef cuts,animal_vitamin_zero_patch,vitamin-patch-tenderloin,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 tuna-yellowfin,Tuna (yellowfin),Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-tuna-yellowfin-T124100,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 turkey-breast,Turkey breast,Animal foods,Poultry cuts,animal_vitamin_zero_patch,vitamin-patch-turkey-breast,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg
 turkey-thigh,Turkey thigh,Animal foods,Poultry cuts,animal_vitamin_zero_patch,vitamin-patch-turkey-thigh,supplemental,curated,21,0,0,20,1,21,1,0.9524,,,vitamin_c_mg

@@ -76,12 +76,12 @@
     {
       "canonical_id": "ground-bison",
       "canonical_name": "Ground bison",
-      "fdc_id": "biotin-patch-animal-ground-bison-lit",
-      "source_dataset": "external_biotin_literature_patch",
+      "fdc_id": "vitamin-patch-ground-bison",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Ground beef muscle proxy",
       "confidence": "medium",
       "score": 0.888571,
-      "notes": "Biotin-only patch: Ground beef muscle proxy (category-proxy)."
+      "notes": "Biotin-only patch: Ground beef muscle proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "ground-lamb",
@@ -166,32 +166,32 @@
     {
       "canonical_id": "tenderloin",
       "canonical_name": "Tenderloin",
-      "fdc_id": "biotin-patch-bls4-tenderloin-u211100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-tenderloin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U211100 (Beef fillet (tenderloin) raw)",
       "confidence": "medium",
       "score": 1.21,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/169543 baseline nutrient vector and inject biotin from German BLS 4.0 row U211100 (Beef fillet (tenderloin) raw) as exact donor match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/169543 baseline nutrient vector and inject biotin from German BLS 4.0 row U211100 (Beef fillet (tenderloin) raw) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "sirloin",
       "canonical_name": "Sirloin",
-      "fdc_id": "biotin-patch-bls4-sirloin-u175100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-sirloin",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U175100 (Beef meat for roasting (sirloin) raw)",
       "confidence": "medium",
       "score": 1.195385,
-      "notes": "Biotin pass (external source): preserve sr_legacy_food/171804 baseline nutrient vector and inject biotin from German BLS 4.0 row U175100 (Beef meat for roasting (sirloin) raw) as exact donor match."
+      "notes": "Biotin pass (external source): preserve sr_legacy_food/171804 baseline nutrient vector and inject biotin from German BLS 4.0 row U175100 (Beef meat for roasting (sirloin) raw) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "flank",
       "canonical_name": "Flank",
-      "fdc_id": "biotin-patch-animal-flank-lit",
-      "source_dataset": "external_biotin_literature_patch",
+      "fdc_id": "vitamin-patch-flank",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef muscle proxy",
       "confidence": "medium",
       "score": 1.310769,
-      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy)."
+      "notes": "Biotin-only patch: Beef muscle proxy (category-proxy). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "skirt",
@@ -256,32 +256,32 @@
     {
       "canonical_id": "round",
       "canonical_name": "Round",
-      "fdc_id": "biotin-patch-bls4-round-U287100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-round",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef topside/top round, raw",
       "confidence": "medium",
       "score": 1.294286,
-      "notes": "Biotin-only patch: Beef topside/top round, raw (exact)."
+      "notes": "Biotin-only patch: Beef topside/top round, raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "shank",
       "canonical_name": "Shank",
-      "fdc_id": "biotin-patch-bls4-shank-U291100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-shank",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef leg/hindshank, raw",
       "confidence": "medium",
       "score": 1.205,
-      "notes": "Biotin-only patch: Beef leg/hindshank, raw (exact)."
+      "notes": "Biotin-only patch: Beef leg/hindshank, raw (exact). Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "oxtail",
       "canonical_name": "Oxtail",
-      "fdc_id": "biotin-patch-bls4-oxtail-u109100",
-      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "vitamin-patch-oxtail",
+      "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U109100 (Beef oxtail, raw)",
       "confidence": "medium",
       "score": 0.86,
-      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1092 baseline nutrient vector and inject biotin from German BLS 4.0 row U109100 (Beef oxtail, raw) as exact donor match."
+      "notes": "Biotin pass (external source): preserve canadian_nutrient_file/cnf-1092 baseline nutrient vector and inject biotin from German BLS 4.0 row U109100 (Beef oxtail, raw) as exact donor match. Vitamin zero-patch: cited values for A/D/E/K/B vitamins where source reported 0."
     },
     {
       "canonical_id": "plate",

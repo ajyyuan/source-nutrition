@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "generated_at": "2026-02-22T21:40:35.515Z",
+  "generated_at": "2026-02-23T14:35:10.459Z",
   "inputs": {
     "preview_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.reseed-preview.json",
     "curation_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.manual-curation.json",
@@ -9,8 +9,8 @@
   "totals": {
     "foods": 324,
     "nutrients": 21,
-    "foods_with_any_missing": 151,
-    "foods_with_all_reported": 173,
+    "foods_with_any_missing": 148,
+    "foods_with_all_reported": 176,
     "foods_with_any_unknown": 0,
     "foods_with_zero_nonzero_reported": 0
   },
@@ -25,9 +25,9 @@
     {
       "domain": "Animal foods",
       "total": 142,
-      "with_missing": 26,
+      "with_missing": 23,
       "with_unknown": 0,
-      "all_reported": 116
+      "all_reported": 119
     },
     {
       "domain": "Fermented foods",
@@ -240,27 +240,6 @@
       "missing_nutrient_keys": "vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": "vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g"
-    },
-    {
-      "canonical_id": "shank",
-      "canonical_name": "Shank",
-      "domain": "Animal foods",
-      "food_group": "Beef cuts",
-      "source_dataset": "german_bls_4_0_biotin_patch",
-      "fdc_id": "biotin-patch-bls4-shank-U291100",
-      "source": "supplemental",
-      "match_status": "curated",
-      "reported_nutrients": 18,
-      "missing_nutrients": 3,
-      "unknown_nutrients": 0,
-      "nonzero_reported_nutrients": 14,
-      "zero_reported_nutrients": 4,
-      "total_nutrients": 21,
-      "reported_ratio": 0.8571,
-      "nonzero_reported_ratio": 0.6667,
-      "missing_nutrient_keys": "vitamin_d_ug|vitamin_e_mg|vitamin_k_ug",
-      "unknown_nutrient_keys": "",
-      "reported_zero_nutrient_keys": "vitamin_a_ug|vitamin_c_mg|vitamin_b7_ug|omega3_g"
     },
     {
       "canonical_id": "acorn-squash",
@@ -681,6 +660,27 @@
       "missing_nutrient_keys": "vitamin_b7_ug|omega3_g",
       "unknown_nutrient_keys": "",
       "reported_zero_nutrient_keys": "vitamin_d_ug|vitamin_b12_ug"
+    },
+    {
+      "canonical_id": "lamb-heart",
+      "canonical_name": "Lamb heart",
+      "domain": "Animal foods",
+      "food_group": "Animal organs",
+      "source_dataset": "german_bls_4_0_biotin_patch",
+      "fdc_id": "biotin-patch-bls4-lamb-heart-v515100",
+      "source": "supplemental",
+      "match_status": "curated",
+      "reported_nutrients": 19,
+      "missing_nutrients": 2,
+      "unknown_nutrients": 0,
+      "nonzero_reported_nutrients": 17,
+      "zero_reported_nutrients": 2,
+      "total_nutrients": 21,
+      "reported_ratio": 0.9048,
+      "nonzero_reported_ratio": 0.8095,
+      "missing_nutrient_keys": "vitamin_k_ug|folate_ug",
+      "unknown_nutrient_keys": "",
+      "reported_zero_nutrient_keys": "vitamin_c_mg|vitamin_d_ug"
     }
   ]
 }

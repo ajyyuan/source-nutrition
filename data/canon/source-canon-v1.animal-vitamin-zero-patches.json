@@ -7,7 +7,8 @@
     "nutritionvalue_swiss": "Swiss cheese B12 nutritionvalue/fitaudit",
     "soupersage_butter": "Butter vitamin K soupersage/foodstruct",
     "dietandfitnesstoday_cottage": "Cottage cheese D/K dietandfitnesstoday",
-    "literature_lamb_liver_k": "Lamb liver phylloquinone (SciDirect/ARS)"
+    "literature_lamb_liver_k": "Lamb liver phylloquinone (SciDirect/ARS)",
+    "usda_fdc_beef_round": "USDA FDC 173998 (beef round eye of round roast, raw). Vitamin A RAE 0.85mcg/85g → 1mcg/100g; vitamin K 1.3mcg/85g → 1.5mcg/100g. USDA: https://fdc.nal.usda.gov/fdc-app.html#/food-details/173998/nutrients MyFoodData: https://tools.myfooddata.com/nutrition-facts/173998/wt1 Applied as proxy to lean beef muscle cuts (tenderloin, sirloin, flank, round, shank, oxtail) and ground bison."
   },
   "patches": {
     "swiss": { "vitamin_b12_ug": 3.06 },
@@ -34,6 +35,13 @@
     "tuna-skipjack": { "vitamin_d_ug": 1.7 },
     "tuna-yellowfin": { "vitamin_d_ug": 1.7 },
     "tuna-albacore": { "vitamin_d_ug": 2 },
-    "chinook-salmon": { "vitamin_d_ug": 11 }
+    "chinook-salmon": { "vitamin_d_ug": 11 },
+    "tenderloin": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "sirloin": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "flank": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "round": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "shank": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "oxtail": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 },
+    "ground-bison": { "vitamin_a_ug": 1, "vitamin_k_ug": 1.5 }
   }
 }
