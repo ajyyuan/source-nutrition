@@ -3252,6 +3252,146 @@
       "confidence": "high",
       "score": 2.13,
       "notes": "Candidate selected under strict token/species/prep constraints."
+    },
+    {
+      "canonical_id": "greek-yogurt-plain",
+      "canonical_name": "Greek yogurt (plain)",
+      "fdc_id": "171304",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Yogurt, Greek, plain, whole milk",
+      "confidence": "high",
+      "score": 1.5,
+      "notes": "USDA SR Legacy FDC 171304; whole-milk Greek plain."
+    },
+    {
+      "canonical_id": "veal-ribeye",
+      "canonical_name": "Veal ribeye",
+      "fdc_id": "173828",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, rib, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 173828."
+    },
+    {
+      "canonical_id": "veal-strip-steak",
+      "canonical_name": "Veal strip steak",
+      "fdc_id": "173826",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, loin, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 173826; strip from loin."
+    },
+    {
+      "canonical_id": "veal-tenderloin",
+      "canonical_name": "Veal tenderloin",
+      "fdc_id": "173826",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, loin, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 173826; tenderloin from loin."
+    },
+    {
+      "canonical_id": "veal-sirloin",
+      "canonical_name": "Veal sirloin",
+      "fdc_id": "173840",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, sirloin, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.3,
+      "notes": "USDA SR Legacy FDC 173840."
+    },
+    {
+      "canonical_id": "veal-flank",
+      "canonical_name": "Veal flank",
+      "fdc_id": "173826",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, loin, separable lean only, raw",
+      "confidence": "medium",
+      "score": 1.0,
+      "notes": "USDA SR Legacy FDC 173826; no veal flank in SR, loin as proxy."
+    },
+    {
+      "canonical_id": "veal-chuck",
+      "canonical_name": "Veal chuck",
+      "fdc_id": "173838",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, shoulder, blade chop, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 173838; chuck = shoulder."
+    },
+    {
+      "canonical_id": "veal-round",
+      "canonical_name": "Veal round",
+      "fdc_id": "172643",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, leg, top round, cap off, cutlet, boneless, raw",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 172643."
+    },
+    {
+      "canonical_id": "veal-shank",
+      "canonical_name": "Veal shank",
+      "fdc_id": "172570",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, shank (fore and hind), separable lean only, raw",
+      "confidence": "high",
+      "score": 1.3,
+      "notes": "USDA SR Legacy FDC 172570; osso buco cut."
+    },
+    {
+      "canonical_id": "ground-veal",
+      "canonical_name": "Ground veal",
+      "fdc_id": "173817",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Veal, composite of trimmed retail cuts, separable lean only, raw",
+      "confidence": "high",
+      "score": 1.1,
+      "notes": "USDA SR Legacy FDC 173817; composite lean as proxy for ground."
+    },
+    {
+      "canonical_id": "venison",
+      "canonical_name": "Venison",
+      "fdc_id": "167622",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Deer (venison), sitka, raw (Alaska Native)",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 167622."
+    },
+    {
+      "canonical_id": "ground-venison",
+      "canonical_name": "Ground venison",
+      "fdc_id": "167622",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Deer (venison), sitka, raw (Alaska Native)",
+      "confidence": "medium",
+      "score": 1.0,
+      "notes": "USDA SR Legacy FDC 167622; no separate ground venison, same raw proxy."
+    },
+    {
+      "canonical_id": "elk",
+      "canonical_name": "Elk",
+      "fdc_id": "167652",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Elk, free range, roast, eye of round, raw (Shoshone Bannock)",
+      "confidence": "high",
+      "score": 1.2,
+      "notes": "USDA SR Legacy FDC 167652."
+    },
+    {
+      "canonical_id": "ground-elk",
+      "canonical_name": "Ground elk",
+      "fdc_id": "168056",
+      "source_dataset": "sr_legacy_food",
+      "source_name": "Elk, free range, ground, raw (Shoshone Bannock)",
+      "confidence": "high",
+      "score": 1.3,
+      "notes": "USDA SR Legacy FDC 168056."
     }
   ]
 }

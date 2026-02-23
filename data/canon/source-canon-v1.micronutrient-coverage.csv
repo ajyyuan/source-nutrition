@@ -1,10 +1,18 @@
 canonical_id,canonical_name,domain,food_group,source_dataset,fdc_id,source,match_status,reported_nutrients,missing_nutrients,unknown_nutrients,nonzero_reported_nutrients,zero_reported_nutrients,total_nutrients,reported_ratio,nonzero_reported_ratio,missing_nutrient_keys,unknown_nutrient_keys,reported_zero_nutrient_keys
+ground-venison,Ground venison,Animal foods,Game meats,sr_legacy_food,167622,usda,curated,7,14,0,5,2,21,0.3333,0.2381,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg
+venison,Venison,Animal foods,Game meats,sr_legacy_food,167622,usda,curated,7,14,0,5,2,21,0.3333,0.2381,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|vitamin_b7_ug|folate_ug|vitamin_b12_ug|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg
 ground-goat,Ground goat,Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-goat-lit,supplemental,curated,14,7,0,12,2,21,0.6667,0.5714,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|magnesium_mg|omega3_g,,vitamin_a_ug|vitamin_c_mg
 lion-s-mane,Lion's mane,Fungi,Mushrooms,foundation_food,1999626,usda,curated,14,7,0,13,1,21,0.6667,0.619,vitamin_a_ug|vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b5_mg|vitamin_b12_ug|omega3_g,,calcium_mg
+veal-shank,Veal shank,Animal foods,Veal cuts,sr_legacy_food,172570,usda,curated,14,7,0,14,0,21,0.6667,0.6667,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g,,
+ground-elk,Ground elk,Animal foods,Game meats,sr_legacy_food,168056,usda,curated,15,6,0,14,1,21,0.7143,0.6667,vitamin_c_mg|vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug,,vitamin_a_ug
 hemp,Hemp,Plant foods,Seeds,sr_legacy_food,170148,usda,curated,15,6,0,15,0,21,0.7143,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b5_mg|vitamin_b7_ug|vitamin_b12_ug|selenium_ug,,
 soba-noodles,Soba noodles,Plant foods,Flour-made items,sr_legacy_food,168906,usda,curated,16,5,0,12,4,21,0.7619,0.5714,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|selenium_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
+elk,Elk,Animal foods,Game meats,sr_legacy_food,167652,usda,curated,16,5,0,14,2,21,0.7619,0.6667,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|folate_ug,,vitamin_a_ug|vitamin_c_mg
 tempeh,Tempeh,Fermented foods,Fermented foods,sr_legacy_food,174272,usda,curated,17,4,0,13,4,21,0.8095,0.619,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|selenium_ug
 chia,Chia,Plant foods,Seeds,supplemental_biotin_patch,biotin-patch-chia-2712620,supplemental,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_k_ug|vitamin_b5_mg|vitamin_b6_mg|omega3_g,,vitamin_d_ug|vitamin_b12_ug
+ground-veal,Ground veal,Animal foods,Veal cuts,sr_legacy_food,173817,usda,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg
+veal-ribeye,Veal ribeye,Animal foods,Veal cuts,sr_legacy_food,173828,usda,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg
+veal-sirloin,Veal sirloin,Animal foods,Veal cuts,sr_legacy_food,173840,usda,curated,17,4,0,15,2,21,0.8095,0.7143,vitamin_d_ug|vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg
 sheep-milk,Sheep milk,Animal foods,Dairy,german_bls_4_0_biotin_patch,biotin-patch-bls4-sheep-milk-m011000,supplemental,curated,17,4,0,17,0,21,0.8095,0.8095,vitamin_d_ug|vitamin_e_mg|vitamin_k_ug|omega3_g,,
 avocado-oil,Avocado oil,Plant foods,Plant oils,canadian_nutrient_file,cnf-450,supplemental,curated,18,3,0,1,17,21,0.8571,0.0476,vitamin_k_ug|vitamin_b7_ug|omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|thiamin_mg|riboflavin_mg|niacin_mg|vitamin_b5_mg|vitamin_b6_mg|folate_ug|vitamin_b12_ug|calcium_mg|iron_mg|magnesium_mg|phosphorus_mg|potassium_mg|zinc_mg|selenium_ug
 udon-noodles,Udon noodles,Plant foods,Staples (home-cook processed),sr_legacy_food,168908,usda,curated,18,3,0,13,5,21,0.8571,0.619,vitamin_e_mg|vitamin_k_ug|vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug|omega3_g
@@ -75,6 +83,7 @@ cremini,Cremini,Fungi,Mushrooms,sr_legacy_food,168434,usda,curated,20,1,0,16,4,2
 dill,Dill,Plant foods,Apiaceae,sr_legacy_food,168558,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|selenium_ug|omega3_g
 flax,Flax,Plant foods,Seeds,sr_legacy_food,169414,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 ginger,Ginger,Plant foods,Tubers and roots,sr_legacy_food,169231,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
+greek-yogurt-plain,Greek yogurt (plain),Animal foods,Dairy,sr_legacy_food,171304,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_c_mg|vitamin_d_ug|vitamin_k_ug|iron_mg
 kidney-bean,Kidney bean,Plant foods,Fabaceae (legumes),sr_legacy_food,175193,usda,curated,20,1,0,16,4,21,0.9524,0.7619,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug|omega3_g
 millet,Millet,Plant foods,Poaceae (grains),german_bls_4_0_biotin_patch,biotin-patch-bls4-millet-c332000,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,omega3_g,,vitamin_a_ug|vitamin_c_mg|vitamin_d_ug|vitamin_b12_ug
 oyster-mushroom,Oyster mushroom,Fungi,Mushrooms,supplemental_biotin_patch,biotin-patch-oyster-mushroom-1750345,supplemental,curated,20,1,0,16,4,21,0.9524,0.7619,omega3_g,,vitamin_c_mg|vitamin_e_mg|vitamin_k_ug|vitamin_b12_ug
@@ -126,12 +135,17 @@ swiss-chard,Swiss chard,Plant foods,Amaranthaceae,sr_legacy_food,169991,usda,cur
 taro,Taro,Plant foods,Tubers and roots,sr_legacy_food,169308,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 tomato-sauce,Tomato sauce,Plant foods,Staples (home-cook processed),sr_legacy_food,169074,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 turmeric,Turmeric,Plant foods,Tubers and roots,sr_legacy_food,172231,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_a_ug|vitamin_d_ug|vitamin_b12_ug
+veal-round,Veal round,Animal foods,Veal cuts,sr_legacy_food,172643,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg|omega3_g
 watermelon,Watermelon,Plant foods,Cucurbitaceae,sr_legacy_food,167765,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 yam,Yam,Plant foods,Tubers and roots,sr_legacy_food,170071,usda,curated,20,1,0,17,3,21,0.9524,0.8095,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug|omega3_g
 bread,Bread,Plant foods,Flour-made items,sr_legacy_food,167943,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_c_mg|omega3_g
 chop-lamb-goat,Chop (lamb/goat),Animal foods,Lamb and goat cuts,external_biotin_literature_patch,biotin-patch-animal-chop-lamb-goat-lit,supplemental,curated,20,1,0,18,2,21,0.9524,0.8571,omega3_g,,vitamin_a_ug|vitamin_c_mg
 ground-chicken,Ground chicken,Animal foods,Ground meats,external_biotin_literature_patch,biotin-patch-animal-ground-chicken-lit,supplemental,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_d_ug,,vitamin_a_ug|vitamin_c_mg
 kelp,Kelp,Algae and sea vegetables,Seaweeds and algae,sr_legacy_food,168457,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
+veal-chuck,Veal chuck,Animal foods,Veal cuts,sr_legacy_food,173838,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg
+veal-flank,Veal flank,Animal foods,Veal cuts,sr_legacy_food,173826,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg
+veal-strip-steak,Veal strip steak,Animal foods,Veal cuts,sr_legacy_food,173826,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg
+veal-tenderloin,Veal tenderloin,Animal foods,Veal cuts,sr_legacy_food,173826,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_a_ug|vitamin_c_mg
 wakame,Wakame,Algae and sea vegetables,Seaweeds and algae,sr_legacy_food,170496,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
 zucchini,Zucchini,Plant foods,Cucurbitaceae,sr_legacy_food,169291,usda,curated,20,1,0,18,2,21,0.9524,0.8571,vitamin_b7_ug,,vitamin_d_ug|vitamin_b12_ug
 anchovy,Anchovy,Animal foods,Fish (species-level),german_bls_4_0_biotin_patch,biotin-patch-bls4-anchovy-t104100,supplemental,curated,20,1,0,19,1,21,0.9524,0.9048,omega3_g,,vitamin_c_mg

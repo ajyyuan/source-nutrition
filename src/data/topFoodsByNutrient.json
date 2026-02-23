@@ -585,9 +585,19 @@
       "canonical_id": "chicken-liver"
     },
     {
+      "name": "Veal round",
+      "value": 9.28,
+      "canonical_id": "veal-round"
+    },
+    {
       "name": "Hemp",
       "value": 9.2,
       "canonical_id": "hemp"
+    },
+    {
+      "name": "Veal sirloin",
+      "value": 8.97,
+      "canonical_id": "veal-sirloin"
     },
     {
       "name": "Chia",
@@ -603,16 +613,6 @@
       "name": "Atlantic salmon",
       "value": 8.672,
       "canonical_id": "atlantic-salmon"
-    },
-    {
-      "name": "Tuna (albacore)",
-      "value": 8.654,
-      "canonical_id": "tuna-albacore"
-    },
-    {
-      "name": "Sockeye salmon",
-      "value": 8.507,
-      "canonical_id": "sockeye-salmon"
     }
   ],
   "vitamin_b5_mg": [
@@ -729,6 +729,11 @@
       "canonical_id": "lamb-liver"
     },
     {
+      "name": "Elk",
+      "value": 0.893,
+      "canonical_id": "elk"
+    },
+    {
       "name": "Chicken liver",
       "value": 0.853,
       "canonical_id": "chicken-liver"
@@ -759,14 +764,9 @@
       "canonical_id": "pork-liver"
     },
     {
-      "name": "Ground pork",
-      "value": 0.668,
-      "canonical_id": "ground-pork"
-    },
-    {
-      "name": "Beef round",
-      "value": 0.666,
-      "canonical_id": "round"
+      "name": "Veal strip steak",
+      "value": 0.683,
+      "canonical_id": "veal-strip-steak"
     }
   ],
   "vitamin_b7_ug": [
@@ -1457,9 +1457,9 @@
       "canonical_id": "wild-rice"
     },
     {
-      "name": "Cashew",
-      "value": 5.78,
-      "canonical_id": "cashew"
+      "name": "Ground elk",
+      "value": 5.82,
+      "canonical_id": "ground-elk"
     }
   ],
   "selenium_ug": [

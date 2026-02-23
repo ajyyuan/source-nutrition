@@ -135,6 +135,31 @@
           ]
         },
         {
+          "group": "Veal cuts",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Veal ribeye", "aliases": [] },
+            { "display_name": "Veal strip steak", "aliases": [] },
+            { "display_name": "Veal tenderloin", "aliases": [] },
+            { "display_name": "Veal sirloin", "aliases": [] },
+            { "display_name": "Veal flank", "aliases": [] },
+            { "display_name": "Veal chuck", "aliases": ["veal roast"] },
+            { "display_name": "Veal round", "aliases": [] },
+            { "display_name": "Veal shank", "aliases": ["osso buco"] },
+            { "display_name": "Ground veal", "aliases": [] }
+          ]
+        },
+        {
+          "group": "Game meats",
+          "default_state": "raw",
+          "items": [
+            { "display_name": "Venison", "aliases": ["deer", "deer meat"] },
+            { "display_name": "Ground venison", "aliases": [] },
+            { "display_name": "Elk", "aliases": ["elk meat"] },
+            { "display_name": "Ground elk", "aliases": [] }
+          ]
+        },
+        {
           "group": "Lamb and goat cuts",
           "default_state": "raw",
           "items": [
@@ -299,6 +324,7 @@
             { "display_name": "Butter", "aliases": [] },
             { "display_name": "Ghee", "aliases": [] },
             { "display_name": "Yogurt (plain)", "aliases": [], "variant_template": "yogurt_fat_levels" },
+            { "display_name": "Greek yogurt (plain)", "aliases": ["Greek yoghurt", "strained yogurt"] },
             { "display_name": "Kefir (plain)", "aliases": [] },
             { "display_name": "Cottage cheese", "aliases": [] },
             { "display_name": "Cheddar", "aliases": [] },

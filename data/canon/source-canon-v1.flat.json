@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "name": "Source Canon Whole Foods",
-  "generated_at": "2026-02-20T17:19:00.948Z",
+  "generated_at": "2026-02-23T18:10:29.369Z",
   "principles": {
     "single_ingredient_only": true,
     "exclude_branded_and_restaurant_items": true,
@@ -596,6 +596,197 @@
       "aliases": [
         "beef for stew"
       ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-ribeye",
+      "display_name": "Veal ribeye",
+      "canonical_name": "Veal ribeye",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-strip-steak",
+      "display_name": "Veal strip steak",
+      "canonical_name": "Veal strip steak",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-tenderloin",
+      "display_name": "Veal tenderloin",
+      "canonical_name": "Veal tenderloin",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-sirloin",
+      "display_name": "Veal sirloin",
+      "canonical_name": "Veal sirloin",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-flank",
+      "display_name": "Veal flank",
+      "canonical_name": "Veal flank",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-chuck",
+      "display_name": "Veal chuck",
+      "canonical_name": "Veal chuck",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "veal roast"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-round",
+      "display_name": "Veal round",
+      "canonical_name": "Veal round",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "veal-shank",
+      "display_name": "Veal shank",
+      "canonical_name": "Veal shank",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "osso buco"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "ground-veal",
+      "display_name": "Ground veal",
+      "canonical_name": "Ground veal",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Veal cuts",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "venison",
+      "display_name": "Venison",
+      "canonical_name": "Venison",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Game meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "deer",
+        "deer meat"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "ground-venison",
+      "display_name": "Ground venison",
+      "canonical_name": "Ground venison",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Game meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "elk",
+      "display_name": "Elk",
+      "canonical_name": "Elk",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Game meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [
+        "elk meat"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
+    },
+    {
+      "canonical_id": "ground-elk",
+      "display_name": "Ground elk",
+      "canonical_name": "Ground elk",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Game meats",
+      "subgroup": null,
+      "default_state": "raw",
+      "aliases": [],
       "variant_template_id": null,
       "notes": null,
       "variant_values": {}
@@ -2065,6 +2256,23 @@
       "variant_values": {
         "yogurt_fat_level": "nonfat"
       }
+    },
+    {
+      "canonical_id": "greek-yogurt-plain",
+      "display_name": "Greek yogurt (plain)",
+      "canonical_name": "Greek yogurt (plain)",
+      "kingdom": "Animalia",
+      "domain": "Animal foods",
+      "food_group": "Dairy",
+      "subgroup": null,
+      "default_state": "dairy_processed",
+      "aliases": [
+        "Greek yoghurt",
+        "strained yogurt"
+      ],
+      "variant_template_id": null,
+      "notes": null,
+      "variant_values": {}
     },
     {
       "canonical_id": "kefir-plain",
