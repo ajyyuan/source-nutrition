@@ -51,10 +51,6 @@ type NutrientTotals = {
   percent_dv: NutrientVector;
 };
 
-type FinalItem = {
-  confidence?: number;
-};
-
 type Contributor = {
   canonical_id: string;
   name: string;
@@ -113,22 +109,6 @@ const makeEmptyVector = (): NutrientVector => ({
   omega3_g: 0
 });
 
-const computeAverageConfidence = (items: unknown): { sum: number; count: number } => {
-  if (!Array.isArray(items)) {
-    return { sum: 0, count: 0 };
-  }
-  return items.reduce(
-    (acc, item) => {
-      const value = typeof item?.confidence === "number" ? item.confidence : NaN;
-      if (Number.isFinite(value) && value >= 0 && value <= 1) {
-        return { sum: acc.sum + value, count: acc.count + 1 };
-      }
-      return acc;
-    },
-    { sum: 0, count: 0 }
-  );
-};
-
 const computeShortfalls = (percentDv: NutrientVector) =>
   NUTRIENT_KEYS.map((key) => ({
     key,
@@ -142,7 +122,6 @@ export function HomeScreen({ navigation }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [mealCount, setMealCount] = useState(0);
-  const [todayConfidence, setTodayConfidence] = useState<number | null>(null);
   const [todayTotals, setTodayTotals] = useState<NutrientTotals>({
     totals: makeEmptyVector(),
     percent_dv: makeEmptyVector()
@@ -152,7 +131,6 @@ export function HomeScreen({ navigation }: Props) {
     percent_dv: makeEmptyVector()
   });
   const [weekDaysWithMeals, setWeekDaysWithMeals] = useState(0);
-  const [weekConfidence, setWeekConfidence] = useState<number | null>(null);
   const [todayContributors, setTodayContributors] = useState<Contributor[]>([]);
   const [weekContributors, setWeekContributors] = useState<Contributor[]>([]);
   const [summaryRange, setSummaryRange] = useState<"today" | "week">("today");
@@ -183,7 +161,6 @@ export function HomeScreen({ navigation }: Props) {
 
   const resetTotals = useCallback(() => {
     setMealCount(0);
-    setTodayConfidence(null);
     setTodayContributors([]);
     setTodayTotals({
       totals: makeEmptyVector(),
@@ -194,7 +171,6 @@ export function HomeScreen({ navigation }: Props) {
       percent_dv: makeEmptyVector()
     });
     setWeekDaysWithMeals(0);
-    setWeekConfidence(null);
     setWeekContributors([]);
   }, []);
 
@@ -222,8 +198,6 @@ export function HomeScreen({ navigation }: Props) {
       if (data && data.length > 0) {
         const totals = makeEmptyVector();
         const percentDv = makeEmptyVector();
-        let confidenceSum = 0;
-        let confidenceCount = 0;
         const contributorScores = new Map<string, Contributor>();
 
         data.forEach((meal) => {
@@ -231,9 +205,6 @@ export function HomeScreen({ navigation }: Props) {
           if (!entry?.totals || !entry?.percent_dv) {
             return;
           }
-          const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
-          confidenceSum += confidence.sum;
-          confidenceCount += confidence.count;
           const insights = meal?.insights as MealInsights | null;
           insights?.top_contributors?.forEach((item) => {
             if (!item || typeof item.canonical_id !== "string") {
@@ -261,9 +232,6 @@ export function HomeScreen({ navigation }: Props) {
         });
 
         setMealCount(data.length);
-        setTodayConfidence(
-          confidenceCount ? Math.round((confidenceSum / confidenceCount) * 100) : null
-        );
         setTodayContributors(
           Array.from(contributorScores.values())
             .sort((a, b) => b.score - a.score)
@@ -275,7 +243,6 @@ export function HomeScreen({ navigation }: Props) {
         });
       } else {
         setMealCount(0);
-        setTodayConfidence(null);
         setTodayContributors([]);
         setTodayTotals({
           totals: makeEmptyVector(),
@@ -304,8 +271,6 @@ export function HomeScreen({ navigation }: Props) {
 
       const weekTotalsAccumulator = makeEmptyVector();
       const weekPercentAccumulator = makeEmptyVector();
-      let weekConfidenceSum = 0;
-      let weekConfidenceCount = 0;
       const weekContributorScores = new Map<string, Contributor>();
       const daysWithMeals = new Set<string>();
 
@@ -314,9 +279,6 @@ export function HomeScreen({ navigation }: Props) {
         if (!entry?.totals || !entry?.percent_dv) {
           return;
         }
-        const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
-        weekConfidenceSum += confidence.sum;
-        weekConfidenceCount += confidence.count;
         const insights = meal?.insights as MealInsights | null;
         insights?.top_contributors?.forEach((item) => {
           if (!item || typeof item.canonical_id !== "string") {
@@ -356,9 +318,6 @@ export function HomeScreen({ navigation }: Props) {
       });
 
       setWeekDaysWithMeals(daysWithMeals.size);
-      setWeekConfidence(
-        weekConfidenceCount ? Math.round((weekConfidenceSum / weekConfidenceCount) * 100) : null
-      );
       setWeekContributors(
         Array.from(weekContributorScores.values())
           .sort((a, b) => b.score - a.score)
@@ -411,7 +370,6 @@ export function HomeScreen({ navigation }: Props) {
     : weekDaysWithMeals
       ? `${weekDaysWithMeals} day${weekDaysWithMeals === 1 ? "" : "s"} with meals`
       : "No meals yet";
-  const summaryConfidence = isTodaySummary ? todayConfidence : weekConfidence;
   const summaryHasData = isTodaySummary ? mealCount > 0 : weekDaysWithMeals > 0;
   const summaryTotals = isTodaySummary ? todayTotals : weekTotals;
   const summaryContributors = isTodaySummary ? todayContributors : weekContributors;
@@ -476,9 +434,6 @@ export function HomeScreen({ navigation }: Props) {
           </View>
           <Text style={styles.cardTitle}>{summaryTitle}</Text>
           <Text style={styles.cardSubtitle}>{summarySubtitle}</Text>
-          {summaryConfidence !== null ? (
-            <Text style={styles.cardSubtitle}>Avg confidence: {summaryConfidence}%</Text>
-          ) : null}
           {isLoading ? <ActivityIndicator style={styles.spinner} /> : null}
           {loadError ? (
             <View style={styles.errorBanner}>
