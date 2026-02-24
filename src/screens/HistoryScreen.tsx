@@ -692,28 +692,49 @@ export function HistoryScreen({ navigation }: Props) {
                         ) : null}
                         <View style={styles.historyDetails}>
                           <Text style={styles.item}>{formatMealTimestamp(meal.created_at)}</Text>
-                          <Text style={styles.cardSubtitle}>{formatMealSummary(meal)}</Text>
+                          <Text
+                            style={styles.mealSummary}
+                            numberOfLines={2}
+                            ellipsizeMode="tail"
+                          >
+                            {formatMealSummary(meal)}
+                          </Text>
                         </View>
                       </View>
                       <View style={styles.historyActions}>
-                        <AppButton
-                          title="Save"
+                        <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel="Save meal"
                           onPress={() => handleSaveMeal(meal)}
-                          variant="secondary"
-                          fullWidth={false}
-                        />
-                        <AppButton
-                          title="Edit"
+                          style={({ pressed }) => [
+                            styles.historyActionIcon,
+                            pressed ? styles.iconButtonPressed : null
+                          ]}
+                        >
+                          <Ionicons name="bookmark-outline" size={20} color="#111" />
+                        </Pressable>
+                        <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel="Edit meal"
                           onPress={() => navigation.navigate("Capture", { mealId: meal.id })}
-                          variant="secondary"
-                          fullWidth={false}
-                        />
-                        <AppButton
-                          title="Delete"
+                          style={({ pressed }) => [
+                            styles.historyActionIcon,
+                            pressed ? styles.iconButtonPressed : null
+                          ]}
+                        >
+                          <Ionicons name="create-outline" size={20} color="#111" />
+                        </Pressable>
+                        <Pressable
+                          accessibilityRole="button"
+                          accessibilityLabel="Delete meal"
                           onPress={() => handleDeleteMeal(meal)}
-                          variant="ghost"
-                          fullWidth={false}
-                        />
+                          style={({ pressed }) => [
+                            styles.historyActionIcon,
+                            pressed ? styles.iconButtonPressed : null
+                          ]}
+                        >
+                          <Ionicons name="trash-outline" size={20} color="#b42318" />
+                        </Pressable>
                       </View>
                     </View>
                   ))
@@ -903,7 +924,7 @@ const styles = StyleSheet.create({
   historyActions: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 8
+    gap: 6
   },
   mealThumb: {
     width: 44,
@@ -920,7 +941,22 @@ const styles = StyleSheet.create({
   },
   historyDetails: {
     flex: 1,
+    minWidth: 0,
     gap: 2
+  },
+  mealSummary: {
+    fontSize: 14,
+    color: "#555"
+  },
+  historyActionIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#e4e4e4"
   },
   monthHeader: {
     flexDirection: "row",
