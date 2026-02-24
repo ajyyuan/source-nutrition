@@ -1762,12 +1762,16 @@ export function CaptureScreen({ navigation, route }: Props) {
             </View>
           ) : null}
           {mappingError ? renderBanner(mappingError, "error") : null}
-          <Text style={styles.hint}>
-            Update foods above and tap “Recalculate nutrients” to refresh totals.
-          </Text>
-          <Text style={styles.disclaimer}>
-            Source uses quantity and unit conversion (volume assumes 1 ml approx 1 g). Nutrient data is informational and not medical advice.
-          </Text>
+          {(uploadPath || parsedItems !== null || editableItems.length > 0) ? (
+            <>
+              <Text style={styles.hint}>
+                Update foods above and tap “Recalculate nutrients” to refresh totals.
+              </Text>
+              <Text style={styles.disclaimer}>
+                Source uses quantity and unit conversion (volume assumes 1 ml approx 1 g). Nutrient data is informational and not medical advice.
+              </Text>
+            </>
+          ) : null}
         </ScrollView>
       ) : (
         <View style={styles.cameraContainer}>
