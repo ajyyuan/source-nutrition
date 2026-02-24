@@ -349,12 +349,14 @@ const analyzeRows = (
 
     const values = {};
     const statuses = {};
+    const per100g = row?.per_100g && typeof row.per_100g === "object" ? row.per_100g : {};
     NUTRIENT_SPECS.forEach((nutrient) => {
-      const value = asNumber(row?.per_100g?.[nutrient.key]);
+      const value = asNumber(per100g[nutrient.key]);
       values[nutrient.key] = value;
+      const hasValueInPreview = Object.prototype.hasOwnProperty.call(per100g, nutrient.key);
       if (!reportedSet) {
         statuses[nutrient.key] = "unknown";
-      } else if (reportedSet.has(nutrient.key)) {
+      } else if (reportedSet.has(nutrient.key) || hasValueInPreview) {
         statuses[nutrient.key] = "reported";
       } else {
         statuses[nutrient.key] = "missing";

@@ -386,24 +386,54 @@
   ],
   "vitamin_k2_ug": [
     {
+      "name": "Beef tripe",
+      "value": 1651,
+      "canonical_id": "beef-tripe"
+    },
+    {
+      "name": "Beef tongue",
+      "value": 1515,
+      "canonical_id": "beef-tongue"
+    },
+    {
       "name": "Natto",
       "value": 970,
       "canonical_id": "natto"
     },
     {
-      "name": "Egg yolk",
-      "value": 32,
-      "canonical_id": "egg-yolk"
+      "name": "Beef oxtail",
+      "value": 916,
+      "canonical_id": "oxtail"
     },
     {
-      "name": "Chicken drumstick",
-      "value": 28,
-      "canonical_id": "chicken-drumstick"
+      "name": "Beef liver",
+      "value": 387,
+      "canonical_id": "beef-liver"
+    },
+    {
+      "name": "Beef heart",
+      "value": 205,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 132,
+      "canonical_id": "beef-kidney"
     },
     {
       "name": "Chicken thigh",
-      "value": 24,
+      "value": 58,
       "canonical_id": "chicken-thigh"
+    },
+    {
+      "name": "Chicken drumstick",
+      "value": 58,
+      "canonical_id": "chicken-drumstick"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 32,
+      "canonical_id": "egg-yolk"
     },
     {
       "name": "Chicken wing",
@@ -429,36 +459,6 @@
       "name": "Whole chicken",
       "value": 15,
       "canonical_id": "whole-chicken"
-    },
-    {
-      "name": "Ground chicken",
-      "value": 12,
-      "canonical_id": "ground-chicken"
-    },
-    {
-      "name": "Whole turkey",
-      "value": 12,
-      "canonical_id": "whole-turkey"
-    },
-    {
-      "name": "Quail egg",
-      "value": 12,
-      "canonical_id": "quail-egg"
-    },
-    {
-      "name": "Ground turkey",
-      "value": 10,
-      "canonical_id": "ground-turkey"
-    },
-    {
-      "name": "Ground duck",
-      "value": 10,
-      "canonical_id": "ground-duck"
-    },
-    {
-      "name": "Whole duck",
-      "value": 10,
-      "canonical_id": "whole-duck"
     }
   ],
   "thiamin_mg": [
