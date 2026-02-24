@@ -1,15 +1,7 @@
 // @ts-nocheck
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import {
-  computeMealTotals,
-  computeItemTotals,
-  NUTRIENT_DB_VERSION,
-  sumPercentDv
-} from "../_shared/nutrients.ts";
-import {
-  type CanonicalFoodLookupItem
-} from "../_shared/lexicalFoodSearch.ts";
+import { type CanonicalFoodLookupItem } from "../_shared/lexicalFoodSearch.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -331,16 +323,8 @@ serve(async (req) => {
         typeof canonicalEntry?.canonical_name === "string"
           ? canonicalEntry.canonical_name
           : name || explicitCanonicalId;
-      const nutrientTotals = computeItemTotals(
-        {
-          canonical_id: canonicalId,
-          grams
-        },
-        canonicalById
-      );
 
       mapped.push({
-        // Canonical selection is the display value after mapping.
         name: canonicalName,
         grams,
         canonical_id: canonicalId,
@@ -348,44 +332,13 @@ serve(async (req) => {
         quantity,
         unit,
         last_precise_unit: lastPreciseUnit,
-        confidence,
-        nutrient_totals: nutrientTotals
+        confidence
       });
     }
 
-    const nutrient_totals = computeMealTotals(
-      mapped.map((item) => ({
-        canonical_id: item.canonical_id,
-        grams: item.grams
-      })),
-      canonicalById
-    );
-
-    const top_contributors = mapped
-      .map((item) => {
-        const score = sumPercentDv(item.nutrient_totals.percent_dv);
-        return {
-          canonical_id: item.canonical_id,
-          name: item.canonical_name,
-          score
-        };
-      })
-      .filter((item) => item.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
-
-    const insights = {
-      top_contributors
-    };
-
     const { error: updateError } = await supabase
       .from("meals")
-      .update({
-        final_items: mapped,
-        nutrient_totals,
-        nutrient_db_version: NUTRIENT_DB_VERSION,
-        insights
-      })
+      .update({ final_items: mapped })
       .eq("id", meal_id);
 
     if (updateError) {
@@ -393,15 +346,10 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({
-        items: mapped,
-        nutrient_totals,
-        nutrient_db_version: NUTRIENT_DB_VERSION,
-        insights
-      }),
+      JSON.stringify({ items: mapped }),
       {
-      status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" }
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
       }
     );
   } catch (error) {

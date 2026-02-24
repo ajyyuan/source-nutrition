@@ -17,6 +17,11 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { AppButton } from "../lib/AppButton";
 import { EmptyState } from "../lib/EmptyState";
 import { formatConfidence, formatNutrientLabel } from "../lib/formatters";
+import {
+  addNutrientsFromFoodProfiles,
+  computeMealTotalsAndInsights,
+  NUTRIENT_DB_VERSION
+} from "../lib/mealNutrients";
 import { NutrientBarRow } from "../lib/NutrientBarRow";
 import { supabase } from "../lib/supabase";
 import { QUANTITY_UNITS, type QuantityUnit, toGrams } from "../lib/unitConversion";
@@ -316,78 +321,6 @@ const makeZeroNutrientVector = (): NutrientVector =>
     },
     {} as NutrientVector
   );
-
-const computeItemNutrientTotals = (per100g: NutrientVector, grams: number): NutrientTotals => {
-  const safeGrams = Number.isFinite(grams) ? Math.max(grams, 0) : 0;
-  const multiplier = safeGrams / 100;
-  const totals = NUTRIENT_KEYS.reduce(
-    (acc, key) => {
-      acc[key] = per100g[key] * multiplier;
-      return acc;
-    },
-    {} as NutrientVector
-  );
-  const percentDv = NUTRIENT_KEYS.reduce(
-    (acc, key) => {
-      const dailyValue = DAILY_VALUES[key];
-      acc[key] = dailyValue ? totals[key] / dailyValue : 0;
-      return acc;
-    },
-    {} as NutrientVector
-  );
-  return {
-    totals,
-    percent_dv: percentDv
-  };
-};
-
-const hydrateMappedItemsWithNutrients = async (
-  items: MappedItem[]
-): Promise<MappedItem[]> => {
-  const missingIds = Array.from(
-    new Set(
-      items
-        .filter((item) => !item.nutrient_totals)
-        .map((item) => item.canonical_id)
-        .filter((canonicalId) => typeof canonicalId === "string" && canonicalId.length > 0)
-    )
-  );
-
-  if (!missingIds.length) {
-    return items;
-  }
-
-  try {
-    const { data, error } = await supabase
-      .from("canonical_foods")
-      .select("canonical_id, per_100g")
-      .in("canonical_id", missingIds);
-    if (error) {
-      return items;
-    }
-    const per100gById: Record<string, NutrientVector> = {};
-    (Array.isArray(data) ? data : []).forEach((row) => {
-      if (typeof row?.canonical_id !== "string" || !row.canonical_id.trim()) {
-        return;
-      }
-      const parsedPer100g = parseNutrientVector(row?.per_100g);
-      per100gById[row.canonical_id] = parsedPer100g ?? makeZeroNutrientVector();
-    });
-
-    return items.map((item) => {
-      if (item.nutrient_totals) {
-        return item;
-      }
-      const per100g = per100gById[item.canonical_id] ?? makeZeroNutrientVector();
-      return {
-        ...item,
-        nutrient_totals: computeItemNutrientTotals(per100g, item.grams)
-      };
-    });
-  } catch (_error) {
-    return items;
-  }
-};
 
 const parseFoodSuggestions = (payload: unknown): FoodSuggestion[] => {
   if (payload === null || payload === undefined || payload === "") {
@@ -932,15 +865,17 @@ export function CaptureScreen({ navigation, route }: Props) {
               }))
           : null;
         const hydratedMappedItems = mappedFromFinalItems
-          ? await hydrateMappedItemsWithNutrients(mappedFromFinalItems)
+          ? addNutrientsFromFoodProfiles(mappedFromFinalItems)
           : null;
         setMappedItems(hydratedMappedItems);
         setExpandedIngredientProfiles({});
-        setNutrientTotals(
+        const mealTotals =
           data?.nutrient_totals && typeof data.nutrient_totals === "object"
             ? (data.nutrient_totals as NutrientTotals)
-            : null
-        );
+            : hydratedMappedItems
+              ? computeMealTotalsAndInsights(hydratedMappedItems).nutrient_totals
+              : null;
+        setNutrientTotals(mealTotals);
         setMealId(targetMealId);
       } catch (error) {
         const message =
@@ -997,7 +932,7 @@ export function CaptureScreen({ navigation, route }: Props) {
           grams: sourceGrams
         };
       });
-      const mapped = await hydrateMappedItemsWithNutrients(mappedWithSourceGrams);
+      const mapped = addNutrientsFromFoodProfiles(mappedWithSourceGrams);
       const persistedFinalItems = mapped.map((mappedItem, index) => {
         const sourceItem = items[index];
         const sourceGrams = mappedItem.grams;
@@ -1020,9 +955,17 @@ export function CaptureScreen({ navigation, route }: Props) {
         };
       });
 
+      const { nutrient_totals: mealTotals, insights } =
+        computeMealTotalsAndInsights(mapped);
+
       const { error: persistError } = await supabase
         .from("meals")
-        .update({ final_items: persistedFinalItems })
+        .update({
+          final_items: persistedFinalItems,
+          nutrient_totals: mealTotals,
+          nutrient_db_version: NUTRIENT_DB_VERSION,
+          insights
+        })
         .eq("id", newMealId);
 
       if (persistError) {
@@ -1047,7 +990,7 @@ export function CaptureScreen({ navigation, route }: Props) {
         })
       );
       setSuggestionsByItemId({});
-      setNutrientTotals(parseNutrientTotals(data));
+      setNutrientTotals(mealTotals);
     } catch (error) {
       const message =
         error instanceof Error
