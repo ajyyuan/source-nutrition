@@ -2846,12 +2846,12 @@
     {
       "canonical_id": "whole-wheat-pasta",
       "canonical_name": "Whole wheat pasta",
-      "fdc_id": "172749",
+      "fdc_id": "168910",
       "source_dataset": "sr_legacy_food",
-      "source_name": "Crackers, whole-wheat",
+      "source_name": "Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",
       "confidence": "medium",
       "score": 0.66,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Remapped from 172749 (Crackers, whole-wheat) which wrongly gave ~0.83 g omega-3; 168910 is actual whole-wheat pasta cooked, ~0.036 g omega-3."
     },
     {
       "canonical_id": "couscous",
