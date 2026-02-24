@@ -18,6 +18,7 @@
     "canon:audit:db": "node scripts/audit-canon-v1.js --from-db",
     "canon:top-foods": "node scripts/build-top-foods-by-nutrient.js",
     "canon:food-profiles": "node scripts/build-food-profiles.js",
+    "canon:lookup": "node scripts/build-canon-lookup.js",
     "canon:k2-patches": "node scripts/apply-vitamin-k2-patches.js",
     "canon:biotin-patches": "node scripts/apply-animal-biotin-patches.js",
     "canon:mineral-patches": "node scripts/apply-mineral-patches.js",

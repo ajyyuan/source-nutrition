@@ -12,60 +12,6 @@ const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
 const SUPPORTED_UNITS = new Set(["g", "oz", "lb", "ml", "fl oz", "cup", "tbsp", "tsp"]);
 const UNKNOWN_CANONICAL_ID = "food-unknown";
-const CANONICAL_PAGE_SIZE = 1000;
-const NUTRIENT_KEYS = [
-  "vitamin_a_ug",
-  "vitamin_c_mg",
-  "vitamin_d_ug",
-  "vitamin_e_mg",
-  "vitamin_k_ug",
-  "vitamin_k2_ug",
-  "thiamin_mg",
-  "riboflavin_mg",
-  "niacin_mg",
-  "vitamin_b5_mg",
-  "vitamin_b6_mg",
-  "vitamin_b7_ug",
-  "folate_ug",
-  "vitamin_b12_ug",
-  "calcium_mg",
-  "iron_mg",
-  "magnesium_mg",
-  "phosphorus_mg",
-  "potassium_mg",
-  "zinc_mg",
-  "selenium_ug",
-  "omega3_g"
-];
-
-const makeZeroVector = () =>
-  Object.fromEntries(NUTRIENT_KEYS.map((key) => [key, 0]));
-
-const normalizePer100g = (value: unknown) => {
-  const base = makeZeroVector();
-  if (!value || typeof value !== "object") {
-    return base;
-  }
-  NUTRIENT_KEYS.forEach((key) => {
-    const raw = value[key];
-    base[key] = typeof raw === "number" && Number.isFinite(raw) ? raw : 0;
-  });
-  return base;
-};
-
-const sumPer100gVector = (per100g: Record<string, number>) =>
-  NUTRIENT_KEYS.reduce((acc, key) => acc + (Number.isFinite(per100g[key]) ? per100g[key] : 0), 0);
-
-const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
-
-const chunkArray = <T>(items: T[], chunkSize: number): T[][] => {
-  const chunks: T[][] = [];
-  for (let i = 0; i < items.length; i += chunkSize) {
-    chunks.push(items.slice(i, i + chunkSize));
-  }
-  return chunks;
-};
-
 const normalizeLookupKey = (value: string) =>
   value
     .toLowerCase()
@@ -94,130 +40,67 @@ const resolveCanonicalIdFromLookupText = (
   return "";
 };
 
-const buildCanonicalIndexes = (
-  rows: Array<Record<string, unknown>>,
-  aliasByCanonicalId: Map<string, Set<string>>
-) => {
-  const byId: Record<string, Record<string, unknown>> = {};
+type CanonLookupItem = {
+  canonical_id: string;
+  canonical_name: string;
+  aliases: string[];
+  usable: boolean;
+};
+
+const buildCanonicalIndexesFromLookup = (
+  items: CanonLookupItem[]
+): {
+  byId: Record<string, { canonical_id: string; canonical_name: string; aliases: string[] }>;
+  lookup: CanonicalFoodLookupItem[];
+  usableIds: Set<string>;
+} => {
+  const byId: Record<string, { canonical_id: string; canonical_name: string; aliases: string[] }> = {};
   const lookup: CanonicalFoodLookupItem[] = [];
   const usableIds = new Set<string>();
-  rows.forEach((row) => {
+  for (const row of items) {
     const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
     const canonicalName =
       typeof row?.canonical_name === "string" ? row.canonical_name.trim() : "";
-    const fdcId = typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "";
-    if (!canonicalId || !canonicalName) {
-      return;
-    }
-    const per100g = normalizePer100g(row?.per_100g);
-    const per100gSum = sumPer100gVector(per100g);
-    const unusableSurveyRow = isSurveyFdcId(fdcId) && per100gSum === 0;
-    const usable = !unusableSurveyRow;
-    const rowAliases = Array.isArray(row?.aliases)
-      ? row.aliases.filter((alias) => typeof alias === "string" && alias.trim().length > 0)
+    if (!canonicalId || !canonicalName) continue;
+    const aliases = Array.isArray(row?.aliases)
+      ? row.aliases.filter((a: unknown) => typeof a === "string" && (a as string).trim().length > 0)
       : [];
-    const mergedAliases = new Set<string>(rowAliases);
-    const linkedAliases = aliasByCanonicalId.get(canonicalId);
-    if (linkedAliases) {
-      linkedAliases.forEach((alias) => mergedAliases.add(alias));
-    }
-    byId[canonicalId] = {
-      canonical_id: canonicalId,
-      canonical_name: canonicalName,
-      fdc_id: fdcId,
-      per_100g: per100g,
-      aliases: Array.from(mergedAliases),
-      usable,
-      source: row?.source === "usda" ? "usda" : "stub"
-    };
+    const usable = Boolean(row?.usable);
+    byId[canonicalId] = { canonical_id: canonicalId, canonical_name: canonicalName, aliases };
     if (usable) {
       usableIds.add(canonicalId);
-      lookup.push({
-        canonical_id: canonicalId,
-        canonical_name: canonicalName,
-        aliases: Array.from(mergedAliases)
-      });
+      lookup.push({ canonical_id: canonicalId, canonical_name: canonicalName, aliases });
     }
-  });
+  }
   return { byId, lookup, usableIds };
 };
 
-const fetchAllCanonicalRows = async (supabase) => {
-  const rows = [];
-  let from = 0;
-  while (true) {
-    const to = from + CANONICAL_PAGE_SIZE - 1;
-    const { data, error } = await supabase
-      .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, source, fdc_id, aliases")
-      .eq("is_canon_v1", true)
-      .eq("is_usable", true)
-      .range(from, to);
-    if (error) {
-      throw error;
-    }
-    if (!Array.isArray(data) || !data.length) {
-      break;
-    }
-    rows.push(...data);
-    if (data.length < CANONICAL_PAGE_SIZE) {
-      break;
-    }
-    from += CANONICAL_PAGE_SIZE;
-  }
-  return rows;
-};
+let cachedLookup: {
+  byId: Record<string, { canonical_id: string; canonical_name: string; aliases: string[] }>;
+  lookup: CanonicalFoodLookupItem[];
+  usableIds: Set<string>;
+} | null = null;
 
-const fetchAliasMap = async (
-  supabase,
-  canonicalIds: string[]
-): Promise<Map<string, Set<string>>> => {
-  const aliasMap = new Map<string, Set<string>>();
-  if (!canonicalIds.length) {
-    return aliasMap;
+const loadCanonicalLookup = async (): Promise<{
+  byId: Record<string, { canonical_id: string; canonical_name: string; aliases: string[] }>;
+  lookup: CanonicalFoodLookupItem[];
+  usableIds: Set<string>;
+}> => {
+  if (cachedLookup) return cachedLookup;
+  const url = new URL("./canon-lookup.json", import.meta.url);
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to load canon-lookup.json: ${res.status}`);
   }
-  const chunks = chunkArray(canonicalIds, 500);
-  for (const canonicalIdChunk of chunks) {
-    try {
-      const { data, error } = await supabase
-        .from("canonical_food_aliases")
-        .select("alias, canonical_id")
-        .in("canonical_id", canonicalIdChunk);
-      if (error) {
-        throw error;
-      }
-      (Array.isArray(data) ? data : []).forEach((row) => {
-        const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
-        const alias = typeof row?.alias === "string" ? row.alias.trim() : "";
-        if (!canonicalId || !alias) {
-          return;
-        }
-        if (!aliasMap.has(canonicalId)) {
-          aliasMap.set(canonicalId, new Set<string>());
-        }
-        aliasMap.get(canonicalId)?.add(alias);
-      });
-    } catch (_error) {
-      return aliasMap;
-    }
+  const items = (await res.json()) as CanonLookupItem[];
+  if (!Array.isArray(items) || !items.length) {
+    throw new Error("canon-lookup.json is empty. Run npm run canon:lookup.");
   }
-  return aliasMap;
-};
-
-const loadCanonicalFoods = async (supabase) => {
-  const data = await fetchAllCanonicalRows(supabase);
-  if (!Array.isArray(data) || !data.length) {
-    throw new Error("canonical_foods is empty. Seed canonical foods before mapping.");
+  cachedLookup = buildCanonicalIndexesFromLookup(items);
+  if (!cachedLookup.lookup.length) {
+    throw new Error("canon-lookup.json has no usable rows.");
   }
-  const canonicalIds = data
-    .map((row) => (typeof row?.canonical_id === "string" ? row.canonical_id.trim() : ""))
-    .filter(Boolean);
-  const aliasByCanonicalId = await fetchAliasMap(supabase, canonicalIds);
-  const { byId, lookup, usableIds } = buildCanonicalIndexes(data, aliasByCanonicalId);
-  if (!lookup.length) {
-    throw new Error("canonical_foods has no valid rows.");
-  }
-  return { byId, lookup, usableIds };
+  return cachedLookup;
 };
 
 const resolveCanonicalForItem = async (
@@ -286,7 +169,7 @@ serve(async (req) => {
       lookup: canonicalLookup,
       byId: canonicalById,
       usableIds
-    } = await loadCanonicalFoods(supabase);
+    } = await loadCanonicalLookup();
 
     const mapped = [];
     for (const item of safeItems) {
