@@ -1815,11 +1815,11 @@
         "vitamin_b12_ug": 3,
         "calcium_mg": 7,
         "iron_mg": 2.9,
-        "magnesium_mg": 0,
-        "phosphorus_mg": 0,
-        "potassium_mg": 0,
-        "zinc_mg": 0,
-        "selenium_ug": 0,
+        "magnesium_mg": 21,
+        "phosphorus_mg": 201,
+        "potassium_mg": 330,
+        "zinc_mg": 4,
+        "selenium_ug": 10,
         "omega3_g": 0
       }
     },
@@ -1860,11 +1860,11 @@
         "vitamin_b12_ug": 3,
         "calcium_mg": 7,
         "iron_mg": 2.9,
-        "magnesium_mg": 0,
-        "phosphorus_mg": 0,
-        "potassium_mg": 0,
-        "zinc_mg": 0,
-        "selenium_ug": 0,
+        "magnesium_mg": 21,
+        "phosphorus_mg": 201,
+        "potassium_mg": 330,
+        "zinc_mg": 4,
+        "selenium_ug": 10,
         "omega3_g": 0
       }
     },
@@ -14992,10 +14992,10 @@
         "vitamin_b12_ug": 0,
         "calcium_mg": 286,
         "iron_mg": 51.43,
-        "magnesium_mg": 0,
-        "phosphorus_mg": 0,
-        "potassium_mg": 0,
-        "zinc_mg": 0,
+        "magnesium_mg": 250,
+        "phosphorus_mg": 225,
+        "potassium_mg": 2550,
+        "zinc_mg": 3.5,
         "selenium_ug": 0,
         "omega3_g": 0
       }
@@ -15129,10 +15129,10 @@
         "vitamin_b12_ug": 0,
         "calcium_mg": 214,
         "iron_mg": 28.29,
-        "magnesium_mg": 0,
-        "phosphorus_mg": 0,
-        "potassium_mg": 0,
-        "zinc_mg": 0,
+        "magnesium_mg": 350,
+        "phosphorus_mg": 80,
+        "potassium_mg": 1600,
+        "zinc_mg": 0.5,
         "selenium_ug": 0,
         "omega3_g": 0
       }
@@ -15219,10 +15219,10 @@
         "vitamin_b12_ug": 300,
         "calcium_mg": 333,
         "iron_mg": 240,
-        "magnesium_mg": 0,
-        "phosphorus_mg": 0,
-        "potassium_mg": 0,
-        "zinc_mg": 0,
+        "magnesium_mg": 500,
+        "phosphorus_mg": 1100,
+        "potassium_mg": 1550,
+        "zinc_mg": 4.6,
         "selenium_ug": 0,
         "omega3_g": 0
       }

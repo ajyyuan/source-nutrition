@@ -1243,6 +1243,11 @@
       "canonical_id": "pumpkin-seed"
     },
     {
+      "name": "Chlorella",
+      "value": 500,
+      "canonical_id": "chlorella"
+    },
+    {
       "name": "Flax",
       "value": 392,
       "canonical_id": "flax"
@@ -1251,6 +1256,11 @@
       "name": "Brazil nut",
       "value": 376,
       "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Dulse",
+      "value": 350,
+      "canonical_id": "dulse"
     },
     {
       "name": "Sesame",
@@ -1296,16 +1306,6 @@
       "name": "Pine nut",
       "value": 251,
       "canonical_id": "pine-nut"
-    },
-    {
-      "name": "Amaranth",
-      "value": 248,
-      "canonical_id": "amaranth"
-    },
-    {
-      "name": "Turmeric",
-      "value": 208,
-      "canonical_id": "turmeric"
     }
   ],
   "phosphorus_mg": [
@@ -1318,6 +1318,11 @@
       "name": "Pumpkin seed",
       "value": 1233,
       "canonical_id": "pumpkin-seed"
+    },
+    {
+      "name": "Chlorella",
+      "value": 1100,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Chia",
@@ -1378,14 +1383,14 @@
       "name": "Gruyere",
       "value": 605,
       "canonical_id": "gruyere"
-    },
-    {
-      "name": "Cashew",
-      "value": 593,
-      "canonical_id": "cashew"
     }
   ],
   "potassium_mg": [
+    {
+      "name": "Nori",
+      "value": 2550,
+      "canonical_id": "nori"
+    },
     {
       "name": "Carrot",
       "value": 2540,
@@ -1400,6 +1405,16 @@
       "name": "Soybean",
       "value": 1797,
       "canonical_id": "soybean"
+    },
+    {
+      "name": "Dulse",
+      "value": 1600,
+      "canonical_id": "dulse"
+    },
+    {
+      "name": "Chlorella",
+      "value": 1550,
+      "canonical_id": "chlorella"
     },
     {
       "name": "Black bean",
@@ -1445,21 +1460,6 @@
       "name": "Flax",
       "value": 813,
       "canonical_id": "flax"
-    },
-    {
-      "name": "Pumpkin seed",
-      "value": 809,
-      "canonical_id": "pumpkin-seed"
-    },
-    {
-      "name": "Beet",
-      "value": 762,
-      "canonical_id": "beet"
-    },
-    {
-      "name": "Almond butter",
-      "value": 748,
-      "canonical_id": "almond-butter"
     }
   ],
   "zinc_mg": [

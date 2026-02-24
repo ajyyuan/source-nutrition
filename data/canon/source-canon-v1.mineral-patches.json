@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Mineral patches (Mg, P, K, Zn, Se) for foods where the primary source omits these. Applied to reseed preview. Every value has a cited source or proxy.",
+  "sources": {
+    "venison_proxy": "USDA FDC 167622 (Deer, venison, sitka, raw) does not report Mg, P, K, Zn, Se. Values from lean game meat / raw beef round proxy: Mg 21, P 201, K 330, Zn 4, Se 10 µg/100g (nutritionvalue.org raw venison; USDA SR Legacy beef round similar).",
+    "nori_literature": "Nori dried: Mg 250 mg, P 225 mg, K 2550 mg, Zn 3.5 mg (mid-range of Vita Library 200–300 Mg, 150–300 P, 2300–2800 K, 2–5 Zn; https://vitalibrary.com/nori-nutrition-benefits-risks/). Se not reported; use 0.",
+    "dulse_literature": "Dulse: Mg 350 mg, P 80 mg (estimate), K 1600 mg (dulsevita.com 8g serving 16% RNI → ~1600 mg/100g). Zn/Se from seaweedproducts.ie low; Zn 0.5 mg, Se 0.",
+    "chlorella_literature": "Chlorella powder (dry): Mg 500 mg, P 1100 mg, K 1550 mg, Zn 4.6 mg (mid-range Frontiers 2020: Mg 0.3–0.7%, P 0.7–1.5%, K 0.7–2.4%, Zn 28–64 mg/kg). Se trace (0). PMC7557355, variability in commercial products."
+  },
+  "patches": {
+    "venison": {
+      "magnesium_mg": 21,
+      "phosphorus_mg": 201,
+      "potassium_mg": 330,
+      "zinc_mg": 4,
+      "selenium_ug": 10
+    },
+    "ground-venison": {
+      "magnesium_mg": 21,
+      "phosphorus_mg": 201,
+      "potassium_mg": 330,
+      "zinc_mg": 4,
+      "selenium_ug": 10
+    },
+    "nori": {
+      "magnesium_mg": 250,
+      "phosphorus_mg": 225,
+      "potassium_mg": 2550,
+      "zinc_mg": 3.5,
+      "selenium_ug": 0
+    },
+    "dulse": {
+      "magnesium_mg": 350,
+      "phosphorus_mg": 80,
+      "potassium_mg": 1600,
+      "zinc_mg": 0.5,
+      "selenium_ug": 0
+    },
+    "chlorella": {
+      "magnesium_mg": 500,
+      "phosphorus_mg": 1100,
+      "potassium_mg": 1550,
+      "zinc_mg": 4.6,
+      "selenium_ug": 0
+    }
+  }
+}

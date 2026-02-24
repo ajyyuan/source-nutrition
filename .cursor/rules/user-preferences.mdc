@@ -1,0 +1,9 @@
+---
+description: User preferences: run scripts for the user; commit without coauthor tag
+alwaysApply: true
+---
+
+# User preferences
+
+- **Scripts**: Do not ask the user to run scripts. Run any necessary scripts yourself (e.g. build, test, lint, canon pipeline). If a script is required to complete a task, execute it.
+- **Commits**: When committing on the user's behalf, do not add a "Co-authored-by" line to the commit message. Use a plain commit message only.
