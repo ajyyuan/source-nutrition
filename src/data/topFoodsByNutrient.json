@@ -309,13 +309,33 @@
   ],
   "vitamin_k_ug": [
     {
+      "name": "Beef tripe",
+      "value": 1651,
+      "canonical_id": "beef-tripe"
+    },
+    {
       "name": "Parsley",
       "value": 1640,
       "canonical_id": "parsley"
     },
     {
+      "name": "Beef tongue",
+      "value": 1516.2,
+      "canonical_id": "beef-tongue"
+    },
+    {
+      "name": "Natto",
+      "value": 993.1,
+      "canonical_id": "natto"
+    },
+    {
+      "name": "Beef oxtail",
+      "value": 916.3,
+      "canonical_id": "oxtail"
+    },
+    {
       "name": "Swiss",
-      "value": 830,
+      "value": 836.3,
       "canonical_id": "swiss"
     },
     {
@@ -332,6 +352,11 @@
       "name": "Beet",
       "value": 400,
       "canonical_id": "beet"
+    },
+    {
+      "name": "Beef liver",
+      "value": 390.1,
+      "canonical_id": "beef-liver"
     },
     {
       "name": "Kale",
@@ -357,31 +382,6 @@
       "name": "Radicchio",
       "value": 255.2,
       "canonical_id": "radicchio"
-    },
-    {
-      "name": "Turnip",
-      "value": 251,
-      "canonical_id": "turnip"
-    },
-    {
-      "name": "Endive",
-      "value": 231,
-      "canonical_id": "endive"
-    },
-    {
-      "name": "Chive",
-      "value": 212.7,
-      "canonical_id": "chive"
-    },
-    {
-      "name": "Scallion",
-      "value": 207,
-      "canonical_id": "scallion"
-    },
-    {
-      "name": "Brussels sprouts",
-      "value": 177,
-      "canonical_id": "brussels-sprouts"
     }
   ],
   "vitamin_k2_ug": [

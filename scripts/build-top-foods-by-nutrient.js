@@ -73,14 +73,23 @@ const run = () => {
   const result = {};
 
   NUTRIENT_KEYS.forEach((key) => {
+    // Vitamin K in the app = K1 + K2 combined
+    const getValue = (r) => {
+      const p = r.per_100g;
+      if (key === "vitamin_k_ug") {
+        const k1 = typeof p?.vitamin_k_ug === "number" && Number.isFinite(p.vitamin_k_ug) ? p.vitamin_k_ug : 0;
+        const k2 = typeof p?.vitamin_k2_ug === "number" && Number.isFinite(p.vitamin_k2_ug) ? p.vitamin_k2_ug : 0;
+        return k1 + k2;
+      }
+      return p?.[key];
+    };
+
     const entries = rows
-      .filter(
-        (r) =>
-          r.per_100g &&
-          Number.isFinite(r.per_100g[key]) &&
-          r.per_100g[key] > 0 &&
-          !isCookingOilOrFat(r)
-      )
+      .filter((r) => {
+        if (!r.per_100g || isCookingOilOrFat(r)) return false;
+        const val = getValue(r);
+        return Number.isFinite(val) && val > 0;
+      })
       .map((r) => {
         const name =
           BEEF_CUT_DISPLAY_OVERRIDES[r.canonical_id] ??
@@ -90,7 +99,7 @@ const run = () => {
           "";
         return {
           name,
-          value: r.per_100g[key],
+          value: getValue(r),
           canonical_id: r.canonical_id || null
         };
       })
