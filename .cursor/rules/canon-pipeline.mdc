@@ -10,11 +10,12 @@ Whenever you **add or modify** data in the canon DB or related artifacts, run th
 1. **`npm run canon:build`** — rebuilds `source-canon-v1.flat.json` from `source-canon-v1.json`.
 2. **`npm run canon:provenance:build`** — rebuilds `source-canon-v1.provenance.json` from flat + manual-curation.
 3. **`npm run canon:reseed:dry`** — rebuilds `source-canon-v1.reseed-preview.json` (and match-audit); required before matrix.
-4. **`npm run canon:matrix:build`** — rebuilds micronutrient matrix (and coverage) from reseed-preview.
+4. **`npm run canon:k2-patches`** — applies vitamin K2 values from `source-canon-v1.vitamin-k2-patches.json` to the preview (run after reseed).
+5. **`npm run canon:matrix:build`** — rebuilds micronutrient matrix (and coverage) from reseed-preview.
+6. **`npm run canon:top-foods`** — rebuilds `src/data/topFoodsByNutrient.json` from preview.
+7. **`npm run canon:food-profiles`** — rebuilds `src/data/foodProfiles.json` from preview.
+8. **`npm run canon:sync-preview-to-db`** — pushes the current preview (after patches) to Supabase `canonical_foods` so meal totals in the app use the latest data. Requires `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
 
-If the app uses derived data from the reseed preview, also run:
+Run steps 4–7 whenever the reseed preview changes (including after K2 patches). Run step 8 when you need the live DB (and app meal totals) to match the preview. Run 1–2 when flat or curation changes.
 
-- **`npm run canon:top-foods`** — rebuilds `src/data/topFoodsByNutrient.json`.
-- **`npm run canon:food-profiles`** — rebuilds `src/data/foodProfiles.json`.
-
-Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Do not leave matrix or provenance stale after canon edits.
+Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Provenance for patch data: `source-canon-v1.external-vitamin-k2-provenance.json`, `source-canon-v1.external-biotin-provenance.json`, `source-canon-v1.external-vitamin-zero-provenance.json`. Do not leave matrix or provenance stale after canon edits.

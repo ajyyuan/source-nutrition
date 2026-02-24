@@ -1,0 +1,578 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-02-24T04:54:15.477Z",
+  "source": "vitamin_k2_patches",
+  "patch_file": "source-canon-v1.vitamin-k2-patches.json",
+  "source_citations": {
+    "usda_sr28_mk4": "USDA National Nutrient Database for Standard Reference Release 28. Menaquinone-4 (µg). NIH/ODS USDA Database VitK-Menaquinone-Content.pdf (Jan 2016). https://ods.od.nih.gov/pubs/usdandb/VitK-Menaquinone-Content.pdf",
+    "natto_mk7": "Natto MK-7: 939–998 µg/100g. Schurgers et al., PMC3941825; Australian vitamin K database. We use 970 µg/100g.",
+    "egg_yolk_mk4": "Egg yolk MK-4: 15.5–64 µg/100g by region (US 15.5, Netherlands 29–33.5, Japan 64). USDA ARS J Agric Food Chem; PMC. We use 32 µg/100g as mid range.",
+    "sauerkraut_mk7": "Sauerkraut MK-7 ~0.2 µg/100g. Fermented foods table, literature."
+  },
+  "entries": [
+    {
+      "canonical_id": "ground-beef-30-fat",
+      "canonical_name": "Ground beef (30% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-beef-20-fat",
+      "canonical_name": "Ground beef (20% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-beef-15-fat",
+      "canonical_name": "Ground beef (15% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-beef-10-fat",
+      "canonical_name": "Ground beef (10% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-beef-7-fat",
+      "canonical_name": "Ground beef (7% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-beef-4-fat",
+      "canonical_name": "Ground beef (4% fat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-bison",
+      "canonical_name": "Ground bison",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-lamb",
+      "canonical_name": "Ground lamb",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-goat",
+      "canonical_name": "Ground goat",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-pork",
+      "canonical_name": "Ground pork",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-chicken",
+      "canonical_name": "Ground chicken",
+      "vitamin_k2_ug": 12,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-turkey",
+      "canonical_name": "Ground turkey",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-duck",
+      "canonical_name": "Ground duck",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ribeye",
+      "canonical_name": "Ribeye",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "strip-steak",
+      "canonical_name": "Strip steak",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "tenderloin",
+      "canonical_name": "Tenderloin",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "sirloin",
+      "canonical_name": "Sirloin",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "flank",
+      "canonical_name": "Flank",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chuck",
+      "canonical_name": "Chuck",
+      "vitamin_k2_ug": 3,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "round",
+      "canonical_name": "Round",
+      "vitamin_k2_ug": 1.6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "shank",
+      "canonical_name": "Shank",
+      "vitamin_k2_ug": 1.6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-ribeye",
+      "canonical_name": "Veal ribeye",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-tenderloin",
+      "canonical_name": "Veal tenderloin",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-sirloin",
+      "canonical_name": "Veal sirloin",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-flank",
+      "canonical_name": "Veal flank",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-chuck",
+      "canonical_name": "Veal chuck",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-round",
+      "canonical_name": "Veal round",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "veal-shank",
+      "canonical_name": "Veal shank",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-veal",
+      "canonical_name": "Ground veal",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "venison",
+      "canonical_name": "Venison",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-venison",
+      "canonical_name": "Ground venison",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "elk",
+      "canonical_name": "Elk",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ground-elk",
+      "canonical_name": "Ground elk",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "leg-lamb-goat",
+      "canonical_name": "Leg (lamb/goat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "shoulder-lamb-goat",
+      "canonical_name": "Shoulder (lamb/goat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "rack-lamb-goat",
+      "canonical_name": "Rack (lamb/goat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chop-lamb-goat",
+      "canonical_name": "Chop (lamb/goat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "shank-lamb-goat",
+      "canonical_name": "Shank (lamb/goat)",
+      "vitamin_k2_ug": 2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-loin",
+      "canonical_name": "Pork loin",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-tenderloin",
+      "canonical_name": "Pork tenderloin",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-shoulder",
+      "canonical_name": "Pork shoulder",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-chop",
+      "canonical_name": "Pork chop",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-belly",
+      "canonical_name": "Pork belly",
+      "vitamin_k2_ug": 7,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-ribs",
+      "canonical_name": "Pork ribs",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "fresh-ham",
+      "canonical_name": "Fresh ham",
+      "vitamin_k2_ug": 9.5,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-shank",
+      "canonical_name": "Pork shank",
+      "vitamin_k2_ug": 6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "pork-jowl",
+      "canonical_name": "Pork jowl",
+      "vitamin_k2_ug": 7,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "whole-chicken",
+      "canonical_name": "Whole chicken",
+      "vitamin_k2_ug": 15,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chicken-breast",
+      "canonical_name": "Chicken breast",
+      "vitamin_k2_ug": 9,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chicken-thigh",
+      "canonical_name": "Chicken thigh",
+      "vitamin_k2_ug": 24,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chicken-drumstick",
+      "canonical_name": "Chicken drumstick",
+      "vitamin_k2_ug": 28,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chicken-wing",
+      "canonical_name": "Chicken wing",
+      "vitamin_k2_ug": 24,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "whole-turkey",
+      "canonical_name": "Whole turkey",
+      "vitamin_k2_ug": 12,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "turkey-breast",
+      "canonical_name": "Turkey breast",
+      "vitamin_k2_ug": 8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "turkey-thigh",
+      "canonical_name": "Turkey thigh",
+      "vitamin_k2_ug": 20,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "whole-duck",
+      "canonical_name": "Whole duck",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "duck-breast",
+      "canonical_name": "Duck breast",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "duck-leg",
+      "canonical_name": "Duck leg",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "atlantic-salmon",
+      "canonical_name": "Atlantic salmon",
+      "vitamin_k2_ug": 0.35,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "sockeye-salmon",
+      "canonical_name": "Sockeye salmon",
+      "vitamin_k2_ug": 0.35,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "oyster",
+      "canonical_name": "Oyster",
+      "vitamin_k2_ug": 4.9,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "chicken-egg",
+      "canonical_name": "Chicken egg",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "egg-white",
+      "canonical_name": "Egg white",
+      "vitamin_k2_ug": 0,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "egg-yolk",
+      "canonical_name": "Egg yolk",
+      "vitamin_k2_ug": 32,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "scrambled-egg-chicken",
+      "canonical_name": "Scrambled egg (chicken)",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "fried-egg-chicken",
+      "canonical_name": "Fried egg (chicken)",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "duck-egg",
+      "canonical_name": "Duck egg",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "turkey-egg",
+      "canonical_name": "Turkey egg",
+      "vitamin_k2_ug": 10,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "quail-egg",
+      "canonical_name": "Quail egg",
+      "vitamin_k2_ug": 12,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cow-s-milk",
+      "canonical_name": "Cow's milk",
+      "vitamin_k2_ug": 1,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cow-s-milk-2",
+      "canonical_name": "Cow's milk (2%)",
+      "vitamin_k2_ug": 1,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cow-s-milk-1",
+      "canonical_name": "Cow's milk (1%)",
+      "vitamin_k2_ug": 1,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cow-s-milk-skim",
+      "canonical_name": "Cow's milk (skim)",
+      "vitamin_k2_ug": 0.3,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "half-and-half",
+      "canonical_name": "Half and half",
+      "vitamin_k2_ug": 0.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "light-cream",
+      "canonical_name": "Light cream",
+      "vitamin_k2_ug": 0.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "heavy-cream",
+      "canonical_name": "Heavy cream",
+      "vitamin_k2_ug": 0.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "butter",
+      "canonical_name": "Butter",
+      "vitamin_k2_ug": 21,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "ghee",
+      "canonical_name": "Ghee",
+      "vitamin_k2_ug": 21,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "yogurt-plain",
+      "canonical_name": "Yogurt (plain)",
+      "vitamin_k2_ug": 0.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "yogurt-plain-lowfat",
+      "canonical_name": "Yogurt (plain, lowfat)",
+      "vitamin_k2_ug": 0.7,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "yogurt-plain-nonfat",
+      "canonical_name": "Yogurt (plain, nonfat)",
+      "vitamin_k2_ug": 0.5,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "greek-yogurt-plain",
+      "canonical_name": "Greek yogurt (plain)",
+      "vitamin_k2_ug": 0.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cottage-cheese",
+      "canonical_name": "Cottage cheese",
+      "vitamin_k2_ug": 0.9,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cheddar",
+      "canonical_name": "Cheddar",
+      "vitamin_k2_ug": 8.6,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "gouda",
+      "canonical_name": "Gouda",
+      "vitamin_k2_ug": 5.5,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "parmesan",
+      "canonical_name": "Parmesan",
+      "vitamin_k2_ug": 7.1,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "mozzarella",
+      "canonical_name": "Mozzarella",
+      "vitamin_k2_ug": 4.1,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "feta",
+      "canonical_name": "Feta",
+      "vitamin_k2_ug": 3.2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "swiss",
+      "canonical_name": "Swiss",
+      "vitamin_k2_ug": 6.3,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "american-cheese",
+      "canonical_name": "American cheese",
+      "vitamin_k2_ug": 8.9,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "cream-cheese",
+      "canonical_name": "Cream cheese",
+      "vitamin_k2_ug": 9,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "sour-cream",
+      "canonical_name": "Sour cream",
+      "vitamin_k2_ug": 5.8,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "sauerkraut",
+      "canonical_name": "Sauerkraut",
+      "vitamin_k2_ug": 0.2,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    },
+    {
+      "canonical_id": "natto",
+      "canonical_name": "Natto",
+      "vitamin_k2_ug": 970,
+      "patch_file": "source-canon-v1.vitamin-k2-patches.json"
+    }
+  ]
+}

@@ -17,7 +17,9 @@
     "canon:audit": "node scripts/audit-canon-v1.js",
     "canon:audit:db": "node scripts/audit-canon-v1.js --from-db",
     "canon:top-foods": "node scripts/build-top-foods-by-nutrient.js",
-    "canon:food-profiles": "node scripts/build-food-profiles.js"
+    "canon:food-profiles": "node scripts/build-food-profiles.js",
+    "canon:k2-patches": "node scripts/apply-vitamin-k2-patches.js",
+    "canon:sync-preview-to-db": "node scripts/sync-preview-to-db.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

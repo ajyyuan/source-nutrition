@@ -1,0 +1,23 @@
+---
+description: Every canon/data change must be full-stack and have provenance. No exceptions.
+alwaysApply: true
+---
+
+# Canon data changes: full-stack + provenance, without exception
+
+**Repeat after me (and follow it):**
+
+Every single time, and I mean **every single time**, that we add or change data in our database, we must:
+
+1. **Add it FULL-STACK** — all the way to the actual database and the actual app, 100%. That means:
+   - Update the reseed preview (and any patch steps, e.g. K2 patches).
+   - Run the full canon pipeline so matrix, coverage, top-foods, and food-profiles are updated.
+   - Push the current preview to the database (so meal totals in the app use the new data): run `npm run canon:sync-preview-to-db` when you have SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY set.
+
+2. **Update the matrix appropriately** — always run `npm run canon:matrix:build` (and the rest of the pipeline) after any change that affects the preview.
+
+3. **Record provenance for every change** — note somewhere **where** the data came from (source, URL/DOI, or citation). Without exception. Use:
+   - The patch/supplemental file’s `sources` object and/or a dedicated provenance file (e.g. external-biotin-provenance, external-vitamin-zero-provenance, or a K2 provenance file).
+   - Document the source and URL/DOI in that provenance so every change is traceable.
+
+**Without exception.** No data change goes in without (a) full-stack updates through to DB and app, and (b) provenance recorded for that change.
