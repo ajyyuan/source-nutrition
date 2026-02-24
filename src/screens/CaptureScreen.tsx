@@ -1391,7 +1391,6 @@ export function CaptureScreen({ navigation, route }: Props) {
             variant="secondary"
             fullWidth={false}
           />
-          {renderConfidenceBadge(item.confidence)}
         </View>
       ))}
       <AppButton
@@ -1448,7 +1447,6 @@ export function CaptureScreen({ navigation, route }: Props) {
                   <Text style={styles.parsedItemText}>
                     {item.canonical_name}
                   </Text>
-                  {renderConfidenceBadge(item.confidence)}
                 </View>
                 <Pressable
                   accessibilityRole="button"

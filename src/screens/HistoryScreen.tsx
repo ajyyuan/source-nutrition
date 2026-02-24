@@ -55,10 +55,6 @@ type NutrientTotals = {
   percent_dv: NutrientVector;
 };
 
-type FinalItem = {
-  confidence?: number;
-};
-
 type MealHistoryItem = {
   id: string;
   created_at: string;
@@ -127,22 +123,6 @@ const makeEmptyVector = (): NutrientVector => ({
   omega3_g: 0
 });
 
-const computeAverageConfidence = (items: unknown): { sum: number; count: number } => {
-  if (!Array.isArray(items)) {
-    return { sum: 0, count: 0 };
-  }
-  return items.reduce(
-    (acc, item) => {
-      const value = typeof item?.confidence === "number" ? item.confidence : NaN;
-      if (Number.isFinite(value) && value >= 0 && value <= 1) {
-        return { sum: acc.sum + value, count: acc.count + 1 };
-      }
-      return acc;
-    },
-    { sum: 0, count: 0 }
-  );
-};
-
 const getDayRange = (date: Date) => {
   const start = new Date(date);
   start.setHours(0, 0, 0, 0);
@@ -167,16 +147,11 @@ const getMonthRange = (month: Date) => {
 const computeTotalsFromMeals = (meals: MealHistoryItem[]) => {
   const totals = makeEmptyVector();
   const percentDv = makeEmptyVector();
-  let confidenceSum = 0;
-  let confidenceCount = 0;
   meals.forEach((meal) => {
     const entry = meal?.nutrient_totals;
     if (!entry?.totals || !entry?.percent_dv) {
       return;
     }
-    const confidence = computeAverageConfidence(meal?.final_items as FinalItem[]);
-    confidenceSum += confidence.sum;
-    confidenceCount += confidence.count;
     NUTRIENT_KEYS.forEach((key) => {
       totals[key] += Number(entry.totals[key] ?? 0);
       percentDv[key] += Number(entry.percent_dv[key] ?? 0);
@@ -184,10 +159,7 @@ const computeTotalsFromMeals = (meals: MealHistoryItem[]) => {
   });
   return {
     totals,
-    percent_dv: percentDv,
-    confidencePercent: confidenceCount
-      ? Math.round((confidenceSum / confidenceCount) * 100)
-      : null
+    percent_dv: percentDv
   };
 };
 
@@ -210,7 +182,6 @@ export function HistoryScreen({ navigation }: Props) {
     totals: makeEmptyVector(),
     percent_dv: makeEmptyVector()
   });
-  const [dateConfidence, setDateConfidence] = useState<number | null>(null);
   const [mealPhotoUrls, setMealPhotoUrls] = useState<Record<string, string>>({});
   const [expandedPhotoUrl, setExpandedPhotoUrl] = useState<string | null>(null);
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
@@ -273,7 +244,6 @@ export function HistoryScreen({ navigation }: Props) {
         totals: computed.totals,
         percent_dv: computed.percent_dv
       });
-      setDateConfidence(computed.confidencePercent);
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "Unable to load meal history.";
@@ -284,7 +254,6 @@ export function HistoryScreen({ navigation }: Props) {
         totals: makeEmptyVector(),
         percent_dv: makeEmptyVector()
       });
-      setDateConfidence(null);
     } finally {
       setIsLoadingHistory(false);
     }
@@ -351,7 +320,6 @@ export function HistoryScreen({ navigation }: Props) {
                     totals: computed.totals,
                     percent_dv: computed.percent_dv
                   });
-                  setDateConfidence(computed.confidencePercent);
                   if (!next.length) {
                     setMonthMealDays((days) => days.filter((day) => day !== selectedKey));
                   }
@@ -665,9 +633,6 @@ export function HistoryScreen({ navigation }: Props) {
             <View style={styles.errorBanner}>
               <Text style={styles.errorText}>{historyError}</Text>
             </View>
-          ) : null}
-          {dateConfidence !== null ? (
-            <Text style={styles.cardSubtitle}>Avg confidence: {dateConfidence}%</Text>
           ) : null}
           {isLoadingHistory ? <ActivityIndicator style={styles.spinner} /> : null}
           {!isLoadingHistory && !historyError ? (
