@@ -19,6 +19,7 @@
     "canon:top-foods": "node scripts/build-top-foods-by-nutrient.js",
     "canon:food-profiles": "node scripts/build-food-profiles.js",
     "canon:k2-patches": "node scripts/apply-vitamin-k2-patches.js",
+    "canon:biotin-patches": "node scripts/apply-animal-biotin-patches.js",
     "canon:mineral-patches": "node scripts/apply-mineral-patches.js",
     "canon:mineral-provenance": "node scripts/build-mineral-provenance.js",
     "canon:k2-provenance": "node scripts/build-k2-provenance.js",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.10",
+    "dotenv": "^16.4.5",
     "typescript": "latest"
   }
 }

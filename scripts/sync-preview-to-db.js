@@ -2,9 +2,10 @@
  * Pushes the current reseed preview (e.g. after K2 or other patches) into
  * canonical_foods so meal totals in the app use the latest per_100g data.
  *
- * Requires: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+ * Requires: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (in .env or environment)
  * Usage: node scripts/sync-preview-to-db.js [--preview=path]
  */
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { createClient } = require("@supabase/supabase-js");
@@ -35,10 +36,15 @@ const run = async () => {
     throw new Error("Preview has no rows.");
   }
 
-  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseUrl =
+    process.env.SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL;
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!supabaseUrl || !supabaseServiceRoleKey) {
-    throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required.");
+    throw new Error(
+      "Supabase URL and service role key are required. Set in .env:\n" +
+        "  SUPABASE_URL or EXPO_PUBLIC_SUPABASE_URL (your project URL)\n" +
+        "  SUPABASE_SERVICE_ROLE_KEY (from Supabase Dashboard → Project Settings → API → service_role secret)"
+    );
   }
 
   const supabase = createClient(supabaseUrl, supabaseServiceRoleKey, {
