@@ -34,6 +34,38 @@ export const formatNutrientLabel = (key: string) =>
 export const formatConfidence = (value: number) =>
   `Confidence: ${Math.round(value * 100)}%`;
 
+/** Value to show for a nutrient (combines K1+K2 for Vitamin K). */
+export function getDisplayNutrientValue(
+  nutrientKey: string,
+  per100g: Record<string, number>
+): number {
+  if (nutrientKey === "vitamin_k_ug") {
+    const k1 = per100g?.vitamin_k_ug;
+    const k2 = per100g?.vitamin_k2_ug;
+    const a = typeof k1 === "number" && Number.isFinite(k1) ? k1 : 0;
+    const b = typeof k2 === "number" && Number.isFinite(k2) ? k2 : 0;
+    return a + b;
+  }
+  const v = per100g?.[nutrientKey];
+  return typeof v === "number" && Number.isFinite(v) ? v : 0;
+}
+
+/** Total to show for a nutrient (combines K1+K2 for Vitamin K). */
+export function getDisplayNutrientTotal(
+  nutrientKey: string,
+  totals: Record<string, number>
+): number {
+  if (nutrientKey === "vitamin_k_ug") {
+    const k1 = totals?.vitamin_k_ug;
+    const k2 = totals?.vitamin_k2_ug;
+    const a = typeof k1 === "number" && Number.isFinite(k1) ? k1 : 0;
+    const b = typeof k2 === "number" && Number.isFinite(k2) ? k2 : 0;
+    return a + b;
+  }
+  const v = totals?.[nutrientKey];
+  return typeof v === "number" && Number.isFinite(v) ? v : 0;
+}
+
 /** Format a nutrient value for display (per 100 g). */
 export function formatNutrientValue(nutrientKey: string, value: number): string {
   if (nutrientKey === "omega3_g") {

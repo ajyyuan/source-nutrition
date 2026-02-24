@@ -35,7 +35,7 @@ export const NUTRIENT_INFO: Record<string, NutrientInfo> = {
   },
   vitamin_k_ug: {
     description:
-      "Vitamin K is essential for blood clotting and for building strong bones. Gut bacteria make some; the rest comes from food (leafy greens, some oils).",
+      "Vitamin K is essential for blood clotting and for building strong bones. We report total vitamin K (K1 phylloquinone + K2 menaquinones from food). Gut bacteria make some K2; dietary sources include leafy greens (K1), fermented foods and animal products (K2).",
     deficiency:
       "Deficiency can cause easy bruising and bleeding, heavy periods, and in severe cases internal bleeding. Newborns are at risk; adults on long-term antibiotics or with malabsorption may be affected."
   },

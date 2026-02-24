@@ -41,6 +41,7 @@ const NUTRIENT_KEYS = [
   "vitamin_d_ug",
   "vitamin_e_mg",
   "vitamin_k_ug",
+  "vitamin_k2_ug",
   "thiamin_mg",
   "riboflavin_mg",
   "niacin_mg",

@@ -8,6 +8,7 @@ const NUTRIENT_SPECS = [
   { key: "vitamin_d_ug", label: "Vitamin D", unit: "ug" },
   { key: "vitamin_e_mg", label: "Vitamin E", unit: "mg" },
   { key: "vitamin_k_ug", label: "Vitamin K", unit: "ug" },
+  { key: "vitamin_k2_ug", label: "Vitamin K2", unit: "ug" },
   { key: "thiamin_mg", label: "Thiamin (B1)", unit: "mg" },
   { key: "riboflavin_mg", label: "Riboflavin (B2)", unit: "mg" },
   { key: "niacin_mg", label: "Niacin (B3)", unit: "mg" },

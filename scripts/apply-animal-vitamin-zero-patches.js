@@ -16,7 +16,7 @@ const CURATION_PATH = path.resolve("data/canon/source-canon-v1.manual-curation.j
 const PROVENANCE_PATH = path.resolve("data/canon/source-canon-v1.external-vitamin-zero-provenance.json");
 
 const VITAMIN_KEYS = [
-  "vitamin_a_ug", "vitamin_d_ug", "vitamin_e_mg", "vitamin_k_ug",
+  "vitamin_a_ug", "vitamin_d_ug", "vitamin_e_mg", "vitamin_k_ug", "vitamin_k2_ug",
   "thiamin_mg", "riboflavin_mg", "niacin_mg", "vitamin_b5_mg", "vitamin_b6_mg",
   "vitamin_b7_ug", "folate_ug", "vitamin_b12_ug"
 ];

@@ -4,6 +4,7 @@ export type NutrientKey =
   | "vitamin_d_ug"
   | "vitamin_e_mg"
   | "vitamin_k_ug"
+  | "vitamin_k2_ug"
   | "thiamin_mg"
   | "riboflavin_mg"
   | "niacin_mg"
@@ -40,6 +41,7 @@ export const DAILY_VALUES: DailyValue = {
   vitamin_d_ug: 20,
   vitamin_e_mg: 15,
   vitamin_k_ug: 120,
+  vitamin_k2_ug: 0,
   thiamin_mg: 1.2,
   riboflavin_mg: 1.3,
   niacin_mg: 16,
@@ -64,6 +66,7 @@ const makeZeroVector = (): NutrientVector => ({
   vitamin_d_ug: 0,
   vitamin_e_mg: 0,
   vitamin_k_ug: 0,
+  vitamin_k2_ug: 0,
   thiamin_mg: 0,
   riboflavin_mg: 0,
   niacin_mg: 0,
@@ -104,6 +107,7 @@ const addVectors = (base: NutrientVector, delta: NutrientVector): NutrientVector
   vitamin_d_ug: base.vitamin_d_ug + delta.vitamin_d_ug,
   vitamin_e_mg: base.vitamin_e_mg + delta.vitamin_e_mg,
   vitamin_k_ug: base.vitamin_k_ug + delta.vitamin_k_ug,
+  vitamin_k2_ug: base.vitamin_k2_ug + delta.vitamin_k2_ug,
   thiamin_mg: base.thiamin_mg + delta.thiamin_mg,
   riboflavin_mg: base.riboflavin_mg + delta.riboflavin_mg,
   niacin_mg: base.niacin_mg + delta.niacin_mg,
@@ -130,6 +134,7 @@ const scaleVector = (per100g: NutrientVector, grams: number): NutrientVector => 
     vitamin_d_ug: per100g.vitamin_d_ug * multiplier,
     vitamin_e_mg: per100g.vitamin_e_mg * multiplier,
     vitamin_k_ug: per100g.vitamin_k_ug * multiplier,
+    vitamin_k2_ug: per100g.vitamin_k2_ug * multiplier,
     thiamin_mg: per100g.thiamin_mg * multiplier,
     riboflavin_mg: per100g.riboflavin_mg * multiplier,
     niacin_mg: per100g.niacin_mg * multiplier,
@@ -163,8 +168,9 @@ const computePercentDv = (totals: NutrientVector): NutrientVector => ({
     ? totals.vitamin_e_mg / DAILY_VALUES.vitamin_e_mg
     : 0,
   vitamin_k_ug: DAILY_VALUES.vitamin_k_ug
-    ? totals.vitamin_k_ug / DAILY_VALUES.vitamin_k_ug
+    ? (totals.vitamin_k_ug + totals.vitamin_k2_ug) / DAILY_VALUES.vitamin_k_ug
     : 0,
+  vitamin_k2_ug: 0,
   thiamin_mg: DAILY_VALUES.thiamin_mg ? totals.thiamin_mg / DAILY_VALUES.thiamin_mg : 0,
   riboflavin_mg: DAILY_VALUES.riboflavin_mg
     ? totals.riboflavin_mg / DAILY_VALUES.riboflavin_mg

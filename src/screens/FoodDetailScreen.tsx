@@ -5,7 +5,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Pressable } from "react-native";
 
 import type { RootStackParamList } from "../navigation/AppNavigator";
-import { formatNutrientLabel, formatNutrientValue } from "../lib/formatters";
+import { formatNutrientLabel, formatNutrientValue, getDisplayNutrientValue } from "../lib/formatters";
 import { percentDv } from "../lib/dailyValues";
 import { NUTRIENT_INFO } from "../lib/nutrientInfo";
 import foodProfiles from "../data/foodProfiles.json";
@@ -60,9 +60,8 @@ export function FoodDetailScreen({ navigation, route }: Props) {
               </Text>
               <View style={styles.nutrientList}>
                 {NUTRIENT_KEYS.map((key) => {
-                  const value = profile.per_100g?.[key];
-                  const num = typeof value === "number" && Number.isFinite(value) ? value : null;
-                  const pctDv = num !== null ? percentDv(key, num) : 0;
+                  const num = getDisplayNutrientValue(key, profile.per_100g ?? {});
+                  const pctDv = num > 0 ? percentDv(key, num) : 0;
                   const isHigh = pctDv >= HIGH_NUTRIENT_DV_THRESHOLD;
                   return (
                     <Pressable
@@ -82,7 +81,7 @@ export function FoodDetailScreen({ navigation, route }: Props) {
                         {formatNutrientLabel(key)}
                       </Text>
                       <Text style={styles.nutrientValue}>
-                        {num !== null ? formatNutrientValue(key, num) : "—"}
+                        {num > 0 ? formatNutrientValue(key, num) : "—"}
                       </Text>
                     </Pressable>
                   );
