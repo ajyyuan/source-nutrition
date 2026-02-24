@@ -12,11 +12,12 @@ Whenever you **add or modify** data in the canon DB or related artifacts, run th
 3. **`npm run canon:reseed:dry`** — rebuilds `source-canon-v1.reseed-preview.json` (and match-audit); required before matrix.
 4. **`npm run canon:k2-patches`** — applies vitamin K2 values from `source-canon-v1.vitamin-k2-patches.json` to the preview (run after reseed).
 5. **`npm run canon:mineral-patches`** — applies mineral (Mg, P, K, Zn, Se) patches from `source-canon-v1.mineral-patches.json` (venison, nori, dulse, chlorella).
-6. **`npm run canon:matrix:build`** — rebuilds micronutrient matrix (and coverage) from reseed-preview.
-7. **`npm run canon:top-foods`** — rebuilds `src/data/topFoodsByNutrient.json` from preview.
-8. **`npm run canon:food-profiles`** — rebuilds `src/data/foodProfiles.json` from preview.
-9. **`npm run canon:sync-preview-to-db`** — pushes the current preview (after patches) to Supabase `canonical_foods` so meal totals in the app use the latest data. Requires `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
+6. **`npm run canon:mineral-provenance`** — writes the `mineral_patches` section to `source-canon-v1.external-provenance.json` from the mineral-patches file. Run after changing mineral-patches.json.
+7. **`npm run canon:matrix:build`** — rebuilds micronutrient matrix (and coverage) from reseed-preview.
+8. **`npm run canon:top-foods`** — rebuilds `src/data/topFoodsByNutrient.json` from preview.
+9. **`npm run canon:food-profiles`** — rebuilds `src/data/foodProfiles.json` from preview.
+10. **`npm run canon:sync-preview-to-db`** — pushes the current preview (after patches) to Supabase `canonical_foods` so meal totals in the app use the latest data. Requires `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
 
-Run steps 4–8 whenever the reseed preview changes (including after K2 and mineral patches). Run step 9 when you need the live DB (and app meal totals) to match the preview. Run 1–2 when flat or curation changes.
+Run steps 4–9 whenever the reseed preview changes (including after K2 and mineral patches). After any patch file change, also run the matching provenance step (canon:k2-provenance or canon:mineral-provenance). Run step 10 when you need the live DB (and app meal totals) to match the preview. Run 1–2 when flat or curation changes.
 
-Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Provenance for patch data: `source-canon-v1.external-provenance.json` (single doc with sections vitamin_k2, biotin, vitamin_zero). Do not leave matrix or provenance stale after canon edits.
+Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Provenance for patch data: `source-canon-v1.external-provenance.json` (single doc with sections vitamin_k2, biotin, vitamin_zero, mineral_patches). **Always** update the relevant provenance section when you add or change any patch (K2, biotin, vitamin-zero, or mineral). Do not leave matrix or provenance stale after canon edits.

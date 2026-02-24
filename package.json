@@ -20,6 +20,7 @@
     "canon:food-profiles": "node scripts/build-food-profiles.js",
     "canon:k2-patches": "node scripts/apply-vitamin-k2-patches.js",
     "canon:mineral-patches": "node scripts/apply-mineral-patches.js",
+    "canon:mineral-provenance": "node scripts/build-mineral-provenance.js",
     "canon:k2-provenance": "node scripts/build-k2-provenance.js",
     "canon:sync-preview-to-db": "node scripts/sync-preview-to-db.js"
   },

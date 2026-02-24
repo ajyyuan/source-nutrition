@@ -17,7 +17,7 @@ Every single time, and I mean **every single time**, that we add or change data 
 2. **Update the matrix appropriately** — always run `npm run canon:matrix:build` (and the rest of the pipeline) after any change that affects the preview.
 
 3. **Record provenance for every change** — note somewhere **where** the data came from (source, URL/DOI, or citation). Without exception. Use:
-   - The patch/supplemental file’s `sources` object and/or a dedicated provenance file: `source-canon-v1.external-provenance.json` (sections vitamin_k2, biotin, vitamin_zero).
-   - Document the source and URL/DOI in that provenance so every change is traceable.
+   - The patch/supplemental file’s `sources` object and/or a dedicated provenance file: `source-canon-v1.external-provenance.json` (sections vitamin_k2, biotin, vitamin_zero, mineral_patches).
+   - When you add or change any patch (K2, biotin, vitamin-zero, or mineral), update the matching section (run `canon:k2-provenance` or `canon:mineral-provenance`). Document the source and URL/DOI in that provenance so every change is traceable.
 
 **Without exception.** No data change goes in without (a) full-stack updates through to DB and app, and (b) provenance recorded for that change.
