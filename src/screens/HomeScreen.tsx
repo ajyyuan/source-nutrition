@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import {
   ActivityIndicator,
   Pressable,
@@ -380,6 +381,12 @@ export function HomeScreen({ navigation }: Props) {
   useEffect(() => {
     loadToday();
   }, [loadToday]);
+
+  useFocusEffect(
+    useCallback(() => {
+      loadToday();
+    }, [loadToday])
+  );
 
   const handleRefresh = useCallback(async () => {
     setIsRefreshing(true);

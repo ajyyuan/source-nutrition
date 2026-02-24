@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import {
   ActivityIndicator,
   Alert,
@@ -9,6 +10,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -62,7 +64,16 @@ type MealHistoryItem = {
   created_at: string;
   photo_path?: string | null;
   nutrient_totals?: NutrientTotals | null;
-  final_items?: { name?: string }[] | null;
+  final_items?: Array<{
+    name?: string;
+    canonical_id?: string;
+    canonical_name?: string;
+    grams?: number;
+    quantity?: number;
+    unit?: string;
+    last_precise_unit?: string;
+    confidence?: number;
+  }> | null;
   parsed_items?: { name?: string }[] | null;
 };
 
@@ -205,6 +216,9 @@ export function HistoryScreen({ navigation }: Props) {
   const [monthMealDays, setMonthMealDays] = useState<string[]>([]);
   const [isDailyTotalsExpanded, setIsDailyTotalsExpanded] = useState(false);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [saveMealTarget, setSaveMealTarget] = useState<MealHistoryItem | null>(null);
+  const [saveMealName, setSaveMealName] = useState("");
+  const [isSavingMeal, setIsSavingMeal] = useState(false);
 
   const buildMealPhotoUrlMap = useCallback(async (meals: MealHistoryItem[]) => {
     const photoMeals = meals.filter(
@@ -387,6 +401,13 @@ export function HistoryScreen({ navigation }: Props) {
     setIsDailyTotalsExpanded(false);
   }, [selectedDate]);
 
+  useFocusEffect(
+    useCallback(() => {
+      fetchMealsForDate(selectedDate);
+      fetchMealsForMonth(viewMonth);
+    }, [fetchMealsForDate, fetchMealsForMonth, selectedDate, viewMonth])
+  );
+
   const handleRefresh = useCallback(async () => {
     setIsRefreshing(true);
     try {
@@ -398,6 +419,84 @@ export function HistoryScreen({ navigation }: Props) {
       setIsRefreshing(false);
     }
   }, [fetchMealsForDate, fetchMealsForMonth, selectedDate, viewMonth]);
+
+  const handleSaveMeal = useCallback(
+    (meal: MealHistoryItem) => {
+      const items = Array.isArray(meal.final_items)
+        ? meal.final_items.filter(
+            (i) =>
+              typeof i?.canonical_id === "string" &&
+              typeof i?.canonical_name === "string" &&
+              Number.isFinite(i?.grams)
+          )
+        : [];
+      if (!items.length) {
+        Alert.alert(
+          "Can't save",
+          "This meal has no mapped items. Edit the meal and confirm items first, then save."
+        );
+        return;
+      }
+      setSaveMealName(formatMealSummary(meal));
+      setSaveMealTarget(meal);
+    },
+    []
+  );
+
+  const handleConfirmSaveMeal = useCallback(async () => {
+    if (!saveMealTarget || !saveMealName.trim()) {
+      return;
+    }
+    const items = Array.isArray(saveMealTarget.final_items)
+      ? saveMealTarget.final_items.filter(
+          (i) =>
+            typeof i?.canonical_id === "string" &&
+            typeof i?.canonical_name === "string" &&
+            Number.isFinite(i?.grams)
+        )
+      : [];
+    if (!items.length) {
+      setSaveMealTarget(null);
+      setSaveMealName("");
+      return;
+    }
+    setIsSavingMeal(true);
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      if (!auth.user) {
+        throw new Error("You must be signed in to save meals.");
+      }
+      const savedItems = items.map((i) => ({
+        canonical_id: i.canonical_id,
+        canonical_name: i.canonical_name,
+        name: typeof i.name === "string" ? i.name : i.canonical_name,
+        grams: Math.max(0, Number(i.grams)),
+        quantity: Number.isFinite(i?.quantity) ? Math.max(0, Number(i.quantity)) : Math.max(0, Number(i.grams)),
+        unit: typeof i.unit === "string" ? i.unit : "g",
+        last_precise_unit: typeof i.last_precise_unit === "string" ? i.last_precise_unit : "g",
+        confidence: typeof i.confidence === "number" ? i.confidence : 0.2
+      }));
+      const { error: insertError } = await supabase.from("saved_meals").insert({
+        user_id: auth.user.id,
+        name: saveMealName.trim(),
+        items: savedItems
+      });
+      if (insertError) throw insertError;
+      setSaveMealTarget(null);
+      setSaveMealName("");
+      navigation.navigate("Saved");
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "Failed to save meal.";
+      Alert.alert("Save failed", message);
+    } finally {
+      setIsSavingMeal(false);
+    }
+  }, [saveMealTarget, saveMealName, navigation]);
+
+  const handleCancelSaveMeal = useCallback(() => {
+    setSaveMealTarget(null);
+    setSaveMealName("");
+  }, []);
 
   const formatMealTimestamp = (value: string) => {
     const date = new Date(value);
@@ -598,6 +697,12 @@ export function HistoryScreen({ navigation }: Props) {
                       </View>
                       <View style={styles.historyActions}>
                         <AppButton
+                          title="Save"
+                          onPress={() => handleSaveMeal(meal)}
+                          variant="secondary"
+                          fullWidth={false}
+                        />
+                        <AppButton
                           title="Edit"
                           onPress={() => navigation.navigate("Capture", { mealId: meal.id })}
                           variant="secondary"
@@ -695,6 +800,44 @@ export function HistoryScreen({ navigation }: Props) {
               variant="secondary"
               fullWidth={false}
             />
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        visible={Boolean(saveMealTarget)}
+        transparent
+        animationType="fade"
+        onRequestClose={handleCancelSaveMeal}
+      >
+        <View style={styles.modalBackdrop}>
+          <Pressable style={styles.modalDismissArea} onPress={handleCancelSaveMeal} />
+          <View style={styles.modalCardLight}>
+            <Text style={styles.modalTitle}>Save meal</Text>
+            <Text style={styles.modalSubtitle}>Name this saved meal to reuse later.</Text>
+            <TextInput
+              style={styles.saveMealInput}
+              placeholder="e.g. Breakfast usual"
+              placeholderTextColor="#888"
+              value={saveMealName}
+              onChangeText={setSaveMealName}
+              editable={!isSavingMeal}
+              autoCapitalize="words"
+            />
+            <View style={styles.modalActions}>
+              <AppButton
+                title="Cancel"
+                onPress={handleCancelSaveMeal}
+                variant="secondary"
+                fullWidth={false}
+              />
+              <AppButton
+                title={isSavingMeal ? "Saving…" : "Save"}
+                onPress={handleConfirmSaveMeal}
+                variant="primary"
+                fullWidth={false}
+                disabled={!saveMealName.trim() || isSavingMeal}
+              />
+            </View>
           </View>
         </View>
       </Modal>
@@ -956,10 +1099,45 @@ const styles = StyleSheet.create({
     padding: 14,
     gap: 10
   },
+  modalCardLight: {
+    width: "100%",
+    maxWidth: 420,
+    borderRadius: 16,
+    backgroundColor: "#fff",
+    padding: 20,
+    gap: 8
+  },
   expandedImage: {
     width: "100%",
     aspectRatio: 1,
     borderRadius: 10,
     backgroundColor: "#000"
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#111",
+    marginBottom: 4
+  },
+  modalSubtitle: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 12
+  },
+  saveMealInput: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#111",
+    backgroundColor: "#fff",
+    marginBottom: 16
+  },
+  modalActions: {
+    flexDirection: "row",
+    gap: 10,
+    justifyContent: "flex-end"
   }
 });

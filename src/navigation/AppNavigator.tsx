@@ -8,6 +8,7 @@ import { HomeScreen } from "../screens/HomeScreen";
 import { NutrientDetailScreen } from "../screens/NutrientDetailScreen";
 import { FoodDetailScreen } from "../screens/FoodDetailScreen";
 import { DiscoverScreen } from "../screens/DiscoverScreen";
+import { SavedMealsScreen } from "../screens/SavedMealsScreen";
 
 export type RootStackParamList = {
   MainTabs: undefined;
@@ -19,6 +20,7 @@ export type RootTabParamList = {
   Home: undefined;
   Capture: { mealId?: string } | undefined;
   History: undefined;
+  Saved: undefined;
   Discover: undefined;
 };
 
@@ -37,6 +39,8 @@ function MainTabs() {
             iconName = "camera-outline";
           } else if (route.name === "History") {
             iconName = "calendar-outline";
+          } else if (route.name === "Saved") {
+            iconName = "bookmark-outline";
           } else if (route.name === "Discover") {
             iconName = "search-outline";
           }
@@ -49,6 +53,7 @@ function MainTabs() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Capture" component={CaptureScreen} />
       <Tab.Screen name="History" component={HistoryScreen} />
+      <Tab.Screen name="Saved" component={SavedMealsScreen} />
       <Tab.Screen name="Discover" component={DiscoverScreen} />
     </Tab.Navigator>
   );

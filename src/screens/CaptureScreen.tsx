@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Image,
+  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -475,6 +476,9 @@ export function CaptureScreen({ navigation, route }: Props) {
   const [suggestionError, setSuggestionError] = useState<string | null>(null);
   const suggestionRequestIdRef = useRef<Record<string, number>>({});
   const suggestionTimerRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const [saveMealModalVisible, setSaveMealModalVisible] = useState(false);
+  const [saveMealName, setSaveMealName] = useState("");
+  const [isSavingMeal, setIsSavingMeal] = useState(false);
 
   const toParsedItems = useCallback(
     (items: EditableItem[]): ParsedItem[] =>
@@ -1002,6 +1006,58 @@ export function CaptureScreen({ navigation, route }: Props) {
     }
   }, []);
 
+  const openSaveMealModal = useCallback(() => {
+    if (!mappedItems?.length) return;
+    const names = mappedItems.slice(0, 2).map((i) => i.canonical_name).filter(Boolean);
+    setSaveMealName(names.length ? names.join(", ") : "Saved meal");
+    setSaveMealModalVisible(true);
+  }, [mappedItems]);
+
+  const confirmSaveMealFromCapture = useCallback(async () => {
+    if (!saveMealName.trim() || !mappedItems?.length || !editableItems.length) {
+      return;
+    }
+    setIsSavingMeal(true);
+    try {
+      const { data: auth } = await supabase.auth.getUser();
+      if (!auth.user) {
+        throw new Error("You must be signed in to save meals.");
+      }
+      const savedItems = mappedItems.map((mappedItem, index) => {
+        const editable = editableItems[index];
+        return {
+          canonical_id: mappedItem.canonical_id,
+          canonical_name: mappedItem.canonical_name,
+          name: mappedItem.canonical_name,
+          grams: Math.max(0, mappedItem.grams),
+          quantity: editable ? Math.max(0, editable.quantity) : Math.max(0, mappedItem.grams),
+          unit: editable?.unit ?? "g",
+          last_precise_unit: editable?.lastPreciseUnit ?? "g",
+          confidence: mappedItem.confidence ?? 0.2
+        };
+      });
+      const { error: insertError } = await supabase.from("saved_meals").insert({
+        user_id: auth.user.id,
+        name: saveMealName.trim(),
+        items: savedItems
+      });
+      if (insertError) throw insertError;
+      setSaveMealModalVisible(false);
+      setSaveMealName("");
+      navigation.navigate("Saved");
+    } catch (e) {
+      const message = e instanceof Error ? e.message : "Failed to save meal.";
+      setMappingError(message);
+    } finally {
+      setIsSavingMeal(false);
+    }
+  }, [mappedItems, editableItems, saveMealName, navigation]);
+
+  const cancelSaveMealModal = useCallback(() => {
+    setSaveMealModalVisible(false);
+    setSaveMealName("");
+  }, []);
+
   const parseMealPhoto = useCallback(async (photoPath: string, newMealId: string) => {
     setIsParsing(true);
     setParseError(null);
@@ -1497,6 +1553,16 @@ export function CaptureScreen({ navigation, route }: Props) {
           {renderEditableFoods({ allowCreate: entryMode === "manual" })}
           {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {renderMappedFoodsSection()}
+          {mappedItems && mappedItems.length > 0 ? (
+            <View style={styles.saveMealRow}>
+              <AppButton
+                title="Save meal"
+                onPress={openSaveMealModal}
+                variant="secondary"
+                fullWidth={false}
+              />
+            </View>
+          ) : null}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>
@@ -1529,6 +1595,44 @@ export function CaptureScreen({ navigation, route }: Props) {
             Source uses quantity and unit conversion (volume assumes 1 ml approx 1 g). Nutrient data is informational and not medical advice.
           </Text>
         </ScrollView>
+        <Modal
+          visible={saveMealModalVisible}
+          transparent
+          animationType="fade"
+          onRequestClose={cancelSaveMealModal}
+        >
+          <View style={styles.modalBackdrop}>
+            <Pressable style={StyleSheet.absoluteFill} onPress={cancelSaveMealModal} />
+            <View style={styles.saveMealModalCard}>
+              <Text style={styles.saveMealModalTitle}>Save meal</Text>
+              <Text style={styles.saveMealModalSubtitle}>Name this saved meal to reuse later.</Text>
+              <TextInput
+                style={styles.saveMealInput}
+                placeholder="e.g. Breakfast usual"
+                placeholderTextColor="#888"
+                value={saveMealName}
+                onChangeText={setSaveMealName}
+                editable={!isSavingMeal}
+                autoCapitalize="words"
+              />
+              <View style={styles.saveMealModalActions}>
+                <AppButton
+                  title="Cancel"
+                  onPress={cancelSaveMealModal}
+                  variant="secondary"
+                  fullWidth={false}
+                />
+                <AppButton
+                  title={isSavingMeal ? "Saving…" : "Save"}
+                  onPress={confirmSaveMealFromCapture}
+                  variant="primary"
+                  fullWidth={false}
+                  disabled={!saveMealName.trim() || isSavingMeal}
+                />
+              </View>
+            </View>
+          </View>
+        </Modal>
       </SafeAreaView>
     );
   }
@@ -1910,5 +2014,48 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#777",
     backgroundColor: "#fff"
+  },
+  saveMealRow: {
+    marginHorizontal: 16,
+    marginTop: 4
+  },
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20
+  },
+  saveMealModalCard: {
+    width: "100%",
+    maxWidth: 400,
+    borderRadius: 16,
+    backgroundColor: "#fff",
+    padding: 20,
+    gap: 8
+  },
+  saveMealModalTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#111"
+  },
+  saveMealModalSubtitle: {
+    fontSize: 14,
+    color: "#555"
+  },
+  saveMealInput: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#111",
+    marginBottom: 8
+  },
+  saveMealModalActions: {
+    flexDirection: "row",
+    gap: 10,
+    justifyContent: "flex-end"
   }
 });
