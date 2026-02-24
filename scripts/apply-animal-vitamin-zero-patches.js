@@ -13,7 +13,7 @@ const PREVIEW_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.jso
 const PATCH_PATH = path.resolve("data/canon/source-canon-v1.animal-vitamin-zero-patches.json");
 const SUPPLEMENTAL_PATH = path.resolve("data/canon/source-canon-v1.supplemental-source-rows.json");
 const CURATION_PATH = path.resolve("data/canon/source-canon-v1.manual-curation.json");
-const PROVENANCE_PATH = path.resolve("data/canon/source-canon-v1.external-vitamin-zero-provenance.json");
+const EXTERNAL_PROVENANCE_PATH = path.resolve("data/canon/source-canon-v1.external-provenance.json");
 
 const VITAMIN_KEYS = [
   "vitamin_a_ug", "vitamin_d_ug", "vitamin_e_mg", "vitamin_k_ug", "vitamin_k2_ug",
@@ -32,10 +32,13 @@ function main() {
   const curationByCanon = new Map((curation.matches || []).map((m) => [m.canonical_id, m]));
   const existingFdc = new Set((supplemental.rows || []).map((r) => r.fdc_id));
   const sources = patchPayload.sources || {};
+  let provDoc = {};
   let provenance;
   try {
-    provenance = JSON.parse(fs.readFileSync(PROVENANCE_PATH, "utf8"));
+    provDoc = JSON.parse(fs.readFileSync(EXTERNAL_PROVENANCE_PATH, "utf8"));
+    provenance = provDoc.vitamin_zero || { schema_version: "1.0.0", generated_at: null, source: "animal_vitamin_zero_patches", entries: [] };
   } catch {
+    provDoc = { schema_version: "1.0.0", vitamin_k2: { entries: [] }, biotin: { entries: [] } };
     provenance = { schema_version: "1.0.0", generated_at: null, source: "animal_vitamin_zero_patches", entries: [] };
   }
   const existingProvenanceByPatch = new Set((provenance.entries || []).map((e) => e.patch_fdc_id));
@@ -124,9 +127,12 @@ function main() {
   });
 
   provenance.generated_at = new Date().toISOString();
+  provDoc.vitamin_zero = provenance;
+  provDoc.generated_at = provenance.generated_at;
+  if (!provDoc.schema_version) provDoc.schema_version = "1.0.0";
   fs.writeFileSync(SUPPLEMENTAL_PATH, JSON.stringify(supplemental, null, 2) + "\n", "utf8");
   fs.writeFileSync(CURATION_PATH, JSON.stringify(curation, null, 2) + "\n", "utf8");
-  fs.writeFileSync(PROVENANCE_PATH, JSON.stringify(provenance, null, 2) + "\n", "utf8");
+  fs.writeFileSync(EXTERNAL_PROVENANCE_PATH, JSON.stringify(provDoc, null, 2) + "\n", "utf8");
   console.log("Applied animal vitamin zero-patches:", added);
   console.log("Vitamin-zero provenance entries:", (provenance.entries || []).length);
 }

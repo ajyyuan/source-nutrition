@@ -37,7 +37,7 @@ Biotin is now reported for `205` canon foods. **All animal-domain foods now repo
 
 Provenance for external-source injections is tracked in:
 
-- `source-canon-v1.external-biotin-provenance.json`
+- `source-canon-v1.external-provenance.json` (biotin section)
 
 Status: `open` (improved; `119` foods still missing biotin, predominantly plant/fermented/fungi).
 

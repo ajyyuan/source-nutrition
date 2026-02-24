@@ -18,4 +18,4 @@ Whenever you **add or modify** data in the canon DB or related artifacts, run th
 
 Run steps 4–7 whenever the reseed preview changes (including after K2 patches). Run step 8 when you need the live DB (and app meal totals) to match the preview. Run 1–2 when flat or curation changes.
 
-Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Provenance for patch data: `source-canon-v1.external-vitamin-k2-provenance.json`, `source-canon-v1.external-biotin-provenance.json`, `source-canon-v1.external-vitamin-zero-provenance.json`. Do not leave matrix or provenance stale after canon edits.
+Relevant inputs: `source-canon-v1.json`, `source-canon-v1.manual-curation.json`, `source-canon-v1.supplemental-source-rows.json`, and any patch/curation files. Provenance for patch data: `source-canon-v1.external-provenance.json` (single doc with sections vitamin_k2, biotin, vitamin_zero). Do not leave matrix or provenance stale after canon edits.

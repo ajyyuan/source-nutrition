@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Fill all remaining animal-domain biotin blanks with BLS or literature values.
- * Patches: supplemental-source-rows (biotin-only), manual-curation (point to patch), external-biotin-provenance.
+ * Patches: supplemental-source-rows (biotin-only), manual-curation (point to patch), external-provenance.json (biotin section).
  * Only adds vitamin_b7_ug; removes any key in missing_nutrient_keys from baseline per_100g.
  */
 
@@ -12,7 +12,7 @@ const COVERAGE_PATH = path.resolve("data/canon/source-canon-v1.micronutrient-cov
 const RESEED_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const SUPPLEMENTAL_PATH = path.resolve("data/canon/source-canon-v1.supplemental-source-rows.json");
 const CURATION_PATH = path.resolve("data/canon/source-canon-v1.manual-curation.json");
-const PROVENANCE_PATH = path.resolve("data/canon/source-canon-v1.external-biotin-provenance.json");
+const EXTERNAL_PROVENANCE_PATH = path.resolve("data/canon/source-canon-v1.external-provenance.json");
 
 // Vetted biotin (μg/100g) and provenance. BLS when same food; literature proxy otherwise.
 const ANIMAL_BIOTIN_MAP = {
@@ -146,7 +146,13 @@ function main() {
   const reseedById = loadReseedRows(RESEED_PATH);
   const supplemental = JSON.parse(fs.readFileSync(SUPPLEMENTAL_PATH, "utf8"));
   const curation = JSON.parse(fs.readFileSync(CURATION_PATH, "utf8"));
-  const provenance = JSON.parse(fs.readFileSync(PROVENANCE_PATH, "utf8"));
+  let provDoc = {};
+  try {
+    provDoc = JSON.parse(fs.readFileSync(EXTERNAL_PROVENANCE_PATH, "utf8"));
+  } catch {
+    provDoc = { schema_version: "1.0.0", vitamin_k2: { entries: [] }, vitamin_zero: { entries: [] } };
+  }
+  const provenance = provDoc.biotin || { entries: [], generated_at: null };
 
   const missingInMap = blanks.filter((b) => !ANIMAL_BIOTIN_MAP[b.canonical_id]);
   if (missingInMap.length) {
@@ -231,9 +237,10 @@ function main() {
   provenance.entries = (provenance.entries || []).concat(newProvenanceEntries);
   provenance.generated_at = now;
 
+  const outDoc = { ...provDoc, biotin: provenance, generated_at: now };
   fs.writeFileSync(SUPPLEMENTAL_PATH, JSON.stringify(supplemental, null, 2) + "\n", "utf8");
   fs.writeFileSync(CURATION_PATH, JSON.stringify(curation, null, 2) + "\n", "utf8");
-  fs.writeFileSync(PROVENANCE_PATH, JSON.stringify(provenance, null, 2) + "\n", "utf8");
+  fs.writeFileSync(EXTERNAL_PROVENANCE_PATH, JSON.stringify(outDoc, null, 2) + "\n", "utf8");
 
   console.log("Applied", patchRows.length, "animal biotin patches.");
   console.log("Supplemental rows:", supplemental.rows.length);

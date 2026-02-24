@@ -12,7 +12,7 @@ Handoff for animal-product biotin completion, vitamin-zero patches with cited va
 
 ### 1) Full animal-domain biotin fill (82 foods)
 - All remaining animal foods missing biotin were patched using BLS 4.0 (where same food/cut) or literature (NIH ODS, eatforhealth, J Nutr) for muscle/organ/dairy/fat proxies.
-- New script: `scripts/apply-animal-biotin-patches.js` with a vetted value map; patches write to `source-canon-v1.supplemental-source-rows.json`, curation, and `source-canon-v1.external-biotin-provenance.json`.
+- New script: `scripts/apply-animal-biotin-patches.js` with a vetted value map; patches write to `source-canon-v1.supplemental-source-rows.json`, curation, and the biotin section of `source-canon-v1.external-provenance.json`.
 - Invariant: patches add only `vitamin_b7_ug`; other missing nutrients stay missing.
 
 ### 2) Ground beef biotin sourced from NIH ODS
@@ -44,7 +44,7 @@ Handoff for animal-product biotin completion, vitamin-zero patches with cited va
 - Canon data and outputs (regenerated):
   - `data/canon/source-canon-v1.supplemental-source-rows.json`
   - `data/canon/source-canon-v1.manual-curation.json`
-  - `data/canon/source-canon-v1.external-biotin-provenance.json`
+  - `data/canon/source-canon-v1.external-provenance.json` (biotin section)
   - `data/canon/source-canon-v1.reseed-preview.json`
   - `data/canon/source-canon-v1.micronutrient-matrix*.csv`
   - `data/canon/source-canon-v1.micronutrient-coverage*.csv` / `-summary.json`
