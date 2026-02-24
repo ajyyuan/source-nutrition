@@ -1672,7 +1672,25 @@ export function CaptureScreen({ navigation, route }: Props) {
     <SafeAreaView style={styles.container}>
       {photoUri ? (
         <ScrollView style={styles.preview} contentContainerStyle={styles.previewContent}>
-          <Image source={{ uri: photoUri }} style={styles.image} />
+          <View style={styles.photoPreviewWrap}>
+            <Image
+              source={{ uri: photoUri }}
+              style={styles.image}
+              resizeMode="cover"
+            />
+            {isUploading ? (
+              <View style={styles.uploadOverlay}>
+                <ActivityIndicator size="large" color="#fff" />
+                <Text style={styles.uploadStatusText}>
+                  {isMapping
+                    ? "Matching foods…"
+                    : isParsing
+                      ? "Analyzing photo…"
+                      : "Uploading…"}
+                </Text>
+              </View>
+            ) : null}
+          </View>
           <View style={styles.actions}>
             <AppButton
               title="Retake"
@@ -1682,19 +1700,23 @@ export function CaptureScreen({ navigation, route }: Props) {
                 setPhotoBase64(null);
                 resetMealState();
               }}
+              disabled={isUploading}
             />
             <AppButton
-              title={isUploading ? "Uploading..." : "Use photo"}
+              title="Use photo"
               onPress={handleUpload}
               disabled={isUploading}
             />
           </View>
-          {isUploading ? <ActivityIndicator style={styles.spinner} /> : null}
-          {uploadPath ? renderBanner(`Uploaded to: ${uploadPath}`, "success") : null}
           {uploadError ? renderBanner(uploadError, "error") : null}
-          {mealId ? renderBanner(`Meal created: ${mealId}`, "success") : null}
           {mealError ? renderBanner(mealError, "error") : null}
-          {isParsing ? <ActivityIndicator style={styles.spinner} /> : null}
+          {!isUploading && uploadPath && mealId && !uploadError && !mealError ? (
+            <View style={[styles.banner, styles.bannerSuccess]}>
+              <Text style={[styles.bannerText, styles.bannerTextSuccess]}>
+                Photo saved. Review or edit items below.
+              </Text>
+            </View>
+          ) : null}
           {parsedItems ? (
             <View style={styles.parsedList}>
               <Text style={styles.sectionTitle}>Parsed foods (AI)</Text>
@@ -1716,7 +1738,6 @@ export function CaptureScreen({ navigation, route }: Props) {
           {parseWarning ? renderBanner(parseWarning, "warning") : null}
           {suggestionError ? renderBanner(suggestionError, "error") : null}
           {editableItems.length ? renderEditableFoods() : null}
-          {isMapping ? <ActivityIndicator style={styles.spinner} /> : null}
           {renderMappedFoodsSection()}
           {nutrientTotals ? (
             <View style={styles.parsedList}>
@@ -1815,9 +1836,28 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     gap: 4
   },
+  photoPreviewWrap: {
+    width: "100%",
+    height: 260,
+    backgroundColor: "#f0f0f0",
+    overflow: "hidden",
+    position: "relative"
+  },
   image: {
     width: "100%",
-    height: 260
+    height: "100%"
+  },
+  uploadOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0,0,0,0.6)",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 12
+  },
+  uploadStatusText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#fff"
   },
   spinner: {
     marginTop: 8
