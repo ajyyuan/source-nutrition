@@ -712,7 +712,9 @@ export function CaptureScreen({ navigation, route }: Props) {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"] as ImagePicker.MediaType[],
         base64: true,
-        quality: 0.5
+        quality: 0.5,
+        preferredAssetRepresentationMode:
+          ImagePicker.UIImagePickerPreferredAssetRepresentationMode.Compatible
       });
       if (!result.canceled && result.assets?.length) {
         const asset = result.assets[0];
@@ -1157,21 +1159,15 @@ export function CaptureScreen({ navigation, route }: Props) {
         throw new Error("You must be signed in to upload.");
       }
 
-      const response = await fetch(
-        photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : photoUri
-      );
-      if (!response.ok) {
-        throw new Error("Unable to read photo for upload.");
-      }
       if (!photoBase64) {
-        throw new Error("Camera capture missing base64. Please retake.");
+        throw new Error("Captured photo missing image data. Please retake.");
       }
+
       const buffer = Uint8Array.from(atob(photoBase64), (char) => char.charCodeAt(0));
       if (!buffer.byteLength) {
         throw new Error("Captured photo was empty. Please retake.");
       }
-      const fileExt = photoUri.split(".").pop() || "jpg";
-      const filePath = `${userId}/${Date.now()}.${fileExt}`;
+      const filePath = `${userId}/${Date.now()}.jpg`;
       const contentType = "image/jpeg";
 
       const { error } = await supabase.storage

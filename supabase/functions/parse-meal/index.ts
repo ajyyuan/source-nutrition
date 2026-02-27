@@ -69,6 +69,8 @@ const normalizeLookupKey = (value: string) =>
     .replace(/[^a-z0-9]+/g, " ")
     .trim();
 
+const VISION_ALLOWED_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+
 const fetchMealPhoto = async (supabase, photoPath: string) => {
   const { data, error } = await supabase.storage.from(PHOTO_BUCKET).download(photoPath);
   if (error) {
@@ -84,7 +86,12 @@ const fetchMealPhoto = async (supabase, photoPath: string) => {
   if (buffer.byteLength > MAX_IMAGE_BYTES) {
     throw new Error("Meal photo is too large to process (max 12MB).");
   }
-  const contentType = data.type || "image/jpeg";
+  let contentType = (data.type || "image/jpeg").toLowerCase().split(";")[0].trim();
+  if (!VISION_ALLOWED_TYPES.includes(contentType)) {
+    throw new Error(
+      "Unsupported image format. Please retake the photo or choose a JPEG or PNG image."
+    );
+  }
   return {
     contentType,
     base64: base64Encode(new Uint8Array(buffer))
