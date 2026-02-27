@@ -1200,7 +1200,7 @@ export function CaptureScreen({ navigation, route }: Props) {
       setMealId(insertedMeal.id);
       stage = "parse";
       const items = await parseMealPhoto(filePath, insertedMeal.id);
-      if (items) {
+      if (items && items.length > 0) {
         stage = "map";
         await mapFoods(items, insertedMeal.id);
       }

@@ -112,6 +112,7 @@ Return ONLY strict JSON matching this schema:
   ]
 }
 Rules:
+- If there is basically no visible food (for example: black frame, blank image, lens covered, or no food in frame), return items = [].
 - canonical_id MUST be one of the provided catalog canonical_id values.
 - Set name to the chosen canonical label (not a free-form observed synonym).
 - Return fewer items rather than uncertain ones.
@@ -310,7 +311,7 @@ const callVisionModel = async (
             {
               type: "text",
               text:
-                `Identify foods in this meal photo and classify each one to a canonical_id from the provided catalog.\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with name, canonical_id, estimated_grams, confidence. Omit uncertain foods instead of outputting unknowns.`
+                `Identify foods in this meal photo and classify each one to a canonical_id from the provided catalog.\n\nCatalog:\n${JSON.stringify(catalogContext)}\n\nReturn JSON only with items (name, canonical_id, estimated_grams, confidence). If there is basically no visible food (black/blank/no-food frame), return items=[]. Omit uncertain foods instead of outputting unknowns.`
             },
             {
               type: "image_url",
@@ -385,7 +386,9 @@ serve(async (req) => {
         }];
       });
       items = strictItems;
-      if (omittedCount > 0) {
+      if (!parsedItems.length) {
+        parseWarning = "No visible food detected. Retake with the meal clearly in frame.";
+      } else if (omittedCount > 0) {
         parseWarning = `Omitted ${omittedCount} uncertain item${omittedCount === 1 ? "" : "s"} that could not be confidently mapped.`;
       }
     } catch (error) {
