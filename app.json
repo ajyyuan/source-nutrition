@@ -4,6 +4,7 @@
     "slug": "source",
     "scheme": "source",
     "version": "0.1.0",
+    "icon": "./assets/Source-small-dark.png",
     "plugins": [
       "expo-apple-authentication",
       [
