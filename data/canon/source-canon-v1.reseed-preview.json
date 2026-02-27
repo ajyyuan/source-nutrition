@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-24T07:04:37.221Z",
+  "generated_at": "2026-02-27T16:50:58.048Z",
   "rows": [
     {
       "canonical_id": "ground-beef-30-fat",
@@ -624,8 +624,8 @@
     },
     {
       "canonical_id": "ribeye",
-      "canonical_name": "Ribeye",
-      "display_name": "Ribeye",
+      "canonical_name": "Beef ribeye",
+      "display_name": "Beef ribeye",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -671,8 +671,8 @@
     },
     {
       "canonical_id": "strip-steak",
-      "canonical_name": "Strip steak",
-      "display_name": "Strip steak",
+      "canonical_name": "Beef strip steak",
+      "display_name": "Beef strip steak",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -719,8 +719,8 @@
     },
     {
       "canonical_id": "tenderloin",
-      "canonical_name": "Tenderloin",
-      "display_name": "Tenderloin",
+      "canonical_name": "Beef tenderloin",
+      "display_name": "Beef tenderloin",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -767,8 +767,8 @@
     },
     {
       "canonical_id": "sirloin",
-      "canonical_name": "Sirloin",
-      "display_name": "Sirloin",
+      "canonical_name": "Beef sirloin",
+      "display_name": "Beef sirloin",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -812,8 +812,8 @@
     },
     {
       "canonical_id": "flank",
-      "canonical_name": "Flank",
-      "display_name": "Flank",
+      "canonical_name": "Beef flank",
+      "display_name": "Beef flank",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -859,8 +859,8 @@
     },
     {
       "canonical_id": "skirt",
-      "canonical_name": "Skirt",
-      "display_name": "Skirt",
+      "canonical_name": "Beef skirt",
+      "display_name": "Beef skirt",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -906,8 +906,8 @@
     },
     {
       "canonical_id": "hanger",
-      "canonical_name": "Hanger",
-      "display_name": "Hanger",
+      "canonical_name": "Beef hanger",
+      "display_name": "Beef hanger",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -953,8 +953,8 @@
     },
     {
       "canonical_id": "chuck",
-      "canonical_name": "Chuck",
-      "display_name": "Chuck",
+      "canonical_name": "Beef chuck",
+      "display_name": "Beef chuck",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1001,8 +1001,8 @@
     },
     {
       "canonical_id": "brisket",
-      "canonical_name": "Brisket",
-      "display_name": "Brisket",
+      "canonical_name": "Beef brisket",
+      "display_name": "Beef brisket",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1046,8 +1046,8 @@
     },
     {
       "canonical_id": "short-ribs",
-      "canonical_name": "Short ribs",
-      "display_name": "Short ribs",
+      "canonical_name": "Beef short ribs",
+      "display_name": "Beef short ribs",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1091,8 +1091,8 @@
     },
     {
       "canonical_id": "back-ribs",
-      "canonical_name": "Back ribs",
-      "display_name": "Back ribs",
+      "canonical_name": "Beef back ribs",
+      "display_name": "Beef back ribs",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1136,8 +1136,8 @@
     },
     {
       "canonical_id": "round",
-      "canonical_name": "Round",
-      "display_name": "Round",
+      "canonical_name": "Beef round",
+      "display_name": "Beef round",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1184,8 +1184,8 @@
     },
     {
       "canonical_id": "shank",
-      "canonical_name": "Shank",
-      "display_name": "Shank",
+      "canonical_name": "Beef shank",
+      "display_name": "Beef shank",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1229,8 +1229,8 @@
     },
     {
       "canonical_id": "oxtail",
-      "canonical_name": "Oxtail",
-      "display_name": "Oxtail",
+      "canonical_name": "Beef oxtail",
+      "display_name": "Beef oxtail",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1274,8 +1274,8 @@
     },
     {
       "canonical_id": "plate",
-      "canonical_name": "Plate",
-      "display_name": "Plate",
+      "canonical_name": "Beef plate",
+      "display_name": "Beef plate",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -1321,8 +1321,8 @@
     },
     {
       "canonical_id": "stew-meat",
-      "canonical_name": "Stew meat",
-      "display_name": "Stew meat",
+      "canonical_name": "Beef stew meat",
+      "display_name": "Beef stew meat",
       "kingdom": "Animalia",
       "domain": "Animal foods",
       "food_group": "Beef cuts",
@@ -15997,10 +15997,6 @@
     {
       "alias": "fermented cabbage",
       "canonical_id": "sauerkraut"
-    },
-    {
-      "alias": "ny strip steak",
-      "canonical_id": "strip-steak"
     },
     {
       "alias": "natural yogurt",

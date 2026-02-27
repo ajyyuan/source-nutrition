@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-02-24T04:17:16.438Z",
+  "generated_at": "2026-02-27T16:42:24.412Z",
   "inputs": {
     "flat_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.flat.json",
     "curation_path": "/Users/andrewyuan/dev/source-nutrition/data/canon/source-canon-v1.manual-curation.json"
@@ -3335,11 +3335,11 @@
       "canonical_name": "Whole wheat pasta",
       "source_dataset": "sr_legacy_food",
       "source_kind": "usda_local_csv",
-      "source_name": "Crackers, whole-wheat",
-      "fdc_id": "172749",
+      "source_name": "Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",
+      "fdc_id": "168910",
       "confidence": "medium",
       "score": 0.66,
-      "notes": "Candidate selected under strict token/species/prep constraints."
+      "notes": "Remapped from 172749 (Crackers, whole-wheat) which wrongly gave ~0.83 g omega-3; 168910 is actual whole-wheat pasta cooked, ~0.036 g omega-3."
     },
     {
       "canonical_id": "couscous",

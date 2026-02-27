@@ -145,7 +145,7 @@
     },
     {
       "canonical_id": "ribeye",
-      "canonical_name": "Ribeye",
+      "canonical_name": "Beef ribeye",
       "fdc_id": "biotin-patch-animal-ribeye-lit",
       "source_dataset": "external_biotin_literature_patch",
       "source_name": "Beef muscle proxy",
@@ -155,7 +155,7 @@
     },
     {
       "canonical_id": "strip-steak",
-      "canonical_name": "Strip steak",
+      "canonical_name": "Beef strip steak",
       "fdc_id": "biotin-patch-bls4-strip-steak-U211100",
       "source_dataset": "german_bls_4_0_biotin_patch",
       "source_name": "Beef fillet (tenderloin) raw",
@@ -165,7 +165,7 @@
     },
     {
       "canonical_id": "tenderloin",
-      "canonical_name": "Tenderloin",
+      "canonical_name": "Beef tenderloin",
       "fdc_id": "vitamin-patch-tenderloin",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U211100 (Beef fillet (tenderloin) raw)",
@@ -175,7 +175,7 @@
     },
     {
       "canonical_id": "sirloin",
-      "canonical_name": "Sirloin",
+      "canonical_name": "Beef sirloin",
       "fdc_id": "vitamin-patch-sirloin",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U175100 (Beef meat for roasting (sirloin) raw)",
@@ -185,7 +185,7 @@
     },
     {
       "canonical_id": "flank",
-      "canonical_name": "Flank",
+      "canonical_name": "Beef flank",
       "fdc_id": "vitamin-patch-flank",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef muscle proxy",
@@ -195,7 +195,7 @@
     },
     {
       "canonical_id": "skirt",
-      "canonical_name": "Skirt",
+      "canonical_name": "Beef skirt",
       "fdc_id": "biotin-patch-animal-skirt-lit",
       "source_dataset": "external_biotin_literature_patch",
       "source_name": "Beef muscle proxy",
@@ -205,7 +205,7 @@
     },
     {
       "canonical_id": "hanger",
-      "canonical_name": "Hanger",
+      "canonical_name": "Beef hanger",
       "fdc_id": "biotin-patch-animal-hanger-lit",
       "source_dataset": "external_biotin_literature_patch",
       "source_name": "Beef muscle proxy",
@@ -215,7 +215,7 @@
     },
     {
       "canonical_id": "chuck",
-      "canonical_name": "Chuck",
+      "canonical_name": "Beef chuck",
       "fdc_id": "biotin-patch-bls4-chuck-U231100",
       "source_dataset": "german_bls_4_0_biotin_patch",
       "source_name": "Beef neck/chuck, raw",
@@ -225,7 +225,7 @@
     },
     {
       "canonical_id": "brisket",
-      "canonical_name": "Brisket",
+      "canonical_name": "Beef brisket",
       "fdc_id": "biotin-patch-bls4-brisket-u255100",
       "source_dataset": "german_bls_4_0_biotin_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U255100 (Beef brisket/centre cut, raw)",
@@ -235,7 +235,7 @@
     },
     {
       "canonical_id": "short-ribs",
-      "canonical_name": "Short ribs",
+      "canonical_name": "Beef short ribs",
       "fdc_id": "biotin-patch-bls4-short-ribs-U235100",
       "source_dataset": "german_bls_4_0_biotin_patch",
       "source_name": "Beef forerib/prime rib, raw",
@@ -245,7 +245,7 @@
     },
     {
       "canonical_id": "back-ribs",
-      "canonical_name": "Back ribs",
+      "canonical_name": "Beef back ribs",
       "fdc_id": "biotin-patch-bls4-back-ribs-U235100",
       "source_dataset": "german_bls_4_0_biotin_patch",
       "source_name": "Beef forerib/prime rib, raw",
@@ -255,7 +255,7 @@
     },
     {
       "canonical_id": "round",
-      "canonical_name": "Round",
+      "canonical_name": "Beef round",
       "fdc_id": "vitamin-patch-round",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef topside/top round, raw",
@@ -265,7 +265,7 @@
     },
     {
       "canonical_id": "shank",
-      "canonical_name": "Shank",
+      "canonical_name": "Beef shank",
       "fdc_id": "vitamin-patch-shank",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Beef leg/hindshank, raw",
@@ -275,7 +275,7 @@
     },
     {
       "canonical_id": "oxtail",
-      "canonical_name": "Oxtail",
+      "canonical_name": "Beef oxtail",
       "fdc_id": "vitamin-patch-oxtail",
       "source_dataset": "animal_vitamin_zero_patch",
       "source_name": "Biotin patch blend: baseline + BLS 4.0 U109100 (Beef oxtail, raw)",
@@ -285,7 +285,7 @@
     },
     {
       "canonical_id": "plate",
-      "canonical_name": "Plate",
+      "canonical_name": "Beef plate",
       "fdc_id": "biotin-patch-animal-plate-lit",
       "source_dataset": "external_biotin_literature_patch",
       "source_name": "Beef muscle proxy",
@@ -295,7 +295,7 @@
     },
     {
       "canonical_id": "stew-meat",
-      "canonical_name": "Stew meat",
+      "canonical_name": "Beef stew meat",
       "fdc_id": "biotin-patch-animal-stew-meat-lit",
       "source_dataset": "external_biotin_literature_patch",
       "source_name": "Beef muscle proxy",

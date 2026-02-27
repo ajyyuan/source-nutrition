@@ -301,7 +301,12 @@ const flattenCanon = (payload) => {
         if (!displayName) {
           return;
         }
+        const explicitId =
+          typeof item?.canonical_id === "string" && item.canonical_id.trim()
+            ? item.canonical_id.trim()
+            : null;
         rows.push({
+          ...(explicitId ? { canonical_id: explicitId } : {}),
           display_name: displayName,
           canonical_name: displayName,
           kingdom,
@@ -326,7 +331,12 @@ const flattenCanon = (payload) => {
           if (!displayName) {
             return;
           }
+          const explicitId =
+            typeof item?.canonical_id === "string" && item.canonical_id.trim()
+              ? item.canonical_id.trim()
+              : null;
           rows.push({
+            ...(explicitId ? { canonical_id: explicitId } : {}),
             display_name: displayName,
             canonical_name: displayName,
             kingdom,
@@ -347,10 +357,13 @@ const flattenCanon = (payload) => {
   });
   const expandedRows = expandRowsWithVariants(rows, payload);
   const idCounts = new Map();
-  const rowsWithIds = expandedRows.map((row) => ({
-    canonical_id: nextCanonicalId(row, idCounts),
-    ...row
-  }));
+  const rowsWithIds = expandedRows.map((row) => {
+    const id = row.canonical_id || nextCanonicalId(row, idCounts);
+    if (row.canonical_id) {
+      idCounts.set(row.canonical_id, 1);
+    }
+    return { canonical_id: id, ...row };
+  });
   return rowsWithIds;
 };
 
