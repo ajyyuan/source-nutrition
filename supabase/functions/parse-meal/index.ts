@@ -5,6 +5,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import {
   type CanonicalFoodLookupItem
 } from "../_shared/lexicalFoodSearch.ts";
+import canonLookupData from "./canon-lookup.json" assert { type: "json" };
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -31,7 +32,6 @@ const MODEL_VERSION = "gpt-4o-mini";
 const PHOTO_BUCKET = "meal-photos";
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 const CANONICAL_CACHE_TTL_MS = 60_000;
-const CANONICAL_PAGE_SIZE = 1000;
 const UNKNOWN_CANONICAL_ID = "food-unknown";
 const MAX_CANON_CONTEXT_ITEMS = 350;
 const MAX_ALIASES_PER_ITEM = 4;
@@ -123,103 +123,41 @@ Rules:
 - Do not include extra keys or text.
 `.trim();
 
-const sumPer100gVector = (value: unknown) => {
-  if (!value || typeof value !== "object") {
-    return 0;
-  }
-  return NUTRIENT_KEYS.reduce((acc, key) => {
-    const raw = value[key];
-    return acc + (typeof raw === "number" && Number.isFinite(raw) ? raw : 0);
-  }, 0);
-};
-
-const isSurveyFdcId = (fdcId: string) => /^2\d+/.test(fdcId);
-
-const loadCanonicalFoods = async (supabase): Promise<CanonicalFoodLookupItem[]> => {
+const loadCanonicalFoods = async (): Promise<CanonicalFoodLookupItem[]> => {
   const now = Date.now();
   if (canonicalCache && now - canonicalCacheLoadedAt < CANONICAL_CACHE_TTL_MS) {
     return canonicalCache;
   }
 
-  const allRows = [];
-  let from = 0;
-  while (true) {
-    const to = from + CANONICAL_PAGE_SIZE - 1;
-    const { data, error } = await supabase
-      .from("canonical_foods")
-      .select("canonical_id, canonical_name, per_100g, fdc_id, aliases")
-      .eq("is_canon_v1", true)
-      .eq("is_usable", true)
-      .range(from, to);
-    if (error) {
-      throw error;
-    }
-    if (!Array.isArray(data) || !data.length) {
-      break;
-    }
-    allRows.push(...data);
-    if (data.length < CANONICAL_PAGE_SIZE) {
-      break;
-    }
-    from += CANONICAL_PAGE_SIZE;
+  const items = Array.isArray(canonLookupData) ? canonLookupData : [];
+  if (!items.length) {
+    throw new Error("canon-lookup.json is empty for parse-meal. Run npm run canon:lookup.");
   }
 
-  const baseFoods = Array.isArray(allRows)
-    ? allRows
-        .filter(
-          (row) =>
-            typeof row?.canonical_id === "string" &&
-            row.canonical_id.trim().length > 0 &&
-            typeof row?.canonical_name === "string" &&
-            row.canonical_name.trim().length > 0 &&
-            !(
-              isSurveyFdcId(typeof row?.fdc_id === "string" ? row.fdc_id.trim() : "") &&
-              sumPer100gVector(row?.per_100g) === 0
-            )
-        )
-        .map((row) => ({
-          canonical_id: row.canonical_id.trim(),
-          canonical_name: row.canonical_name.trim(),
-          aliases: Array.isArray(row?.aliases)
-            ? row.aliases.filter((alias) => typeof alias === "string" && alias.trim().length > 0)
-            : []
-        }))
-    : [];
+  const foods: CanonicalFoodLookupItem[] = items
+    .filter(
+      (row) =>
+        row &&
+        typeof row === "object" &&
+        row.usable &&
+        typeof row.canonical_id === "string" &&
+        row.canonical_id.trim().length > 0 &&
+        typeof row.canonical_name === "string" &&
+        row.canonical_name.trim().length > 0
+    )
+    .map((row) => ({
+      canonical_id: row.canonical_id.trim(),
+      canonical_name: row.canonical_name.trim(),
+      aliases: Array.isArray(row.aliases)
+        ? row.aliases.filter(
+            (alias: unknown) => typeof alias === "string" && alias.trim().length > 0
+          )
+        : []
+    }));
 
-  const aliasByCanonicalId = new Map<string, Set<string>>();
-  baseFoods.forEach((food) => {
-    aliasByCanonicalId.set(food.canonical_id, new Set(food.aliases || []));
-  });
-
-  try {
-    const canonicalIds = baseFoods.map((food) => food.canonical_id);
-    const { data: aliasRows, error: aliasError } = await supabase
-      .from("canonical_food_aliases")
-      .select("alias, canonical_id")
-      .in("canonical_id", canonicalIds);
-    if (aliasError) {
-      throw aliasError;
-    }
-    (Array.isArray(aliasRows) ? aliasRows : []).forEach((row) => {
-      const canonicalId = typeof row?.canonical_id === "string" ? row.canonical_id.trim() : "";
-      const alias = typeof row?.alias === "string" ? row.alias.trim() : "";
-      if (!canonicalId || !alias) {
-        return;
-      }
-      if (!aliasByCanonicalId.has(canonicalId)) {
-        aliasByCanonicalId.set(canonicalId, new Set());
-      }
-      aliasByCanonicalId.get(canonicalId)?.add(alias);
-    });
-  } catch (_error) {
-    // Keep parse-time canonicalization online even when alias metadata is unavailable.
+  if (!foods.length) {
+    throw new Error("canon-lookup.json has no usable canonical foods for parse-meal.");
   }
-
-  const foods = baseFoods.map((food) => ({
-    canonical_id: food.canonical_id,
-    canonical_name: food.canonical_name,
-    aliases: Array.from(aliasByCanonicalId.get(food.canonical_id) || [])
-  }));
 
   canonicalCache = foods;
   canonicalCacheLoadedAt = now;
@@ -362,7 +300,7 @@ serve(async (req) => {
 
     const supabase = createSupabaseClient(req);
     const { contentType, base64 } = await fetchMealPhoto(supabase, photo_path);
-    const canonicalFoods = await loadCanonicalFoods(supabase);
+    const canonicalFoods = await loadCanonicalFoods();
     const canonicalLookup = buildCanonicalLookup(canonicalFoods);
     let items: unknown[] = [];
     let parseWarning: string | null = null;

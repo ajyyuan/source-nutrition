@@ -9,6 +9,7 @@ const path = require("path");
 
 const PREVIEW_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const OUT_PATH = path.resolve("supabase/functions/map-foods/canon-lookup.json");
+const PARSE_MEAL_OUT_PATH = path.resolve("supabase/functions/parse-meal/canon-lookup.json");
 
 const NUTRIENT_KEYS = [
   "vitamin_a_ug",
@@ -82,7 +83,13 @@ function run() {
     fs.mkdirSync(outDir, { recursive: true });
   }
 
+  const parseOutDir = path.dirname(PARSE_MEAL_OUT_PATH);
+  if (!fs.existsSync(parseOutDir)) {
+    fs.mkdirSync(parseOutDir, { recursive: true });
+  }
+
   fs.writeFileSync(OUT_PATH, JSON.stringify(items), "utf8");
+  fs.writeFileSync(PARSE_MEAL_OUT_PATH, JSON.stringify(items), "utf8");
   const usableCount = items.filter((i) => i.usable).length;
   console.log(`Wrote ${OUT_PATH} (${items.length} items, ${usableCount} usable)`);
 }
