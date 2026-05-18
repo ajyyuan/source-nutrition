@@ -32,7 +32,7 @@ const NUTRIENT_KEYS = [
   "omega3_g"
 ];
 
-const TOP_N = 15;
+const TOP_N = 50;
 const PREVIEW_PATH = path.resolve("data/canon/source-canon-v1.reseed-preview.json");
 const OUT_PATH = path.resolve("src/data/topFoodsByNutrient.json");
 

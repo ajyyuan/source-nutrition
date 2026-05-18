@@ -74,6 +74,181 @@
       "name": "Butternut squash",
       "value": 532,
       "canonical_id": "butternut-squash"
+    },
+    {
+      "name": "Spinach",
+      "value": 469,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Pumpkin",
+      "value": 426,
+      "canonical_id": "pumpkin"
+    },
+    {
+      "name": "Parsley",
+      "value": 421,
+      "canonical_id": "parsley"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 419,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Heavy cream",
+      "value": 411,
+      "canonical_id": "heavy-cream"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 381,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Lettuce",
+      "value": 375,
+      "canonical_id": "lettuce"
+    },
+    {
+      "name": "Cilantro",
+      "value": 337,
+      "canonical_id": "cilantro"
+    },
+    {
+      "name": "American cheese",
+      "value": 317,
+      "canonical_id": "american-cheese"
+    },
+    {
+      "name": "Beet",
+      "value": 316,
+      "canonical_id": "beet"
+    },
+    {
+      "name": "Cream cheese",
+      "value": 308,
+      "canonical_id": "cream-cheese"
+    },
+    {
+      "name": "Swiss",
+      "value": 306,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Swiss chard",
+      "value": 306,
+      "canonical_id": "swiss-chard"
+    },
+    {
+      "name": "Gruyere",
+      "value": 271,
+      "canonical_id": "gruyere"
+    },
+    {
+      "name": "Cheddar",
+      "value": 263,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Processed cheese slices",
+      "value": 250,
+      "canonical_id": "processed-cheese-slices"
+    },
+    {
+      "name": "Kale",
+      "value": 241,
+      "canonical_id": "kale"
+    },
+    {
+      "name": "Bok choy",
+      "value": 223,
+      "canonical_id": "bok-choy"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 219,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Chive",
+      "value": 218,
+      "canonical_id": "chive"
+    },
+    {
+      "name": "Dulse",
+      "value": 214.2,
+      "canonical_id": "dulse"
+    },
+    {
+      "name": "Parmesan",
+      "value": 207,
+      "canonical_id": "parmesan"
+    },
+    {
+      "name": "Duck egg",
+      "value": 194,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Mozzarella",
+      "value": 179,
+      "canonical_id": "mozzarella"
+    },
+    {
+      "name": "Kefir (plain)",
+      "value": 171,
+      "canonical_id": "kefir-plain"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 166,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Gouda",
+      "value": 165,
+      "canonical_id": "gouda"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 161,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Quail egg",
+      "value": 156,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Mustard greens",
+      "value": 151,
+      "canonical_id": "mustard-greens"
+    },
+    {
+      "name": "Mustard",
+      "value": 151,
+      "canonical_id": "mustard"
+    },
+    {
+      "name": "Feta",
+      "value": 125,
+      "canonical_id": "feta"
+    },
+    {
+      "name": "Sour cream",
+      "value": 124,
+      "canonical_id": "sour-cream"
+    },
+    {
+      "name": "Light cream",
+      "value": 120,
+      "canonical_id": "light-cream"
+    },
+    {
+      "name": "Arugula",
+      "value": 119,
+      "canonical_id": "arugula"
     }
   ],
   "vitamin_c_mg": [
@@ -151,6 +326,181 @@
       "name": "Orange",
       "value": 53.2,
       "canonical_id": "orange"
+    },
+    {
+      "name": "Lemon",
+      "value": 53,
+      "canonical_id": "lemon"
+    },
+    {
+      "name": "Cauliflower",
+      "value": 48.2,
+      "canonical_id": "cauliflower"
+    },
+    {
+      "name": "Pineapple",
+      "value": 47.8,
+      "canonical_id": "pineapple"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 45.5,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Bok choy",
+      "value": 45,
+      "canonical_id": "bok-choy"
+    },
+    {
+      "name": "Pea",
+      "value": 40,
+      "canonical_id": "pea"
+    },
+    {
+      "name": "Cabbage",
+      "value": 36.6,
+      "canonical_id": "cabbage"
+    },
+    {
+      "name": "Mango",
+      "value": 36.4,
+      "canonical_id": "mango"
+    },
+    {
+      "name": "Garlic",
+      "value": 31.2,
+      "canonical_id": "garlic"
+    },
+    {
+      "name": "Swiss",
+      "value": 30,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Beet",
+      "value": 30,
+      "canonical_id": "beet"
+    },
+    {
+      "name": "Swiss chard",
+      "value": 30,
+      "canonical_id": "swiss-chard"
+    },
+    {
+      "name": "Lime",
+      "value": 29.1,
+      "canonical_id": "lime"
+    },
+    {
+      "name": "Spinach",
+      "value": 28.1,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Cilantro",
+      "value": 27,
+      "canonical_id": "cilantro"
+    },
+    {
+      "name": "Tangerine",
+      "value": 26.7,
+      "canonical_id": "tangerine"
+    },
+    {
+      "name": "Raspberry",
+      "value": 26.2,
+      "canonical_id": "raspberry"
+    },
+    {
+      "name": "Pork liver",
+      "value": 25.3,
+      "canonical_id": "pork-liver"
+    },
+    {
+      "name": "Rutabaga",
+      "value": 25,
+      "canonical_id": "rutabaga"
+    },
+    {
+      "name": "Radish",
+      "value": 22,
+      "canonical_id": "radish"
+    },
+    {
+      "name": "Tomato paste",
+      "value": 21.9,
+      "canonical_id": "tomato-paste"
+    },
+    {
+      "name": "Butternut squash",
+      "value": 21,
+      "canonical_id": "butternut-squash"
+    },
+    {
+      "name": "Cassava",
+      "value": 20.6,
+      "canonical_id": "cassava"
+    },
+    {
+      "name": "Chlorella",
+      "value": 20,
+      "canonical_id": "chlorella"
+    },
+    {
+      "name": "Potato",
+      "value": 19.7,
+      "canonical_id": "potato"
+    },
+    {
+      "name": "Scallion",
+      "value": 18.8,
+      "canonical_id": "scallion"
+    },
+    {
+      "name": "Chicken liver",
+      "value": 17.9,
+      "canonical_id": "chicken-liver"
+    },
+    {
+      "name": "Zucchini",
+      "value": 17.9,
+      "canonical_id": "zucchini"
+    },
+    {
+      "name": "Yam",
+      "value": 17.1,
+      "canonical_id": "yam"
+    },
+    {
+      "name": "Nori",
+      "value": 17.1,
+      "canonical_id": "nori"
+    },
+    {
+      "name": "Parsnip",
+      "value": 17,
+      "canonical_id": "parsnip"
+    },
+    {
+      "name": "Arugula",
+      "value": 15,
+      "canonical_id": "arugula"
+    },
+    {
+      "name": "Sauerkraut",
+      "value": 14.7,
+      "canonical_id": "sauerkraut"
+    },
+    {
+      "name": "Carrot",
+      "value": 14.6,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 13.7,
+      "canonical_id": "beef-pancreas"
     }
   ],
   "vitamin_d_ug": [
@@ -228,6 +578,181 @@
       "name": "Fried egg (chicken)",
       "value": 2.2,
       "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Chicken egg",
+      "value": 2,
+      "canonical_id": "chicken-egg"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 2,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 1.8,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Tuna (skipjack)",
+      "value": 1.7,
+      "canonical_id": "tuna-skipjack"
+    },
+    {
+      "name": "Tuna (yellowfin)",
+      "value": 1.7,
+      "canonical_id": "tuna-yellowfin"
+    },
+    {
+      "name": "Duck egg",
+      "value": 1.7,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Heavy cream",
+      "value": 1.6,
+      "canonical_id": "heavy-cream"
+    },
+    {
+      "name": "Ghee",
+      "value": 1.5,
+      "canonical_id": "ghee"
+    },
+    {
+      "name": "Quail egg",
+      "value": 1.4,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Cow's milk",
+      "value": 1.3,
+      "canonical_id": "cow-s-milk"
+    },
+    {
+      "name": "Goat milk",
+      "value": 1.3,
+      "canonical_id": "goat-milk"
+    },
+    {
+      "name": "Veal strip steak",
+      "value": 1.2,
+      "canonical_id": "veal-strip-steak"
+    },
+    {
+      "name": "Veal tenderloin",
+      "value": 1.2,
+      "canonical_id": "veal-tenderloin"
+    },
+    {
+      "name": "Veal flank",
+      "value": 1.2,
+      "canonical_id": "veal-flank"
+    },
+    {
+      "name": "Veal chuck",
+      "value": 1.2,
+      "canonical_id": "veal-chuck"
+    },
+    {
+      "name": "Beef liver",
+      "value": 1.2,
+      "canonical_id": "beef-liver"
+    },
+    {
+      "name": "Cow's milk (2%)",
+      "value": 1.2,
+      "canonical_id": "cow-s-milk-2"
+    },
+    {
+      "name": "Cow's milk (1%)",
+      "value": 1.2,
+      "canonical_id": "cow-s-milk-1"
+    },
+    {
+      "name": "Cow's milk (skim)",
+      "value": 1.2,
+      "canonical_id": "cow-s-milk-skim"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 1.125,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Light cream",
+      "value": 1.1,
+      "canonical_id": "light-cream"
+    },
+    {
+      "name": "Pollock",
+      "value": 1,
+      "canonical_id": "pollock"
+    },
+    {
+      "name": "Yogurt (plain, nonfat)",
+      "value": 1,
+      "canonical_id": "yogurt-plain-nonfat"
+    },
+    {
+      "name": "Kefir (plain)",
+      "value": 1,
+      "canonical_id": "kefir-plain"
+    },
+    {
+      "name": "Cheddar",
+      "value": 1,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Cod",
+      "value": 0.9,
+      "canonical_id": "cod"
+    },
+    {
+      "name": "Whole turkey",
+      "value": 0.8,
+      "canonical_id": "whole-turkey"
+    },
+    {
+      "name": "Ground duck",
+      "value": 0.7,
+      "canonical_id": "ground-duck"
+    },
+    {
+      "name": "Veal shank",
+      "value": 0.7,
+      "canonical_id": "veal-shank"
+    },
+    {
+      "name": "Whole duck",
+      "value": 0.7,
+      "canonical_id": "whole-duck"
+    },
+    {
+      "name": "Oyster mushroom",
+      "value": 0.7,
+      "canonical_id": "oyster-mushroom"
+    },
+    {
+      "name": "Anchovy",
+      "value": 0.63,
+      "canonical_id": "anchovy"
+    },
+    {
+      "name": "Veal round",
+      "value": 0.6,
+      "canonical_id": "veal-round"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 0.6,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Fresh ham",
+      "value": 0.6,
+      "canonical_id": "fresh-ham"
     }
   ],
   "vitamin_e_mg": [
@@ -305,6 +830,181 @@
       "name": "Pistachio",
       "value": 2.86,
       "canonical_id": "pistachio"
+    },
+    {
+      "name": "Whole wheat bread",
+      "value": 2.66,
+      "canonical_id": "whole-wheat-bread"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 2.58,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Cilantro",
+      "value": 2.5,
+      "canonical_id": "cilantro"
+    },
+    {
+      "name": "Quinoa",
+      "value": 2.44,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Ramen noodles",
+      "value": 2.44,
+      "canonical_id": "ramen-noodles"
+    },
+    {
+      "name": "Mayonnaise",
+      "value": 2.4,
+      "canonical_id": "mayonnaise"
+    },
+    {
+      "name": "Taro",
+      "value": 2.38,
+      "canonical_id": "taro"
+    },
+    {
+      "name": "Trout",
+      "value": 2.34,
+      "canonical_id": "trout"
+    },
+    {
+      "name": "Butter",
+      "value": 2.32,
+      "canonical_id": "butter"
+    },
+    {
+      "name": "Ghee",
+      "value": 2.32,
+      "canonical_id": "ghee"
+    },
+    {
+      "name": "Radicchio",
+      "value": 2.26,
+      "canonical_id": "radicchio"
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 2.18,
+      "canonical_id": "pumpkin-seed"
+    },
+    {
+      "name": "Avocado",
+      "value": 2.07,
+      "canonical_id": "avocado"
+    },
+    {
+      "name": "Sardine",
+      "value": 2.04,
+      "canonical_id": "sardine"
+    },
+    {
+      "name": "Spinach",
+      "value": 2.03,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Mustard greens",
+      "value": 2.01,
+      "canonical_id": "mustard-greens"
+    },
+    {
+      "name": "Mustard",
+      "value": 2.01,
+      "canonical_id": "mustard"
+    },
+    {
+      "name": "Swiss",
+      "value": 1.89,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Swiss chard",
+      "value": 1.89,
+      "canonical_id": "swiss-chard"
+    },
+    {
+      "name": "Crab",
+      "value": 1.84,
+      "canonical_id": "crab"
+    },
+    {
+      "name": "Sesame",
+      "value": 1.68,
+      "canonical_id": "sesame"
+    },
+    {
+      "name": "Beef brain",
+      "value": 1.67,
+      "canonical_id": "beef-brain"
+    },
+    {
+      "name": "Olive",
+      "value": 1.65,
+      "canonical_id": "olive"
+    },
+    {
+      "name": "Beet",
+      "value": 1.5,
+      "canonical_id": "beet"
+    },
+    {
+      "name": "Parsnip",
+      "value": 1.49,
+      "canonical_id": "parsnip"
+    },
+    {
+      "name": "Kiwi",
+      "value": 1.46,
+      "canonical_id": "kiwi"
+    },
+    {
+      "name": "Ketchup",
+      "value": 1.46,
+      "canonical_id": "ketchup"
+    },
+    {
+      "name": "Butternut squash",
+      "value": 1.44,
+      "canonical_id": "butternut-squash"
+    },
+    {
+      "name": "Tomato sauce",
+      "value": 1.44,
+      "canonical_id": "tomato-sauce"
+    },
+    {
+      "name": "Pecan",
+      "value": 1.4,
+      "canonical_id": "pecan"
+    },
+    {
+      "name": "Chinook salmon",
+      "value": 1.35,
+      "canonical_id": "chinook-salmon"
+    },
+    {
+      "name": "Duck egg",
+      "value": 1.34,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Shrimp",
+      "value": 1.32,
+      "canonical_id": "shrimp"
+    },
+    {
+      "name": "Prawn",
+      "value": 1.32,
+      "canonical_id": "prawn"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 1.31,
+      "canonical_id": "fried-egg-chicken"
     }
   ],
   "vitamin_k_ug": [
@@ -382,6 +1082,181 @@
       "name": "Radicchio",
       "value": 255.2,
       "canonical_id": "radicchio"
+    },
+    {
+      "name": "Turnip",
+      "value": 251,
+      "canonical_id": "turnip"
+    },
+    {
+      "name": "Endive",
+      "value": 231,
+      "canonical_id": "endive"
+    },
+    {
+      "name": "Chive",
+      "value": 212.7,
+      "canonical_id": "chive"
+    },
+    {
+      "name": "Scallion",
+      "value": 207,
+      "canonical_id": "scallion"
+    },
+    {
+      "name": "Beef heart",
+      "value": 205.5,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Brussels sprouts",
+      "value": 177,
+      "canonical_id": "brussels-sprouts"
+    },
+    {
+      "name": "Lettuce",
+      "value": 140.3,
+      "canonical_id": "lettuce"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 132,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Arugula",
+      "value": 108.6,
+      "canonical_id": "arugula"
+    },
+    {
+      "name": "Carrot",
+      "value": 108,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Broccoli",
+      "value": 101.6,
+      "canonical_id": "broccoli"
+    },
+    {
+      "name": "Pork liver",
+      "value": 89.8,
+      "canonical_id": "pork-liver"
+    },
+    {
+      "name": "Cabbage",
+      "value": 76,
+      "canonical_id": "cabbage"
+    },
+    {
+      "name": "Kelp",
+      "value": 66,
+      "canonical_id": "kelp"
+    },
+    {
+      "name": "Fennel",
+      "value": 62.8,
+      "canonical_id": "fennel"
+    },
+    {
+      "name": "Chicken drumstick",
+      "value": 60.5,
+      "canonical_id": "chicken-drumstick"
+    },
+    {
+      "name": "Chicken thigh",
+      "value": 60.1,
+      "canonical_id": "chicken-thigh"
+    },
+    {
+      "name": "Pine nut",
+      "value": 53.9,
+      "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Mayonnaise",
+      "value": 53.4,
+      "canonical_id": "mayonnaise"
+    },
+    {
+      "name": "Leek",
+      "value": 47,
+      "canonical_id": "leek"
+    },
+    {
+      "name": "Soybean",
+      "value": 47,
+      "canonical_id": "soybean"
+    },
+    {
+      "name": "Pickles",
+      "value": 47,
+      "canonical_id": "pickles"
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 46,
+      "canonical_id": "bread-crumbs"
+    },
+    {
+      "name": "Kimchi",
+      "value": 45.6,
+      "canonical_id": "kimchi"
+    },
+    {
+      "name": "Bok choy",
+      "value": 45.5,
+      "canonical_id": "bok-choy"
+    },
+    {
+      "name": "Green bean",
+      "value": 43,
+      "canonical_id": "green-bean"
+    },
+    {
+      "name": "Kiwi",
+      "value": 40.3,
+      "canonical_id": "kiwi"
+    },
+    {
+      "name": "Cashew",
+      "value": 34.1,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Chicken egg",
+      "value": 33.8,
+      "canonical_id": "chicken-egg"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 32.7,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Miso",
+      "value": 30.8,
+      "canonical_id": "miso"
+    },
+    {
+      "name": "Celery",
+      "value": 29.3,
+      "canonical_id": "celery"
+    },
+    {
+      "name": "Butter",
+      "value": 28,
+      "canonical_id": "butter"
+    },
+    {
+      "name": "Ghee",
+      "value": 28,
+      "canonical_id": "ghee"
+    },
+    {
+      "name": "Pea",
+      "value": 24.8,
+      "canonical_id": "pea"
     }
   ],
   "vitamin_k2_ug": [
@@ -459,6 +1334,181 @@
       "name": "Whole chicken",
       "value": 15,
       "canonical_id": "whole-chicken"
+    },
+    {
+      "name": "Ground chicken",
+      "value": 12,
+      "canonical_id": "ground-chicken"
+    },
+    {
+      "name": "Whole turkey",
+      "value": 12,
+      "canonical_id": "whole-turkey"
+    },
+    {
+      "name": "Chicken liver",
+      "value": 12,
+      "canonical_id": "chicken-liver"
+    },
+    {
+      "name": "Quail egg",
+      "value": 12,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Lamb liver",
+      "value": 11.2,
+      "canonical_id": "lamb-liver"
+    },
+    {
+      "name": "Ground turkey",
+      "value": 10,
+      "canonical_id": "ground-turkey"
+    },
+    {
+      "name": "Ground duck",
+      "value": 10,
+      "canonical_id": "ground-duck"
+    },
+    {
+      "name": "Whole duck",
+      "value": 10,
+      "canonical_id": "whole-duck"
+    },
+    {
+      "name": "Duck breast",
+      "value": 10,
+      "canonical_id": "duck-breast"
+    },
+    {
+      "name": "Duck leg",
+      "value": 10,
+      "canonical_id": "duck-leg"
+    },
+    {
+      "name": "Chicken heart",
+      "value": 10,
+      "canonical_id": "chicken-heart"
+    },
+    {
+      "name": "Chicken egg",
+      "value": 10,
+      "canonical_id": "chicken-egg"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 10,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 10,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Duck egg",
+      "value": 10,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 10,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Fresh ham",
+      "value": 9.5,
+      "canonical_id": "fresh-ham"
+    },
+    {
+      "name": "Chicken breast",
+      "value": 9,
+      "canonical_id": "chicken-breast"
+    },
+    {
+      "name": "Cream cheese",
+      "value": 9,
+      "canonical_id": "cream-cheese"
+    },
+    {
+      "name": "American cheese",
+      "value": 8.9,
+      "canonical_id": "american-cheese"
+    },
+    {
+      "name": "Cheddar",
+      "value": 8.6,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Turkey breast",
+      "value": 8,
+      "canonical_id": "turkey-breast"
+    },
+    {
+      "name": "Chicken gizzard",
+      "value": 8,
+      "canonical_id": "chicken-gizzard"
+    },
+    {
+      "name": "Parmesan",
+      "value": 7.1,
+      "canonical_id": "parmesan"
+    },
+    {
+      "name": "Pork belly",
+      "value": 7,
+      "canonical_id": "pork-belly"
+    },
+    {
+      "name": "Pork jowl",
+      "value": 7,
+      "canonical_id": "pork-jowl"
+    },
+    {
+      "name": "Swiss",
+      "value": 6.3,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Ground pork",
+      "value": 6,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Pork loin",
+      "value": 6,
+      "canonical_id": "pork-loin"
+    },
+    {
+      "name": "Pork tenderloin",
+      "value": 6,
+      "canonical_id": "pork-tenderloin"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 6,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Pork chop",
+      "value": 6,
+      "canonical_id": "pork-chop"
+    },
+    {
+      "name": "Pork ribs",
+      "value": 6,
+      "canonical_id": "pork-ribs"
+    },
+    {
+      "name": "Pork shank",
+      "value": 6,
+      "canonical_id": "pork-shank"
+    },
+    {
+      "name": "Gruyere",
+      "value": 6,
+      "canonical_id": "gruyere"
     }
   ],
   "thiamin_mg": [
@@ -536,6 +1586,181 @@
       "name": "Naan",
       "value": 0.78,
       "canonical_id": "naan"
+    },
+    {
+      "name": "Pinto bean",
+      "value": 0.713,
+      "canonical_id": "pinto-bean"
+    },
+    {
+      "name": "Sourdough bread",
+      "value": 0.71,
+      "canonical_id": "sourdough-bread"
+    },
+    {
+      "name": "Sesame",
+      "value": 0.699,
+      "canonical_id": "sesame"
+    },
+    {
+      "name": "Pecan",
+      "value": 0.66,
+      "canonical_id": "pecan"
+    },
+    {
+      "name": "Barley",
+      "value": 0.646,
+      "canonical_id": "barley"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 0.643,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "Chia",
+      "value": 0.62,
+      "canonical_id": "chia"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 0.617,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Pork heart",
+      "value": 0.613,
+      "canonical_id": "pork-heart"
+    },
+    {
+      "name": "Pita",
+      "value": 0.599,
+      "canonical_id": "pita"
+    },
+    {
+      "name": "Bagel",
+      "value": 0.568,
+      "canonical_id": "bagel"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 0.558,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Hamburger bun",
+      "value": 0.543,
+      "canonical_id": "hamburger-bun"
+    },
+    {
+      "name": "Hot dog bun",
+      "value": 0.543,
+      "canonical_id": "hot-dog-bun"
+    },
+    {
+      "name": "Sandwich roll",
+      "value": 0.543,
+      "canonical_id": "sandwich-roll"
+    },
+    {
+      "name": "Brown rice",
+      "value": 0.541,
+      "canonical_id": "brown-rice"
+    },
+    {
+      "name": "Carrot",
+      "value": 0.534,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "White bread",
+      "value": 0.533,
+      "canonical_id": "white-bread"
+    },
+    {
+      "name": "Panko",
+      "value": 0.533,
+      "canonical_id": "panko"
+    },
+    {
+      "name": "Kidney bean",
+      "value": 0.529,
+      "canonical_id": "kidney-bean"
+    },
+    {
+      "name": "Pork shank",
+      "value": 0.522,
+      "canonical_id": "pork-shank"
+    },
+    {
+      "name": "Lamb heart",
+      "value": 0.52,
+      "canonical_id": "lamb-heart"
+    },
+    {
+      "name": "Pork chop",
+      "value": 0.51,
+      "canonical_id": "pork-chop"
+    },
+    {
+      "name": "Tortilla (flour)",
+      "value": 0.503,
+      "canonical_id": "tortilla-flour"
+    },
+    {
+      "name": "Chickpea",
+      "value": 0.486,
+      "canonical_id": "chickpea"
+    },
+    {
+      "name": "Soba noodles",
+      "value": 0.48,
+      "canonical_id": "soba-noodles"
+    },
+    {
+      "name": "Ramen noodles",
+      "value": 0.448,
+      "canonical_id": "ramen-noodles"
+    },
+    {
+      "name": "Oats",
+      "value": 0.445,
+      "canonical_id": "oats"
+    },
+    {
+      "name": "Rye bread",
+      "value": 0.434,
+      "canonical_id": "rye-bread"
+    },
+    {
+      "name": "Cashew",
+      "value": 0.423,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Millet",
+      "value": 0.421,
+      "canonical_id": "millet"
+    },
+    {
+      "name": "Ground pork",
+      "value": 0.414,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 0.413,
+      "canonical_id": "lamb-kidney"
+    },
+    {
+      "name": "Pork belly",
+      "value": 0.396,
+      "canonical_id": "pork-belly"
+    },
+    {
+      "name": "Pork kidney",
+      "value": 0.396,
+      "canonical_id": "pork-kidney"
     }
   ],
   "riboflavin_mg": [
@@ -613,6 +1838,181 @@
       "name": "Feta",
       "value": 0.844,
       "canonical_id": "feta"
+    },
+    {
+      "name": "Quail egg",
+      "value": 0.79,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Chicken heart",
+      "value": 0.728,
+      "canonical_id": "chicken-heart"
+    },
+    {
+      "name": "Lamb heart",
+      "value": 0.537,
+      "canonical_id": "lamb-heart"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 0.528,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Naan",
+      "value": 0.51,
+      "canonical_id": "naan"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 0.495,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Ground goat",
+      "value": 0.49,
+      "canonical_id": "ground-goat"
+    },
+    {
+      "name": "Cremini",
+      "value": 0.49,
+      "canonical_id": "cremini"
+    },
+    {
+      "name": "Tahini",
+      "value": 0.473,
+      "canonical_id": "tahini"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 0.47,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Duck breast",
+      "value": 0.45,
+      "canonical_id": "duck-breast"
+    },
+    {
+      "name": "Duck leg",
+      "value": 0.45,
+      "canonical_id": "duck-leg"
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 0.445,
+      "canonical_id": "beef-pancreas"
+    },
+    {
+      "name": "Egg white",
+      "value": 0.439,
+      "canonical_id": "egg-white"
+    },
+    {
+      "name": "Cheddar",
+      "value": 0.434,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Veal chuck",
+      "value": 0.43,
+      "canonical_id": "veal-chuck"
+    },
+    {
+      "name": "Sourdough bread",
+      "value": 0.427,
+      "canonical_id": "sourdough-bread"
+    },
+    {
+      "name": "Egg noodles",
+      "value": 0.426,
+      "canonical_id": "egg-noodles"
+    },
+    {
+      "name": "Carrot",
+      "value": 0.417,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 0.415,
+      "canonical_id": "bread-crumbs"
+    },
+    {
+      "name": "Squid",
+      "value": 0.412,
+      "canonical_id": "squid"
+    },
+    {
+      "name": "Duck egg",
+      "value": 0.404,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "White mushroom",
+      "value": 0.402,
+      "canonical_id": "white-mushroom"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 0.384,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 0.376,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 0.37,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Ground pork",
+      "value": 0.368,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Lion's mane",
+      "value": 0.3631,
+      "canonical_id": "lion-s-mane"
+    },
+    {
+      "name": "Venison",
+      "value": 0.36,
+      "canonical_id": "venison"
+    },
+    {
+      "name": "Ground venison",
+      "value": 0.36,
+      "canonical_id": "ground-venison"
+    },
+    {
+      "name": "Chop (lamb/goat)",
+      "value": 0.36,
+      "canonical_id": "chop-lamb-goat"
+    },
+    {
+      "name": "Tempeh",
+      "value": 0.358,
+      "canonical_id": "tempeh"
+    },
+    {
+      "name": "Sheep milk",
+      "value": 0.355,
+      "canonical_id": "sheep-milk"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 0.355,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Oyster mushroom",
+      "value": 0.349,
+      "canonical_id": "oyster-mushroom"
     }
   ],
   "niacin_mg": [
@@ -690,6 +2090,181 @@
       "name": "Atlantic salmon",
       "value": 8.672,
       "canonical_id": "atlantic-salmon"
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 8.654,
+      "canonical_id": "tuna-albacore"
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 8.507,
+      "canonical_id": "sockeye-salmon"
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 8.426,
+      "canonical_id": "lamb-kidney"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 8.4,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Egg noodles",
+      "value": 8.387,
+      "canonical_id": "egg-noodles"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 8.335,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 8.03,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Chop (lamb/goat)",
+      "value": 7.93,
+      "canonical_id": "chop-lamb-goat"
+    },
+    {
+      "name": "Ground pork",
+      "value": 7.914,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Beef strip steak",
+      "value": 7.85,
+      "canonical_id": "strip-steak"
+    },
+    {
+      "name": "Ground veal",
+      "value": 7.83,
+      "canonical_id": "ground-veal"
+    },
+    {
+      "name": "Rice cakes",
+      "value": 7.806,
+      "canonical_id": "rice-cakes"
+    },
+    {
+      "name": "Veal shank",
+      "value": 7.6,
+      "canonical_id": "veal-shank"
+    },
+    {
+      "name": "Chicken wing",
+      "value": 7.359,
+      "canonical_id": "chicken-wing"
+    },
+    {
+      "name": "Beef flank",
+      "value": 7.353,
+      "canonical_id": "flank"
+    },
+    {
+      "name": "Veal strip steak",
+      "value": 7.25,
+      "canonical_id": "veal-strip-steak"
+    },
+    {
+      "name": "Veal tenderloin",
+      "value": 7.25,
+      "canonical_id": "veal-tenderloin"
+    },
+    {
+      "name": "Veal flank",
+      "value": 7.25,
+      "canonical_id": "veal-flank"
+    },
+    {
+      "name": "Coho salmon",
+      "value": 7.23,
+      "canonical_id": "coho-salmon"
+    },
+    {
+      "name": "Turkey breast",
+      "value": 7.15,
+      "canonical_id": "turkey-breast"
+    },
+    {
+      "name": "Veal ribeye",
+      "value": 7.05,
+      "canonical_id": "veal-ribeye"
+    },
+    {
+      "name": "Beef tenderloin",
+      "value": 7.041,
+      "canonical_id": "tenderloin"
+    },
+    {
+      "name": "Pork chop",
+      "value": 6.934,
+      "canonical_id": "pork-chop"
+    },
+    {
+      "name": "Beef round",
+      "value": 6.901,
+      "canonical_id": "round"
+    },
+    {
+      "name": "Whole chicken",
+      "value": 6.801,
+      "canonical_id": "whole-chicken"
+    },
+    {
+      "name": "Pork heart",
+      "value": 6.765,
+      "canonical_id": "pork-heart"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 6.747,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Ground turkey",
+      "value": 6.733,
+      "canonical_id": "ground-turkey"
+    },
+    {
+      "name": "Wild rice",
+      "value": 6.733,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Pork tenderloin",
+      "value": 6.684,
+      "canonical_id": "pork-tenderloin"
+    },
+    {
+      "name": "Beef heart",
+      "value": 6.68,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Elk",
+      "value": 6.63,
+      "canonical_id": "elk"
+    },
+    {
+      "name": "Venison",
+      "value": 6.6,
+      "canonical_id": "venison"
+    },
+    {
+      "name": "Ground venison",
+      "value": 6.6,
+      "canonical_id": "ground-venison"
+    },
+    {
+      "name": "Leg (lamb/goat)",
+      "value": 6.59,
+      "canonical_id": "leg-lamb-goat"
     }
   ],
   "vitamin_b5_mg": [
@@ -767,6 +2342,181 @@
       "name": "Lentil",
       "value": 2.14,
       "canonical_id": "lentil"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 1.889,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Duck egg",
+      "value": 1.862,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Quail egg",
+      "value": 1.761,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Pork ribs",
+      "value": 1.737,
+      "canonical_id": "pork-ribs"
+    },
+    {
+      "name": "Trout",
+      "value": 1.667,
+      "canonical_id": "trout"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 1.66,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Duck breast",
+      "value": 1.6,
+      "canonical_id": "duck-breast"
+    },
+    {
+      "name": "Duck leg",
+      "value": 1.6,
+      "canonical_id": "duck-leg"
+    },
+    {
+      "name": "Beef heart",
+      "value": 1.6,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 1.567,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 1.547,
+      "canonical_id": "atlantic-salmon"
+    },
+    {
+      "name": "Cremini",
+      "value": 1.5,
+      "canonical_id": "cremini"
+    },
+    {
+      "name": "White mushroom",
+      "value": 1.497,
+      "canonical_id": "white-mushroom"
+    },
+    {
+      "name": "Carrot",
+      "value": 1.471,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Amaranth",
+      "value": 1.457,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Rye",
+      "value": 1.456,
+      "canonical_id": "rye"
+    },
+    {
+      "name": "Veal sirloin",
+      "value": 1.45,
+      "canonical_id": "veal-sirloin"
+    },
+    {
+      "name": "Lobster",
+      "value": 1.449,
+      "canonical_id": "lobster"
+    },
+    {
+      "name": "Avocado",
+      "value": 1.389,
+      "canonical_id": "avocado"
+    },
+    {
+      "name": "Ground veal",
+      "value": 1.37,
+      "canonical_id": "ground-veal"
+    },
+    {
+      "name": "Shiitake",
+      "value": 1.36,
+      "canonical_id": "shiitake"
+    },
+    {
+      "name": "Veal shank",
+      "value": 1.3,
+      "canonical_id": "veal-shank"
+    },
+    {
+      "name": "Oyster mushroom",
+      "value": 1.294,
+      "canonical_id": "oyster-mushroom"
+    },
+    {
+      "name": "Pork stomach",
+      "value": 1.22,
+      "canonical_id": "pork-stomach"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 1.217,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Beef brain",
+      "value": 1.21,
+      "canonical_id": "beef-brain"
+    },
+    {
+      "name": "Oats",
+      "value": 1.2,
+      "canonical_id": "oats"
+    },
+    {
+      "name": "Veal ribeye",
+      "value": 1.19,
+      "canonical_id": "veal-ribeye"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 1.167,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Portobello",
+      "value": 1.14,
+      "canonical_id": "portobello"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 1.13,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Ground chicken",
+      "value": 1.092,
+      "canonical_id": "ground-chicken"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 1.081,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Wild rice",
+      "value": 1.074,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 1.07,
+      "canonical_id": "sockeye-salmon"
     }
   ],
   "vitamin_b6_mg": [
@@ -844,6 +2594,181 @@
       "name": "Veal strip steak",
       "value": 0.683,
       "canonical_id": "veal-strip-steak"
+    },
+    {
+      "name": "Veal tenderloin",
+      "value": 0.683,
+      "canonical_id": "veal-tenderloin"
+    },
+    {
+      "name": "Veal flank",
+      "value": 0.683,
+      "canonical_id": "veal-flank"
+    },
+    {
+      "name": "Ground pork",
+      "value": 0.668,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Beef round",
+      "value": 0.666,
+      "canonical_id": "round"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 0.665,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Whole turkey",
+      "value": 0.654,
+      "canonical_id": "whole-turkey"
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 0.636,
+      "canonical_id": "atlantic-salmon"
+    },
+    {
+      "name": "Ground elk",
+      "value": 0.63,
+      "canonical_id": "ground-elk"
+    },
+    {
+      "name": "Beef sirloin",
+      "value": 0.628,
+      "canonical_id": "sirloin"
+    },
+    {
+      "name": "Beef brisket",
+      "value": 0.617,
+      "canonical_id": "brisket"
+    },
+    {
+      "name": "Hemp",
+      "value": 0.6,
+      "canonical_id": "hemp"
+    },
+    {
+      "name": "Veal round",
+      "value": 0.599,
+      "canonical_id": "veal-round"
+    },
+    {
+      "name": "Beef flank",
+      "value": 0.596,
+      "canonical_id": "flank"
+    },
+    {
+      "name": "Amaranth",
+      "value": 0.591,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Pork ribs",
+      "value": 0.577,
+      "canonical_id": "pork-ribs"
+    },
+    {
+      "name": "Beef chuck",
+      "value": 0.568,
+      "canonical_id": "chuck"
+    },
+    {
+      "name": "Beef stew meat",
+      "value": 0.568,
+      "canonical_id": "stew-meat"
+    },
+    {
+      "name": "Beef back ribs",
+      "value": 0.567,
+      "canonical_id": "back-ribs"
+    },
+    {
+      "name": "Ground turkey",
+      "value": 0.564,
+      "canonical_id": "ground-turkey"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 0.563,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "Beef tenderloin",
+      "value": 0.554,
+      "canonical_id": "tenderloin"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 0.55,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Coho salmon",
+      "value": 0.549,
+      "canonical_id": "coho-salmon"
+    },
+    {
+      "name": "Lentil",
+      "value": 0.54,
+      "canonical_id": "lentil"
+    },
+    {
+      "name": "Walnut",
+      "value": 0.537,
+      "canonical_id": "walnut"
+    },
+    {
+      "name": "Pork shank",
+      "value": 0.531,
+      "canonical_id": "pork-shank"
+    },
+    {
+      "name": "Chicken breast",
+      "value": 0.53,
+      "canonical_id": "chicken-breast"
+    },
+    {
+      "name": "Chicken wing",
+      "value": 0.53,
+      "canonical_id": "chicken-wing"
+    },
+    {
+      "name": "Pork loin",
+      "value": 0.527,
+      "canonical_id": "pork-loin"
+    },
+    {
+      "name": "Pork shoulder",
+      "value": 0.521,
+      "canonical_id": "pork-shoulder"
+    },
+    {
+      "name": "Veal sirloin",
+      "value": 0.52,
+      "canonical_id": "veal-sirloin"
+    },
+    {
+      "name": "Ground chicken",
+      "value": 0.512,
+      "canonical_id": "ground-chicken"
+    },
+    {
+      "name": "Chili pepper",
+      "value": 0.506,
+      "canonical_id": "chili-pepper"
+    },
+    {
+      "name": "Fresh ham",
+      "value": 0.5,
+      "canonical_id": "fresh-ham"
+    },
+    {
+      "name": "Chickpea",
+      "value": 0.492,
+      "canonical_id": "chickpea"
     }
   ],
   "vitamin_b7_ug": [
@@ -921,6 +2846,181 @@
       "name": "Turkey egg",
       "value": 19.5,
       "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Quail egg",
+      "value": 19.5,
+      "canonical_id": "quail-egg"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 18.2,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Chia",
+      "value": 18.2,
+      "canonical_id": "chia"
+    },
+    {
+      "name": "Scrambled egg (chicken)",
+      "value": 17.4,
+      "canonical_id": "scrambled-egg-chicken"
+    },
+    {
+      "name": "Pine nut",
+      "value": 17.1,
+      "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Lion's mane",
+      "value": 16.93,
+      "canonical_id": "lion-s-mane"
+    },
+    {
+      "name": "Pork kidney",
+      "value": 16,
+      "canonical_id": "pork-kidney"
+    },
+    {
+      "name": "Beef brain",
+      "value": 15,
+      "canonical_id": "beef-brain"
+    },
+    {
+      "name": "Peanut butter",
+      "value": 15,
+      "canonical_id": "peanut-butter"
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 13.5,
+      "canonical_id": "pumpkin-seed"
+    },
+    {
+      "name": "White mushroom",
+      "value": 12.5,
+      "canonical_id": "white-mushroom"
+    },
+    {
+      "name": "Brown rice",
+      "value": 12,
+      "canonical_id": "brown-rice"
+    },
+    {
+      "name": "Wild rice",
+      "value": 12,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Mussel",
+      "value": 10,
+      "canonical_id": "mussel"
+    },
+    {
+      "name": "Clam",
+      "value": 10,
+      "canonical_id": "clam"
+    },
+    {
+      "name": "Oyster",
+      "value": 10,
+      "canonical_id": "oyster"
+    },
+    {
+      "name": "Sardine",
+      "value": 9.7,
+      "canonical_id": "sardine"
+    },
+    {
+      "name": "Shiitake",
+      "value": 9.3,
+      "canonical_id": "shiitake"
+    },
+    {
+      "name": "Sheep milk",
+      "value": 9,
+      "canonical_id": "sheep-milk"
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 8,
+      "canonical_id": "beef-pancreas"
+    },
+    {
+      "name": "Oyster mushroom",
+      "value": 7.038,
+      "canonical_id": "oyster-mushroom"
+    },
+    {
+      "name": "Beef heart",
+      "value": 7,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 6.89,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Cottage cheese",
+      "value": 6.4,
+      "canonical_id": "cottage-cheese"
+    },
+    {
+      "name": "Tomato paste",
+      "value": 6.3,
+      "canonical_id": "tomato-paste"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 6,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Processed cheese slices",
+      "value": 5.9,
+      "canonical_id": "processed-cheese-slices"
+    },
+    {
+      "name": "Mackerel",
+      "value": 5.8,
+      "canonical_id": "mackerel"
+    },
+    {
+      "name": "Egg white",
+      "value": 5.6,
+      "canonical_id": "egg-white"
+    },
+    {
+      "name": "Bulgur",
+      "value": 5.4,
+      "canonical_id": "bulgur"
+    },
+    {
+      "name": "Beef strip steak",
+      "value": 5,
+      "canonical_id": "strip-steak"
+    },
+    {
+      "name": "Beef tenderloin",
+      "value": 5,
+      "canonical_id": "tenderloin"
+    },
+    {
+      "name": "Beef sirloin",
+      "value": 5,
+      "canonical_id": "sirloin"
+    },
+    {
+      "name": "Beef brisket",
+      "value": 5,
+      "canonical_id": "brisket"
+    },
+    {
+      "name": "Beef short ribs",
+      "value": 5,
+      "canonical_id": "short-ribs"
     }
   ],
   "folate_ug": [
@@ -998,6 +3098,181 @@
       "name": "Wakame",
       "value": 196,
       "canonical_id": "wakame"
+    },
+    {
+      "name": "Turnip",
+      "value": 194,
+      "canonical_id": "turnip"
+    },
+    {
+      "name": "Spinach",
+      "value": 194,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Quinoa",
+      "value": 184,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Kelp",
+      "value": 180,
+      "canonical_id": "kelp"
+    },
+    {
+      "name": "Parsley",
+      "value": 152,
+      "canonical_id": "parsley"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 146,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Endive",
+      "value": 142,
+      "canonical_id": "endive"
+    },
+    {
+      "name": "Bread",
+      "value": 126,
+      "canonical_id": "bread"
+    },
+    {
+      "name": "Sourdough bread",
+      "value": 123,
+      "canonical_id": "sourdough-bread"
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 119,
+      "canonical_id": "bread-crumbs"
+    },
+    {
+      "name": "Ramen noodles",
+      "value": 116,
+      "canonical_id": "ramen-noodles"
+    },
+    {
+      "name": "Sesame",
+      "value": 115,
+      "canonical_id": "sesame"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 113,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "White bread",
+      "value": 111,
+      "canonical_id": "white-bread"
+    },
+    {
+      "name": "Panko",
+      "value": 111,
+      "canonical_id": "panko"
+    },
+    {
+      "name": "Hemp",
+      "value": 110,
+      "canonical_id": "hemp"
+    },
+    {
+      "name": "Rye bread",
+      "value": 110,
+      "canonical_id": "rye-bread"
+    },
+    {
+      "name": "Pita",
+      "value": 107,
+      "canonical_id": "pita"
+    },
+    {
+      "name": "Bagel",
+      "value": 106,
+      "canonical_id": "bagel"
+    },
+    {
+      "name": "Chive",
+      "value": 105,
+      "canonical_id": "chive"
+    },
+    {
+      "name": "Naan",
+      "value": 102,
+      "canonical_id": "naan"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 98,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Walnut",
+      "value": 98,
+      "canonical_id": "walnut"
+    },
+    {
+      "name": "Tahini",
+      "value": 98,
+      "canonical_id": "tahini"
+    },
+    {
+      "name": "Arugula",
+      "value": 97,
+      "canonical_id": "arugula"
+    },
+    {
+      "name": "Wild rice",
+      "value": 95,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Tortilla (flour)",
+      "value": 94,
+      "canonical_id": "tortilla-flour"
+    },
+    {
+      "name": "Hamburger bun",
+      "value": 94,
+      "canonical_id": "hamburger-bun"
+    },
+    {
+      "name": "Hot dog bun",
+      "value": 94,
+      "canonical_id": "hot-dog-bun"
+    },
+    {
+      "name": "Sandwich roll",
+      "value": 94,
+      "canonical_id": "sandwich-roll"
+    },
+    {
+      "name": "Flax",
+      "value": 87,
+      "canonical_id": "flax"
+    },
+    {
+      "name": "Millet",
+      "value": 85,
+      "canonical_id": "millet"
+    },
+    {
+      "name": "Amaranth",
+      "value": 82,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Avocado",
+      "value": 81,
+      "canonical_id": "avocado"
+    },
+    {
+      "name": "Duck egg",
+      "value": 80,
+      "canonical_id": "duck-egg"
     }
   ],
   "vitamin_b12_ug": [
@@ -1075,6 +3350,181 @@
       "name": "Beef brain",
       "value": 10.1,
       "canonical_id": "beef-brain"
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 9.43,
+      "canonical_id": "tuna-albacore"
+    },
+    {
+      "name": "Sardine",
+      "value": 8.94,
+      "canonical_id": "sardine"
+    },
+    {
+      "name": "Oyster",
+      "value": 8.75,
+      "canonical_id": "oyster"
+    },
+    {
+      "name": "Lamb heart",
+      "value": 8.4,
+      "canonical_id": "lamb-heart"
+    },
+    {
+      "name": "Pork kidney",
+      "value": 7.79,
+      "canonical_id": "pork-kidney"
+    },
+    {
+      "name": "Chicken heart",
+      "value": 7.29,
+      "canonical_id": "chicken-heart"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 5.68,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Duck egg",
+      "value": 5.4,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Sockeye salmon",
+      "value": 4.69,
+      "canonical_id": "sockeye-salmon"
+    },
+    {
+      "name": "Trout",
+      "value": 4.3,
+      "canonical_id": "trout"
+    },
+    {
+      "name": "Coho salmon",
+      "value": 4.17,
+      "canonical_id": "coho-salmon"
+    },
+    {
+      "name": "Pork heart",
+      "value": 3.79,
+      "canonical_id": "pork-heart"
+    },
+    {
+      "name": "Ground elk",
+      "value": 3.45,
+      "canonical_id": "ground-elk"
+    },
+    {
+      "name": "Beef shank",
+      "value": 3.33,
+      "canonical_id": "shank"
+    },
+    {
+      "name": "Crab",
+      "value": 3.33,
+      "canonical_id": "crab"
+    },
+    {
+      "name": "Beef short ribs",
+      "value": 3.32,
+      "canonical_id": "short-ribs"
+    },
+    {
+      "name": "Chinook salmon",
+      "value": 3.26,
+      "canonical_id": "chinook-salmon"
+    },
+    {
+      "name": "Atlantic salmon",
+      "value": 3.23,
+      "canonical_id": "atlantic-salmon"
+    },
+    {
+      "name": "Pollock",
+      "value": 3.19,
+      "canonical_id": "pollock"
+    },
+    {
+      "name": "Beef tongue",
+      "value": 3.13,
+      "canonical_id": "beef-tongue"
+    },
+    {
+      "name": "Swiss",
+      "value": 3.06,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Venison",
+      "value": 3,
+      "canonical_id": "venison"
+    },
+    {
+      "name": "Ground venison",
+      "value": 3,
+      "canonical_id": "ground-venison"
+    },
+    {
+      "name": "Veal chuck",
+      "value": 2.88,
+      "canonical_id": "veal-chuck"
+    },
+    {
+      "name": "Catfish",
+      "value": 2.88,
+      "canonical_id": "catfish"
+    },
+    {
+      "name": "Veal strip steak",
+      "value": 2.65,
+      "canonical_id": "veal-strip-steak"
+    },
+    {
+      "name": "Veal tenderloin",
+      "value": 2.65,
+      "canonical_id": "veal-tenderloin"
+    },
+    {
+      "name": "Veal flank",
+      "value": 2.65,
+      "canonical_id": "veal-flank"
+    },
+    {
+      "name": "Leg (lamb/goat)",
+      "value": 2.59,
+      "canonical_id": "leg-lamb-goat"
+    },
+    {
+      "name": "Beef skirt",
+      "value": 2.55,
+      "canonical_id": "skirt"
+    },
+    {
+      "name": "Beef plate",
+      "value": 2.55,
+      "canonical_id": "plate"
+    },
+    {
+      "name": "Shoulder (lamb/goat)",
+      "value": 2.53,
+      "canonical_id": "shoulder-lamb-goat"
+    },
+    {
+      "name": "Chop (lamb/goat)",
+      "value": 2.53,
+      "canonical_id": "chop-lamb-goat"
+    },
+    {
+      "name": "Beef chuck",
+      "value": 2.42,
+      "canonical_id": "chuck"
+    },
+    {
+      "name": "Beef stew meat",
+      "value": 2.42,
+      "canonical_id": "stew-meat"
     }
   ],
   "calcium_mg": [
@@ -1152,6 +3602,181 @@
       "name": "Nori",
       "value": 286,
       "canonical_id": "nori"
+    },
+    {
+      "name": "Soybean",
+      "value": 277,
+      "canonical_id": "soybean"
+    },
+    {
+      "name": "Almond",
+      "value": 269,
+      "canonical_id": "almond"
+    },
+    {
+      "name": "Flax",
+      "value": 255,
+      "canonical_id": "flax"
+    },
+    {
+      "name": "Kale",
+      "value": 254,
+      "canonical_id": "kale"
+    },
+    {
+      "name": "Bagel",
+      "value": 219,
+      "canonical_id": "bagel"
+    },
+    {
+      "name": "Natto",
+      "value": 217,
+      "canonical_id": "natto"
+    },
+    {
+      "name": "Dulse",
+      "value": 214,
+      "canonical_id": "dulse"
+    },
+    {
+      "name": "Carrot",
+      "value": 212,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Sheep milk",
+      "value": 193,
+      "canonical_id": "sheep-milk"
+    },
+    {
+      "name": "Turnip",
+      "value": 190,
+      "canonical_id": "turnip"
+    },
+    {
+      "name": "Bread",
+      "value": 188,
+      "canonical_id": "bread"
+    },
+    {
+      "name": "Yogurt (plain)",
+      "value": 183,
+      "canonical_id": "yogurt-plain"
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 182,
+      "canonical_id": "bread-crumbs"
+    },
+    {
+      "name": "Garlic",
+      "value": 181,
+      "canonical_id": "garlic"
+    },
+    {
+      "name": "Turmeric",
+      "value": 168,
+      "canonical_id": "turmeric"
+    },
+    {
+      "name": "Kelp",
+      "value": 168,
+      "canonical_id": "kelp"
+    },
+    {
+      "name": "Whole wheat bread",
+      "value": 161,
+      "canonical_id": "whole-wheat-bread"
+    },
+    {
+      "name": "Arugula",
+      "value": 160,
+      "canonical_id": "arugula"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 160,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Amaranth",
+      "value": 159,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Wakame",
+      "value": 150,
+      "canonical_id": "wakame"
+    },
+    {
+      "name": "Anchovy",
+      "value": 147,
+      "canonical_id": "anchovy"
+    },
+    {
+      "name": "Tortilla (flour)",
+      "value": 146,
+      "canonical_id": "tortilla-flour"
+    },
+    {
+      "name": "White bread",
+      "value": 144,
+      "canonical_id": "white-bread"
+    },
+    {
+      "name": "Hamburger bun",
+      "value": 144,
+      "canonical_id": "hamburger-bun"
+    },
+    {
+      "name": "Hot dog bun",
+      "value": 144,
+      "canonical_id": "hot-dog-bun"
+    },
+    {
+      "name": "Sandwich roll",
+      "value": 144,
+      "canonical_id": "sandwich-roll"
+    },
+    {
+      "name": "Panko",
+      "value": 144,
+      "canonical_id": "panko"
+    },
+    {
+      "name": "Kidney bean",
+      "value": 143,
+      "canonical_id": "kidney-bean"
+    },
+    {
+      "name": "Parsley",
+      "value": 138,
+      "canonical_id": "parsley"
+    },
+    {
+      "name": "Goat milk",
+      "value": 134,
+      "canonical_id": "goat-milk"
+    },
+    {
+      "name": "Kefir (plain)",
+      "value": 130,
+      "canonical_id": "kefir-plain"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 129,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Cow's milk (1%)",
+      "value": 125,
+      "canonical_id": "cow-s-milk-1"
+    },
+    {
+      "name": "Black bean",
+      "value": 123,
+      "canonical_id": "black-bean"
     }
   ],
   "iron_mg": [
@@ -1229,6 +3854,181 @@
       "name": "Chia",
       "value": 7.72,
       "canonical_id": "chia"
+    },
+    {
+      "name": "Amaranth",
+      "value": 7.61,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Lamb liver",
+      "value": 7.37,
+      "canonical_id": "lamb-liver"
+    },
+    {
+      "name": "Ground elk",
+      "value": 7.17,
+      "canonical_id": "ground-elk"
+    },
+    {
+      "name": "Cashew",
+      "value": 6.68,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 6.6,
+      "canonical_id": "lamb-kidney"
+    },
+    {
+      "name": "Lentil",
+      "value": 6.51,
+      "canonical_id": "lentil"
+    },
+    {
+      "name": "Beef heart",
+      "value": 6.38,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Sesame",
+      "value": 6.36,
+      "canonical_id": "sesame"
+    },
+    {
+      "name": "Olive",
+      "value": 6.28,
+      "canonical_id": "olive"
+    },
+    {
+      "name": "Parsley",
+      "value": 6.2,
+      "canonical_id": "parsley"
+    },
+    {
+      "name": "Chicken heart",
+      "value": 5.96,
+      "canonical_id": "chicken-heart"
+    },
+    {
+      "name": "Whole turkey",
+      "value": 5.92,
+      "canonical_id": "whole-turkey"
+    },
+    {
+      "name": "Flax",
+      "value": 5.73,
+      "canonical_id": "flax"
+    },
+    {
+      "name": "Pine nut",
+      "value": 5.53,
+      "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Octopus",
+      "value": 5.3,
+      "canonical_id": "octopus"
+    },
+    {
+      "name": "Pork kidney",
+      "value": 5.29,
+      "canonical_id": "pork-kidney"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 5.25,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Pinto bean",
+      "value": 5.07,
+      "canonical_id": "pinto-bean"
+    },
+    {
+      "name": "Black bean",
+      "value": 5.02,
+      "canonical_id": "black-bean"
+    },
+    {
+      "name": "Bread crumbs",
+      "value": 4.92,
+      "canonical_id": "bread-crumbs"
+    },
+    {
+      "name": "Beef liver",
+      "value": 4.9,
+      "canonical_id": "beef-liver"
+    },
+    {
+      "name": "Chickpea",
+      "value": 4.86,
+      "canonical_id": "chickpea"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 4.7,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "Pork heart",
+      "value": 4.68,
+      "canonical_id": "pork-heart"
+    },
+    {
+      "name": "Oyster",
+      "value": 4.61,
+      "canonical_id": "oyster"
+    },
+    {
+      "name": "Beef kidney",
+      "value": 4.6,
+      "canonical_id": "beef-kidney"
+    },
+    {
+      "name": "Quinoa",
+      "value": 4.57,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Wheat",
+      "value": 4.56,
+      "canonical_id": "wheat"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 4.12,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Ramen noodles",
+      "value": 4.11,
+      "canonical_id": "ramen-noodles"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 4.1,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Egg noodles",
+      "value": 4.01,
+      "canonical_id": "egg-noodles"
+    },
+    {
+      "name": "Mussel",
+      "value": 3.95,
+      "canonical_id": "mussel"
+    },
+    {
+      "name": "Carrot",
+      "value": 3.93,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Pistachio",
+      "value": 3.92,
+      "canonical_id": "pistachio"
     }
   ],
   "magnesium_mg": [
@@ -1306,6 +4106,181 @@
       "name": "Pine nut",
       "value": 251,
       "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Nori",
+      "value": 250,
+      "canonical_id": "nori"
+    },
+    {
+      "name": "Amaranth",
+      "value": 248,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Turmeric",
+      "value": 208,
+      "canonical_id": "turmeric"
+    },
+    {
+      "name": "Quinoa",
+      "value": 197,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Wild rice",
+      "value": 177,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Pinto bean",
+      "value": 176,
+      "canonical_id": "pinto-bean"
+    },
+    {
+      "name": "Black bean",
+      "value": 171,
+      "canonical_id": "black-bean"
+    },
+    {
+      "name": "Peanut butter",
+      "value": 170,
+      "canonical_id": "peanut-butter"
+    },
+    {
+      "name": "Chickpea",
+      "value": 166,
+      "canonical_id": "chickpea"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 163,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "Walnut",
+      "value": 158,
+      "canonical_id": "walnut"
+    },
+    {
+      "name": "Kidney bean",
+      "value": 140,
+      "canonical_id": "kidney-bean"
+    },
+    {
+      "name": "Barley",
+      "value": 133,
+      "canonical_id": "barley"
+    },
+    {
+      "name": "Rice cakes",
+      "value": 131,
+      "canonical_id": "rice-cakes"
+    },
+    {
+      "name": "Macadamia",
+      "value": 130,
+      "canonical_id": "macadamia"
+    },
+    {
+      "name": "Oats",
+      "value": 128,
+      "canonical_id": "oats"
+    },
+    {
+      "name": "Pecan",
+      "value": 121,
+      "canonical_id": "pecan"
+    },
+    {
+      "name": "Pistachio",
+      "value": 121,
+      "canonical_id": "pistachio"
+    },
+    {
+      "name": "Kelp",
+      "value": 121,
+      "canonical_id": "kelp"
+    },
+    {
+      "name": "Carrot",
+      "value": 118,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Brown rice",
+      "value": 116,
+      "canonical_id": "brown-rice"
+    },
+    {
+      "name": "Natto",
+      "value": 115,
+      "canonical_id": "natto"
+    },
+    {
+      "name": "Millet",
+      "value": 114,
+      "canonical_id": "millet"
+    },
+    {
+      "name": "Rye",
+      "value": 110,
+      "canonical_id": "rye"
+    },
+    {
+      "name": "Wakame",
+      "value": 107,
+      "canonical_id": "wakame"
+    },
+    {
+      "name": "Soba noodles",
+      "value": 95,
+      "canonical_id": "soba-noodles"
+    },
+    {
+      "name": "Tahini",
+      "value": 95,
+      "canonical_id": "tahini"
+    },
+    {
+      "name": "Wheat",
+      "value": 93,
+      "canonical_id": "wheat"
+    },
+    {
+      "name": "Swiss",
+      "value": 81,
+      "canonical_id": "swiss"
+    },
+    {
+      "name": "Swiss chard",
+      "value": 81,
+      "canonical_id": "swiss-chard"
+    },
+    {
+      "name": "Tempeh",
+      "value": 81,
+      "canonical_id": "tempeh"
+    },
+    {
+      "name": "Spinach",
+      "value": 79,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Whole wheat bread",
+      "value": 75,
+      "canonical_id": "whole-wheat-bread"
+    },
+    {
+      "name": "Tortilla (corn)",
+      "value": 72,
+      "canonical_id": "tortilla-corn"
+    },
+    {
+      "name": "Beet",
+      "value": 70,
+      "canonical_id": "beet"
     }
   ],
   "phosphorus_mg": [
@@ -1383,6 +4358,181 @@
       "name": "Gruyere",
       "value": 605,
       "canonical_id": "gruyere"
+    },
+    {
+      "name": "Cashew",
+      "value": 593,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Pine nut",
+      "value": 575,
+      "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Amaranth",
+      "value": 557,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Gouda",
+      "value": 546,
+      "canonical_id": "gouda"
+    },
+    {
+      "name": "Almond butter",
+      "value": 508,
+      "canonical_id": "almond-butter"
+    },
+    {
+      "name": "Sardine",
+      "value": 490,
+      "canonical_id": "sardine"
+    },
+    {
+      "name": "Pistachio",
+      "value": 490,
+      "canonical_id": "pistachio"
+    },
+    {
+      "name": "Almond",
+      "value": 481,
+      "canonical_id": "almond"
+    },
+    {
+      "name": "Cheddar",
+      "value": 460,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Quinoa",
+      "value": 457,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Wild rice",
+      "value": 433,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Oats",
+      "value": 423,
+      "canonical_id": "oats"
+    },
+    {
+      "name": "Pinto bean",
+      "value": 411,
+      "canonical_id": "pinto-bean"
+    },
+    {
+      "name": "Kidney bean",
+      "value": 407,
+      "canonical_id": "kidney-bean"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 390,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Beef liver",
+      "value": 387,
+      "canonical_id": "beef-liver"
+    },
+    {
+      "name": "Bread",
+      "value": 369,
+      "canonical_id": "bread"
+    },
+    {
+      "name": "Peanut butter",
+      "value": 369,
+      "canonical_id": "peanut-butter"
+    },
+    {
+      "name": "Lamb liver",
+      "value": 364,
+      "canonical_id": "lamb-liver"
+    },
+    {
+      "name": "Rice cakes",
+      "value": 360,
+      "canonical_id": "rice-cakes"
+    },
+    {
+      "name": "Wheat",
+      "value": 355,
+      "canonical_id": "wheat"
+    },
+    {
+      "name": "Mozzarella",
+      "value": 354,
+      "canonical_id": "mozzarella"
+    },
+    {
+      "name": "Black bean",
+      "value": 352,
+      "canonical_id": "black-bean"
+    },
+    {
+      "name": "Carrot",
+      "value": 346,
+      "canonical_id": "carrot"
+    },
+    {
+      "name": "Walnut",
+      "value": 346,
+      "canonical_id": "walnut"
+    },
+    {
+      "name": "Feta",
+      "value": 337,
+      "canonical_id": "feta"
+    },
+    {
+      "name": "Beef brain",
+      "value": 335,
+      "canonical_id": "beef-brain"
+    },
+    {
+      "name": "Scallop",
+      "value": 334,
+      "canonical_id": "scallop"
+    },
+    {
+      "name": "Rye",
+      "value": 332,
+      "canonical_id": "rye"
+    },
+    {
+      "name": "Beef thymus (sweetbreads)",
+      "value": 331,
+      "canonical_id": "beef-thymus-sweetbreads"
+    },
+    {
+      "name": "Beef pancreas",
+      "value": 327,
+      "canonical_id": "beef-pancreas"
+    },
+    {
+      "name": "Chickpea",
+      "value": 318,
+      "canonical_id": "chickpea"
+    },
+    {
+      "name": "Tortilla (corn)",
+      "value": 314,
+      "canonical_id": "tortilla-corn"
+    },
+    {
+      "name": "Brown rice",
+      "value": 311,
+      "canonical_id": "brown-rice"
+    },
+    {
+      "name": "Turmeric",
+      "value": 299,
+      "canonical_id": "turmeric"
     }
   ],
   "potassium_mg": [
@@ -1460,6 +4610,181 @@
       "name": "Flax",
       "value": 813,
       "canonical_id": "flax"
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 809,
+      "canonical_id": "pumpkin-seed"
+    },
+    {
+      "name": "Beet",
+      "value": 762,
+      "canonical_id": "beet"
+    },
+    {
+      "name": "Almond butter",
+      "value": 748,
+      "canonical_id": "almond-butter"
+    },
+    {
+      "name": "Almond",
+      "value": 733,
+      "canonical_id": "almond"
+    },
+    {
+      "name": "Natto",
+      "value": 729,
+      "canonical_id": "natto"
+    },
+    {
+      "name": "Bread",
+      "value": 718,
+      "canonical_id": "bread"
+    },
+    {
+      "name": "Hazelnut",
+      "value": 680,
+      "canonical_id": "hazelnut"
+    },
+    {
+      "name": "Lentil",
+      "value": 677,
+      "canonical_id": "lentil"
+    },
+    {
+      "name": "Peanut butter",
+      "value": 669,
+      "canonical_id": "peanut-butter"
+    },
+    {
+      "name": "Cashew",
+      "value": 660,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 659,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 645,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Pine nut",
+      "value": 597,
+      "canonical_id": "pine-nut"
+    },
+    {
+      "name": "Taro",
+      "value": 591,
+      "canonical_id": "taro"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 576,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Quinoa",
+      "value": 563,
+      "canonical_id": "quinoa"
+    },
+    {
+      "name": "Spinach",
+      "value": 558,
+      "canonical_id": "spinach"
+    },
+    {
+      "name": "Parsley",
+      "value": 554,
+      "canonical_id": "parsley"
+    },
+    {
+      "name": "Ground chicken",
+      "value": 522,
+      "canonical_id": "ground-chicken"
+    },
+    {
+      "name": "Cilantro",
+      "value": 521,
+      "canonical_id": "cilantro"
+    },
+    {
+      "name": "Rye",
+      "value": 510,
+      "canonical_id": "rye"
+    },
+    {
+      "name": "Amaranth",
+      "value": 508,
+      "canonical_id": "amaranth"
+    },
+    {
+      "name": "Avocado",
+      "value": 485,
+      "canonical_id": "avocado"
+    },
+    {
+      "name": "Barley",
+      "value": 452,
+      "canonical_id": "barley"
+    },
+    {
+      "name": "Cremini",
+      "value": 448,
+      "canonical_id": "cremini"
+    },
+    {
+      "name": "Mackerel",
+      "value": 446,
+      "canonical_id": "mackerel"
+    },
+    {
+      "name": "Lion's mane",
+      "value": 443.3,
+      "canonical_id": "lion-s-mane"
+    },
+    {
+      "name": "Tuna (yellowfin)",
+      "value": 441,
+      "canonical_id": "tuna-yellowfin"
+    },
+    {
+      "name": "Walnut",
+      "value": 441,
+      "canonical_id": "walnut"
+    },
+    {
+      "name": "Wheat",
+      "value": 432,
+      "canonical_id": "wheat"
+    },
+    {
+      "name": "Beef spleen",
+      "value": 429,
+      "canonical_id": "beef-spleen"
+    },
+    {
+      "name": "Wild rice",
+      "value": 427,
+      "canonical_id": "wild-rice"
+    },
+    {
+      "name": "Potato",
+      "value": 425,
+      "canonical_id": "potato"
+    },
+    {
+      "name": "Coho salmon",
+      "value": 423,
+      "canonical_id": "coho-salmon"
+    },
+    {
+      "name": "Oyster mushroom",
+      "value": 420,
+      "canonical_id": "oyster-mushroom"
     }
   ],
   "zinc_mg": [
@@ -1537,6 +4862,181 @@
       "name": "Ground elk",
       "value": 5.82,
       "canonical_id": "ground-elk"
+    },
+    {
+      "name": "Cashew",
+      "value": 5.78,
+      "canonical_id": "cashew"
+    },
+    {
+      "name": "Pork liver",
+      "value": 5.76,
+      "canonical_id": "pork-liver"
+    },
+    {
+      "name": "Beef ribeye",
+      "value": 5.63,
+      "canonical_id": "ribeye"
+    },
+    {
+      "name": "Beef chuck",
+      "value": 5.51,
+      "canonical_id": "chuck"
+    },
+    {
+      "name": "Beef stew meat",
+      "value": 5.51,
+      "canonical_id": "stew-meat"
+    },
+    {
+      "name": "Ground beef (4% fat)",
+      "value": 5.21,
+      "canonical_id": "ground-beef-4-fat"
+    },
+    {
+      "name": "Beef brisket",
+      "value": 5.15,
+      "canonical_id": "brisket"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 5,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Ground beef (7% fat)",
+      "value": 4.97,
+      "canonical_id": "ground-beef-7-fat"
+    },
+    {
+      "name": "Soybean",
+      "value": 4.89,
+      "canonical_id": "soybean"
+    },
+    {
+      "name": "Sunflower seed butter",
+      "value": 4.89,
+      "canonical_id": "sunflower-seed-butter"
+    },
+    {
+      "name": "Ground beef (10% fat)",
+      "value": 4.79,
+      "canonical_id": "ground-beef-10-fat"
+    },
+    {
+      "name": "Beef tenderloin",
+      "value": 4.76,
+      "canonical_id": "tenderloin"
+    },
+    {
+      "name": "Lamb liver",
+      "value": 4.66,
+      "canonical_id": "lamb-liver"
+    },
+    {
+      "name": "Tahini",
+      "value": 4.62,
+      "canonical_id": "tahini"
+    },
+    {
+      "name": "Chlorella",
+      "value": 4.6,
+      "canonical_id": "chlorella"
+    },
+    {
+      "name": "Ground bison",
+      "value": 4.59,
+      "canonical_id": "ground-bison"
+    },
+    {
+      "name": "Chia",
+      "value": 4.58,
+      "canonical_id": "chia"
+    },
+    {
+      "name": "Pecan",
+      "value": 4.53,
+      "canonical_id": "pecan"
+    },
+    {
+      "name": "Turmeric",
+      "value": 4.5,
+      "canonical_id": "turmeric"
+    },
+    {
+      "name": "Ground beef (15% fat)",
+      "value": 4.48,
+      "canonical_id": "ground-beef-15-fat"
+    },
+    {
+      "name": "Chicken gizzard",
+      "value": 4.42,
+      "canonical_id": "chicken-gizzard"
+    },
+    {
+      "name": "Leg (lamb/goat)",
+      "value": 4.4,
+      "canonical_id": "leg-lamb-goat"
+    },
+    {
+      "name": "Flax",
+      "value": 4.34,
+      "canonical_id": "flax"
+    },
+    {
+      "name": "Beef strip steak",
+      "value": 4.3,
+      "canonical_id": "strip-steak"
+    },
+    {
+      "name": "Beef round",
+      "value": 4.29,
+      "canonical_id": "round"
+    },
+    {
+      "name": "Ground beef (20% fat)",
+      "value": 4.18,
+      "canonical_id": "ground-beef-20-fat"
+    },
+    {
+      "name": "Elk",
+      "value": 4.16,
+      "canonical_id": "elk"
+    },
+    {
+      "name": "Pork kidney",
+      "value": 4.15,
+      "canonical_id": "pork-kidney"
+    },
+    {
+      "name": "Beef flank",
+      "value": 4.12,
+      "canonical_id": "flank"
+    },
+    {
+      "name": "Beef tongue",
+      "value": 4.09,
+      "canonical_id": "beef-tongue"
+    },
+    {
+      "name": "Brazil nut",
+      "value": 4.06,
+      "canonical_id": "brazil-nut"
+    },
+    {
+      "name": "Veal shank",
+      "value": 4.02,
+      "canonical_id": "veal-shank"
+    },
+    {
+      "name": "Ground goat",
+      "value": 4,
+      "canonical_id": "ground-goat"
+    },
+    {
+      "name": "Beef sirloin",
+      "value": 4,
+      "canonical_id": "sirloin"
     }
   ],
   "selenium_ug": [
@@ -1614,6 +5114,181 @@
       "name": "Chicken liver",
       "value": 54.6,
       "canonical_id": "chicken-liver"
+    },
+    {
+      "name": "Sunflower seed",
+      "value": 53,
+      "canonical_id": "sunflower-seed"
+    },
+    {
+      "name": "Sardine",
+      "value": 52.7,
+      "canonical_id": "sardine"
+    },
+    {
+      "name": "Pork liver",
+      "value": 52.7,
+      "canonical_id": "pork-liver"
+    },
+    {
+      "name": "Whole turkey",
+      "value": 49.3,
+      "canonical_id": "whole-turkey"
+    },
+    {
+      "name": "Mussel",
+      "value": 44.8,
+      "canonical_id": "mussel"
+    },
+    {
+      "name": "Squid",
+      "value": 44.8,
+      "canonical_id": "squid"
+    },
+    {
+      "name": "Octopus",
+      "value": 44.8,
+      "canonical_id": "octopus"
+    },
+    {
+      "name": "Crab",
+      "value": 42.9,
+      "canonical_id": "crab"
+    },
+    {
+      "name": "Tilapia",
+      "value": 41.8,
+      "canonical_id": "tilapia"
+    },
+    {
+      "name": "Chicken gizzard",
+      "value": 41.1,
+      "canonical_id": "chicken-gizzard"
+    },
+    {
+      "name": "Beef liver",
+      "value": 39.7,
+      "canonical_id": "beef-liver"
+    },
+    {
+      "name": "Beef heart",
+      "value": 38.9,
+      "canonical_id": "beef-heart"
+    },
+    {
+      "name": "Barley",
+      "value": 37.7,
+      "canonical_id": "barley"
+    },
+    {
+      "name": "Crackers (plain)",
+      "value": 36.9,
+      "canonical_id": "crackers-plain"
+    },
+    {
+      "name": "Coho salmon",
+      "value": 36.5,
+      "canonical_id": "coho-salmon"
+    },
+    {
+      "name": "Tuna (skipjack)",
+      "value": 36.5,
+      "canonical_id": "tuna-skipjack"
+    },
+    {
+      "name": "Tuna (albacore)",
+      "value": 36.5,
+      "canonical_id": "tuna-albacore"
+    },
+    {
+      "name": "Pollock",
+      "value": 36.5,
+      "canonical_id": "pollock"
+    },
+    {
+      "name": "Halibut",
+      "value": 36.5,
+      "canonical_id": "halibut"
+    },
+    {
+      "name": "Mackerel",
+      "value": 36.5,
+      "canonical_id": "mackerel"
+    },
+    {
+      "name": "Herring",
+      "value": 36.5,
+      "canonical_id": "herring"
+    },
+    {
+      "name": "Anchovy",
+      "value": 36.5,
+      "canonical_id": "anchovy"
+    },
+    {
+      "name": "Duck egg",
+      "value": 36.4,
+      "canonical_id": "duck-egg"
+    },
+    {
+      "name": "Whole wheat pasta",
+      "value": 36.3,
+      "canonical_id": "whole-wheat-pasta"
+    },
+    {
+      "name": "Pork loin",
+      "value": 36.1,
+      "canonical_id": "pork-loin"
+    },
+    {
+      "name": "Pork chop",
+      "value": 36,
+      "canonical_id": "pork-chop"
+    },
+    {
+      "name": "Fresh ham",
+      "value": 35.4,
+      "canonical_id": "fresh-ham"
+    },
+    {
+      "name": "Ground pork",
+      "value": 34.8,
+      "canonical_id": "ground-pork"
+    },
+    {
+      "name": "Pork ribs",
+      "value": 34.8,
+      "canonical_id": "pork-ribs"
+    },
+    {
+      "name": "Sesame",
+      "value": 34.4,
+      "canonical_id": "sesame"
+    },
+    {
+      "name": "Tahini",
+      "value": 34.4,
+      "canonical_id": "tahini"
+    },
+    {
+      "name": "Turkey egg",
+      "value": 34.3,
+      "canonical_id": "turkey-egg"
+    },
+    {
+      "name": "Cod",
+      "value": 33.1,
+      "canonical_id": "cod"
+    },
+    {
+      "name": "Fried egg (chicken)",
+      "value": 33.1,
+      "canonical_id": "fried-egg-chicken"
+    },
+    {
+      "name": "Chinook salmon",
+      "value": 32.4,
+      "canonical_id": "chinook-salmon"
     }
   ],
   "omega3_g": [
@@ -1691,6 +5366,181 @@
       "name": "Mussel",
       "value": 0.441,
       "canonical_id": "mussel"
+    },
+    {
+      "name": "Pollock",
+      "value": 0.421,
+      "canonical_id": "pollock"
+    },
+    {
+      "name": "Butter",
+      "value": 0.315,
+      "canonical_id": "butter"
+    },
+    {
+      "name": "Oyster",
+      "value": 0.313,
+      "canonical_id": "oyster"
+    },
+    {
+      "name": "Tuna (skipjack)",
+      "value": 0.256,
+      "canonical_id": "tuna-skipjack"
+    },
+    {
+      "name": "Rack (lamb/goat)",
+      "value": 0.21500000000000002,
+      "canonical_id": "rack-lamb-goat"
+    },
+    {
+      "name": "Tortilla (flour)",
+      "value": 0.214,
+      "canonical_id": "tortilla-flour"
+    },
+    {
+      "name": "Wakame",
+      "value": 0.186,
+      "canonical_id": "wakame"
+    },
+    {
+      "name": "Cod",
+      "value": 0.184,
+      "canonical_id": "cod"
+    },
+    {
+      "name": "Lamb kidney",
+      "value": 0.179,
+      "canonical_id": "lamb-kidney"
+    },
+    {
+      "name": "Lamb heart",
+      "value": 0.176,
+      "canonical_id": "lamb-heart"
+    },
+    {
+      "name": "Hamburger bun",
+      "value": 0.176,
+      "canonical_id": "hamburger-bun"
+    },
+    {
+      "name": "Hot dog bun",
+      "value": 0.176,
+      "canonical_id": "hot-dog-bun"
+    },
+    {
+      "name": "Sandwich roll",
+      "value": 0.176,
+      "canonical_id": "sandwich-roll"
+    },
+    {
+      "name": "Lobster",
+      "value": 0.16999999999999998,
+      "canonical_id": "lobster"
+    },
+    {
+      "name": "Crab",
+      "value": 0.168,
+      "canonical_id": "crab"
+    },
+    {
+      "name": "White bread",
+      "value": 0.167,
+      "canonical_id": "white-bread"
+    },
+    {
+      "name": "Panko",
+      "value": 0.167,
+      "canonical_id": "panko"
+    },
+    {
+      "name": "Octopus",
+      "value": 0.157,
+      "canonical_id": "octopus"
+    },
+    {
+      "name": "American cheese",
+      "value": 0.15500000000000003,
+      "canonical_id": "american-cheese"
+    },
+    {
+      "name": "Processed cheese slices",
+      "value": 0.15500000000000003,
+      "canonical_id": "processed-cheese-slices"
+    },
+    {
+      "name": "Chicken thigh",
+      "value": 0.155,
+      "canonical_id": "chicken-thigh"
+    },
+    {
+      "name": "Shrimp",
+      "value": 0.14400000000000002,
+      "canonical_id": "shrimp"
+    },
+    {
+      "name": "Prawn",
+      "value": 0.14400000000000002,
+      "canonical_id": "prawn"
+    },
+    {
+      "name": "Beef thymus (sweetbreads)",
+      "value": 0.144,
+      "canonical_id": "beef-thymus-sweetbreads"
+    },
+    {
+      "name": "Whole wheat bread",
+      "value": 0.137,
+      "canonical_id": "whole-wheat-bread"
+    },
+    {
+      "name": "Cream cheese",
+      "value": 0.135,
+      "canonical_id": "cream-cheese"
+    },
+    {
+      "name": "Haddock",
+      "value": 0.133,
+      "canonical_id": "haddock"
+    },
+    {
+      "name": "Heavy cream",
+      "value": 0.131,
+      "canonical_id": "heavy-cream"
+    },
+    {
+      "name": "Catfish",
+      "value": 0.128,
+      "canonical_id": "catfish"
+    },
+    {
+      "name": "Cheddar",
+      "value": 0.128,
+      "canonical_id": "cheddar"
+    },
+    {
+      "name": "Egg yolk",
+      "value": 0.125,
+      "canonical_id": "egg-yolk"
+    },
+    {
+      "name": "Tilapia",
+      "value": 0.124,
+      "canonical_id": "tilapia"
+    },
+    {
+      "name": "Clam",
+      "value": 0.122,
+      "canonical_id": "clam"
+    },
+    {
+      "name": "Pumpkin seed",
+      "value": 0.12,
+      "canonical_id": "pumpkin-seed"
+    },
+    {
+      "name": "Ground turkey",
+      "value": 0.11699999999999999,
+      "canonical_id": "ground-turkey"
     }
   ]
 }
